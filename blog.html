@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta http-equiv="cache-control" content="no-cache" />
+    
+    <meta name="description" content="A blog about the atelier, the team, the process of creation, collaborations, clients etc." />
+    
+    
+    <meta name="keywords" content="blog, what's new, ootd, collaborations, stories , Prema Florece Isaac, fashion designer, creator, stylist, Auroville, Pondicherry, atelier, ethical fashion, Jamdani, Tangail, Rangoli Atelier, since 1999, handloom, conscious fashion, sustainable fashion, handmadewithlove, indo-european fusion, slow fashion, distinctive designs, fusion flair, textile treasures, Couture-sur-Mesure, bespoke tailoring" />
+    
+    <title>
+        Blog
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/shopper-1.0.3/libs/flickity/dist/flickity.min.css">
+    <link rel="stylesheet" href="/shopper-1.0.3/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/shopper-1.0.3/libs/simplebar/dist/simplebar.min.css">
+    <link rel="stylesheet" href="/shopper-1.0.3/libs/highlightjs/styles/vs2015.css">
+    <link rel="stylesheet" href="/shopper-1.0.3/libs/flickity-fade/flickity-fade.css">
+    <link rel="stylesheet" href="/shopper-1.0.3/fonts/feather/feather.css">
+    <link href="/shopper-1.0.3/css/theme.min.css" rel="stylesheet" />
+    <link href="/js/pfi200210100.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="/js/pfitmpl20021000.js"></script>
+    <script type="text/javascript" src="/js/pfiglobs19032200.js"></script>
+    <script type="text/javascript" src="/js/pfishop20010900.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-71666497-1"></script>
+
+    
+        
+        
+            <script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag("js", new Date());  gtag("config", "UA-71666497-1");  gtag("config", "AW-861963921");</script>
+        
+        
+            <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","//connect.facebook.net/en_US/fbevents.js");fbq("init","1001909426539960");fbq("track","PageView");</script>
+        
+    
+</head>
+
+<body>
+
+<script> document.write(getShopHeader()); </script>
+<script> document.write(topMenu()); </script>
+
+<div class="container">
+
+<script> document.write(getShopTop()); </script>
+
+<script>
+    var tlpc = createShopPageComponent();
+
+    function onDocumentReady() {
+        tlpc.onDocumentReady();
+    }
+</script>
+<script>
+
+
+function createMegaMenuSection(json, mbcls) {
+    return '<div class="col-6 col-md">\
+    <div class="mb-5 font-weight-bold">' + json.text + '</div>'
+    + createLinkedList(json.sub, mbcls) + '</div>';
+}
+
+function createMegaMenuImage(item) {
+    return '<div class="col-4 d-none d-lg-block">\
+    <div class="card">\
+        <img class="card-img" src="' + item.imageURL + '" alt="...">\
+        <div class="card-img-overlay bg-dark-0 bg-hover align-items-center">\
+            <div class="text-center">\
+            <a class="btn btn-white stretched-link" href="' + item.url + '">'
+                + item.text  + '<i class="fe fe-arrow-right ml-2"></i></a>\
+            </div>\
+        </div>\
+    </div>\
+    </div>';
+}
+
+
+/*
+function createHorizontalCard(item) {
+    var res = '<div class="card mb-7"><div class="row align-items-start"><div class="col-6">';
+    if ( item.imageURL != null) {
+        res += '<img src="' + item.imageURL + '" alt="' + item.title  + '" class="img-fluid">';
+    } else if (item.imageHTML != null ) {
+        res += item.imageHTML;
+    }
+    res += "</div><div class='col-6'>";
+    res += '<div class="card-body">';
+    res += '<h6 class="card-title">' + item.title + '<a  href="' + item.url + '"><i class="fe fe-arrow-right ml-2"></i></a></h6>';
+    res += '<p class="mb-2">' + item.lede + '</p>';
+    res += '</div></div></div></div>';
+    return res;   
+}
+
+function createHCardColumn(item) {
+    return '<div class="col-12 col-md-6">' +  createHorizontalCard(item) + '</div>';
+}
+*/
+
+
+function createSqPanelImageList(panelNumArr) {
+    var res = [];
+    for (var i = 0; i < panelNumArr.length; i++) {
+        res.push({imageURL: "/tbc/sqIC/IC" + panelNumArr[i] + ".jpg"});
+    }
+    return res;
+}
+
+function createPanelCarousel() {
+    var panelNums = [545,548,549,552,565,571];
+    var panelImgs  =  createSqPanelImageList(panelNums);
+    return createCarousel("car-panels", panelImgs);
+}
+
+</script>
+<h1>Blog</h1>
+<ul class="nav nav-tabs nav-justified">
+<script>
+    document.write(getTabItem("Atelier Tales", "atelier", getUrlVars()["t"] == "a" || getUrlVars()["t"] === undefined));
+    document.write(getTabItem("Origin", "origin", getUrlVars()["t"] == "o"));
+</script>
+</ul>
+<div class="tab-content">
+<script>
+    document.write(getTabContent(createSection(atelier), "atelier", getUrlVars()["t"] == "a" || getUrlVars()["t"] === undefined));
+    document.write(getTabContent(createSection(origin), "origin", getUrlVars()["t"] == "o"));
+</script>
+</div>
+
+<script>
+    $(document).ready(onDocumentReady);
+</script>
+</div>
+
+<script> document.write(botMenu("/blog.html")); </script>
+<script> document.write(scriptSrcs()); </script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta http-equiv="cache-control" content="no-cache" />
+    
+    <meta name="description" content="Collages created from my treasure-trove of vintage hand-woven Tangail sari borders" />
+    
+    
+    <meta name="keywords" content="vintage, fabric art, textile art, artwork, collage art, abstract art, modern art, quilting, patchwork, art collectors , Prema Florece Isaac, fashion designer, creator, stylist, Auroville, Pondicherry, atelier, ethical fashion, Jamdani, Tangail, Rangoli Atelier, since 1999, handloom, conscious fashion, sustainable fashion, handmadewithlove, indo-european fusion, slow fashion, distinctive designs, fusion flair, textile treasures, Couture-sur-Mesure, bespoke tailoring" />
+    
+    <title>
+        Tangail Art
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/shopper-1.0.3/libs/flickity/dist/flickity.min.css">
+    <link rel="stylesheet" href="/shopper-1.0.3/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/shopper-1.0.3/libs/simplebar/dist/simplebar.min.css">
+    <link rel="stylesheet" href="/shopper-1.0.3/libs/highlightjs/styles/vs2015.css">
+    <link rel="stylesheet" href="/shopper-1.0.3/libs/flickity-fade/flickity-fade.css">
+    <link rel="stylesheet" href="/shopper-1.0.3/fonts/feather/feather.css">
+    <link href="/shopper-1.0.3/css/theme.min.css" rel="stylesheet" />
+    <link href="/js/pfi200210100.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="/js/pfitmpl20021000.js"></script>
+    <script type="text/javascript" src="/js/pfiglobs19032200.js"></script>
+    <script type="text/javascript" src="/js/pfishop20010900.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-71666497-1"></script>
+
+    
+        
+        
+            <script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag("js", new Date());  gtag("config", "UA-71666497-1");  gtag("config", "AW-861963921");</script>
+        
+        
+            <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","//connect.facebook.net/en_US/fbevents.js");fbq("init","1001909426539960");fbq("track","PageView");</script>
+        
+    
+</head>
+
+<body>
+
+<script> document.write(getShopHeader()); </script>
+<script> document.write(topMenu()); </script>
+
+<div class="container">
+
+<script> document.write(getShopTop()); </script>
+
+<script>
+    var tlpc = createShopPageComponent();
+
+    function onDocumentReady() {
+        tlpc.onDocumentReady();
+    }
+</script>
+<script type="text/javascript" src="/tbc/tbc20010900.js"></script>
+<script>
+    function createPanel(img, text, bgcolor, fgcolor) {
+        return '<div class="item" style="background-color: ' + bgcolor + '; padding-top: 2.5ex; padding-bottom: 1.5ex; border-width: thick; border-color: white">\
+    <div class="row">\
+        <div class="col-10 offset-1">\
+            <figure>\
+                    <img src="' + img + '" class="img-fluid center-block">\
+            </figure>\
+            <p style="color: ' + fgcolor + '; text-align: center">' + text + '</p>\
+        </div>\
+    </div></div>';
+    }
+
+    function createRowPanel(row) {
+        var bgcolor = row[2] === "Black" ? "black" : "white";
+        var fgcolor = row[2] === "Black" ? "white" : "black";
+        var text = "# " + row[0] + '<br>' + row[4] + " cm. x " + row[3] + " cm.";
+        if (row[5] === "") {
+            text += '<br><a href="/fabricartT.html">Available</a> to Collect'
+        } else {
+            text += (row[5] === "" ? "" : "<br>Collected in " + row[5]) +
+                (row[6] === "" ? "" : " by " + row[6]);
+        }
+        return createPanel(row[1], text, bgcolor, fgcolor);
+    }
+
+    function createAllPanels(ld) {
+        var ret = "";
+        var rowIdx = ld.length - 1;
+        var max2ColRows = Math.floor(ld.length / 2);
+        for (var i = 0; i < max2ColRows; i++) {
+            ret += createRowPanel(ld[rowIdx]);
+            ret += createRowPanel(ld[rowIdx - 1]);
+            rowIdx = rowIdx - 2;
+        }
+        if ( 0 <= rowIdx ) {
+            ret += createRowPanel(ld[rowIdx]);
+        }
+        return ret;
+    }
+</script>
+<h1>Tangail Art</h1>
+<div class="item">
+    <figure>
+        <img src="/fabricart/Collage02.jpg" class="img-fluid center-block">
+    </figure>
+    <p>In late 2016, I found a beautiful new way to use my <a href="/journey/treasuretrove.html"><strong>Treasure Trove</strong> of Tangail Borders</a>. I started creating numbered, one-of-a-kind art-pieces: FabricArt Collages! At the moment, we offer them as the chest panel of our <a href="/fabricartT.html"><strong>FabricArt</strong> T-Shirts</a>.</p>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <figure>
+            <img src="/fabricart/Collage03.jpg" class="img-fluid center-block">
+        </figure>
+        <p>I create each collage with the background color in mind. I start with a few hundred candidate borders (selected from thousands), playing with different hues and motifs. I fold and unfold, pleat and play, looking for a harmonious flow of color and form. I keep exploring alternatives until I am happy with the final composition.
+        </p>
+    </div>
+    <div class="col-sm-6">
+        <figure>
+            <img src="/fabricart/Collage01.jpg" class="img-fluid center-block">
+        </figure>
+        <p>I number and pin together the strips of folded fabric as I work and the finished piece is then stitched together. A thin layer of soft fusing is ironed onto the bottom of the collage for additional stability.
+        </p>
+    </div>
+</div>
+<div class="item">
+    <p>I create the collages using from 3 to 12 borders, but mostly they are assembled from 6 or 7. The panel is 11.5 to 12.5 cm. (4.53 to 4.92 in.) high when stitched, and from 25 to 35 cm (9.84 to 13.78 in.) wide.
+    </p>
+</div>
+<div class="item">
+    <p><strong>Photography by Mathilde Hauser</strong></p>
+</div>
+<h1 id="fullseries">The Series</h1>
+<p>To celebrate the 50th anniversary of Auroville, which coincided with the launch of this line, we decided to number the first collage 50 1, or 501. The sequence then continues roughly in the order that I created them.</p>
+<script>
+    document.write(createAllPanels(colListData));
+</script>
+
+<script>
+    $(document).ready(onDocumentReady);
+</script>
+</div>
+
+<script> document.write(botMenu("/tangailcollage.html")); </script>
+<script> document.write(scriptSrcs()); </script>
+
+</body>
+</html>

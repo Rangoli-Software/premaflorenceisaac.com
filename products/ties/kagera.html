@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta http-equiv="cache-control" content="no-cache" />
+    
+    <meta name="description" content="For the gentleman of refined taste - a two-tone khadi tie with a border of treasured tangail" />
+    
+    
+    <meta name="keywords" content="Prema Florece Isaac, fashion designer, creator, stylist, Auroville, Pondicherry, atelier, ethical fashion, Jamdani, Tangail, Rangoli Atelier, since 1999, handloom, conscious fashion, sustainable fashion, handmadewithlove, indo-european fusion, slow fashion, distinctive designs, fusion flair, textile treasures, Couture-sur-Mesure, bespoke tailoring" />
+    
+    <title>
+        The Kagera Tie
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/shopper-1.0.3/libs/flickity/dist/flickity.min.css">
+    <link rel="stylesheet" href="/shopper-1.0.3/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/shopper-1.0.3/libs/simplebar/dist/simplebar.min.css">
+    <link rel="stylesheet" href="/shopper-1.0.3/libs/highlightjs/styles/vs2015.css">
+    <link rel="stylesheet" href="/shopper-1.0.3/libs/flickity-fade/flickity-fade.css">
+    <link rel="stylesheet" href="/shopper-1.0.3/fonts/feather/feather.css">
+    <link href="/shopper-1.0.3/css/theme.min.css" rel="stylesheet" />
+    <link href="/js/pfi200210100.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="/js/pfitmpl20021000.js"></script>
+    <script type="text/javascript" src="/js/pfiglobs19032200.js"></script>
+    <script type="text/javascript" src="/js/pfishop20010900.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-71666497-1"></script>
+
+    
+        
+        
+            <script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag("js", new Date());  gtag("config", "UA-71666497-1");  gtag("config", "AW-861963921");gtag("event", "view_item");</script>
+        
+        
+            <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","//connect.facebook.net/en_US/fbevents.js");fbq("init","1001909426539960");fbq("track","PageView");fbq("track", "ViewContent");</script>
+        
+    
+</head>
+
+<body>
+
+<script> document.write(getShopHeader()); </script>
+<script> document.write(topMenu()); </script>
+
+<div class="container">
+
+<script> document.write(getShopTop()); </script>
+
+<script>
+    var tlpc = createShopPageComponent();
+
+    function onDocumentReady() {
+        tlpc.onDocumentReady();
+    }
+</script>
+<script type="text/javascript">
+    var TIE_SKU = 'KAGTIE1601Kh';
+
+    var tieListData = [
+        ['1', '/products/ties/RedP.jpg', 'Red'],
+        ['2', '/products/ties/BlueP.jpg', 'Blue'],
+        ['3', '/products/ties/LightBlueP.jpg', 'Denim'],
+        ['4', '/products/ties/BougainVilleaP.jpg', 'Old Rose'],
+        ['5', '/products/ties/GreyP.jpg', 'Grey'],
+        ['6', '/products/ties/BlackP.jpg', 'Black'],
+    ];
+
+    function createTieDescriptor(tieArr) {
+        return {
+            number: tieArr[0],
+            imageURL: tieArr[1],
+            fabricColour: tieArr[2],
+        };
+    }
+
+    function createTiesObject(listData, product) {
+        return {
+            base: listData,
+            product: product,
+            getNumties: function() {
+                return this.base.length;
+            },
+            getId: function(i) {
+                return this.base[i][0];
+            },
+            getDescriptor: function(i) {
+                return createTieDescriptor(this.base[i]);
+            },
+            getItem: function(i) {
+                var desc = this.getDescriptor(i);
+                return createItem(product, product.inrPrice, '', desc.fabricColour, 1, desc.number, desc.imageURL, false);
+            },
+        }
+    }
+
+    function createTieRenderer(tieDesc, prodDesc, shop, options) {
+        return {
+            tieDesc: tieDesc,
+            prodDesc: prodDesc,
+            shop: shop,
+            options: options,
+            getDescription: function() {
+                return " - " + this.tieDesc.fabricColour;
+            },
+            getButtonID: function() {
+                return createButtonID(this.tieDesc.number);
+            },
+            createAddToCartButton: function() {
+                var id = this.getButtonID();
+                return '<button id="' + id + '" class="btn btn-warning btn-sm" type="button"><span class="fa fa-cart-plus"></span> Add to Cart</button>';
+            },
+            createDescriptionPanel: function() {
+                return '<div class="col-md-7"><div class="row"><div class="col-10 offset-1"><p style="text-align: center">' + this.prodDesc.name + ' ' 
+                    + this.getDescription() 
+                    + '</p></div></div></div>';
+            },
+            createItemPanel: function() {
+                return '<p>' + this.createAddToCartButton() + '</p>';
+            },
+            createPurchasePanel: function() {
+                return '<div class="col-md-5 align-self-center"><div class="row"><div class="col-10 offset-1 text-center">\
+<p style="font-size: 150%">' +
+                    this.shop.getPriceHTML(this.prodDesc) + '</p>' + (this.shop.isIndian() ? '<p style="font-size: 75%">free shipping within India</p>' : '') +
+                    this.createItemPanel() +
+                    '</div></div></div>';
+            },
+            createSalePanel: function() {
+                return '<div class="item sc-panel">\
+<div class="row align-items-center">' +
+                    this.createDescriptionPanel() +
+                    this.createPurchasePanel() +
+                    '</div></div>';
+            }
+        }
+    }
+
+    function createTiesRenderer(shop, options, ties) {
+        return {
+            shop: shop,
+            options: options,
+            ties: ties,
+            createRenderer: function(i) {
+                var tDesc = this.ties.getDescriptor(i);
+                var prodDesc = this.ties.product;
+                return createTieRenderer(tDesc, prodDesc, this.shop, this.options);
+            }
+        };
+    }
+
+    function createButtonID(num) {
+        return "btn" + num;
+    }
+
+    function createPurchasePanelID(num) {
+        return "scpp-" + num;
+    }
+
+    function createPageComponent(product, ties) {
+        return {
+            product: product,
+            ties: ties,
+            allCartC: null,
+            init: function () {
+                let shop = loadShop(null);
+                this.allCartC = createAllCartComponents(shop, this);
+            },
+            addToCart: function(i) {
+                var item = this.ties.getItem(i);
+                return this.allCartC.addToCart(item);
+            },
+            onDocumentReady: function () {
+                this.init();
+                this.onSelectionChange();
+            },
+            onSelectionChange: function() {
+                var tiesRenderer = createTiesRenderer(this.allCartC.shop, {}, this.ties)
+                for( var i = 0; i < tieListData.length; i++ ) {
+                    var idString = "#" + createPurchasePanelID(i);
+                    $(idString + ' .btn').off('click');
+                    $(idString).empty();
+                    var renderer = tiesRenderer.createRenderer(i);
+                    var html = renderer.createSalePanel();
+                    $(html).appendTo(idString);
+                    let idx = i;
+                    let that = this;
+                    $("#" + renderer.getButtonID()).on('click', function() {
+                        that.addToCart(idx);
+                    });
+                }
+            }
+        };
+    }
+
+    var product = getProductCatalog().getProduct(TIE_SKU);
+    var ties = createTiesObject(tieListData, product);
+
+    var tlpc = createPageComponent(product, ties);
+
+    function onDocumentReady() {
+        tlpc.onDocumentReady();
+    }
+</script>
+<h1>The Kagera Tie</h1>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+    <figure>
+        <script>
+        var carItems = [
+        {imageURL: "Black.jpg"},
+        {imageURL: "Red.jpg"}
+        ];
+        document.write(createCarousel("carousel-kagera", carItems));
+        </script>
+    </figure>
+    </div>
+</div>
+<div class="item">
+    <p>For many years, I have thought about doing a designer tie. Ties are interesting because they are worn predominantly in formal or business settings. Yet the tie is an item of business attire which has <strong>personality</strong>. Soft tangail borders, with their refined, understated, luxurious look are perfect for a premium tie.</p>
+    <p>Even though the basic design has been in my mind for years, I never seemed able to find the time to execute the idea. Last year, as we were finishing our flamboyant <strong>Vagabond</strong> Menswear, it finally felt like the right time, and I managed to manifest this arty neckwear.</p>
+    <p></p>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <figure>
+            <p><img src="TieBackSq.jpg" class="img-fluid center-block" /></p>
+        </figure>
+        <p>For the body of the tie, I used two layers of a textured khadi cotton. Each tie has a black back, and a coloured front. The black khadi is a pure shade, but all the other colours are blends.
+        </p>
+    </div>
+    <div class="col-md-6">
+        <figure>
+            <p><img src="BlackFrontSq.jpg" class="img-fluid center-block" /></p>
+        </figure>
+        <p>Two different hues of homespun yarn are hand-loomed together, yielding a cloth with a two-tone colour. The rustic appearance of this fabric lends the tie an air of roughshod elegance.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <figure>
+            <p><img src="BlackRolledUpSq.jpg" class="img-fluid center-block" /></p>
+        </figure>
+        <p>To this base, I added the sophisticated sensuality of a soft tangail border. For each base, I picked a border that would harmonize with the two-tone khadi colour. Some of these borders are from my <strong>Tangail <a href="/journey/treasuretrove.html">Treasure Trove</a></strong> of impossible-to-find borders.
+        </p>
+    </div>
+    <div class="col-md-6">
+        <figure>
+            <p><img src="BlackRolledUpSlantSq.jpg" class="img-fluid center-block" /></p>
+        </figure>
+        <p>The others borders are custom, <a href="/journey/pfifabrics.html">designed by me in collaboration with the artisanal Tangail weavers</a>, and hand-loomed by them exclusively for Rangoli. Some are hand-spun cotton, others are silk, all are exquisite!
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <p><img src="BlackBagOnlySq.jpg" class="img-fluid center-block" /></p>
+        <p>I was so pleased with the result that I was inspired to make a matching bag using the same fabric and border.</p>
+    </div>
+    <div class="col-md-6">
+        <p><img src="BlackTieBagSq.jpg" class="img-fluid center-block" /></p>
+        <p>It makes a great gift bag to present the tie!</p>
+    </div>
+</div>
+<div class="item">
+    <p>All of the ties can be worn with neutral coloured suits for business wear. The black and grey can be worn for formal occasions, and the coloured ones with a coordinated evening jacket for a night out, or even with just a shirt and jeans.</p>
+</div>
+<hr>
+<div class="item">
+    <p>I designed many combinations, some of which could only be made in limited quantities, due to the scarcity of the border. At the moment, we have 6 ties available</p>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <p><img src="RedP.jpg" class="img-fluid center-block" /></p>
+        <p>The body is a two-tone Red &amp; Black khadi. The impossible-to-find 7.5 cm. wide border has floral and sacred geometry motifs in Black on a Red tangail fabric.</p>
+        <div id="scpp-0" class="sc-purchase-panel">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <p><img src="BlueP.jpg" class="img-fluid center-block" /></p>
+        <p>The body is a two-tone Blue &amp; Black khadi. The impossible-to-find 7.5 cm wide border has mango and paisley motifs in Black on a Blue tangail fabric.</p>
+        <div id="scpp-1" class="sc-purchase-panel">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <p><img src="LightBlueP.jpg" class="img-fluid center-block" /></p>
+        <p>The body is a two-tone Denim &amp; Bone khadi. The 8 cm wide silk border is custom-woven for Rangoli with herringbone, mountain and paisley motifs in Silver on a Steel tangail fabric.</p>
+        <div id="scpp-2" class="sc-purchase-panel">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <p><img src="BougainVilleaP.jpg" class="img-fluid center-block" /></p>
+        <p>The body is a two-tone Old-Rose &amp; Bone khadi. The impossible-to-find 6 cm. wide border has floral motifs in White on a Rose tangail fabric.</p>
+        <div id="scpp-3" class="sc-purchase-panel">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <p><img src="GreyP.jpg" class="img-fluid center-block" /></p>
+        <p>The body is a two-tone Grey &amp; Beige khadi. The 8 cm. wide silk border is custom woven for Rangoli with sacred geometry and stripes in Old-Gold on a Black tangail fabric.</p>
+        <div id="scpp-4" class="sc-purchase-panel">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <p><img src="BlackP.jpg" class="img-fluid center-block" /></p>
+        <p>The body is a Black khadi. The 9 cm. wide silk border is custom-woven for Rangoli with herringbone, mountain, flower and paisley motifs in Silver on a Black tangail fabric.</p>
+        <div id="scpp-5" class="sc-purchase-panel">
+        </div>
+    </div>
+    <script>
+    $(document).ready(onDocumentReady);
+    </script>
+</div>
+<!--
+<h5>Outtakes!</h5>
+<div class="row">
+        <div class="col-md-6">
+            <p><img src="/products/ties/Red.jpg" class="img-fluid center-block"/></p>
+            <p>The ties had just been finished when we did our photo shoot for Vagabond. The model was our favorite world-traveling maverick, photographer and documentary film-maker Sri Kolari, and the photographer for the shoot was Samvit Blass, creator and executive at Light Fish Designs.</p>
+        </div>
+        <div class="col-md-6">
+            <p><img src="/products/ties/Blue.jpg" class="img-fluid center-block"/></p>
+            <p>We got to fooling around with the tie and they both wound up modeling it. I think you'll agree that the results were really "interesting"!</p>
+        </div>
+    </div>-->
+<div class="item">
+    <p class="text-right">
+        <strong>Prema Florence Isaac</strong>
+    </p>
+</div>
+<hr>
+<div class="item">
+    <h5>Measurements</h5>
+    <p>The tie is 140 cm. long, and varies in width from 3 cm. to 6 cm. The gift bag is 13 cm. x 23 cm.</p>
+</div>
+
+
+<script>
+    $(document).ready(onDocumentReady);
+</script>
+</div>
+
+<script> document.write(botMenu("/products/ties/kagera.html")); </script>
+<script> document.write(scriptSrcs()); </script>
+
+</body>
+</html>
