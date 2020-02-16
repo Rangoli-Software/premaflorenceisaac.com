@@ -358,7 +358,7 @@ function createDropdownColumn(itemLists, colCls){
     var res = '<div class="' + colCls + '">';
     for( var i = 0; i < itemLists.length; i++ ) {
         var item = itemLists[ i ];
-        res += '<div class="' + (i === 0 ? "mb-5" : "my-5") + '" font-weight-bold">';
+        res += '<div class="' + (i === 0 ? "mb-5" : "my-5") + ' font-weight-bold">';
         if  ( item.url !== undefined ) {
             res += '<a href="' + item.url + '">';
         }
