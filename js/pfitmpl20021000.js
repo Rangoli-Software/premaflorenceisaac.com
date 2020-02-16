@@ -469,7 +469,7 @@ function createCardColumn(item, brkColCls) {
     return '<div class="col-12 ' + brkColCls + '">' +  createItemCard(item) + '</div>';
 }
 
-function createAllItems(pages)  {
+function createCards(pages)  {
     var res = "";
     var items = pages.sub;
     for (var i = 0; i < items.length; i++) {
@@ -479,7 +479,7 @@ function createAllItems(pages)  {
 }
     
 function createSection(pages) {
-    return '<section class="pt-7 pb-12"><div class="container"><div class="row">' + createAllItems(pages) + '</div></div></section>';
+    return '<section class="pt-5 pb-3"><div class="container"><div class="row">' + createCards(pages) + '</div></div></section>';
 }
 
 function createCarousel(carId, carItems) {
