@@ -1,5 +1,5 @@
 var moods = {
-    title: "",
+    title: "Moods",
     url: "",
     lede: "",
     imageURL: "",
@@ -39,9 +39,9 @@ var archives = {
             url: "/look.html",
             lede: '<strong><a href="/look.html">Look-of-the-Moment</a></strong> - Off-shoulder knit top with one of my signature Artwear skirts - The Naksha.',
             imageURL: "/g/look/nkshofstp.jpg"
-        },
+        }
     ]
-}
+};
 
 var ramp = {
     title: "Ramp",
@@ -52,8 +52,8 @@ var ramp = {
             lede: '<strong><a href="/look.html">Look-of-the-Moment</a></strong> - Off-shoulder knit top with one of my signature Artwear skirts - The Naksha.',
             imageURL: "/g/look/nkshofstp.jpg"
         }
-    ]    
-}
+    ]
+};
 
 var lotm = {
     title: "Look!",
@@ -65,7 +65,6 @@ var lotm = {
 };
 
 var lines = {
-    
 };
 
 var origin = {
@@ -76,7 +75,7 @@ var origin = {
                 title: "My Journey",
                 url: "/journey/myjourney.html",
                 lede: '<strong>The Rangoli Journey</strong> Over the years, I have told <a href="/journey/myjourney.html">this story in bits and pieces to clients and friends</a>, who kept asking why it was not on the website.....',
-                imageURL: "/journey/PremaStory.jpg",
+                imageURL: "/journey/PremaStory.jpg"
             },
             {
                 title: "Auroville",
@@ -204,7 +203,7 @@ var atelier = {
 
 var clients = {
     title: "Happy 😃 Clients",
-    url: "/about.html?a=c#about-tabs",
+    url: "/about.html?a=c&#about-tabs",
     sub: [
         {
             title: "Birthday Boy",
@@ -242,7 +241,7 @@ var about = {
 
 var buzz = {
     title: "Buzzing...",
-    url: "/about.html?a=b#about-tabs",
+    url: "/about.html?a=b&#about-tabs",
     lede: 'Media coverage, both traditional and new.',
     sub: [
         {
@@ -295,6 +294,55 @@ var buzz = {
         }
     ]
 };
+
+var siteMap = [
+    {
+        sub: [
+            {
+                title: "Blog",
+                url: "/blog.html"
+            },
+            {
+                title: "About Us",
+                url: "/about.html"
+            },
+            {
+                title: "Look!",
+                url: "/look.html"
+            }
+        ]
+    },
+    origin,
+    atelier,
+    clients,
+    about,
+    buzz
+];
+
+function createBreadCrumb(location) {
+    var path = location;
+    for (var i = 0; i < siteMap.length; i++) {
+        var level1 = siteMap[ i ];
+        for (var j = 0; j < level1.sub.length; j++) {
+            var level2 = level1.sub[ j ];
+            if ( level2.url == path ) {
+                return createBreadCrumbLevels(level1, level2);
+            }
+        }
+    }
+    return "";
+}            
+
+function createBreadCrumbLevels(level1, level2) {
+    var res = '<nav class="py-5"><div class="container"><div class="row"><div class="col-12"><ol class="breadcrumb mb-0 font-size-xs text-gray-400">';
+    res +='<li class="breadcrumb-item"><a class="text-gray-400" href="index.html">Home</a></li>';
+    if ( level1.title !== undefined ) {
+        res +='<li class="breadcrumb-item"><a class="text-gray-400" href="' + level1.url + '">' + level1.title + '</a></li>';
+    }
+    res +='<li class="breadcrumb-item active">' + level2.title + '</a></li>';
+    res += '</ol></div></div></div></nav>';
+    return res;
+}
 
 function createStyledList(jsonArray) {
 var res = '<ul class="list-styled mb7 font-size-sm">';
@@ -397,18 +445,13 @@ function getTabContent(content, id, isActive) {
         + content
         + '</div>';
 }
+
 function createItemCard(item) {
     var res = '<div class="card mb-7 mb-md-0">';
     if ( item.badge !== undefined ) {
-        res += '<div class="badge badge-white card-badge card-badge-left text-uppercase">'
-            + item.badge +  '</div>';
+        res += '<div class="badge badge-white card-badge card-badge-left text-uppercase">' + item.badge + '</div>';
     }
     if ( item.imageURL !== undefined) {
-/*
-        res += '<div style="overflow: hidden; position: relative;  padding-top: 100%;">';
-        res += '<img src="' + item.imageURL + '" alt="' + item.title  + '" class="card-img-top img-fluid" style="object-fit: cover; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); height: 100%; width: 100%;">';
-        res += '</div>';
-*/
         res += '<div class="embed-responsive embed-responsive-1by1">';
         res += '<img src="' + item.imageURL + '" alt="' + item.title  + '" class="embed-responsive-item" style="object-fit: cover">';
         res += '</div>';
@@ -436,7 +479,7 @@ function createAllItems(pages)  {
 }
     
 function createSection(pages) {
-    return '<section><div class="container"><div class="row">' + createAllItems(pages) + '</div></div></section>';
+    return '<section class="pt-7 pb-12"><div class="container"><div class="row">' + createAllItems(pages) + '</div></div></section>';
 }
 
 function createCarousel(carId, carItems) {
@@ -544,17 +587,17 @@ function twitterShareInit() {
     ;
 }
 
-function pfiTopMenu () {
+function pfiTopMenu (location) {
     return shareInit() +
         '<div class="rwell">\
             <p class="text-center"><small><strong>Distinctive Designs . Fusion Flair . Textile Treasures</strong></small></p>\
     </div>'+ '<div class="container">'
     +
 '<div><a href="/index.html"><img src="/g/pfilogo1710.svg" alt="Prema Florence Isaac" class="img-fluid center-block" width="1000px"></a></div>'
-        + createDropDowns() + '</div>';
+        + createDropDowns() + '</div>' + createBreadCrumb(location);
 }
 
-function kimTopMenu () {
+function kimTopMenu (location) {
     return shareInit() +
         '<div class="container"><div class="item text-center"><div style="padding-top: 1ex; padding-bottom: 1ex"><a href="/kidinmi.html"><img src="/g/kimlogo.svg" alt="KidInMi" class="img-fluid center-block" width="300px"></a></div></div>'
         + createDropDowns() + '</div>';
@@ -637,10 +680,6 @@ function kimBotMenu(location) {
     return botNav('<img src="/g/kimgphsimp.svg" alt="KidinMi Graphic" class="img-fluid center-block" width="300px">', location);
 }
 
-function topMenu() {
-    return pfiTopMenu();
-}
-
 function botMenu(location) {
     return botNav('<img src="/g/since199900.svg" alt="Rangoli Graphic" class="img-fluid center-block" width="300px">', location);
 }
@@ -650,7 +689,7 @@ function scriptSrcs() {
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">\
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>\
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>\
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>\<script type="text/javascript" src="https://www.paypalobjects.com/api/checkout.js"></script>\
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script><script type="text/javascript" src="https://www.paypalobjects.com/api/checkout.js"></script>\
     ';
 }
 
