@@ -631,7 +631,7 @@ function createMCSignup() {
 }
 
 function createShareBar(location) {
-    return '<div class="container"><div class="row" style="padding-top: 1.5ex; padding-bottom: 0.5ex">\
+    return '<div class="container"><div class="row" style="padding-top: 1.5ex; padding-bottom: 0.5ex" style="font-size: x-small;">\
         <div class="col text-center">'
         + creatFBShareBtn(location) + 
         '</div>\
@@ -664,7 +664,7 @@ function botNav(botImgTag, location) {
         <center><div class="row" style="padding-bottom: 1em">\
             <div class="col-sm-6">\
             <p>\
-        EMail <i class="fa fa-envelope-o"></i>: <a href="mailto:premaflorenceisaac@gmail.com">prema.florence.isaac@gmail.com</a><br>\
+        EMail <i class="fa fa-envelope"></i>: <a href="mailto:premaflorenceisaac@gmail.com">prema.florence.isaac@gmail.com</a><br>\
         WhatsApp <i class="fa fa-whatsapp"></i>: <a href="tel:+919443362528">+919443362528</a>\
             </p>\
             </div>\
