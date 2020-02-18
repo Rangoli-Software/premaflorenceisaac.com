@@ -134,6 +134,21 @@ var origin = {
         ]
     };
 
+function createSqPanelImageList(panelNumArr) {
+    var res = [];
+    for (var i = 0; i < panelNumArr.length; i++) {
+        res.push({imageURL: "/tbc/sqIC/IC" + panelNumArr[i] + ".jpg"});
+    }
+    return res;
+}
+
+
+function createPanelCarousel() {
+    var panelNums = [545,548,549,552,565,571];
+    var panelImgs  =  createSqPanelImageList(panelNums);
+    return createCarousel("car-panels", panelImgs);
+}
+
 var atelier = {
     title: "Atelier Tales",
     url: "/blog.html?t=a",
@@ -202,7 +217,7 @@ var atelier = {
 };
 
 var clients = {
-    title: "Happy 😃 Clients",
+    title: "Happy Clients",
     url: "/about.html?a=c&#about-tabs",
     sub: [
         {
@@ -373,8 +388,8 @@ function createDropdownColumn(itemLists, colCls){
     return  res;
 }
 
-function createDropdownCard(cols) {
-    var  res  = '<div class="dropdown-menu" style="min-width: 420px;"><div class="card card-lg"><div class="card-body"><div class="row">';
+function createDropdownCard(cols, alignRight) {
+    var  res  = '<div class="dropdown-menu' + (alignRight ? " dropdown-menu-right" : "") + '" style="min-width: 360px;"><div class="card card-lg"><div class="card-body"><div class="row">';
     for (var i = 0; i < cols.length; i++) {
         res += cols[ i ];
     }
@@ -385,19 +400,19 @@ function createDropdownCard(cols) {
 function createLookDD () {
     var col1 = createDropdownColumn([atelier], "col-6");
     var col2 = createDropdownColumn([origin], "col-6");
-    return createDropdownCard([col1, col2]);
+    return createDropdownCard([col1, col2], false);
 }
 
 function createBlogDD () {
     var col1 = createDropdownColumn([atelier], "col-6");
     var col2 = createDropdownColumn([origin], "col-6");
-    return createDropdownCard([col1, col2]);
+    return createDropdownCard([col1, col2], true);
 }
 
 function createAboutDD () {
     var col1 = createDropdownColumn([about, clients], "col-6");
     var col2 = createDropdownColumn([buzz], "col-6");
-    return createDropdownCard([col1, col2]);
+    return createDropdownCard([col1, col2], true);
 }
 
 function createDropDowns() {
@@ -635,13 +650,13 @@ function createShareBar(location) {
         <div class="col text-center">'
         + creatFBShareBtn(location) + 
         '</div>\
-        <div class="col text-center">\
+        <div class="col text-center col-2">\
             <a data-pin-do="buttonBookmark" data-pin-tall="true" data-pin-round="true" href="https://www.pinterest.com/pin/create/button/"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_32.png"/>Save</a>\
         </div>\
         <div class="col text-center">'
            + creatTweetBtn(location) +
         '</div>\
-        <div class="col text-center">'
+        <div class="col text-center col-3">'
            + createINBtn(location) +
         '</div>\
     </div></div>';
@@ -664,7 +679,7 @@ function botNav(botImgTag, location) {
         <center><div class="row" style="padding-bottom: 1em">\
             <div class="col-sm-6">\
             <p>\
-        EMail <i class="fa fa-envelope"></i>: <a href="mailto:premaflorenceisaac@gmail.com">prema.florence.isaac@gmail.com</a><br>\
+        EMail <i class="fa fa-envelope-o"></i>: <a href="mailto:premaflorenceisaac@gmail.com">prema.florence.isaac@gmail.com</a><br>\
         WhatsApp <i class="fa fa-whatsapp"></i>: <a href="tel:+919443362528">+919443362528</a>\
             </p>\
             </div>\
