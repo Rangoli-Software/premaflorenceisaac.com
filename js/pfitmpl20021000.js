@@ -617,6 +617,10 @@ function creatTweetBtn(location) {
     return '<a class="twitter-share-button" href="https://twitter.com/intent/tweet?url=' + encodeURI(fullPath) + '" data-size="large">Tweet</a>';
 }
 
+function createINBtn(location) {
+    return '<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script><script type="IN/Share" data-url="' + location + '"></script>';
+}
+
 function createMCSignup() {
     return '<center><div class="form-group">\
 <form action="https://premaflorenceisaac.us12.list-manage.com/subscribe/post?u=66ac2e4e6cda6ea157ef47afd&amp;id=0c8cc89a5b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>\
@@ -636,6 +640,9 @@ function createShareBar(location) {
         </div>\
         <div class="col text-center">'
            + creatTweetBtn(location) +
+        '</div>\
+        <div class="col text-center">'
+           + createINBtn(location) +
         '</div>\
     </div></div>';
 }
