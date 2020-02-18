@@ -11,6 +11,12 @@ figcaption {
     text-align: center;
 }
 
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+}
+
 /* Shopping Addons
 -------------------------------------------------- */
 /* Media query for mobile viewport */
