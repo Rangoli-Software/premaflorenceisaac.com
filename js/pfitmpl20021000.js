@@ -664,8 +664,8 @@ function botNav(botImgTag, location) {
         <center><div class="row" style="padding-bottom: 1em">\
             <div class="col-sm-6">\
             <p>\
-        EMail: <a href="mailto:premaflorenceisaac@gmail.com">prema.florence.isaac@gmail.com</a><br>\
-        WhatsApp: <a href="tel:+919443362528">+919443362528</a>\
+        EMail <i class="fa fa-envelope-o"></i>: <a href="mailto:premaflorenceisaac@gmail.com">prema.florence.isaac@gmail.com</a><br>\
+        WhatsApp <i class="fa fa-whatsapp"></i>: <a href="tel:+919443362528">+919443362528</a>\
             </p>\
             </div>\
             <div class="col-sm-6">\
