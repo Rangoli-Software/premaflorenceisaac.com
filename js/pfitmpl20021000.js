@@ -56,7 +56,7 @@ var ramp = {
 };
 
 var lotm = {
-    title: "Look!",
+    title: "Prema's Look",
     url: "/look.html",
     lede: '<strong><a href="/look.html">Look-of-the-Moment</a></strong> - Off-shoulder knit top with one of my signature Artwear skirts - The Naksha.',
     imageURL: "/g/look/nkshofstp.jpg",
@@ -360,7 +360,7 @@ function createBreadCrumbLevels(level1, level2) {
 }
 
 function createStyledList(jsonArray) {
-var res = '<ul class="list-styled mb7 font-size-sm">';
+var res = '<ul class="list-styled mb-2 font-size-sm">';
     for (var i = 0; i < jsonArray.length; i++ ) {
         var item = jsonArray[ i ];
         res += '<li class="list-styled-item"><a class="list-styled-link" href="' + item.url + '">' + item.title + '</a></li>';
@@ -373,7 +373,7 @@ function createDropdownColumn(itemLists, colCls){
     var res = '<div class="' + colCls + '">';
     for( var i = 0; i < itemLists.length; i++ ) {
         var item = itemLists[ i ];
-        res += '<div class="' + (i === 0 ? "mb-5" : "my-5") + ' font-weight-bold">';
+        res += '<div class="' + (i === 0 ? "mb-1" : "my-1") + ' font-weight-bold">';
         if  ( item.url !== undefined ) {
             res += '<a href="' + item.url + '">';
         }
@@ -388,41 +388,77 @@ function createDropdownColumn(itemLists, colCls){
     return  res;
 }
 
-function createDropdownCard(cols, alignRight) {
-    var  res  = '<div class="dropdown-menu' + (alignRight ? " dropdown-menu-right" : "") + '" style="min-width: 360px;"><div class="card card-lg"><div class="card-body"><div class="row">';
+function createDropdownCard(cols) {
+    var  res  = '<div class="card card-lg"><div class="card-body"><div class="row">';
     for (var i = 0; i < cols.length; i++) {
         res += cols[ i ];
     }
-    res += '</div></div></div></div>';
+    res += '</div></div></div>';
     return res;
 }
 
-function createLookDD () {
-    var col1 = createDropdownColumn([atelier], "col-6");
-    var col2 = createDropdownColumn([origin], "col-6");
-    return createDropdownCard([col1, col2], false);
+function createMinWidthDDCard(cols, width, alignRight) {
+    var  res  = '<div class="dropdown-menu' + (alignRight ? " dropdown-menu-right" : "") + '" style="min-width: ' + width +';">';
+    res += createDropdownCard(cols);
+    res += '</div>';
+    return res;
+}
+
+function createFullWidthDDCard(cols)  {
+    var  res  = '<div class="dropdown-menu w-100"><div class="container">';
+    res += createDropdownCard(cols);
+    res += '</div></div>';
+    return res;    
+}
+
+function createMegaMenuSection(item) {
+    return '<div class="col-6 col-md">\
+    <div class="mb-5 font-weight-bold">' + item.title + '</div>'
+    + createStyledList(item.sub) + '</div>';
+}
+
+function createMegaMenuImage(item) {
+    return '<div class="col-4 d-none d-lg-block">\
+    <div class="card">\
+        <img class="card-img" src="' + item.imageURL + '" alt="...">\
+        <div class="card-img-overlay bg-dark-0 bg-hover align-items-center">\
+            <div class="text-center">\
+            <a class="btn btn-white stretched-link" href="' + item.url + '">'
+                + item.title  + '<i class="fe fe-arrow-right ml-2"></i></a>\
+            </div>\
+        </div>\
+    </div>\
+    </div>';
+}
+
+function createLookMM() {
+    var col1 = createDropdownColumn([lotm], "col-6 col-md");
+    var col2 = createDropdownColumn([ramp], "col-6 col-md");
+    var col3 = createDropdownColumn([moods], "col-6 col-md");
+    var col4 = createDropdownColumn([archives], "col-6 col-md");
+    return createFullWidthDDCard([col1, col2, col3, col4]);
 }
 
 function createBlogDD () {
     var col1 = createDropdownColumn([atelier], "col-6");
     var col2 = createDropdownColumn([origin], "col-6");
-    return createDropdownCard([col1, col2], true);
+    return createMinWidthDDCard([col1, col2], "360px", true);
 }
 
 function createAboutDD () {
     var col1 = createDropdownColumn([about, clients], "col-6");
     var col2 = createDropdownColumn([buzz], "col-6");
-    return createDropdownCard([col1, col2], true);
+    return createMinWidthDDCard([col1, col2], "330px", true);
 }
 
-function createDropDowns() {
+function createTopNav() {
     var res = '<ul class="nav nav-justified">';
     
     res += '<li class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" href="#">Shop</a>';
     res += '</li>';
 
-    res += '<li class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" href="#">Look!</a>';
-    res += createLookDD();
+    res += '<li class="nav-item dropdown position-static"><a class="nav-link" data-toggle="dropdown" href="#">Look</a>'
+    res += createLookMM();
     res += '</li>';
 
     res += '<li class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" href="#">Blog</a>';
@@ -436,6 +472,7 @@ function createDropDowns() {
     res += '</ul>';
     return res;
 }
+
 
 function pfisig() {
     return '<strong>Prema Florence Isaac</strong>';
@@ -609,13 +646,13 @@ function pfiTopMenu (location) {
     </div>'+ '<div class="container">'
     +
 '<div><a href="/index.html"><img src="/g/pfilogo1710.svg" alt="Prema Florence Isaac" class="img-fluid center-block" width="1000px"></a></div>'
-        + createDropDowns() + '</div>' + createBreadCrumb(location);
+        + createTopNav() + '</div>' + createBreadCrumb(location);
 }
 
 function kimTopMenu (location) {
     return shareInit() +
         '<div class="container"><div class="item text-center"><div style="padding-top: 1ex; padding-bottom: 1ex"><a href="/kidinmi.html"><img src="/g/kimlogo.svg" alt="KidInMi" class="img-fluid center-block" width="300px"></a></div></div>'
-        + createDropDowns() + '</div>';
+        + createTopNav() + '</div>';
 }
 
 function creatFBShareBtn(location) {
