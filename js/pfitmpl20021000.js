@@ -708,22 +708,6 @@ function createMCSignup() {
 }
 
 function createShareBar(location) {
-/*
-    return '<div class="container mb-0"><div class="row" style="padding-top: 1.5ex; padding-bottom: 0.75ex; font-size: x-small">\
-        <div class="col text-center">'
-        + creatFBShareBtn(location) + 
-        '</div>\
-        <div class="col text-center col-2">\
-            <a data-pin-do="buttonBookmark" data-pin-tall="true" data-pin-round="true" href="https://www.pinterest.com/pin/create/button/"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_32.png"/>Save</a>\
-        </div>\
-        <div class="col text-center">'
-           + creatTweetBtn(location) +
-        '</div>\
-        <div class="col text-center col-2">'
-           + createINBtn(location) +
-        '</div>\
-    </div></div>';
-*/
     return '<div class="container mb-5"><div style="display: flex; justify-content: space-between;">'
         + '<span>'  
         + creatFBShareBtn(location)
