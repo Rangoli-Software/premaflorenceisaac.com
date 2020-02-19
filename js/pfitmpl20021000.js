@@ -431,6 +431,10 @@ function createMegaMenuImage(item) {
     </div>';
 }
 
+function createShopMM() {
+    return "";
+}
+
 function createLookMM() {
     var col1 = createDropdownColumn([lotm], "col-6 col-md");
     var col2 = createDropdownColumn([ramp], "col-6 col-md");
@@ -455,6 +459,7 @@ function createTopNav() {
     var res = '<ul class="nav nav-justified">';
     
     res += '<li class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" href="#">Shop</a>';
+    res += createShopMM();
     res += '</li>';
 
     res += '<li class="nav-item dropdown position-static"><a class="nav-link" data-toggle="dropdown" href="#">Look</a>'
@@ -498,6 +503,23 @@ function getTabContent(content, id, isActive) {
         + '</div>';
 }
 
+function createFeatureItemCard(item, section) {
+    var res = '<div class="card mb-7 mb-md-0">';
+    if ( item.imageURL !== undefined) {
+        res += '<div class="embed-responsive embed-responsive-1by1">';
+        res += '<img src="' + item.imageURL + '" alt="' + item.title  + '" class="embed-responsive-item" style="object-fit: cover">';
+        res += '</div>';
+    } else if (item.imageHTML !== undefined ) {
+        res += item.imageHTML;
+    }
+    res += '<div class="card-body px-0 py-7">';
+    res += '<div class="font-size-xs"><a class="text-muted" href="'  + section.url + '">' + section.title +'</a></div>';
+    res += '<h5 class="card-title mb-3">' + item.title + '<a  href="' + item.url + '"><i class="fe fe-arrow-right ml-2"></i></a></h5>';
+    res += '<p class="mb-2">' + item.lede + '</p>';
+    res += '</div></div>';
+    return res;
+}
+
 function createItemCard(item) {
     var res = '<div class="card mb-7 mb-md-0">';
     if ( item.badge !== undefined ) {
@@ -516,22 +538,25 @@ function createItemCard(item) {
     res += '</div></div>';
     return res;
 }
-    
-function createCardColumn(item, brkColCls) {
-    return '<div class="col-12 ' + brkColCls + '">' +  createItemCard(item) + '</div>';
-}
 
-function createCards(pages)  {
-    var res = "";
-    var items = pages.sub;
-    for (var i = 0; i < items.length; i++) {
-        res += createCardColumn(items[ i ], "col-md-4");
+function createSection(pages) {
+    var brkColCls = "col-md-4";
+    var res = '<section class="pt-5 pb-3"><div class="container"><div class="row">';
+    for (var i = 0; i < pages.sub.length; i++) {
+        res += '<div class="col-12 ' + brkColCls + '">' +  createItemCard(pages.sub[ i ]) + '</div>';
     }
+    res += '</div></div></section>';
     return res;
 }
-    
-function createSection(pages) {
-    return '<section class="pt-5 pb-3"><div class="container"><div class="row">' + createCards(pages) + '</div></div></section>';
+
+function createRelated(header, items, sections) {
+    var brkColCls = "col-md-4";
+    var res = '<section class="pt-5 pb-3"><div class="container"><div class="row"><h5>' + header + '</h5>';
+    for (var i = 0; i < items.length; i++) {
+        res += '<div class="col-12 ' + brkColCls + '">' +  createFeatureItemCard(items[ i ], sections[ i ]) + '</div>';
+    }
+    res += '</div></div></section>';
+    return res;
 }
 
 function createCarousel(carId, carItems) {
@@ -683,7 +708,8 @@ function createMCSignup() {
 }
 
 function createShareBar(location) {
-    return '<div class="container"><div class="row" style="padding-top: 1.5ex; padding-bottom: 0.5ex" style="font-size: x-small;">\
+/*
+    return '<div class="container mb-0"><div class="row" style="padding-top: 1.5ex; padding-bottom: 0.75ex; font-size: x-small">\
         <div class="col text-center">'
         + creatFBShareBtn(location) + 
         '</div>\
@@ -693,10 +719,25 @@ function createShareBar(location) {
         <div class="col text-center">'
            + creatTweetBtn(location) +
         '</div>\
-        <div class="col text-center col-3">'
+        <div class="col text-center col-2">'
            + createINBtn(location) +
         '</div>\
     </div></div>';
+*/
+    return '<div class="container mb-5"><div style="display: flex; justify-content: space-between;">'
+        + '<span>'  
+        + creatFBShareBtn(location)
+        + '</span>'
+        + '<span>'  
+        + '<a data-pin-do="buttonBookmark" data-pin-tall="true" data-pin-round="true" href="https://www.pinterest.com/pin/create/button/"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_32.png"/>Save</a>'
+        + '</span>'
+        + '<span>'  
+           + creatTweetBtn(location)
+        + '</span>'
+        + '<span>'  
+           + createINBtn(location) 
+        + '</span>'
+        + '</div></div>';
 }
 
 function botNav(botImgTag, location) {
@@ -728,7 +769,7 @@ function botNav(botImgTag, location) {
         <p class="text-center">'
     + botImgTag +
         '</p>\
-        <p class="text-right">&copy; 2015-2020 Prema Florence Isaac</p>\
+        <p class="text-right">&copy; 2015 - 2020 Prema Florence Isaac</p>\
     </div>'
     ;
 }
