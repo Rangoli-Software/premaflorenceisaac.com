@@ -360,7 +360,7 @@ function createBreadCrumbLevels(level1, level2) {
 }
 
 function createStyledList(jsonArray) {
-var res = '<ul class="list-styled mb-2 font-size-sm">';
+var res = '<ul class="list-styled mb-6 font-size-sm">';
     for (var i = 0; i < jsonArray.length; i++ ) {
         var item = jsonArray[ i ];
         res += '<li class="list-styled-item"><a class="list-styled-link" href="' + item.url + '">' + item.title + '</a></li>';
@@ -373,7 +373,7 @@ function createDropdownColumn(itemLists, colCls){
     var res = '<div class="' + colCls + '">';
     for( var i = 0; i < itemLists.length; i++ ) {
         var item = itemLists[ i ];
-        res += '<div class="' + (i === 0 ? "mb-1" : "my-1") + ' font-weight-bold">';
+        res += '<div class="' + (i === 0 ? "mb-5" : "my-5") + ' font-weight-bold">';
         if  ( item.url !== undefined ) {
             res += '<a href="' + item.url + '">';
         }
