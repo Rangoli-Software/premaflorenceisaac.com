@@ -134,21 +134,6 @@ var origin = {
         ]
     };
 
-function createSqPanelImageList(panelNumArr) {
-    var res = [];
-    for (var i = 0; i < panelNumArr.length; i++) {
-        res.push({imageURL: "/tbc/sqIC/IC" + panelNumArr[i] + ".jpg"});
-    }
-    return res;
-}
-
-
-function createPanelCarousel() {
-    var panelNums = [545,548,549,552,565,571];
-    var panelImgs  =  createSqPanelImageList(panelNums);
-    return createCarousel("car-panels", panelImgs);
-}
-
 var atelier = {
     title: "Atelier Tales",
     url: "/blog.html?t=a",
@@ -333,6 +318,39 @@ var siteMap = [
     about,
     buzz
 ];
+
+function createSqPanelImageList(panelNumArr) {
+    var res = [];
+    for (var i = 0; i < panelNumArr.length; i++) {
+        res.push({imageURL: "/tbc/sqIC/IC" + panelNumArr[i] + ".jpg"});
+    }
+    return res;
+}
+
+
+function createPanelCarousel() {
+    var panelNums = [545,548,549,552,565,571];
+    var panelImgs  =  createSqPanelImageList(panelNums);
+    return createCarousel("car-panels", panelImgs);
+}
+
+function selectFeature(section) {
+    var len = section.sub.length;
+    var rndI = Math.floor(Math.random() * len);
+    return section.sub[ rndI ];
+}
+
+function selectFeatures(sections) {
+    var items = [];
+    var pars = [];
+    for (var i = 0; i < sections.length; i++ ) {
+        var sec = sections[ i ];
+        var sel = selectFeature(sec);
+        items.push(sel);
+        pars.push(sec);
+    }
+    return [items, pars];
+}
 
 function createBreadCrumb(location) {
     var path = location;
@@ -551,12 +569,17 @@ function createSection(pages) {
 
 function createRelated(header, items, sections) {
     var brkColCls = "col-md-4";
-    var res = '<section class="pt-5 pb-3"><div class="container"><div class="row"><h5>' + header + '</h5>';
+    var res = '<section class="pt-5 pb-3"><h5>' + header + '</h5><div class="container"><div class="row">';
     for (var i = 0; i < items.length; i++) {
         res += '<div class="col-12 ' + brkColCls + '">' +  createFeatureItemCard(items[ i ], sections[ i ]) + '</div>';
     }
     res += '</div></div></section>';
     return res;
+}
+
+function createFeatures(header) {
+    var res = selectFeatures([atelier, origin, moods]);
+    return createRelated(header, res[0], res[1]);
 }
 
 function createCarousel(carId, carItems) {
