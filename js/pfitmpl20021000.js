@@ -569,7 +569,7 @@ function createSection(pages) {
 
 function createRelated(header, items, sections) {
     var brkColCls = "col-md-4";
-    var res = '<h5>' + header + '</h5><section class="pt-7"><div class="container"><div class="row">';
+    var res = '<h5>' + header + '</h5><section class="pt-4"><div class="container"><div class="row">';
     for (var i = 0; i < items.length; i++) {
         res += '<div class="col-12 ' + brkColCls + '">' +  createFeatureItemCard(items[ i ], sections[ i ]) + '</div>';
     }
