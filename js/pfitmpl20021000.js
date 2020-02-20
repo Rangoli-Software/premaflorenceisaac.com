@@ -530,7 +530,7 @@ function createFeatureItemCard(item, section) {
     } else if (item.imageHTML !== undefined ) {
         res += item.imageHTML;
     }
-    res += '<div class="card-body px-0 py-4">';
+    res += '<div class="card-body px-0 pt-5 pb-4">';
     res += '<div class="card-subtitle mb-1 font-size-xs"><a class="text-muted" href="'  + section.url + '">' + section.title +'</a></div>';
     res += '<h6 class="card-title mb-2">' + item.title + '<a  href="' + item.url + '"><i class="fe fe-arrow-right ml-2"></i></a></h6>';
     res += '<p class="mb-1">' + item.lede + '</p>';
@@ -550,7 +550,7 @@ function createItemCard(item) {
     } else if (item.imageHTML !== undefined ) {
         res += item.imageHTML;
     }
-    res += '<div class="card-body px-0 py-4">';
+    res += '<div class="card-body px-0 pt-5 pb-4">';
     res += '<h6 class="card-title mb-2">' + item.title + '<a  href="' + item.url + '"><i class="fe fe-arrow-right ml-2"></i></a></h6>';
     res += '<p class="mb-1">' + item.lede + '</p>';
     res += '</div></div>';
