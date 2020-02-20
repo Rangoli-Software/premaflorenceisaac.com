@@ -753,7 +753,7 @@ function botNav(botImgTag, location) {
             <p class="text-center"><strong>Light . Beauty . Freedom</strong></p>\
     </div>\
     <div class="container-fluid">\
-        <center><div class="row" style="padding-bottom: 1em">\
+        <center><div class="row">\
             <div class="col-sm-6">\
         Instagram <i class="fa fa-instagram"></i>: <a href="https://www.instagram.com/_prema.florence.isaac_/">@_prema.florence.isaac_</a>\
             </div>\
