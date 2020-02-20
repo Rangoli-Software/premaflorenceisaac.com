@@ -689,8 +689,8 @@ function twitterShareInit() {
 
 function pfiTopMenu (location) {
     return shareInit() +
-        '<div class="rwell">\
-            <p class="text-center"><small><strong>Distinctive Designs . Fusion Flair . Textile Treasures</strong></small></p>\
+        '<div class="rwell text-center">\
+            <small><strong>Distinctive Designs . Fusion Flair . Textile Treasures</strong></small>\
     </div>'+ '<div class="container p-0">'
     +
 '<div class="text-center"><a href="/index.html"><img src="/g/pfilogo2002.svg" alt="Prema Florence Isaac" class="img-fluid" width="1000px"></a></div>'
