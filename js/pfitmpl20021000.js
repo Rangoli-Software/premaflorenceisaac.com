@@ -761,12 +761,10 @@ function botNav(botImgTag, location) {
         Facebook <i class="fa fa-facebook-square"></i>: <a href="https://www.facebook.com/rangolibyprema">@rangolibyprema</a>\
             </div>\
         </div></center>\
-        <center><div class="row" style="padding-bottom: 1em">\
+        <center><div class="row align-items-center pb-2"">\
             <div class="col-sm-6">\
-            <p>\
         EMail <i class="fa fa-envelope-o"></i>: <a href="mailto:premaflorenceisaac@gmail.com">prema.florence.isaac@gmail.com</a><br>\
         WhatsApp <i class="fa fa-whatsapp"></i>: <a href="tel:+919443362528">+919443362528</a>\
-            </p>\
             </div>\
             <div class="col-sm-6">\
                     Visit <i class="fa fa-map-marker"></i>: <a href="https://goo.gl/maps/rszKWi3P7xM2">Rangoli Atelier<br>Aurosarjan Complex, Auroshilpam<br>Auroville 605101, Tamil Nadu, India</a>\
