@@ -474,7 +474,7 @@ function createAboutDD () {
 }
 
 function createTopNav() {
-    var res = '<ul class="nav nav-justified pt-1 pb-2">';
+    var res = '<ul class="nav nav-justified pt-0 pb-1">';
     
     res += '<li class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" href="#">Shop</a>';
     res += createShopMM();
@@ -691,7 +691,7 @@ function pfiTopMenu (location) {
     return shareInit() +
         '<div class="rwell">\
             <p class="text-center"><small><strong>Distinctive Designs . Fusion Flair . Textile Treasures</strong></small></p>\
-    </div>'+ '<div class="container">'
+    </div>'+ '<div class="container p-0">'
     +
 '<div class="text-center"><a href="/index.html"><img src="/g/pfilogo1710.svg" alt="Prema Florence Isaac" class="img-fluid" width="1000px"></a></div>'
         + createTopNav() + '</div>' + createBreadCrumb(location);
