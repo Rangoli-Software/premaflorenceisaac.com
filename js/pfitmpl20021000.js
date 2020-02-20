@@ -531,9 +531,9 @@ function createFeatureItemCard(item, section) {
         res += item.imageHTML;
     }
     res += '<div class="card-body px-0 py-7">';
-    res += '<div class="card-subtitle mb-2 font-size-xs"><a class="text-muted" href="'  + section.url + '">' + section.title +'</a></div>';
+    res += '<div class="card-subtitle mb-1 font-size-xs"><a class="text-muted" href="'  + section.url + '">' + section.title +'</a></div>';
     res += '<h6 class="card-title mb-2">' + item.title + '<a  href="' + item.url + '"><i class="fe fe-arrow-right ml-2"></i></a></h6>';
-    res += '<p class="mb-2">' + item.lede + '</p>';
+    res += '<p class="mb-1">' + item.lede + '</p>';
     res += '</div></div>';
     return res;
 }
@@ -552,7 +552,7 @@ function createItemCard(item) {
     }
     res += '<div class="card-body px-0 py-7">';
     res += '<h6 class="card-title mb-2">' + item.title + '<a  href="' + item.url + '"><i class="fe fe-arrow-right ml-2"></i></a></h6>';
-    res += '<p class="mb-2">' + item.lede + '</p>';
+    res += '<p class="mb-1">' + item.lede + '</p>';
     res += '</div></div>';
     return res;
 }
