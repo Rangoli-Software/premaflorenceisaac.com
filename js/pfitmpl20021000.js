@@ -522,7 +522,7 @@ function getTabContent(content, id, isActive) {
 }
 
 function createFeatureItemCard(item, section) {
-    var res = '<div class="card mb-7 mb-md-0">';
+    var res = '<div class="card mb-3 mb-md-0">';
     if ( item.imageURL !== undefined) {
         res += '<div class="embed-responsive embed-responsive-1by1">';
         res += '<img src="' + item.imageURL + '" alt="' + item.title  + '" class="embed-responsive-item" style="object-fit: cover">';
@@ -531,7 +531,7 @@ function createFeatureItemCard(item, section) {
         res += item.imageHTML;
     }
     res += '<div class="card-body px-0 py-7">';
-    res += '<div class="font-size-xs"><a class="text-muted" href="'  + section.url + '">' + section.title +'</a></div>';
+    res += '<div class="card-subtitle mb-3 font-size-xs"><a class="text-muted" href="'  + section.url + '">' + section.title +'</a></div>';
     res += '<h5 class="card-title mb-3">' + item.title + '<a  href="' + item.url + '"><i class="fe fe-arrow-right ml-2"></i></a></h5>';
     res += '<p class="mb-2">' + item.lede + '</p>';
     res += '</div></div>';
@@ -539,7 +539,7 @@ function createFeatureItemCard(item, section) {
 }
 
 function createItemCard(item) {
-    var res = '<div class="card mb-7 mb-md-0">';
+    var res = '<div class="card mb-3 mb-md-0">';
     if ( item.badge !== undefined ) {
         res += '<div class="badge badge-white card-badge card-badge-left text-uppercase">' + item.badge + '</div>';
     }
