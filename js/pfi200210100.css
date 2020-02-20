@@ -17,8 +17,8 @@ figcaption {
     border-radius: 100%;
 }
 
-.dim-table.th,
-.dim-table.td {
+.dim-table th,
+.dim-table td {
     padding: 1rem;
 }
 
