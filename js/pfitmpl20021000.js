@@ -693,7 +693,7 @@ function pfiTopMenu (location) {
             <p class="text-center"><small><strong>Distinctive Designs . Fusion Flair . Textile Treasures</strong></small></p>\
     </div>'+ '<div class="container p-0">'
     +
-'<div class="text-center"><a href="/index.html"><img src="/g/pfilogo1710.svg" alt="Prema Florence Isaac" class="img-fluid" width="1000px"></a></div>'
+'<div class="text-center"><a href="/index.html"><img src="/g/pfilogo2002.svg" alt="Prema Florence Isaac" class="img-fluid" width="1000px"></a></div>'
         + createTopNav() + '</div>' + createBreadCrumb(location);
 }
 
