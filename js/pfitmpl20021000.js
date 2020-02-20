@@ -769,7 +769,7 @@ function botNav(botImgTag, location) {
             </p>\
             </div>\
             <div class="col-sm-6">\
-                    <i class="fa fa-map-marker"></i> <a href="https://goo.gl/maps/rszKWi3P7xM2">Rangoli Atelier<br>Aurosarjan Complex, Auroshilpam<br>Auroville 605101, Tamil Nadu, India</a>\
+                    Visit <i class="fa fa-map-marker"></i>: <a href="https://goo.gl/maps/rszKWi3P7xM2">Rangoli Atelier<br>Aurosarjan Complex, Auroshilpam<br>Auroville 605101, Tamil Nadu, India</a>\
             </div>\
         </div></center>\
         <center>Sign up for our (few-times-a-year) newsletter.<br>' + createMCSignup() + '</center>\
