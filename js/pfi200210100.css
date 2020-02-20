@@ -17,6 +17,11 @@ figcaption {
     border-radius: 100%;
 }
 
+.dim-table.th,
+.dim-table.td {
+    padding: 1rem;
+}
+
 /* Shopping Addons
 -------------------------------------------------- */
 /* Media query for mobile viewport */
