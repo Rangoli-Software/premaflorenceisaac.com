@@ -474,7 +474,7 @@ function createAboutDD () {
 }
 
 function createTopNav() {
-    var res = '<ul class="nav nav-justified">';
+    var res = '<ul class="nav nav-justified py-7">';
     
     res += '<li class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" href="#">Shop</a>';
     res += createShopMM();
