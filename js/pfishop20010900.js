@@ -584,6 +584,20 @@ function createProductObjects(listData, product) {
         }
     };
 }
+function createSizeRadio(name, idPfx, val, i, checked) {
+    return '<div class="custom-control custom-control-inline custom-control-size mb-2"><input type="radio" class="custom-control-input" name="' + name   +'" id="' + idPfx + i + '" value="' +  val  + '"' + (checked ? 'checked="checked" ' : '') +  ' onclick="onSelectionChange()"><label class="custom-control-label" for="' + idPfx + i + '">' + val +'</label></div>';
+}
+
+function createSizeOptions(radName, label, vals, selIdx) {
+    var id = radName + "Group";
+    var res = '<div class="form-group"><label for="' + id + '">' + label + ': </label><span id="' +  id + '" class="mb-2">';
+    var idPfx = radName + "ID";
+    for (var i = 0; i < vals.length; i++) {
+        res += createSizeRadio(radName, idPfx, vals[i], i, (i == selIdx));
+    }
+    res += '</span></div>';
+    return  res;
+}  
 
 function createProductRenderer(prodDesc, product, shop, options, tlcc) {
     return {
