@@ -38,6 +38,7 @@ var cmData = [
 ['Naksha Skirt', 'NKSHMD1501PP', '0.3', '1.4', '', 'TRUE'],
 ['Dip-Dye Scarf', 'DPDYSF1501PT', '0.36', '1.4', '/products/scarves/TurbanMood.jpg', 'FALSE'],
 ['Angkor Kurta', 'ANGKRT1601Kh', '0.36', '1.4', '/products/scarves/TurbanMood.jpg', 'FALSE'],
+['Shoulder String Dress', 'LTSDSL1501Kh', '0.36', '1.4', '/products/scarves/TurbanMood.jpg', 'FALSE'],
 ['Champagne Bottle Bag', 'CHMPGN1501JL', '0.0208333333333333', '1.3', '/products/home/cbaglite.jpg', 'FALSE'],
 ['Test Live Trans', 'TESTIT0000Hi', '', '', '', 'FALSE']
 ];
