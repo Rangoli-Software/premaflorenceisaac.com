@@ -37,6 +37,7 @@ var cmData = [
 ['Gypsy Skirt', 'SSEKMD1501PP', '0.275', '1.4', '', 'TRUE'],
 ['Naksha Skirt', 'NKSHMD1501PP', '0.3', '1.4', '', 'TRUE'],
 ['Dip-Dye Scarf', 'DPDYSF1501PT', '0.36', '1.4', '/products/scarves/TurbanMood.jpg', 'FALSE'],
+['Angkor Kurta', 'ANGKRT1601Kh', '0.36', '1.4', '/products/scarves/TurbanMood.jpg', 'FALSE'],
 ['Champagne Bottle Bag', 'CHMPGN1501JL', '0.0208333333333333', '1.3', '/products/home/cbaglite.jpg', 'FALSE'],
 ['Test Live Trans', 'TESTIT0000Hi', '', '', '', 'FALSE']
 ];
@@ -47,4 +48,5 @@ var plData = [
     ['KAGTIE1601Kh', 3500],
     ['DPDYSF1501PT', 5700],
     ['CHMPGN1501JL', 1750],
+    ['ANGKRT1601Kh', 9000]
 ];
