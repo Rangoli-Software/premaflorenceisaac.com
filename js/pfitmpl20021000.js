@@ -33,9 +33,16 @@ var moods = {
     
 var archives = {
     title: "Look Back",
+    url: "/blog.html?t=l",
     sub: [
         {
-            title: "Look!",
+            title: "Happy Everyday",
+            url: "/blog/lb/hed.html",
+            lede: '<strong><a href="/look.html">Look-of-the-Moment</a></strong> - Off-shoulder knit top with one of my signature Artwear skirts - The Naksha.',
+            imageURL: "/blog/lb/hed2.jpg"
+        },
+        {
+            title: "",
             url: "/look.html",
             lede: '<strong><a href="/look.html">Look-of-the-Moment</a></strong> - Off-shoulder knit top with one of my signature Artwear skirts - The Naksha.',
             imageURL: "/g/look/nkshofstp.jpg"
@@ -457,13 +464,12 @@ function createLookMM() {
     var col1 = createDropdownColumn([lotm], "col-6 col-md");
     var col2 = createDropdownColumn([ramp], "col-6 col-md");
     var col3 = createDropdownColumn([moods], "col-6 col-md");
-    var col4 = createDropdownColumn([archives], "col-6 col-md");
     return createFullWidthDDCard([col1, col2, col3, col4]);
 }
 
 function createBlogDD () {
     var col1 = createDropdownColumn([atelier], "col-6");
-    var col2 = createDropdownColumn([origin], "col-6");
+    var col2 = createDropdownColumn([origin, archives], "col-6");
     return createMinWidthDDCard([col1, col2], "360px", true);
 }
 
