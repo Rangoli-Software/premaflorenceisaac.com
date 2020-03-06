@@ -1,8 +1,6 @@
 var moods = {
     title: "Moods",
-    url: "",
-    lede: "",
-    imageURL: "",
+    url: "/look.html?t=m",
     sub: [
         {
             title: "Summer Dreams",
@@ -30,7 +28,42 @@ var moods = {
         }
     ]
 };
-    
+
+var ramp = {
+    title: "Ramp",
+    url: "/look.html?t=r",
+    sub: [
+    ]
+};
+
+var lotm = {
+    title: "Look!",
+    url: "/look.html?t=p",
+    sub: [
+        {
+            lede: 'Off-shoulder knit top with one of my signature Artwear skirts - The Naksha.',
+            imageURL: "/g/look/nkshofstp.jpg"
+        },
+        {
+            lede: 'New! Black &amp; Silver spandex creation with deep handwoven neckline.',
+            imageURL: "/g/look/bwspndnew.jpg"
+        },
+        {
+            lede: 'All set to trick-or-treat in Kitty Mask with hand-embroidered sequins, Peekaboo Top and Jeggings.',
+            imageURL: "/g/look/Halloween.jpg"
+        },
+        {
+            title: 'Look-of-the-Month',
+            url: '/look/lotm.html',
+            lede: 'How we started our impromptu Look-of-the-Moment series of images',
+            imageURL: "/g/look/look01.jpg"
+        }
+    ]
+};
+
+var lines = {
+};
+
 var archives = {
     title: "Look Back",
     url: "/blog.html?t=l",
@@ -38,40 +71,16 @@ var archives = {
         {
             title: "Happy Everyday",
             url: "/blog/lb/hed.html",
-            lede: '<strong><a href="/look.html">Look-of-the-Moment</a></strong> - Off-shoulder knit top with one of my signature Artwear skirts - The Naksha.',
+            lede: 'Some interesting designs from early work on my Happy Everyday line.',
             imageURL: "/blog/lb/hed2.jpg"
         },
         {
             title: "",
-            url: "/look.html",
-            lede: '<strong><a href="/look.html">Look-of-the-Moment</a></strong> - Off-shoulder knit top with one of my signature Artwear skirts - The Naksha.',
-            imageURL: "/g/look/nkshofstp.jpg"
+            url: "/blog/lb/dd.html",
+            lede: '',
+            imageURL: "/blog/lb/lb1.jpg"
         }
     ]
-};
-
-var ramp = {
-    title: "Ramp",
-    sub: [
-        {
-            title: "Look!",
-            url: "/look.html",
-            lede: '<strong><a href="/look.html">Look-of-the-Moment</a></strong> - Off-shoulder knit top with one of my signature Artwear skirts - The Naksha.',
-            imageURL: "/g/look/nkshofstp.jpg"
-        }
-    ]
-};
-
-var lotm = {
-    title: "Prema's Look",
-    url: "/look.html",
-    lede: '<strong><a href="/look.html">Look-of-the-Moment</a></strong> - Off-shoulder knit top with one of my signature Artwear skirts - The Naksha.',
-    imageURL: "/g/look/nkshofstp.jpg",
-    sub: [
-    ]
-};
-
-var lines = {
 };
 
 var origin = {
@@ -229,19 +238,19 @@ var about = {
             title: "Essence",
             url: '/essence.html',
             lede: 'The Essence of my Way',
-            imageHTML: '/g/premabydinh.jpg'
+            imageURL: '/g/premabydinh.jpg'
         },
         {
             title: "Inspiration",
             url: '/beauty.html',
             lede: 'The Beauty of the Tangail Handloom Tradition',
-            imageHTML: '/g/w/IMG_0093.jpg'
+            imageURL: '/g/w/IMG_0093.jpg'
         },
         {
             title: "Visit",
             url: '/visitus.html',
             lede: 'How to visit our locations',
-            imageHTML: ''
+            imageURL: ''
         }
     ]
 };
@@ -388,6 +397,9 @@ function createStyledList(jsonArray) {
 var res = '<ul class="list-styled mb-6 font-size-sm">';
     for (var i = 0; i < jsonArray.length; i++ ) {
         var item = jsonArray[ i ];
+        if  (item.title === undefined) {
+            continue;
+        }
         res += '<li class="list-styled-item"><a class="list-styled-link" href="' + item.url + '">' + item.title + '</a></li>';
     }
     res +=  '</ul>';
@@ -398,6 +410,9 @@ function createDropdownColumn(itemLists, colCls){
     var res = '<div class="' + colCls + '">';
     for( var i = 0; i < itemLists.length; i++ ) {
         var item = itemLists[ i ];
+        if (item.title === undefined) {
+            continue;
+        }
         res += '<div class="' + (i === 0 ? "mb-5" : "my-5") + ' font-weight-bold">';
         if  ( item.url !== undefined ) {
             res += '<a href="' + item.url + '">';
@@ -461,10 +476,9 @@ function createShopMM() {
 }
 
 function createLookMM() {
-    var col1 = createDropdownColumn([lotm], "col-6 col-md");
-    var col2 = createDropdownColumn([ramp], "col-6 col-md");
-    var col3 = createDropdownColumn([moods], "col-6 col-md");
-    return createFullWidthDDCard([col1, col2, col3, col4]);
+    var col1 = createDropdownColumn([lotm, ramp], "col-6");
+    var col2 = createDropdownColumn([moods], "col-6");
+    return createMinWidthDDCard([col1, col2], "360px", true);
 }
 
 function createBlogDD () {
@@ -557,7 +571,9 @@ function createItemCard(item) {
         res += item.imageHTML;
     }
     res += '<div class="card-body px-0 pt-6 pb-4">';
-    res += '<h6 class="card-title mb-2">' + item.title + '<a  href="' + item.url + '"><i class="fe fe-arrow-right ml-2"></i></a></h6>';
+    if  (item.url !== undefined) {
+        res += '<h6 class="card-title mb-2">' + item.title + '<a  href="' + item.url + '"><i class="fe fe-arrow-right ml-2"></i></a></h6>';
+    }
     res += '<p class="mb-1">' + item.lede + '</p>';
     res += '</div></div>';
     return res;
@@ -567,7 +583,9 @@ function createSection(pages) {
     var brkColCls = "col-md-4";
     var res = '<section class="pt-5 pb-3"><div class="container"><div class="row">';
     for (var i = 0; i < pages.sub.length; i++) {
-        res += '<div class="col-12 ' + brkColCls + '">' +  createItemCard(pages.sub[ i ]) + '</div>';
+        res += '<div class="col-12 ' + brkColCls + '">';
+        res += createItemCard(pages.sub[ i ]);
+        res += '</div>';
     }
     res += '</div></div></section>';
     return res;
