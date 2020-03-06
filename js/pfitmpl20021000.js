@@ -68,11 +68,11 @@ var lines = {
 };
 
 var origin = {
-        title: "Origin",
+        title: "My Journey",
         url: "/blog.html?t=o",
         sub: [
             {
-                title: "My Journey",
+                title: "The Rangoli Story",
                 url: "/journey/myjourney.html",
                 lede: '<strong>The Rangoli Journey</strong> Over the years, I have told <a href="/journey/myjourney.html">this story in bits and pieces to clients and friends</a>, who kept asking why it was not on the website.....',
                 imageURL: "/journey/PremaStory.jpg"
@@ -222,13 +222,13 @@ var about = {
             title: "Essence",
             url: '/essence.html',
             lede: 'The Essence of my Way',
-            imageHTML: ''
+            imageHTML: '/g/premabydinh.jpg'
         },
         {
             title: "Inspiration",
             url: '/beauty.html',
             lede: 'The Beauty of the Tangail Handloom Tradition',
-            imageHTML: ''
+            imageHTML: '/g/w/IMG_0093.jpg'
         },
         {
             title: "Visit",
