@@ -240,13 +240,13 @@ var clients = {
             title: "Curators",
             url: "/people/curators.html",
             lede: "A trio of curators that like my designs",
-            imageURL: "/g/look/look02.jpg"
+            imageURL: "/people/mmib.jpg"
         },
         {
             title: "Ibiza Living!",
             url: "/people/resortwear.html",
             lede: "At a beach resort on Ibiza",
-            imageURL: ""
+            imageURL: "/people/ibgirl.jpg"
         },
         {
             title: "Birthday Boy",
