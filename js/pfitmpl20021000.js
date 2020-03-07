@@ -34,6 +34,12 @@ var ramp = {
     url: "/look.html?t=r",
     sub: [
         {
+            title: 'Va-Va Voom',
+            url: '/look/vvv.html',
+            lede: 'Distinctive Designs in Treasured Textiles',
+            imageURL: "/look/ramp/em.jpg"
+        },
+        {
             title: 'Move~in',
             url: '/look/wc.html',
             lede: 'Casual Looks featuring my Woven Canvas Ts',
@@ -72,16 +78,16 @@ var archives = {
     url: "/blog.html?t=l",
     sub: [
         {
-            title: "Delta &amp; Naksha",
-            url: "/blog/lb/dnn.html",
-            lede: 'Older images of the Delta Dress and Naksha Scarf',
-            imageURL: "/blog/lb/lb3.jpg"
-        },
-        {
             title: "Happy Everyday",
             url: "/blog/lb/hed.html",
             lede: 'Some interesting designs from early work on my Happy Everyday line.',
             imageURL: "/blog/lb/hed2.jpg"
+        },
+        {
+            title: "Delta &amp; Naksha",
+            url: "/blog/lb/dnn.html",
+            lede: 'Older images of the Delta Dress and Naksha Scarf',
+            imageURL: "/blog/lb/lb3.jpg"
         }
     ]
 };
