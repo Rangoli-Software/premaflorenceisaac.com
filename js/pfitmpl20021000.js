@@ -33,6 +33,12 @@ var ramp = {
     title: "Ramp",
     url: "/look.html?t=r",
     sub: [
+        {
+            title: 'Move~in',
+            url: '/look/wc.html',
+            lede: 'Casual Looks featuring my Woven Canvas Ts',
+            imageURL: "/look/ramp/wcw2.jpg"
+        }
     ]
 };
 
@@ -61,24 +67,21 @@ var lotm = {
     ]
 };
 
-var lines = {
-};
-
 var archives = {
     title: "Look Back",
     url: "/blog.html?t=l",
     sub: [
         {
+            title: "Delta &amp; Naksha",
+            url: "/blog/lb/dnn.html",
+            lede: 'Older images of the Delta Dress and Naksha Scarf',
+            imageURL: "/blog/lb/lb3.jpg"
+        },
+        {
             title: "Happy Everyday",
             url: "/blog/lb/hed.html",
             lede: 'Some interesting designs from early work on my Happy Everyday line.',
             imageURL: "/blog/lb/hed2.jpg"
-        },
-        {
-            title: "",
-            url: "/blog/lb/dd.html",
-            lede: '',
-            imageURL: "/blog/lb/lb1.jpg"
         }
     ]
 };
@@ -179,6 +182,12 @@ var atelier = {
             imageURL: "/blog/oldtown.jpg"
         },
         {
+            title: "Vignettes",
+            url: "/atelier/vignettes.html",
+            lede: 'Vignettes from in and around the Atelier',
+            imageURL: "/atelier/sott.jpg"
+        },
+        {
             title: "Fashion Week",
             url: "/fw/fashionweek.html",
             lede: 'In September, I put together my first ever fashion show at <strong><a href="/fw/fashionweek.html">Fashion Week Pondicherry!</a></strong>',
@@ -218,9 +227,21 @@ var atelier = {
 };
 
 var clients = {
-    title: "Happy Clients",
+    title: "Real People",
     url: "/about.html?a=c&#about-tabs",
     sub: [
+        {
+            title: "Curators",
+            url: "/people/curators.html",
+            lede: "A trio of curators that like my designs",
+            imageURL: "/g/look/look02.jpg"
+        },
+        {
+            title: "Ibiza Living!",
+            url: "/people/resortwear.html",
+            lede: "At a beach resort on Ibiza",
+            imageURL: ""
+        },
         {
             title: "Birthday Boy",
             url: "/blog/bdayboy.html",
@@ -310,6 +331,61 @@ var buzz = {
         }
     ]
 };
+
+var shop = {
+        title: "Shop",
+        url: "/shop.html",
+        sub: [
+        {
+            title: "Woven Canvas",
+            url: "/fabricartT.html"
+        },
+        {
+            title: "Dip-Dye Scarf",
+            url: "/products/scarves/dipdye.html"
+        },
+        {
+            title: "Kagera Tie",
+            url: "/products/ties/kagera.html"
+        },
+        {
+            title: "Champagne Bottle Bag",
+            url: "/products/home/champagnebag.html"
+        }
+    ]
+};
+
+var faqs = {
+        title: "Shop FAQ",
+        url: "/shopfaq.html",
+        sub: [
+        {
+            title: "Colours",
+            url: "/shopfaq.html#colours"
+        },
+        {
+            title: "Availability",
+            url: "/shopfaq.html#availability"
+        },
+        {
+            title: "Sizing",
+            url: "/shopfaq.html#sizes"
+        },
+        {
+            title: "Care",
+            url: "/shopfaq.html#care"
+        },
+        {
+            title: "Shipping",
+            url: "/shopfaq.html#shipping"
+        },
+        {
+            title: "Customs &amp; Tariffs",
+            url: "/shopfaq.html#duties"
+        }
+    ]
+};
+
 
 var siteMap = [
     {
@@ -472,13 +548,14 @@ function createMegaMenuImage(item) {
 }
 
 function createShopMM() {
-    return "";
+    var col1 = createDropdownColumn([shop, faqs], "col-12");
+    return createMinWidthDDCard([col1], "200px", false);
 }
 
 function createLookMM() {
     var col1 = createDropdownColumn([lotm, ramp], "col-6");
     var col2 = createDropdownColumn([moods], "col-6");
-    return createMinWidthDDCard([col1, col2], "360px", true);
+    return createMinWidthDDCard([col1, col2], "360px", false);
 }
 
 function createBlogDD () {
@@ -500,7 +577,7 @@ function createTopNav() {
     res += createShopMM();
     res += '</li>';
 
-    res += '<li class="nav-item dropdown position-static"><a class="nav-link" data-toggle="dropdown" href="#">Look</a>'
+    res += '<li class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" href="#">Look</a>'
     res += createLookMM();
     res += '</li>';
 
