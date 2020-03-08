@@ -691,7 +691,7 @@ function pickSection(section) {
 }
 
 function selectSections() {
-    return [pickSection([atelier, origin]), pickSection([about, clients, buzz]), pickSection([moods, ramp])];
+    return [pickSection([atelier, origin]), pickSection([about, buzz, archives]), pickSection([moods, ramp, clients])];
 }
 
 function createFeatures(header) {
