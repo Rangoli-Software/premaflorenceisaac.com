@@ -684,8 +684,18 @@ function createRelated(header, items, sections) {
     return res;
 }
 
+var pickSection(section) {
+    var len = section.length;
+    var rndI = Math.floor(Math.random() * len);
+    return section[ rndI ];
+}
+
+function selectSections() {
+    return [pickSection([atelier, origin]), pickSection([about, clients, buzz]), pickSection([moods, ramp])];
+}
+
 function createFeatures(header) {
-    var res = selectFeatures([atelier, origin, moods]);
+    var res = selectFeatures(selectSections());
     return createRelated(header, res[0], res[1]);
 }
 
