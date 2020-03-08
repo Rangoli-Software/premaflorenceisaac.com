@@ -855,7 +855,7 @@ function createShareBar(location) {
 }
 
 function botNav(botImgTag, location) {
-    return createShareBar(location) +
+    return createFeatures("Featured Stories") +  createShareBar(location) +
     '<div class="rwell">\
             <p class="text-center"><strong>Light . Beauty . Freedom</strong></p>\
     </div>\
