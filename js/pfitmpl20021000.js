@@ -277,7 +277,7 @@ var about = {
             title: "Visit",
             url: '/visitus.html',
             lede: 'How to visit our locations',
-            imageURL: ''
+            imageURL: '/atelier/mib.jpg'
         }
     ]
 };
