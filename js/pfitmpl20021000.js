@@ -684,7 +684,7 @@ function createRelated(header, items, sections) {
     return res;
 }
 
-var pickSection(section) {
+function pickSection(section) {
     var len = section.length;
     var rndI = Math.floor(Math.random() * len);
     return section[ rndI ];
