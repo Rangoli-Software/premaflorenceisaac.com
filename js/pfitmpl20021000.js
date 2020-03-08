@@ -237,6 +237,12 @@ var clients = {
     url: "/about.html?a=c&#about-tabs",
     sub: [
         {
+            title: "#oneofakind",
+            url: "/people/oneofakind.html",
+            lede: "The #oneofakind persons that are wearing my Woven Canvases",
+            imageURL: "/people/mmib.jpg"
+        },
+        {
             title: "Curators",
             url: "/people/curators.html",
             lede: "A trio of curators that like my designs",
@@ -635,7 +641,9 @@ function createFeatureItemCard(item, section) {
     }
     res += '<div class="card-body px-0 pt-6 pb-4">';
     res += '<div class="card-subtitle mb-1"><a class="text-muted" href="'  + section.url + '">' + section.title +'</a></div>';
-    res += '<h6 class="card-title mb-2">' + item.title + '<a  href="' + item.url + '"><i class="fe fe-arrow-right ml-2"></i></a></h6>';
+    if  ( item.url !== undefined ) {
+        res += '<h6 class="card-title mb-2">' + item.title + '<a  href="' + item.url + '"><i class="fe fe-arrow-right ml-2"></i></a></h6>';
+    }
     res += '<p class="mb-1">' + item.lede + '</p>';
     res += '</div></div>';
     return res;
@@ -691,7 +699,7 @@ function pickSection(section) {
 }
 
 function selectSections() {
-    return [pickSection([atelier, origin]), pickSection([about, buzz, archives]), pickSection([moods, ramp, clients])];
+    return [pickSection([atelier, origin]), pickSection([about, buzz, archives, lotm]), pickSection([moods, ramp, clients])];
 }
 
 function createFeatures(header) {
