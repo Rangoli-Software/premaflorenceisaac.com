@@ -290,7 +290,9 @@ var about = {
 
 var buzzTL = {
     title: "Buzzing...",
-    url: "/about.html?a=b&#about-tabs"}
+    url: "/about.html?a=b&#about-tabs",
+    sub: []
+};
 
 var buzz = {
     title: "Buzzing...",
@@ -612,7 +614,7 @@ function createBlogDD () {
 }
 
 function createAboutDD () {
-    var col1 = createDropdownColumn([about, clients, buzzTL], "col-12");
+    var col1 = createDropdownColumn([about, buzzTL, clients], "col-12");
     return createMinWidthDDCard([col1], "190px", true);
 }
 
