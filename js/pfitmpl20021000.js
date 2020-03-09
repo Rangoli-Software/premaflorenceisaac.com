@@ -690,7 +690,7 @@ function createRelated(header, items, sections) {
     var brkColCls = "col-sm-6 col-md-3";
     var res = '<div class="container mb-5"><h5>' + header + '</h5><section class="pt-4"><div class="container"><div class="row">';
     for (var i = 0; i < items.length; i++) {
-        res += '<div class="col-12 ' + brkColCls + '">' +  createFeatureItemCard(items[ i ], sections[ i ]) + '</div>';
+        res += '<div class="col-6 ' + brkColCls + '">' +  createFeatureItemCard(items[ i ], sections[ i ]) + '</div>';
     }
     res += '</div></div></section></div>';
     return res;
