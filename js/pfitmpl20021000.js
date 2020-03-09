@@ -420,7 +420,11 @@ var siteMap = [
     atelier,
     clients,
     about,
-    buzz
+    buzz,
+    moods,
+    ramp,
+    archives,
+    lotm
 ];
 
 function createSqPanelImageList(panelNumArr) {
