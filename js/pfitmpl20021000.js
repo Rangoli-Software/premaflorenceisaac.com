@@ -428,6 +428,24 @@ var siteMap = [
     shop
 ];
 
+function getHostName(url) {
+    var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
+    if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
+    return match[2];
+    }
+    else {
+        return null;
+    }
+}
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
 function createSqPanelImageList(panelNumArr) {
     var res = [];
     for (var i = 0; i < panelNumArr.length; i++) {
@@ -508,11 +526,19 @@ function createDropdownColumn(itemLists, colCls){
         }
         res += '<div class="' + (i === 0 ? "mb-5" : "my-5") + ' font-weight-bold">';
         if  ( item.url !== undefined ) {
-            res += '<a href="' + item.url + '">';
+            if  (getHostName(item.url) === null) {
+                res += '<a href="' + item.url + '">';
+            } else {
+                res += '<a href="' + item.url + '" target="_blank">';
+            }
         }
         res += item.title;
         if  ( item.url !== undefined ) {
-            res += '</a>';
+            if  (getHostName(item.url) === null) {
+                res += '</a>';
+            } else {
+                res += '<i class="fa fa-external-link-alt"></i></a>';
+            }
         }
         res += '</div>';
         res += createStyledList(item.sub);
@@ -615,14 +641,6 @@ function pfisig() {
     return '<strong>Prema Florence Isaac</strong>';
 }
 
-function getUrlVars() {
-    var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-        vars[key] = value;
-    });
-    return vars;
-}
-    
 function getTabItem(title, id, isActive) {
     return '<li class="nav-item"><a class="nav-link' +
         (isActive ? ' active' : '') + '"  data-toggle="tab" href="#' + id + '" role="tab">' + title + '</a></li>';
