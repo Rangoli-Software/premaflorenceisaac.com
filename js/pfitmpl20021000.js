@@ -683,7 +683,7 @@ function createSection(pages) {
 }
 
 function createRelated(header, items, sections) {
-    var brkColCls = "col-md-4";
+    var brkColCls = "col-md-3";
     var res = '<div class="container mb-5"><h5>' + header + '</h5><section class="pt-4"><div class="container"><div class="row">';
     for (var i = 0; i < items.length; i++) {
         res += '<div class="col-12 ' + brkColCls + '">' +  createFeatureItemCard(items[ i ], sections[ i ]) + '</div>';
@@ -699,7 +699,7 @@ function pickSection(section) {
 }
 
 function selectSections() {
-    return [pickSection([atelier, origin]), pickSection([about, buzz, archives, lotm]), pickSection([moods, ramp, clients])];
+    return [atelier, pickSection([about, buzz, archives, lotm]), pickSection([moods, ramp, clients]), origin];
 }
 
 function createFeatures(header) {
