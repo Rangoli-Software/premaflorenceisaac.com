@@ -424,7 +424,8 @@ var siteMap = [
     moods,
     ramp,
     archives,
-    lotm
+    lotm,
+    shop
 ];
 
 function createSqPanelImageList(panelNumArr) {
