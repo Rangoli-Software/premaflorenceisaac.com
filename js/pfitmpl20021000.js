@@ -5,25 +5,25 @@ var moods = {
         {
             title: "Summer Dreams",
             url: "/summerdreams.html",
-            lede: "<a href='/summerdreams.html'><strong>Summer Dreams</strong> - A line in Black, Ivory and Silver</a>, in P.F.I. Tangail using the finest Bengal cotton, lustrous Madka and Mysore silks.",
+            lede: "<strong>Summer Dreams</strong> - A line in Black, Ivory and Silver, in P.F.I. Tangail using the finest Bengal cotton, lustrous Madka and Mysore silks.",
             imageURL: "/products/summerdreams/Line.jpg"
         },
         {
             title: "Vagabond",
             url: "/vagabond.html",
-            lede: "<a href='/vagabond.html'>The <strong>Vagabond</strong></a>: A capsule in a bio-washed, hand-spun, hand-loomed khadi and P.F.I. tangail - inspired by the travelers and mavericks of the world.....",
+            lede: "The <strong>Vagabond</strong>: A capsule in a bio-washed, hand-spun, hand-loomed khadi and P.F.I. tangail - inspired by the travelers and mavericks of the world.....",
             imageURL: "/products/vagabond/KohBoy.jpg"
         },
         {
             title: "Holy Days",
             url: "/holydaysreboot.html",
-            lede: "<a href='/holydaysreboot.html'><strong>Holy Days Reboot</strong></a> - A multi-layered boho re-imagining of our classic one-of-a-kind line of sari-based <strong>ArtWear</strong>.",
+            lede: "<strong>Holy Days Reboot</strong> - A multi-layered boho re-imagining of our classic one-of-a-kind line of sari-based <strong>ArtWear</strong>.",
             imageURL: "/products/holydaysreboot/KaftanS.jpg"
         },
         {
             title: "It's Magic!",
             url: "/itsmagic.html",
-            lede: "The <a href='/itsmagic.html'><strong>It's Magic</strong> capsule</a> of colourful, <strong>reversible</strong> children's garments in 100% Voile de Cotton",
+            lede: "The <strong>It's Magic</strong> capsule of colourful, <strong>reversible</strong> children's garments in 100% Voile de Cotton",
             imageURL: "/products/itsmagic/Balloon.jpg"
         }
     ]
@@ -99,7 +99,7 @@ var origin = {
             {
                 title: "The Rangoli Story",
                 url: "/journey/myjourney.html",
-                lede: '<strong>The Rangoli Journey</strong> Over the years, I have told <a href="/journey/myjourney.html">this story in bits and pieces to clients and friends</a>, who kept asking why it was not on the website.....',
+                lede: '<strong>The Rangoli Journey</strong> Over the years, I have told this story in bits and pieces to clients and friends, who kept asking why it was not on the website.....',
                 imageURL: "/journey/PremaStory.jpg"
             },
             {
@@ -147,7 +147,7 @@ var origin = {
             {
                 title: "P.F.I. Tangail",
                 url: "/journey/pfifabrics.html",
-                lede: '<strong>A Bouquet of Borders!</strong> How and Why I created my own line of fabrics: <strong><a href="/journey/pfifabrics.html">P.F.I. Tangail</a></strong>',
+                lede: '<strong>A Bouquet of Borders!</strong> How and Why I created my own line of fabrics: <strong>P.F.I. Tangail</strong>',
                 imageURL: "/journey/PreciousI.jpg"
             },
             {
@@ -196,37 +196,37 @@ var atelier = {
         {
             title: "Fashion Week",
             url: "/fw/fashionweek.html",
-            lede: 'In September, I put together my first ever fashion show at <strong><a href="/fw/fashionweek.html">Fashion Week Pondicherry!</a></strong>',
+            lede: 'In September, I put together my first ever fashion show at <strong>Fashion Week Pondicherry!</strong>',
             imageURL: "/fw/finale.jpg"
         },
         {
             title: "Dream Team",
             url: "/atelier/dreamteam.html",
-            lede: '<a href="/atelier/dreamteam.html">My work family</a> - they are a big part of what makes my Rangoli Atelier tick!',
+            lede: 'My work family - they are a big part of what makes my Rangoli Atelier tick!',
             imageURL: "/atelier/PFW.jpg"
         },
         {
             title: "Tapestries!",
             url: "/tapestries/tapestries.html",
-            lede: 'An <a href="/tapestries/tapestries.html">artistic collaboration</a> with Montreal photographer <strong>Jérémi Poulin</strong>',
+            lede: 'An artistic collaboration with Montreal photographer <strong>Jérémi Poulin</strong>',
             imageURL: "/tapestries/JP-7374.jpg"
         },
         {
             title: "Tangail Art",
             url: "/tangailcollage.html",
-            lede: 'Some time ago, I started creating <a href="/tangailcollage.html"><strong>one-of-a-kind, numbered collages</strong></a> using borders from my <strong>Treasure Trove</strong>...',
+            lede: 'Some time ago, I started creating <strong>one-of-a-kind, numbered Woven Canvases</strong> using borders from my <strong>Treasure Trove</strong>...',
             imageURL: "/g/blog/CllgPrcSq.jpg"
         },
         {
             title: "Pranayama",
             url: "/atelier/pranayama.html",
-            lede: 'We are sharing some pictures we recently received of <a href="/atelier/pranayama.html">the morning Pranayama sessions</a> at the atelier.',
+            lede: 'We are sharing some pictures we recently received of the morning Pranayama sessions at the atelier.',
             imageURL: "/atelier/PranSq.jpg"
         },
         {
             title: "KidinMi Launch",
             url: "/kidinmi.html",
-            lede: 'After 10 years on the drawing boards, I am finally ready to launch my <a href="/kidinmi.html">new kids label!! - <strong>KidinMi</strong></a>',
+            lede: 'After 10 years on the drawing boards, I am finally ready to launch my new kids label!! - <strong>KidinMi</strong>',
             imageURL: "/g/kimgphsimp.svg"
         }
     ]
@@ -308,19 +308,19 @@ var buzz = {
         {
             title: "Yves Story",
             url: "https://www.linkedin.com/pulse/prema-florence-isaac-yves-richez-ph-d-/",
-            lede: 'Yves also wrote a short piece about our meeting on LinkedIn - <a hef="https://www.linkedin.com/pulse/prema-florence-isaac-yves-richez-ph-d-/" target="_blank">Meeting with Prema Florence Isaac, creative and entrepreneur in India.</a>',
+            lede: 'Yves also wrote a short piece about our meeting on LinkedIn - Meeting with Prema Florence Isaac, creative and entrepreneur in India.',
             imageURL: "https://www.talentreveal.com/uploads/3/1/2/1/31219479/talentreveallogo2018.png"
         },
         {
             title: "Alia ૐ",
             url: "https://aliaom.com/alia-yoga-prema-design-auroville/",
-            lede: "Check out the blog article of <a href=\"https://aliaom.com/\">AliaOm ૐ Yoga de la Femme</a>, women's yoga teacher and my meeting with her.",
+            lede: "Check out the blog article of Alia M'Hamdi, women's yoga teacher and my meeting with her.",
             imageURL: "https://aliaom.com/wp-content/uploads/2019/10/Alia-Prema-Sri-Kailasanathar-Pink-Temple.jpg"
         },
         {
             title: "Lila",
             url: "https://lila.lt/en/2018/12/prema-florence-isaac-at-first-i-look-within/",
-            lede: 'Here is <a href="https://lila.lt/en/2018/12/prema-florence-isaac-at-first-i-look-within/">the first part of a story in Lila Magazine</a>. I was interviewed by the wonderful journalist Ginta Gaivenyte.',
+            lede: 'Here is the first part of a story in Lila Magazine. I was interviewed by the wonderful journalist Ginta Gaivenyte.',
             imageURL: "https://lila.lt/wp-content/uploads/sites/10/2018/07/lila_logo_sviesa.png"
         },
         {
@@ -332,13 +332,13 @@ var buzz = {
         {
             title: "Erika Lernot",
             url: "http://www.lesvoyagesderika.fr/mon-look-reves-de-cuba-by-rangoli/",
-            lede: '<strong>Mon look - Reves de Cuba</strong> - a <a href="http://www.lesvoyagesderika.fr/mon-look-reves-de-cuba-by-rangoli/" target="_blank">blog by Erika Lernot</a>, singer and traveler, who modeled our <a href="summerdreams.html">A Midsummer Nights Dream</a> Mood.',
+            lede: '<strong>Mon look - Reves de Cuba</strong> - a blog by Erika Lernot, singer and traveler, who modeled our <a href="summerdreams.html">A Midsummer Nights Dream</a> Mood.',
             imageURL: "https://i1.wp.com/www.lesvoyagesderika.fr/wp-content/uploads/2015/11/Erika-tet-mare-.jpg?zoom=2&resize=666%2C352"
         },
         {
             title: "The Hindu",
             url: "https://www.thehindu.com/features/metroplus/fashion/Ethically-swish/article16881597.ece",
-            lede: '<strong>Ethically Swish</strong> - a story about Prema in <a href="https://www.thehindu.com/features/metroplus/fashion/Ethically-swish/article16881597.ece" target="_blank">The Hindu</a>',
+            lede: '<strong>Ethically Swish</strong> - a story about Prema in The Hindu',
             imageURL: "https://www.thehindu.com/migration_catalog/article16861703.ece/ALTERNATES/FREE_660/MP16_RANGOLI.JPG"
         }
     ]
