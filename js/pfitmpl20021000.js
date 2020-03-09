@@ -237,12 +237,6 @@ var clients = {
     url: "/about.html?a=c&#about-tabs",
     sub: [
         {
-            title: "#oneofakind",
-            url: "/people/oneofakind.html",
-            lede: "The #oneofakind persons that are wearing my Woven Canvases",
-            imageURL: "/people/mmib.jpg"
-        },
-        {
             title: "Curators",
             url: "/people/curators.html",
             lede: "A trio of curators that like my designs",
@@ -598,13 +592,13 @@ function createMegaMenuImage(item) {
 
 function createShopMM() {
     var col1 = createDropdownColumn([shop, faqs], "col-12");
-    return createMinWidthDDCard([col1], "200px", false);
+    return createMinWidthDDCard([col1], "190px", false);
 }
 
 function createLookMM() {
     var col1 = createDropdownColumn([lotm, ramp], "col-6");
     var col2 = createDropdownColumn([moods], "col-6");
-    return createMinWidthDDCard([col1, col2], "360px", false);
+    return createMinWidthDDCard([col1, col2], "350px", false);
 }
 
 function createBlogDD () {
