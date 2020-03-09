@@ -609,7 +609,7 @@ function createBlogDD () {
 
 function createAboutDD () {
     var col1 = createDropdownColumn([about, buzzTL, clients], "col-12");
-    return createMinWidthDDCard([col1], "170px", true);
+    return createMinWidthDDCard([col1], "160px", true);
 }
 
 function createTopNav() {
