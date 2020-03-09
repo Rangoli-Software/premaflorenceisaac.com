@@ -665,7 +665,7 @@ function createFeatureItemCard(item, section) {
     res += '<div class="card-body px-0 pt-6 pb-4">';
     res += '<div class="card-subtitle mb-1"><a class="text-muted" href="'  + section.url + '">' + section.title +'</a></div>';
     if  ( item.url !== undefined ) {
-        res += '<h6 class="card-title mb-2">' + item.title + '<a  href="' + item.url + (getHostName(item.url) === null ? '' : ' target="_blank"') +  '"><i class="fa ' + (getHostName(item.url) === null ? 'fa-arrow-right' : 'fa-external-link') + ' ml-2"></i></a></h6>';
+        res += '<h6 class="card-title mb-2">' + item.title + '<a  href="' + item.url + '"' +(getHostName(item.url) === null ? '' : ' target="_blank"') +  '><i class="fa ' + (getHostName(item.url) === null ? 'fa-arrow-right' : 'fa-external-link') + ' ml-2"></i></a></h6>';
     }
     res += '<p class="mb-1">' + item.lede + '</p>';
     res += '</div></div>';
@@ -686,7 +686,7 @@ function createItemCard(item) {
     }
     res += '<div class="card-body px-0 pt-6 pb-4">';
     if  (item.url !== undefined) {
-        res += '<h6 class="card-title mb-2">' + item.title + '<a  href="' + item.url + (getHostName(item.url) === null ? '' : ' target="_blank"') +  '"><i class="fa' +  (getHostName(item.url) === null ? 'fa-arrow-right' : 'fa-external-link') + ' ml-2"></i></a></h6>';
+        res += '<h6 class="card-title mb-2">' + item.title + '<a  href="' + item.url + '"' +(getHostName(item.url) === null ? '' : ' target="_blank"') +  '><i class="fa ' + (getHostName(item.url) === null ? 'fa-arrow-right' : 'fa-external-link') + ' ml-2"></i></a></h6>';
     }
     res += '<p class="mb-1">' + item.lede + '</p>';
     res += '</div></div>';
