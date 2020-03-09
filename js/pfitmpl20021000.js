@@ -288,6 +288,10 @@ var about = {
     ]
 };
 
+var buzzTL = {
+    title: "Buzzing...",
+    url: "/about.html?a=b&#about-tabs"}
+
 var buzz = {
     title: "Buzzing...",
     url: "/about.html?a=b&#about-tabs",
@@ -608,9 +612,8 @@ function createBlogDD () {
 }
 
 function createAboutDD () {
-    var col1 = createDropdownColumn([about, clients], "col-6");
-    var col2 = createDropdownColumn([buzz], "col-6");
-    return createMinWidthDDCard([col1, col2], "360px", true);
+    var col1 = createDropdownColumn([about, clients, buzzTL], "col-12");
+    return createMinWidthDDCard([col1], "190px", true);
 }
 
 function createTopNav() {
