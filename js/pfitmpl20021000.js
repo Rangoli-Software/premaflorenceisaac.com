@@ -511,7 +511,7 @@ var res = '<ul class="list-styled mb-6 font-size-sm">';
         if  (item.title === undefined) {
             continue;
         }
-        res += '<li class="list-styled-item"><a class="list-styled-link" href="' + item.url + '">' + item.title + '</a></li>';
+        res += '<li class="list-styled-item"><a class="list-styled-link" href="' + item.url + '"' +  (getHostName(item.url) === null ? "" : ' target="_blank"') + '>' + item.title + (getHostName(item.url) === null ? "" :  ' <i class="fa fa-external-link"></i>') + '</a></li>';
     }
     res +=  '</ul>';
     return res; 
@@ -610,7 +610,7 @@ function createBlogDD () {
 function createAboutDD () {
     var col1 = createDropdownColumn([about, clients], "col-6");
     var col2 = createDropdownColumn([buzz], "col-6");
-    return createMinWidthDDCard([col1, col2], "330px", true);
+    return createMinWidthDDCard([col1, col2], "360px", true);
 }
 
 function createTopNav() {
@@ -665,7 +665,7 @@ function createFeatureItemCard(item, section) {
     res += '<div class="card-body px-0 pt-6 pb-4">';
     res += '<div class="card-subtitle mb-1"><a class="text-muted" href="'  + section.url + '">' + section.title +'</a></div>';
     if  ( item.url !== undefined ) {
-        res += '<h6 class="card-title mb-2">' + item.title + '<a  href="' + item.url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
+        res += '<h6 class="card-title mb-2">' + item.title + '<a  href="' + item.url + (getHostName(item.url) === null ? '' : ' target="_blank"') +  '"><i class="fa ' + (getHostName(item.url) === null ? 'fa-arrow-right' : 'fa-external-link') + ' ml-2"></i></a></h6>';
     }
     res += '<p class="mb-1">' + item.lede + '</p>';
     res += '</div></div>';
