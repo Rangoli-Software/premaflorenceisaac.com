@@ -602,7 +602,7 @@ function createSizeRadio(name, idPfx, val, i, checked) {
 
 function createSizeOptions(radName, label, vals, selIdx) {
     var id = radName + "Group";
-    var res = '<div class="form-group"><label for="' + id + '">' + label + ': </label><span id="' +  id + '" class="mb-2">';
+    var res = '<div class="form-group"><label for="' + id + '">' + label + ' : </label><span id="' +  id + '" class="mb-2">';
     var idPfx = radName + "ID";
     for (var i = 0; i < vals.length; i++) {
         res += createSizeRadio(radName, idPfx, vals[i], i, (i == selIdx));
