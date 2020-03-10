@@ -814,18 +814,15 @@ function pfiTopMenu (location) {
     return shareInit() +
         '<div class="rwell text-center">\
             <small><strong>Distinctive Designs . Fusion Flair . Textile Treasures</strong></small>\
-    </div>'+ '<div class="container p-0">'
-    +
-'<div class="text-center px-3 pt-3 pb-2"><a href="/index.html"><img src="/g/pfilogo2002.svg" alt="Prema Florence Isaac" class="img-fluid" width="1000px"></a></div>'
+    </div>'+ '<div class="container p-0">' + '<div class="text-center px-3 pt-3 pb-2"><a href="/index.html"><img src="/g/pfilogo2002.svg" alt="Prema Florence Isaac" class="img-fluid" width="1000px"></a></div>'
         + createTopNav() + '</div>' + createBreadCrumb(location);
 }
 
 function kimTopMenu (location) {
     return shareInit() +
         '<div class="rwell text-center">\
-            <small><strong>Distinctive Designs . Fusion Flair . Textile Treasures</strong></small>\
-    </div>'+ '<div class="container p-0">'
-        '<div class="item text-center px-3 pt-3 pb-2"><a href="/kidinmi.html"><img src="/g/kimlogo.svg" alt="KidInMi" class="img-fluid" width="300px"></a></div>'
+            <small><strong>Distinctive Designs . Fusion Flair . Textile Treasures</strong></small></div>'  + '<div class="container p-0">'
+    + '<div class="item text-center px-3 pt-3 pb-2"><a href="/kidinmi.html"><img src="/g/kimlogo.svg" alt="KidInMi" class="img-fluid" width="300px"></a></div>'
         + createTopNav() + '</div>'  + createBreadCrumb(location);
 }
 
