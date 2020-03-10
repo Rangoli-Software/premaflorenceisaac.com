@@ -846,8 +846,11 @@ function pfiTopMenu (location) {
 
 function kimTopMenu (location) {
     return shareInit() +
-        '<div class="container"><div class="item text-center"><div style="padding-top: 1ex; padding-bottom: 1ex"><a href="/kidinmi.html"><img src="/g/kimlogo.svg" alt="KidInMi" class="img-fluid center-block" width="300px"></a></div></div>'
-        + createTopNav() + '</div>';
+        '<div class="rwell text-center">\
+            <small><strong>Distinctive Designs . Fusion Flair . Textile Treasures</strong></small>\
+    </div>'+ '<div class="container p-0">'
+        '<div class="item text-center px-3 pt-3 pb-2"><a href="/kidinmi.html"><img src="/g/kimlogo.svg" alt="KidInMi" class="img-fluid" width="300px"></a></div>'
+        + createTopNav() + '</div>'  + createBreadCrumb(location);
 }
 
 function creatFBShareBtn(location) {

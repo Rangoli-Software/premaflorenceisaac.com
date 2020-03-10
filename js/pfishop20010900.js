@@ -1,5 +1,17 @@
 /* global shopRevisionVersion, cmData, plData, paypal, gtag, fbq */
 
+function inches2cm (x) {
+    return (Math.round(10 * 2.54 * x) / 10).toFixed(0);
+}
+
+function cm2inches (x) {
+    return (Math.round(10 * x / 2.54) / 10).toFixed(0);
+}
+
+function identity (x) {
+    return x;
+}
+
 function createCatalog() {
     var ret = {};
     for(var i = 0; i < cmData.length; i++) {
