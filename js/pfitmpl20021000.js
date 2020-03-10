@@ -17,7 +17,7 @@ var moods = {
         {
             title: "Holy Days",
             url: "/holydaysreboot.html",
-            lede: "<strong>Holy Days Reboot</strong> - A multi-layered boho re-imagining of our classic one-of-a-kind line of sari-based <strong>ArtWear</strong>.",
+            lede: "<strong>Holy Days Reboot</strong> - A multi-layered boho re-imagining of our classic one-of-a-kind line of sari-based <strong>Art Wear</strong>.",
             imageURL: "/products/holydaysreboot/KaftanS.jpg"
         },
         {
@@ -53,7 +53,7 @@ var lotm = {
     url: "/look.html?t=p",
     sub: [
         {
-            lede: 'Off-shoulder knit top with one of my signature Artwear skirts - The Naksha.',
+            lede: 'Off-shoulder knit top with one of my signature Art Wear skirts - The Naksha.',
             imageURL: "/g/look/nkshofstp.jpg"
         },
         {
@@ -141,7 +141,7 @@ var origin = {
             {
                 title: "Art Wear",
                 url: "/journey/artwear.html",
-                lede: 'The origin story of my one-of-a-kind ArtWear line',
+                lede: 'The origin story of my one-of-a-kind Art Wear line',
                 imageURL: "/g/aw/HDRKaftan1AW.jpg"
             },
             {
