@@ -314,8 +314,8 @@ var buzz = {
         {
             title: "Alia ૐ",
             url: "https://aliaom.com/alia-yoga-prema-design-auroville/",
-            lede: "Check out the blog article of Alia M'Hamdi, women's yoga teacher and my meeting with her.",
-            imageURL: "https://aliaom.com/wp-content/uploads/2019/10/Alia-Prema-Sri-Kailasanathar-Pink-Temple.jpg"
+            lede: "Check out the blog article of Alia M'Hamdi, women's yoga teacher about our meeting and her visit to the atelier.",
+            imageURL: "https://aliaom.com/wp-content/uploads/2017/03/Alia-@-The-Pink-Temple-Auroville-India.jpg"
         },
         {
             title: "Lila",
