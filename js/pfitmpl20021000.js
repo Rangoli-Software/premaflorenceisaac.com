@@ -371,30 +371,6 @@ var faqs = {
         title: "Shop FAQ",
         url: "/shopfaq.html",
         sub: [
-        {
-            title: "Colours",
-            url: "/shopfaq.html#colours"
-        },
-        {
-            title: "Availability",
-            url: "/shopfaq.html#availability"
-        },
-        {
-            title: "Sizing",
-            url: "/shopfaq.html#sizes"
-        },
-        {
-            title: "Care",
-            url: "/shopfaq.html#care"
-        },
-        {
-            title: "Shipping",
-            url: "/shopfaq.html#shipping"
-        },
-        {
-            title: "Customs &amp; Tariffs",
-            url: "/shopfaq.html#duties"
-        }
     ]
 };
 
