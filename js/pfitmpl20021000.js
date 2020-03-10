@@ -574,13 +574,13 @@ function createShopMM() {
 function createLookMM() {
     var col1 = createDropdownColumn([lotm, ramp], "col-6");
     var col2 = createDropdownColumn([moods], "col-6");
-    return createMinWidthDDCard([col1, col2], "300px", false);
+    return createMinWidthDDCard([col1, col2], "310px", false);
 }
 
 function createBlogDD () {
     var col1 = createDropdownColumn([atelier], "col-6");
     var col2 = createDropdownColumn([origin, archives], "col-6");
-    return createMinWidthDDCard([col1, col2], "345px", true);
+    return createMinWidthDDCard([col1, col2], "350px", true);
 }
 
 function createAboutDD () {
