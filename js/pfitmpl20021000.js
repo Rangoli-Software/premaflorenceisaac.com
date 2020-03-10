@@ -580,7 +580,7 @@ function createLookMM() {
 function createBlogDD () {
     var col1 = createDropdownColumn([atelier], "col-6");
     var col2 = createDropdownColumn([origin, archives], "col-6");
-    return createMinWidthDDCard([col1, col2], "360px", true);
+    return createMinWidthDDCard([col1, col2], "340px", true);
 }
 
 function createAboutDD () {
