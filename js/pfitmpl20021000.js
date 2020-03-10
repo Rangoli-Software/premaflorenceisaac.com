@@ -17,7 +17,7 @@ var moods = {
         {
             title: "Holy Days",
             url: "/holydaysreboot.html",
-            lede: "<strong>Holy Days Reboot</strong> - A multi-layered boho re-imagining of our classic one-of-a-kind line of sari-based <strong>Art Wear</strong>.",
+            lede: "A multi-layered boho re-imagining of our classic one-of-a-kind line of sari-based <strong>Art Wear</strong>.",
             imageURL: "/products/holydaysreboot/KaftanS.jpg"
         },
         {
