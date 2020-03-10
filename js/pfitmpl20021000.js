@@ -97,9 +97,9 @@ var origin = {
         url: "/blog.html?t=o",
         sub: [
             {
-                title: "The Rangoli Story",
+                title: "Prema's Story",
                 url: "/journey/myjourney.html",
-                lede: '<strong>The Rangoli Journey</strong> Over the years, I have told this story in bits and pieces to clients and friends, who kept asking why it was not on the website.....',
+                lede: 'Over the years, I have told this story in bits and pieces to clients and friends, who kept asking why it was not on the website.....',
                 imageURL: "/journey/PremaStory.jpg"
             },
             {
