@@ -411,7 +411,7 @@ var siteMap = [
                 url: "/about.html"
             },
             {
-                title: "Look!",
+                title: "Look",
                 url: "/look.html"
             }
         ]
