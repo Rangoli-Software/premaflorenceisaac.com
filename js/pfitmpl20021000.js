@@ -524,7 +524,7 @@ function createDropdownColumn(itemLists, colCls){
 }
 
 function createDropdownCard(cols) {
-    var  res  = '<div class="card card-lg"><div class="card-body"><div class="row">';
+    var  res  = '<div class="card"><div class="card-body"><div class="row">';
     for (var i = 0; i < cols.length; i++) {
         res += cols[ i ];
     }
@@ -574,18 +574,18 @@ function createShopMM() {
 function createLookMM() {
     var col1 = createDropdownColumn([lotm, ramp], "col-6");
     var col2 = createDropdownColumn([moods], "col-6");
-    return createMinWidthDDCard([col1, col2], "320px", false);
+    return createMinWidthDDCard([col1, col2], "305px", false);
 }
 
 function createBlogDD () {
     var col1 = createDropdownColumn([atelier], "col-6");
     var col2 = createDropdownColumn([origin, archives], "col-6");
-    return createMinWidthDDCard([col1, col2], "360px", true);
+    return createMinWidthDDCard([col1, col2], "345px", true);
 }
 
 function createAboutDD () {
     var col1 = createDropdownColumn([about, buzzTL, clients], "col-12");
-    return createMinWidthDDCard([col1], "160px", true);
+    return createMinWidthDDCard([col1], "145px", true);
 }
 
 function createTopNav() {
