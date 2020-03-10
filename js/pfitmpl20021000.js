@@ -470,7 +470,7 @@ function createBreadCrumb(location) {
 }            
 
 function createBreadCrumbLevels(level1, level2) {
-    var res = '<nav class="py-5"><div class="container"><div class="row"><div class="col-12"><ol class="breadcrumb mb-0 font-size-xs text-gray-400">';
+    var res = '<nav class="py-3"><div class="container"><div class="row"><div class="col-12"><ol class="breadcrumb mb-0 font-size-xs text-gray-400">';
     res +='<li class="breadcrumb-item"><a class="text-gray-400" href="index.html">Home</a></li>';
     if ( level1.title !== undefined ) {
         res +='<li class="breadcrumb-item"><a class="text-gray-400" href="' + level1.url + '">' + level1.title + '</a></li>';
