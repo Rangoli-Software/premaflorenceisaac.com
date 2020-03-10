@@ -568,7 +568,7 @@ function createMegaMenuImage(item) {
 
 function createShopMM() {
     var col1 = createDropdownColumn([shop, faqs], "col-12");
-    return createMinWidthDDCard([col1], "195px", false);
+    return createMinWidthDDCard([col1], "190px", false);
 }
 
 function createLookMM() {
