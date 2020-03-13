@@ -870,8 +870,12 @@ function createShareBar(location) {
         + '</div></div>';
 }
 
+function storyBrowser() {
+    return createFeatures("Featured Stories");
+}
+
 function botNav(botImgTag, location) {
-    return createFeatures("Featured Stories") +  createShareBar(location) +
+    return  createShareBar(location) +
     '<div class="rwell">\
             <p class="text-center"><strong>Light . Beauty . Freedom</strong></p>\
     </div>\
