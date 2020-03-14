@@ -1,4 +1,109 @@
+/atelier/*.jpg
+	Cache-Control: public, max-age=604800
+
+/blog/*.jpg
+	Cache-Control: public, max-age=604800
+
+/blog/lb/*.jpg
+	Cache-Control: public, max-age=604800
+
+/fabricart/*.jpg
+	Cache-Control: public, max-age=604800
+
+/fw/*.jpg
+	Cache-Control: public, max-age=604800
+
+/g/*.jpg
+	Cache-Control: public, max-age=604800
+
+/g/aw/*.jpg
+	Cache-Control: public, max-age=604800
+
+/g/blog/*.jpg
+	Cache-Control: public, max-age=604800
+
+/g/kim/*.jpg
+	Cache-Control: public, max-age=604800
+
+/g/look/*.jpg
+	Cache-Control: public, max-age=604800
+
+/g/p/*.jpg
+	Cache-Control: public, max-age=604800
+
+/g/ss16/*.jpg
+	Cache-Control: public, max-age=604800
+
+/g/tmp/*.jpg
+	Cache-Control: public, max-age=604800
+
+/g/w/*.jpg
+	Cache-Control: public, max-age=604800
+
 /journey/*.jpg
+	Cache-Control: public, max-age=604800
+
+/look/moods/hed/*.jpg
+	Cache-Control: public, max-age=604800
+
+/look/ramp/*.jpg
+	Cache-Control: public, max-age=604800
+
+/naksha/*.jpg
+	Cache-Control: public, max-age=604800
+
+/people/*.jpg
+	Cache-Control: public, max-age=604800
+
+/products/accessories/*.jpg
+	Cache-Control: public, max-age=604800
+
+/products/anotherway/*.jpg
+	Cache-Control: public, max-age=604800
+
+/products/happyeveryday/*.jpg
+	Cache-Control: public, max-age=604800
+
+/products/holydays/*.jpg
+	Cache-Control: public, max-age=604800
+
+/products/holydaysreboot/*.jpg
+	Cache-Control: public, max-age=604800
+
+/products/home/*.jpg
+	Cache-Control: public, max-age=604800
+
+/products/itsmagic/*.jpg
+	Cache-Control: public, max-age=604800
+
+/products/movein/*.jpg
+	Cache-Control: public, max-age=604800
+
+/products/scarves/*.jpg
+	Cache-Control: public, max-age=604800
+
+/products/scarves/dipdye/*.jpg
+	Cache-Control: public, max-age=604800
+
+/products/summerdreams/*.jpg
+	Cache-Control: public, max-age=604800
+
+/products/ties/*.jpg
+	Cache-Control: public, max-age=604800
+
+/products/vagabond/*.jpg
+	Cache-Control: public, max-age=604800
+
+/products/vagabond/Angkor/*.jpg
+	Cache-Control: public, max-age=604800
+
+/tapestries/*.jpg
+	Cache-Control: public, max-age=604800
+
+/tbc/*.jpg
+	Cache-Control: public, max-age=604800
+
+/tbc/sqIC/*.jpg
 	Cache-Control: public, max-age=604800
 
 /g/*.svg
