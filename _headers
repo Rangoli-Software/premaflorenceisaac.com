@@ -1,9 +1,9 @@
 /journey/*.jpg
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-	Cache-Control = "public max-age=604800"
+    X-Frame-Options: DENY
+    X-XSS-Protection: 1; mode=block
+	Cache-Control: public max-age=604800
 
 /g/*.svg
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-	Cache-Control = "public max-age=604800"
+    X-Frame-Options: DENY
+    X-XSS-Protection: 1; mode=block
+	Cache-Control: public max-age=604800
