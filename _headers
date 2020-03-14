@@ -1,0 +1,5 @@
+/journey/*.jpg
+	Cache-Control: public, max-age=604800
+
+/g/*.svg
+	Cache-Control: public, max-age=604800
