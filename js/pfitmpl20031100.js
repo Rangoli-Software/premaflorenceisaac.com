@@ -900,8 +900,6 @@ function botNav(botImgTag, location) {
     ;
 }
 
-
-
 function kimBotMenu(location) {
     return botNav('<img src="/g/kimgphsimp.svg" alt="KidinMi Graphic" class="img-fluid center-block" width="300px">', location);
 }
