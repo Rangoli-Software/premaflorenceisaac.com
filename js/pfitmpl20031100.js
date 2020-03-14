@@ -233,7 +233,7 @@ var atelier = {
 };
 
 var clients = {
-    title: "Real People",
+    title: "Friends",
     url: "/about.html?a=c&#about-tabs",
     sub: [
         {
