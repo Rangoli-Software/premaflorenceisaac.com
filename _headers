@@ -1,0 +1,110 @@
+/atelier/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/blog/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/blog/lb/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/fabricart/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/fw/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/g/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/g/aw/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/g/blog/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/g/kim/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/g/look/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/g/p/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/g/ss16/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/g/tmp/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/g/w/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/journey/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/look/moods/hed/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/look/ramp/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/naksha/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/people/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/accessories/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/anotherway/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/happyeveryday/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/holydays/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/holydaysreboot/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/home/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/itsmagic/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/movein/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/scarves/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/scarves/dipdye/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/summerdreams/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/ties/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/vagabond/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/vagabond/Angkor/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/tapestries/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/tbc/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/tbc/sqIC/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/g/*.svg
+	Cache-Control: public, max-age=31536000,  immutable

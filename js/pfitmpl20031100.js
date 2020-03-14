@@ -822,7 +822,7 @@ function kimTopMenu (location) {
     return shareInit() +
         '<div class="rwell text-center">\
             <small><strong>Distinctive Designs . Fusion Flair . Textile Treasures</strong></small></div>'  + '<div class="container p-0">'
-    + '<div class="item text-center px-3 pt-3 pb-2"><a href="/kidinmi.html"><img src="/g/kimlogo.svg" alt="KidInMi" class="img-fluid" width="300px"></a></div>'
+    + '<div class="item text-center px-3 pt-3 pb-2"><a href="/kidinmi.html"><img src="/g/kimlogo.svg" alt="KidInMi" class="img-fluid" width="300px" height="139.14px"></a></div>'
         + createTopNav() + '</div>'  + createBreadCrumb(location);
 }
 
@@ -901,11 +901,11 @@ function botNav(botImgTag, location) {
 }
 
 function kimBotMenu(location) {
-    return botNav('<img src="/g/kimgphsimp.svg" alt="KidinMi Graphic" class="img-fluid center-block" width="300px">', location);
+    return botNav('<img src="/g/kimgphsimp.svg" alt="KidinMi Graphic" class="img-fluid center-block" width="300px" height="300px">', location);
 }
 
 function botMenu(location) {
-    return botNav('<img src="/g/since199900.svg" alt="Rangoli Graphic" class="img-fluid center-block" width="300px">', location);
+    return botNav('<img src="/g/since199900.svg" alt="Rangoli Graphic" class="img-fluid center-block" width="300px" height="300px">', location);
 }
 
 function scriptSrcs() {
