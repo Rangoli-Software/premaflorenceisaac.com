@@ -1,8 +1,13 @@
 [[headers]]
-  for = "*.jpg"
+  for = "/journey/*.jpg"
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
+	Cache-Control = "public max-age=604800"
 
-    #  Multi-value headers are expressed with multi-line strings
+[[headers]]
+  for = "/g/*.svg"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
 	Cache-Control = "public max-age=604800"
