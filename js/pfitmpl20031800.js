@@ -713,8 +713,10 @@ function createCarousel(carId, carItems) {
     }
     res += '</ol><div class="carousel-inner">';
     for (i = 0; i < carItems.length; i++) {
+        var itm = carItems[i];
         res += '<div class="carousel-item' + (i == 0 ? ' active' : '') + '">'
-                + '<img class="d-block img-fluid" src="' + carItems[i].imageURL + '">'
+                + '<img class="d-block img-fluid" src="' + itm.imageURL +  '"' +  (itm.width !== undefined ?  'width="' + itm.width +  '"' : "") +
+            (itm.height !== undefined ?  'height="' + itm.height +  '"' : "") + '>'
                 + '</div>';
     }
     res += '</div>\
