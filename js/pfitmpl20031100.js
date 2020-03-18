@@ -714,7 +714,7 @@ function createCarousel(carId, carItems) {
     res += '</ol><div class="carousel-inner">';
     for (i = 0; i < carItems.length; i++) {
         res += '<div class="carousel-item' + (i == 0 ? ' active' : '') + '">'
-                + '<img class="d-block w-100" src="' + carItems[i].imageURL + '">'
+                + '<img class="d-block img-fluid" src="' + carItems[i].imageURL + '">'
                 + '</div>';
     }
     res += '</div>\
