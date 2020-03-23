@@ -39,5 +39,6 @@ var plData = [
     ['KAGTIE1601Kh', 3500],
     ['DPDYSF1501PT', 5700],
     ['CHMPGN1501JL', 1750],
-    ['ANGKRT1601Kh', 9000]
+    ['ANGKRT1601Kh', 9000],
+    ['LTSDSL1501Kh', 5000]
 ];
