@@ -27,6 +27,10 @@ figcaption {
   visibility: hidden;
 }
 
+.flickity-enabled:focus {
+    outline: none;
+}
+
 /* Shopping Addons
 -------------------------------------------------- */
 /* Media query for mobile viewport */
