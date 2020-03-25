@@ -70,6 +70,12 @@
 /products/happyeveryday/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
+/products/happyeveryday/jadedress/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/happyeveryday/looks/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
 /products/holydays/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
