@@ -184,8 +184,12 @@ function createPageComponent(prodInfo, dimensioner) {
             return this.createRenderer(this.allCartC.shop);
         },
         createItem: function (clr, size, qty) {
-            var product = prodInfo.product;
-            return createItem(product, product.inrPrice, size, clr, qty, skuInfo.SKU, product.imageURL, true);
+            var product = this.prodInfo.product;
+            var vidx = this.getRenderer().getVarIdx(clr);
+            var vnt = this.prodInfo.variants[vidx];
+            var itmSKU = vnt.vid + "-" + size;
+            var imgURL = vnt.images[0].url;
+            return createItem(product, product.inrPrice, size, clr, qty, itmSKU, imgURL, false);
         },
         addToCart: function () {
             var size = this.getSelectedSize();
@@ -194,14 +198,14 @@ function createPageComponent(prodInfo, dimensioner) {
             var item = this.createItem(clr, size, qty);
             return this.allCartC.addToCart(item);
         },
-        registerATCListener() {
+        registerATCListener: function () {
             var atcBtnElt = $('#' + this.getRenderer().getBtnId());
             let that = this;
             atcBtnElt.on('click', function () {
                 that.addToCart();
             });
         },
-        unregisterATCListener() {
+        unregisterATCListener: function () {
             var atcBtnElt = $('#' + this.getRenderer().getBtnId());
             atcBtnElt.off('click');
         },
@@ -303,11 +307,6 @@ function onSelectionChange() {
     pageComponent.onSelectionChange();
 }
 
-function onCurrencyChange(shop) {
-    pageComponent.setShop(shop);
-}
-
 function onUnitChange() {
     pageComponent.onUnitChange(dimensioner);
 }
-
