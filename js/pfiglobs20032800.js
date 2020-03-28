@@ -1,4 +1,4 @@
-var shopRevisionVersion = "2019032200";
+var shopRevisionVersion = "2020032800";
 
 var cmData = [
 ['Helena Dress - PFI Tangail', 'HLNDRS1505PT', '', '', '/products/summerdreams/Helena.jpg', ''],
@@ -22,15 +22,17 @@ var cmData = [
 ['Robe Tank - Jersey', 'TNKDRS1803Je', '', '', '/tmp/RobeTank.jpg', ''],
 ['Stone Necklace', 'SNCKLC1709GS', '', '', '', ''],
 ['Zip-Strap Bag - Trims', 'CHPTBG1808Kh', '', '', '', ''],
-['Woven Canvas on T', 'AWTSHT1604Je', '0.2', '1.3', '/fabricart/TShirtColl.jpg', 'TRUE'],
-['Kagera Tie', 'KAGTIE1601Kh', '0.094', '1.3', '/products/ties/Black.jpg', 'FALSE'],
 ['Gypsy Skirt', 'SSEKMD1501PP', '0.275', '1.4', '', 'TRUE'],
 ['Naksha Skirt', 'NKSHMD1501PP', '0.3', '1.4', '', 'TRUE'],
+['Test Live Trans', 'TESTIT0000Hi', '', '', '', 'FALSE'],
+['Woven Canvas on T', 'AWTSHT1604Je', '0.2', '1.3', '/fabricart/TShirtColl.jpg', 'TRUE'],
+['Kagera Tie', 'KAGTIE1601Kh', '0.094', '1.3', '/products/ties/Black.jpg', 'FALSE'],
 ['Dip-Dye Scarf', 'DPDYSF1501PT', '0.36', '1.4', '/products/scarves/TurbanMood.jpg', 'FALSE'],
-['Angkor Kurta', 'ANGKRT1601Kh', '0.36', '1.4', '/products/scarves/TurbanMood.jpg', 'FALSE'],
-['Shoulder String Dress', 'LTSDSL1501Kh', '0.36', '1.4', '/products/scarves/TurbanMood.jpg', 'FALSE'],
 ['Champagne Bottle Bag', 'CHMPGN1501JL', '0.0208333333333333', '1.3', '/products/home/cbaglite.jpg', 'FALSE'],
-['Test Live Trans', 'TESTIT0000Hi', '', '', '', 'FALSE']
+['Angkor Kurta', 'ANGKRT1601Kh', '0.36', '1.4', '', 'FALSE'],
+['Shoulder String Dress', 'LTSDSL1501Vo', '0.36', '1.4', '', 'FALSE'],
+['Crop Top', 'CRPTOP1805Kh', '0.1', '1.4', '', 'FALSE'],
+['Bermuda Pant', 'BERMPA1609Kh', '0.2', '1.4', '', 'FALSE'],
 ];
 
 var plData = [
@@ -40,5 +42,7 @@ var plData = [
     ['DPDYSF1501PT', 5700],
     ['CHMPGN1501JL', 1750],
     ['ANGKRT1601Kh', 9000],
-    ['LTSDSL1501Kh', 5000]
+    ['LTSDSL1501Vo', 5000],
+    ['CRPTOP1805Kh', 5000],
+    ['BERMPA1609Kh', 5000],
 ];
