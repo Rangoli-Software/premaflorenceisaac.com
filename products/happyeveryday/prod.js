@@ -50,13 +50,14 @@ function createProductInfo(skuInfo, product, variants) {
     };
 }
 
-function createProductRenderer(shop, prodInfo, dimensioner) {
+function createProductRenderer(shop, prodInfo, dimensioner, looks) {
     return {
         shop: shop,
         skuInfo: prodInfo.skuInfo,
         product: prodInfo.product,
         variants: prodInfo.variants,
         dimensioner: dimensioner,
+        looks: looks,
         getVarIdx: function (valColour) {
             for (var i = 0; i < this.variants.length; i++) {
                 var variant = this.variants[i];
@@ -148,7 +149,7 @@ function createProductRenderer(shop, prodInfo, dimensioner) {
         },
         createInfoDiv: function (varIdx, szIdx) {
             return '<div class="col-12 col-md-5 pl-lg-10"><div class="row mb-1"><div class="col"><a class="text-muted" href="looks.html">Happy Everyday</a></div></div>' +
-                '<h3 class="mb-2">' + this.skuInfo.title + '</h3>' +
+                '<h4 class="mb-2">' + this.product.name + '</h4>' +
                 '<div class="mb-7 text-gray-400"><span class="ml-1 font-size-h5 font-weight-bold">' +
                 this.getPriceHTML() + '</span></div>' +
                 '<form><div class="form-group">' +
@@ -161,24 +162,54 @@ function createProductRenderer(shop, prodInfo, dimensioner) {
                 this.createAddToCartButton() +
                 '</div></div>' +
                 '</div></form>' +
+                this.createShopTheLookDiv() +
                 '</div>';
         },
         createAddToCartButton: function () {
             return '<button id="' + this.getBtnId() + '" class="btn btn-block btn-warning" type="button"><span class="fa fa-cart-plus"></span> Add to Cart</button>';
+        },
+        createShopTheLookDiv: function () {
+            var related = this.looks.getRelatedStyles(this.skuInfo.SKU);
+            if (related === null) {
+                return '';
+            }
+            var res = '<h6>Pair with</h6><div class="row">';
+            for(var i = 0; i < related.length; i++) {
+                var lk = related[i].look;
+                var st = related[i].styles;
+                res += this.createRelatedProductCard(lk, st);
+            }
+            res += '</div>';
+            return res;
+        },
+        createRelatedProductCard: function(idx, styles){
+            var lkImg = this.looks.getImagePath(idx);
+            var res = '<div class="col-6"><div class="card mb-2"><div class="embed-responsive embed-responsive-1by1"><img class="embed-responsive-item" src="' + lkImg + '" style="object-fit: cover"></div><div class="card-body">';
+            for (var i =  0; i < styles.length; i++) {
+                var sty = styles[i];
+                var entry = getProductCatalog().getProduct(sty);
+                if ( i > 0 ) {
+                    res += ' &amp;'
+                }
+                res += ' <a href="' + entry.imageURL + '">' + entry.name + '</a>';
+            }
+            res += '</div></div></div>';
+            return res;
         }
     };
 }
 
-function createPageComponent(prodInfo, dimensioner) {
+function createPageComponent(prodInfo, dimensioner, looks) {
     return {
         prodInfo: prodInfo,
         dimensioner: dimensioner,
+        looks: looks,
         allCartC: null,
         init: function (shop) {
             this.allCartC = createAllCartComponents(shop, this);
         },
         createRenderer: function (shop) {
-            return createProductRenderer(shop, this.prodInfo, this.dimensioner);
+            return createProductRenderer(shop, this.prodInfo, this.dimensioner, this.looks);
         },
         getRenderer: function () {
             return this.createRenderer(this.allCartC.shop);

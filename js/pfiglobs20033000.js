@@ -30,9 +30,12 @@ var cmData = [
 ['Dip-Dye Scarf', 'DPDYSF1501PT', '0.36', '1.4', '/products/scarves/TurbanMood.jpg', 'FALSE'],
 ['Champagne Bottle Bag', 'CHMPGN1501JL', '0.0208333333333333', '1.3', '/products/home/cbaglite.jpg', 'FALSE'],
 ['Angkor Kurta', 'ANGKRT1601Kh', '0.36', '1.4', '', 'FALSE'],
-['Shoulder String Dress', 'LTSDSL1501Vo', '0.36', '1.4', '', 'FALSE'],
-['Crop Top', 'CRPTOP1805Kh', '0.1', '1.4', '', 'FALSE'],
-['Bermuda Pant', 'BERMPA1609Kh', '0.2', '1.4', '', 'FALSE'],
+['Shoulder String Dress', 'LTSDSL1501Vo', '0.36', '1.4', '/products/happyeveryday/jadedress.html', 'FALSE'],
+['Crop Top', 'CRPTOP1805Kh', '0.1', '1.4', '/products/happyeveryday/croptop.html', 'FALSE'],
+['Bermuda Pant', 'BERMPA1609Kh', '0.2', '1.4', '/products/happyeveryday/bermuda.html', 'FALSE'],
+['Drawstring Pant', 'DRAWPA1609Kh', '0.2', '1.4', '/products/happyeveryday/drawstring.html', 'FALSE'],
+['Short Overtop', 'OVTPSH1501Vo', '0.2', '1.4', '/products/happyeveryday/shovertop.html', 'FALSE'],
+['Trapeze Top', 'TRPZTP1807Kh', '0.2', '1.4', '/products/happyeveryday/trapeze.html', 'FALSE'],
 ];
 
 var plData = [
@@ -45,4 +48,7 @@ var plData = [
     ['LTSDSL1501Vo', 5000],
     ['CRPTOP1805Kh', 5000],
     ['BERMPA1609Kh', 5000],
+    ['DRAWPA1609Kh', 5000],
+    ['OVTPSH1501Vo', 5000],
+    ['TRPZTP1807Kh', 5000],
 ];
