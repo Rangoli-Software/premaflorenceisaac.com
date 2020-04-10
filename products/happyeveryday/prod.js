@@ -1,9 +1,41 @@
-function createDimensioner(units, dimensionNames, dimensions, imagePath) {
+function createDimensioner(units, dimensionNames, dimensions, imagePath, sizeGeo, sizingChart) {
     return {
         dimensionUnits: units,
         dimensionNames: dimensionNames,
         dimensions: dimensions,
         imagePath: imagePath,
+        sizeGeo: sizeGeo,
+        sizingChart: sizingChart,
+        createSizeChart: function(sizes) {
+            var nCols = this.sizeGeo.length + 1;
+            var szWidth = Math.floor(100 / nCols);
+            var rem = 100 - (this.sizeGeo.length * szWidth);
+
+            var table = '<div class="table-responsive"><table class="dim-table table table-bordered table-hover table-sm mb-0 text-center" style="padding: 6px;">';
+
+            table += '<thead><tr><td class="text-left" width="' + rem + '%"><strong>Size</strong></td>';
+            for (var i = 0; i < this.sizeGeo.length; i++) {
+                var sz = this.sizeGeo[i];
+                table += '<td width="' + szWidth + '%"><strong>' + sz + '</strong></td>';
+            }
+            table += '</tr></thead><tbody>';
+            for (var i = 0; i < sizes.length; i++) {
+                var sz = sizes[i];
+                var chart = this.sizingChart[ sz ];
+                if ( chart === undefined ) {
+                    continue;
+                }
+                table += '<tr><td class="text-left">' + sz + '</td>';
+                for (var j = 0; j < this.sizeGeo.length; j++) {
+                    var szG = this.sizeGeo[j];
+                    var szGeo = chart[szG];
+                    table += '<td>' + szGeo[0] + '-' + szGeo[1] + '</td>';
+                }
+                table += '</tr>'
+            }
+            table += '</tbody></table></div>';
+            return table;
+        },
         createSizingTable: function (units, sizes) {
             var fn = (units === this.dimensionUnits) ? identity : (units == "in" ? cm2inches : inches2cm);
 
@@ -99,7 +131,8 @@ function createProductRenderer(shop, prodInfo, dimensioner, looks) {
         },
         createSizingPanel: function () {
             var imgHTML = '<img src="' + this.dimensioner.imagePath + '" class="img-fluid center-block"/>';
-            return '<div class="row align-items-center"><div class="col-md-4 text-center py-5">' + imgHTML + '</div><div class="col-md-8 text-center py-5"><div class="btn-group btn-group-toggle ml-auto py-5" data-toggle="buttons"><label class="btn btn-xxs btn-circle btn-outline-dark font-size-xxxs rounded-0 active"><input type="radio" name="SizeChartUnits" value="in" onclick="onUnitChange()" checked>IN</label><label class="btn btn-xxs btn-circle btn-outline-dark font-size-xxxs rounded-0 ml-2"><input type="radio" name="SizeChartUnits" value="cm" onclick="onUnitChange()">CM</label></div>' + '<div id="SizeTable">' + this.dimensioner.createSizingTable("in", skuInfo.sizes) + '</div></div></div>';
+            return this.dimensioner.createSizeChart(this.skuInfo.sizes) +
+            '<div class="row align-items-center"><div class="col-md-4 text-center py-5">' + imgHTML + '</div><div class="col-md-8 text-center py-5"><div class="btn-group btn-group-toggle ml-auto py-5" data-toggle="buttons"><label class="btn btn-xxs btn-circle btn-outline-dark font-size-xxxs rounded-0 active"><input type="radio" name="SizeChartUnits" value="in" onclick="onUnitChange()" checked>IN</label><label class="btn btn-xxs btn-circle btn-outline-dark font-size-xxxs rounded-0 ml-2"><input type="radio" name="SizeChartUnits" value="cm" onclick="onUnitChange()">CM</label></div>' + '<div id="SizeTable">' + this.dimensioner.createSizingTable("in", this.skuInfo.sizes) + '</div></div></div>';
         },
         createImageCarousel: function (varIdx) {
             var variant = this.variants[varIdx];
@@ -124,7 +157,7 @@ function createProductRenderer(shop, prodInfo, dimensioner, looks) {
         createImagePanel: function (images) {
             var res = '<div class="card"><div data-flickity=\'{"draggable": false, "fade": true}\' id="' + this.getPanelId() + '">';
             for (var i = 0; i < images.length; i++) {
-                var img = images[i];
+                var img = images[i]; 
                 res += '<a href="' + img.url + '" data-fancybox="' + this.getGallery() + '"><img src="' + img.url + '" class="img-fluid"></a>';
             }
             res += '</div></div>';
