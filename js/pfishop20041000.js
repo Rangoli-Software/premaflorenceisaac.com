@@ -567,7 +567,7 @@ function createSizeOptions(radName, label, vals, selIdx) {
     for (var i = 0; i < vals.length; i++) {
         res += createSizeRadio(radName, idPfx, vals[i], i, (i == selIdx));
     }
-    res += '</span></div>';
+    res += '</span><a class="ml-3" data-toggle="modal" href="#modalSizeChart">Size chart</a>';
     return  res;
 }  
 

@@ -11,7 +11,7 @@ function createDimensioner(units, dimensionNames, dimensions, imagePath, sizeGeo
             var szWidth = Math.floor(100 / nCols);
             var rem = 100 - (this.sizeGeo.length * szWidth);
 
-            var table = '<div class="table-responsive"><table class="dim-table table table-bordered table-hover table-sm mb-0 text-center" style="padding: 6px;">';
+            var table = '<div class="table-responsive mb-7"><table class="dim-table table table-bordered table-hover table-sm mb-0 text-center" style="padding: 6px;">';
 
             table += '<thead><tr><td class="text-left" width="' + rem + '%"><strong>Size</strong></td>';
             for (var i = 0; i < this.sizeGeo.length; i++) {
@@ -131,8 +131,8 @@ function createProductRenderer(shop, prodInfo, dimensioner, looks) {
         },
         createSizingPanel: function () {
             var imgHTML = '<img src="' + this.dimensioner.imagePath + '" class="img-fluid center-block"/>';
-            return this.dimensioner.createSizeChart(this.skuInfo.sizes) +
-            '<div class="row align-items-center"><div class="col-md-4 text-center py-5">' + imgHTML + '</div><div class="col-md-8 text-center py-5"><div class="btn-group btn-group-toggle ml-auto py-5" data-toggle="buttons"><label class="btn btn-xxs btn-circle btn-outline-dark font-size-xxxs rounded-0 active"><input type="radio" name="SizeChartUnits" value="in" onclick="onUnitChange()" checked>IN</label><label class="btn btn-xxs btn-circle btn-outline-dark font-size-xxxs rounded-0 ml-2"><input type="radio" name="SizeChartUnits" value="cm" onclick="onUnitChange()">CM</label></div>' + '<div id="SizeTable">' + this.dimensioner.createSizingTable("in", this.skuInfo.sizes) + '</div></div></div>';
+            return '<h6>International Sizing</h6>' + this.dimensioner.createSizeChart(this.skuInfo.sizes) +
+            '<h6 class="mb-0">Garment Measurements</h6><div class="row align-items-center"><div class="col-md-4 text-center py-5">' + imgHTML + '</div><div class="col-md-8 text-center py-5"><div class="btn-group btn-group-toggle ml-auto py-5" data-toggle="buttons"><label class="btn btn-xxs btn-circle btn-outline-dark font-size-xxxs rounded-0 active"><input type="radio" name="SizeChartUnits" value="in" onclick="onUnitChange()" checked>IN</label><label class="btn btn-xxs btn-circle btn-outline-dark font-size-xxxs rounded-0 ml-2"><input type="radio" name="SizeChartUnits" value="cm" onclick="onUnitChange()">CM</label></div>' + '<div id="SizeTable">' + this.dimensioner.createSizingTable("in", this.skuInfo.sizes) + '</div></div></div>';
         },
         createImageCarousel: function (varIdx) {
             var variant = this.variants[varIdx];
@@ -187,7 +187,7 @@ function createProductRenderer(shop, prodInfo, dimensioner, looks) {
                 this.getPriceHTML() + '</span></div>' +
                 '<form><div class="form-group">' +
                 this.createColourPanel("colRadio", varIdx) +
-                '</div><div class="form-group">' +
+                '</div><div class="mb-3">Model is 5 ft 7 in (173 cm) and wearing size S</div>' +
                 createSizeOptions("sizeRadio", "Size", this.skuInfo.sizes, szIdx) +
                 '<div class="form-row mb-7"><div class="col-12 col-lg-auto">' +
                 this.createQuantityDiv() +
@@ -354,6 +354,12 @@ function renderProductDetails (summary, detailsHTML) {
     + '</div></div>'
     + '</div>'
     + '</div></div></div></section>';
+}
+
+function getSizeModal(contents) {
+    return '<div class="modal fade" id="modalSizeChart" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-lg" role="document"><div class="modal-content"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button><div class="modal-header line-height-fixed font-size-lg"><strong class="mx-auto">Sizing</strong></div><div class="modal-body border-bottom">'
+    + contents +
+        '</div></div></div></div>';
 }
 
 function loadShopWithParam() {
