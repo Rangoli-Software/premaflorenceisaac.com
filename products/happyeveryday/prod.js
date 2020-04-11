@@ -19,12 +19,8 @@ function getShippingInfoUL(points) {
     return res;
 }
 
-function createDimensioner(units, dimensionNames, dimensions, imagePath, sizeGeo, sizingChart) {
+function createSizeChartr(sizeGeo, sizingChart) {
     return {
-        dimensionUnits: units,
-        dimensionNames: dimensionNames,
-        dimensions: dimensions,
-        imagePath: imagePath,
         sizeGeo: sizeGeo,
         sizingChart: sizingChart,
         createSizeChart: function(sizes) {
@@ -56,7 +52,16 @@ function createDimensioner(units, dimensionNames, dimensions, imagePath, sizeGeo
             }
             table += '</tbody></table></div>';
             return table;
-        },
+        }
+    }
+}
+
+function createDimensioner(units, dimensionNames, dimensions, imagePath) {
+    return {
+        dimensionUnits: units,
+        dimensionNames: dimensionNames,
+        dimensions: dimensions,
+        imagePath: imagePath,
         createSizingTable: function (units, sizes) {
             var fn = (units === this.dimensionUnits) ? identity : (units == "in" ? cm2inches : inches2cm);
 
@@ -103,13 +108,14 @@ function createProductInfo(skuInfo, product, variants) {
     };
 }
 
-function createProductRenderer(shop, prodInfo, dimensioner, looks) {
+function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks) {
     return {
         shop: shop,
         skuInfo: prodInfo.skuInfo,
         product: prodInfo.product,
         variants: prodInfo.variants,
         dimensioner: dimensioner,
+        sizer: sizer,
         looks: looks,
         getVarIdx: function (valColour) {
             for (var i = 0; i < this.variants.length; i++) {
@@ -152,7 +158,7 @@ function createProductRenderer(shop, prodInfo, dimensioner, looks) {
         },
         createSizingPanel: function () {
             var imgHTML = '<img src="' + this.dimensioner.imagePath + '" class="img-fluid center-block"/>';
-            return '<h6>International Sizing</h6>' + this.dimensioner.createSizeChart(this.skuInfo.sizes) +
+            return '<h6>International Sizing</h6>' + this.sizer.createSizeChart(this.skuInfo.sizes) +
             '<h6 class="mb-0">Garment Measurements</h6><div class="row align-items-center"><div class="col-md-4 text-center py-5">' + imgHTML + '</div><div class="col-md-8 text-center py-5"><div class="btn-group btn-group-toggle ml-auto py-5" data-toggle="buttons"><label class="btn btn-xxs btn-circle btn-outline-dark font-size-xxxs rounded-0 active"><input type="radio" name="SizeChartUnits" value="in" onclick="onUnitChange()" checked>IN</label><label class="btn btn-xxs btn-circle btn-outline-dark font-size-xxxs rounded-0 ml-2"><input type="radio" name="SizeChartUnits" value="cm" onclick="onUnitChange()">CM</label></div>' + '<div id="SizeTable">' + this.dimensioner.createSizingTable("in", this.skuInfo.sizes) + '</div></div></div>';
         },
         createImageCarousel: function (varIdx) {
@@ -253,17 +259,18 @@ function createProductRenderer(shop, prodInfo, dimensioner, looks) {
     };
 }
 
-function createPageComponent(prodInfo, dimensioner, looks) {
+function createPageComponent(prodInfo, dimensioner, sizer, looks) {
     return {
         prodInfo: prodInfo,
         dimensioner: dimensioner,
+        sizer: sizer,
         looks: looks,
         allCartC: null,
         init: function (shop) {
             this.allCartC = createAllCartComponents(shop, this);
         },
         createRenderer: function (shop) {
-            return createProductRenderer(shop, this.prodInfo, this.dimensioner, this.looks);
+            return createProductRenderer(shop, this.prodInfo, this.dimensioner, this.sizer, this.looks);
         },
         getRenderer: function () {
             return this.createRenderer(this.allCartC.shop);
