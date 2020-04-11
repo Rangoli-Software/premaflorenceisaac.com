@@ -556,31 +556,6 @@ function createPaypalCheckoutButton(id, shop, cart, calc, allCartC) {
     }, id);
 }
 
-function createSizeRadio(name, idPfx, val, i, checked) {
-    return '<div class="custom-control custom-control-inline custom-control-size mb-2"><input type="radio" class="custom-control-input" name="' + name   +'" id="' + idPfx + i + '" value="' +  val  + '"' + (checked ? 'checked="checked" ' : '') +  ' onclick="onSelectionChange()"><label class="custom-control-label" for="' + idPfx + i + '">' + val +'</label></div>';
-}
-
-function createSizeOptions(radName, label, vals, selIdx) {
-    var id = radName + "Group";
-    var res = '<div class="form-group"><label for="' + id + '">' + label + ':</label> <span id="' +  id + '" class="mb-2">';
-    var idPfx = radName + "ID";
-    for (var i = 0; i < vals.length; i++) {
-        res += createSizeRadio(radName, idPfx, vals[i], i, (i == selIdx));
-    }
-    res += '</span><a class="ml-3" data-toggle="modal" href="#modalSizeChart">Size chart</a>';
-    return  res;
-}  
-
-function getShippingInfoUL(points) {
-    var res = '<ul>';
-    for(var i = 0; i < points.length; i++) {
-        res += '<li>' + points[i] + '</li>';
-    }
-    res += '<li>We will notify you by email / WhatsApp when your item is dispatched  and send you the tracking id.</li><li>Within India we will courier your item, which  will reach you within 2-3 business days of dispatch.</li><li>Our recommended international shipping method is India Post, which will reach almost anywhere in the world within 7-15 business days from dispatch.</li><li>We can also courier items anywhere in the world in 3-5 business days after dispatch.</li><li>Shipping time estimates <strong>do not</strong> include delays due to customs and other formalities at the port of entry.</li>';
-    res += '</ul>';
-    return res;
-}
-
 function createCurrencySelectorComponent(shop, allCartC) {
     return {
         shop: shop,
