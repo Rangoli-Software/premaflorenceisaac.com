@@ -112,5 +112,8 @@ var hed_lookbook = {
     },
     getImagePath: function(i) {
         return "/products/happyeveryday/looks/lk-" + this.looks[i].idxsfx + ".jpg";
+    },
+    getImageLeft: function(i) {
+        return "/products/happyeveryday/looks/ll-" + this.looks[i].idxsfx + ".jpg";
     }
 };
