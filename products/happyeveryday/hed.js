@@ -1,5 +1,5 @@
 var hed_lookbook = {
-    styles: ['WNDRPA1709Kh','DRAWPA1609Kh','BERMPA1609Kh','CRPTOP1805Kh','VAMPAL1708Kh','TRPZTP1807Kh','LTSDSL1501Vo','LITLAY1708Vo','OVERTP1501Vo','OVTPSH1501Vo','BALLPA1501Vo','JODHPA1708Kh'],
+    styles: ['WNDRPA1709Kh','DRAWPA1609Kh','BERMPA1609Kh','CRPTOP1805Kh','VAMPAL1708Kh','TRPZTP1807Kh','LTSDSL1501Vo','LITLAY1708Vo','OVTPLO1501Vo','OVTPSH1501Vo','BALLPA1501Vo','JODHPA1708Kh'],
     looks: [
     {
         title:  '1.1',
@@ -9,7 +9,7 @@ var hed_lookbook = {
     {
         title:  '1.2',
         idxsfx: '02',
-        styles: ['VAMPAL1708Kh','DRAWPA1609Kh','OVERTP1501Vo']
+        styles: ['VAMPAL1708Kh','DRAWPA1609Kh','OVTPLO1501Vo']
     },
     {
         title:  '1.3',
@@ -29,7 +29,7 @@ var hed_lookbook = {
     {
         title:  '3',
         idxsfx: '14',
-        styles: ['CRPTOP1805Kh','JODHPA1708Kh']
+        styles: ['CRPTOP1805Kh']
     },
     {
         title:  '4',
@@ -54,7 +54,7 @@ var hed_lookbook = {
     {
         title:  '8',
         idxsfx: '12',
-        styles: ['','BERMPA1609Kh']
+        styles: ['TNKTPS1805Kh','BERMPA1609Kh']
     },
     {
         title:  '9',
@@ -74,7 +74,7 @@ var hed_lookbook = {
     {
         title:  '12',
         idxsfx: '10',
-        styles: ['LTSDSL1501Vo','OVERTP1501Vo']
+        styles: ['LTSDSL1501Vo','OVTPLO1501Vo']
     }    
     ],
     getStyle2Looks: function() {
