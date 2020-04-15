@@ -40,6 +40,7 @@ var cmData = [
 ['Gloriosa Tie Pants', 'DRAWPA1609Kh', '0.2', '1.4', '/products/happyeveryday/drawstring.html', 'FALSE'],
 ['Pineapple Lily Pants', 'WNDRPA1709Kh', '0.2', '1.4', '/products/happyeveryday/lily.html', 'FALSE'],
 ['Balloon Flower Pants', 'BALLPA1501Vo', '0.2', '1.4', '/products/happyeveryday/balloon.html', 'FALSE'],
+['Jodhpur Pants', 'JODHPA1708Kh', '0.2', '1.4', '/products/happyeveryday/balloon.html', 'FALSE'],
 ['Floating Overlayer', 'OVTPSH1501Vo', '0.2', '1.4', '/products/happyeveryday/shovertop.html', 'FALSE'],
 ['Long Floating Overlayer', 'OVTPLO1501Vo', '0.2', '1.4', '/products/happyeveryday/lovertop.html', 'FALSE'],
 ];
