@@ -1,5 +1,5 @@
 var hed_lookbook = {
-    styles: ['WNDRPA1709Kh','DRAWPA1609Kh','BERMPA1609Kh','CRPTOP1805Kh','VAMPAL1708Kh','TRPZTP1807Kh','LTSDSL1501Vo','LITLAY1708Vo','OVTPLO1501Vo','OVTPSH1501Vo','BALLPA1501Vo','JODHPA1708Kh'],
+    styles: ['WNDRPA1709Kh','DRAWPA1609Kh','BERMPA1609Kh','CRPTOP1805Kh','TNKTPS1805Kh','VAMPAL1708Kh','TRPZTP1807Kh','LTSDSL1501Vo','LITLAY1708Vo','OVTPLO1501Vo','OVTPSH1501Vo','BALLPA1501Vo','JODHPA1708Kh'],
     looks: [
     {
         title:  '1.1',
@@ -116,4 +116,15 @@ var hed_lookbook = {
     getImageLeft: function(i) {
         return "/products/happyeveryday/looks/ll-" + this.looks[i].idxsfx + ".jpg";
     }
+};
+
+var hed_catalog = {
+    skus: ['WNDRPA1709Kh','DRAWPA1609Kh','BERMPA1609Kh','CRPTOP1805Kh','VAMPAL1708Kh','TRPZTP1807Kh','LTSDSL1501Vo','LITLAY1708Vo','OVTPLO1501Vo','OVTPSH1501Vo','BALLPA1501Vo','JODHPA1708Kh'],
+    summaries: [
+    {
+        sku: 'BERMPA1609Kh',
+        images: ["/products/happyeveryday/bermuda/magenta-f.jpg","/products/happyeveryday/bermuda/magenta-r.jpg"],
+        url: "/products/happyeveryday/bermuda.html"
+    }
+    ]
 };
