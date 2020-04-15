@@ -61,6 +61,7 @@ var plData = [
     ['BERMPA1609Kh', 5000],
     ['DRAWPA1609Kh', 5000],
     ['WNDRPA1709Kh', 5000],
+    ['JODHPA1708Kh', 5000],
     ['BALLPA1501Vo', 5000],
     ['OVTPSH1501Vo', 5000],
     ['OVTPLO1501Vo', 5000],
