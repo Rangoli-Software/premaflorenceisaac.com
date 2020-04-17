@@ -128,3 +128,42 @@ var hed_catalog = {
     }
     ]
 };
+
+var hed_sizing_top = {
+    sizeGeo: ["US", "UK", "EU"],
+    capGeo: ["US", "UK / AU / NZ", "EU / FR"],
+    chart: {
+    S: {
+        US: [8, 10],
+        UK: [12, 14],
+        EU: [40, 42]
+    },
+    M: {
+        US: [10, 12],
+        UK: [14, 16],
+        EU: [42, 44]
+    },
+    L: {
+        US: [12, 14],
+        UK: [16, 18],
+        EU: [44, 46]
+    },
+    XL: {
+        US: [14, 16],
+        UK: [18, 20],
+        EU: [46, 48]
+    },
+    }
+}
+
+var hed_sizing_pant = {
+    sizeGeo: ["US", "UK", "EU"],
+    capGeo: ["US", "UK / AU / NZ", "EU / FR"],
+    chart: {
+    S: {
+        US: [4, 6],
+        UK: [8, 10],
+        EU: [36, 38]
+    }
+    }
+}

@@ -952,32 +952,33 @@ function getShippingInfoUL(points) {
     return res;
 }
 
-function createSizeChartr(sizeGeo, sizingChart) {
+function createSizeChartr(sizing) {
     return {
-        sizeGeo: sizeGeo,
-        sizingChart: sizingChart,
+        sizeGeo: sizing.sizeGeo,
+        capGeo: sizing.capGeo,
+        sizingChart: sizing.chart,
         createSizeChart: function(sizes) {
-            var nCols = this.sizeGeo.length + 1;
+            var nCols = sizes.length + 1;
             var szWidth = Math.floor(100 / nCols);
-            var rem = 100 - (this.sizeGeo.length * szWidth);
+            var rem = 100 - (sizes.length * szWidth);
 
             var table = '<div class="table-responsive mb-7"><table class="dim-table table table-bordered table-hover table-sm mb-0 text-center" style="padding: 6px;">';
 
             table += '<thead><tr><td class="text-left" width="' + rem + '%"><strong>Size</strong></td>';
-            for (var i = 0; i < this.sizeGeo.length; i++) {
-                var sz = this.sizeGeo[i];
+            for (var i = 0; i < sizes.length; i++) {
+                var sz = sizes[i];
                 table += '<td width="' + szWidth + '%"><strong>' + sz + '</strong></td>';
             }
             table += '</tr></thead><tbody>';
-            for (var i = 0; i < sizes.length; i++) {
-                var sz = sizes[i];
-                var chart = this.sizingChart[ sz ];
-                if ( chart === undefined ) {
-                    continue;
-                }
-                table += '<tr><td class="text-left">' + sz + '</td>';
-                for (var j = 0; j < this.sizeGeo.length; j++) {
-                    var szG = this.sizeGeo[j];
+            for (var i = 0; i < this.sizeGeo.length; i++) {
+                var szG = this.sizeGeo[i];
+                table += '<tr><td class="text-left">' + this.capGeo[i] + '</td>';
+                for (var j = 0; j < sizes.length; j++) {
+                    var sz = sizes[j];
+                    var chart = this.sizingChart[ sz ];
+                    if ( chart === undefined ) {
+                        continue;
+                    }
                     var szGeo = chart[szG];
                     table += '<td>' + szGeo[0] + '-' + szGeo[1] + '</td>';
                 }
