@@ -124,6 +124,21 @@ var hed_catalog = {
     overtops: ['OVTPLO1501Vo','OVTPSH1501Vo'],
     dresses: ['VAMPAL1708Kh','LTSDSL1501Vo','LITLAY1708Vo'],
     pants: ['WNDRPA1709Kh','DRAWPA1609Kh','BERMPA1609Kh','BALLPA1501Vo','JODHPA1708Kh'],
+    getCategory: function(sku) {
+        if (this.tops.contains(sku)) {
+            return "tops";
+        }
+        if (this.overtops.contains(sku)) {
+            return "overtops";
+        }
+        if ( this.dresses.contains(sku) ) {
+            return "dresses";
+        }
+        if ( this.pants.contains(sku)) {
+            return "pants";
+        }
+        return null;
+    },
     summaries: [
     {
         sku: 'BALLPA1501Vo',

@@ -108,9 +108,14 @@ function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks) {
         createQuantityDiv: function () {
             return '<select class="custom-select"><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>';
         },
+        getCategoryURL: function() {
+            var res = "shop.html";
+            var cat = hed_catalog.getCategory(this.skuInfo.SKU);
+            return res + (cat === null ? "" : "?" + cat[0]); 
+        },
         createInfoDiv: function (varIdx, szIdx) {
             return '<div class="col-12 col-md-5 pl-lg-10">'
-                + '<div class="row mb-1"><div class="col"><a class="text-muted" href="shop.html">Happy Everyday</a></div></div>' 
+                + '<div class="row mb-1"><div class="col"><a class="text-muted" href="' + getCategoryURL() + '">Happy Everyday</a></div></div>' 
                 + '<h4 class="mb-2">' + this.product.name + '</h4>'
                 + '<div class="mb-7 text-gray-400"><span class="ml-1 font-size-h5 font-weight-bold">' +
                 this.getPriceHTML() + '</span></div>' +
