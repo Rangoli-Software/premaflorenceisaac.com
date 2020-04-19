@@ -996,6 +996,14 @@ function createDimensioner(units, dimensionNames, dimensions, imagePath) {
         dimensionNames: dimensionNames,
         dimensions: dimensions,
         imagePath: imagePath,
+        tableId: 'SizeTable',
+        eventFnStr: 'onUnitChange()',
+        createMeasurementsPanel: function (units, sizes) {
+            return '<div class="row align-items-center"><div class="col-md-4 text-center py-5"><img src="' + this.imagePath + '" class="img-fluid center-block"/></div><div class="col-md-8 text-center py-5">' + this.createMeasurementsTable(units, sizes) + '</div></div>'
+        },
+        createMeasurementsTable: function (units, sizes) {
+            return '<div class="btn-group btn-group-toggle ml-auto py-5" data-toggle="buttons"><label class="btn btn-xxs btn-circle btn-outline-dark font-size-xxxs rounded-0 active"><input type="radio" name="SizeChartUnits" value="in" onclick="' + this.eventFnStr + '" checked>IN</label><label class="btn btn-xxs btn-circle btn-outline-dark font-size-xxxs rounded-0 ml-2"><input type="radio" name="SizeChartUnits" value="cm" onclick="' + this.eventFnStr + '">CM</label></div>' + '<div id="' + this.tableId + '">' + this.createSizingTable(units, sizes) + '</div>';
+        },
         createSizingTable: function (units, sizes) {
             var fn = (units === this.dimensionUnits) ? identity : (units == "in" ? cm2inches : inches2cm);
 

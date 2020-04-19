@@ -57,7 +57,7 @@ function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks) {
         createSizingPanel: function () {
             var imgHTML = '<img src="' + this.dimensioner.imagePath + '" class="img-fluid center-block"/>';
             return '<h6>International Sizing</h6>' + this.sizer.createSizeChart(this.skuInfo.sizes) +
-            '<h6 class="mb-0">Garment Measurements</h6><div class="row align-items-center"><div class="col-md-4 text-center py-5">' + imgHTML + '</div><div class="col-md-8 text-center py-5"><div class="btn-group btn-group-toggle ml-auto py-5" data-toggle="buttons"><label class="btn btn-xxs btn-circle btn-outline-dark font-size-xxxs rounded-0 active"><input type="radio" name="SizeChartUnits" value="in" onclick="onUnitChange()" checked>IN</label><label class="btn btn-xxs btn-circle btn-outline-dark font-size-xxxs rounded-0 ml-2"><input type="radio" name="SizeChartUnits" value="cm" onclick="onUnitChange()">CM</label></div>' + '<div id="SizeTable">' + this.dimensioner.createSizingTable("in", this.skuInfo.sizes) + '</div></div></div>';
+            '<h6 class="mb-0">Garment Measurements</h6>' + this.dimensioner.createMeasurementsPanel("in", this.skuInfo.sizes);
         },
         createImageCarousel: function (varIdx) {
             var variant = this.variants[varIdx];
@@ -88,8 +88,11 @@ function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks) {
             res += '</div></div>';
             return res;
         },
+        createFabricPanel: function(varIdx) {
+            return '<p class="mb-4">Fabric: <strong>' + this.skuInfo.getFabric(varIdx) + '</strong></p>'
+        },
         createColourPanel: function (name, varIdx) {
-            var res = '<p class="mb-4">Colour: <strong id="colorCaption">' + this.variants[varIdx].colourName + '</strong></p><div class="mb-8 ml-n1">';
+            var res = '<p class="mb-4">Colour: <strong id="colorCaption">' + this.skuInfo.getColourName(varIdx) + '</strong></p><div class="mb-8 ml-n1">';
             for (var i = 0; i < this.variants.length; i++) {
                 var opt = this.variants[i];
                 res += '<div class="custom-control custom-control-inline custom-control-img"><input type="radio" onclick="onSelectionChange()" class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + '><label class="custom-control-label" for="' + name + i + '"><span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + opt.images[0].url + ');"></span></label></div>';
@@ -107,10 +110,11 @@ function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks) {
         },
         createInfoDiv: function (varIdx, szIdx) {
             return '<div class="col-12 col-md-5 pl-lg-10">'
-                + '<div class="row mb-1"><div class="col"><a class="text-muted" href="looks.html">Happy Everyday</a></div></div>' 
+                + '<div class="row mb-1"><div class="col"><a class="text-muted" href="shop.html">Happy Everyday</a></div></div>' 
                 + '<h4 class="mb-2">' + this.product.name + '</h4>'
                 + '<div class="mb-7 text-gray-400"><span class="ml-1 font-size-h5 font-weight-bold">' +
                 this.getPriceHTML() + '</span></div>' +
+                this.createFabricPanel(varIdx) +
                 '<form><div class="form-group">' +
                 this.createColourPanel("colRadio", varIdx) +
                 '</div><div class="mb-3">Model is 5 ft 7 in (173 cm) and wearing size S</div>' +
