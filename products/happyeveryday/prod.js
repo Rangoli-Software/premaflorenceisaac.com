@@ -111,7 +111,7 @@ function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks) {
         getCategoryURL: function() {
             var res = "shop.html";
             var cat = hed_catalog.getCategory(this.skuInfo.SKU);
-            return res + (cat === null ? "" : "?" + cat[0]); 
+            return res + (cat === null ? "" : "?t=" + cat[0]); 
         },
         createInfoDiv: function (varIdx, szIdx) {
             return '<div class="col-12 col-md-5 pl-lg-10">'
