@@ -125,16 +125,16 @@ var hed_catalog = {
     dresses: ['VAMPAL1708Kh','LTSDSL1501Vo','LITLAY1708Vo'],
     pants: ['WNDRPA1709Kh','DRAWPA1609Kh','BERMPA1609Kh','BALLPA1501Vo','JODHPA1708Kh'],
     getCategory: function(sku) {
-        if (this.tops.contains(sku)) {
+        if (this.tops.includes(sku)) {
             return "tops";
         }
-        if (this.overtops.contains(sku)) {
+        if (this.overtops.includes(sku)) {
             return "overtops";
         }
-        if ( this.dresses.contains(sku) ) {
+        if ( this.dresses.includes(sku) ) {
             return "dresses";
         }
-        if ( this.pants.contains(sku)) {
+        if ( this.pants.includes(sku)) {
             return "pants";
         }
         return null;
