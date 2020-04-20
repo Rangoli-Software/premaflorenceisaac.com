@@ -57,7 +57,7 @@ function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks) {
         createSizingPanel: function () {
             var imgHTML = '<img src="' + this.dimensioner.imagePath + '" class="img-fluid center-block"/>';
             return '<h6>International Sizing</h6>' + this.sizer.createSizeChart(this.skuInfo.sizes) +
-            '<h6 class="mb-0">Garment Measurements</h6>' + this.dimensioner.createMeasurementsPanel("in", this.skuInfo.sizes);
+            '<p>The sizing chart above is only approximate. Please check the actual garment measurements below to find your size. Please email us at prema.florence.isaac@gmail.com or WhatsApp +919443362528 for further queries or to customize your order.</p><h6 class="mb-0">Garment Measurements</h6>' + this.dimensioner.createMeasurementsPanel("in", this.skuInfo.sizes);
         },
         createImageCarousel: function (varIdx) {
             var variant = this.variants[varIdx];
