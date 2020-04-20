@@ -89,10 +89,10 @@ function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks) {
             return res;
         },
         createFabricPanel: function(varIdx) {
-            return '<p class="mb-4">Fabric: <strong>' + this.skuInfo.getFabric(varIdx) + '</strong></p>'
+            return '<p class="mb-4"><span style="float:left">Fabric: <strong>' + this.skuInfo.getFabric(varIdx) + '</strong></span>'
         },
         createColourPanel: function (name, varIdx) {
-            var res = '<p class="mb-4">Colour: <strong id="colorCaption">' + this.skuInfo.getColourName(varIdx) + '</strong></p><div class="mb-8 ml-n1">';
+            var res = '<span style="float:right">Colour: <strong id="colorCaption">' + this.skuInfo.getColourName(varIdx) + '</strong></span></p>' + '<div class="mb-8 ml-n1">';
             for (var i = 0; i < this.variants.length; i++) {
                 var opt = this.variants[i];
                 res += '<div class="custom-control custom-control-inline custom-control-img"><input type="radio" onclick="onSelectionChange()" class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + '><label class="custom-control-label" for="' + name + i + '"><span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + opt.images[0].url + ');"></span></label></div>';
