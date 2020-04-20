@@ -240,6 +240,7 @@ var atelier = {
 
 var lookbook = {
     title: "Look Books",
+    url: "/about.html?a=l&#about-tabs",
     sub: [
         {
             title: "Happy Everyday",
