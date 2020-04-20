@@ -3,6 +3,12 @@ var moods = {
     url: "/look.html?t=m",
     sub: [
         {
+            title: "Happy Everyday",
+            url: "/products/happyeveryday/hediapu.html",
+            lede: "Happy Everyday in a Pigmented Universe",
+            imageURL: "/products/happyeveryday/mood/hedm-04.jpg"
+        },
+        {
             title: "Summer Dreams",
             url: "/summerdreams.html",
             lede: "<strong>Summer Dreams</strong> - A line in Black, Ivory and Silver, in P.F.I. Tangail using the finest Bengal cotton, lustrous Madka and Mysore silks.",
@@ -348,6 +354,10 @@ var shop = {
         title: "Shop",
         url: "/shop.html",
         sub: [
+        {
+            title: "Happy Everyday",
+            url: "/products/happyeveryday/shop.html"
+        },
         {
             title: "Woven Canvas",
             url: "/fabricartT.html"
