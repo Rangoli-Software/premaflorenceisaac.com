@@ -238,6 +238,18 @@ var atelier = {
     ]
 };
 
+var lookbook = {
+    title: "Look Books",
+    sub: [
+        {
+            title: "Happy Everyday",
+            url: "/products/happyeveryday/looks.html",
+            lede: "Look Book for my Happy Everyday Line",
+            imageURL: "/products/happyeveryday/balloon/magenta-d1"
+        },
+    ]
+}
+
 var clients = {
     title: "Friends",
     url: "/about.html?a=c&#about-tabs",
@@ -405,6 +417,7 @@ var siteMap = [
     origin,
     atelier,
     clients,
+    lookbook,
     about,
     buzz,
     moods,
@@ -594,7 +607,7 @@ function createBlogDD () {
 }
 
 function createAboutDD () {
-    var col1 = createDropdownColumn([about, buzzTL, clients], "col-12");
+    var col1 = createDropdownColumn([about, buzzTL, clients, lookbook], "col-12");
     return createMinWidthDDCard([col1], "145px", true);
 }
 
@@ -707,7 +720,7 @@ function pickSection(section) {
 }
 
 function selectSections() {
-    return [atelier, pickSection([about, buzz, archives, lotm]), pickSection([moods, ramp, clients]), origin];
+    return [atelier, pickSection([about, buzz, archives, lotm, lookbook]), pickSection([moods, ramp, clients]), origin];
 }
 
 function createFeatures(header) {
