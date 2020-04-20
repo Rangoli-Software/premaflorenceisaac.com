@@ -89,10 +89,10 @@ function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks) {
             return res;
         },
         createFabricPanel: function(varIdx) {
-            return '<p class="mb-4"><span style="float:left">Fabric: <strong>' + this.skuInfo.getFabric(varIdx) + '</strong></span>'
+            return '<div class="row mb-4"><div class="col-6 text-left">Fabric: <strong>' + this.skuInfo.getFabric(varIdx) + '</strong></div>'
         },
         createColourPanel: function (name, varIdx) {
-            var res = '<span style="float:right">Colour: <strong id="colorCaption">' + this.skuInfo.getColourName(varIdx) + '</strong></span></p>' + '<div class="mb-8 ml-n1">';
+            var res = '<div class="col-6 text-right">Colour: <strong id="colorCaption">' + this.skuInfo.getColourName(varIdx) + '</strong></div></div>' + '<div class="mb-8 ml-n1">';
             for (var i = 0; i < this.variants.length; i++) {
                 var opt = this.variants[i];
                 res += '<div class="custom-control custom-control-inline custom-control-img"><input type="radio" onclick="onSelectionChange()" class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + '><label class="custom-control-label" for="' + name + i + '"><span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + opt.images[0].url + ');"></span></label></div>';
@@ -119,8 +119,8 @@ function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks) {
                 + '<h4 class="mb-2">' + this.product.name + '</h4>'
                 + '<div class="mb-7 text-gray-400"><span class="ml-1 font-size-h5 font-weight-bold">' +
                 this.getPriceHTML() + '</span></div>' +
-                this.createFabricPanel(varIdx) +
                 '<form><div class="form-group">' +
+                this.createFabricPanel(varIdx) +
                 this.createColourPanel("colRadio", varIdx) +
                 '</div><div class="mb-3">Model is 5 ft 7 in (173 cm) and wearing size S</div>' +
                 createSizeOptions("sizeRadio", "Size", this.skuInfo.sizes, szIdx) +
