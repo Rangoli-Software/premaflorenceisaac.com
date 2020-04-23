@@ -31,7 +31,7 @@ var cmData = [
 ['Champagne Bottle Bag', 'CHMPGN1501JL', '0.0208333333333333', '1.3', '/products/home/cbaglite.jpg', 'FALSE'],
 ['Angkor Kurta', 'ANGKRT1601Kh', '0.36', '1.4', '', 'FALSE'],
 ['Butterfly Pea Shoulder String Dress', 'LTSDSL1501Vo', '0.36', '1.4', '/products/happyeveryday/shoulderstring.html', 'FALSE'],
-['Twiggy Side Slit Dress', 'VAMPAL1708Kh', '0.36', '1.4', '/products/happyeveryday/sideslit.html', 'FALSE'],
+['Twiggy Side Slit Top', 'VAMPAL1708Kh', '0.36', '1.4', '/products/happyeveryday/sideslit.html', 'FALSE'],
 ['Love Power Layered Dress', 'LITLAY1708Vo', '0.36', '1.4', '/products/happyeveryday/layer.html', 'FALSE'],
 ['Bougainvillea Crop Top', 'CRPTOP1805Kh', '0.1', '1.4', '/products/happyeveryday/croptop.html', 'FALSE'],
 ['Bougainvillea Top', 'TNKTPS1805Kh', '0.1', '1.4', '/products/happyeveryday/tanktop.html', 'FALSE'],
