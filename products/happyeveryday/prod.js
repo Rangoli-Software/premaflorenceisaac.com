@@ -89,10 +89,10 @@ function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks) {
             return res;
         },
         createFabricPanel: function(varIdx) {
-            return '<div class="row mb-4"><div class="col-6 text-left">Fabric: <strong>' + this.skuInfo.getFabric(varIdx) + '</strong></div>'
+            return '<div class="row mb-4"><div class="col-5 text-left">Fabric: <strong>' + this.skuInfo.getFabric(varIdx) + '</strong></div>'
         },
         createColourPanel: function (name, varIdx) {
-            var res = '<div class="col-6 text-right">Colour: <strong id="colorCaption">' + this.skuInfo.getColourName(varIdx) + '</strong></div></div>' + '<div class="mb-8 ml-n1">';
+            var res = '<div class="col-7 text-right">Colour: <strong id="colorCaption">' + this.skuInfo.getColourName(varIdx) + '</strong></div></div>' + '<div class="mb-8 ml-n1">';
             for (var i = 0; i < this.variants.length; i++) {
                 var opt = this.variants[i];
                 res += '<div class="custom-control custom-control-inline custom-control-img"><input type="radio" onclick="onSelectionChange()" class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + '><label class="custom-control-label" for="' + name + i + '"><span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + opt.images[0].url + ');"></span></label></div>';
@@ -144,7 +144,7 @@ function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks) {
             var res = '<h6>Pair with</h6><div class="row">';
             for(var i = 0; i < related.length; i++) {
                 var lk = related[i].look;
-                var st = related[i].styles;
+                var st = (related[i].styles === undefined) ? this.looks.getLookFromTitle(lk).styles : related[i].styles;
                 res += this.createRelatedProductCard(lk, st);
             }
             res += '</div>';
@@ -155,6 +155,9 @@ function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks) {
             var res = '<div class="col-6"><div class="card mb-2"><div class="embed-responsive embed-responsive-1by1"><img class="embed-responsive-item" src="' + lkImg + '" style="object-fit: cover"></div><div class="card-body">';
             for (var i =  0; i < styles.length; i++) {
                 var sty = styles[i];
+                if (sty == this.skuInfo.SKU) {
+                    continue;
+                }
                 var entry = getProductCatalog().getProduct(sty);
                 if ( i > 0 ) {
                     res += ' &amp;'

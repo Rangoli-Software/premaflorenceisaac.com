@@ -29,7 +29,7 @@ var hed_lookbook = {
     {
         title:  '3',
         idxsfx: '14',
-        styles: ['CRPTOP1805Kh']
+        styles: ['CRPTOP1805Kh','JODHPA1708Kh']
     },
     {
         title:  '4',
@@ -93,36 +93,50 @@ var hed_lookbook = {
     }
     return res;
     },
-    getRelatedStyles: function(sku) {
-        switch (sku) {
-            case 'WNDRPA1709Kh': return null;
-            case 'DRAWPA1609Kh': return null;
-            case 'BERMPA1609Kh': return [{look: 7, styles:['CRPTOP1805Kh']},{look: 6, styles:['TRPZTP1807Kh']}];
-            case 'CRPTOP1805Kh': return [{look: 4, styles:['DRAWPA1609Kh','OVTPSH1501Vo']},{look: 7, styles:['BERMPA1609Kh']}];
-            case 'VAMPAL1708Kh': return null;
-            case 'TRPZTP1807Kh': return null;
-            case 'LTSDSL1501Vo': return null;
-            case 'LITLAY1708Vo': return null;
-            case 'OVERTP1501Vo': return null;
-            case 'OVTPSH1501Vo': return null;
-            case 'BALLPA1501Vo': return null;
-            case 'JODHPA1708Kh': return null;
+    getLookFromTitle: function(title) {
+        return this.looks[this.getIndexFromTitle(title)];
+    },
+    getIndexFromTitle: function(title) {
+        for(var i = 0; i < this.looks.length; i++) {
+            if (title === this.looks[i].title) {
+                return i;
+            }
         }
         return null;
     },
-    getImagePath: function(i) {
+    getRelatedStyles: function(sku) {
+        switch (sku) {
+            case 'WNDRPA1709Kh': return [{look: '7', styles:['CRPTOP1805Kh']}];
+            case 'DRAWPA1609Kh': return [{look:'1.3', styles:['OVTPSH1501Vo']},{look: '2.1', styles:['CRPTOP1805Kh']}];
+            case 'BERMPA1609Kh': return [{look: '5', styles:['CRPTOP1805Kh']},{look: '4', styles:['TRPZTP1807Kh']}];
+            case 'BALLPA1501Vo': return [{look: '6', styles:['CRPTOP1805Kh','OVTPSH1501Vo']}];
+            case 'JODHPA1708Kh': return null;
+            case 'CRPTOP1805Kh': return [{look: '2.2', styles:['DRAWPA1609Kh','OVTPSH1501Vo']},{look: '5', styles:['BERMPA1609Kh']}];
+            case 'TNKTPS1805Kh': return [{look: '8', styles:['BERMPA1609Kh']}];
+            case 'TRPZTP1807Kh': return [{look: '4', styles:['BERMPA1609Kh']}];
+            case 'OVTPLO1501Vo': return [{look: '1.2', styles:['VAMPAL1708Kh']},{look: '12', styles:['LTSDSL1501Vo']}];
+            case 'OVTPSH1501Vo': return [{look: '2.2'},{look: '6'}];
+            case 'VAMPAL1708Kh': return [{look: '1.2'},{look: '1.3'}];
+            case 'LTSDSL1501Vo': return [{look: '12'}];
+            case 'LITLAY1708Vo': return [{look: '10'}];
+        }
+        return null;
+    },
+    getImagePath: function(title) {
+        var i = this.getIndexFromTitle(title);
         return "/products/happyeveryday/looks/lk-" + this.looks[i].idxsfx + ".jpg";
     },
-    getImageLeft: function(i) {
+    getImageLeft: function(title) {
+        var i = this.getIndexFromTitle(title);
         return "/products/happyeveryday/looks/ll-" + this.looks[i].idxsfx + ".jpg";
     }
 };
 
 var hed_catalog = {
     skus: ['WNDRPA1709Kh','DRAWPA1609Kh','BERMPA1609Kh','BALLPA1501Vo','JODHPA1708Kh','CRPTOP1805Kh','TNKTPS1805Kh','TRPZTP1807Kh','OVTPLO1501Vo','OVTPSH1501Vo','VAMPAL1708Kh','LTSDSL1501Vo','LITLAY1708Vo'],
-    tops: ['CRPTOP1805Kh','TNKTPS1805Kh','TRPZTP1807Kh'],
+    tops: ['CRPTOP1805Kh','TNKTPS1805Kh','VAMPAL1708Kh','TRPZTP1807Kh'],
     overtops: ['OVTPLO1501Vo','OVTPSH1501Vo'],
-    dresses: ['VAMPAL1708Kh','LTSDSL1501Vo','LITLAY1708Vo'],
+    dresses: ['LTSDSL1501Vo','LITLAY1708Vo'],
     pants: ['WNDRPA1709Kh','DRAWPA1609Kh','BERMPA1609Kh','BALLPA1501Vo','JODHPA1708Kh'],
     getCategory: function(sku) {
         if (this.tops.includes(sku)) {
