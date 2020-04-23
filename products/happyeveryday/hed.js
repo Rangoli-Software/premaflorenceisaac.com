@@ -226,7 +226,7 @@ var hed_catalog = {
     },
     {
         sku: 'VAMPAL1708Kh',
-        title: 'Twiggy Side Slit Dress',
+        title: 'Twiggy Side Slit Top',
         url: "/products/happyeveryday/sideslit.html",
         lede: '',
         images: ["/products/happyeveryday/sideslit/tan-f.jpg","/products/happyeveryday/sideslit/tan-r.jpg"]
