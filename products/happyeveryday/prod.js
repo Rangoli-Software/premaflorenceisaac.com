@@ -180,9 +180,9 @@ function createPageComponent(prodInfo, dimensioner, sizer, looks) {
         createItem: function (clr, size, qty) {
             var product = this.prodInfo.product;
             var vidx = this.getRenderer().getVarIdx(clr);
-            var vnt = this.prodInfo.variants[vidx];
+            var vnt = this.prodInfo.variants.data[vidx];
             var itmSKU = vnt.vid + "-" + size;
-            var imgURL = vnt.images[0].url;
+            var imgURL = this.prodInfo.getImage(vidx, 0).url;
             return createItem(product, product.inrPrice, size, clr, qty, itmSKU, imgURL, false);
         },
         addToCart: function () {
