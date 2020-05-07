@@ -1,3 +1,11 @@
+function createProductInfo(skuInfo, product, variants) {
+    return {
+        skuInfo: skuInfo,
+        product: product,
+        variants: variants
+    };
+}
+
 function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks) {
     return {
         shop: shop,
@@ -8,8 +16,8 @@ function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks) {
         sizer: sizer,
         looks: looks,
         getVarIdx: function (valColour) {
-            for (var i = 0; i < this.variants.data.length; i++) {
-                var variant = this.variants.data[i];
+            for (var i = 0; i < this.variants.length; i++) {
+                var variant = this.variants[i];
                 if (variant.colourName === valColour) {
                     return i;
                 }
@@ -52,41 +60,42 @@ function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks) {
             '<p>The sizing chart above is only approximate. Please check the actual garment measurements below to find your size. Please email us at prema.florence.isaac@gmail.com or WhatsApp +919443362528 if you have further questions or wish to customize your order.</p><h6 class="mb-0">Garment Measurements</h6>' + this.dimensioner.createMeasurementsPanel("in", this.skuInfo.sizes);
         },
         createImageCarousel: function (varIdx) {
+            var variant = this.variants[varIdx];
             return '<div class="col-2 px-1">' +
-                this.createImageNav(varIdx) +
+                this.createImageNav(variant.images) +
                 '</div><div class="col-10">' +
-                this.createImagePanel(varIdx) +
+                this.createImagePanel(variant.images) +
                 '</div>';
         },
-        createImageNav: function (varIdx) {
+        createImageNav: function (images) {
             var res = '<div class="flickity-nav flickity-vertical" data-flickity=\'' + '{"asNavFor": "#' + this.getPanelId() + '", "draggable": false}\' id="' + this.getNavId() + '">';
             var i = 0;
-            for (; i < this.variants.getNumImages(varIdx) - 1; i++) {
-                var img = this.variants.getImage(varIdx, i);
+            for (; i < images.length - 1; i++) {
+                var img = images[i];
                 res += '<div class="mb-2"><img class="img-fluid" src="' + img.url + '"></div>';
             }
-            var img = this.variants.getImage(varIdx,i);
+            var img = images[i];
             res += '<div class="mb-0"><img class="img-fluid" src="' + img.url + '"></div>';
             res += '</div>';
             return res;
         },
-        createImagePanel: function (varIdx) {
+        createImagePanel: function (images) {
             var res = '<div class="card"><div data-flickity=\'{"draggable": false, "fade": true}\' id="' + this.getPanelId() + '">';
-            for (var i = 0; i < this.variants.getNumImages(varIdx); i++) {
-                var img = this.variants.getImage(varIdx, i); 
+            for (var i = 0; i < images.length; i++) {
+                var img = images[i]; 
                 res += '<a href="' + img.url + '" data-fancybox="' + this.getGallery() + '"><img src="' + img.url + '" class="img-fluid"></a>';
             }
             res += '</div></div>';
             return res;
         },
         createFabricPanel: function(varIdx) {
-            return '<div class="row mb-4"><div class="col-5 text-left">Fabric: <strong>' + this.variants.getFabric(varIdx) + '</strong></div>'
+            return '<div class="row mb-4"><div class="col-5 text-left">Fabric: <strong>' + this.skuInfo.getFabric(varIdx) + '</strong></div>'
         },
         createColourPanel: function (name, varIdx) {
-            var res = '<div class="col-7 text-right">Colour: <strong id="colorCaption">' + this.variants.getColourName(varIdx) + '</strong></div></div>' + '<div class="mb-8 ml-n1">';
-            for (var i = 0; i < this.variants.data.length; i++) {
-                var opt = this.variants.data[i];
-                res += '<div class="custom-control custom-control-inline custom-control-img"><input type="radio" onclick="onSelectionChange()" class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + '><label class="custom-control-label" for="' + name + i + '"><span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + this.variants.getImage(i, 0).url + ');"></span></label></div>';
+            var res = '<div class="col-7 text-right">Colour: <strong id="colorCaption">' + this.skuInfo.getColourName(varIdx) + '</strong></div></div>' + '<div class="mb-8 ml-n1">';
+            for (var i = 0; i < this.variants.length; i++) {
+                var opt = this.variants[i];
+                res += '<div class="custom-control custom-control-inline custom-control-img"><input type="radio" onclick="onSelectionChange()" class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + '><label class="custom-control-label" for="' + name + i + '"><span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + opt.images[0].url + ');"></span></label></div>';
             }
             res += '</div>';
             return res;
