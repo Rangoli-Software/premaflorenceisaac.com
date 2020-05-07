@@ -1130,6 +1130,9 @@ function createProductDB() {
     entry = createSideslitDressJSON();
     map[entry.skuInfo.SKU] = entry;
 
+    entry = createTankTopJSON();
+    map[entry.skuInfo.SKU] = entry;
+
     entry = createWingsTopJSON();
     map[entry.skuInfo.SKU] = entry;
 
