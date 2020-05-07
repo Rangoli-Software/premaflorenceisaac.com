@@ -751,7 +751,7 @@ skuInfo: {
 
 function createShortOvertopJSON() {
     var sku = "OVTPSH1501Vo";
-    var basePath = "/products/happyeveryday/shvrtp/"
+    var basePath = "/products/happyeveryday/shvrtp/";
     var prodEntry = getProductCatalog().getProduct(sku);
     return {
 product: prodEntry,
@@ -859,7 +859,7 @@ skuInfo: {
 
 function createSideslitDressJSON() {
     var sku = "VAMPAL1708Kh";
-    var basePath = "/products/happyeveryday/sdslt/"
+    var basePath = "/products/happyeveryday/sdslt/";
     var prodEntry = getProductCatalog().getProduct(sku);
     return {
 product: prodEntry,
@@ -940,7 +940,7 @@ skuInfo: {
 
 function createTankTopJSON() {
     var sku = "TNKTPS1805Kh";
-    var basePath = "/products/happyeveryday/tnktp/"
+    var basePath = "/products/happyeveryday/tnktp/";
     var prodEntry = getProductCatalog().getProduct(sku);
     return {
 product: prodEntry,
@@ -1029,7 +1029,7 @@ skuInfo: {
 
 function createWingsTopJSON() {
     var sku = "TRPZTP1807Kh";
-    var basePath = "/products/happyeveryday/wngs/"
+    var basePath = "/products/happyeveryday/wngs/";
     var prodEntry = getProductCatalog().getProduct(sku);
     return {
 product: prodEntry,
