@@ -1166,92 +1166,78 @@ var hed_catalog = {
         sku: 'BALLPA1501Vo',
         title: 'Balloon Flower Pants',
         url: "/products/happyeveryday/balloon.html",
-        lede: 'Full length Harem Pants',
-        images: ["/products/happyeveryday/balloon/magenta-f.jpg","/products/happyeveryday/balloon/magenta-r.jpg"]
-    },
+        lede: 'Full length Harem Pants'    },
     {
         sku: 'BERMPA1609Kh',
         title: 'Wild Pansy Pants',
         url: "/products/happyeveryday/bermuda.html",
-        lede: 'Calf length Bermuda pants',
-        images: ["/products/happyeveryday/bermuda/magenta-f.jpg","/products/happyeveryday/bermuda/magenta-r.jpg"]
+        lede: 'Calf length Bermuda pants'
     },
     {
         sku: 'DRAWPA1609Kh',
         title: 'Gloriosa Tie Pants',
         url: "/products/happyeveryday/drawstring.html",
-        lede: 'Wide legged drawstring pants',
-        images: ["/products/happyeveryday/drawstring/tan-f.jpg","/products/happyeveryday/drawstring/tan-r.jpg"]
+        lede: 'Wide legged drawstring pants'
     },
     {
         sku: 'JODHPA1708Kh',
         title: 'Jodhpur Pants',
         url: "/products/happyeveryday/jodhpur.html",
-        lede: 'Full length Jodhpur cut pants',
-        images: ["/products/happyeveryday/jodhpur/tan-f.jpg","/products/happyeveryday/jodhpur/tan-r.jpg"]
+        lede: 'Full length Jodhpur cut pants'
     },
     {
         sku: 'WNDRPA1709Kh',
         title: 'Pineapple Lily Pants',
         url: "/products/happyeveryday/lily.html",
-        lede: 'Drawstring  waist and hem',
-        images: ["/products/happyeveryday/lily/magenta-f.jpg","/products/happyeveryday/lily/magenta-r.jpg"]
+        lede: 'Drawstring  waist and hem'
     },
     {
         sku: 'CRPTOP1805Kh',
         title: 'Bougainvillea Crop Top',
         url: "/products/happyeveryday/croptop.html",
-        lede: '',
-        images: ["/products/happyeveryday/croptop/magenta-f.jpg","/products/happyeveryday/croptop/magenta-r.jpg"]
+        lede: ''
     },
     {
         sku: 'TNKTPS1805Kh',
         title: 'Bougainvillea Top',
         url: "/products/happyeveryday/tanktop.html",
-        lede: '',
-        images: ["/products/happyeveryday/tanktop/magenta-f.jpg","/products/happyeveryday/tanktop/magenta-r.jpg"]
+        lede: ''
     },
     {
         sku: 'TRPZTP1807Kh',
         title: 'Lotus Wings Top',
         url: "/products/happyeveryday/wings.html",
-        lede: '',
-        images: ["/products/happyeveryday/wings/tan-f.jpg","/products/happyeveryday/wings/tan-r.jpg"]
+        lede: ''
     },
     {
         sku: 'OVTPLO1501Vo',
         title: 'Long Floating Overlayer',
         url: "/products/happyeveryday/lovertop.html",
-        lede: '',
-        images: ["/products/happyeveryday/lovertop/blue-f.jpg","/products/happyeveryday/lovertop/blue-r.jpg"]
+        lede: ''
     },
     {
         sku: 'OVTPSH1501Vo',
         title: 'Floating Overlayer',
         url: "/products/happyeveryday/shovertop.html",
-        lede: '',
-        images: ["/products/happyeveryday/shovertop/red-f.jpg","/products/happyeveryday/shovertop/red-r.jpg"]
+        lede: ''
     },
     {
         sku: 'VAMPAL1708Kh',
         title: 'Twiggy Side Slit Top',
         url: "/products/happyeveryday/sideslit.html",
-        lede: '',
-        images: ["/products/happyeveryday/sideslit/tan-f.jpg","/products/happyeveryday/sideslit/tan-r.jpg"]
+        lede: ''
     },
     {
         sku: 'LTSDSL1501Vo',
         title: 'Butterfly Pea Shoulder String Dress',
         url: "/products/happyeveryday/shoulderstring.html",
-        lede: '',
-        images: ["/products/happyeveryday/shldrstrng/blue-f-1.jpg","/products/happyeveryday/shldrstrng/blue-r-1.jpg"]
+        lede: ''
     },
     {
         sku: 'LITLAY1708Vo',
         title: 'Love Power Layered Dress',
         url: "/products/happyeveryday/layer.html",
-        lede: '',
-        images: ["/products/happyeveryday/layer/red-f.jpg","/products/happyeveryday/layer/red-r.jpg"]
+        lede: ''
     },
     ],
     getSummary: function(sku) {
