@@ -246,7 +246,7 @@ var lookbook = {
             title: "Happy Everyday",
             url: "/products/happyeveryday/looks.html",
             lede: "Look Book for my Happy Everyday Line",
-            imageURL: "/products/happyeveryday/balloon/magenta-d1.jpg"
+            imageURL: "/products/happyeveryday/blln/magenta-d1.jpg"
         },
     ]
 }
