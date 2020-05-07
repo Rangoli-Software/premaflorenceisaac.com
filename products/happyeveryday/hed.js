@@ -1,6 +1,6 @@
 function createBalloonPantJSON() {
     var sku = "BALLPA1501Vo";
-    var basePath = "/products/happyeveryday/blln/"
+    var basePath = "/products/happyeveryday/blln/";
     var prodEntry = getProductCatalog().getProduct(sku);
     return {
 product: prodEntry,
@@ -62,7 +62,7 @@ skuInfo: {
 
 function createBermudaPantJSON() {
     var sku = "BERMPA1609Kh";
-    var basePath = "/products/happyeveryday/brmda/"
+    var basePath = "/products/happyeveryday/brmda/";
     var prodEntry = getProductCatalog().getProduct(sku);
     return {
 product: prodEntry,
@@ -147,7 +147,7 @@ skuInfo: {
 
 function createCropTopJSON() {
     var sku = "CRPTOP1805Kh";
-    var basePath = "/products/happyeveryday/crptp/"
+    var basePath = "/products/happyeveryday/crptp/";
     var prodEntry = getProductCatalog().getProduct(sku);
     return {
 product: prodEntry,
@@ -239,7 +239,7 @@ skuInfo: {
 
 function createDrawstringPantJSON() {
     var sku = "DRAWPA1609Kh";
-    var basePath = "/products/happyeveryday/drwstrg/"
+    var basePath = "/products/happyeveryday/drwstrg/";
     var prodEntry = getProductCatalog().getProduct(sku);
     return {
 product: prodEntry,
@@ -324,7 +324,7 @@ skuInfo: {
 
 function createJodhpurPantJSON() {
     var sku = "JODHPA1708Kh";
-    var basePath = "/products/happyeveryday/jdhpr/"
+    var basePath = "/products/happyeveryday/jdhpr/";
     var prodEntry = getProductCatalog().getProduct(sku);
     return {
 product: prodEntry,
@@ -409,7 +409,7 @@ skuInfo: {
 
 function createLayerDressJSON() {
     var sku = "LITLAY1708Vo";
-    var basePath = "/products/happyeveryday/lyr/"
+    var basePath = "/products/happyeveryday/lyr/";
     var prodEntry = getProductCatalog().getProduct(sku);
     return {
 product: prodEntry,
@@ -496,7 +496,7 @@ skuInfo: {
 
 function createLilyPantJSON() {
     var sku = "WNDRPA1709Kh";
-    var basePath = "/products/happyeveryday/lly/"
+    var basePath = "/products/happyeveryday/lly/";
     var prodEntry = getProductCatalog().getProduct(sku);
     return {
 product: prodEntry,
