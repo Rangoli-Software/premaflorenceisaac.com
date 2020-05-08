@@ -596,7 +596,7 @@ function createShopMM() {
 }
 
 function createLookMM() {
-    var col1 = createDropdownColumn([lotm, ramp], "col-6");
+    var col1 = createDropdownColumn([lotm, clients, ramp], "col-6");
     var col2 = createDropdownColumn([moods], "col-6");
     return createMinWidthDDCard([col1, col2], "305px", true);
 }
@@ -608,7 +608,7 @@ function createBlogDD () {
 }
 
 function createAboutDD () {
-    var col1 = createDropdownColumn([about, buzzTL, clients, lookbook], "col-12");
+    var col1 = createDropdownColumn([about, buzzTL, lookbook], "col-12");
     return createMinWidthDDCard([col1], "145px", true);
 }
 
