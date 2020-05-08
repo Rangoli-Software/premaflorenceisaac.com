@@ -42,7 +42,7 @@ variants: {
 },
 {
     colourName: "Calm Tan",
-    vid: "CW3",
+    vid: "CW2",
     colourPfx: "tan",
     colourSfxs: ["f","b","r","d1","d2"]
 }

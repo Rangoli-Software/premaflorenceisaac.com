@@ -47,7 +47,6 @@ function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks) {
             return this.shop.getPriceHTML(this.product);
         },
         createSizingPanel: function () {
-            var imgHTML = '<img src="' + this.dimensioner.imagePath + '" class="img-fluid center-block"/>';
             return '<h6>International Sizing</h6>' + this.sizer.createSizeChart(this.skuInfo.sizes) +
             '<p>The sizing chart above is only approximate. Please check the actual garment measurements below to find your size. Please email us at prema.florence.isaac@gmail.com or WhatsApp +919443362528 if you have further questions or wish to customize your order.</p><h6 class="mb-0">Garment Measurements</h6>' + this.dimensioner.createMeasurementsPanel("in", this.skuInfo.sizes);
         },
@@ -284,12 +283,6 @@ function renderProductDetails (summary, detailsHTML) {
     + '</div></div>'
     + '</div>'
     + '</div></div></div></section>';
-}
-
-function getSizeModal(contents) {
-    return '<div class="modal fade" id="modalSizeChart" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-lg" role="document"><div class="modal-content"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button><div class="modal-header line-height-fixed font-size-lg"><strong class="mx-auto">Sizing</strong></div><div class="modal-body border-bottom">'
-    + contents +
-        '</div></div></div></div>';
 }
 
 function loadShopWithParam() {
