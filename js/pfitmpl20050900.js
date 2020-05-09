@@ -1,4 +1,4 @@
-var moods = {
+const moods = {
     title: "Moods",
     url: "/look.html?t=m",
     sub: [
@@ -35,7 +35,7 @@ var moods = {
     ]
 };
 
-var ramp = {
+const ramp = {
     title: "Ramp",
     url: "/look.html?t=r",
     sub: [
@@ -54,8 +54,8 @@ var ramp = {
     ]
 };
 
-var lotm = {
-    title: "Look!",
+const lotm = {
+    title: "Prema",
     url: "/look.html?t=p",
     sub: [
         {
@@ -79,7 +79,7 @@ var lotm = {
     ]
 };
 
-var archives = {
+const archives = {
     title: "Look Back",
     url: "/blog.html?t=l",
     sub: [
@@ -98,7 +98,7 @@ var archives = {
     ]
 };
 
-var origin = {
+const origin = {
         title: "My Journey",
         url: "/blog.html?t=o",
         sub: [
@@ -165,7 +165,7 @@ var origin = {
         ]
     };
 
-var atelier = {
+const atelier = {
     title: "Atelier Tales",
     url: "/blog.html?t=a",
     sub: [
@@ -238,7 +238,7 @@ var atelier = {
     ]
 };
 
-var lookbook = {
+const lookbook = {
     title: "Look Books",
     url: "/about.html?a=l&#about-tabs",
     sub: [
@@ -251,9 +251,9 @@ var lookbook = {
     ]
 }
 
-var clients = {
+const clients = {
     title: "Friends",
-    url: "/about.html?a=c&#about-tabs",
+    url: "/look.html?t=f",
     sub: [
         {
             title: "Curators",
@@ -276,7 +276,7 @@ var clients = {
     ]
 };
 
-var about = {
+const about = {
     title: "About",
     url: "/about.html",
     sub: [
@@ -301,13 +301,13 @@ var about = {
     ]
 };
 
-var buzzTL = {
+const buzzTL = {
     title: "Buzzing...",
     url: "/about.html?a=b&#about-tabs",
     sub: []
 };
 
-var buzz = {
+const buzz = {
     title: "Buzzing...",
     url: "/about.html?a=b&#about-tabs",
     lede: 'Media coverage, both traditional and new.',
@@ -363,7 +363,7 @@ var buzz = {
     ]
 };
 
-var shop = {
+const shop = {
         title: "Shop",
         url: "/shop.html",
         sub: [
@@ -390,7 +390,7 @@ var shop = {
     ]
 };
 
-var faqs = {
+const faqs = {
         title: "Shop FAQ",
         url: "/shopfaq.html",
         sub: [
@@ -398,7 +398,7 @@ var faqs = {
 };
 
 
-var siteMap = [
+const siteMap = [
     {
         sub: [
             {
@@ -596,7 +596,7 @@ function createShopMM() {
 }
 
 function createLookMM() {
-    var col1 = createDropdownColumn([lotm, ramp], "col-6");
+    var col1 = createDropdownColumn([lotm, clients, ramp], "col-6");
     var col2 = createDropdownColumn([moods], "col-6");
     return createMinWidthDDCard([col1, col2], "305px", true);
 }
@@ -608,7 +608,7 @@ function createBlogDD () {
 }
 
 function createAboutDD () {
-    var col1 = createDropdownColumn([about, buzzTL, clients, lookbook], "col-12");
+    var col1 = createDropdownColumn([about, buzzTL, lookbook], "col-12");
     return createMinWidthDDCard([col1], "145px", true);
 }
 

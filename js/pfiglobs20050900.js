@@ -1,6 +1,6 @@
-var shopRevisionVersion = "2020032800";
+const shopRevisionVersion = "2020032800";
 
-var cmData = [
+const cmData = [
 ['Helena Dress - PFI Tangail', 'HLNDRS1505PT', '', '', '/products/summerdreams/Helena.jpg', ''],
 ['Maria Top - Jersey', 'MRIATP1101Je', '', '', '/products/anotherway/Maria.jpg', ''],
 ['Backless Lotus - Jersey', 'BKLLTS1505Je', '', '', '/products/summerdreams/Tamora.jpg', ''],
@@ -45,7 +45,7 @@ var cmData = [
 ['Long Floating Overlayer', 'OVTPLO1501Vo', '0.2', '1.4', '/products/happyeveryday/lovertop.html', 'FALSE'],
 ];
 
-var plData = [
+const plData = [
     ['TESTIT0000Hi', 1],
     ['AWTSHT1604Je', 5000],
     ['KAGTIE1601Kh', 3500],
