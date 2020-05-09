@@ -971,11 +971,7 @@ function createShopPageComponent() {
         createPurchasePanelID: function(num) {
             return "scpp-" + num;
         },
-        onDocumentReady: function () {
-            this.init();
-            this.onSelectionChange();
-        },
-        onSelectionChange: function() {
+        updateItemPrices: function() {
             var elts =$('.sc-item');
             var that = this;
             elts.each(function(index) {
@@ -985,6 +981,13 @@ function createShopPageComponent() {
                 var html = that.allCartC.shop.getPriceHTML(prod);
                 $(this).append(html);
             });
+        },
+        onDocumentReady: function () {
+            this.init();
+            this.onSelectionChange();
+        },
+        onSelectionChange: function() {
+            this.updateItemPrices();
         }
     };
 }

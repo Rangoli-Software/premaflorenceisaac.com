@@ -89,9 +89,11 @@ function createRenderer(shop, options, productObjects, tlcc) {
 }
 
 function createProductPageComponent(sku, listData) {
-    var product = getProductCatalog().getProduct(sku);
+    var catalog = getProductCatalog();
+    var product = catalog.getProduct(sku);
     var prodObjs = createProductObjects(listData, product);
     return {
+        catalog: catalog,
         product: product,
         prodObjs: prodObjs,
         listData: listData,
@@ -109,6 +111,17 @@ function createProductPageComponent(sku, listData) {
         addToCart: function (i) {
             var item = this.prodObjs.getItem(i);
             return this.allCartC.addToCart(item);
+        },
+        updateItemPrices: function() {
+            var elts =$('.sc-item');
+            var that = this;
+            elts.each(function(index) {
+                var sku = $(this).data('vsku');
+                var prod =  that.catalog.getProduct(sku);
+                $(this).empty();
+                var html = that.allCartC.shop.getPriceHTML(prod);
+                $(this).append(html);
+            });
         },
         renderProductList: function() {
             var renderer = createRenderer(this.allCartC.shop, {}, this.prodObjs, this);
@@ -132,6 +145,7 @@ function createProductPageComponent(sku, listData) {
         },
         onSelectionChange: function () {
             this.renderProductList();
+            this.updateItemPrices();
         }
     };
 }

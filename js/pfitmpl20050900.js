@@ -428,6 +428,58 @@ const siteMap = [
     shop
 ];
 
+const merchInfo = [
+{
+    SKU: 'AWTSHT1604Je',
+    title: 'Woven Canvas T Shirt',
+    url: '/fabricartT.html',
+    ledes: ['A one-of-a-kind T-shirt for that unique individual!'],
+    images: [{url: '/fabricart/TShirtColl.jpg'},{url: '/fabricart/ManWhiteS.jpg'},{url: '/fabricart/GirlBlackS.jpg'}]
+},
+{
+    SKU: 'DPDYSF1501PT',
+    title: 'Dip-Dye Scarf',
+    url: '/products/scarves/dipdye.html',
+    ledes: ["A gorgeous example of the Tangail Weavers' Craft"],
+    images: [{url: '/products/scarves/TurbanMood.jpg'},{url: '/products/scarves/ShawlMood.jpg'}]
+},
+{
+    SKU: 'KAGTIE1601Kh',
+    title: 'Kagera Tie',
+    url: '/products/ties/kagera.html',
+    ledes: ['Artsy, hand-woven, hand-crafted Neckwear','For the gentleman of refined taste - a two-tone khadi tie with a border of treasured tangail'],
+    images: [{url: '/products/ties/Black.jpg'},{url: '/products/ties/Red.jpg'}]
+},
+{
+    SKU: 'CHMPGN1501JL',
+    title: 'Champagne Bottle Bag',
+    url: "/products/home/champagnebag.html",
+    ledes: ['The perfect gift bag for that exclusive vintage'],
+    images: [{url: '/products/home/CBCCMD.jpg'},{url: '/products/home/CBCGMD.jpg'},{url: '/products/home/CBMBMD.jpg'}]
+}
+];
+
+function createMerchandisingCard(item) {
+    var res = '<div class="card mb-2">';
+    var len = item.images.length;
+    var rndI = Math.floor(Math.random() * len);
+    var img = item.images[rndI];
+    res += '<div class="embed-responsive embed-responsive-1by1">';
+    res += '<img src="' + img.url + '" alt="' + item.title  + '" class="embed-responsive-item" style="object-fit: cover">';
+    res += '</div>';
+    res += '<div class="card-body px-0 pt-6 pb-4">';
+    res += '<div class="card-subtitle mb-1"><span class="sc-item text-muted" data-field="price" data-vsku="' + item.SKU +'"></span></div>';
+    if  ( item.url !== undefined ) {
+        res += '<h6 class="card-title mb-2">' + item.title + '<a  href="' + item.url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
+    }
+    len = item.ledes.length;
+    rndI = Math.floor(Math.random() * len);
+    var lede = item.ledes[rndI];
+    res += '<p class="mb-1">' + lede + '</p>';
+    res += '</div></div>';
+    return res;
+}
+
 function getHostName(url) {
     var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
     if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
@@ -704,13 +756,16 @@ function createSection(pages) {
     return res;
 }
 
-function createRelated(header, items, sections) {
+function createRelated(header, merch, items, sections) {
     var brkColCls = "col-sm-6 col-md-3";
-    var res = '<div class="container mb-5"><h5>' + header + '</h5><section class="pt-4"><div class="container"><div class="row">';
+    var res = '<div class="container mb-5"><section class="pt-4"><h6>' + header + '</h6><div class="row">';
+    for (var i = 0; i < merch.length; i++) {
+        res += '<div class="col-6 ' + brkColCls + '">' +  createMerchandisingCard(merch[ i ]) + '</div>';
+    }
     for (var i = 0; i < items.length; i++) {
         res += '<div class="col-6 ' + brkColCls + '">' +  createFeatureItemCard(items[ i ], sections[ i ]) + '</div>';
     }
-    res += '</div></div></section></div>';
+    res += '</div></section></div>';
     return res;
 }
 
@@ -721,12 +776,23 @@ function pickSection(section) {
 }
 
 function selectSections() {
-    return [atelier, pickSection([about, buzz, archives, lotm, lookbook]), pickSection([moods, ramp, clients]), origin];
+    return [pickSection([atelier, origin]), pickSection([about, buzz, archives, lotm, lookbook]), pickSection([moods, ramp, clients])];
+}
+
+function pickMerch() {
+    var len = merchInfo.length;
+    var rndI = Math.floor(Math.random() * len);
+    return merchInfo[ rndI ];
+}
+
+function selectMerch() {
+    return [pickMerch()];
 }
 
 function createFeatures(header) {
     var res = selectFeatures(selectSections());
-    return createRelated(header, res[0], res[1]);
+    var mch = selectMerch();
+    return createRelated(header, mch, res[0], res[1]);
 }
 
 function createCarousel(carId, carItems) {
@@ -897,7 +963,7 @@ function createShareBar(location) {
 }
 
 function storyBrowser() {
-    return createFeatures("Featured Stories");
+    return createFeatures("Featured");
 }
 
 function botNav(botImgTag, location) {

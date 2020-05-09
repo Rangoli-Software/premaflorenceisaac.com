@@ -160,8 +160,9 @@ function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks) {
     };
 }
 
-function createPageComponent(prodInfo, dimensioner, sizer, looks) {
+function createPageComponent(prodInfo, dimensioner, sizer, looks, catalog) {
     return {
+        catalog: catalog,
         prodInfo: prodInfo,
         dimensioner: dimensioner,
         sizer: sizer,
@@ -217,6 +218,17 @@ function createPageComponent(prodInfo, dimensioner, sizer, looks) {
         setShop: function (shop) {
             this.allCartC.setShop(shop);
         },
+        updateItemPrices: function() {
+            var elts =$('.sc-item');
+            var that = this;
+            elts.each(function(index) {
+                var sku = $(this).data('vsku');
+                var prod =  that.catalog.getProduct(sku);
+                $(this).empty();
+                var html = that.allCartC.shop.getPriceHTML(prod);
+                $(this).append(html);
+            });
+        },
         updateImageCarousel: function () {
             var prodRenderer = this.getRenderer();
 
@@ -256,6 +268,7 @@ function createPageComponent(prodInfo, dimensioner, sizer, looks) {
             $(prodImgSelector).append(infoHTML);
 
             this.registerATCListener();
+            this.updateItemPrices();
         },
         onUnitChange: function () {
             $('#SizeTable').empty();
