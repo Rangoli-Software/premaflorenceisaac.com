@@ -758,7 +758,7 @@ function createSection(pages) {
 
 function createRelated(header, merch, items, sections) {
     var brkColCls = "col-sm-6 col-md-3";
-    var res = '<div class="container mb-5"><section class="pt-4"><h6>' + header + '</h6><div class="row">';
+    var res = '<div class="container mb-5"><section class="pt-4"><h5>' + header + '</h5><div class="row">';
     for (var i = 0; i < merch.length; i++) {
         res += '<div class="col-6 ' + brkColCls + '">' +  createMerchandisingCard(merch[ i ]) + '</div>';
     }
