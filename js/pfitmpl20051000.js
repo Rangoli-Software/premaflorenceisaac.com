@@ -372,7 +372,7 @@ const shop = {
             url: "/products/happyeveryday/shop.html"
         },
         {
-            title: "Woven Canvas",
+            title: "Woven Canvas T Shirt",
             url: "/fabricartT.html"
         },
         {
