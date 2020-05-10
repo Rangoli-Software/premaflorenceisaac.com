@@ -1139,7 +1139,7 @@ function createProductDB() {
     return map;
 }
 
-var hed_catalog = {
+const hed_catalog = {
     skus: ['WNDRPA1709Kh','DRAWPA1609Kh','BERMPA1609Kh','BALLPA1501Vo','JODHPA1708Kh','CRPTOP1805Kh','TNKTPS1805Kh','TRPZTP1807Kh','OVTPLO1501Vo','OVTPSH1501Vo','VAMPAL1708Kh','LTSDSL1501Vo','LITLAY1708Vo'],
     tops: ['CRPTOP1805Kh','TNKTPS1805Kh','VAMPAL1708Kh','TRPZTP1807Kh'],
     overtops: ['OVTPLO1501Vo','OVTPSH1501Vo'],
@@ -1253,7 +1253,7 @@ var hed_catalog = {
     }
 };
 
-var hed_sizing_top = {
+const hed_sizing_top = {
     sizeGeo: ["US", "UK", "EU", "IT", "GR", "JP", "RU"],
     capGeo: ["US", "UK / AU / NZ", "EU / FR", "IT", "GR", "JP", "RU"],
     chart: {
@@ -1305,7 +1305,7 @@ var hed_sizing_top = {
     }
 }
 
-var hed_sizing_pant = {
+const hed_sizing_pant = {
     sizeGeo: ["US", "UK", "EU", "IT", "GR", "JP", "RU"],
     capGeo: ["US", "UK / AU / NZ", "EU / FR", "IT", "GR", "JP", "RU"],
     chart: {
@@ -1357,7 +1357,7 @@ var hed_sizing_pant = {
     }
 }
 
-var hed_lookbook = {
+const hed_lookbook = {
     styles: ['WNDRPA1709Kh','DRAWPA1609Kh','BERMPA1609Kh','CRPTOP1805Kh','TNKTPS1805Kh','VAMPAL1708Kh','TRPZTP1807Kh','LTSDSL1501Vo','LITLAY1708Vo','OVTPLO1501Vo','OVTPSH1501Vo','BALLPA1501Vo','JODHPA1708Kh'],
     looks: [
     {

@@ -412,6 +412,10 @@ const siteMap = [
             {
                 title: "Look",
                 url: "/look.html"
+            },
+            {
+                title: "Shop",
+                url: "/shop.html"
             }
         ]
     },
@@ -535,23 +539,27 @@ function createBreadCrumb(location) {
     var path = location;
     for (var i = 0; i < siteMap.length; i++) {
         var level1 = siteMap[ i ];
+        if ( level1)
         for (var j = 0; j < level1.sub.length; j++) {
             var level2 = level1.sub[ j ];
             if ( level2.url == path ) {
-                return createBreadCrumbLevels(level1, level2);
+                return createBreadCrumbLevels([level1, level2]);
             }
         }
     }
     return "";
 }            
 
-function createBreadCrumbLevels(level1, level2) {
+function createBreadCrumbLevels(levels) {
     var res = '<nav class="py-2"><div class="container"><div class="row"><div class="col-12"><ol class="breadcrumb mb-0 font-size-xs text-gray-400">';
     res +='<li class="breadcrumb-item"><a class="text-gray-400" href="/index.html">Home</a></li>';
-    if ( level1.title !== undefined ) {
-        res +='<li class="breadcrumb-item"><a class="text-gray-400" href="' + level1.url + '">' + level1.title + '</a></li>';
+    for(var i = 0; i < levels.length - 1; i++) {
+        var level = levels[i];
+        if ( level.title !== undefined ) {
+            res +='<li class="breadcrumb-item"><a class="text-gray-400" href="' + level.url + '">' + level.title + '</a></li>';
+        }
     }
-    res +='<li class="breadcrumb-item active">' + level2.title + '</a></li>';
+    res +='<li class="breadcrumb-item active">' + levels[levels.length - 1].title + '</a></li>';
     res += '</ol></div></div></div></nav>';
     return res;
 }
