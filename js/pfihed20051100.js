@@ -1140,11 +1140,11 @@ function createProductDB() {
 }
 
 const hed_catalog = {
-    skus: ['WNDRPA1709Kh','DRAWPA1609Kh','BERMPA1609Kh','BALLPA1501Vo','JODHPA1708Kh','CRPTOP1805Kh','TNKTPS1805Kh','TRPZTP1807Kh','OVTPLO1501Vo','OVTPSH1501Vo','VAMPAL1708Kh','LTSDSL1501Vo','LITLAY1708Vo'],
+    skus: ['WNDRPA1709Kh','DRAWPA1609Kh','BERMPA1609Kh','BALLPA1501Vo','CRPTOP1805Kh','TNKTPS1805Kh','TRPZTP1807Kh','OVTPLO1501Vo','OVTPSH1501Vo','VAMPAL1708Kh','LTSDSL1501Vo','LITLAY1708Vo'],
     tops: ['CRPTOP1805Kh','TNKTPS1805Kh','VAMPAL1708Kh','TRPZTP1807Kh'],
     overtops: ['OVTPLO1501Vo','OVTPSH1501Vo'],
     dresses: ['LTSDSL1501Vo','LITLAY1708Vo'],
-    pants: ['WNDRPA1709Kh','DRAWPA1609Kh','BERMPA1609Kh','BALLPA1501Vo','JODHPA1708Kh'],
+    pants: ['WNDRPA1709Kh','DRAWPA1609Kh','BERMPA1609Kh','BALLPA1501Vo'],
     getCategory: function(sku) {
         if (this.tops.includes(sku)) {
             return "tops";
@@ -1358,7 +1358,7 @@ const hed_sizing_pant = {
 }
 
 const hed_lookbook = {
-    styles: ['WNDRPA1709Kh','DRAWPA1609Kh','BERMPA1609Kh','CRPTOP1805Kh','TNKTPS1805Kh','VAMPAL1708Kh','TRPZTP1807Kh','LTSDSL1501Vo','LITLAY1708Vo','OVTPLO1501Vo','OVTPSH1501Vo','BALLPA1501Vo','JODHPA1708Kh'],
+    styles: ['WNDRPA1709Kh','DRAWPA1609Kh','BERMPA1609Kh','CRPTOP1805Kh','TNKTPS1805Kh','VAMPAL1708Kh','TRPZTP1807Kh','LTSDSL1501Vo','LITLAY1708Vo','OVTPLO1501Vo','OVTPSH1501Vo','BALLPA1501Vo'],
     looks: [
     {
         title:  '1.1',
@@ -1388,7 +1388,7 @@ const hed_lookbook = {
     {
         title:  '3',
         idxsfx: '14',
-        styles: ['CRPTOP1805Kh','JODHPA1708Kh']
+        styles: ['CRPTOP1805Kh']
     },
     {
         title:  '4',
@@ -1469,7 +1469,6 @@ const hed_lookbook = {
             case 'DRAWPA1609Kh': return [{look:'1.3', styles:['OVTPSH1501Vo']},{look: '2.1', styles:['CRPTOP1805Kh']}];
             case 'BERMPA1609Kh': return [{look: '5', styles:['CRPTOP1805Kh']},{look: '4', styles:['TRPZTP1807Kh']}];
             case 'BALLPA1501Vo': return [{look: '6', styles:['CRPTOP1805Kh','OVTPSH1501Vo']}];
-            case 'JODHPA1708Kh': return null;
             case 'CRPTOP1805Kh': return [{look: '2.2', styles:['DRAWPA1609Kh','OVTPSH1501Vo']},{look: '5', styles:['BERMPA1609Kh']}];
             case 'TNKTPS1805Kh': return [{look: '8', styles:['BERMPA1609Kh']}];
             case 'TRPZTP1807Kh': return [{look: '4', styles:['BERMPA1609Kh']}];

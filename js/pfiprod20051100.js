@@ -147,16 +147,18 @@ function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks) {
         createRelatedProductCard: function(idx, styles){
             var lkImg = this.looks.getImagePath(idx);
             var res = '<div class="col-6"><div class="card mb-2"><div class="embed-responsive embed-responsive-1by1"><img class="embed-responsive-item" src="' + lkImg + '" style="object-fit: cover"></div><div class="card-body">';
+            var first = true;
             for (var i =  0; i < styles.length; i++) {
                 var sty = styles[i];
                 if (sty == this.skuInfo.SKU) {
                     continue;
                 }
                 var entry = getProductCatalog().getProduct(sty);
-                if ( i > 0 ) {
+                if ( ! first ) {
                     res += ' &amp;'
                 }
                 res += ' <a href="' + entry.imageURL + '">' + entry.name + '</a>';
+                first = false;
             }
             res += '</div></div></div>';
             return res;

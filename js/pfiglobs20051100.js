@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020032800";
+const shopRevisionVersion = "2020051100";
 
 const cmData = [
 ['Helena Dress - PFI Tangail', 'HLNDRS1505PT', '', '', '/products/summerdreams/Helena.jpg', ''],
@@ -54,12 +54,12 @@ const plData = [
     ['ANGKRT1601Kh', 9000],
     ['LTSDSL1501Vo', 5000],
     ['VAMPAL1708Kh', 2900],
-    ['LITLAY1708Vo', 2700],
+    ['LITLAY1708Vo', 4000],
     ['CRPTOP1805Kh', 1750],
-    ['TNKTPS1805Kh', 1950],
-    ['TRPZTP1807Kh', 2750],
+    ['TNKTPS1805Kh', 1750],
+    ['TRPZTP1807Kh', 2900],
     ['BERMPA1609Kh', 2750],
-    ['DRAWPA1609Kh', 2400],
+    ['DRAWPA1609Kh', 2750],
     ['WNDRPA1709Kh', 3500],
     ['JODHPA1708Kh', 3000],
     ['BALLPA1501Vo', 4400],
