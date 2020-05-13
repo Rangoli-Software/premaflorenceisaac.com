@@ -25,7 +25,7 @@ const cmData = [
 ['Gypsy Skirt', 'SSEKMD1501PP', '0.275', '1.4', '', 'TRUE'],
 ['Naksha Skirt', 'NKSHMD1501PP', '0.3', '1.4', '', 'TRUE'],
 ['Test Live Trans', 'TESTIT0000Hi', '', '', '', 'FALSE'],
-['Woven Canvas on T', 'AWTSHT1604Je', '0.2', '1.3', '/fabricart/TShirtColl.jpg', 'TRUE'],
+['Woven Canvas on T Shirt', 'AWTSHT1604Je', '0.2', '1.3', '/fabricart/TShirtColl.jpg', 'TRUE'],
 ['Kagera Tie', 'KAGTIE1601Kh', '0.094', '1.3', '/products/ties/Black.jpg', 'FALSE'],
 ['Dip-Dye Scarf', 'DPDYSF1501PT', '0.36', '1.4', '/products/scarves/TurbanMood.jpg', 'FALSE'],
 ['Champagne Bottle Bag', 'CHMPGN1501JL', '0.0208333333333333', '1.3', '/products/home/cbaglite.jpg', 'FALSE'],
