@@ -40,6 +40,12 @@ const ramp = {
     url: "/look.html?t=r",
     sub: [
         {
+            title: 'Balearic Boho',
+            url: '/look/bc.html',
+            lede: 'Boho chic on the Balearic island of Ibiza',
+            imageURL: "/look/ramp/j201.jpg"
+        },
+        {
             title: 'Va-Va Voom',
             url: '/look/vvv.html',
             lede: 'Distinctive Designs in Treasured Textiles',
@@ -255,6 +261,18 @@ const clients = {
     title: "Friends",
     url: "/look.html?t=f",
     sub: [
+        {
+            title: "#oneofakind",
+            url: "/people/oneofakind.html",
+            lede: "The unique individuals who have collected my woven canvases",
+            imageURL: "/people/ooak/sl02.jpg"
+        },
+        {
+            title: "#artwear",
+            url: "/people/artwear.html",
+            lede: "Images of friends wearing my signature ArtWear silhouettes",
+            imageURL: "/people/EricaNaksha1.jpg"
+        },
         {
             title: "Curators",
             url: "/people/curators.html",
