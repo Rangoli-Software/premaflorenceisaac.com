@@ -1267,7 +1267,7 @@ const hed_catalog = {
 
 const hed_sizing_top = {
     sizeGeo: ["US", "UK", "EU", "IT", "GR", "JP", "RU"],
-    capGeo: ["US", "UK / AU / NZ", "EU / FR", "IT", "GR", "JP", "RU"],
+    capGeo: ["US", "UK / AU / NZ", "EU / FR", "IT", "DE", "JP", "RU"],
     chart: {
     S: {
         US: [8, 10],
@@ -1319,7 +1319,7 @@ const hed_sizing_top = {
 
 const hed_sizing_pant = {
     sizeGeo: ["US", "UK", "EU", "IT", "GR", "JP", "RU"],
-    capGeo: ["US", "UK / AU / NZ", "EU / FR", "IT", "GR", "JP", "RU"],
+    capGeo: ["US", "UK / AU / NZ", "EU / FR", "IT", "DE", "JP", "RU"],
     chart: {
     S: {
         US: [2, 10],
