@@ -513,13 +513,13 @@ function createLilyPantJSON() {
     return {
 product: prodEntry,
 styleImagePath: basePath + "sizing.jpg",
-dimensionNames: ["A. Length", "B. Waist", "C. Crotch", "D. Hips", "E. Hem"],
+dimensionNames: ["A. Length", "B. Waist", "C. Hips", "D. Crotch", "E. Hem"],
 dimensionsCm: {
     Free: [
         84,
         64,
-        90,
         140,
+        90,
         86
     ]
 },
