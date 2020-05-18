@@ -1237,3 +1237,30 @@ function getSizeModal(contents) {
     + contents +
         '</div></div></div></div>';
 }
+
+function createSiteMapGenerator(path) {
+    return {
+        path: path,
+        createSMNode: function(node) {
+            var res = "";
+            if ( node.url !== undefined && getHostName(node.url) === null) {
+                res += "<url><loc>" + this.path + node.url + "</loc></url>";
+            };
+            if ( node.sub !== undefined) {
+                res += this.createSM(node.sub);
+            }
+            return res;
+        },
+        createSM: function(nodeArr) {
+            var res = "";
+            for(var i = 0; i < nodeArr.length; i++) {
+                res += this.createSMNode(nodeArr[i]);
+            }
+            return res;
+        }
+    };
+}
+
+function createSM(path) {
+    return createSiteMapGenerator(path).createSM(siteMap);
+}

@@ -43,6 +43,7 @@ const cmData = [
 ['Jodhpur Pants', 'JODHPA1708Kh', '0.2', '1.4', '/products/happyeveryday/jodhpur.html', 'FALSE'],
 ['Floating Overlayer', 'OVTPSH1501Vo', '0.2', '1.4', '/products/happyeveryday/shovertop.html', 'FALSE'],
 ['Long Floating Overlayer', 'OVTPLO1501Vo', '0.2', '1.4', '/products/happyeveryday/lovertop.html', 'FALSE'],
+['Handloom Face Cover', 'FACEMK2005Ta', '0.075', '1.1', '/products/accessories/facemask.html', 'TRUE'],
 ];
 
 const plData = [
@@ -65,4 +66,5 @@ const plData = [
     ['BALLPA1501Vo', 4400],
     ['OVTPSH1501Vo', 1700],
     ['OVTPLO1501Vo', 2000],
+    ['FACEMK2005Ta', 650],
 ];
