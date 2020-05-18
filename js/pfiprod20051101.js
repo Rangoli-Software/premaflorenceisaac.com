@@ -103,14 +103,48 @@ function createVariantSelector(skuInfo, variants) {
             return res;
         },
         createSelectorPanel: function(varIdx, szIdx) {
+            var sz = this.skuInfo.sizes[0];
             return '<div class="form-group">'
                 + this.createFabricPanel(varIdx)
                 + this.createColourPanel(this.colourRadioName, varIdx)
                 + '</div>'
-                + '<div class="mb-3">Model is 5 ft 7 in (173 cm) and wearing size S</div>'
+                + '<div class="mb-3">Model is 5 ft 7 in (173 cm)' + (sz == 'Free' ? '' : ' and wearing size S') + '</div>'
                 + createSizeOptions(this.sizeRadioName, "Size", this.skuInfo.sizes, szIdx);
         }
     }
+}
+
+function createSizeOnlySelector(skuInfo, variants) {
+    return {
+        skuInfo: skuInfo,
+        variants: variants,
+        sizeRadioName: "sizeRadio",
+        getSizeIdx: function (valSize) {
+            for (var i = 0; i < this.skuInfo.sizes.length; i++) {
+                var size = this.skuInfo.sizes[i];
+                if (size === valSize) {
+                    return i;
+                }
+            }
+            return -1;
+        },
+        getSelectedSize: function () {
+            var selRadio = $("input[name='" + this.sizeRadioName + "']:checked");
+            return selRadio.val();
+        },
+        createSelectorPanel: function(varIdx, szIdx) {
+            return createSizeOptions(this.sizeRadioName, "Size", this.skuInfo.sizes, szIdx);
+        }
+    }
+}
+
+function createLevelsNavHelper(levels) {
+    return {
+        levels: levels,
+        getBreadCrumb: function () {
+            return createBreadCrumbLevels(this.levels);
+        }
+    };
 }
 
 function createNavHelper(prodInfo, categorizer) {
@@ -152,7 +186,7 @@ function createItemAdder() {
             var selOpt = $("select.custom-select");
             return Number(selOpt.val());
         },
-        createItemAdder: function() {
+        createDiv: function() {
             return '<div class="form-row mb-7"><div class="col-12 col-lg-auto">'
                 + this.createQuantityDiv()
                 + '</div><div class="col-12 col-lg">'
@@ -167,7 +201,7 @@ function createRelatedViewer(skuInfo, looks, catalog) {
         skuInfo: skuInfo,
         looks: looks,
         catalog: catalog,
-        createShopTheLookDiv: function () {
+        createDiv: function () {
             var related = this.looks.getRelatedStyles(this.skuInfo.SKU);
             if (related === null) {
                 return '';
@@ -203,26 +237,59 @@ function createRelatedViewer(skuInfo, looks, catalog) {
     };
 }
 
-function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks, categorizer, catalog) {
+function createEmptyViewer() {
     return {
-        shop: shop,
-        skuInfo: prodInfo.skuInfo,
-        product: prodInfo.product,
-        variants: prodInfo.variants,
+        createDiv: function () {
+            return '';
+        }
+    };
+}
+
+function createSizePanelr(skuInfo, dimensioner, sizer) {
+    return {
+        skuInfo: skuInfo,
         dimensioner: dimensioner,
         sizer: sizer,
-        carousel: createProductCarousel(prodInfo.variants),
-        variantSelector: createVariantSelector(prodInfo.skuInfo, prodInfo.variants),
-        itemadder: createItemAdder(),
-        relatedviewer: createRelatedViewer(prodInfo.skuInfo, looks, catalog),
-        navhelper: createNavHelper(prodInfo, categorizer),
-        prodPanelId: 'prodPanel',
+        createSizingPanel: function () {
+            var res = '';
+            if ( this.sizer !== null) {
+                res += '<h6>International Sizing</h6>'
+                + this.sizer.createSizeChart(this.skuInfo.sizes)
+                + '<p>The sizing chart above is only approximate. Please check the actual garment measurements below to find your size. Please email us at prema.florence.isaac@gmail.com or WhatsApp +919443362528 if you have further questions or wish to customize your order.</p>';
+            }
+            res += '<h6 class="mb-0">Product Measurements</h6>'
+                + this.dimensioner.createMeasurementsPanel("in", this.skuInfo.sizes);
+            return res;
+        }
+    };
+}
+
+function createBasePanelr(shop, product) {
+    return {
+        shop: shop,
+        product: product,
         getPriceHTML: function () {
             return this.shop.getPriceHTML(this.product);
         },
+        createBasePanel: function () {
+            return '<h4 class="mb-2">' + this.product.name + '</h4>' +
+                '<div class="mb-7 text-gray-400"><span class="ml-1 font-size-h5 font-weight-bold">' + this.getPriceHTML() + '</span></div>';
+        }
+    }
+}
+
+function createProductRenderer(basepanelr, sizepanelr, carousel, variantSelector, itemadder, addlviewer, navhelper) {
+    return {
+        basepanelr: basepanelr,
+        sizepanelr: sizepanelr,
+        carousel: carousel,
+        variantSelector: variantSelector,
+        itemadder: itemadder,
+        addlviewer: addlviewer,
+        navhelper: navhelper,
+        prodPanelId: 'prodPanel',
         createSizingPanel: function () {
-            return '<h6>International Sizing</h6>' + this.sizer.createSizeChart(this.skuInfo.sizes) +
-                '<p>The sizing chart above is only approximate. Please check the actual garment measurements below to find your size. Please email us at prema.florence.isaac@gmail.com or WhatsApp +919443362528 if you have further questions or wish to customize your order.</p><h6 class="mb-0">Garment Measurements</h6>' + this.dimensioner.createMeasurementsPanel("in", this.skuInfo.sizes);
+            return sizepanelr.createSizingPanel();
         },
         createImageDiv: function (varIdx) {
             return '<div class="form-row mb-10 mb-md-0" id="prodImages">' +
@@ -232,16 +299,12 @@ function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks, catego
         getBreadCrumb: function () {
             return this.navhelper.getBreadCrumb();
         },
-        createBasePanel: function () {
-            return '<h4 class="mb-2">' + this.product.name + '</h4>' +
-                '<div class="mb-7 text-gray-400"><span class="ml-1 font-size-h5 font-weight-bold">' + this.getPriceHTML() + '</span></div>';
-        },
         createInfoDiv: function (varIdx, szIdx) {
-            var res = this.createBasePanel() + '<form>'
+            var res = this.basepanelr.createBasePanel() + '<form>'
             + this.variantSelector.createSelectorPanel(varIdx, szIdx) 
-            + this.itemadder.createItemAdder()
+            + this.itemadder.createDiv()
             + '</form>'
-            + this.relatedviewer.createShopTheLookDiv();
+            + this.addlviewer.createDiv();
             return res;
         },
         createProductDiv: function(varIdx, szIdx) {
@@ -268,20 +331,53 @@ function createProductRenderer(shop, prodInfo, dimensioner, sizer, looks, catego
     };
 }
 
-function createPageComponent(prodInfo, dimensioner, sizer, looks, catalog, categorizer) {
+function createFMRendererFactory(prodInfo, dimensioner, catalog) {
+    var sizepanelr = createSizePanelr(prodInfo.skuInfo, dimensioner, null);
+    var carousel = createProductCarousel(prodInfo.variants);
+    var variantSelector = createSizeOnlySelector(prodInfo.skuInfo, prodInfo.variants);
+    var itemadder = createEmptyViewer();
+    var relatedviewer = createEmptyViewer();
+    var levels = [{
+        title: 'Shop',
+        url: '/shop.html'
+    }, {
+        title: prodInfo.product.name
+    }];
+    var navhelper = createLevelsNavHelper(levels);
+    return {
+        createRenderer: function(shop) {
+            var basepanelr = createBasePanelr(shop, prodInfo.product)
+            return createProductRenderer(basepanelr, sizepanelr, carousel, variantSelector, itemadder, relatedviewer, navhelper);
+        }
+    };
+}
+
+function createHEDRendererFactory(prodInfo, dimensioner, sizer, looks, categorizer, catalog) {
+    var sizepanelr = createSizePanelr(prodInfo.skuInfo, dimensioner, sizer);
+    var carousel = createProductCarousel(prodInfo.variants);
+    var variantSelector = createVariantSelector(prodInfo.skuInfo, prodInfo.variants);
+    var itemadder = createItemAdder();
+    var relatedviewer = createRelatedViewer(prodInfo.skuInfo, looks, catalog);
+    var navhelper = createNavHelper(prodInfo, categorizer);
+    return {
+        createRenderer: function(shop) {
+            var basepanelr = createBasePanelr(shop, prodInfo.product)
+            return createProductRenderer(basepanelr, sizepanelr, carousel, variantSelector, itemadder, relatedviewer, navhelper);
+        }
+    };
+}
+
+function createPageComponent(prodInfo, catalog, rendererFactory) {
     return {
         catalog: catalog,
         prodInfo: prodInfo,
-        dimensioner: dimensioner,
-        sizer: sizer,
-        categorizer: categorizer,
-        looks: looks,
+        rendererFactory: rendererFactory,
         allCartC: null,
         init: function (shop) {
             this.allCartC = createAllCartComponents(shop, this);
         },
         createRenderer: function (shop) {
-            return createProductRenderer(shop, this.prodInfo, this.dimensioner, this.sizer, this.looks, this.categorizer, this.catalog);
+            return rendererFactory.createRenderer(shop);
         },
         getRenderer: function () {
             return this.createRenderer(this.allCartC.shop);
