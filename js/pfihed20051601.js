@@ -1234,6 +1234,10 @@ const hed_sizing_pant = {
     }
 }
 
+const hed_washcareHTML = "<ul><li>Machine Wash Cold</li><li>Mild Detergent</li><li>Gentle Cycle</li><li>Do Not Bleach</li><li>Dry In Shade</li><li>Medium Iron</li></ul>";
+
+const hed_shippingHTML = getShippingInfoUL(['If the item is in stock,  it will be ready to ship within 1 business day of your order.', 'If the item is not in stock, it will be ready to ship within 2-3 business days of your order.']);
+
 const hed_lookbook = {
     styles: ['WNDRPA1709Kh', 'DRAWPA1609Kh', 'BERMPA1609Kh', 'CRPTOP1805Kh', 'TNKTPS1805Kh', 'VAMPAL1708Kh', 'TRPZTP1807Kh', 'LTSDSL1501Vo', 'LITLAY1708Vo', 'OVTPLO1501Vo', 'OVTPSH1501Vo', 'BALLPA1501Vo'],
     looks: [

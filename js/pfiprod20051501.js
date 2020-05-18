@@ -245,6 +245,15 @@ function createEmptyViewer() {
     };
 }
 
+function createHTMLViewer(html) {
+    return {
+        html: html,
+        createDiv: function () {
+            return this.html;
+        }
+    };
+}
+
 function createSizePanelr(skuInfo, dimensioner, sizer) {
     return {
         skuInfo: skuInfo,
@@ -331,11 +340,11 @@ function createProductRenderer(basepanelr, sizepanelr, carousel, variantSelector
     };
 }
 
-function createFMRendererFactory(prodInfo, dimensioner, catalog) {
+function createFMRendererFactory(prodInfo, dimensioner, catalog, html) {
     var sizepanelr = createSizePanelr(prodInfo.skuInfo, dimensioner, null);
     var carousel = createProductCarousel(prodInfo.variants);
     var variantSelector = createSizeOnlySelector(prodInfo.skuInfo, prodInfo.variants);
-    var itemadder = createEmptyViewer();
+    var itemadder = createHTMLViewer(html);
     var relatedviewer = createEmptyViewer();
     var levels = [{
         title: 'Shop',
@@ -450,21 +459,20 @@ function createPageComponent(prodInfo, catalog, rendererFactory) {
     }
 }
 
-function renderProductDetails(summary, detailsHTML) {
+function renderProductDetails(summary, detailsHTML, washcareHTML, shippingInfoHTML) {
     return '<section class="pt-7"><div class="container"><div class="row"><div class="col-12">' +
-        '<div class="nav nav-tabs nav-overflow justify-content-start justify-content-md-center border-bottom"><a class="nav-link active" data-toggle="tab" href="#description">Summary</a><a class="nav-link" data-toggle="tab" href="#details">Details</a><a class="nav-link" data-toggle="tab" href="#care">Care</a><a class="nav-link" data-toggle="tab" href="#shipping">Shipping</a></div>' +
-        '<div class="tab-content">' +
-        '<div class="tab-pane fade show active" id="description"><div class="item py-5">' + summary + '</div></div>' +
-        '<div class="tab-pane fade" id="details"><div class="item py-5">' +
-        detailsHTML + '</div></div>' +
-        '<div class="tab-pane fade" id="care"><div class="item py-5">' +
-        '<ul><li>Machine Wash Cold</li><li>Mild Detergent</li><li>Gentle Cycle</li><li>Do Not Bleach</li><li>Dry In Shade</li><li>Medium Iron</li></ul>' +
-        '</div></div>' +
-        '<div class="tab-pane fade" id="shipping"><div class="item py-5">' +
-        getShippingInfoUL(['If the item is in stock,  it will be ready to ship within 1 business day of your order.', 'If the item is not in stock, it will be ready to ship within 2-3 business days of your order.']) +
-        '</div></div>' +
-        '</div>' +
-        '</div></div></div></section>';
+        '<div class="nav nav-tabs nav-overflow justify-content-start justify-content-md-center border-bottom"><a class="nav-link active" data-toggle="tab" href="#description">Summary</a><a class="nav-link" data-toggle="tab" href="#details">Details</a><a class="nav-link" data-toggle="tab" href="#care">Care</a><a class="nav-link" data-toggle="tab" href="#shipping">Shipping</a></div>' 
+        + '<div class="tab-content">'
+        + '<div class="tab-pane fade show active" id="description"><div class="item py-5">' + summary + '</div></div>' 
+        + '<div class="tab-pane fade" id="details"><div class="item py-5">' + detailsHTML 
+        + '</div></div>' 
+        + '<div class="tab-pane fade" id="care"><div class="item py-5">' + washcareHTML 
+        + '</div></div>' +
+        '<div class="tab-pane fade" id="shipping"><div class="item py-5">' 
+        + shippingInfoHTML
+        + '</div></div>'
+        + '</div>'
+        + '</div></div></div></section>';
 }
 
 function loadShopWithParam() {
