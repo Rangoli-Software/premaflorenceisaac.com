@@ -386,6 +386,10 @@ const shop = {
         url: "/shop.html",
         sub: [
         {
+            title: "Face Mask",
+            url: "/products/accessories/facemask.html"
+        },
+        {
             title: "Happy Everyday",
             url: "/products/happyeveryday/shop.html"
         },
@@ -458,6 +462,13 @@ const merchInfo = [
     url: '/fabricartT.html',
     ledes: ['A one-of-a-kind T-shirt for that unique individual!'],
     images: [{url: '/fabricart/TShirtColl.jpg'},{url: '/fabricart/ManWhiteS.jpg'},{url: '/fabricart/GirlBlackS.jpg'}]
+},
+{
+    SKU: 'FACEMK2005Ta',
+    title: 'Handloom Face Mask',
+    url: '/products/accessories/facemask.html',
+    ledes: [""],
+    images: [{url: '/products/accessories/fm/many-1.jpg'},{url: '/products/accessories/fm/many-2.jpg'}]
 },
 {
     SKU: 'DPDYSF1501PT',

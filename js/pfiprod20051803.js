@@ -426,7 +426,7 @@ function createFMItemsComponent(items, productComponent) {
             var itemDesc = this.items.getDescriptor(i);
             var prodDesc = this.items.product;
             var res = '<div class="card mb-2">';
-            res += '<img src="' + itemDesc.getImagePath() + '" alt="' + prodDesc.name  + '" class="img-fluid">';
+            res += '<a href="' + itemDesc.getImagePath() + '" data-fancybox><img src="' + itemDesc.getImagePath() + '" alt="' + prodDesc.name  + '" class="img-fluid"></a>';
             res += '<div class="card-body px-0 pt-6 pb-4 text-center">';
             res += createAddToCartButton(this.getButtonId(i));
             res += '</div></div>';
