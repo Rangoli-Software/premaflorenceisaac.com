@@ -16,7 +16,7 @@ function createSquareProductCarousel(variants) {
             var i = 0;
             for (; i < this.variants.getNumImages(varIdx); i++) {
                 var img = this.variants.getImage(varIdx, i);
-                res += '<div class="col-12 px-2" style="max-width: 113px;"><img class="img-fluid" src="' + img.url + '"></div>';
+                res += '<div class="px-2" style="max-width: 113px;"><img class="img-fluid" src="' + img.url + '"></div>';
             }
             res += '</div>';
             return res;
@@ -25,14 +25,30 @@ function createSquareProductCarousel(variants) {
             var res = '<div class="card"><div class="mb-4" data-flickity=\'{"draggable": false, "fade": true}\' id="' + this.getPanelId() + '">';
             for (var i = 0; i < this.variants.getNumImages(varIdx); i++) {
                 var img = this.variants.getImage(varIdx, i);
-//                res += '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '" class="card-img-top"></a>';
-                res += '<div class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + img.url + ');"></div>';
+                res += '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '" class="card-img-top"></a>';
+//                res += '<div class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + img.url + ');"></div>';
             }
             res += '</div></div>';
             return res;
         },
         update: function() {
-            
+            var panelId = this.getPanelId();
+            var eltCarousel = $('#' + panelId);
+            eltCarousel.flickity({
+                draggable: false,
+                fade: true
+            });
+
+            var navId = this.getNavId();
+            var eltNav = $('#' + navId);
+            eltNav.flickity({
+                asNavFor: '#' + panelId,
+                contain: true,
+                wraparound: false,
+                draggable: false
+            });
+
+            $('[data-fancybox]').fancybox({});
         }
     };
 }
@@ -499,9 +515,8 @@ function createFMItemsComponent(items, productComponentFactory) {
     };
 }
 
-function createFMProdCompFactory(prodInfo, dimensioner, catalog, html) {
+function createFMProdCompFactory(prodInfo, dimensioner, catalog, html, carousel) {
     var sizePanelr = createSizePanelr(prodInfo.skuInfo, dimensioner, null);
-    var carousel = createSquareProductCarousel(prodInfo.variants);
     var variantSelector = createSizeOnlySelector(prodInfo.skuInfo, prodInfo.variants);
     var itemAdder = createHTMLViewer(html);
     var relatedviewer = createEmptyViewer();
