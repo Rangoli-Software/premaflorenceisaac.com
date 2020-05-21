@@ -12,7 +12,7 @@ function createSquareProductCarousel(variants) {
                 + this.createImageNav(varIdx);
         },
         createImageNav: function (varIdx) {
-            var res = '<div class="flickity-nav mx-n2 mb-10 mb-md-0" data-flickity=\'' + '{"asNavFor": "#' + this.getPanelId() + '", "contain": true, "wraparound": false}\' id="' + this.getNavId() + '">';
+            var res = '<div class="flickity-nav mx-n2 mb-10 mb-md-0" data-flickity=\'{"asNavFor": "#' + this.getPanelId() + '", "contain": true, "wraparound": false}\' id="' + this.getNavId() + '">';
             var i = 0;
             for (; i < this.variants.getNumImages(varIdx); i++) {
                 var img = this.variants.getImage(varIdx, i);
@@ -54,7 +54,7 @@ function createProductCarousel(variants) {
                 '</div>';
         },
         createImageNav: function (varIdx) {
-            var res = '<div class="flickity-nav flickity-vertical" data-flickity=\'' + '{"asNavFor": "#' + this.getPanelId() + '", "draggable": false}\' id="' + this.getNavId() + '">';
+            var res = '<div class="flickity-nav flickity-vertical" data-flickity=\'{"asNavFor": "#' + this.getPanelId() + '", "draggable": false}\' id="' + this.getNavId() + '">';
             var i = 0;
             for (; i < this.variants.getNumImages(varIdx) - 1; i++) {
                 var img = this.variants.getImage(varIdx, i);
