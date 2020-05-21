@@ -31,6 +31,9 @@ function createSquareProductCarousel(variants) {
             res += '</div></div>';
             return res;
         },
+        update: function() {
+            
+        }
     };
 }
 
@@ -168,6 +171,9 @@ function createSizeOnlySelector(skuInfo, variants) {
         skuInfo: skuInfo,
         variants: variants,
         sizeRadioName: "sizeRadio",
+        getSelectedVariant: function() {
+            return 0;
+        },
         getSizeIdx: function (valSize) {
             for (var i = 0; i < this.skuInfo.sizes.length; i++) {
                 var size = this.skuInfo.sizes[i];
@@ -360,14 +366,17 @@ function createProductComponent(basePanelr, sizePanelr, carousel, variantSelecto
             return this.navHelper.getBreadCrumb();
         },
         createSizingPanel: function () {
-            return sizePanelr.createSizingPanel();
+            return this.sizePanelr.createSizingPanel();
         },
-        createProductDiv: function(varIdx, szIdx) {
-            return '<div class="row" id="' + this.prodPanelId + '"><div class="col-12 col-md-7">'
+        createPDContents: function (varIdx, szIdx) {
+            return '<div class="col-12 col-md-7">'
                 + this.createImageDiv(varIdx)
                 + '</div><div class="col-12 col-md-5 pl-lg-10">'
                 + this.createInfoDiv(varIdx, szIdx)
-                + '</div></div>';
+                + '</div>';
+        },
+        createProductDiv: function(varIdx, szIdx) {
+            return '<div class="row" id="' + this.prodPanelId + '">' + this.createPDContents(varIdx, szIdx) + '</div>';
         },
         createItem: function() {
             var qty = this.itemAdder.getSelectedQty();
@@ -388,7 +397,7 @@ function createProductComponent(basePanelr, sizePanelr, carousel, variantSelecto
             var varIdx = this.variantSelector.getSelectedVariant();
             var valSize = this.variantSelector.getSelectedSize();
             var szIdx = this.variantSelector.getSizeIdx(valSize);
-            var imageHTML = this.createProductDiv(varIdx, szIdx);
+            var imageHTML = this.createPDContents(varIdx, szIdx);
 
             var prodImgSelector = "#" + this.prodPanelId;
             $(prodImgSelector).empty();
@@ -417,10 +426,11 @@ function createItemComponent(idx) {
     };
 }
 
-function createFMItemsComponent(items, productComponent) {
+function createFMItemsComponent(items, productComponentFactory) {
     return {
+        size: 'Free',
         items: items,
-        productComponent: productComponent,
+        productComponentFactory: productComponentFactory,
         listId: 'artwear-list',
         createCard: function(i) {
             var itemDesc = this.items.getDescriptor(i);
@@ -449,10 +459,9 @@ function createFMItemsComponent(items, productComponent) {
             return 'btnId' + idx;
         },
         createItem: function(i) {
-            var size = this.productComponent.variantSelector.getSelectedSize();
             var unique = this.items.getDescriptor(i);
             var product = this.items.product;
-            return createItem(product, product.inrPrice, size, unique.fabricColour, 1, unique.number, unique.getImagePath(), true);
+            return createItem(product, product.inrPrice, this.size, unique.fabricColour, 1, unique.number, unique.getImagePath(), true);
         },
         createDiv: function() {
             return '<form action="/shop/checkout.html" method="get"><div id="' + this.listId + '" class="item">'
@@ -479,7 +488,8 @@ function createFMItemsComponent(items, productComponent) {
                 });
             }
         },
-        updateSelection: function() {
+        updateSelection: function(shop) {
+            productComponentFactory.createRenderer(shop).updateSelection();
             var divId = '#' + this.listId;
             $(divId + ' .btn').off('click');
             $(divId).empty();
@@ -489,7 +499,7 @@ function createFMItemsComponent(items, productComponent) {
     };
 }
 
-function createFMRendererFactory(prodInfo, dimensioner, catalog, html) {
+function createFMProdCompFactory(prodInfo, dimensioner, catalog, html) {
     var sizePanelr = createSizePanelr(prodInfo.skuInfo, dimensioner, null);
     var carousel = createSquareProductCarousel(prodInfo.variants);
     var variantSelector = createSizeOnlySelector(prodInfo.skuInfo, prodInfo.variants);
@@ -596,7 +606,7 @@ function createFMPageComponent(catalog, itemsComponent) {
         },
         onSelectionChange() {
             this.itemsComponent.unregisterATC();
-            this.itemsComponent.updateSelection();
+            this.itemsComponent.updateSelection(this.allCartC.shop);
             var that = this;
             this.itemsComponent.registerATC(function(idx){
                 that.addToCart(idx);
