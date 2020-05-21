@@ -414,9 +414,9 @@ function createFMItemsComponent(items, productComponent) {
         },
         createItem: function(i) {
             var size = this.productComponent.variantSelector.getSelectedSize();
-            var unique = this.getDescriptor(i);
-            var product = this.product;
-            return createItem(product, product.inrPrice, size, unique.fabricColour, 1, unique.number, unique.imageURL, true);
+            var unique = this.items.getDescriptor(i);
+            var product = this.items.product;
+            return createItem(product, product.inrPrice, size, unique.fabricColour, 1, unique.number, unique.getImagePath(), true);
         },
         createDiv: function() {
             return '<form action="/shop/checkout.html" method="get"><div id="' + this.listId + '" class="item">'
