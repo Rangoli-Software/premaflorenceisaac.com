@@ -40,8 +40,7 @@ function createProductRenderer(prodDesc, product, shop, options, tlcc) {
             return tlcc.createButtonID(this.prodDesc.number);
         },
         createAddToCartButton: function () {
-            var id = this.getButtonID();
-            return '<button id="' + id + '" class="btn btn-warning btn-sm" type="button"><span class="fa fa-cart-plus"></span> Add to Cart</button>';
+            return createAddToCartButton(this.getButtonID());
         },
         createDescriptionPanel: function () {
             return '<div class="col-md-7"><div class="row"><div class="col-10 offset-1"><p class="text-center">' + this.product.name + '<br>' +

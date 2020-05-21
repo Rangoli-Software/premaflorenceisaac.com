@@ -58,12 +58,22 @@ function createProductCarousel(variants) {
     };
 }
 
-function createVariantSelector(skuInfo, variants) {
+function createVariantSelector(prodInfo) {
     return {
-        skuInfo: skuInfo,
-        variants: variants,
+        prodInfo: prodInfo,
+        variants: prodInfo.variants,
         colourRadioName: "colRadio",
         sizeRadioName: "sizeRadio",
+        createItem: function (qty) {
+            var vidx = this.getSelectedVariant();
+            var size = this.getSelectedSize();
+            var vnt = this.prodInfo.variants.data[vidx];
+            var itmSKU = vnt.vid + "-" + size;
+            var imgURL = this.prodInfo.variants.getImage(vidx, 0).url;
+            var product = this.prodInfo.product;
+            var clr = this.getSelectedColour();
+            return createItem(product, product.inrPrice, size, clr, qty, itmSKU, imgURL, false);
+        },
         getVarIdx: function (valColour) {
             for (var i = 0; i < this.variants.data.length; i++) {
                 var variant = this.variants.data[i];
@@ -74,13 +84,16 @@ function createVariantSelector(skuInfo, variants) {
             return -1;
         },
         getSizeIdx: function (valSize) {
-            for (var i = 0; i < this.skuInfo.sizes.length; i++) {
-                var size = this.skuInfo.sizes[i];
+            for (var i = 0; i < this.prodInfo.skuInfo.sizes.length; i++) {
+                var size = this.prodInfo.skuInfo.sizes[i];
                 if (size === valSize) {
                     return i;
                 }
             }
             return -1;
+        },
+        getSelectedVariant: function() {
+            return this.getVarIdx(this.getSelectedColour());
         },
         getSelectedColour: function () {
             var selRadio = $("input[name='" + this.colourRadioName + "']:checked");
@@ -103,13 +116,13 @@ function createVariantSelector(skuInfo, variants) {
             return res;
         },
         createSelectorPanel: function(varIdx, szIdx) {
-            var sz = this.skuInfo.sizes[0];
+            var sz = this.prodInfo.skuInfo.sizes[0];
             return '<div class="form-group">'
                 + this.createFabricPanel(varIdx)
                 + this.createColourPanel(this.colourRadioName, varIdx)
                 + '</div>'
                 + '<div class="mb-3">Model is 5 ft 7 in (173 cm)' + (sz == 'Free' ? '' : ' and wearing size S') + '</div>'
-                + createSizeOptions(this.sizeRadioName, "Size", this.skuInfo.sizes, szIdx);
+                + createSizeOptions(this.sizeRadioName, "Size", this.prodInfo.skuInfo.sizes, szIdx);
         }
     }
 }
@@ -171,8 +184,10 @@ function createNavHelper(prodInfo, categorizer) {
     };
 }
 
-function createItemAdder() {
+function createItemAdder(prodInfo, variantSelector) {
     return {
+        prodInfo: prodInfo,
+        variantSelector: variantSelector,
         getBtnId: function () {
             return "btnATC";
         },
@@ -180,7 +195,7 @@ function createItemAdder() {
             return '<select class="custom-select"><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>';
         },
         createAddToCartButton: function () {
-            return '<button id="' + this.getBtnId() + '" class="btn btn-block btn-warning" type="button"><span class="fa fa-cart-plus"></span> Add to Cart</button>';
+            return createAddToCartButton(this.getBtnId());
         },
         getSelectedQty: function () {
             var selOpt = $("select.custom-select");
@@ -263,12 +278,20 @@ function createSizePanelr(skuInfo, dimensioner, sizer) {
             var res = '';
             if ( this.sizer !== null) {
                 res += '<h6>International Sizing</h6>'
-                + this.sizer.createSizeChart(this.skuInfo.sizes)
-                + '<p>The sizing chart above is only approximate. Please check the actual garment measurements below to find your size. Please email us at prema.florence.isaac@gmail.com or WhatsApp +919443362528 if you have further questions or wish to customize your order.</p>';
+                    + this.sizer.createSizeChart(this.skuInfo.sizes)
+                    + '<p>The sizing chart above is only approximate. Please check the actual garment measurements below to find your size. Please email us at prema.florence.isaac@gmail.com or WhatsApp +919443362528 if you have further questions or wish to customize your order.</p>';
             }
             res += '<h6 class="mb-0">Product Measurements</h6>'
                 + this.dimensioner.createMeasurementsPanel("in", this.skuInfo.sizes);
             return res;
+        },
+        updateUnits: function() {
+            var tableid = '#' + this.dimensioner.tableId;
+            $(tableid).empty();
+            var selRadio = $("input[name='" + this.dimensioner.unitFieldName + "']:checked");
+            var units = selRadio.val();
+            var table = this.dimensioner.createSizingTable(units, this.skuInfo.sizes);
+            $(tableid).append(table);
         }
     };
 }
@@ -287,64 +310,154 @@ function createBasePanelr(shop, product) {
     }
 }
 
-function createProductRenderer(basepanelr, sizepanelr, carousel, variantSelector, itemadder, addlviewer, navhelper) {
+function createProductComponent(basePanelr, sizePanelr, carousel, variantSelector, itemAdder, addlViewer, navHelper) {
     return {
-        basepanelr: basepanelr,
-        sizepanelr: sizepanelr,
+        basePanelr: basePanelr,
+        sizePanelr: sizePanelr,
         carousel: carousel,
         variantSelector: variantSelector,
-        itemadder: itemadder,
-        addlviewer: addlviewer,
-        navhelper: navhelper,
+        itemAdder: itemAdder,
+        addlViewer: addlViewer,
+        navHelper: navHelper,
         prodPanelId: 'prodPanel',
-        createSizingPanel: function () {
-            return sizepanelr.createSizingPanel();
-        },
-        createImageDiv: function (varIdx) {
-            return '<div class="form-row mb-10 mb-md-0" id="prodImages">' +
-                this.carousel.createImageCarousel(varIdx) +
-                '</div>';
-        },
         getBreadCrumb: function () {
-            return this.navhelper.getBreadCrumb();
+            return this.navHelper.getBreadCrumb();
         },
-        createInfoDiv: function (varIdx, szIdx) {
-            var res = this.basepanelr.createBasePanel() + '<form>'
-            + this.variantSelector.createSelectorPanel(varIdx, szIdx) 
-            + this.itemadder.createDiv()
-            + '</form>'
-            + this.addlviewer.createDiv();
-            return res;
+        createSizingPanel: function () {
+            return sizePanelr.createSizingPanel();
         },
         createProductDiv: function(varIdx, szIdx) {
             return '<div class="row" id="' + this.prodPanelId + '"><div class="col-12 col-md-7">'
-            + this.createImageDiv(varIdx)
-            + '</div><div class="col-12 col-md-5 pl-lg-10">'
-            + this.createInfoDiv(varIdx, szIdx)
-            + '</div></div>';
+                + this.createImageDiv(varIdx)
+                + '</div><div class="col-12 col-md-5 pl-lg-10">'
+                + this.createInfoDiv(varIdx, szIdx)
+                + '</div></div>';
+        },
+        createItem: function() {
+            var qty = this.itemAdder.getSelectedQty();
+            return this.variantSelector.createItem(qty);
+        },
+        updateUnits: function() {
+            this.sizePanelr.updateUnits();
+        },
+        unregisterATC: function() {
+            var atcBtnElt = $('#' + this.itemAdder.getBtnId());
+            atcBtnElt.off('click');
+        },
+        registerATC: function(fn) {
+            var atcBtnElt = $('#' + this.itemAdder.getBtnId());
+            atcBtnElt.on('click', fn);
         },
         updateSelection: function() {
-            var valColour = this.variantSelector.getSelectedColour();
+            var varIdx = this.variantSelector.getSelectedVariant();
             var valSize = this.variantSelector.getSelectedSize();
-
-            var valIdx = this.variantSelector.getVarIdx(valColour);
             var szIdx = this.variantSelector.getSizeIdx(valSize);
-            var imageHTML = this.createProductDiv(valIdx, szIdx);
+            var imageHTML = this.createProductDiv(varIdx, szIdx);
 
             var prodImgSelector = "#" + this.prodPanelId;
             $(prodImgSelector).empty();
             $(prodImgSelector).append(imageHTML);
 
             this.carousel.update();
+        },
+        createImageDiv: function (varIdx) {
+            return '<div class="form-row mb-10 mb-md-0" id="prodImages">' +
+                this.carousel.createImageCarousel(varIdx) +
+                '</div>';
+        },
+        createInfoDiv: function (varIdx, szIdx) {
+            var res = this.basePanelr.createBasePanel() + '<form>'
+            + this.variantSelector.createSelectorPanel(varIdx, szIdx) 
+            + this.itemAdder.createDiv()
+            + '</form>'
+            + this.addlViewer.createDiv();
+            return res;
         }
     };
 }
 
+function createItemComponent(idx) {
+    return {
+    };
+}
+
+function createFMItemsComponent(items, productComponent) {
+    return {
+        items: items,
+        productComponent: productComponent,
+        listId: 'artwear-list',
+        createCard: function(i) {
+            var itemDesc = this.items.getDescriptor(i);
+            var prodDesc = this.items.product;
+            var res = '<div class="card mb-2">';
+            res += '<img src="' + itemDesc.getImagePath() + '" alt="' + prodDesc.name  + '" class="img-fluid">';
+            res += '<div class="card-body px-0 pt-6 pb-4 text-center">';
+            res += createAddToCartButton(this.getButtonId(i));
+            res += '</div></div>';
+            return res;
+        },
+        createCards: function() {
+            var ret = '<div class="row">';
+            for (var i = 0; i < this.items.base.length; i++) {
+                ret += '<div class="col-6 col-sm-4 col-md-3">'
+                ret += this.createCard(i);
+                ret += '</div>'
+            }
+            ret += '</div>'
+            return ret;
+        },
+        getNumItems: function() {
+            return items.getNumItems();
+        },
+        getButtonId: function(idx) {
+            return 'btnId' + idx;
+        },
+        createItem: function(i) {
+            var size = this.productComponent.variantSelector.getSelectedSize();
+            var unique = this.getDescriptor(i);
+            var product = this.product;
+            return createItem(product, product.inrPrice, size, unique.fabricColour, 1, unique.number, unique.imageURL, true);
+        },
+        createDiv: function() {
+            return '<form action="/shop/checkout.html" method="get"><div id="' + this.listId + '" class="item">'
+                + '</div></form>';
+        },
+        unregisterATC: function() {
+            if (this.items === null) {
+                return;
+            }
+            for (var i = 0; i < this.getNumItems(); i++) {
+                var eltBnd = $("#" + this.getButtonId(i));
+                eltBnd.off('click');
+            }
+        },
+        registerATC: function(fn) {
+            if (this.items === null) {
+                return;
+            }
+            for (var i = 0; i < this.getNumItems(); i++) {
+                var eltBnd = $("#" + this.getButtonId(i));
+                let idx = i;
+                eltBnd.on('click', function() {
+                    fn(idx);
+                });
+            }
+        },
+        updateSelection: function() {
+            var divId = '#' + this.listId;
+            $(divId + ' .btn').off('click');
+            $(divId).empty();
+            var listHTML = this.createCards();
+            $(divId).append(listHTML);
+        },
+    };
+}
+
 function createFMRendererFactory(prodInfo, dimensioner, catalog, html) {
-    var sizepanelr = createSizePanelr(prodInfo.skuInfo, dimensioner, null);
+    var sizePanelr = createSizePanelr(prodInfo.skuInfo, dimensioner, null);
     var carousel = createProductCarousel(prodInfo.variants);
     var variantSelector = createSizeOnlySelector(prodInfo.skuInfo, prodInfo.variants);
-    var itemadder = createHTMLViewer(html);
+    var itemAdder = createHTMLViewer(html);
     var relatedviewer = createEmptyViewer();
     var levels = [{
         title: 'Shop',
@@ -352,26 +465,26 @@ function createFMRendererFactory(prodInfo, dimensioner, catalog, html) {
     }, {
         title: prodInfo.product.name
     }];
-    var navhelper = createLevelsNavHelper(levels);
+    var navHelper = createLevelsNavHelper(levels);
     return {
         createRenderer: function(shop) {
-            var basepanelr = createBasePanelr(shop, prodInfo.product)
-            return createProductRenderer(basepanelr, sizepanelr, carousel, variantSelector, itemadder, relatedviewer, navhelper);
+            var basePanelr = createBasePanelr(shop, prodInfo.product)
+            return createProductComponent(basePanelr, sizePanelr, carousel, variantSelector, itemAdder, relatedviewer, navHelper);
         }
     };
 }
 
 function createHEDRendererFactory(prodInfo, dimensioner, sizer, looks, categorizer, catalog) {
-    var sizepanelr = createSizePanelr(prodInfo.skuInfo, dimensioner, sizer);
+    var sizePanelr = createSizePanelr(prodInfo.skuInfo, dimensioner, sizer);
     var carousel = createProductCarousel(prodInfo.variants);
-    var variantSelector = createVariantSelector(prodInfo.skuInfo, prodInfo.variants);
-    var itemadder = createItemAdder();
+    var variantSelector = createVariantSelector(prodInfo);
+    var itemAdder = createItemAdder();
     var relatedviewer = createRelatedViewer(prodInfo.skuInfo, looks, catalog);
-    var navhelper = createNavHelper(prodInfo, categorizer);
+    var navHelper = createNavHelper(prodInfo, categorizer);
     return {
         createRenderer: function(shop) {
-            var basepanelr = createBasePanelr(shop, prodInfo.product)
-            return createProductRenderer(basepanelr, sizepanelr, carousel, variantSelector, itemadder, relatedviewer, navhelper);
+            var basePanelr = createBasePanelr(shop, prodInfo.product)
+            return createProductComponent(basePanelr, sizePanelr, carousel, variantSelector, itemAdder, relatedviewer, navHelper);
         }
     };
 }
@@ -391,47 +504,13 @@ function createPageComponent(prodInfo, catalog, rendererFactory) {
         getRenderer: function () {
             return this.createRenderer(this.allCartC.shop);
         },
-        createItem: function (clr, size, qty) {
-            var product = this.prodInfo.product;
-            var vidx = this.getRenderer().variantSelector.getVarIdx(clr);
-            var vnt = this.prodInfo.variants.data[vidx];
-            var itmSKU = vnt.vid + "-" + size;
-            var imgURL = this.prodInfo.variants.getImage(vidx, 0).url;
-            return createItem(product, product.inrPrice, size, clr, qty, itmSKU, imgURL, false);
-        },
         addToCart: function () {
-            var size = this.getSelectedSize();
-            var clr = this.getSelectedColour();
-            var qty = this.getSelectedQty();
-            var item = this.createItem(clr, size, qty);
+            var item = this.getRenderer().createItem();
             return this.allCartC.addToCart(item);
-        },
-        registerATCListener: function () {
-            var atcBtnElt = $('#' + this.getRenderer().itemadder.getBtnId());
-            let that = this;
-            atcBtnElt.on('click', function () {
-                that.addToCart();
-            });
-        },
-        unregisterATCListener: function () {
-            var atcBtnElt = $('#' + this.getRenderer().itemadder.getBtnId());
-            atcBtnElt.off('click');
-        },
-        getSelectedQty: function () {
-            return this.getRenderer().itemadder.getSelectedQty();
-        },
-        getSelectedColour: function () {
-            return this.getRenderer().variantSelector.getSelectedColour();
-        },
-        getSelectedSize: function () {
-            return this.getRenderer().variantSelector.getSelectedSize();
-        },
-        setShop: function (shop) {
-            this.allCartC.setShop(shop);
         },
         updateItemPrices: function () {
             var elts = $('.sc-item');
-            var that = this;
+            let that = this;
             elts.each(function (index) {
                 var sku = $(this).data('vsku');
                 var prod = that.catalog.getProduct(sku);
@@ -440,21 +519,53 @@ function createPageComponent(prodInfo, catalog, rendererFactory) {
                 $(this).append(html);
             });
         },
-        updateImageCarousel: function () {
-            this.getRenderer().carousel.update();
-        },
         onSelectionChange: function () {
-            this.unregisterATCListener();
-            this.getRenderer().updateSelection();
-            this.registerATCListener();
+            var renderer = this.getRenderer();
+            renderer.unregisterATC();
+            renderer.updateSelection();
+            let that = this;
+            renderer.registerATC(function() {
+                that.addToCart();
+            });
             this.updateItemPrices();
         },
         onUnitChange: function () {
-            $('#SizeTable').empty();
-            var selRadio = $("input[name='SizeChartUnits']:checked");
-            var units = selRadio.val();
-            var table = this.getRenderer().dimensioner.createSizingTable(units, this.prodInfo.skuInfo.sizes);
-            $('#SizeTable').append(table);
+            this.getRenderer().updateUnits();
+        }
+    }
+}
+
+function createFMPageComponent(catalog, itemsComponent) {
+    return {
+        catalog: catalog,
+        itemsComponent: itemsComponent,
+        allCartC: null,
+        init: function(shop) {
+            this.allCartC = createAllCartComponents(shop, this);
+        },
+        addToCart: function(i) {
+            var item = this.itemsComponent.createItem(i);
+            return this.allCartC.addToCart(item);
+        },
+        updateItemPrices: function() {
+            var elts =$('.sc-item');
+            var that = this;
+            elts.each(function(index) {
+                var sku = $(this).data('vsku');
+                var prod =  that.catalog.getProduct(sku);
+                $(this).empty();
+                var html = that.allCartC.shop.getPriceHTML(prod);
+                $(this).append(html);
+            });
+        },
+        onSelectionChange() {
+            this.itemsComponent.unregisterATC();
+            this.itemsComponent.updateSelection();
+            var that = this;
+            this.itemsComponent.registerATC(function(idx){
+                that.addToCart(idx);
+            });
+            this.updateItemPrices();
         }
     }
 }
