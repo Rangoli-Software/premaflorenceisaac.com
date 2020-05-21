@@ -1,3 +1,12 @@
+/shopper-1.0.3/libs/flickity/dist/*
+	Cache-Control: public, max-age=31536000,  immutable
+
+/shopper-1.0.3/libs/flickity-fade/*
+	Cache-Control: public, max-age=31536000,  immutable
+
+/shopper-1.0.3/libs/@fancyapps/fancybox/dist/*
+	Cache-Control: public, max-age=31536000,  immutable
+
 /js/*.css
 	Cache-Control: public, max-age=31536000,  immutable
 
@@ -65,15 +74,6 @@
 	Cache-Control: public, max-age=31536000,  immutable
 
 /products/anotherway/*.jpg
-	Cache-Control: public, max-age=31536000,  immutable
-
-/products/happyeveryday/*.jpg
-	Cache-Control: public, max-age=31536000,  immutable
-
-/products/happyeveryday/jadedress/*.jpg
-	Cache-Control: public, max-age=31536000,  immutable
-
-/products/happyeveryday/looks/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
 /products/holydays/*.jpg
