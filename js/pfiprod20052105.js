@@ -12,17 +12,17 @@ function createSquareProductCarousel(variants) {
                 + this.createImageNav(varIdx) + '</div>';
         },
         createImageNav: function (varIdx) {
-            var res = '<div class="flickity-nav mx-n2 mb-10 mb-md-0" data-flickity=\'{"asNavFor": "#' + this.getPanelId() + '", "contain": true, "wraparound": false}\' id="' + this.getNavId() + '">';
+            var res = '<div class="flickity-nav mx-n2 mb-2" data-flickity=\'{"asNavFor": "#' + this.getPanelId() + '", "contain": true, "wrapAround": false}\' id="' + this.getNavId() + '">';
             var i = 0;
             for (; i < this.variants.getNumImages(varIdx); i++) {
                 var img = this.variants.getImage(varIdx, i);
-                res += '<div class="col-12 px-1" style="max-width: 100px;"><img class="img-fluid" src="' + img.url + '"></div>';
+                res += '<div class="col-12 px-1" style="max-width: 80px;"><img class="img-fluid" src="' + img.url + '"></div>';
             }
             res += '</div>';
             return res;
         },
         createImagePanel: function (varIdx) {
-            var res = '<div class="card"><div class="mb-4" data-flickity=\'{"draggable": false, "fade": true}\' id="' + this.getPanelId() + '">';
+            var res = '<div class="card"><div class="mb-2" data-flickity=\'{"draggable": false, "fade": true}\' id="' + this.getPanelId() + '">';
             for (var i = 0; i < this.variants.getNumImages(varIdx); i++) {
                 var img = this.variants.getImage(varIdx, i);
                 res += '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '" class="card-img-top"></a>';
@@ -43,7 +43,7 @@ function createSquareProductCarousel(variants) {
             eltNav.flickity({
                 asNavFor: '#' + panelId,
                 contain: true,
-                wraparound: false
+                wrapAround: false
             });
 
             $('[data-fancybox]').fancybox({});
