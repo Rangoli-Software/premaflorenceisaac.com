@@ -8,15 +8,15 @@ function createSquareProductCarousel(variants) {
             return this.getPanelId() + "-Nav";
         },
         createImageCarousel: function (varIdx) {
-            return this.createImagePanel(varIdx) 
-                + this.createImageNav(varIdx);
+            return '<div class="col-12">' + this.createImagePanel(varIdx) 
+                + this.createImageNav(varIdx) + '</div>';
         },
         createImageNav: function (varIdx) {
             var res = '<div class="flickity-nav mx-n2 mb-10 mb-md-0" data-flickity=\'{"asNavFor": "#' + this.getPanelId() + '", "contain": true, "wraparound": false}\' id="' + this.getNavId() + '">';
             var i = 0;
             for (; i < this.variants.getNumImages(varIdx); i++) {
                 var img = this.variants.getImage(varIdx, i);
-                res += '<div class="px-2" style="max-width: 113px;"><img class="img-fluid" src="' + img.url + '"></div>';
+                res += '<div class="col-12 px-1" style="max-width: 100px;"><img class="img-fluid" src="' + img.url + '"></div>';
             }
             res += '</div>';
             return res;
@@ -26,7 +26,6 @@ function createSquareProductCarousel(variants) {
             for (var i = 0; i < this.variants.getNumImages(varIdx); i++) {
                 var img = this.variants.getImage(varIdx, i);
                 res += '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '" class="card-img-top"></a>';
-//                res += '<div class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + img.url + ');"></div>';
             }
             res += '</div></div>';
             return res;
@@ -44,8 +43,7 @@ function createSquareProductCarousel(variants) {
             eltNav.flickity({
                 asNavFor: '#' + panelId,
                 contain: true,
-                wraparound: false,
-                draggable: false
+                wraparound: false
             });
 
             $('[data-fancybox]').fancybox({});
