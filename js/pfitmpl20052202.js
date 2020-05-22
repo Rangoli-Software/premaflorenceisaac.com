@@ -65,6 +65,18 @@ const lotm = {
     url: "/look.html?t=p",
     sub: [
         {
+            title: "Florence in Florence",
+            url: "/blog/finf.html",
+            lede: 'Notes from a short holiday in Florence.',
+            imageURL: "/blog/FlorDuomo.jpg"
+        },
+        {
+            title: "Tapestries!",
+            url: "/tapestries/tapestries.html",
+            lede: 'An artistic collaboration with Montreal photographer <strong>Jérémi Poulin</strong>',
+            imageURL: "/tapestries/JP-7374.jpg"
+        },
+        {
             lede: 'Off-shoulder knit top with one of my signature Art Wear skirts - The Naksha.',
             imageURL: "/g/look/nkshofstp.jpg"
         },
@@ -176,12 +188,6 @@ const atelier = {
     url: "/blog.html?t=a",
     sub: [
         {
-            title: "Florence in Florence",
-            url: "/blog/finf.html",
-            lede: 'Notes from a short holiday in Florence.',
-            imageURL: "/blog/FlorDuomo.jpg"
-        },
-        {
             title: "Vilnius Artists",
             url: "/blog/vilartists.html",
             lede: 'Visiting Vilnius  - Meeting some inspirational artists.',
@@ -216,12 +222,6 @@ const atelier = {
             url: "/atelier/dreamteam.html",
             lede: 'My work family - they are a big part of what makes my Rangoli Atelier tick!',
             imageURL: "/atelier/PFW.jpg"
-        },
-        {
-            title: "Tapestries!",
-            url: "/tapestries/tapestries.html",
-            lede: 'An artistic collaboration with Montreal photographer <strong>Jérémi Poulin</strong>',
-            imageURL: "/tapestries/JP-7374.jpg"
         },
         {
             title: "Tangail Art",
@@ -467,8 +467,8 @@ const merchInfo = [
     SKU: 'FACEMK2005Ta',
     title: 'Handloom Face Mask',
     url: '/products/accessories/facemask.html',
-    ledes: [""],
-    images: [{url: '/products/accessories/fm/many-1.jpg'},{url: '/products/accessories/fm/many-2.jpg'}]
+    ledes: ["#oneofakind facemask to keep you safe in style"],
+    images: [{url: '/people/nfm01.jpg'},{url: '/people/nfm02.jpg'},{url: '/people/nfm03.jpg'}]
 },
 {
     SKU: 'DPDYSF1501PT',
@@ -730,13 +730,13 @@ function createShopMM() {
 function createLookMM() {
     var col1 = createDropdownColumn([lotm, moods], "col-6");
     var col2 = createDropdownColumn([clients, ramp], "col-6");
-    return createMinWidthDDCard([col1, col2], "305px", true);
+    return createMinWidthDDCard([col1, col2], "345px", true);
 }
 
 function createBlogDD () {
-    var col1 = createDropdownColumn([atelier], "col-6");
-    var col2 = createDropdownColumn([origin, archives], "col-6");
-    return createMinWidthDDCard([col1, col2], "345px", true);
+    var col1 = createDropdownColumn([atelier, archives], "col-6");
+    var col2 = createDropdownColumn([origin], "col-6");
+    return createMinWidthDDCard([col1, col2], "320px", true);
 }
 
 function createAboutDD () {
