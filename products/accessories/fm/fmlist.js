@@ -7,7 +7,7 @@ var fmListData = [
 
 function createFMDescriptor(fmRow) {
     var num = fmRow[ 0 ];
-    const base = '/products/accessories/fm/'
+    const base = '/products/accessories/fm/';
     return {
         number: num,
         getImagePath: function() {
