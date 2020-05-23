@@ -595,12 +595,15 @@ function selectFeature(section) {
     return section.sub[ rndI ];
 }
 
-function selectFeatures(sections) {
+function selectFeatures(sections, blacklist) {
     var items = [];
     var pars = [];
     for (var i = 0; i < sections.length; i++ ) {
         var sec = sections[ i ];
         var sel = selectFeature(sec);
+        while (blacklist.includes(sel.url)) {
+            sel = selectFeature(sec);
+        }
         items.push(sel);
         pars.push(sec);
     }
@@ -853,9 +856,11 @@ function createRelated(header, merch, items, sections, orderidxs) {
     var res = '<div class="container mb-5"><section class="pt-4"><h5>' + header + '</h5><div class="row">';
     var ordI = 0;
     orderidxs = shuffle(orderidxs);
+    if ( merch !== null) {
     for (var i = 0; i < merch.length; i++) {
         res += '<div class="col-6 ' + brkColCls + " order-" + orderidxs[ordI] + '">' +  createMerchandisingCard(merch[ i ]) + '</div>';
         ordI++;
+    }
     }
     for (var i = 0; i < items.length; i++) {
         res += '<div class="col-6 ' + brkColCls +  " order-" + orderidxs[ordI] + '">' +  createFeatureItemCard(items[ i ], sections[ i ]) + '</div>';
@@ -875,33 +880,35 @@ function selectSections() {
     return [pickSection([atelier, origin]), pickSection([about, buzz, archives, lotm, lookbook, moods, ramp, clients])];
 }
 
-function filterMerch(skus) {
+function filterMerch(skus, blacklist) {
     var res = [];
     for(var i = 0; i < merchInfo.length; i++) {
         var val = merchInfo[i];
         if (skus.includes(val.SKU)) {
-            res.push(val);
+            if ( ! blacklist.includes(val.url) ) {
+                res.push(val);
+            }
         }
     }
     return res;
 }
 
-function pickMerch(skus) {
-    var flt = filterMerch(skus);
+function pickMerch(skus, blacklist) {
+    var flt = filterMerch(skus, blacklist);
     var len = flt.length;
     var rndI = Math.floor(Math.random() * len);
     return flt[ rndI ];
 }
 
-function selectMerch() {
+function selectMerch(blacklist) {
     var hedSKUs = ['BERMPA1609Kh','BALLPA1501Vo','CRPTOP1805Kh','OVTPLO1501Vo','VAMPAL1708Kh','LTSDSL1501Vo'];
-    var restSKUs = ['AWTSHT1604Je','DPDYSF1501PT','KAGTIE1601Kh','CHMPGN1501JL'];
-    return [pickMerch(hedSKUs), pickMerch(restSKUs)];
+    var restSKUs = ['FACEMK2005Ta','AWTSHT1604Je','DPDYSF1501PT','KAGTIE1601Kh','CHMPGN1501JL'];
+    return [pickMerch(hedSKUs, blacklist), pickMerch(restSKUs, blacklist)];
 }
 
-function createFeatures(header) {
-    var res = selectFeatures(selectSections());
-    var mch = selectMerch();
+function createFeatures(header, blacklist) {
+    var res = selectFeatures(selectSections(), blacklist);
+    var mch = selectMerch(blacklist);
     return createRelated(header, mch, res[0], res[1],[1,4,7,10]);
 }
 
@@ -1072,8 +1079,8 @@ function createShareBar(location) {
         + '</div></div>';
 }
 
-function storyBrowser() {
-    return createFeatures("Featured");
+function storyBrowser(blacklist) {
+    return createFeatures("Featured", blacklist);
 }
 
 function botNav(botImgTag, location) {
