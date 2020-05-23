@@ -1251,7 +1251,7 @@ function getSizeModal(contents) {
 }
 
 function createAddToCartButton(id) {
-    return '<button id="' + id + '" class="btn btn-warning btn-sm" type="button"><span class="fa fa-cart-plus"></span> Add to Cart</button>';
+    return '<button id="' + id + '" class="btn btn-warning btn-block" type="button"><span class="fa fa-cart-plus"></span> Add to Cart</button>';
 }
 
 function createSiteMapGenerator(path) {
