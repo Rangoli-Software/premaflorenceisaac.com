@@ -70,10 +70,64 @@
 /people/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
+/people/ooak/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
 /products/accessories/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
 /products/anotherway/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/happyeveryday/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/happyeveryday/blln/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/happyeveryday/bnr/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/happyeveryday/brmda/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/happyeveryday/crptp/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/happyeveryday/drwstrg/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/happyeveryday/jdhpr/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/happyeveryday/lly/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/happyeveryday/looks/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/happyeveryday/lovrtop/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/happyeveryday/lyr/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/happyeveryday/mood/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/happyeveryday/sdslt/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/happyeveryday/shdrstrg/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/happyeveryday/shvrtp/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/happyeveryday/tnktp/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/happyeveryday/wngs/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
 /products/holydays/*.jpg
