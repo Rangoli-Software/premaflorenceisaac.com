@@ -1,3 +1,47 @@
+function hexToRGB(hexRGB) {
+    return {
+        r: parseInt (hexRGB.substr(1,2), 16), 
+        g: parseInt (hexRGB.substr(3,2), 16),
+        b: parseInt (hexRGB.substr(5,2), 16)
+    };
+}
+
+function rgbToHSL(hexRGB) {
+    var r = hexRGB.r / 255;
+    var g = hexRGB.g / 255
+    var b = hexRGB.b / 255;
+
+    var max = Math.max(r, g, b), min = Math.min(r, g, b);
+    var h, s, l = (max + min) / 2;
+
+    if(max == min){
+        h = s = 0; // achromatic
+    }else{
+        var d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch(max){
+            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+            case g: h = (b - r) / d + 2; break;
+            case b: h = (r - g) / d + 4; break;
+        }
+        h /= 6;
+    }
+
+    return {
+        h: h,
+        s: s,
+        l: l
+    };
+}
+
+function hexToH(hexRGB){
+    return rgbToHSL(hexToRGB(hexRGB)).h;
+}
+
+function hexToL(hexRGB) {
+  return rgbToHSL(hexToRGB(hexRGB)).l;
+}
+
 function createSquareProductCarousel(variants) {
     return {
         variants: variants,
@@ -441,27 +485,43 @@ function createItemComponent(idx) {
     };
 }
 
-function createFMItemsComponent(items, productComponentFactory) {
+function createFMItemsComponent(items, productComponentFactory, productComponent) {
     return {
         size: 'Free',
         items: items,
         productComponentFactory: productComponentFactory,
+        productComponent: productComponent,
         listId: 'artwear-list',
         createCard: function(i) {
             var itemDesc = this.items.getDescriptor(i);
             var prodDesc = this.items.product;
             var res = '<div class="card mb-2">';
             res += '<a href="' + itemDesc.getImagePath() + '" data-fancybox><img src="' + itemDesc.getImagePath() + '" alt="' + prodDesc.name  + '" class="img-fluid"></a>';
-            res += '<div class="card-body px-0 pt-6 pb-4 text-center">';
+            res += '<div class="card-body px-0 pt-2 pb-4 text-center">';
+            res += '<div class="card-subtitle mb-3"><span>' + this.productComponent.basePanelr.getPriceHTML() + '</span></div>';
             res += createAddToCartButton(this.getButtonId(i));
             res += '</div></div>';
             return res;
         },
-        createCards: function() {
-            var ret = '<div class="row">';
+        createIndicesArray: function() {
+            var res = [];
             for (var i = 0; i < this.items.base.length; i++) {
+                res.push(i);
+            }
+            return res;
+        },
+        createCards: function() {
+            var indexArr = this.createIndicesArray();
+            let that = this;
+            indexArr.sort(function(iL,iR){
+                var lH = that.items.getDescriptor(iL).getHue();
+                var rH = that.items.getDescriptor(iR).getHue();
+                return (lH < rH ? -1 : (lH > rH ? 1 : 0));
+            });
+            var ret = '<div class="row">';
+            for (var i = 0; i < indexArr.length; i++) {
                 ret += '<div class="col-6 col-sm-4 col-md-3">'
-                ret += this.createCard(i);
+                ret += this.createCard(indexArr[i]);
                 ret += '</div>'
             }
             ret += '</div>'
@@ -504,7 +564,8 @@ function createFMItemsComponent(items, productComponentFactory) {
             }
         },
         updateSelection: function(shop) {
-            productComponentFactory.createRenderer(shop).updateSelection();
+            this.productComponent = this.productComponentFactory.createRenderer(shop);
+            this.productComponent.updateSelection();
             var divId = '#' + this.listId;
             $(divId + ' .btn').off('click');
             $(divId).empty();
