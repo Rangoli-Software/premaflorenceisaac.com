@@ -572,6 +572,9 @@ function createFMItemsComponent(items, productComponentFactory, productComponent
             var listHTML = this.createCards();
             $(divId).append(listHTML);
         },
+        onUnitChange: function () {
+            this.productComponent.updateUnits();
+        }
     };
 }
 
@@ -687,6 +690,9 @@ function createFMPageComponent(catalog, itemsComponent) {
                 that.addToCart(idx);
             });
             this.updateItemPrices();
+        },
+        onUnitChange: function () {
+            this.itemsComponent.updateUnits();
         }
     }
 }
