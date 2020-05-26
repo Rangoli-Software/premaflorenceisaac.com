@@ -1,8 +1,8 @@
 var fmListData = [
-['1','#588E79','Patina',true],
+['1a','#588E79','Patina',true],
 ['2','#993936','El Salva',true],
-['3','#DBD8C5','Moon Mist',true],
-['4','#914A50','Copper Rust',true],
+['3a','#DBD8C5','Moon Mist',true],
+['4a','#914A50','Copper Rust',true],
 ['6','#1B1B19','Tuatara',true],
 ['7','#5D262B','Buccaneer',true],
 ['8','#AD4426','Paarl',true],
@@ -31,7 +31,7 @@ function createFMDescriptor(fmRow) {
         },
         getV: function() {
             var hex = fmRow[1];
-            return hexToV(hex);
+            return hexToL(hex);
         }
     };
 }

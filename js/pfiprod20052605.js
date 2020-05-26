@@ -252,6 +252,90 @@ function createSizeOnlySelector(skuInfo, variants) {
     }
 }
 
+function createNullSelector(skuInfo, variants) {
+    return {
+        skuInfo: skuInfo,
+        variants: variants,
+        sizeRadioName: "sizeRadio",
+        getSelectedVariant: function() {
+            return 0;
+        },
+        getSizeIdx: function (valSize) {
+            for (var i = 0; i < this.skuInfo.sizes.length; i++) {
+                var size = this.skuInfo.sizes[i];
+                if (size === valSize) {
+                    return i;
+                }
+            }
+            return -1;
+        },
+        getSelectedSize: function () {
+            return this.skuInfo.sizes[0];
+        },
+        createSelectorPanel: function(varIdx, szIdx) {
+            return "";
+        }
+    }
+}
+
+function createItemCategorySelector(prodInfo, categories) {
+    return {
+        prodInfo: prodInfo,
+        categories: categories,
+        colourRadioName: "colRadio",
+        sizeRadioName: "sizeRadio",
+        getCatIdx: function (valColour) {
+            for (var i = 0; i < this.categories.data.length; i++) {
+                var variant = this.categories.data[i];
+                if (variant.colourName === valColour) {
+                    return i;
+                }
+            }
+            return -1;
+        },
+        getSizeIdx: function (valSize) {
+            for (var i = 0; i < this.prodInfo.skuInfo.sizes.length; i++) {
+                var size = this.prodInfo.skuInfo.sizes[i];
+                if (size === valSize) {
+                    return i;
+                }
+            }
+            return -1;
+        },
+        getSelectedColour: function () {
+            var selRadio = $("input[name='" + this.colourRadioName + "']:checked");
+            return selRadio.val();
+        },
+        getSelectedSize: function () {
+            var selRadio = $("input[name='" + this.sizeRadioName + "']:checked");
+            return selRadio.val();
+        },
+        createColourPanel: function (name, varIdx) {
+            var res = '<div class="mb-8 ml-n1">';
+            for (var i = 0; i < this.categories.data.length; i++) {
+                var opt = this.categories.data[i];
+                res += '<div class="custom-control custom-control-inline custom-control-img"><input type="radio" onclick="onSelectionChange()" class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + '><label class="custom-control-label" for="' + name + i + '"><span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + this.categories.getImage(i).url + ');"></span></label></div>';
+            }
+            res += '</div>';
+            return res;
+        },
+        createDiv: function(varIdx, szIdx) {
+            var res = '<form><div class="row align-items-center">'
+            + '<div class="col-6 text-center">';
+            res += createSizeOptions(this.sizeRadioName, "Size", this.prodInfo.skuInfo.sizes, szIdx);
+            res += '</div><div class="col-6 text-center">'
+            + this.createColourPanel(this.colourRadioName, varIdx)
+            + '</div>'
+            + '</div></form>';
+            return res;
+        },
+        getItems: function() {
+            var varIdx = this.getCatIdx(this.getSelectedColour());
+            return this.categories.filterOnCategory(varIdx);
+        }
+    }
+}
+
 function createLevelsNavHelper(levels) {
     return {
         levels: levels,
@@ -406,7 +490,7 @@ function createBasePanelr(shop, product) {
         },
         createBasePanel: function () {
             return '<h4 class="mb-2">' + this.product.name + '</h4>' +
-                '<div class="mb-7 text-gray-400"><span class="ml-1 font-size-h5 font-weight-bold">' + this.getPriceHTML() + '</span></div>';
+                '<div class="mb-5 text-gray-400"><span class="ml-1 font-size-h5 font-weight-bold">' + this.getPriceHTML() + '</span></div>';
         }
     }
 }
@@ -485,12 +569,13 @@ function createItemComponent(idx) {
     };
 }
 
-function createFMItemsComponent(items, productComponentFactory, productComponent) {
+function createFMItemsComponent(items, productComponentFactory, productComponent, itemCategorySelector) {
     return {
         size: 'Free',
         items: items,
         productComponentFactory: productComponentFactory,
         productComponent: productComponent,
+        itemCategorySelector: itemCategorySelector,
         listId: 'artwear-list',
         createCard: function(i) {
             var itemDesc = this.items.getDescriptor(i);
@@ -566,9 +651,13 @@ function createFMItemsComponent(items, productComponentFactory, productComponent
         updateSelection: function(shop) {
             this.productComponent = this.productComponentFactory.createRenderer(shop);
             this.productComponent.updateSelection();
+
+            this.items = this.itemCategorySelector.getItems();
+
             var divId = '#' + this.listId;
             $(divId + ' .btn').off('click');
             $(divId).empty();
+
             var listHTML = this.createCards();
             $(divId).append(listHTML);
         },
@@ -580,7 +669,7 @@ function createFMItemsComponent(items, productComponentFactory, productComponent
 
 function createFMProdCompFactory(prodInfo, dimensioner, catalog, html, carousel) {
     var sizePanelr = createSizePanelr(prodInfo.skuInfo, dimensioner, null);
-    var variantSelector = createSizeOnlySelector(prodInfo.skuInfo, prodInfo.variants);
+    var variantSelector = createNullSelector(prodInfo.skuInfo, prodInfo.variants);
     var itemAdder = createHTMLViewer(html);
     var relatedviewer = createEmptyViewer();
     var levels = [{
