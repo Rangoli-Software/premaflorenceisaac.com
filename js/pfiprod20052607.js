@@ -220,7 +220,7 @@ function createVariantSelector(prodInfo) {
                 + this.createColourPanel(this.colourRadioName, varIdx)
                 + '</div>'
                 + '<div class="mb-3">Model is 5 ft 7 in (173 cm)' + (sz == 'Free' ? '' : ' and wearing size S') + '</div>'
-                + createSizeOptions(this.sizeRadioName, "Size", this.prodInfo.skuInfo.sizes, szIdx);
+                + createSizeOptions(this.sizeRadioName, "Size", this.prodInfo.skuInfo.sizes, szIdx, 'Size chart');
         }
     }
 }
@@ -247,7 +247,7 @@ function createSizeOnlySelector(skuInfo, variants) {
             return selRadio.val();
         },
         createSelectorPanel: function(varIdx, szIdx) {
-            return createSizeOptions(this.sizeRadioName, "Size", this.skuInfo.sizes, szIdx);
+            return createSizeOptions(this.sizeRadioName, "Size", this.skuInfo.sizes, szIdx, 'Size chart');
         }
     }
 }
@@ -311,7 +311,7 @@ function createItemCategorySelector(prodInfo, categories) {
             return selRadio.val();
         },
         createColourPanel: function (name, varIdx) {
-            var res = '<div class="mb-8 ml-n1">';
+            var res = '<div class="mb-4 ml-n1">';
             for (var i = 0; i < this.categories.data.length; i++) {
                 var opt = this.categories.data[i];
                 res += '<div class="custom-control custom-control-inline custom-control-img"><input type="radio" onclick="onSelectionChange()" class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + '><label class="custom-control-label" for="' + name + i + '"><span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + this.categories.getImage(i).url + ');"></span></label></div>';
@@ -321,10 +321,10 @@ function createItemCategorySelector(prodInfo, categories) {
         },
         createDiv: function(varIdx, szIdx) {
             var res = '<form><div class="row align-items-center">'
-            + '<div class="col-6 text-center">';
-            res += createSizeOptions(this.sizeRadioName, "Size", this.prodInfo.skuInfo.sizes, szIdx);
-            res += '</div><div class="col-6 text-center">'
-            + this.createColourPanel(this.colourRadioName, varIdx)
+            + '<div class="col-12 col-md-4 text-center">';
+            res += createSizeOptions(this.sizeRadioName, "Size", this.prodInfo.skuInfo.sizes, szIdx, 'Dimensions');
+            res += '</div><div class="col-12 col-md-8 text-center">'
+            + 'Colour: ' + this.createColourPanel(this.colourRadioName, varIdx)
             + '</div>'
             + '</div></form>';
             return res;
@@ -396,7 +396,7 @@ function createItemAdder(prodInfo, variantSelector) {
     };
 }
 
-function createRelatedViewer(skuInfo, looks, catalog) {
+function createHEDRelatedViewer(skuInfo, looks, catalog) {
     return {
         skuInfo: skuInfo,
         looks: looks,
@@ -434,6 +434,21 @@ function createRelatedViewer(skuInfo, looks, catalog) {
             res += '</div></div></div>';
             return res;
         },
+    };
+}
+
+function createRelatedViewer(caption, related) {
+    return {
+        caption: caption,
+        related: related,
+        createDiv: function () {
+            var res = '<h6>' + this.caption + '</h6><div class="row">';
+            for (var i = 0; i < this.related.length; i++) {
+                res += '<div class="col-6">' + this.related.createCard() + '</div>';
+            }
+            res += '</div>';
+            return res;
+        }
     };
 }
 
@@ -623,9 +638,13 @@ function createFMItemsComponent(items, productComponentFactory, productComponent
             var product = this.items.product;
             return createItem(product, product.inrPrice, this.size, unique.fabricColour, 1, unique.number, unique.getImagePath(), true);
         },
-        createDiv: function() {
+        createHTML: function(list) {
             return '<form action="/shop/checkout.html" method="get"><div id="' + this.listId + '" class="item">'
-                + '</div></form>';
+            + list
+            + '</div></form>';
+        },
+        createDiv: function() {
+            return this.createHTML("");
         },
         unregisterATC: function() {
             if (this.items === null) {
@@ -656,10 +675,13 @@ function createFMItemsComponent(items, productComponentFactory, productComponent
 
             var divId = '#' + this.listId;
             $(divId + ' .btn').off('click');
-            $(divId).empty();
 
-            var listHTML = this.createCards();
-            $(divId).append(listHTML);
+            let that = this;
+            $(divId).fadeOut("slow", function(){
+                var listHTML = that.createHTML(that.createCards());
+                $(this).replaceWith(listHTML);
+                $(divId).fadeIn("slow");
+            })
         },
         updateUnits: function () {
             this.productComponent.updateUnits();
@@ -692,7 +714,7 @@ function createHEDRendererFactory(prodInfo, dimensioner, sizer, looks, categoriz
     var carousel = createProductCarousel(prodInfo.variants);
     var variantSelector = createVariantSelector(prodInfo);
     var itemAdder = createItemAdder();
-    var relatedviewer = createRelatedViewer(prodInfo.skuInfo, looks, catalog);
+    var relatedviewer = createHEDRelatedViewer(prodInfo.skuInfo, looks, catalog);
     var navHelper = createNavHelper(prodInfo, categorizer);
     return {
         createRenderer: function(shop) {

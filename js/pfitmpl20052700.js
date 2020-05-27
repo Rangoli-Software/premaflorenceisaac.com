@@ -160,7 +160,7 @@ const origin = {
                 title: "Treasure Trove",
                 url: "/journey/treasuretrove.html",
                 lede: 'How I wound up creating a treasure trove of vintage tangail borders',
-                imageHTML: "<script>document.write(createPanelCarousel())</scr" + "ipt>"
+                imageHTML: "<script>document.write(createWovenCanvasImage())</scr" + "ipt>"
             },
             {
                 title: "Art Wear",
@@ -467,7 +467,7 @@ const merchInfo = [
     SKU: 'FACEMK2005Ta',
     title: 'Handloom Face Mask',
     url: '/products/accessories/facemask.html',
-    ledes: ["#oneofakind facemask to keep you safe in style"],
+    ledes: ["#oneofakind facemask to keep you safe in style and comfort"],
     images: [{url: '/people/nfm01.jpg'},{url: '/people/nfm02.jpg'},{url: '/people/nfm03.jpg'}]
 },
 {
@@ -583,10 +583,14 @@ function createSqPanelImageList(panelNumArr) {
 }
 
 
-function createPanelCarousel() {
+function createWovenCanvasImage() {
     var panelNums = [545,548,549,552,565,571];
     var panelImgs  =  createSqPanelImageList(panelNums);
-    return createCarousel("car-panels", panelImgs);
+//    return createCarousel("car-panels", panelImgs);
+    var len = panelImgs.length;
+    var rndI = Math.floor(Math.random() * len);
+    var itm = panelImgs[rndI];
+    return '<img class="d-block img-fluid" src="' + itm.imageURL +  '" alt="Woven Canvas #' + panelNums[rndI] + '">';
 }
 
 function selectFeature(section) {
@@ -1138,14 +1142,15 @@ function createSizeRadio(name, idPfx, val, i, checked) {
     return '<div class="custom-control custom-control-inline custom-control-size mb-2"><input type="radio" class="custom-control-input" name="' + name   +'" id="' + idPfx + i + '" value="' +  val  + '"' + (checked ? 'checked="checked" ' : '') +  ' onclick="onSelectionChange()"><label class="custom-control-label" for="' + idPfx + i + '">' + val +'</label></div>';
 }
 
-function createSizeOptions(radName, label, vals, selIdx) {
+function createSizeOptions(radName, label, vals, selIdx, cap) {
     var id = radName + "Group";
     var res = '<div class="form-group"><label for="' + id + '">' + label + ':</label> <span id="' +  id + '" class="mb-2">';
     var idPfx = radName + "ID";
+    var caption = (cap === undefined || cap === null) ? 'Size chart' : cap;
     for (var i = 0; i < vals.length; i++) {
         res += createSizeRadio(radName, idPfx, vals[i], i, (i == selIdx));
     }
-    res += '</span><a class="ml-3" data-toggle="modal" href="#modalSizeChart">Size chart</a></div>';
+    res += '</span><a class="ml-3" data-toggle="modal" href="#modalSizeChart">' + caption + '</a></div>';
     return  res;
 }  
 
