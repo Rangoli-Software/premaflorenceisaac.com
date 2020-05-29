@@ -34,12 +34,8 @@ function rgbToHSL(hexRGB) {
     };
 }
 
-function hexToH(hexRGB){
-    return rgbToHSL(hexToRGB(hexRGB)).h;
-}
-
-function hexToL(hexRGB) {
-  return rgbToHSL(hexToRGB(hexRGB)).l;
+function hexToHSL(hexRGB){
+    return rgbToHSL(hexToRGB(hexRGB));
 }
 
 function createSquareProductCarousel(variants) {
@@ -282,6 +278,7 @@ function createItemCategorySelector(prodInfo, categories) {
     return {
         prodInfo: prodInfo,
         categories: categories,
+        divId: 'catSelector',
         colourRadioName: "colRadio",
         sizeRadioName: "sizeRadio",
         getCatIdx: function (valColour) {
@@ -320,11 +317,11 @@ function createItemCategorySelector(prodInfo, categories) {
             return res;
         },
         createDiv: function(varIdx, szIdx) {
-            var res = '<form><div class="row align-items-center">'
+            var res = '<form id="' + this.divId + '"><div class="row align-items-center">'
             + '<div class="col-12 col-md-4 text-center">';
             res += createSizeOptions(this.sizeRadioName, "Size", this.prodInfo.skuInfo.sizes, szIdx, 'Dimensions');
             res += '</div><div class="col-12 col-md-8 text-center">'
-            + 'Colour: ' + this.createColourPanel(this.colourRadioName, varIdx)
+            + 'Colour: <strong>' + this.categories.data[varIdx].colourName + '</strong> ' + this.createColourPanel(this.colourRadioName, varIdx)
             + '</div>'
             + '</div></form>';
             return res;
@@ -332,6 +329,11 @@ function createItemCategorySelector(prodInfo, categories) {
         getItems: function() {
             var varIdx = this.getCatIdx(this.getSelectedColour());
             return this.categories.filterOnCategory(varIdx);
+        },
+        updateSelection: function () {
+            var varIdx = this.getCatIdx(this.getSelectedColour());
+            var szIdx = this.getSizeIdx(this.getSelectedSize());
+            $('#' + this.divId).replaceWith(this.createDiv(varIdx, szIdx));
         }
     }
 }
@@ -555,11 +557,9 @@ function createProductComponent(basePanelr, sizePanelr, carousel, variantSelecto
             var varIdx = this.variantSelector.getSelectedVariant();
             var valSize = this.variantSelector.getSelectedSize();
             var szIdx = this.variantSelector.getSizeIdx(valSize);
-            var imageHTML = this.createPDContents(varIdx, szIdx);
+            var imageHTML = this.createProductDiv(varIdx, szIdx);
 
-            var prodImgSelector = "#" + this.prodPanelId;
-            $(prodImgSelector).empty();
-            $(prodImgSelector).append(imageHTML);
+            $("#" + this.prodPanelId).replaceWith(imageHTML);
 
             this.carousel.update();
         },
@@ -596,7 +596,7 @@ function createFMItemsComponent(items, productComponentFactory, productComponent
             var itemDesc = this.items.getDescriptor(i);
             var prodDesc = this.items.product;
             var res = '<div class="card mb-2">';
-            res += '<a href="' + itemDesc.getImagePath() + '" data-fancybox><img src="' + itemDesc.getImagePath() + '" alt="' + prodDesc.name  + '" class="img-fluid"></a>';
+            res += '<a href="' + itemDesc.getImagePath() + '" data-fancybox><img src="' + itemDesc.getImagePath() + '" alt="' + prodDesc.name  + '" class="img-fluid" width="1000" height="1000"></a>';
             res += '<div class="card-body px-0 pt-2 pb-4 text-center">';
             res += '<div class="card-subtitle mb-3"><span>' + this.productComponent.basePanelr.getPriceHTML() + '</span></div>';
             res += createAddToCartButton(this.getButtonId(i));
@@ -667,11 +667,14 @@ function createFMItemsComponent(items, productComponentFactory, productComponent
                 });
             }
         },
-        updateSelection: function(shop) {
+        updateSelection: function(shop, fn) {
+            this.unregisterATC();
+
             this.productComponent = this.productComponentFactory.createRenderer(shop);
             this.productComponent.updateSelection();
 
             this.items = this.itemCategorySelector.getItems();
+            this.itemCategorySelector.updateSelection();
 
             var divId = '#' + this.listId;
             $(divId + ' .btn').off('click');
@@ -681,6 +684,7 @@ function createFMItemsComponent(items, productComponentFactory, productComponent
                 var listHTML = that.createHTML(that.createCards());
                 $(this).replaceWith(listHTML);
                 $(divId).fadeIn("slow");
+                that.registerATC(fn);
             })
         },
         updateUnits: function () {
@@ -794,12 +798,12 @@ function createFMPageComponent(catalog, itemsComponent) {
             });
         },
         onSelectionChange() {
-            this.itemsComponent.unregisterATC();
-            this.itemsComponent.updateSelection(this.allCartC.shop);
             var that = this;
-            this.itemsComponent.registerATC(function(idx){
-                that.addToCart(idx);
-            });
+            this.itemsComponent.updateSelection(
+                this.allCartC.shop,
+                function(idx){
+                    that.addToCart(idx);
+                });
             this.updateItemPrices();
         },
         onUnitChange: function () {
