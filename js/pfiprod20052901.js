@@ -398,32 +398,19 @@ function createItemAdder(prodInfo, variantSelector) {
     };
 }
 
-function createHEDRelatedViewer(skuInfo, looks, catalog) {
+function createRelatedLookCard(SKU, lkImg, idx, styles, catalog) {
     return {
-        skuInfo: skuInfo,
-        looks: looks,
+        SKU: SKU,
+        lkImg: lkImg,
+        idx: idx,
+        styles: styles,
         catalog: catalog,
-        createDiv: function () {
-            var related = this.looks.getRelatedStyles(this.skuInfo.SKU);
-            if (related === null) {
-                return '';
-            }
-            var res = '<h6>Pair with</h6><div class="row">';
-            for (var i = 0; i < related.length; i++) {
-                var lk = related[i].look;
-                var st = (related[i].styles === undefined) ? this.looks.getLookFromTitle(lk).styles : related[i].styles;
-                res += this.createRelatedProductCard(lk, st);
-            }
-            res += '</div>';
-            return res;
-        },
-        createRelatedProductCard: function (idx, styles) {
-            var lkImg = this.looks.getImagePath(idx);
-            var res = '<div class="col-6"><div class="card mb-2"><div class="embed-responsive embed-responsive-1by1"><img class="embed-responsive-item" src="' + lkImg + '" style="object-fit: cover"></div><div class="card-body">';
+        createCard: function() {
+            var res = '<div class="card mb-2"><div class="embed-responsive embed-responsive-1by1"><img class="embed-responsive-item" src="' + this.lkImg + '" style="object-fit: cover"></div><div class="card-body">';
             var first = true;
-            for (var i = 0; i < styles.length; i++) {
-                var sty = styles[i];
-                if (sty == this.skuInfo.SKU) {
+            for (var i = 0; i < this.styles.length; i++) {
+                var sty = this.styles[i];
+                if (sty == this.SKU) {
                     continue;
                 }
                 var entry = this.catalog.getProduct(sty);
@@ -433,20 +420,57 @@ function createHEDRelatedViewer(skuInfo, looks, catalog) {
                 res += ' <a href="' + entry.imageURL + '">' + entry.name + '</a>';
                 first = false;
             }
-            res += '</div></div></div>';
+            res += '</div></div>';
             return res;
-        },
+        }
     };
 }
 
-function createRelatedViewer(caption, related) {
+function createStoryCard(item, section) {
+    return {
+        item: item,
+        section: section,
+        createCard: function() {
+            return createFeatureItemCard(this.item, this.section);
+        }
+    };
+}
+
+function createStoryViewer(caption, items, sections, ncol) {
+    var res = [];
+    for (var i = 0; i < items.length && i < ncol; i++) {
+        res.push(createStoryCard(items[i], sections[i]));
+    }
+    return createRelatedViewer(caption, res, 2);
+}
+
+function createHEDRelatedViewer(skuInfo, looks, catalog) {
+    var related = looks.getRelatedStyles(skuInfo.SKU);
+    if (related === null) {
+        return creatEmptyViewer();
+    }
+    var caption = 'Pair with';
+    var res = [];
+    for (var i = 0; i < related.length; i++) {
+        var lk = related[i].look;
+        var st = (related[i].styles === undefined) 
+            ? looks.getLookFromTitle(lk).styles 
+            :   related[i].styles;
+        var lkImg = looks.getImagePath(lk);
+        res.push(createRelatedLookCard(skuInfo.SKU, lkImg, lk, st, catalog));
+    }
+    return createRelatedViewer(caption, res, 2);
+}
+
+function createRelatedViewer(caption, related, ncol) {
     return {
         caption: caption,
         related: related,
+        ncol: ncol,
         createDiv: function () {
             var res = '<h6>' + this.caption + '</h6><div class="row">';
-            for (var i = 0; i < this.related.length; i++) {
-                res += '<div class="col-6">' + this.related.createCard() + '</div>';
+            for (var i = 0; i < this.related.length && i < this.ncol; i++) {
+                res += '<div class="col-6">' + this.related[i].createCard() + '</div>';
             }
             res += '</div>';
             return res;
@@ -693,11 +717,11 @@ function createFMItemsComponent(items, productComponentFactory, productComponent
     };
 }
 
-function createFMProdCompFactory(prodInfo, dimensioner, catalog, html, carousel) {
+function createFMProdCompFactory(prodInfo, dimensioner, catalog, html, carousel, items, sections) {
     var sizePanelr = createSizePanelr(prodInfo.skuInfo, dimensioner, null);
     var variantSelector = createNullSelector(prodInfo.skuInfo, prodInfo.variants);
     var itemAdder = createHTMLViewer(html);
-    var relatedviewer = createEmptyViewer();
+    var relatedviewer = createStoryViewer('More Info', items, sections, 2);
     var levels = [{
         title: 'Shop',
         url: '/shop.html'

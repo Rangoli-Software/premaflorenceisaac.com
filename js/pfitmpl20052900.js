@@ -160,7 +160,7 @@ const origin = {
                 title: "Treasure Trove",
                 url: "/journey/treasuretrove.html",
                 lede: 'How I wound up creating a treasure trove of vintage tangail borders',
-                imageHTML: "<script>document.write(createWovenCanvasImage())</scr" + "ipt>"
+                imageScript: "createWovenCanvasImage()"
             },
             {
                 title: "Art Wear",
@@ -799,6 +799,8 @@ function createFeatureItemCard(item, section) {
         res += '</div>';
     } else if (item.imageHTML !== undefined ) {
         res += item.imageHTML;
+    } else if (item.imageScript !== undefined ) {
+        res += eval(item.imageScript);
     }
     res += '<div class="card-body px-0 pt-6 pb-4">';
     res += '<div class="card-subtitle mb-1"><a class="text-muted" href="'  + section.url + '">' + section.title +'</a></div>';
@@ -821,6 +823,8 @@ function createItemCard(item) {
         res += '</div>';
     } else if (item.imageHTML !== undefined ) {
         res += item.imageHTML;
+    } else if (item.imageScript !== undefined ) {
+        res += eval(item.imageScript);
     }
     res += '<div class="card-body px-0 pt-6 pb-4">';
     if  (item.url !== undefined) {
