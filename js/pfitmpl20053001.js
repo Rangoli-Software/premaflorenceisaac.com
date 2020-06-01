@@ -270,7 +270,7 @@ const clients = {
         {
             title: "Gangsta Gal",
             url: "/look/gg.html",
-            lede: "The unique individuals who have collected my woven canvases",
+            lede: "",
             imageURL: "/look/friends/gg-aqua.jpg"
         },
         {

@@ -438,8 +438,10 @@ function createStoryCard(item, section) {
 
 function createStoryViewer(caption, items, sections, ncol) {
     var res = [];
+    var keys = Array.from(items.keys());
+    var rnd = shuffle(keys);
     for (var i = 0; i < items.length && i < ncol; i++) {
-        res.push(createStoryCard(items[i], sections[i]));
+        res.push(createStoryCard(items[rnd[i]], sections[rnd[i]]));
     }
     return createRelatedViewer(caption, res, 2);
 }
