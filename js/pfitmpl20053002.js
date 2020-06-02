@@ -270,7 +270,7 @@ const clients = {
         {
             title: "Gangsta Gal",
             url: "/look/gg.html",
-            lede: "Masks can be fun instead of scary",
+            lede: "Fun with Face Masks",
             imageURL: "/look/friends/gg-aqua.jpg"
         },
         {
