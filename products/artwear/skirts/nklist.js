@@ -50,3 +50,17 @@ var listData = [
 ];
     return createNakshaFactory(base + 'mu/', listData);
 }
+
+function getNakshaFactory(sku) {
+    var base = '/products/artwear/skirts/';
+    switch(sku) {
+        case 'NKSHMC1512PP':
+        case 'NKSHMI1501PP':
+        case 'NKSHMD1501PP':
+            return getNakshaMidiFactory(base);
+        case 'NKSHMU1501PP':
+            return getNakshaMinuitFactory(base);
+        default:
+            return null;
+    }
+}

@@ -86,6 +86,51 @@ function createBrowseInfo(infoSections, numSections, baseBlackList) {
     };
 }
 
+function createComponentGenerator(uiFactory, prodJSON, browseInfo, colSelData) {
+    return {
+        browseInfo: browseInfo,
+        uiFactory: factory,
+        prodJSON: prodJSON,
+        colSelData: colSelData,
+        createPCFactory: function() {
+            var levels = [{
+                title: 'Shop',
+                url: '/shop.html'
+            }, {
+                title: this.prodJSON.product.name
+            }];
+            var navHelper = createLevelsNavHelper(levels);
+
+            var dimensioner = createDimensioner("cm", this.prodJSON.dimensionNames, this.prodJSON.dimensionsCm, this.prodJSON.styleImagePath);
+            var carousel = createSquareProductCarousel(this.prodJSON.variants);
+
+            var sizePanelr = createSizePanelr(this.prodJSON.skuInfo, dimensioner, null);
+            var variantSelector = createNullSelector(this.prodJSON.skuInfo, this.prodJSON.variants);
+            var itemAdder = createHTMLViewer(this.prodJSON.skuInfo.garmentDetails);
+            var relatedViewer = this.browseInfo.getStoryViewer();
+            var that = this;
+            return {
+                createProductComponent: function(shop) {
+                    var basePanelr = createBasePanelr(shop, that.prodJSON.product)
+                    return createProductComponent(basePanelr, sizePanelr, carousel, variantSelector, itemAdder, relatedViewer, navHelper);
+                }
+            };
+        },
+        createItemCatSelector: function() {
+            var selCategory = createColourCategories(
+                prodJSON.product, colSelData, factory);
+            return createItemCategorySelector(prodJSON, selCategory);
+        },
+        createUICFactory: function(shop) {
+            var items = createUniqueItemList(this.uiFactory.listData, this.prodJSON.product, this.uiFactory);
+            var productComponentFactory = this.createPCFactory();
+            var itemCategorySelector = this.createItemCatSelector();
+            var productComponent = productComponentFactory.createProductComponent(shop);
+            return createUniqueItemsComponent(items, productComponentFactory, productComponent, itemCategorySelector);
+        }
+    };
+}
+    
 function createUIProductJSON(sku, basePath, prodData, sizingChart) {
     return {
         product: getProductCatalog().getProduct(sku),
