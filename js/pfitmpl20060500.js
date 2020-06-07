@@ -466,6 +466,15 @@ const siteMap = [
     shop
 ];
 
+function getSubEntry(item, url) {
+    for(var i = 0; i < item.sub.length; i++) {
+        var entry = item.sub[ i ];
+        if (entry.url == url) {
+            return entry;
+        }
+    }
+    return null;
+}
 
 const merchInfo = [
 {
@@ -1083,7 +1092,7 @@ function createMCSignup() {
 }
 
 function createShareBar(location) {
-    return '<div class="container mb-5"><p>If you like this page, please help us spread the word by sharing...</p><div style="display: flex; justify-content: space-between;">'
+    return '<div class="container mb-5"><p>If you like this page, please help us spread the word by sharing 🙏🏾 ❤️</p><div style="display: flex; justify-content: space-between;">'
         + '<span>'  
         + creatFBShareBtn(location)
         + '</span>'

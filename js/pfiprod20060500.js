@@ -38,6 +38,189 @@ function hexToHSL(hexRGB){
     return rgbToHSL(hexToRGB(hexRGB));
 }
 
+function createBrowseInfo(infoSections, numSections, baseBlackList) {
+    return {
+        infoSections: infoSections,
+        numSections: numSections,
+        baseList: baseBlackList.splice(),
+        getArticles: function() {
+            var res = [];
+            for( var i = 0; i < infoSections.length; i++ ) {
+                var section = infoSections[i];
+                var sec = [];
+                for ( var j = 0; j < section.length; j++ ) {
+                    var info = section[j];
+                    sec.push(getSubEntry(info[0], info[1]));
+                }
+                res.push(sec);
+            }
+            return res;
+        },
+        getSections: function() {
+            var res = [];
+            for( var i = 0; i < infoSections.length; i++ ) {
+                var section = infoSections[i];
+                var sec = [];
+                for ( var j = 0; j < section.length; j++ ) {
+                    var info = section[j];
+                    sec.push(info[0]);
+                }
+                res.push(sec);
+            }
+            return res;
+        },
+        getFlattenedURLs: function() {
+            var res = [];
+            for(var i = 0; i < infoSections.length; i++) {
+                var section = infoSections[i];
+                for (var j = 0; j < section.length; j++) {
+                    var info = section[j];
+                    res.push(info[1]);
+                }
+            }
+            return res;
+        },
+        getStoryViewer: function() {
+            return createStoryViewer('Background', this.getArticles(), this.getSections(), this.numSections);
+        }
+    };
+}
+
+function createUIProductJSON(sku, basePath, prodData, sizingChart) {
+    return {
+        product: getProductCatalog().getProduct(sku),
+        styleImagePath: basePath + prodData.imageFile,
+        dimensionNames: prodData.dimensionNames,
+        dimensionsCm: prodData.dimensionsCm,
+        variants: {
+            getFabric: function(varidx) {
+                return prodData.getFabric(varidx);
+            },
+            getColourName: function(varidx) {
+                return this.data[varidx].colourName;
+            },
+            getBasePath: function() {
+                return basePath;
+            },
+            getNumImages: function(vidx) {
+                var vnt = this.data[vidx];
+                return vnt.images.length;
+            },
+            getImage: function(vidx, iidx) {
+                var vnt = this.data[vidx];
+                return {
+                    url: this.getBasePath() + vnt.images[iidx] + ".jpg"
+                }
+            },
+            data: prodData.data
+        },
+        skuInfo: {
+            SKU: sku,
+            sizes: prodData.sizes,
+            getSizeChart: function() {
+                return sizingChart;
+            },
+            description: prodData.description,
+            garmentDetails: prodData.garmentDetails
+        }
+    }
+}
+
+function createUniqueItemList(listdata, product, factory) {
+    return {
+        base: listdata,
+        product: product,
+        factory: factory,
+        getNumItems: function() {
+            return this.base.length;
+        },
+        getId: function(i) {
+            return this.base[i][0];
+        },
+        getDescriptor: function(i) {
+            return this.factory.createDescriptor(this.base[i]);
+        },
+        getItem: function(i, size) {
+            var desc = this.getDescriptor(i);
+            return createItem(product, product.inrPrice, size, desc.fabricColour, 1, desc.number, desc.imageURL, true);
+        },
+        filterOnValue: function(range) {
+            var nList = [];
+            for(var i = 0; i < this.base.length; i++) {
+                var val = this.getDescriptor(i).getV();
+                if (range[0] < val && val <= range[1]) {
+                    nList.push(this.base[i]);
+                }
+            }
+            return createUniqueItemList(nList, this.product, this.factory);
+        },
+        filterOnSaturation: function(range) {
+            var nList = [];
+            for(var i = 0; i < this.base.length; i++) {
+                var val = this.getDescriptor(i).getSat();
+                if (range[0] < val && val <= range[1]) {
+                    nList.push(this.base[i]);
+                }
+            }
+            return createUniqueItemList(nList, this.product, this.factory);
+        },
+        filterOnHue: function(range) {
+            var nList = [];
+            for(var i = 0; i < this.base.length; i++) {
+                var val = this.getDescriptor(i).getHue();
+                if (range[0] < val && val <= range[1]) {
+                    nList.push(this.base[i]);
+                }
+            }
+            return createUniqueItemList(nList, this.product, this.factory);
+        }
+    };
+}
+
+function createColourCategories(product, data, factory) {
+    return {
+        product: product,
+        factory: factory,
+        greyRange: [0, 0.15],
+        colourRange: [0.15, 1.0],
+        whiteValRange: [0.8, 1],
+        blackValRange: [0.0, 0.2],
+        colourValRange: [0.2, 0.8],
+        redRange0: [5.0 / 6, 1.0],
+        redRange1: [0.0, 1.0 / 6],
+        blueRange: [0.5, 5.0 / 6],
+        greenRange: [1.0 / 6, 0.5],
+        data: data,
+        getImage: function(vidx) {
+            var vnt = this.data[vidx];
+            return {
+                url: this.factory.base + vnt.image + ".jpg"
+            }
+        },
+        filterOnCategory: function(vidx) {
+            var list = createUniqueItemList(this.factory.listData, this.product, this.factory);
+            var clrList = list.filterOnValue(this.colourValRange).filterOnSaturation(this.colourRange);
+            var greyList = list.base.filter(x => ! clrList.base.includes(x));
+            switch(vidx) {
+                case 0: return createUniqueItemList(greyList, this.product, this.factory);
+                case 1: {
+                    var r = clrList.filterOnHue(this.redRange0);
+                    var l = clrList.filterOnHue(this.redRange1);
+                    var full = l.base.concat(r.base);
+                    return createUniqueItemList(full, this.product, this.factory);
+                }
+                case 2: return clrList.filterOnHue(this.greenRange);
+                case 3: return clrList.filterOnHue(this.blueRange);
+                default: return null;
+            }
+        },
+        getRandomIdx(){
+            var len = this.data.length;
+            return Math.floor(Math.random() * len);
+        }
+    }
+}
+
 function createSquareProductCarousel(variants) {
     return {
         variants: variants,
@@ -321,9 +504,9 @@ function createItemCategorySelector(prodInfo, categories) {
             + '<div class="col-12 col-md-4 text-center">';
             res += createSizeOptions(this.sizeRadioName, "Size", this.prodInfo.skuInfo.sizes, szIdx, 'Dimensions');
             res += '</div><div class="col-12 col-md-8 text-center">'
-            + 'Colour: <strong>' + this.categories.data[varIdx].colourName + '</strong> ' + this.createColourPanel(this.colourRadioName, varIdx)
-            + '</div>'
-            + '</div></form>';
+                + 'Colour: <strong>' + this.categories.data[varIdx].colourName + '</strong> ' + this.createColourPanel(this.colourRadioName, varIdx)
+                + '</div>'
+                + '</div></form>';
             return res;
         },
         getItems: function() {
@@ -459,8 +642,8 @@ function createHEDRelatedViewer(skuInfo, looks, catalog) {
     for (var i = 0; i < related.length; i++) {
         var lk = related[i].look;
         var st = (related[i].styles === undefined) 
-            ? looks.getLookFromTitle(lk).styles 
-            :   related[i].styles;
+        ? looks.getLookFromTitle(lk).styles 
+        :   related[i].styles;
         var lkImg = looks.getImagePath(lk);
         res.push(createRelatedLookCard(skuInfo.SKU, lkImg, lk, st, catalog));
     }
@@ -613,7 +796,7 @@ function createItemComponent(idx) {
     };
 }
 
-function createFMItemsComponent(items, productComponentFactory, productComponent, itemCategorySelector) {
+function createUniqueItemsComponent(items, productComponentFactory, productComponent, itemCategorySelector) {
     return {
         size: 'Free',
         items: items,
@@ -625,7 +808,12 @@ function createFMItemsComponent(items, productComponentFactory, productComponent
             var itemDesc = this.items.getDescriptor(i);
             var prodDesc = this.items.product;
             var res = '<div class="card mb-2">';
-            res += '<a href="' + itemDesc.getImagePath() + '" data-fancybox><img src="' + itemDesc.getImagePath() + '" alt="' + prodDesc.name  + '" class="img-fluid" width="1000" height="1000"></a>';
+            var nI = itemDesc.getNumImages();
+            if ( nI == 1) {
+                res += '<a href="' + itemDesc.getImagePath(0) + '" data-fancybox><img src="' + itemDesc.getImagePath(0) + '" alt="' + prodDesc.name  + '" class="img-fluid" width="1000" height="1000"></a>';
+            } else {
+                res += '<a href="' + itemDesc.getImagePath(0) + '" data-fancybox><img src="' + itemDesc.getImagePath(0) + '" alt="' + prodDesc.name  + '" class="img-fluid" width="1000" height="1000"></a>';
+            }
             res += '<div class="card-body px-0 pt-2 pb-4 text-center">';
             res += '<div class="card-subtitle mb-3"><span>' + this.productComponent.basePanelr.getPriceHTML() + '</span></div>';
             res += createAddToCartButton(this.getButtonId(i));
@@ -669,8 +857,8 @@ function createFMItemsComponent(items, productComponentFactory, productComponent
         },
         createHTML: function(list) {
             return '<form action="/shop/checkout.html" method="get"><div id="' + this.listId + '" class="item">'
-            + list
-            + '</div></form>';
+                + list
+                + '</div></form>';
         },
         createDiv: function() {
             return this.createHTML("");
@@ -699,7 +887,7 @@ function createFMItemsComponent(items, productComponentFactory, productComponent
         updateSelection: function(shop, fn) {
             this.unregisterATC();
 
-            this.productComponent = this.productComponentFactory.createRenderer(shop);
+            this.productComponent = this.productComponentFactory.createProductComponent(shop);
             this.productComponent.updateSelection();
 
             this.items = this.itemCategorySelector.getItems();
@@ -722,26 +910,6 @@ function createFMItemsComponent(items, productComponentFactory, productComponent
     };
 }
 
-function createFMProdCompFactory(prodInfo, dimensioner, catalog, html, carousel, items, sections) {
-    var sizePanelr = createSizePanelr(prodInfo.skuInfo, dimensioner, null);
-    var variantSelector = createNullSelector(prodInfo.skuInfo, prodInfo.variants);
-    var itemAdder = createHTMLViewer(html);
-    var relatedviewer = createStoryViewer('Background', items, sections, [1, 1]);
-    var levels = [{
-        title: 'Shop',
-        url: '/shop.html'
-    }, {
-        title: prodInfo.product.name
-    }];
-    var navHelper = createLevelsNavHelper(levels);
-    return {
-        createRenderer: function(shop) {
-            var basePanelr = createBasePanelr(shop, prodInfo.product)
-            return createProductComponent(basePanelr, sizePanelr, carousel, variantSelector, itemAdder, relatedviewer, navHelper);
-        }
-    };
-}
-
 function createHEDRendererFactory(prodInfo, dimensioner, sizer, looks, categorizer, catalog) {
     var sizePanelr = createSizePanelr(prodInfo.skuInfo, dimensioner, sizer);
     var carousel = createProductCarousel(prodInfo.variants);
@@ -750,7 +918,7 @@ function createHEDRendererFactory(prodInfo, dimensioner, sizer, looks, categoriz
     var relatedviewer = createHEDRelatedViewer(prodInfo.skuInfo, looks, catalog);
     var navHelper = createNavHelper(prodInfo, categorizer);
     return {
-        createRenderer: function(shop) {
+        createProductComponent: function(shop) {
             var basePanelr = createBasePanelr(shop, prodInfo.product)
             return createProductComponent(basePanelr, sizePanelr, carousel, variantSelector, itemAdder, relatedviewer, navHelper);
         }
@@ -767,7 +935,7 @@ function createPageComponent(prodInfo, catalog, rendererFactory) {
             this.allCartC = createAllCartComponents(shop, this);
         },
         createRenderer: function (shop) {
-            return rendererFactory.createRenderer(shop);
+            return rendererFactory.createProductComponent(shop);
         },
         getRenderer: function () {
             return this.createRenderer(this.allCartC.shop);
@@ -803,7 +971,7 @@ function createPageComponent(prodInfo, catalog, rendererFactory) {
     }
 }
 
-function createFMPageComponent(catalog, itemsComponent) {
+function createUIPageComponent(catalog, itemsComponent) {
     return {
         catalog: catalog,
         itemsComponent: itemsComponent,

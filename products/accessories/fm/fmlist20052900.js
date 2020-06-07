@@ -27,7 +27,10 @@ function createFMDescriptor(fmRow) {
     return {
         number: num,
         hsl: hexToHSL(fmRow[1]),
-        getImagePath: function() {
+        getNumImages: function() {
+            return 1;
+        },
+        getImagePath: function(idx) {
             return base + this.number + '.jpg';
         },
         getHue: function() {
