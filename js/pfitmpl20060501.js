@@ -398,6 +398,10 @@ const shop = {
         url: "/shop.html",
         sub: [
         {
+            title: "Naksha Skirt",
+            url: "/products/artwear/naksha.html"
+        },
+        {
             title: "Face Mask",
             url: "/products/accessories/facemask.html"
         },
@@ -483,6 +487,13 @@ const merchInfo = [
     url: '/fabricartT.html',
     ledes: ['A one-of-a-kind T-shirt for that unique individual!'],
     images: [{url: '/fabricart/TShirtColl.jpg'},{url: '/fabricart/ManWhiteS.jpg'},{url: '/fabricart/GirlBlackS.jpg'}]
+},
+{
+    SKU: 'NKSHMD1501PP',
+    title: 'ArtWear Naksha Skirt',
+    url: '/products/artwear/naksha.html',
+    ledes: ["#oneofakind skirt for all ages and sizes!"],
+    images: [{url: '/people/mmib.jpg'},{url: '/people/slkb.jpg'},{url: '/people/ibgirl.jpg'}]
 },
 {
     SKU: 'FACEMK2005Ta',
