@@ -86,12 +86,14 @@ function createBrowseInfo(infoSections, numSections, baseBlackList) {
     };
 }
 
-function createComponentGenerator(uiFactory, prodJSON, browseInfo, colSelData) {
+function createComponentGenerator(uiFactory, prodJSON, viewerFactory, colSelData, isSquare, cardCreator) {
     return {
-        browseInfo: browseInfo,
-        uiFactory: factory,
+        viewerFactory: viewerFactory,
+        cardCreator: cardCreator,
+        uiFactory: uiFactory,
         prodJSON: prodJSON,
         colSelData: colSelData,
+        isSquare: isSquare,
         createPCFactory: function() {
             var levels = [{
                 title: 'Shop',
@@ -102,35 +104,35 @@ function createComponentGenerator(uiFactory, prodJSON, browseInfo, colSelData) {
             var navHelper = createLevelsNavHelper(levels);
 
             var dimensioner = createDimensioner("cm", this.prodJSON.dimensionNames, this.prodJSON.dimensionsCm, this.prodJSON.styleImagePath);
-            var carousel = createSquareProductCarousel(this.prodJSON.variants);
+            var carousel = this.isSquare 
+                ? createSquareProductCarousel(this.prodJSON.variants)
+                : createProductCarousel(this.prodJSON.variants);
 
             var sizePanelr = createSizePanelr(this.prodJSON.skuInfo, dimensioner, null);
-            var variantSelector = createNullSelector(this.prodJSON.skuInfo, this.prodJSON.variants);
-            var itemAdder = createHTMLViewer(this.prodJSON.skuInfo.garmentDetails);
-            var relatedViewer = this.browseInfo.getStoryViewer();
+            var addlViewer = this.viewerFactory.create();
             var that = this;
             return {
                 createProductComponent: function(shop) {
                     var basePanelr = createBasePanelr(shop, that.prodJSON.product)
-                    return createProductComponent(basePanelr, sizePanelr, carousel, variantSelector, itemAdder, relatedViewer, navHelper);
+                    return createUIProductComponent(basePanelr, sizePanelr, carousel, addlViewer);
                 }
             };
         },
         createItemCatSelector: function() {
             var selCategory = createColourCategories(
-                prodJSON.product, colSelData, factory);
-            return createItemCategorySelector(prodJSON, selCategory);
+                this.prodJSON.product, this.colSelData, this.uiFactory);
+            return createItemCategorySelector(this.prodJSON, selCategory);
         },
-        createUICFactory: function(shop) {
+        createUIC: function(shop) {
             var items = createUniqueItemList(this.uiFactory.listData, this.prodJSON.product, this.uiFactory);
             var productComponentFactory = this.createPCFactory();
             var itemCategorySelector = this.createItemCatSelector();
             var productComponent = productComponentFactory.createProductComponent(shop);
-            return createUniqueItemsComponent(items, productComponentFactory, productComponent, itemCategorySelector);
+            return createUniqueItemsComponent(items, productComponentFactory, productComponent, itemCategorySelector, this.cardCreator);
         }
     };
 }
-    
+
 function createUIProductJSON(sku, basePath, prodData, sizingChart) {
     return {
         product: getProductCatalog().getProduct(sku),
@@ -728,6 +730,19 @@ function createHTMLViewer(html) {
     };
 }
 
+function createCatenatedViewer(viewers) {
+    return {
+        viewers: viewers,
+        createDiv: function () {
+            var res = '';
+            for(var i = 0; i < this.viewers.length; i++) {
+                res += this.viewers[i].createDiv();
+            }
+            return res;
+        }
+    };
+}
+
 function createSizePanelr(skuInfo, dimensioner, sizer) {
     return {
         skuInfo: skuInfo,
@@ -836,22 +851,58 @@ function createProductComponent(basePanelr, sizePanelr, carousel, variantSelecto
     };
 }
 
+function createUIProductComponent(basePanelr, sizePanelr, carousel, addlViewer) {
+    return {
+        basePanelr: basePanelr,
+        sizePanelr: sizePanelr,
+        carousel: carousel,
+        addlViewer: addlViewer,
+        prodPanelId: 'prodPanel',
+        createSizingPanel: function () {
+            return this.sizePanelr.createSizingPanel();
+        },
+        createPDContents: function () {
+            return '<div class="col-12 col-md-7">'
+                + this.createImageDiv()
+                + '</div><div class="col-12 col-md-5 pl-lg-10">'
+                + this.createInfoDiv()
+                + '</div>';
+        },
+        createProductDiv: function() {
+            return '<div class="row" id="' + this.prodPanelId + '">' + this.createPDContents() + '</div>';
+        },
+        updateUnits: function() {
+            this.sizePanelr.updateUnits();
+        },
+        updateSelection: function() {
+            var imageHTML = this.createProductDiv();
+
+            $("#" + this.prodPanelId).replaceWith(imageHTML);
+
+            this.carousel.update();
+        },
+        createImageDiv: function (varIdx) {
+            return '<div class="form-row mb-4" id="prodImages">' +
+                this.carousel.createImageCarousel(0) +
+                '</div>';
+        },
+        createInfoDiv: function () {
+            var res = this.basePanelr.createBasePanel()
+            + this.addlViewer.createDiv();
+            return res;
+        }
+    };
+}
+
 function createItemComponent(idx) {
     return {
     };
 }
 
-function createUniqueItemsComponent(items, productComponentFactory, productComponent, itemCategorySelector) {
+function createUICardCreator() {
     return {
-        size: 'Free',
-        items: items,
-        productComponentFactory: productComponentFactory,
-        productComponent: productComponent,
-        itemCategorySelector: itemCategorySelector,
-        listId: 'artwear-list',
-        createCard: function(i) {
-            var itemDesc = this.items.getDescriptor(i);
-            var prodDesc = this.items.product;
+        colClasses: 'col-6 col-sm-4 col-md-3',
+        createCard: function(itemDesc, prodDesc, btnId, priceHTML) {
             var res = '<div class="card mb-2">';
             var nI = itemDesc.getNumImages();
             if ( nI == 1) {
@@ -860,10 +911,29 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
                 res += '<a href="' + itemDesc.getImagePath(0) + '" data-fancybox><img src="' + itemDesc.getImagePath(0) + '" alt="' + prodDesc.name  + '" class="img-fluid" width="1000" height="1000"></a>';
             }
             res += '<div class="card-body px-0 pt-2 pb-4 text-center">';
-            res += '<div class="card-subtitle mb-3"><span>' + this.productComponent.basePanelr.getPriceHTML() + '</span></div>';
-            res += createAddToCartButton(this.getButtonId(i));
+            res += '<div class="card-subtitle mb-3"><span>' + priceHTML + '</span></div>';
+            res += createAddToCartButton(btnId);
             res += '</div></div>';
             return res;
+        }
+    };
+}
+
+function createUniqueItemsComponent(items, productComponentFactory, productComponent, itemCategorySelector, cardCreator) {
+    return {
+        size: 'Free',
+        items: items,
+        productComponentFactory: productComponentFactory,
+        productComponent: productComponent,
+        itemCategorySelector: itemCategorySelector,
+        cardCreator: cardCreator,
+        listId: 'artwear-list',
+        createCard: function(i) {
+            return this.cardCreator.createCard(
+                this.items.getDescriptor(i),
+                this.items.product, 
+                this.getButtonId(i), 
+                this.productComponent.basePanelr.getPriceHTML());
         },
         createIndicesArray: function() {
             var res = [];
@@ -882,7 +952,7 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
             });
             var ret = '<div class="row">';
             for (var i = 0; i < indexArr.length; i++) {
-                ret += '<div class="col-6 col-sm-4 col-md-3">'
+                ret += '<div class="' + this.cardCreator.colClasses + '">'
                 ret += this.createCard(indexArr[i]);
                 ret += '</div>'
             }
@@ -1016,10 +1086,11 @@ function createPageComponent(prodInfo, catalog, rendererFactory) {
     }
 }
 
-function createUIPageComponent(catalog, itemsComponent) {
+function createUIPageComponent(catalog, itemsComponent, itemsComponentFactory) {
     return {
         catalog: catalog,
         itemsComponent: itemsComponent,
+        itemsComponentFactory: itemsComponentFactory,
         allCartC: null,
         init: function(shop) {
             this.allCartC = createAllCartComponents(shop, this);
@@ -1039,13 +1110,21 @@ function createUIPageComponent(catalog, itemsComponent) {
                 $(this).append(html);
             });
         },
-        onSelectionChange() {
+        updateSelection() {
             var that = this;
             this.itemsComponent.updateSelection(
                 this.allCartC.shop,
                 function(idx){
                     that.addToCart(idx);
                 });
+        },
+        onSKUChange(sku) {
+            var icGen = this.itemsComponentFactory.createGenerator(sku);
+            this.itemsComponent = icGen.createUIC(this.allCartC.shop);
+            this.updateSelection();
+        },
+        onSelectionChange() {
+            this.updateSelection();
             this.updateItemPrices();
         },
         onUnitChange: function () {
@@ -1110,4 +1189,8 @@ function onSelectionChange() {
 
 function onUnitChange() {
     pageComponent.onUnitChange(dimensioner);
+}
+
+function onSKUChange(sku) {
+    pageComponent.onSKUChange(sku);
 }
