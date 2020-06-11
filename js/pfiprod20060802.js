@@ -220,6 +220,32 @@ function createUniqueItemList(listdata, product, factory) {
                 }
             }
             return createUniqueItemList(nList, this.product, this.factory);
+        },
+        sortOn: function(cmp) {
+            var keys = Array.from(this.base.keys());
+            let that = this;
+            keys.sort(cmp);
+            var res = [];
+            for (var i = 0; i < keys.length; i++) {
+                res.push(this.base[keys[i]]);
+            }
+            return createUniqueItemList(res, this.product, this.factory);
+        },
+        sortOnHue: function() {
+            let that = this;
+            return this.sortOn(function(l, r) {
+                var hL = that.getDescriptor(l).getHue();
+                var hR = that.getDescriptor(r).getHue();
+                return hL < hR ? -1 : (hL > hR ? 1 : 0);
+            });
+        },
+        sortOnV: function() {
+            let that = this;
+            return this.sortOn(function(l, r) {
+                var hL = that.getDescriptor(l).getV();
+                var hR = that.getDescriptor(r).getV();
+                return hL < hR ? -1 : (hL > hR ? 1 : 0);
+            });
         }
     };
 }
@@ -237,6 +263,8 @@ function createColourCategories(product, data, factory) {
         redRange1: [0.0, 1.0 / 6],
         blueRange: [0.5, 5.0 / 6],
         greenRange: [1.0 / 6, 0.5],
+        blueRange: [0.5, 5.0 / 6],
+        bluegreenRange: [1.0 / 6, 5.0 / 6],
         data: data,
         getImage: function(vidx) {
             var vnt = this.data[vidx];
@@ -249,15 +277,14 @@ function createColourCategories(product, data, factory) {
             var clrList = list.filterOnValue(this.colourValRange).filterOnSaturation(this.colourRange);
             var greyList = list.base.filter(x => ! clrList.base.includes(x));
             switch(vidx) {
-                case 0: return createUniqueItemList(greyList, this.product, this.factory);
+                case 0: return createUniqueItemList(greyList, this.product, this.factory).sortOnV();
                 case 1: {
-                    var r = clrList.filterOnHue(this.redRange0);
-                    var l = clrList.filterOnHue(this.redRange1);
+                    var l = clrList.filterOnHue(this.redRange0).sortOnHue();
+                    var r = clrList.filterOnHue(this.redRange1).sortOnHue();
                     var full = l.base.concat(r.base);
                     return createUniqueItemList(full, this.product, this.factory);
                 }
-                case 2: return clrList.filterOnHue(this.greenRange);
-                case 3: return clrList.filterOnHue(this.blueRange);
+                case 2: return clrList.filterOnHue(this.bluegreenRange).sortOnHue();
                 default: return null;
             }
         },
@@ -901,15 +928,10 @@ function createItemComponent(idx) {
 
 function createUICardCreator() {
     return {
-        colClasses: 'col-6 col-sm-4 col-md-3',
+        colClasses: 'col-6 col-sm-4',
         createCard: function(itemDesc, prodDesc, btnId, priceHTML) {
             var res = '<div class="card mb-2">';
-            var nI = itemDesc.getNumImages();
-            if ( nI == 1) {
-                res += '<a href="' + itemDesc.getImagePath(0) + '" data-fancybox><img src="' + itemDesc.getImagePath(0) + '" alt="' + prodDesc.name  + '" class="img-fluid" width="1000" height="1000"></a>';
-            } else {
-                res += '<a href="' + itemDesc.getImagePath(0) + '" data-fancybox><img src="' + itemDesc.getImagePath(0) + '" alt="' + prodDesc.name  + '" class="img-fluid" width="1000" height="1000"></a>';
-            }
+            res += '<a href="' + itemDesc.getImagePath(0) + '" data-fancybox><img src="' + itemDesc.getImagePath(0) + '" alt="' + prodDesc.name  + '" class="img-fluid" width="1000" height="1000"></a>';
             res += '<div class="card-body px-0 pt-2 pb-4 text-center">';
             res += '<div class="card-subtitle mb-3"><span>' + priceHTML + '</span></div>';
             res += createAddToCartButton(btnId);
@@ -935,25 +957,11 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
                 this.getButtonId(i), 
                 this.productComponent.basePanelr.getPriceHTML());
         },
-        createIndicesArray: function() {
-            var res = [];
-            for (var i = 0; i < this.items.base.length; i++) {
-                res.push(i);
-            }
-            return res;
-        },
         createCards: function() {
-            var indexArr = this.createIndicesArray();
-            let that = this;
-            indexArr.sort(function(iL,iR){
-                var lH = that.items.getDescriptor(iL).getHue();
-                var rH = that.items.getDescriptor(iR).getHue();
-                return (lH < rH ? -1 : (lH > rH ? 1 : 0));
-            });
             var ret = '<div class="row">';
-            for (var i = 0; i < indexArr.length; i++) {
+            for (var i = 0; i < this.items.base.length; i++) {
                 ret += '<div class="' + this.cardCreator.colClasses + '">'
-                ret += this.createCard(indexArr[i]);
+                ret += this.createCard(i);
                 ret += '</div>'
             }
             ret += '</div>'

@@ -21,7 +21,7 @@ const moods = {
             imageURL: "/products/vagabond/KohBoy.jpg"
         },
         {
-            title: "Holy Days",
+            title: "Eco Boho",
             url: "/holydaysreboot.html",
             lede: "A multi-layered boho re-imagining of our classic one-of-a-kind line of sari-based <strong>Art Wear</strong>.",
             imageURL: "/products/holydaysreboot/KaftanS.jpg"
