@@ -921,11 +921,6 @@ function createUIProductComponent(basePanelr, sizePanelr, carousel, addlViewer) 
     };
 }
 
-function createItemComponent(idx) {
-    return {
-    };
-}
-
 function createUICardCreator() {
     return {
         colClasses: 'col-6 col-sm-4',
