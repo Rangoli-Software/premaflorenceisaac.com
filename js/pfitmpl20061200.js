@@ -398,10 +398,6 @@ const shop = {
         url: "/shop.html",
         sub: [
         {
-            title: "Naksha Skirt",
-            url: "/products/artwear/naksha.html"
-        },
-        {
             title: "Face Mask",
             url: "/products/accessories/facemask.html"
         },

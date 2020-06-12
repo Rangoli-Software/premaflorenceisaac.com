@@ -104,12 +104,13 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, colSelData
             var navHelper = createLevelsNavHelper(levels);
 
             var dimensioner = createDimensioner("cm", this.prodJSON.dimensionNames, this.prodJSON.dimensionsCm, this.prodJSON.styleImagePath);
+            var chart = this.prodJSON.skuInfo.getSizeChart();
+            var sizeChartr = chart != null ? createSizeChartr(chart) : null;
+            var sizePanelr = createSizePanelr(this.prodJSON.skuInfo, dimensioner, sizeChartr);
+            var addlViewer = this.viewerFactory.create();
             var carousel = this.isSquare 
             ? createSquareProductCarousel(this.prodJSON.variants)
             : createProductCarousel(this.prodJSON.variants);
-
-            var sizePanelr = createSizePanelr(this.prodJSON.skuInfo, dimensioner, null);
-            var addlViewer = this.viewerFactory.create();
             var that = this;
             return {
                 createProductComponent: function(shop) {
@@ -402,7 +403,7 @@ function createPortraitImageCarousel(images, idSfx) {
                 draggable: false
             });
 
-            $('[data-fancybox="' + this.getGallery() + '"]').fancybox({});
+            $('[data-fancybox]').fancybox({});
         }
     };
 }
@@ -554,6 +555,7 @@ function createItemCategorySelector(prodInfo, categories) {
         divId: 'catSelector',
         colourRadioName: "colRadio",
         sizeRadioName: "sizeRadio",
+        sizeLinkText: "Size Chart",
         getCatIdx: function (valColour) {
             for (var i = 0; i < this.categories.data.length; i++) {
                 var variant = this.categories.data[i];
@@ -592,7 +594,7 @@ function createItemCategorySelector(prodInfo, categories) {
         createDiv: function(varIdx, szIdx) {
             var res = '<form id="' + this.divId + '"><div class="row align-items-center">'
             + '<div class="col-12 col-md-4 text-center">';
-            res += createSizeOptions(this.sizeRadioName, "Size", this.prodInfo.skuInfo.sizes, szIdx, 'Dimensions');
+            res += createSizeOptions(this.sizeRadioName, "Size", this.prodInfo.skuInfo.sizes, szIdx, this.sizeLinkText);
             res += '</div><div class="col-12 col-md-8 text-center">'
                 + 'Colour: <strong>' + this.categories.data[varIdx].colourName + '</strong> ' + this.createColourPanel(this.colourRadioName, varIdx)
                 + '</div>'
