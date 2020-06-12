@@ -484,6 +484,7 @@ const merchInfo = [
     ledes: ['A one-of-a-kind T-shirt for that unique individual!'],
     images: [{url: '/fabricart/TShirtColl.jpg'},{url: '/fabricart/ManWhiteS.jpg'},{url: '/fabricart/GirlBlackS.jpg'}]
 },
+/*
 {
     SKU: 'NKSHMD1501PP',
     title: 'ArtWear Naksha Skirt',
@@ -491,6 +492,7 @@ const merchInfo = [
     ledes: ["#oneofakind skirt for all ages and sizes!"],
     images: [{url: '/people/mmib.jpg'},{url: '/people/slkb.jpg'},{url: '/people/ibgirl.jpg'}]
 },
+*/
 {
     SKU: 'FACEMK2005Ta',
     title: 'Handloom Face Mask',
