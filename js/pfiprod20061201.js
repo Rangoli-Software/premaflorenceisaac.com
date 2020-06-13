@@ -109,8 +109,8 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, colSelData
             var sizePanelr = createSizePanelr(this.prodJSON.skuInfo, dimensioner, sizeChartr);
             var addlViewer = this.viewerFactory.create();
             var carousel = this.isSquare 
-            ? createSquareProductCarousel(this.prodJSON.variants)
-            : createProductCarousel(this.prodJSON.variants);
+            ? createSquareProductCarousel(this.prodJSON)
+            : createProductCarousel(this.prodJSON);
             var that = this;
             return {
                 createProductComponent: function(shop) {
@@ -147,25 +147,26 @@ function createUIProductJSON(sku, basePath, prodData, sizingChart) {
             getColourName: function(varidx) {
                 return this.data[varidx].colourName;
             },
-            getBasePath: function() {
-                return basePath;
-            },
-            getImages: function(vidx) {
-                var that = this;
-                return {
-                    getNumImages: function() {
-                        var vnt = that.data[vidx];
-                        return vnt.images.length;
-                    },
-                    getImage: function(iidx) {
-                        var vnt = that.data[vidx];
-                        return {
-                            url: that.getBasePath() + vnt.images[iidx] + ".jpg"
-                        }
-                    }
-                };
-            },
             data: prodData.data
+        },
+        getBasePath() {
+            return basePath;  
+        },
+        getImages: function(vidx) {
+            var that = this;
+            return {
+                getNumImages: function() {
+                    var vnt = that.variants.data[vidx];
+                    return vnt.images.length;
+                },
+                getImage: function(iidx) {
+                    var vnt = that.variants.data[vidx];
+                    return {
+                        url: that.getBasePath() + vnt.images[iidx] + ".jpg",
+                        text: that.product.name + '-Vnt:' + vnt.vid + '-Img:' + iidx
+                    }
+                }
+            };
         },
         skuInfo: {
             SKU: sku,
@@ -190,12 +191,30 @@ function createUniqueItemList(listdata, product, factory) {
         getId: function(i) {
             return this.base[i][0];
         },
+        getImages: function(i) {
+            var desc = this.getDescriptor(i);
+            var text = this.product.name;
+            return {
+                desc: desc,
+                text: text,
+                getNumImages: function() {
+                    return this.desc.getNumImages();
+                },
+                getImage: function(i) {
+                    var that = this;
+                    return {
+                        url: that.desc.getImagePath(i),
+                        text: that.text
+                    };
+                }
+            };
+        },
         getDescriptor: function(i) {
             return this.factory.createDescriptor(this.base[i]);
         },
         getItem: function(i, size) {
             var desc = this.getDescriptor(i);
-            return createItem(product, product.inrPrice, size, desc.fabricColour, 1, desc.number, desc.imageURL, true);
+            return createItem(this.product, this.product.inrPrice, size, desc.fabricColour, 1, desc.number, desc.imageURL, true);
         },
         filterOnValue: function(range) {
             var nList = [];
@@ -313,22 +332,26 @@ function createSquareImageCarousel(images, idSfx) {
                 + this.createImageNav() + '</div>';
         },
         createImageNav: function () {
-            var res = '<div class="flickity-nav mx-n2 mb-2" data-flickity=\'{"asNavFor": "#' + this.panelId + '", "contain": true, "wrapAround": false, "cellAlign": "center"}\' id="' + this.navId + '">';
+            var res = '<div class="flickity-nav mx-n2 mb-2" data-flickity=\'{"asNavFor": "#' + this.panelId + '", "contain": true, "wrapAround": false, "cellAlign": "center", "imagesLoaded": true}\' id="' + this.navId + '">';
             var i = 0;
             for (; i < this.images.getNumImages(); i++) {
                 var img = this.images.getImage(i);
-                res += '<div class="col-12 px-1" style="max-width: 80px;"><img class="img-fluid" src="' + img.url + '"></div>';
+                res += '<div class="col-12 px-1" style="max-width: 80px;"><img class="img-fluid" src="' + img.url + '"' 
+                    + (img.text !== undefined ? ' alt="' + img.text + '"' : '') 
+                    + '></div>';
             }
             res += '</div>';
             return res;
         },
         createImagePanel: function () {
-            var res = '<div class="card"><div class="mb-2" data-flickity=\'{"draggable": false, "fade": true}\' id="' + this.panelId + '">';
+            var res = '<div class="mb-2" data-flickity=\'{"draggable": false, "fade": true, "imagesLoaded": true}\' id="' + this.panelId + '">';
             for (var i = 0; i < this.images.getNumImages(); i++) {
                 var img = this.images.getImage(i);
-                res += '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '" class="card-img-top"></a>';
+                res += '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '"' 
+                    + (img.text !== undefined ? ' alt="' + img.text + '"' : '') 
+                    + ' class="card-img-top"></a>';
             }
-            res += '</div></div>';
+            res += '</div>';
             return res;
         },
         update: function() {
@@ -336,7 +359,8 @@ function createSquareImageCarousel(images, idSfx) {
             var eltCarousel = $('#' + panelId);
             eltCarousel.flickity({
                 draggable: false,
-                fade: true
+                fade: true,
+                imagesLoaded: true
             });
 
             var navId = this.navId;
@@ -345,7 +369,8 @@ function createSquareImageCarousel(images, idSfx) {
                 asNavFor: '#' + panelId,
                 contain: true,
                 wrapAround: false,
-                cellAlign: 'center'
+                cellAlign: 'center',
+                imagesLoaded: true
             });
 
             $('[data-fancybox]').fancybox({});
@@ -368,24 +393,30 @@ function createPortraitImageCarousel(images, idSfx) {
                 '</div>';
         },
         createImageNav: function () {
-            var res = '<div class="flickity-nav flickity-vertical" data-flickity=\'{"asNavFor": "#' + this.panelId + '", "draggable": false}\' id="' + this.navId + '">';
+            var res = '<div class="flickity-nav flickity-vertical" data-flickity=\'{"asNavFor": "#' + this.panelId + '", "draggable": false, "imagesLoaded": true}\' id="' + this.navId + '">';
             var i = 0;
             for (; i < this.images.getNumImages() - 1; i++) {
                 var img = this.images.getImage(i);
-                res += '<div class="mb-2"><img class="img-fluid" src="' + img.url + '"></div>';
+                res += '<div class="mb-2"><img class="img-fluid" src="' + img.url + '"'
+                    + (img.text !== undefined ? ' alt="' + img.text + '"' : '') 
+                    + '></div>';
             }
             var img = this.images.getImage(i);
-            res += '<div class="mb-0"><img class="img-fluid" src="' + img.url + '"></div>';
+            res += '<div class="mb-0"><img class="img-fluid" src="' + img.url + '"'
+                + (img.text !== undefined ? ' alt="' + img.text + '"' : '') 
+                + '></div>';
             res += '</div>';
             return res;
         },
         createImagePanel: function () {
-            var res = '<div class="card"><div data-flickity=\'{"draggable": false, "fade": true}\' id="' + this.panelId + '">';
+            var res = '<div data-flickity=\'{"draggable": false, "fade": true, "imagesLoaded": true}\' id="' + this.panelId + '">';
             for (var i = 0; i < this.images.getNumImages(); i++) {
                 var img = this.images.getImage(i);
-                res += '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '" class="img-fluid"></a>';
+                res += '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '"' 
+                    + (img.text !== undefined ? ' alt="' + img.text + '"' : '') 
+                    + ' class="img-fluid"></a>';
             }
-            res += '</div></div>';
+            res += '</div>';
             return res;
         },
         update: function() {
@@ -393,14 +424,16 @@ function createPortraitImageCarousel(images, idSfx) {
             var eltCarousel = $('#' + panelId);
             eltCarousel.flickity({
                 draggable: false,
-                fade: true
+                fade: true,
+                imagesLoaded: true
             });
 
             var navId = this.navId;
             var eltNav = $('#' + navId);
             eltNav.flickity({
                 asNavFor: '#' + panelId,
-                draggable: false
+                draggable: false,
+                imagesLoaded: true
             });
 
             $('[data-fancybox]').fancybox({});
@@ -408,19 +441,19 @@ function createPortraitImageCarousel(images, idSfx) {
     };
 }
 
-function createSquareProductCarousel(variants) {
+function createSquareProductCarousel(prodJSON) {
     return {
         createVariantCarousel: function(varIdx) {
-            var images = variants.getImages(varIdx);
+            var images = prodJSON.getImages(varIdx);
             return createSquareImageCarousel(images, "");
         }
     };
 }
 
-function createProductCarousel(variants) {
+function createProductCarousel(prodJSON) {
     return {
         createVariantCarousel: function(varIdx) {
-            var images = variants.getImages(varIdx);
+            var images = prodJSON.getImages(varIdx);
             return createPortraitImageCarousel(images, "");
         }
     };
@@ -437,7 +470,7 @@ function createVariantSelector(prodInfo) {
             var size = this.getSelectedSize();
             var vnt = this.prodInfo.variants.data[vidx];
             var itmSKU = vnt.vid + "-" + size;
-            var imgURL = this.prodInfo.variants.getImages(vidx).getImage(0).url;
+            var imgURL = this.prodInfo.getImages(vidx).getImage(0).url;
             var product = this.prodInfo.product;
             var clr = this.getSelectedColour();
             return createItem(product, product.inrPrice, size, clr, qty, itmSKU, imgURL, false);
@@ -478,7 +511,7 @@ function createVariantSelector(prodInfo) {
             var res = '<div class="col-7 text-right">Colour: <strong id="colorCaption">' + this.variants.getColourName(varIdx) + '</strong></div></div>' + '<div class="mb-8 ml-n1">';
             for (var i = 0; i < this.variants.data.length; i++) {
                 var opt = this.variants.data[i];
-                res += '<div class="custom-control custom-control-inline custom-control-img"><input type="radio" onclick="onSelectionChange()" class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + '><label class="custom-control-label" for="' + name + i + '"><span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + this.variants.getImages(i).getImage(0).url + ');"></span></label></div>';
+                res += '<div class="custom-control custom-control-inline custom-control-img"><input type="radio" onclick="onSelectionChange()" class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + '><label class="custom-control-label" for="' + name + i + '"><span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + this.prodInfo.getImages(i).getImage(0).url + ');"></span></label></div>';
             }
             res += '</div>';
             return res;
@@ -942,14 +975,17 @@ function createUIProductComponent(basePanelr, sizePanelr, carousel, addlViewer) 
 function createUICardCreator() {
     return {
         colClasses: 'col-6 col-sm-4',
-        createCard: function(itemDesc, prodDesc, btnId, priceHTML) {
+        createCard: function(images, btnId, priceHTML) {
             var res = '<div class="card mb-2">';
-            res += '<a href="' + itemDesc.getImagePath(0) + '" data-fancybox><img src="' + itemDesc.getImagePath(0) + '" alt="' + prodDesc.name  + '" class="img-fluid" width="1000" height="1000"></a>';
+            var img = images.getImage(0);
+            res += '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '" alt="' + img.text  + '" class="img-fluid" width="1000" height="1000"></a>';
             res += '<div class="card-body px-0 pt-2 pb-4 text-center">';
             res += '<div class="card-subtitle mb-3"><span>' + priceHTML + '</span></div>';
             res += createAddToCartButton(btnId);
             res += '</div></div>';
             return res;
+        },
+        updateCard(images, id) {
         }
     };
 }
@@ -965,8 +1001,7 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
         listId: 'artwear-list',
         createCard: function(i) {
             return this.cardCreator.createCard(
-                this.items.getDescriptor(i),
-                this.items.product, 
+                this.items.getImages(i),
                 this.getButtonId(i), 
                 this.productComponent.basePanelr.getPriceHTML());
         },
@@ -979,6 +1014,11 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
             }
             ret += '</div>'
             return ret;
+        },
+        updateCards: function() {
+            for (var i = 0; i < this.items.base.length; i++) {
+                this.cardCreator.updateCard(this.items.getImages(i), this.getButtonId(i));
+            }
         },
         getNumItems: function() {
             return items.getNumItems();
@@ -1036,6 +1076,7 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
             $(divId).fadeOut("slow", function(){
                 var listHTML = that.createHTML(that.createCards());
                 $(this).replaceWith(listHTML);
+                that.updateCards();
                 $(divId).fadeIn("slow");
                 that.registerATC(fn);
             })
@@ -1048,7 +1089,7 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
 
 function createHEDRendererFactory(prodInfo, dimensioner, sizer, looks, categorizer, catalog) {
     var sizePanelr = createSizePanelr(prodInfo.skuInfo, dimensioner, sizer);
-    var carousel = createProductCarousel(prodInfo.variants);
+    var carousel = createProductCarousel(prodInfo);
     var variantSelector = createVariantSelector(prodInfo);
     var itemAdder = createItemAdder();
     var relatedviewer = createHEDRelatedViewer(prodInfo.skuInfo, looks, catalog);

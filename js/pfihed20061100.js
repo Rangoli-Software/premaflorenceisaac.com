@@ -11,25 +11,25 @@ function createProductJSON(sku, basePath, prodData, sizingChart) {
             getColourName: function (varidx) {
                 return this.data[varidx].colourName;
             },
-            getBasePath: function () {
-                return basePath;
-            },
-            getImages: function(vidx) {
-                var that = this;
-                return {
-                    getNumImages: function() {
-                        var vnt = that.data[vidx];
-                        return vnt.colourSfxs.length;
-                    },
-                    getImage: function(iidx) {
-                        var vnt = that.data[vidx];
-                        return {
-                            url: that.getBasePath() + vnt.colourPfx + "-" + vnt.colourSfxs[iidx] + ".jpg"
-                        };
-                    }
-                };
-            },
             data: prodData.data
+        },
+        getBasePath: function () {
+            return basePath;
+        },
+        getImages: function(vidx) {
+            var that = this;
+            return {
+                getNumImages: function() {
+                    var vnt = that.variants.data[vidx];
+                    return vnt.colourSfxs.length;
+                },
+                getImage: function(iidx) {
+                    var vnt = that.variants.data[vidx];
+                    return {
+                        url: that.getBasePath() + vnt.colourPfx + "-" + vnt.colourSfxs[iidx] + ".jpg"
+                    };
+                }
+            };
         },
         skuInfo: {
             SKU: sku,
