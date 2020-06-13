@@ -895,12 +895,12 @@ function createRelated(header, merch, items, sections, orderidxs) {
     var ordI = 0;
     orderidxs = shuffle(orderidxs);
     if ( merch !== null) {
-    for (var i = 0; i < merch.length; i++) {
+    for (var i = 0; i < merch.length && ordI < orderidxs.length; i++) {
         res += '<div class="col-6 ' + brkColCls + " order-" + orderidxs[ordI] + '">' +  createMerchandisingCard(merch[ i ]) + '</div>';
         ordI++;
     }
     }
-    for (var i = 0; i < items.length; i++) {
+    for (var i = 0; i < items.length && ordI < orderidxs.length; i++) {
         res += '<div class="col-6 ' + brkColCls +  " order-" + orderidxs[ordI] + '">' +  createFeatureItemCard(items[ i ], sections[ i ]) + '</div>';
         ordI++;
     }
@@ -939,9 +939,9 @@ function pickMerch(skus, blacklist) {
 }
 
 function selectMerch(blacklist) {
-    var hedSKUs = ['BERMPA1609Kh','BALLPA1501Vo','CRPTOP1805Kh','OVTPLO1501Vo','VAMPAL1708Kh','LTSDSL1501Vo'];
-    var restSKUs = ['FACEMK2005Ta','AWTSHT1604Je','DPDYSF1501PT','KAGTIE1601Kh','CHMPGN1501JL'];
-    return [pickMerch(hedSKUs, blacklist), pickMerch(restSKUs, blacklist)];
+    var leftSKUs = ['OVTPLO1501Vo','VAMPAL1708Kh','LTSDSL1501Vo','DPDYSF1501PT','KAGTIE1601Kh','CHMPGN1501JL'];
+    var restSKUs = ['BERMPA1609Kh','BALLPA1501Vo','CRPTOP1805Kh','FACEMK2005Ta','AWTSHT1604Je'];
+    return [pickMerch(leftSKUs, blacklist), pickMerch(restSKUs, blacklist)];
 }
 
 function createFeatures(header, blacklist) {
