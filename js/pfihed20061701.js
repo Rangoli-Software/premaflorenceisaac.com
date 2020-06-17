@@ -1,46 +1,7 @@
-function createProductJSON(sku, basePath, prodData, sizingChart) {
-    return {
-        product: getProductCatalog().getProduct(sku),
-        styleImagePath: basePath + prodData.imageFile,
-        dimensionNames: prodData.dimensionNames,
-        dimensionsCm: prodData.dimensionsCm,
-        variants: {
-            getFabric: function (varidx) {
-                return prodData.getFabric(varidx);
-            },
-            getColourName: function (varidx) {
-                return this.data[varidx].colourName;
-            },
-            data: prodData.data
-        },
-        getBasePath: function () {
-            return basePath;
-        },
-        getImages: function(vidx) {
-            var that = this;
-            return {
-                getNumImages: function() {
-                    var vnt = that.variants.data[vidx];
-                    return vnt.colourSfxs.length;
-                },
-                getImage: function(iidx) {
-                    var vnt = that.variants.data[vidx];
-                    return {
-                        url: that.getBasePath() + vnt.colourPfx + "-" + vnt.colourSfxs[iidx] + ".jpg"
-                    };
-                }
-            };
-        },
-        skuInfo: {
-            SKU: sku,
-            sizes: prodData.sizes,
-            getSizeChart: function () {
-                return sizingChart;
-            },
-            description: prodData.description,
-            garmentDetails: prodData.garmentDetails
-        }
-    }
+function createHEDComponentFactory(prodInfo, dimensioner, sizer, looks, categorizer, catalog) {
+    var navHelper = createNavHelper(prodInfo, categorizer);
+    var relatedviewer = createHEDRelatedViewer(prodInfo.skuInfo, looks, catalog);
+    return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper);
 }
 
 const ballData = {
@@ -368,9 +329,6 @@ const llyrData = {
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    getSizeChart: function () {
-        return hed_sizing_top;
-    },
     description: 'Happy Everyday" - as the name of the line suggests, this vibrant dress is made for your daily routine. The 100% cotton voile feels light on the skin, especially in summers. The A-line silhouette with side slits makes it easy to move around in. The lively candy red or magenta lifts up this simple round neck, sleeveless dress. The dress can also be worn with a pair of trousers, denim or palazzos underneath.',
     garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>A-line with side slits</li><li>Slips on</li>'
 };
@@ -769,79 +727,79 @@ const wngsData = {
 function createBalloonPantJSON() {
     var sku = "BALLPA1501Vo";
     var basePath = "/products/happyeveryday/blln/";
-    return createProductJSON(sku, basePath, ballData, hed_sizing_pant);
+    return createProductJSON(sku, basePath, ballData, hed_sizing_pant, createCWImageFactory);
 }
 
 function createBermudaPantJSON() {
     var sku = "BERMPA1609Kh";
     var basePath = "/products/happyeveryday/brmda/";
-    return createProductJSON(sku, basePath, brmdaData, hed_sizing_pant);
+    return createProductJSON(sku, basePath, brmdaData, hed_sizing_pant, createCWImageFactory);
 }
 
 function createCropTopJSON() {
     var sku = "CRPTOP1805Kh";
     var basePath = "/products/happyeveryday/crptp/";
-    return createProductJSON(sku, basePath, crptpData, hed_sizing_top);
+    return createProductJSON(sku, basePath, crptpData, hed_sizing_top, createCWImageFactory);
 }
 
 function createDrawstringPantJSON() {
     var sku = "DRAWPA1609Kh";
     var basePath = "/products/happyeveryday/drwstrg/";
-    return createProductJSON(sku, basePath, drwstData, hed_sizing_pant);
+    return createProductJSON(sku, basePath, drwstData, hed_sizing_pant, createCWImageFactory);
 }
 
 function createJodhpurPantJSON() {
     var sku = "JODHPA1708Kh";
     var basePath = "/products/happyeveryday/jdhpr/";
-    return createProductJSON(sku, basePath, jodhData, hed_sizing_pant);
+    return createProductJSON(sku, basePath, jodhData, hed_sizing_pant, createCWImageFactory);
 }
 
 function createLayerDressJSON() {
     var sku = "LITLAY1708Vo";
     var basePath = "/products/happyeveryday/lyr/";
-    return createProductJSON(sku, basePath, llyrData, hed_sizing_top);
+    return createProductJSON(sku, basePath, llyrData, hed_sizing_top, createCWImageFactory);
 }
 
 function createLilyPantJSON() {
     var sku = "WNDRPA1709Kh";
     var basePath = "/products/happyeveryday/lly/";
-    return createProductJSON(sku, basePath, lilyData, hed_sizing_pant);
+    return createProductJSON(sku, basePath, lilyData, hed_sizing_pant, createCWImageFactory);
 }
 
 function createLongOvertopJSON() {
     var sku = "OVTPLO1501Vo";
     var basePath = "/products/happyeveryday/lovrtp/"
-    return createProductJSON(sku, basePath, lovrData, hed_sizing_top);
+    return createProductJSON(sku, basePath, lovrData, hed_sizing_top, createCWImageFactory);
 }
 
 function createShoulderStringDressJSON() {
     var sku = "LTSDSL1501Vo";
     var basePath = "/products/happyeveryday/shdrstrg/"
-    return createProductJSON(sku, basePath, shldData, hed_sizing_top);
+    return createProductJSON(sku, basePath, shldData, hed_sizing_top, createCWImageFactory);
 }
 
 function createShortOvertopJSON() {
     var sku = "OVTPSH1501Vo";
     var basePath = "/products/happyeveryday/shvrtp/";
-    return createProductJSON(sku, basePath, sovrData, hed_sizing_top);
+    return createProductJSON(sku, basePath, sovrData, hed_sizing_top, createCWImageFactory);
 }
 
 function createSideslitDressJSON() {
     var sku = "VAMPAL1708Kh";
     var basePath = "/products/happyeveryday/sdslt/";
-    return createProductJSON(sku, basePath, ssltData, hed_sizing_top);
+    return createProductJSON(sku, basePath, ssltData, hed_sizing_top, createCWImageFactory);
 }
 
 function createTankTopJSON() {
     var sku = "TNKTPS1805Kh";
     var basePath = "/products/happyeveryday/tnktp/";
-    return createProductJSON(sku, basePath, ttData, hed_sizing_top);
+    return createProductJSON(sku, basePath, ttData, hed_sizing_top, createCWImageFactory);
 }
 
 function createWingsTopJSON() {
     var sku = "TRPZTP1807Kh";
     var basePath = "/products/happyeveryday/wngs/";
-    return createProductJSON(sku, basePath, wngsData, hed_sizing_top);
+    return createProductJSON(sku, basePath, wngsData, hed_sizing_top, createCWImageFactory);
 }
 
 function createProductDB() {
@@ -993,10 +951,6 @@ const hed_sizing_pant = {
         }
     }
 }
-
-const hed_washcareHTML = "<ul><li>Machine Wash Cold</li><li>Mild Detergent</li><li>Gentle Cycle</li><li>Do Not Bleach</li><li>Dry In Shade</li><li>Medium Iron</li></ul>";
-
-const hed_shippingHTML = getShippingInfoUL(['If the item is in stock,  it will be ready to ship within 1 business day of your order.', 'If the item is not in stock, it will be ready to ship within 2-3 business days of your order.']);
 
 const hed_lookbook = {
     styles: ['WNDRPA1709Kh', 'DRAWPA1609Kh', 'BERMPA1609Kh', 'CRPTOP1805Kh', 'TNKTPS1805Kh', 'VAMPAL1708Kh', 'TRPZTP1807Kh', 'LTSDSL1501Vo', 'LITLAY1708Vo', 'OVTPLO1501Vo', 'OVTPSH1501Vo', 'BALLPA1501Vo'],
