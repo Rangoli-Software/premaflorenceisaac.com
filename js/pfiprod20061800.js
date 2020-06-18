@@ -638,8 +638,8 @@ function createItemCategorySelector(prodInfo, categories) {
         sizeRadioName: "sizeRadio",
         sizeLinkText: "Size Chart",
         getCatIdx: function (valColour) {
-            for (var i = 0; i < this.categories.data.length; i++) {
-                var variant = this.categories.data[i];
+            for (var i = 0; i < this.categories.data.data.length; i++) {
+                var variant = this.categories.data.data[i];
                 if (variant.colourName === valColour) {
                     return i;
                 }
