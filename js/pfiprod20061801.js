@@ -553,13 +553,15 @@ function createVariantSelector(prodInfo) {
             return selRadio.val();
         },
         createFabricPanel: function (varIdx) {
-            return '<div class="row mb-4"><div class="col-5 text-left">Fabric: <strong>' + this.variants.getFabric(varIdx) + '</strong></div>'
+            return '<div class="row mb-4"><div class="col-7 text-left">Fabric: <strong>' + this.variants.getFabric(varIdx) + '</strong></div>'
         },
         createColourPanel: function (name, varIdx) {
-            var res = '<div class="col-7 text-right">Colour: <strong id="colorCaption">' + this.variants.getColourName(varIdx) + '</strong></div></div>' + '<div class="mb-8 ml-n1">';
-            for (var i = 0; i < this.variants.data.length; i++) {
-                var opt = this.variants.data[i];
-                res += '<div class="custom-control custom-control-inline custom-control-img"><input type="radio" onclick="onSelectionChange()" class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + '><label class="custom-control-label" for="' + name + i + '"><span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + this.prodInfo.getImages(i).getImage(0).url + ');"></span></label></div>';
+            var res = '<div class="col-5 text-right">Colour: <strong id="colorCaption">' + this.variants.getColourName(varIdx) + '</strong></div></div>' + '<div class="mb-8 ml-n1">';
+            if ( this.variants.data.length > 1 ) {
+                for (var i = 0; i < this.variants.data.length; i++) {
+                    var opt = this.variants.data[i];
+                    res += '<div class="custom-control custom-control-inline custom-control-img"><input type="radio" onclick="onSelectionChange()" class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + '><label class="custom-control-label" for="' + name + i + '"><span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + this.prodInfo.getImages(i).getImage(0).url + ');"></span></label></div>';
+                }
             }
             res += '</div>';
             return res;
@@ -668,8 +670,8 @@ function createItemCategorySelector(prodInfo, categories) {
             for (var i = 0; i < this.categories.data.getNumImages(); i++) {
                 var opt = this.categories.data.data[i];
                 res += '<div class="custom-control custom-control-inline custom-control-img">'
-                + '<input type="radio" onclick="onSelectionChange()" class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + (this.categories.isEmpty(i) ? " disabled" : "") + '>'
-                + '<label class="custom-control-label" for="' + name + i + '"><span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + this.categories.data.getImage(i).url + ');"></span></label></div>';
+                    + '<input type="radio" onclick="onSelectionChange()" class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + (this.categories.isEmpty(i) ? " disabled" : "") + '>'
+                    + '<label class="custom-control-label" for="' + name + i + '"><span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + this.categories.data.getImage(i).url + ');"></span></label></div>';
             }
             res += '</div>';
             return res;
@@ -705,16 +707,17 @@ function createLevelsNavHelper(levels) {
     };
 }
 
-function createNavHelper(prodInfo, categorizer) {
+function createNavHelper(prodInfo, categorizer, title) {
     return {
         categorizer: categorizer,
         prodInfo: prodInfo,
+        title: title,
         getBreadCrumb: function () {
             var levels = [{
                 title: 'Shop',
                 url: '/shop.html'
             }, {
-                title: 'Happy Everyday',
+                title: this.title,
                 url: this.getCategoryURL()
             }, {
                 title: this.prodInfo.product.name

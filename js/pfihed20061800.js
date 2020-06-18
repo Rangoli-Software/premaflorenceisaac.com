@@ -1,5 +1,5 @@
 function createHEDComponentFactory(prodInfo, dimensioner, sizer, looks, categorizer, catalog) {
-    var navHelper = createNavHelper(prodInfo, categorizer);
+    var navHelper = createNavHelper(prodInfo, categorizer, 'Happy Everyday');
     var relatedviewer = createHEDRelatedViewer(prodInfo.skuInfo, looks, catalog);
     return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper);
 }

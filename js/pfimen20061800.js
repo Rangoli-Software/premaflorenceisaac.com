@@ -1,5 +1,5 @@
 function createVBComponentFactory(prodInfo, dimensioner, sizer, categorizer) {
-    var navHelper = createNavHelper(prodInfo, categorizer);
+    var navHelper = createNavHelper(prodInfo, categorizer, 'Men');
     var relatedviewer = createEmptyViewer();
     return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper);
 }
@@ -525,15 +525,5 @@ const vb_catalog = {
     productDB: createProductDB(),
     getProduct: function (sku) {
         return this.productDB[sku];
-    },
-    summaries: [
-    ],
-    getSummary: function (sku) {
-        for (var i = 0; i < this.summaries.length; i++) {
-            if (this.summaries[i].sku === sku) {
-                return this.summaries[i];
-            }
-        }
-        return null;
     }
 };
