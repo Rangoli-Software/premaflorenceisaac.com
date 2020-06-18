@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020051600";
+const shopRevisionVersion = "2020061800";
 
 const cmData = [
 ['Helena Dress - PFI Tangail', 'HLNDRS1505PT', '', '', '/products/summerdreams/Helena.jpg', ''],
@@ -32,7 +32,13 @@ const cmData = [
 ['Kagera Tie', 'KAGTIE1601Kh', '0.094', '1.3', '/products/ties/Black.jpg', 'FALSE'],
 ['Dip-Dye Scarf', 'DPDYSF1501PT', '0.36', '1.4', '/products/scarves/TurbanMood.jpg', 'FALSE'],
 ['Champagne Bottle Bag', 'CHMPGN1501JL', '0.0208333333333333', '1.3', '/products/home/cbaglite.jpg', 'FALSE'],
-['Angkor Kurta', 'ANGKRT1601Kh', '0.36', '1.4', '', 'FALSE'],
+['Angkor Kurta', 'ANGKRT1601Kh', '0.36', '1.4', '/products/men/angkor.html', 'FALSE'],
+['Arambol 3 / 4 Pants', 'ARAMPA1601Kh', '0.36', '1.4', '/products/men/arambol.html', 'FALSE'],
+['Koh Kurta', 'KOHKRT1601Kh', '0.36', '1.4', '/products/men/koh.html', 'FALSE'],
+['Mavericks Kurta', 'MAVKRT1601Kh', '0.36', '1.4', '/products/men/mavericks.html', 'FALSE'],
+['Narigama Kurta', 'NARKRT1601Kh', '0.36', '1.4', '/products/men/narigama.html', 'FALSE'],
+['Pondy Pant', 'PNDPNT1601Kh', '0.36', '1.4', '/products/men/pondy.html', 'FALSE'],
+['Ubud Pant', 'UBDPNT1601Kh', '0.36', '1.4', '/products/men/ubud.html', 'FALSE'],
 ['Butterfly Pea Shoulder String Dress', 'LTSDSL1501Vo', '0.36', '1.4', '/products/happyeveryday/shoulderstring.html', 'FALSE'],
 ['Twiggy Side Slit Top', 'VAMPAL1708Kh', '0.36', '1.4', '/products/happyeveryday/sideslit.html', 'FALSE'],
 ['Love Power Layered Dress', 'LITLAY1708Vo', '0.36', '1.4', '/products/happyeveryday/layer.html', 'FALSE'],
@@ -55,7 +61,13 @@ const plData = [
     ['KAGTIE1601Kh', 3500],
     ['DPDYSF1501PT', 5700],
     ['CHMPGN1501JL', 1750],
-    ['ANGKRT1601Kh', 9000],
+    ['ANGKRT1601Kh', 9500],
+    ['ARAMPA1601Kh', 4000],
+    ['KOHKRT1601Kh', 7500],
+    ['MAVKRT1601Kh', 15000],
+    ['NARKRT1601Kh', 9500],
+    ['PNDPNT1601Kh', 3200],
+    ['UBDPNT1601Kh', 12000],
     ['LTSDSL1501Vo', 5000],
     ['VAMPAL1708Kh', 2900],
     ['LITLAY1708Vo', 4000],

@@ -74,7 +74,7 @@ function createProductCatalog(cat, pl) {
         getProduct: function(code) {
             var cm = this.catalog[ code ];
             var pr = this.priceList[ code ];
-            return createProduct(cm.name, "", cm.sku, cm.isUnique, pr.price, cm.imageURL, "", cm.weight, cm.volFactor);
+            return createProduct(cm.name, "", cm.sku, cm.isUnique, pr.price, '', cm.imageURL, cm.weight, cm.volFactor);
         }
     };
 }
