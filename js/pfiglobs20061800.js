@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020061800";
+const shopRevisionVersion = "2020061801";
 
 const cmData = [
 ['Helena Dress - PFI Tangail', 'HLNDRS1505PT', '', '', '/products/summerdreams/Helena.jpg', ''],
@@ -23,10 +23,10 @@ const cmData = [
 ['Stone Necklace', 'SNCKLC1709GS', '', '', '', ''],
 ['Zip-Strap Bag - Trims', 'CHPTBG1808Kh', '', '', '', ''],
 ['Gypsy Skirt', 'SSEKMD1501PP', '0.275', '1.4', '', 'TRUE'],
-['Naksha Skirt - Micro', 'NKSHMC1512PP', '0.3', '1.4', '', 'TRUE'],
-['Naksha Skirt - Mini', 'NKSHMI1501PP', '0.3', '1.4', '', 'TRUE'],
-['Naksha Skirt - Midi', 'NKSHMD1501PP', '0.3', '1.4', '', 'TRUE'],
-['Naksha Skirt - Minuit', 'NKSHMU1501PP', '0.3', '1.4', '', 'TRUE'],
+['Naksha Skirt - Micro', 'NKSHMC1512PP', '0.3', '1.4', '/products/artwear/naksha.html', 'TRUE'],
+['Naksha Skirt - Mini', 'NKSHMI1501PP', '0.3', '1.4', '/products/artwear/naksha.html', 'TRUE'],
+['Naksha Skirt - Midi', 'NKSHMD1501PP', '0.3', '1.4', '/products/artwear/naksha.html', 'TRUE'],
+['Naksha Skirt - Minuit', 'NKSHMU1501PP', '0.3', '1.4', '/products/artwear/naksha.html', 'TRUE'],
 ['Test Live Trans', 'TESTIT0000Hi', '', '', '', 'FALSE'],
 ['Woven Canvas on T Shirt', 'AWTSHT1604Je', '0.2', '1.3', '/fabricart/TShirtColl.jpg', 'TRUE'],
 ['Kagera Tie', 'KAGTIE1601Kh', '0.094', '1.3', '/products/ties/Black.jpg', 'FALSE'],
