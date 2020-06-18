@@ -30,7 +30,7 @@ function createNakshaFactory(base, listData) {
 
 function getNakshaMicroFactory(base) {
 var listData = [
-[1, ['1','1a'],'#E3CA79','Chenin',true],
+[1, ['1.1','1.1a'],'#E3CA79','Chenin',true],
 [2, ['2','2a'],'#242925','Heavy Metal',true],
 [3, ['3','3a'],'#1C2A2D','Mirage',true],
 [4, ['4','4a'],'#212B2A','Outer Space',true],
@@ -51,7 +51,7 @@ var listData = [
 function getNakshaMidiFactory(base) {
 var listData = [
 [1, ['1.1','1.1a'],'#372844','Martinique',true],
-[2, ['2.1','2.1a'],'#15181D','Woodsmoke',true],
+[2, ['2.1','2.1a','2b','2c'],'#15181D','Woodsmoke',true],
 [3, ['3.1','3.1a','3b'],'#9D5A68','Coral Tree',true],
 [4, ['4.1','4.1a'],'#A9AC8A','Locust',true],
 [5, ['5','5a'],'#E7BA46','Anzac',true],
@@ -81,7 +81,7 @@ var listData = [
 [5, ['5','5a'],'#D26690','Hopbush',true],
 [6, ['6','6a'],'#D96A56','Terracotta',true],
 [7, ['7.1','7.1a'],'#D29E59','Di Serria',true],
-[8, ['8.1','8.1a'],'#498640','Fern Green',true],
+[8, ['8.1','8.1a','8b','8c'],'#498640','Fern Green',true],
 [9, ['9.1','9.1a'],'#C97983','Old Rose',true],
 ];
     return createNakshaFactory(base + 'mu/', listData);

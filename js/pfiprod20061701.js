@@ -374,7 +374,7 @@ function createSquareImageCarousel(images, idSfx) {
             return res;
         },
         createImagePanel: function () {
-            var res = '<div class="mb-2" data-flickity=\'{"draggable": false, "imagesLoaded": true, "fade": true}\' id="' + this.panelId + '">';
+            var res = '<div class="mb-2" data-flickity=\'{"wrapAround": false, "contain": true, "draggable": false, "imagesLoaded": true, "fade": true}\' id="' + this.panelId + '">';
             for (var i = 0; i < this.images.getNumImages(); i++) {
                 var img = this.images.getImage(i);
                 res += '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '"' 
@@ -388,6 +388,8 @@ function createSquareImageCarousel(images, idSfx) {
             var panelId = this.panelId;
             var eltCarousel = $('#' + panelId);
             eltCarousel.flickity({
+                contain: true,
+                wrapAround: false,
                 draggable: false,
                 imagesLoaded: true,
                 fade: true
@@ -430,7 +432,7 @@ function createPortraitImageCarousel(images, idSfx, sqNav) {
             return '<div class="embed-responsive embed-responsive-1by1 bg-cover mb-' + bw + '" style="background-image: url(\'' + img.url + '\');"></div>';
         },
         createImageNav: function () {
-            var res = '<div class="flickity-nav flickity-vertical" data-flickity=\'{"asNavFor": "#' + this.panelId + '", "draggable": false, "imagesLoaded": true}\' id="' + this.navId + '">';
+            var res = '<div class="flickity-nav flickity-vertical" data-flickity=\'{"asNavFor": "#' + this.panelId + '", "draggable": false, "imagesLoaded": true, "wrapAround": false, "contain": true}\' id="' + this.navId + '">';
             var i = 0;
             for (; i < this.images.getNumImages() - 1; i++) {
                 var img = this.images.getImage(i);
@@ -442,7 +444,7 @@ function createPortraitImageCarousel(images, idSfx, sqNav) {
             return res;
         },
         createImagePanel: function () {
-            var res = '<div data-flickity=\'{"draggable": false, "fade": true, "imagesLoaded": true}\' id="' + this.panelId + '">';
+            var res = '<div data-flickity=\'{"draggable": false, "fade": true, "imagesLoaded": true, "wrapAround": false, "contain": true}\' id="' + this.panelId + '">';
             for (var i = 0; i < this.images.getNumImages(); i++) {
                 var img = this.images.getImage(i);
                 res += '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '"' 
@@ -456,6 +458,8 @@ function createPortraitImageCarousel(images, idSfx, sqNav) {
             var panelId = this.panelId;
             var eltCarousel = $('#' + panelId);
             eltCarousel.flickity({
+                contain: true,
+                wrapAround: false,
                 draggable: false,
                 fade: true,
                 imagesLoaded: true
@@ -464,6 +468,8 @@ function createPortraitImageCarousel(images, idSfx, sqNav) {
             var navId = this.navId;
             var eltNav = $('#' + navId);
             eltNav.flickity({
+                contain: true,
+                wrapAround: false,
                 asNavFor: '#' + panelId,
                 draggable: false,
                 imagesLoaded: true
