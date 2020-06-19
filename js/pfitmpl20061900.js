@@ -1176,15 +1176,19 @@ function createSizeRadio(name, idPfx, val, i, checked) {
     return '<div class="custom-control custom-control-inline custom-control-size mb-2"><input type="radio" class="custom-control-input" name="' + name   +'" id="' + idPfx + i + '" value="' +  val  + '"' + (checked ? 'checked="checked" ' : '') +  ' onclick="onSelectionChange()"><label class="custom-control-label" for="' + idPfx + i + '">' + val +'</label></div>';
 }
 
-function createSizeOptions(radName, label, vals, selIdx, cap) {
+function createSizeModalToggle(id, cap) {
+    var caption = (cap === undefined || cap === null) ? 'Size chart' : cap;
+    return '<a class="ml-3" data-toggle="modal" href="#' + id + '">' + caption + '</a>';
+}
+
+function createSizeOptions(radName, label, vals, selIdx, toggleHTML) {
     var id = radName + "Group";
     var res = '<div class="form-group"><label for="' + id + '">' + label + ':</label> <span id="' +  id + '" class="mb-2">';
     var idPfx = radName + "ID";
-    var caption = (cap === undefined || cap === null) ? 'Size chart' : cap;
     for (var i = 0; i < vals.length; i++) {
         res += createSizeRadio(radName, idPfx, vals[i], i, (i == selIdx));
     }
-    res += '</span><a class="ml-3" data-toggle="modal" href="#modalSizeChart">' + caption + '</a></div>';
+    res += '</span>' + toggleHTML + '</div>';
     return  res;
 }  
 
@@ -1290,10 +1294,12 @@ function createDimensioner(units, dimensionNames, dimensions, imagePath, dimVari
     };
 }
 
-function getSizeModal(contents) {
-    return '<div class="modal fade" id="modalSizeChart" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-lg" role="document"><div class="modal-content"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button><div class="modal-header line-height-fixed font-size-lg"><strong class="mx-auto">Sizing</strong></div><div class="modal-body border-bottom">'
-    + contents +
-        '</div></div></div></div>';
+function getSizeDialog(contents) {
+    return '<div class="modal-dialog modal-dialog-centered modal-lg" role="document"><div class="modal-content"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button><div class="modal-header line-height-fixed font-size-lg"><strong class="mx-auto">Sizing</strong></div><div class="modal-body border-bottom">' + contents + '</div></div></div>'
+}
+
+function getSizeModalWithId(id, contents) {
+    return '<div class="modal fade" id="' + id + '" tabindex="-1" role="dialog" aria-hidden="true">' + getSizeDialog(contents) + '</div>';
 }
 
 function createAddToCartButton(id) {

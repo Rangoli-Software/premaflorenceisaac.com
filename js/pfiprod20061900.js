@@ -109,6 +109,12 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, colSelData
         prodJSON: prodJSON,
         colSelData: colSelData,
         isSquare: isSquare,
+        createSizePanelr: function() {
+            var dimensioner = createDimensioner("cm", this.prodJSON.dimensionNames, this.prodJSON.dimensionsCm, this.prodJSON.styleImagePath);
+            var chart = this.prodJSON.skuInfo.getSizeChart();
+            var sizeChartr = chart != null ? createSizeChartr(chart) : null;
+            return createSizePanelr(this.prodJSON.skuInfo, dimensioner, sizeChartr);
+        },
         createPCFactory: function() {
             var levels = [{
                 title: 'Shop',
@@ -116,10 +122,8 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, colSelData
             }, {
                 title: this.prodJSON.product.name
             }];
-            var dimensioner = createDimensioner("cm", this.prodJSON.dimensionNames, this.prodJSON.dimensionsCm, this.prodJSON.styleImagePath);
-            var chart = this.prodJSON.skuInfo.getSizeChart();
-            var sizeChartr = chart != null ? createSizeChartr(chart) : null;
-            var sizePanelr = createSizePanelr(this.prodJSON.skuInfo, dimensioner, sizeChartr);
+            var prePanelr = this.viewerFactory.createPre();
+            var sizePanelr = this.createSizePanelr();
             var addlViewer = this.viewerFactory.create();
             var carousel = this.isSquare 
             ? createSquareProductCarousel(this.prodJSON)
@@ -128,14 +132,14 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, colSelData
             return {
                 createProductComponent: function(shop) {
                     var basePanelr = createBasePanelr(shop, that.prodJSON.product)
-                    return createUIProductComponent(basePanelr, sizePanelr, carousel, addlViewer);
+                    return createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, addlViewer);
                 }
             };
         },
         createItemCatSelector: function() {
             var selCategory = createColourCategories(
                 this.prodJSON.product, this.colSelData, this.uiFactory);
-            return createItemCategorySelector(this.prodJSON, selCategory);
+            return createItemCategorySelector(this.prodJSON, selCategory, this.createSizePanelr().getToggleHTML());
         },
         createUIC: function(shop) {
             var items = createUniqueItemList(this.uiFactory.listData, this.prodJSON.product, this.uiFactory);
@@ -507,12 +511,13 @@ function createProductCarousel(prodJSON, sqNav) {
     };
 }
 
-function createVariantSelector(prodInfo) {
+function createVariantSelector(prodInfo, toggleHTML) {
     return {
         prodInfo: prodInfo,
         variants: prodInfo.variants,
         colourRadioName: "colRadio",
         sizeRadioName: "sizeRadio",
+        toggleHTML: toggleHTML,
         createItem: function (qty) {
             var vidx = this.getSelectedVariant();
             var size = this.getSelectedSize();
@@ -576,15 +581,16 @@ function createVariantSelector(prodInfo) {
                 + this.createColourPanel(this.colourRadioName, varIdx)
                 + '</div>'
                 + '<div class="mb-3">Model is 5 ft 7 in (173 cm)' + (sz == 'Free' ? '' : ' and wearing size S') + '</div>'
-                + createSizeOptions(this.sizeRadioName, "Size", this.prodInfo.skuInfo.sizes, szIdx, 'Size chart');
+                + createSizeOptions(this.sizeRadioName, "Size", this.prodInfo.skuInfo.sizes, szIdx, this.toggleHTML);
         }
     }
 }
 
-function createSizeOnlySelector(skuInfo, variants) {
+function createSizeOnlySelector(skuInfo, variants, toggleHTML) {
     return {
         skuInfo: skuInfo,
         variants: variants,
+        toggleHTML: toggleHTML,
         sizeRadioName: "sizeRadio",
         getSelectedVariant: function() {
             return 0;
@@ -603,7 +609,7 @@ function createSizeOnlySelector(skuInfo, variants) {
             return selRadio.val();
         },
         createSelectorPanel: function(varIdx, szIdx) {
-            return createSizeOptions(this.sizeRadioName, "Size", this.skuInfo.sizes, szIdx, 'Size chart');
+            return createSizeOptions(this.sizeRadioName, "Size", this.skuInfo.sizes, szIdx, this.toggleHTML);
         }
     }
 }
@@ -634,14 +640,14 @@ function createNullSelector(skuInfo, variants) {
     }
 }
 
-function createItemCategorySelector(prodInfo, categories) {
+function createItemCategorySelector(prodInfo, categories, toggleHTML) {
     return {
         prodInfo: prodInfo,
         categories: categories,
         divId: 'catSelector',
         colourRadioName: "colRadio",
         sizeRadioName: "sizeRadio",
-        sizeLinkText: "Size Chart",
+        toggleHTML: toggleHTML,
         getCatIdx: function (valColour) {
             for (var i = 0; i < this.categories.data.data.length; i++) {
                 var variant = this.categories.data.data[i];
@@ -682,7 +688,7 @@ function createItemCategorySelector(prodInfo, categories) {
         createDiv: function(varIdx, szIdx) {
             var res = '<form id="' + this.divId + '"><div class="row align-items-center">'
             + '<div class="col-12 col-md-4 text-center">';
-            res += createSizeOptions(this.sizeRadioName, "Size", this.prodInfo.skuInfo.sizes, szIdx, this.sizeLinkText);
+            res += createSizeOptions(this.sizeRadioName, "Size", this.prodInfo.skuInfo.sizes, szIdx, this.toggleHTML);
             res += '</div><div class="col-12 col-md-8 text-center">'
                 + 'Colour: <strong>' + this.categories.data.data[varIdx].colourName + '</strong> ' + this.createColourPanel(this.colourRadioName, varIdx)
                 + '</div>'
@@ -882,6 +888,14 @@ function createSizePanelr(skuInfo, dimensioner, sizer) {
         skuInfo: skuInfo,
         dimensioner: dimensioner,
         sizer: sizer,
+        sizeDlgId: 'modalSizeChart',
+        togglerCaption: 'Size Chart',
+        getToggleHTML: function() {
+            return createSizeModalToggle(this.sizeDlgId, this.togglerCaption);
+        },
+        getSizeModal: function() {
+            return getSizeModalWithId(this.sizeDlgId, this.createSizingPanel());
+        },
         createSizingPanel: function () {
             var res = '';
             if ( this.sizer !== null) {
@@ -892,6 +906,9 @@ function createSizePanelr(skuInfo, dimensioner, sizer) {
             res += '<h6 class="mb-0">Product Measurements</h6>'
                 + this.dimensioner.createMeasurementsPanel("in", this.skuInfo.sizes);
             return res;
+        },
+        update: function() {
+            $("#" + this.sizeDlgId).replaceWith(this.getSizeModal());
         },
         updateUnits: function() {
             var tableid = '#' + this.dimensioner.tableId;
@@ -918,8 +935,9 @@ function createBasePanelr(shop, product) {
     }
 }
 
-function createProductComponent(basePanelr, sizePanelr, carousel, variantSelector, itemAdder, addlViewer) {
+function createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, variantSelector, itemAdder, addlViewer) {
     return {
+        prePanelr: prePanelr,
         basePanelr: basePanelr,
         sizePanelr: sizePanelr,
         carousel: carousel,
@@ -927,18 +945,16 @@ function createProductComponent(basePanelr, sizePanelr, carousel, variantSelecto
         itemAdder: itemAdder,
         addlViewer: addlViewer,
         prodPanelId: 'prodPanel',
-        createSizingPanel: function () {
-            return this.sizePanelr.createSizingPanel();
+        getSizeModal: function() {
+            return this.sizePanelr.getSizeModal();
         },
-        createPDContents: function (varIdx, szIdx) {
-            return '<div class="col-12 col-md-7">'
+        createProductDiv: function(varIdx, szIdx) {
+            return '<div class="row" id="' + this.prodPanelId + '"><div class="col-12 col-md-7">'
+                + this.prePanelr.createDiv()
                 + this.createImageDiv(varIdx)
                 + '</div><div class="col-12 col-md-5 pl-lg-10">'
                 + this.createInfoDiv(varIdx, szIdx)
-                + '</div>';
-        },
-        createProductDiv: function(varIdx, szIdx) {
-            return '<div class="row" id="' + this.prodPanelId + '">' + this.createPDContents(varIdx, szIdx) + '</div>';
+                + '</div></div>';
         },
         createItem: function() {
             var qty = this.itemAdder.getSelectedQty();
@@ -964,6 +980,7 @@ function createProductComponent(basePanelr, sizePanelr, carousel, variantSelecto
             $("#" + this.prodPanelId).replaceWith(imageHTML);
 
             this.carousel.createVariantCarousel(varIdx).update();
+            this.sizePanelr.update();
         },
         createImageDiv: function (varIdx) {
             return '<div class="form-row mb-4" id="prodImages">' +
@@ -981,25 +998,24 @@ function createProductComponent(basePanelr, sizePanelr, carousel, variantSelecto
     };
 }
 
-function createUIProductComponent(basePanelr, sizePanelr, carousel, addlViewer) {
+function createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, addlViewer) {
     return {
+        prePanelr: prePanelr,
         basePanelr: basePanelr,
         sizePanelr: sizePanelr,
         carousel: carousel.createVariantCarousel(0),
         addlViewer: addlViewer,
         prodPanelId: 'prodPanel',
-        createSizingPanel: function () {
-            return this.sizePanelr.createSizingPanel();
+        getSizeModal: function() {
+            return this.sizePanelr.getSizeModal();
         },
-        createPDContents: function () {
-            return '<div class="col-12 col-md-7">'
+        createProductDiv: function() {
+            return '<div class="row" id="' + this.prodPanelId + '"><div class="col-12 col-md-7">'
+                + this.prePanelr.createDiv()
                 + this.createImageDiv()
                 + '</div><div class="col-12 col-md-5 pl-lg-10">'
                 + this.createInfoDiv()
-                + '</div>';
-        },
-        createProductDiv: function() {
-            return '<div class="row" id="' + this.prodPanelId + '">' + this.createPDContents() + '</div>';
+                + '</div></div>';
         },
         updateUnits: function() {
             this.sizePanelr.updateUnits();
@@ -1010,6 +1026,7 @@ function createUIProductComponent(basePanelr, sizePanelr, carousel, addlViewer) 
             $("#" + this.prodPanelId).replaceWith(imageHTML);
 
             this.carousel.update();
+            this.sizePanelr.update();
         },
         createImageDiv: function () {
             return '<div class="form-row mb-4" id="prodImages">' 
@@ -1140,14 +1157,15 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
 }
 
 function createProductComponentFactory(prodInfo, dimensioner, sizer, addlViewer, navHelper) {
+    var prePanelr = createEmptyViewer();
     var sizePanelr = createSizePanelr(prodInfo.skuInfo, dimensioner, sizer);
     var carousel = createProductCarousel(prodInfo, false);
-    var variantSelector = createVariantSelector(prodInfo);
+    var variantSelector = createVariantSelector(prodInfo, sizePanelr.getToggleHTML());
     var itemAdder = createItemAdder();
     return {
         createProductComponent: function(shop) {
             var basePanelr = createBasePanelr(shop, prodInfo.product)
-            return createProductComponent(basePanelr, sizePanelr, carousel, variantSelector, itemAdder, addlViewer);
+            return createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, variantSelector, itemAdder, addlViewer);
         },
         getBreadCrumb: function() {
             return navHelper.getBreadCrumb();
