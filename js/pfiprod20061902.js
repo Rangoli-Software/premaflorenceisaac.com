@@ -752,7 +752,7 @@ function createRelatedLookCard(SKU, lkImg, idx, styles, catalog) {
                 if (!first) {
                     res += ' &amp;'
                 }
-                res += ' <a href="' + entry.imageURL + '">' + entry.name + '</a>';
+                res += ' <a href="' + entry.url + '">' + entry.name + '</a>';
                 first = false;
             }
             res += '</div></div>';
