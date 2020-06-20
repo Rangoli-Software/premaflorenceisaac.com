@@ -90,7 +90,7 @@ var listData = [
 function createNakshaSKUsFactory(base) {
     return {
         base: base,
-        createSKU(sku) {
+        createSKU: function(sku) {
             switch(sku) {
                 case 'NKSHMC1512PP':
                     return getNakshaMicroFactory(base);

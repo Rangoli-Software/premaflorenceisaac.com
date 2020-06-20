@@ -145,8 +145,9 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, colSelData
             var items = createUniqueItemList(this.uiFactory.listData, this.prodJSON.product, this.uiFactory);
             var productComponentFactory = this.createPCFactory();
             var itemCategorySelector = this.createItemCatSelector();
+            var sizeSelector = createSizeSelector(this.prodJSON.skuInfo.sizes, this.createSizePanelr().getToggleHTML(), null, "");
             var productComponent = productComponentFactory.createProductComponent(shop);
-            return createUniqueItemsComponent(items, productComponentFactory, productComponent, itemCategorySelector, this.cardCreator);
+            return createUniqueItemsComponent(items, productComponentFactory, productComponent, itemCategorySelector, sizeSelector, this.cardCreator);
         }
     };
 }
@@ -359,6 +360,14 @@ function createColourCategories(product, data, factory) {
         getRandomIdx(){
             var len = this.data.getNumImages();
             return Math.floor(Math.random() * len);
+        },
+        getFirstNonEmptyIdx() {
+            for(var i = 0; i < 3; i++) {
+                if (!this.isEmpty(i)) {
+                    return i;
+                }
+            }
+            return -1;
         }
     }
 }
@@ -511,13 +520,12 @@ function createProductCarousel(prodJSON, sqNav) {
     };
 }
 
-function createVariantSelector(prodInfo, toggleHTML) {
+function createVariantSelector(prodInfo) {
     return {
         prodInfo: prodInfo,
         variants: prodInfo.variants,
         colourRadioName: "colRadio",
         sizeRadioName: "sizeRadio",
-        toggleHTML: toggleHTML,
         createItem: function (qty) {
             var vidx = this.getSelectedVariant();
             var size = this.getSelectedSize();
@@ -540,24 +548,11 @@ function createVariantSelector(prodInfo, toggleHTML) {
             }
             return -1;
         },
-        getSizeIdx: function (valSize) {
-            for (var i = 0; i < this.prodInfo.skuInfo.sizes.length; i++) {
-                var size = this.prodInfo.skuInfo.sizes[i];
-                if (size === valSize) {
-                    return i;
-                }
-            }
-            return -1;
-        },
         getSelectedVariant: function() {
             return this.getVarIdx(this.getSelectedColour());
         },
         getSelectedColour: function () {
             var selRadio = $("input[name='" + this.colourRadioName + "']:checked");
-            return selRadio.val();
-        },
-        getSelectedSize: function () {
-            var selRadio = $("input[name='" + this.sizeRadioName + "']:checked");
             return selRadio.val();
         },
         createFabricPanel: function (varIdx) {
@@ -574,30 +569,26 @@ function createVariantSelector(prodInfo, toggleHTML) {
             res += '</div>';
             return res;
         },
-        createSelectorPanel: function(varIdx, szIdx) {
-            var sz = this.prodInfo.skuInfo.sizes[0];
+        createSelectorPanel: function(varIdx) {
             return '<div class="form-group">'
                 + this.createFabricPanel(varIdx)
                 + this.createColourPanel(this.colourRadioName, varIdx)
-                + '</div>'
-                + '<div class="mb-3">Model is 5 ft 7 in (173 cm)' + (sz == 'Free' ? '' : ' and wearing size S') + '</div>'
-                + createSizeOptions(this.sizeRadioName, "Size", this.prodInfo.skuInfo.sizes, szIdx, this.toggleHTML);
+                + '</div>';
         }
     }
 }
 
-function createSizeOnlySelector(skuInfo, variants, toggleHTML) {
+
+function createSizeSelector(sizes, toggleHTML, eventFn, modelTxt) {
     return {
-        skuInfo: skuInfo,
-        variants: variants,
+        sizes: sizes,
         toggleHTML: toggleHTML,
-        sizeRadioName: "sizeRadio",
-        getSelectedVariant: function() {
-            return 0;
-        },
+        eventFn: eventFn,
+        modelTxt: modelTxt,
+        sizeRadioName: 'sizeRadio',
         getSizeIdx: function (valSize) {
-            for (var i = 0; i < this.skuInfo.sizes.length; i++) {
-                var size = this.skuInfo.sizes[i];
+            for (var i = 0; i < this.sizes.length; i++) {
+                var size = this.sizes[i];
                 if (size === valSize) {
                     return i;
                 }
@@ -608,46 +599,35 @@ function createSizeOnlySelector(skuInfo, variants, toggleHTML) {
             var selRadio = $("input[name='" + this.sizeRadioName + "']:checked");
             return selRadio.val();
         },
-        createSelectorPanel: function(varIdx, szIdx) {
-            return createSizeOptions(this.sizeRadioName, "Size", this.skuInfo.sizes, szIdx, this.toggleHTML);
-        }
-    }
-}
-
-function createNullSelector(skuInfo, variants) {
-    return {
-        skuInfo: skuInfo,
-        variants: variants,
-        sizeRadioName: "sizeRadio",
-        getSelectedVariant: function() {
-            return 0;
+        getSelectedSizeIdx: function () {
+            return this.getSizeIdx(this.getSelectedSize());
         },
-        getSizeIdx: function (valSize) {
-            for (var i = 0; i < this.skuInfo.sizes.length; i++) {
-                var size = this.skuInfo.sizes[i];
-                if (size === valSize) {
-                    return i;
-                }
+        createSelectorPanel: function(szIdx) {
+            var id = this.sizeRadioName + "Group";
+            var res = this.modelTxt + '<div class="form-group"><label for="' + id + '">Size:</label> <span id="' +  id + '" class="mb-2">';
+            var idPfx = this.sizeRadioName + "ID";
+            for (var i = 0; i < this.sizes.length; i++) {
+                var checked = (i == szIdx);
+                var val = this.sizes[i];
+                res += '<div class="custom-control custom-control-inline custom-control-size mb-2"><input type="radio" class="custom-control-input" name="' + this.sizeRadioName   +'" id="' + idPfx + i + '" value="' +  val  + '"' + (checked ? 'checked="checked" ' : '') + (this.eventFn !== null ? ' onclick="' + this.eventFn + '"' : "") + '><label class="custom-control-label" for="' + idPfx + i + '">' + val +'</label></div>';
             }
-            return -1;
+            res += '</span>' + this.toggleHTML + '</div>';
+            return  res;
         },
-        getSelectedSize: function () {
-            return this.skuInfo.sizes[0];
-        },
-        createSelectorPanel: function(varIdx, szIdx) {
-            return "";
+        createDiv: function(szIdx) {
+            return this.createSelectorPanel(szIdx);
         }
     }
 }
 
-function createItemCategorySelector(prodInfo, categories, toggleHTML) {
+
+function createItemCategorySelector(prodInfo, categories) {
     return {
         prodInfo: prodInfo,
         categories: categories,
         divId: 'catSelector',
         colourRadioName: "colRadio",
-        sizeRadioName: "sizeRadio",
-        toggleHTML: toggleHTML,
+        colourCategoryFn: "onColourCategoryChange()",
         getCatIdx: function (valColour) {
             for (var i = 0; i < this.categories.data.data.length; i++) {
                 var variant = this.categories.data.data[i];
@@ -657,21 +637,8 @@ function createItemCategorySelector(prodInfo, categories, toggleHTML) {
             }
             return -1;
         },
-        getSizeIdx: function (valSize) {
-            for (var i = 0; i < this.prodInfo.skuInfo.sizes.length; i++) {
-                var size = this.prodInfo.skuInfo.sizes[i];
-                if (size === valSize) {
-                    return i;
-                }
-            }
-            return -1;
-        },
         getSelectedColour: function () {
             var selRadio = $("input[name='" + this.colourRadioName + "']:checked");
-            return selRadio.val();
-        },
-        getSelectedSize: function () {
-            var selRadio = $("input[name='" + this.sizeRadioName + "']:checked");
             return selRadio.val();
         },
         createColourPanel: function (name, varIdx) {
@@ -679,20 +646,16 @@ function createItemCategorySelector(prodInfo, categories, toggleHTML) {
             for (var i = 0; i < this.categories.data.getNumImages(); i++) {
                 var opt = this.categories.data.data[i];
                 res += '<div class="custom-control custom-control-inline custom-control-img">'
-                    + '<input type="radio" onclick="onSelectionChange()" class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + (this.categories.isEmpty(i) ? " disabled" : "") + '>'
+                    + '<input type="radio" onclick="' + this.colourCategoryFn + '" class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + (this.categories.isEmpty(i) ? " disabled" : "") + '>'
                     + '<label class="custom-control-label" for="' + name + i + '"><span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + this.categories.data.getImage(i).url + ');"></span></label></div>';
             }
             res += '</div>';
             return res;
         },
-        createDiv: function(varIdx, szIdx) {
-            var res = '<form id="' + this.divId + '"><div class="row align-items-center">'
-            + '<div class="col-12 col-md-4 text-center">';
-            res += createSizeOptions(this.sizeRadioName, "Size", this.prodInfo.skuInfo.sizes, szIdx, this.toggleHTML);
-            res += '</div><div class="col-12 col-md-8 text-center">'
-                + 'Colour: <strong>' + this.categories.data.data[varIdx].colourName + '</strong> ' + this.createColourPanel(this.colourRadioName, varIdx)
-                + '</div>'
-                + '</div></form>';
+        createDiv: function(varIdx) {
+            var res = '<div id="' + this.divId + '">Colour: <strong>' + this.categories.data.data[varIdx].colourName + '</strong> ' 
+            + this.createColourPanel(this.colourRadioName, varIdx) 
+            + '</div>';
             return res;
         },
         getItems: function() {
@@ -701,8 +664,10 @@ function createItemCategorySelector(prodInfo, categories, toggleHTML) {
         },
         updateSelection: function () {
             var varIdx = this.getCatIdx(this.getSelectedColour());
-            var szIdx = this.getSizeIdx(this.getSelectedSize());
-            $('#' + this.divId).replaceWith(this.createDiv(varIdx, szIdx));
+            if ( this.categories.isEmpty(varIdx) ) {
+                varIdx = this.categories.getFirstNonEmptyIdx();
+            }
+            $('#' + this.divId).replaceWith(this.createDiv(varIdx));
         }
     }
 }
@@ -935,16 +900,19 @@ function createBasePanelr(shop, product) {
     }
 }
 
-function createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, variantSelector, itemAdder, addlViewer) {
+function createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, variantSelector, sizeSelector, itemAdder, addlViewer) {
     return {
         prePanelr: prePanelr,
         basePanelr: basePanelr,
         sizePanelr: sizePanelr,
         carousel: carousel,
         variantSelector: variantSelector,
+        sizeSelector: sizeSelector,
         itemAdder: itemAdder,
         addlViewer: addlViewer,
         prodPanelId: 'prodPanel',
+        prodImageId: 'prodImages',
+        prodInfoId: 'prodInfo',
         getSizeModal: function() {
             return this.sizePanelr.getSizeModal();
         },
@@ -958,7 +926,15 @@ function createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, var
         },
         createItem: function() {
             var qty = this.itemAdder.getSelectedQty();
-            return this.variantSelector.createItem(qty);
+            var vidx = this.variantSelector.getSelectedVariant();
+            var size = this.sizeSelector.getSelectedSize();
+            var prodInfo = this.variantSelector.prodInfo;
+            var vnt = prodInfo.variants.data[vidx];
+            var itmSKU = vnt.vid + "-" + size;
+            var imgURL = prodInfo.getImages(vidx).getImage(0).url;
+            var product = prodInfo.product;
+            var clr = this.variantSelector.getSelectedColour();
+            return createItem(product, product.inrPrice, size, clr, qty, itmSKU, imgURL, false);
         },
         updateUnits: function() {
             this.sizePanelr.updateUnits();
@@ -971,28 +947,44 @@ function createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, var
             var atcBtnElt = $('#' + this.itemAdder.getBtnId());
             atcBtnElt.on('click', fn);
         },
-        updateSelection: function() {
+        updateProductDiv: function() {
             var varIdx = this.variantSelector.getSelectedVariant();
-            var valSize = this.variantSelector.getSelectedSize();
-            var szIdx = this.variantSelector.getSizeIdx(valSize);
+            var szIdx = this.sizeSelector.getSelectedSizeIdx();
             var imageHTML = this.createProductDiv(varIdx, szIdx);
 
             $("#" + this.prodPanelId).replaceWith(imageHTML);
 
             this.carousel.createVariantCarousel(varIdx).update();
+        },
+        updateImageInfo: function() {
+            var varIdx = this.variantSelector.getSelectedVariant();
+
+            var imageHTML = this.createImageDiv(varIdx);
+            $("#" + this.prodImageId).replaceWith(imageHTML);
+
+            this.carousel.createVariantCarousel(varIdx).update();
+
+            var szIdx = this.sizeSelector.getSelectedSizeIdx();
+            var infoHTML = this.createInfoDiv(varIdx, szIdx);
+            $("#" + this.prodInfoId).replaceWith(infoHTML);
+        },
+        updateSelection: function() {
+            this.updateImageInfo();
             this.sizePanelr.update();
         },
         createImageDiv: function (varIdx) {
-            return '<div class="form-row mb-4" id="prodImages">' +
+            return '<div class="form-row mb-4" id="' + this.prodImageId + '">' +
                 this.carousel.createVariantCarousel(varIdx).createImageCarousel() +
                 '</div>';
         },
         createInfoDiv: function (varIdx, szIdx) {
-            var res = this.basePanelr.createBasePanel() + '<form>'
-            + this.variantSelector.createSelectorPanel(varIdx, szIdx) 
+            var res = '<div id="' + this.prodInfoId + '">' + this.basePanelr.createBasePanel() + '<form>'
+            + this.variantSelector.createSelectorPanel(varIdx) 
+            + this.sizeSelector.createSelectorPanel(szIdx)
             + this.itemAdder.createDiv()
             + '</form>'
-            + this.addlViewer.createDiv();
+            + this.addlViewer.createDiv()
+            + '</div>';
             return res;
         }
     };
@@ -1006,6 +998,8 @@ function createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, a
         carousel: carousel.createVariantCarousel(0),
         addlViewer: addlViewer,
         prodPanelId: 'prodPanel',
+        prodImageId: 'prodImages',
+        prodInfoId: 'prodInfo',
         getSizeModal: function() {
             return this.sizePanelr.getSizeModal();
         },
@@ -1020,22 +1014,43 @@ function createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, a
         updateUnits: function() {
             this.sizePanelr.updateUnits();
         },
-        updateSelection: function() {
+        updateProductDiv: function() {
             var imageHTML = this.createProductDiv();
 
             $("#" + this.prodPanelId).replaceWith(imageHTML);
 
             this.carousel.update();
+        },
+        updateImageInfo: function() {
+            var divImgId = "#" + this.prodImageId;
+            let that = this;
+            $(divImgId).fadeOut("slow", function(){
+                var imageHTML = that.createImageDiv();
+                $(this).replaceWith(imageHTML);
+                that.carousel.update();
+                $(divImgId).fadeIn("slow");
+            });
+
+            var divInfoId = "#" + this.prodInfoId;
+            $(divInfoId).fadeOut("slow", function(){
+                var infoHTML = that.createInfoDiv();
+                $(this).replaceWith(infoHTML);
+                that.carousel.update();
+                $(divInfoId).fadeIn("slow");
+            })
+        },
+        updateSelection: function() {
+            this.updateImageInfo();
             this.sizePanelr.update();
         },
         createImageDiv: function () {
-            return '<div class="form-row mb-4" id="prodImages">' 
+            return '<div class="form-row mb-4" id="' + this.prodImageId + '">' 
                 + this.carousel.createImageCarousel()
                 + '</div>';
         },
         createInfoDiv: function () {
-            var res = this.basePanelr.createBasePanel()
-            + this.addlViewer.createDiv();
+            var res = '<div id="' + this.prodInfoId + '">' + this.basePanelr.createBasePanel()
+            + this.addlViewer.createDiv() + '</div>';
             return res;
         }
     };
@@ -1059,13 +1074,14 @@ function createUICardCreator() {
     };
 }
 
-function createUniqueItemsComponent(items, productComponentFactory, productComponent, itemCategorySelector, cardCreator) {
+function createUniqueItemsComponent(items, productComponentFactory, productComponent, itemCategorySelector, sizeSelector, cardCreator) {
     return {
         size: 'Free',
         items: items,
         productComponentFactory: productComponentFactory,
         productComponent: productComponent,
         itemCategorySelector: itemCategorySelector,
+        sizeSelector: sizeSelector,
         cardCreator: cardCreator,
         listId: 'artwear-list',
         createCard: function(i) {
@@ -1129,11 +1145,8 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
                 });
             }
         },
-        updateSelection: function(shop, fn) {
+        updateItemCategories: function(fn) {
             this.unregisterATC();
-
-            this.productComponent = this.productComponentFactory.createProductComponent(shop);
-            this.productComponent.updateSelection();
 
             this.items = this.itemCategorySelector.getItems();
             this.itemCategorySelector.updateSelection();
@@ -1150,22 +1163,28 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
                 that.registerATC(fn);
             })
         },
+        updateSelection: function(shop, fn) {
+            this.productComponent = this.productComponentFactory.createProductComponent(shop);
+            this.productComponent.updateSelection();
+            this.updateItemCategories(fn);
+        },
         updateUnits: function () {
             this.productComponent.updateUnits();
         }
     };
 }
 
-function createProductComponentFactory(prodInfo, dimensioner, sizer, addlViewer, navHelper) {
+function createProductComponentFactory(prodInfo, dimensioner, sizer, addlViewer, navHelper, modelTxt) {
     var prePanelr = createEmptyViewer();
     var sizePanelr = createSizePanelr(prodInfo.skuInfo, dimensioner, sizer);
     var carousel = createProductCarousel(prodInfo, false);
-    var variantSelector = createVariantSelector(prodInfo, sizePanelr.getToggleHTML());
+    var variantSelector = createVariantSelector(prodInfo);
+    var sizeSelector = createSizeSelector(prodInfo.skuInfo.sizes, sizePanelr.getToggleHTML(), null, modelTxt);
     var itemAdder = createItemAdder();
     return {
         createProductComponent: function(shop) {
             var basePanelr = createBasePanelr(shop, prodInfo.product)
-            return createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, variantSelector, itemAdder, addlViewer);
+            return createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, variantSelector, sizeSelector, itemAdder, addlViewer);
         },
         getBreadCrumb: function() {
             return navHelper.getBreadCrumb();
@@ -1246,6 +1265,13 @@ function createUIPageComponent(catalog, itemsComponent, itemsComponentFactory) {
                 $(this).append(html);
             });
         },
+        updateItemCategories: function() {
+            var that = this;
+            this.itemsComponent.updateItemCategories(
+                function(idx){
+                    that.addToCart(idx);
+                });
+        },
         updateSelection: function() {
             var that = this;
             this.itemsComponent.updateSelection(
@@ -1258,6 +1284,10 @@ function createUIPageComponent(catalog, itemsComponent, itemsComponentFactory) {
             var icGen = this.itemsComponentFactory.createGenerator(sku);
             this.itemsComponent = icGen.createUIC(this.allCartC.shop);
             this.updateSelection();
+        },
+        onColourCategoryChange: function() {
+            this.updateItemCategories();
+            this.updateItemPrices();
         },
         onSelectionChange: function() {
             this.updateSelection();

@@ -1,7 +1,8 @@
 function createHEDComponentFactory(prodInfo, dimensioner, sizer, looks, categorizer, catalog) {
     var navHelper = createNavHelper(prodInfo, categorizer, 'Happy Everyday');
     var relatedviewer = createHEDRelatedViewer(prodInfo.skuInfo, looks, catalog);
-    return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper);
+    var modelTxt = "The model is 5 ft 7 in (173 cm.) and wearing size '" + prodInfo.skuInfo.sizes[0] + "'";
+    return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, modelTxt);
 }
 
 const ballData = {
