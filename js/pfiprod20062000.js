@@ -658,15 +658,19 @@ function createItemCategorySelector(prodInfo, categories) {
             + '</div>';
             return res;
         },
-        getItems: function() {
-            var varIdx = this.getCatIdx(this.getSelectedColour());
-            return this.categories.filterOnCategory(varIdx);
-        },
-        updateSelection: function () {
+        getNonEmptyCatIdx: function () {
             var varIdx = this.getCatIdx(this.getSelectedColour());
             if ( this.categories.isEmpty(varIdx) ) {
                 varIdx = this.categories.getFirstNonEmptyIdx();
             }
+            return varIdx;
+        },
+        getItems: function() {
+            var varIdx = this.getNonEmptyCatIdx();
+            return this.categories.filterOnCategory(varIdx);
+        },
+        updateSelection: function () {
+            var varIdx = this.getNonEmptyCatIdx();
             $('#' + this.divId).replaceWith(this.createDiv(varIdx));
         }
     }
@@ -1235,6 +1239,8 @@ function createPageComponent(prodInfo, catalog, rendererFactory) {
             });
             this.updateItemPrices();
         },
+        onReadyState() {
+        },
         onUnitChange: function () {
             this.getRenderer().updateUnits();
         }
@@ -1292,6 +1298,9 @@ function createUIPageComponent(catalog, itemsComponent, itemsComponentFactory) {
         onSelectionChange: function() {
             this.updateSelection();
             this.updateItemPrices();
+        },
+        onReadyState() {
+            this.onColourCategoryChange();
         },
         onUnitChange: function () {
             this.itemsComponent.updateUnits();
