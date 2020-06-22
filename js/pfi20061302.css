@@ -27,8 +27,8 @@ figcaption {
   visibility: hidden;
 }
 
-.custom-control-img .custom-control-input:disabled ~ .custom-control-label {
-  filter: sepia(100%);
+.custom-control-img .cat-color-is-empty ~ .custom-control-label {
+  filter: grayscale(100%);
 }
 /*
 .flickity-enabled:focus {

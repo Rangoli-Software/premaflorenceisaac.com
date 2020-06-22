@@ -646,7 +646,7 @@ function createItemCategorySelector(prodInfo, categories) {
             for (var i = 0; i < this.categories.data.getNumImages(); i++) {
                 var opt = this.categories.data.data[i];
                 res += '<div class="custom-control custom-control-inline custom-control-img">'
-                    + '<input type="radio" onclick="' + this.colourCategoryFn + '" class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + (this.categories.isEmpty(i) ? " disabled" : "") + '>'
+                    + '<input type="radio" onclick="' + this.colourCategoryFn + '" class="custom-control-input' + (this.categories.isEmpty(i) ? " cat-color-is-empty" : "") + '" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "")  + '>'
                     + '<label class="custom-control-label" for="' + name + i + '"><span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + this.categories.data.getImage(i).url + ');"></span></label></div>';
             }
             res += '</div>';
@@ -658,19 +658,18 @@ function createItemCategorySelector(prodInfo, categories) {
             + '</div>';
             return res;
         },
+        getSelectedCatIdx: function() {
+            return this.getCatIdx(this.getSelectedColour());
+        },
         getNonEmptyCatIdx: function () {
-            var varIdx = this.getCatIdx(this.getSelectedColour());
-            if ( this.categories.isEmpty(varIdx) ) {
-                varIdx = this.categories.getFirstNonEmptyIdx();
-            }
-            return varIdx;
+            return this.categories.getFirstNonEmptyIdx();
         },
         getItems: function() {
-            var varIdx = this.getNonEmptyCatIdx();
+            var varIdx = this.getSelectedCatIdx();
             return this.categories.filterOnCategory(varIdx);
         },
         updateSelection: function () {
-            var varIdx = this.getNonEmptyCatIdx();
+            var varIdx = this.getSelectedCatIdx();
             $('#' + this.divId).replaceWith(this.createDiv(varIdx));
         }
     }
