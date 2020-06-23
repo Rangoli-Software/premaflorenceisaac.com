@@ -1155,7 +1155,6 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
             this.unregisterATC();
 
             this.items = this.itemCategorySelector.getItems();
-            this.itemCategorySelector.updateSelection();
 
             var divId = '#' + this.listId;
             $(divId + ' .btn').off('click');
@@ -1173,6 +1172,7 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
             this.productComponent = this.productComponentFactory.createProductComponent(shop);
             this.productComponent.updateSelection();
             this.updateItemCategories(fn);
+            this.itemCategorySelector.updateSelection();
         },
         updateUnits: function () {
             this.productComponent.updateUnits();
