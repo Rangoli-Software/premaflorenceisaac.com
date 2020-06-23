@@ -647,7 +647,7 @@ function createItemCategorySelector(prodInfo, categories) {
             return res;
         },
         createDiv: function(varIdx) {
-            var res = '<div id="' + this.divId + '">Colour: <strong>' + this.categories.data.data[varIdx].colourName + '</strong> ' 
+            var res = '<div id="' + this.divId + '">Match Range: <strong>' + this.categories.data.data[varIdx].colourName + '</strong>' 
             + this.createColourPanel(this.colourRadioName, varIdx) 
             + '</div>';
             return res;
