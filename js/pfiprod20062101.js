@@ -622,7 +622,16 @@ function createItemCategorySelector(prodInfo, categories) {
         divId: 'catSelector',
         captionId: 'rangeCaption',
         colourRadioName: "colRadio",
-        colourCategoryFn: "onColourCategoryChange()",
+        colourCategoryFn: "onColourCategoryChange",
+        createCaption: function(caption) {
+            return  '<strong id="' + this.captionId + '">' + caption + '</strong>';
+        },
+        setCaption: function(caption) {
+            if (caption ===  undefined) {
+                caption = this.categories.data.data[ this.getSelectedCatIdx()].colourName;
+            }
+            $('#' + this.captionId).replaceWith(this.createCaption(caption));
+        },
         getCatIdx: function (valColour) {
             for (var i = 0; i < this.categories.data.data.length; i++) {
                 var variant = this.categories.data.data[i];
@@ -641,14 +650,15 @@ function createItemCategorySelector(prodInfo, categories) {
             for (var i = 0; i < this.categories.data.getNumImages(); i++) {
                 var opt = this.categories.data.data[i];
                 res += '<div class="custom-control custom-control-inline custom-control-img">'
-                    + '<input type="radio" onclick="' + this.colourCategoryFn + '" class="custom-control-input' + (this.categories.isEmpty(i) ? " cat-color-is-empty" : "") + '" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "")  + ' data-toggle="form-caption" data-target="#' + this.captionId + '">'
+                    + '<input type="radio" onclick="' + this.colourCategoryFn + '(\'' + opt.colourName + '\')'+ '" class="custom-control-input' + (this.categories.isEmpty(i) ? " cat-color-is-empty" : "") + '" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "")  + '>'
                     + '<label class="custom-control-label" for="' + name + i + '"><span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + this.categories.data.getImage(i).url + ');"></span></label></div>';
             }
             res += '</div>';
             return res;
         },
         createDiv: function(varIdx) {
-            var res = '<div id="' + this.divId + '">Match Range: <strong id="' + this.captionId + '">' + this.categories.data.data[varIdx].colourName + '</strong>' 
+            var res = '<div id="' + this.divId + '">Match Range: ' 
+            + this.createCaption(this.categories.data.data[varIdx].colourName)
             + this.createColourPanel(this.colourRadioName, varIdx) 
             + '</div>';
             return res;
@@ -1300,7 +1310,8 @@ function createUIPageComponent(catalog, itemsComponent, itemsComponentFactory) {
             this.itemsComponentFactory.updateURL(sku);
             this.updateBreadCrumb();
         },
-        onColourCategoryChange: function() {
+        onColourCategoryChange: function(colVal) {
+            this.itemsComponent.itemCategorySelector.setCaption(colVal);
             this.updateItemCategories();
             this.updateItemPrices();
         },
