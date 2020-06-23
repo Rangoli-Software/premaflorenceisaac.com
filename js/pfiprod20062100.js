@@ -620,6 +620,7 @@ function createItemCategorySelector(prodInfo, categories) {
         prodInfo: prodInfo,
         categories: categories,
         divId: 'catSelector',
+        captionId: 'rangeCaption',
         colourRadioName: "colRadio",
         colourCategoryFn: "onColourCategoryChange()",
         getCatIdx: function (valColour) {
@@ -640,14 +641,14 @@ function createItemCategorySelector(prodInfo, categories) {
             for (var i = 0; i < this.categories.data.getNumImages(); i++) {
                 var opt = this.categories.data.data[i];
                 res += '<div class="custom-control custom-control-inline custom-control-img">'
-                    + '<input type="radio" onclick="' + this.colourCategoryFn + '" class="custom-control-input' + (this.categories.isEmpty(i) ? " cat-color-is-empty" : "") + '" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "")  + '>'
+                    + '<input type="radio" onclick="' + this.colourCategoryFn + '" class="custom-control-input' + (this.categories.isEmpty(i) ? " cat-color-is-empty" : "") + '" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "")  + ' data-toggle="form-caption" data-target="#' + this.captionId + '">'
                     + '<label class="custom-control-label" for="' + name + i + '"><span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + this.categories.data.getImage(i).url + ');"></span></label></div>';
             }
             res += '</div>';
             return res;
         },
         createDiv: function(varIdx) {
-            var res = '<div id="' + this.divId + '">Match Range: <strong>' + this.categories.data.data[varIdx].colourName + '</strong>' 
+            var res = '<div id="' + this.divId + '">Match Range: <strong id="' + this.captionId + '">' + this.categories.data.data[varIdx].colourName + '</strong>' 
             + this.createColourPanel(this.colourRadioName, varIdx) 
             + '</div>';
             return res;
