@@ -87,9 +87,67 @@ var listData = [
     return createNakshaFactory(base + 'mu/', listData);
 }
 
+function createNakshaEncoder() {
+    return {
+        toSKU : function(c) {
+            switch (c) {
+                case 'u':
+                    return 'NKSHMU1501PP';
+                case 'd':
+                    return 'NKSHMD1501PP';
+                case 'i':
+                    return 'NKSHMI1501PP';
+                case 'c':
+                    return 'NKSHMC1512PP';
+                default:
+                    return null;
+            }
+        },
+        toCode: function(sku) {
+            switch(sku) {
+                case 'NKSHMC1512PP':
+                    return 'c';
+                case 'NKSHMI1501PP':
+                    return 'i';
+                case 'NKSHMD1501PP':
+                    return 'd';
+                case 'NKSHMU1501PP':
+                    return 'u';
+                default:
+                    return null;
+            }
+        }
+    };
+}
+
+function createNakshaURLModifer() {
+    return {
+        paramName: 's',
+        defaultCode: 'd',
+        getCodeOrDefault: function() {
+            var c = this.getCode();
+            if ( c === undefined ) {
+                c = this.defaultCode;
+            }
+            return c;
+        },
+        getCode: function() {
+            return getUrlVars()[this.paramName];
+        },
+        updateURL: function(c) {
+            var oldC = this.getCode();
+            if ( oldC !== c ) {
+                modifyUrl(this.paramName, c);
+            }
+        }
+    }
+}
+    
 function createNakshaSKUsFactory(base) {
     return {
         base: base,
+        encoder: createNakshaEncoder(),
+        urlModifier: createNakshaURLModifer(),
         createSKU: function(sku) {
             switch(sku) {
                 case 'NKSHMC1512PP':
@@ -103,6 +161,6 @@ function createNakshaSKUsFactory(base) {
                 default:
                     return null;
             }
-        }
+        },
     };
 }

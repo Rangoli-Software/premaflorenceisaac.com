@@ -604,6 +604,23 @@ function getUrlVars() {
     return vars;
 }
 
+function replaceQueryParam(param, newval, search) {
+    var regex = new RegExp("([?;&])" + param + "[^&;]*[;&]?");
+    var query = search.replace(regex, "$1").replace(/&$/, '');
+
+    return (query.length > 2 ? query + "&" : "?") + (newval ? param + "=" + newval : '');
+}
+
+function modifyUrl(nm, val) {
+    var strOld = window.location.search;
+    var strNew = replaceQueryParam(nm, val, strOld);
+    if ( window.history.replaceState ) {
+        window.history.replaceState({},null, strNew);
+    } else {
+        window.location.assign(strNew);
+    }
+}
+
 function createSqPanelImageList(panelNumArr) {
     var res = [];
     for (var i = 0; i < panelNumArr.length; i++) {

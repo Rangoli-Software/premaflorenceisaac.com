@@ -1289,6 +1289,7 @@ function createUIPageComponent(catalog, itemsComponent, itemsComponentFactory) {
             var icGen = this.itemsComponentFactory.createGenerator(sku);
             this.itemsComponent = icGen.createUIC(this.allCartC.shop);
             this.updateSelection();
+            this.itemsComponentFactory.updateURL(sku);
         },
         onColourCategoryChange: function() {
             this.updateItemCategories();
