@@ -116,12 +116,6 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, colSelData
             return createSizePanelr(this.prodJSON.skuInfo, dimensioner, sizeChartr);
         },
         createPCFactory: function() {
-            var levels = [{
-                title: 'Shop',
-                url: '/shop.html'
-            }, {
-                title: this.prodJSON.product.name
-            }];
             var prePanelr = this.viewerFactory.createPre();
             var sizePanelr = this.createSizePanelr();
             var addlViewer = this.viewerFactory.create();
@@ -148,7 +142,7 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, colSelData
             var sizeSelector = createSizeSelector(this.prodJSON.skuInfo.sizes, this.createSizePanelr().getToggleHTML(), null, "");
             var productComponent = productComponentFactory.createProductComponent(shop);
             return createUniqueItemsComponent(items, productComponentFactory, productComponent, itemCategorySelector, sizeSelector, this.cardCreator);
-        }
+        },
     };
 }
 
@@ -1087,6 +1081,15 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
         sizeSelector: sizeSelector,
         cardCreator: cardCreator,
         listId: 'artwear-list',
+        getBreadCrumb: function(){
+            var levels = [{
+                title: 'Shop',
+                url: '/shop.html'
+            }, {
+                title: this.productComponent.basePanelr.product.name
+            }];
+            return createBreadCrumbLevels(levels);
+        },
         createCard: function(i) {
             return this.cardCreator.createCard(
                 this.items.getImages(i),
@@ -1204,8 +1207,8 @@ function createPageComponent(prodInfo, catalog, rendererFactory) {
         init: function (shop) {
             this.allCartC = createAllCartComponents(shop, this);
         },
-        getBreadCrumb: function() {
-            return this.rendererFactory.getBreadCrumb();
+        updateBreadCrumb: function() {
+            $('.breadcrumb').replaceWith(this.rendererFactory.getBreadCrumb())
         },
         createRenderer: function (shop) {
             return this.rendererFactory.createProductComponent(shop);
@@ -1239,6 +1242,7 @@ function createPageComponent(prodInfo, catalog, rendererFactory) {
             this.updateItemPrices();
         },
         onReadyState() {
+            this.updateBreadCrumb();
         },
         onUnitChange: function () {
             this.getRenderer().updateUnits();
@@ -1285,11 +1289,15 @@ function createUIPageComponent(catalog, itemsComponent, itemsComponentFactory) {
                     that.addToCart(idx);
                 });
         },
+        updateBreadCrumb: function() {
+            $('.breadcrumb').replaceWith(this.itemsComponent.getBreadCrumb())
+        },
         onSKUChange: function(sku) {
             var icGen = this.itemsComponentFactory.createGenerator(sku);
             this.itemsComponent = icGen.createUIC(this.allCartC.shop);
             this.updateSelection();
             this.itemsComponentFactory.updateURL(sku);
+            this.updateBreadCrumb();
         },
         onColourCategoryChange: function() {
             this.updateItemCategories();
@@ -1301,6 +1309,7 @@ function createUIPageComponent(catalog, itemsComponent, itemsComponentFactory) {
         },
         onReadyState() {
             this.onColourCategoryChange();
+            this.updateBreadCrumb();
         },
         onUnitChange: function () {
             this.itemsComponent.updateUnits();

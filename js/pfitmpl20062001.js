@@ -123,71 +123,71 @@ const archives = {
 };
 
 const origin = {
-        title: "My Journey",
-        url: "/blog.html?t=o",
-        sub: [
-            {
-                title: "Prema's Story",
-                url: "/journey/myjourney.html",
-                lede: 'Over the years, I have told this story in bits and pieces to clients and friends, who kept asking why it was not on the website.....',
-                imageURL: "/journey/PremaStory.jpg"
-            },
-            {
-                title: "Auroville",
-                url: "/journey/auroville.html",
-                lede: 'Auroville is the center of my journey',
-                imageURL: "/journey/GrowingUp.jpg"
-            },
-            {
-                title: "Odissi 2 Salsa!",
-                url: "/journey/salsa.html",
-                lede: 'How my changing dance passions led me to fashion design',
-                imageURL: "/journey/NakshaEvolution.jpg"
-            },
-            {
-                title: "The Atelier",
-                url: "/journey/atelier.html",
-                lede: 'The history of my Rangoli Atelier',
-                imageURL: "/journey/TeamYears.jpg"
-            },
-            {
-                title: "Rang = Colour",
-                url: "/journey/colour.html",
-                lede: 'Rangoli is the expression of artistic vision through the joyful use of colour',
-                imageURL: "/journey/LogoRangoli.jpg"
-            },
-            {
-                title: "Tangail Traditions",
-                url: "/journey/tangail.html",
-                lede: 'My inspiration and signature fabric, originally created for the Moghul Emperors',
-                imageURL: "/journey/Saris.jpg"
-            },
-            {
-                title: "Treasure Trove",
-                url: "/journey/treasuretrove.html",
-                lede: 'How I wound up creating a treasure trove of vintage tangail borders',
-                imageScript: "createWovenCanvasImage()"
-            },
-            {
-                title: "Art Wear",
-                url: "/journey/artwear.html",
-                lede: 'The origin story of my one-of-a-kind Art Wear line',
-                imageURL: "/g/aw/HDRKaftan1AW.jpg"
-            },
-            {
-                title: "P.F.I. Tangail",
-                url: "/journey/pfifabrics.html",
-                lede: '<strong>A Bouquet of Borders!</strong> How and Why I created my own line of fabrics: <strong>P.F.I. Tangail</strong>',
-                imageURL: "/journey/PreciousI.jpg"
-            },
-            {
-                title: "Evolution",
-                url: "/journey/evolution.html",
-                lede: 'Influences on my evolution as an artist',
-                imageURL: "/journey/EdExp.jpg"
-            }
-        ]
-    };
+    title: "My Journey",
+    url: "/blog.html?t=o",
+    sub: [
+        {
+            title: "Prema's Story",
+            url: "/journey/myjourney.html",
+            lede: 'Over the years, I have told this story in bits and pieces to clients and friends, who kept asking why it was not on the website.....',
+            imageURL: "/journey/PremaStory.jpg"
+        },
+        {
+            title: "Auroville",
+            url: "/journey/auroville.html",
+            lede: 'Auroville is the center of my journey',
+            imageURL: "/journey/GrowingUp.jpg"
+        },
+        {
+            title: "Odissi 2 Salsa!",
+            url: "/journey/salsa.html",
+            lede: 'How my changing dance passions led me to fashion design',
+            imageURL: "/journey/NakshaEvolution.jpg"
+        },
+        {
+            title: "The Atelier",
+            url: "/journey/atelier.html",
+            lede: 'The history of my Rangoli Atelier',
+            imageURL: "/journey/TeamYears.jpg"
+        },
+        {
+            title: "Rang = Colour",
+            url: "/journey/colour.html",
+            lede: 'Rangoli is the expression of artistic vision through the joyful use of colour',
+            imageURL: "/journey/LogoRangoli.jpg"
+        },
+        {
+            title: "Tangail Traditions",
+            url: "/journey/tangail.html",
+            lede: 'My inspiration and signature fabric, originally created for the Moghul Emperors',
+            imageURL: "/journey/Saris.jpg"
+        },
+        {
+            title: "Treasure Trove",
+            url: "/journey/treasuretrove.html",
+            lede: 'How I wound up creating a treasure trove of vintage tangail borders',
+            imageScript: "createWovenCanvasImage()"
+        },
+        {
+            title: "Art Wear",
+            url: "/journey/artwear.html",
+            lede: 'The origin story of my one-of-a-kind Art Wear line',
+            imageURL: "/g/aw/HDRKaftan1AW.jpg"
+        },
+        {
+            title: "P.F.I. Tangail",
+            url: "/journey/pfifabrics.html",
+            lede: '<strong>A Bouquet of Borders!</strong> How and Why I created my own line of fabrics: <strong>P.F.I. Tangail</strong>',
+            imageURL: "/journey/PreciousI.jpg"
+        },
+        {
+            title: "Evolution",
+            url: "/journey/evolution.html",
+            lede: 'Influences on my evolution as an artist',
+            imageURL: "/journey/EdExp.jpg"
+        }
+    ]
+};
 
 const atelier = {
     title: "Atelier Tales",
@@ -394,9 +394,9 @@ const buzz = {
 };
 
 const shop = {
-        title: "Shop",
-        url: "/shop.html",
-        sub: [
+    title: "Shop",
+    url: "/shop.html",
+    sub: [
         {
             title: "Face Mask",
             url: "/products/accessories/facemask.html"
@@ -425,9 +425,9 @@ const shop = {
 };
 
 const faqs = {
-        title: "Shop FAQ",
-        url: "/shopfaq.html",
-        sub: [
+    title: "Shop FAQ",
+    url: "/shopfaq.html",
+    sub: [
     ]
 };
 
@@ -477,14 +477,14 @@ function getSubEntry(item, url) {
 }
 
 const merchInfo = [
-{
-    SKU: 'AWTSHT1604Je',
-    title: 'Woven Canvas T Shirt',
-    url: '/fabricartT.html',
-    ledes: ['A one-of-a-kind T-shirt for that unique individual!'],
-    images: [{url: '/fabricart/TShirtColl.jpg'},{url: '/fabricart/ManWhiteS.jpg'},{url: '/fabricart/GirlBlackS.jpg'}]
-},
-/*
+    {
+        SKU: 'AWTSHT1604Je',
+        title: 'Woven Canvas T Shirt',
+        url: '/fabricartT.html',
+        ledes: ['A one-of-a-kind T-shirt for that unique individual!'],
+        images: [{url: '/fabricart/TShirtColl.jpg'},{url: '/fabricart/ManWhiteS.jpg'},{url: '/fabricart/GirlBlackS.jpg'}]
+    },
+    /*
 {
     SKU: 'NKSHMD1501PP',
     title: 'ArtWear Naksha Skirt',
@@ -493,76 +493,76 @@ const merchInfo = [
     images: [{url: '/people/mmib.jpg'},{url: '/people/slkb.jpg'},{url: '/people/ibgirl.jpg'}]
 },
 */
-{
-    SKU: 'FACEMK2005Ta',
-    title: 'Handloom Face Mask',
-    url: '/products/accessories/facemask.html',
-    ledes: ["#oneofakind facemask to keep you safe in style and comfort"],
-    images: [{url: '/people/nfm01.jpg'},{url: '/people/nfm02.jpg'},{url: '/people/nfm03.jpg'}]
-},
-{
-    SKU: 'DPDYSF1501PT',
-    title: 'Dip-Dye Scarf',
-    url: '/products/scarves/dipdye.html',
-    ledes: ["A gorgeous example of the Tangail Weavers' Craft"],
-    images: [{url: '/products/scarves/TurbanMood.jpg'},{url: '/products/scarves/ShawlMood.jpg'}]
-},
-{
-    SKU: 'KAGTIE1601Kh',
-    title: 'Kagera Tie',
-    url: '/products/ties/kagera.html',
-    ledes: ['Artsy, hand-woven, hand-crafted Neckwear','For the gentleman of refined taste - a two-tone khadi tie with a border of treasured tangail'],
-    images: [{url: '/products/ties/Black.jpg'},{url: '/products/ties/Red.jpg'}]
-},
-{
-    SKU: 'CHMPGN1501JL',
-    title: 'Champagne Bottle Bag',
-    url: "/products/home/champagnebag.html",
-    ledes: ['The perfect gift bag for that exclusive vintage'],
-    images: [{url: '/products/home/CBCCMD.jpg'},{url: '/products/home/CBCGMD.jpg'},{url: '/products/home/CBMBMD.jpg'}]
-},
-{
-    SKU: 'CRPTOP1805Kh',
-    title: 'Bougainvillea Crop Top',
-    url: "/products/happyeveryday/croptop.html",
-    ledes: ['Basic summer top'],
-    images: [{url: '/products/happyeveryday/mood/mch-1.jpg'},{url: '/products/happyeveryday/mood/mch-4.jpg'},{url: '/products/happyeveryday/mood/mch-6.jpg'}]
-},
-{
-    SKU: 'VAMPAL1708Kh',
-    title: 'Twiggy Side Slit Top',
-    url: "/products/happyeveryday/sideslit.html",
-    ledes: ['Handwoven khadi to lighten up your summers'],
-    images: [{url: '/products/happyeveryday/mood/mch-2.jpg'},{url: '/products/happyeveryday/mood/mch-7.jpg'}]
-},
-{
-    SKU: 'OVTPLO1501Vo',
-    title: 'Long Floating Overlayer',
-    url: "/products/happyeveryday/lovertop.html",
-    ledes: ['Light breezy jacket for spring'],
-    images: [{url: '/products/happyeveryday/mood/mch-3.jpg'},{url: '/products/happyeveryday/mood/mch-5.jpg'}]
-},
-{
-    SKU: 'BERMPA1609Kh',
-    title: 'Wild Pansy Pants',
-    url: "/products/happyeveryday/bermuda.html",
-    ledes: ['Casual pants to work and lounge in'],
-    images: [{url: '/products/happyeveryday/mood/mch-4.jpg'}]
-},
-{
-    SKU: 'LTSDSL1501Vo',
-    title: 'Butterfly Pea Shoulder String Dress',
-    url: "/products/happyeveryday/shoulderstring.html",
-    ledes: ['A dress that works from dawn to dusk'],
-    images: [{url: '/products/happyeveryday/mood/mch-5.jpg'}]
-},
-{
-    SKU: 'BALLPA1501Vo',
-    title: 'Balloon Flower Pants',
-    url: "/products/happyeveryday/balloon.html",
-    ledes: ['Everyday basics for every mood'],
-    images: [{url: '/products/happyeveryday/mood/mch-6.jpg'}]
-}
+    {
+        SKU: 'FACEMK2005Ta',
+        title: 'Handloom Face Mask',
+        url: '/products/accessories/facemask.html',
+        ledes: ["#oneofakind facemask to keep you safe in style and comfort"],
+        images: [{url: '/people/nfm01.jpg'},{url: '/people/nfm02.jpg'},{url: '/people/nfm03.jpg'}]
+    },
+    {
+        SKU: 'DPDYSF1501PT',
+        title: 'Dip-Dye Scarf',
+        url: '/products/scarves/dipdye.html',
+        ledes: ["A gorgeous example of the Tangail Weavers' Craft"],
+        images: [{url: '/products/scarves/TurbanMood.jpg'},{url: '/products/scarves/ShawlMood.jpg'}]
+    },
+    {
+        SKU: 'KAGTIE1601Kh',
+        title: 'Kagera Tie',
+        url: '/products/ties/kagera.html',
+        ledes: ['Artsy, hand-woven, hand-crafted Neckwear','For the gentleman of refined taste - a two-tone khadi tie with a border of treasured tangail'],
+        images: [{url: '/products/ties/Black.jpg'},{url: '/products/ties/Red.jpg'}]
+    },
+    {
+        SKU: 'CHMPGN1501JL',
+        title: 'Champagne Bottle Bag',
+        url: "/products/home/champagnebag.html",
+        ledes: ['The perfect gift bag for that exclusive vintage'],
+        images: [{url: '/products/home/CBCCMD.jpg'},{url: '/products/home/CBCGMD.jpg'},{url: '/products/home/CBMBMD.jpg'}]
+    },
+    {
+        SKU: 'CRPTOP1805Kh',
+        title: 'Bougainvillea Crop Top',
+        url: "/products/happyeveryday/croptop.html",
+        ledes: ['Basic summer top'],
+        images: [{url: '/products/happyeveryday/mood/mch-1.jpg'},{url: '/products/happyeveryday/mood/mch-4.jpg'},{url: '/products/happyeveryday/mood/mch-6.jpg'}]
+    },
+    {
+        SKU: 'VAMPAL1708Kh',
+        title: 'Twiggy Side Slit Top',
+        url: "/products/happyeveryday/sideslit.html",
+        ledes: ['Handwoven khadi to lighten up your summers'],
+        images: [{url: '/products/happyeveryday/mood/mch-2.jpg'},{url: '/products/happyeveryday/mood/mch-7.jpg'}]
+    },
+    {
+        SKU: 'OVTPLO1501Vo',
+        title: 'Long Floating Overlayer',
+        url: "/products/happyeveryday/lovertop.html",
+        ledes: ['Light breezy jacket for spring'],
+        images: [{url: '/products/happyeveryday/mood/mch-3.jpg'},{url: '/products/happyeveryday/mood/mch-5.jpg'}]
+    },
+    {
+        SKU: 'BERMPA1609Kh',
+        title: 'Wild Pansy Pants',
+        url: "/products/happyeveryday/bermuda.html",
+        ledes: ['Casual pants to work and lounge in'],
+        images: [{url: '/products/happyeveryday/mood/mch-4.jpg'}]
+    },
+    {
+        SKU: 'LTSDSL1501Vo',
+        title: 'Butterfly Pea Shoulder String Dress',
+        url: "/products/happyeveryday/shoulderstring.html",
+        ledes: ['A dress that works from dawn to dusk'],
+        images: [{url: '/products/happyeveryday/mood/mch-5.jpg'}]
+    },
+    {
+        SKU: 'BALLPA1501Vo',
+        title: 'Balloon Flower Pants',
+        url: "/products/happyeveryday/balloon.html",
+        ledes: ['Everyday basics for every mood'],
+        images: [{url: '/products/happyeveryday/mood/mch-6.jpg'}]
+    }
 ];
 
 function createMerchandisingCard(item) {
@@ -589,7 +589,7 @@ function createMerchandisingCard(item) {
 function getHostName(url) {
     var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
     if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
-    return match[2];
+        return match[2];
     }
     else {
         return null;
@@ -633,7 +633,7 @@ function createSqPanelImageList(panelNumArr) {
 function createWovenCanvasImage() {
     var panelNums = [545,548,549,552,565,571];
     var panelImgs  =  createSqPanelImageList(panelNums);
-//    return createCarousel("car-panels", panelImgs);
+    //    return createCarousel("car-panels", panelImgs);
     var len = panelImgs.length;
     var rndI = Math.floor(Math.random() * len);
     var itm = panelImgs[rndI];
@@ -662,36 +662,45 @@ function selectFeatures(sections, blacklist) {
 }
 
 function createBreadCrumb(location) {
+    var res = '<nav class="py-2"><div class="container"><div class="row"><div class="col-12">';
+    res += createBreadCrumbContents(location);
+    res += '</div></div></div></nav>';
+    return res;
+}
+
+function createBreadCrumbContents(location) {
     var path = location;
     for (var i = 0; i < siteMap.length; i++) {
         var level1 = siteMap[ i ];
         if ( level1)
-        for (var j = 0; j < level1.sub.length; j++) {
-            var level2 = level1.sub[ j ];
-            if ( level2.url == path ) {
-                return createBreadCrumbLevels([level1, level2]);
+            for (var j = 0; j < level1.sub.length; j++) {
+                var level2 = level1.sub[ j ];
+                if ( level2.url == path ) {
+                    return createBreadCrumbLevels([level1, level2]);
+                }
             }
-        }
     }
-    return "";
-}            
+    return createBreadCrumbLevels();
+}
 
 function createBreadCrumbLevels(levels) {
-    var res = '<nav class="py-2"><div class="container"><div class="row"><div class="col-12"><ol class="breadcrumb mb-0 font-size-xs text-gray-400">';
-    res +='<li class="breadcrumb-item"><a class="text-gray-400" href="/index.html">Home</a></li>';
-    for(var i = 0; i < levels.length - 1; i++) {
-        var level = levels[i];
-        if ( level.title !== undefined ) {
-            res +='<li class="breadcrumb-item"><a class="text-gray-400" href="' + level.url + '">' + level.title + '</a></li>';
+    var res = '<ol class="breadcrumb mb-0 font-size-xs text-gray-400">';
+    if ( levels !== undefined && levels !== null ) {
+        res +='<li class="breadcrumb-item"><a class="text-gray-400" href="/index.html">Home</a></li>';
+        for(var i = 0; i < levels.length - 1; i++) {
+            var level = levels[i];
+            if ( level.title !== undefined ) {
+                res +='<li class="breadcrumb-item"><a class="text-gray-400" href="' + level.url + '">' + level.title + '</a></li>';
+            }
         }
+        res +='<li class="breadcrumb-item active">' + levels[levels.length - 1].title + '</a></li>';
     }
-    res +='<li class="breadcrumb-item active">' + levels[levels.length - 1].title + '</a></li>';
-    res += '</ol></div></div></div></nav>';
+    res += '</ol>';
     return res;
 }
 
 function createStyledList(jsonArray) {
-var res = '<ul class="list-styled mb-6 font-size-sm">';
+    var res = '<ul class="list-styled mb-6 font-size-sm">';
     for (var i = 0; i < jsonArray.length; i++ ) {
         var item = jsonArray[ i ];
         if  (item.title === undefined) {
@@ -702,7 +711,7 @@ var res = '<ul class="list-styled mb-6 font-size-sm">';
     res +=  '</ul>';
     return res; 
 }
-    
+
 function createDropdownColumn(itemLists, colCls){
     var res = '<div class="' + colCls + '">';
     for( var i = 0; i < itemLists.length; i++ ) {
@@ -758,22 +767,22 @@ function createFullWidthDDCard(cols)  {
 
 function createMegaMenuSection(item) {
     return '<div class="col-6 col-md">\
-    <div class="mb-5 font-weight-bold">' + item.title + '</div>'
+<div class="mb-5 font-weight-bold">' + item.title + '</div>'
     + createStyledList(item.sub) + '</div>';
 }
 
 function createMegaMenuImage(item) {
     return '<div class="col-4 d-none d-lg-block">\
-    <div class="card">\
-        <img class="card-img" src="' + item.imageURL + '" alt="...">\
-        <div class="card-img-overlay bg-dark-0 bg-hover align-items-center">\
-            <div class="text-center">\
-            <a class="btn btn-white stretched-link" href="' + item.url + '">'
-                + item.title  + '<i class="fa fa-arrow-right ml-2"></i></a>\
-            </div>\
-        </div>\
-    </div>\
-    </div>';
+<div class="card">\
+<img class="card-img" src="' + item.imageURL + '" alt="...">\
+<div class="card-img-overlay bg-dark-0 bg-hover align-items-center">\
+<div class="text-center">\
+<a class="btn btn-white stretched-link" href="' + item.url + '">'
+    + item.title  + '<i class="fa fa-arrow-right ml-2"></i></a>\
+</div>\
+</div>\
+</div>\
+</div>';
 }
 
 function createShopMM() {
@@ -800,7 +809,7 @@ function createAboutDD () {
 
 function createTopNav() {
     var res = '<ul class="nav nav-justified py-0">';
-    
+
     res += '<li class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" href="#">Shop</a>';
     res += createShopMM();
     res += '</li>';
@@ -895,15 +904,15 @@ function createSection(pages) {
 }
 
 function shuffle(array) {
-  var currentIndex = array.length;
-  while (0 !== currentIndex) {
-    var randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-    var temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-  return array;
+    var currentIndex = array.length;
+    while (0 !== currentIndex) {
+        var randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        var temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+    return array;
 }
 
 function createRelated(header, merch, items, sections, orderidxs) {
@@ -912,10 +921,10 @@ function createRelated(header, merch, items, sections, orderidxs) {
     var ordI = 0;
     orderidxs = shuffle(orderidxs);
     if ( merch !== null) {
-    for (var i = 0; i < merch.length && ordI < orderidxs.length; i++) {
-        res += '<div class="col-6 ' + brkColCls + " order-" + orderidxs[ordI] + '">' +  createMerchandisingCard(merch[ i ]) + '</div>';
-        ordI++;
-    }
+        for (var i = 0; i < merch.length && ordI < orderidxs.length; i++) {
+            res += '<div class="col-6 ' + brkColCls + " order-" + orderidxs[ordI] + '">' +  createMerchandisingCard(merch[ i ]) + '</div>';
+            ordI++;
+        }
     }
     for (var i = 0; i < items.length && ordI < orderidxs.length; i++) {
         res += '<div class="col-6 ' + brkColCls +  " order-" + orderidxs[ordI] + '">' +  createFeatureItemCard(items[ i ], sections[ i ]) + '</div>';
@@ -977,19 +986,19 @@ function createCarousel(carId, carItems) {
     for (i = 0; i < carItems.length; i++) {
         var itm = carItems[i];
         res += '<div class="carousel-item' + (i == 0 ? ' active' : '') + '">'
-                + '<img class="d-block img-fluid" src="' + itm.imageURL +  '"' +  (itm.width !== undefined ?  'width="' + itm.width +  '"' : "") +
+            + '<img class="d-block img-fluid" src="' + itm.imageURL +  '"' +  (itm.width !== undefined ?  'width="' + itm.width +  '"' : "") +
             (itm.height !== undefined ?  'height="' + itm.height +  '"' : "") + '>'
-                + '</div>';
+            + '</div>';
     }
     res += '</div>\
-    <a class="carousel-control-prev" href="#' + id + '" role="button" data-slide="prev">\
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>\
-        <span class="sr-only">Previous</span>\
-    </a>\
-    <a class="carousel-control-next" href="#' + id + '" role="button" data-slide="next">\
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>\
-        <span class="sr-only">Next</span>\
-    </a>\
+<a class="carousel-control-prev" href="#' + id + '" role="button" data-slide="prev">\
+<span class="carousel-control-prev-icon" aria-hidden="true"></span>\
+<span class="sr-only">Previous</span>\
+</a>\
+<a class="carousel-control-next" href="#' + id + '" role="button" data-slide="next">\
+<span class="carousel-control-next-icon" aria-hidden="true"></span>\
+<span class="sr-only">Next</span>\
+</a>\
 </div>';
     return res;
 }
@@ -1014,11 +1023,11 @@ function fbFunnel(funnel) {
 
 function gaInit(gaCode, eventType) {
     var ret = '<scr' + 'ipt>\
-  window.dataLayer = window.dataLayer || [];\
-  function gtag(){dataLayer.push(arguments);}\
-  gtag("js", new Date());\
-  gtag("config", "' + gaCode + '");\
-  gtag("config", "AW-861963921");';
+window.dataLayer = window.dataLayer || [];\
+function gtag(){dataLayer.push(arguments);}\
+gtag("js", new Date());\
+gtag("config", "' + gaCode + '");\
+gtag("config", "AW-861963921");';
     if ( eventType != "page_view" ) {
         ret += 'gtag("event", "' + eventType + '");';
     }
@@ -1048,28 +1057,28 @@ function shareInit() {
 function fbShareInit() {
     return '<div id="fb-root"></div>\
 <sc' + 'ript>(function(d, s, id) {\
-  var js, fjs = d.getElementsByTagName(s)[0];\
-  if (d.getElementById(id)) return;\
-  js = d.createElement(s); js.id = id;\
-  js.src = "https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.12";\
-  fjs.parentNode.insertBefore(js, fjs);\
+var js, fjs = d.getElementsByTagName(s)[0];\
+if (d.getElementById(id)) return;\
+js = d.createElement(s); js.id = id;\
+js.src = "https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.12";\
+fjs.parentNode.insertBefore(js, fjs);\
 }(document, "sc' + 'ript", "facebook-jssdk"));</sc' + 'ript>';   
 }
 
 function twitterShareInit() {
     return '<sc' + 'ript>window.twttr = (function(d, s, id) {\
-  var js, fjs = d.getElementsByTagName(s)[0],\
-    t = window.twttr || {};\
-  if (d.getElementById(id)) return t;\
-  js = d.createElement(s);\
-  js.id = id;\
-  js.src = "https://platform.twitter.com/widgets.js";\
-  fjs.parentNode.insertBefore(js, fjs);\
-  t._e = [];\
-  t.ready = function(f) {\
-    t._e.push(f);\
-  };\
-  return t;\
+var js, fjs = d.getElementsByTagName(s)[0],\
+t = window.twttr || {};\
+if (d.getElementById(id)) return t;\
+js = d.createElement(s);\
+js.id = id;\
+js.src = "https://platform.twitter.com/widgets.js";\
+fjs.parentNode.insertBefore(js, fjs);\
+t._e = [];\
+t.ready = function(f) {\
+t._e.push(f);\
+};\
+return t;\
 }(document, "sc' + 'ript", "twitter-wjs"));</sc' + 'ript>'
     ;
 }
@@ -1077,17 +1086,17 @@ function twitterShareInit() {
 function pfiTopMenu (location) {
     return shareInit() +
         '<div class="rwell text-center">\
-            <small><strong>Distinctive Designs . Fusion Flair . Textile Treasures</strong></small>\
-    </div>'+ '<div class="container p-0">' + '<div class="text-center px-3 pt-3 pb-2"><a href="/index.html"><img src="/g/pfilogo2002.svg" alt="Prema Florence Isaac" class="img-fluid" width="1000px" height="71.5px"></a></div>'
-        + createTopNav() + '</div>' + createBreadCrumb(location);
+<small><strong>Distinctive Designs . Fusion Flair . Textile Treasures</strong></small>\
+</div>'+ '<div class="container p-0">' + '<div class="text-center px-3 pt-3 pb-2"><a href="/index.html"><img src="/g/pfilogo2002.svg" alt="Prema Florence Isaac" class="img-fluid" width="1000px" height="71.5px"></a></div>'
+    + createTopNav() + '</div>' + createBreadCrumb(location);
 }
 
 function kimTopMenu (location) {
     return shareInit() +
         '<div class="rwell text-center">\
-            <small><strong>Distinctive Designs . Fusion Flair . Textile Treasures</strong></small></div>'  + '<div class="container p-0">'
+<small><strong>Distinctive Designs . Fusion Flair . Textile Treasures</strong></small></div>'  + '<div class="container p-0">'
     + '<div class="item text-center px-3 pt-3 pb-2"><a href="/kidinmi.html"><img src="/g/kimlogo.svg" alt="KidInMi" class="img-fluid" width="300px" height="139.14px"></a></div>'
-        + createTopNav() + '</div>'  + createBreadCrumb(location);
+    + createTopNav() + '</div>'  + createBreadCrumb(location);
 }
 
 function creatFBShareBtn(location) {
@@ -1111,9 +1120,9 @@ function createINBtn(location) {
 function createMCSignup() {
     return '<center><div class="form-group">\
 <form action="https://premaflorenceisaac.us12.list-manage.com/subscribe/post?u=66ac2e4e6cda6ea157ef47afd&amp;id=0c8cc89a5b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>\
-	<input type="email" value="Your EMail Address" name="EMAIL" class="required email">\
+<input type="email" value="Your EMail Address" name="EMAIL" class="required email">\
 <input type="submit" value="Sign Up" name="subscribe" class="button">\
-    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_66ac2e4e6cda6ea157ef47afd_0c8cc89a5b" tabindex="-1" value=""></div>\
+<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_66ac2e4e6cda6ea157ef47afd_0c8cc89a5b" tabindex="-1" value=""></div>\
 </form></div></center>';
 }
 
@@ -1126,10 +1135,10 @@ function createShareBar(location) {
         + '<a data-pin-do="buttonBookmark" data-pin-tall="true" data-pin-round="true" href="https://www.pinterest.com/pin/create/button/"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_32.png"/>Save</a>'
         + '</span>'
         + '<span>'  
-           + creatTweetBtn(location)
+        + creatTweetBtn(location)
         + '</span>'
         + '<span>'  
-           + createINBtn(location) 
+        + createINBtn(location) 
         + '</span>'
         + '</div></div>';
 }
@@ -1140,27 +1149,27 @@ function storyBrowser(blacklist) {
 
 function botNav(botImgTag, location) {
     return  createShareBar(location) +
-    '<div class="rwell">\
-            <p class="text-center"><strong>Light . Beauty . Freedom</strong></p>\
-    </div>\
-    <div class="container">\
-        <div class="pb-2"><center><div class="row">\
-            <div class="col-sm-6">\
-        Instagram <i class="fa fa-instagram"></i>: <a href="https://www.instagram.com/_prema.florence.isaac_/">@_prema.florence.isaac_</a><br>\
-        Facebook <i class="fa fa-facebook-square"></i>: <a href="https://www.facebook.com/rangolibyprema">@rangolibyprema</a><br>\
-        Mail <i class="fa fa-envelope-o"></i>: <a href="mailto:premaflorenceisaac@gmail.com">prema.florence.isaac@gmail.com</a><br>\
-        WhatsApp <i class="fa fa-whatsapp"></i>: <a href="tel:+919443362528">+919443362528</a>\
-            </div>\
-            <div class="col-sm-6">\
-                    Visit <i class="fa fa-map-marker"></i>: <a href="https://goo.gl/maps/rszKWi3P7xM2">Rangoli Atelier<br>Aurosarjan Complex, Auroshilpam<br>Auroville 605101<br>Tamil Nadu, India</a>\
-            </div>\
-        </div></center></div>\
-        <center>Sign up for our (few-times-a-year) newsletter.<br>' + createMCSignup() + '</center>\
-        <p class="text-center">'
+        '<div class="rwell">\
+<p class="text-center"><strong>Light . Beauty . Freedom</strong></p>\
+</div>\
+<div class="container">\
+<div class="pb-2"><center><div class="row">\
+<div class="col-sm-6">\
+Instagram <i class="fa fa-instagram"></i>: <a href="https://www.instagram.com/_prema.florence.isaac_/">@_prema.florence.isaac_</a><br>\
+Facebook <i class="fa fa-facebook-square"></i>: <a href="https://www.facebook.com/rangolibyprema">@rangolibyprema</a><br>\
+Mail <i class="fa fa-envelope-o"></i>: <a href="mailto:premaflorenceisaac@gmail.com">prema.florence.isaac@gmail.com</a><br>\
+WhatsApp <i class="fa fa-whatsapp"></i>: <a href="tel:+919443362528">+919443362528</a>\
+</div>\
+<div class="col-sm-6">\
+Visit <i class="fa fa-map-marker"></i>: <a href="https://goo.gl/maps/rszKWi3P7xM2">Rangoli Atelier<br>Aurosarjan Complex, Auroshilpam<br>Auroville 605101<br>Tamil Nadu, India</a>\
+</div>\
+</div></center></div>\
+<center>Sign up for our (few-times-a-year) newsletter.<br>' + createMCSignup() + '</center>\
+<p class="text-center">'
     + botImgTag +
-        '</p>\
-        <p class="text-right">&copy; 2015 - 2020 Prema Florence Isaac</p>\
-    </div>'
+    '</p>\
+<p class="text-right">&copy; 2015 - 2020 Prema Florence Isaac</p>\
+</div>'
     ;
 }
 
@@ -1178,15 +1187,15 @@ function scriptSrcs() {
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>\
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>\
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script><script type="text/javascript" src="https://www.paypalobjects.com/api/checkout.js"></script>\
-    ';
+';
 }
 
 function getShopTop() {
-return '<div class="modal fade" id="shopping-cart" tabindex="-1" role="dialog" aria-labelledby="shoppingCartTitle" aria-hidden="true"> <div class="modal-dialog modal-dialog-centered" role="document"> <div class="modal-content"> <div class="modal-header"> <div class="modal-title" id="shoppingCartTitle"> <div class="row p-1 text-left"> <strong>Your Shopping Cart</strong> </div></div><button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div><div class="modal-body"> <div class="item p-1 text-left"> <strong><span>Total: <span class="sc-currency-string"><i class="fa fa-inr"> </i></span> <span class="sc-total">0</span></span></strong><br><span>Subtotal: <span class="sc-currency-string"><i class="fa fa-inr"> </i></span> <span class="sc-subtotal">0</span></span><br><span>Shipping: <span class="sc-currency-string"><i class="fa fa-inr"></i></span> <span class="sc-shipping">0</span></span> </div><div class="item sc-item-list"> </div><div class="row p-1" style="background-color: white; color: black"> <div class="col align-self-center"><span></span></div></div></div><div class="modal-footer"> <button class="btn btn-secondary btn-sm sc-save-changes float-left" type="button">Save Cart</button> <button class="btn btn-warning btn-sm sc-checkout float-right" type="button">Checkout</button> </div></div></div></div><div class="modal fade" id="checkout-form" tabindex="-1" role="dialog" aria-labelledby="checkoutFormTitle" aria-hidden="true"> <div class="modal-dialog modal-dialog-centered" role="document"> <div class="modal-content"> <div class="modal-header"> <div class="modal-title" id="checkoutFormTitle"> <p><strong>Checkout with Paypal<span class="align-top">*</span></strong></p></div><button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div><div class="modal-body"> <div id="form-group" class="row p-1" style="background-color: white; color: black"> <div class="col text-center"> <div class="form-check form-check-inline"> <input class="form-check-input" id="sc-ship-to-india" type="checkbox" value=""> <label class="form-check-label" for="sc-ship-to-india">Ship to India</label> </div><div class="form-check form-check-inline"> <input class="form-check-input" id="sc-ship-express" type="checkbox" value=""> <label class="form-check-label" for="sc-ship-express">Express Shipping</label> </div></div></div><div class="row p-1"> <div class="col-12"> <p class="float-left"><small><strong><span>Total: <span class="sc-currency-string"><i class="fa fa-inr"></i></span> <span class="sc-total">0</span></span></strong><br><span>Subtotal: <span class="sc-currency-string"><i class="fa fa-inr"> </i></span> <span class="sc-subtotal">0</span></span><br><span>Shipping: <span class="sc-currency-string"><i class="fa fa-inr"></i></span> <span class="sc-shipping">0</span></span></small></p><div id="sc-paypal-btn" class="float-right"></div></div></div><div class="item sc-item-list"> </div></div><div class="modal-footer sc-checkout-btn"> <div> <p><span class="align-top">*</span><small>To maximize the security of your data, we do not collect your personal details on our website. When you complete your secure payment through PayPal, we receive your contact information and shipping address from them.</small></p></div></div></div></div></div><div class="modal fade" id="paypal-return" tabindex="-1" role="dialog" aria-hidden="true"> <div class="modal-dialog modal-dialog-centered" role="document"> <div class="modal-content"> <div class="modal-header"> <div class="modal-title pptitle"></div><button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div><div class="modal-body"> <p class="ppmessage"></p></div></div></div></div>';
+    return '<div class="modal fade" id="shopping-cart" tabindex="-1" role="dialog" aria-labelledby="shoppingCartTitle" aria-hidden="true"> <div class="modal-dialog modal-dialog-centered" role="document"> <div class="modal-content"> <div class="modal-header"> <div class="modal-title" id="shoppingCartTitle"> <div class="row p-1 text-left"> <strong>Your Shopping Cart</strong> </div></div><button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div><div class="modal-body"> <div class="item p-1 text-left"> <strong><span>Total: <span class="sc-currency-string"><i class="fa fa-inr"> </i></span> <span class="sc-total">0</span></span></strong><br><span>Subtotal: <span class="sc-currency-string"><i class="fa fa-inr"> </i></span> <span class="sc-subtotal">0</span></span><br><span>Shipping: <span class="sc-currency-string"><i class="fa fa-inr"></i></span> <span class="sc-shipping">0</span></span> </div><div class="item sc-item-list"> </div><div class="row p-1" style="background-color: white; color: black"> <div class="col align-self-center"><span></span></div></div></div><div class="modal-footer"> <button class="btn btn-secondary btn-sm sc-save-changes float-left" type="button">Save Cart</button> <button class="btn btn-warning btn-sm sc-checkout float-right" type="button">Checkout</button> </div></div></div></div><div class="modal fade" id="checkout-form" tabindex="-1" role="dialog" aria-labelledby="checkoutFormTitle" aria-hidden="true"> <div class="modal-dialog modal-dialog-centered" role="document"> <div class="modal-content"> <div class="modal-header"> <div class="modal-title" id="checkoutFormTitle"> <p><strong>Checkout with Paypal<span class="align-top">*</span></strong></p></div><button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div><div class="modal-body"> <div id="form-group" class="row p-1" style="background-color: white; color: black"> <div class="col text-center"> <div class="form-check form-check-inline"> <input class="form-check-input" id="sc-ship-to-india" type="checkbox" value=""> <label class="form-check-label" for="sc-ship-to-india">Ship to India</label> </div><div class="form-check form-check-inline"> <input class="form-check-input" id="sc-ship-express" type="checkbox" value=""> <label class="form-check-label" for="sc-ship-express">Express Shipping</label> </div></div></div><div class="row p-1"> <div class="col-12"> <p class="float-left"><small><strong><span>Total: <span class="sc-currency-string"><i class="fa fa-inr"></i></span> <span class="sc-total">0</span></span></strong><br><span>Subtotal: <span class="sc-currency-string"><i class="fa fa-inr"> </i></span> <span class="sc-subtotal">0</span></span><br><span>Shipping: <span class="sc-currency-string"><i class="fa fa-inr"></i></span> <span class="sc-shipping">0</span></span></small></p><div id="sc-paypal-btn" class="float-right"></div></div></div><div class="item sc-item-list"> </div></div><div class="modal-footer sc-checkout-btn"> <div> <p><span class="align-top">*</span><small>To maximize the security of your data, we do not collect your personal details on our website. When you complete your secure payment through PayPal, we receive your contact information and shipping address from them.</small></p></div></div></div></div></div><div class="modal fade" id="paypal-return" tabindex="-1" role="dialog" aria-hidden="true"> <div class="modal-dialog modal-dialog-centered" role="document"> <div class="modal-content"> <div class="modal-header"> <div class="modal-title pptitle"></div><button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div><div class="modal-body"> <p class="ppmessage"></p></div></div></div></div>';
 }
 
 function getShopHeader() {
-return '<div class="container"> <div class="row py-1"> <div class="col-12"><div id="currencies" class="text-left float-left" style="font-size: 12px"><span data-currency="INR" id="currencies-inr">INR(&#8377;)</span><span data-currency="GBP" id="currencies-gbp">GBP(&pound;)</span> <span data-currency="EUR" id="currencies-eur">EUR(&euro;)</span> <span data-currency="USD" id="currencies-usd">USD(&dollar;)</span></div><div id="shop-cart-summary" class="text-right float-right" style="font-size: 12px"> <a id="sc-edit-id" class="disabled" aria-disabled="true" type="button" data-toggle="modal" data-target="#shopping-cart"> <i class="fa fa-shopping-cart"></i> (<span class="sc-badge-items">0</span>) <span class="sc-non-empty" style="display:none"> - </span> <span class="sc-currency-string sc-non-empty" style="display:none"><i class="fa fa-inr"></i></span> <span class="sc-total sc-non-empty" style="display:none">0</span> </a> <div class="item sc-item-list" style="display: none"> </div></div></div></div></div>';
+    return '<div class="container"> <div class="row py-1"> <div class="col-12"><div id="currencies" class="text-left float-left" style="font-size: 12px"><span data-currency="INR" id="currencies-inr">INR(&#8377;)</span><span data-currency="GBP" id="currencies-gbp">GBP(&pound;)</span> <span data-currency="EUR" id="currencies-eur">EUR(&euro;)</span> <span data-currency="USD" id="currencies-usd">USD(&dollar;)</span></div><div id="shop-cart-summary" class="text-right float-right" style="font-size: 12px"> <a id="sc-edit-id" class="disabled" aria-disabled="true" type="button" data-toggle="modal" data-target="#shopping-cart"> <i class="fa fa-shopping-cart"></i> (<span class="sc-badge-items">0</span>) <span class="sc-non-empty" style="display:none"> - </span> <span class="sc-currency-string sc-non-empty" style="display:none"><i class="fa fa-inr"></i></span> <span class="sc-total sc-non-empty" style="display:none">0</span> </a> <div class="item sc-item-list" style="display: none"> </div></div></div></div></div>';
 }
 
 function createSizeRadio(name, idPfx, val, i, checked) {

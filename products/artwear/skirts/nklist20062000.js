@@ -142,7 +142,7 @@ function createNakshaURLModifer() {
         }
     }
 }
-    
+
 function createNakshaSKUsFactory(base) {
     return {
         base: base,
