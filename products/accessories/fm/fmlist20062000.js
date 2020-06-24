@@ -62,6 +62,7 @@ var listData = [
 ['30','#EFF7EC','Feta',true],
 ['31','#A9AF98','Bud',true],
 ['32','#EEF7E6','Feta',true],
+['33','#E36D7E','Deep Blush',true],
 ];
 
     return createFaceMaskFactory('/products/accessories/fm/', listData)
