@@ -1077,7 +1077,10 @@ function createUICardCreator() {
             res += '</div></div>';
             return res;
         },
-        updateCard(images, id) {
+        updateCard: function(images, id) {
+        },
+        getEmptyStatusHTML: function() {
+            return 'There are no items matchinng this query';
         }
     };
 }
@@ -1108,6 +1111,9 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
                 this.productComponent.basePanelr.getPriceHTML());
         },
         createCards: function() {
+            if  ( this.items.base.length == 0 ) {
+                return this.cardCreator.getEmptyStatusHTML();
+            }
             var ret = '<div class="row">';
             for (var i = 0; i < this.items.base.length; i++) {
                 ret += '<div class="' + this.cardCreator.colClasses + '">'
