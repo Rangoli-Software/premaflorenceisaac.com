@@ -59,7 +59,7 @@ var listData = [
 [7, ['7.1','7.1a'],'#8C3042','Solid Pink',true],
 [8, ['8.1','8.1a'],'#8D2C42','Stiletto',true],
 [9, ['9','9a'],'#252945','Martinique',true],
-[10, ['10','10a'],'#DACB6D','Chenin',true],
+[10, ['10.1','10.1a'],'#DACB6D','Chenin',true],
 [11, ['11','11a'],'#171B1C','Woodsmoke',true],
 [12, ['12','12a'],'#674857','Eggplant',true],
 [13, ['13','13a'],'#DDBEA2','Cameo',true],
@@ -68,6 +68,13 @@ var listData = [
 [16, ['16','16a'],'#244A41','Plantation',true],
 [17, ['17','17a'],'#80505E','Ferra',true],
 [18, ['18','18a'],'#B5AF50','Husk',true],
+[19, ['19','19a'],'#823B6A','Cannon Pink',true],
+[20, ['20','20a'],'#674567','Eggplant',true],
+[21, ['21','21a'],'#18232F','Mirage',true],
+[22, ['22','22a'],'#6F3045','Finn',true],
+[23, ['23','23a'],'#389288','Lochinvar',true],
+[24, ['24','24a'],'#C7AA64','Laser',true],
+[25, ['25','25a'],'#7E3D51','Cosmic',true],
 ];
     return createNakshaFactory(base + 'md/', listData);
 }

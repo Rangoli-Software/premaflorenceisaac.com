@@ -550,10 +550,10 @@ function createVariantSelector(prodInfo) {
             return selRadio.val();
         },
         createFabricPanel: function (varIdx) {
-            return '<div class="row mb-4"><div class="col-7 text-left">Fabric: <strong>' + this.variants.getFabric(varIdx) + '</strong></div>'
+            return '<div class="row mb-4"><div class="col-6 text-left">Fabric: <strong>' + this.variants.getFabric(varIdx) + '</strong></div>'
         },
         createColourPanel: function (name, varIdx) {
-            var res = '<div class="col-5 text-right">Colour: <strong id="colorCaption">' + this.variants.getColourName(varIdx) + '</strong></div></div>' + '<div class="mb-8 ml-n1">';
+            var res = '<div class="col-6 text-right">Colour: <strong id="colorCaption">' + this.variants.getColourName(varIdx) + '</strong></div></div>' + '<div class="mb-8 ml-n1">';
             if ( this.variants.data.length > 1 ) {
                 for (var i = 0; i < this.variants.data.length; i++) {
                     var opt = this.variants.data[i];
@@ -657,7 +657,7 @@ function createItemCategorySelector(prodInfo, categories) {
             return res;
         },
         createDiv: function(varIdx) {
-            var res = '<div id="' + this.divId + '">Match Range: ' 
+            var res = '<div id="' + this.divId + '">Colour Range: ' 
             + this.createCaption(this.categories.data.data[varIdx].colourName)
             + this.createColourPanel(this.colourRadioName, varIdx) 
             + '</div>';
