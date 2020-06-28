@@ -1181,10 +1181,11 @@ function botNav(botImgTag, location) {
 Instagram <i class="fa fa-instagram"></i>: <a href="https://www.instagram.com/_prema.florence.isaac_/">@_prema.florence.isaac_</a><br>\
 Facebook <i class="fa fa-facebook-square"></i>: <a href="https://www.facebook.com/rangolibyprema">@rangolibyprema</a><br>\
 Mail <i class="fa fa-envelope-o"></i>: <a href="mailto:premaflorenceisaac@gmail.com">prema.florence.isaac@gmail.com</a><br>\
-WhatsApp <i class="fa fa-whatsapp"></i>: <a href="tel:+919443362528">+919443362528</a>\
+WhatsApp <i class="fa fa-whatsapp"></i>: <a href="https://wa.me/919443362528?text=Website%20Enquiry">+919443362528</a><br>\
+Phone <i class="fa fa-phone"></i>: <a href="tel:+919443362528">+919443362528</a>\
 </div>\
 <div class="col-sm-6">\
-Visit <i class="fa fa-map-marker"></i>: <a href="https://goo.gl/maps/rszKWi3P7xM2">Rangoli Atelier<br>Aurosarjan Complex, Auroshilpam<br>Auroville 605101<br>Tamil Nadu, India</a>\
+Visit <i class="fa fa-map-marker"></i>: <a href="https://goo.gl/maps/rszKWi3P7xM2">Rangoli Atelier<br>Aurosarjan Complex<br>Auroshilpam<br>Auroville 605101<br>Tamil Nadu, India</a>\
 </div>\
 </div></center></div>\
 <center>Sign up for our (few-times-a-year) newsletter.<br>' + createMCSignup() + '</center>\
