@@ -87,7 +87,7 @@ var listData = [
 [4, ['4','4a'],'#F1E04E','Energy Yellow',true],
 [5, ['5','5a'],'#D26690','Hopbush',true],
 [6, ['6','6a'],'#D96A56','Terracotta',true],
-[7, ['7.1','7.1a'],'#D29E59','Di Serria',true],
+[7, ['7.2','7.2a'],'#D29E59','Di Serria',true],
 [8, ['8.1','8.1a'],'#498640','Fern Green',true],
 [9, ['9.1','9.1a'],'#C97983','Old Rose',true],
 ];
