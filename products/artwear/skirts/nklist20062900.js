@@ -1,7 +1,8 @@
-function createNakshaFactory(base, listData) {
+function createNakshaFactory(base, listData, varPL) {
     return {
         listData: listData,
         base: base,
+        varPL: varPL,
         createDescriptor: function(row) {
             var num = row[ 0 ];
             return {
@@ -22,13 +23,13 @@ function createNakshaFactory(base, listData) {
                 },
                 getV: function() {
                     return this.hsl.l;
-                }
+                },
             };
         }
     };
 }
 
-function getNakshaMicroFactory(base) {
+function getNakshaMicroFactory(base, varPL) {
 var listData = [
 [1, ['1.1','1.1a'],'#E3CA79','Chenin',true],
 [2, ['2','2a'],'#242925','Heavy Metal',true],
@@ -38,17 +39,17 @@ var listData = [
 [6, ['6','6a'],'#1F1F1F','Mine Shaft',true],
 [7, ['7','7a'],'#222526','Shark',true],
 ];
-    return createNakshaFactory(base + 'mc/', listData);
+    return createNakshaFactory(base + 'mc/', listData, varPL);
 }
 
-function getNakshaMiniFactory(base) {
+function getNakshaMiniFactory(base, varPL) {
 var listData = [
 [1, ['1','1a'],'#202F25','Log Cabin',true],
 ];
-    return createNakshaFactory(base + 'mi/', listData);
+    return createNakshaFactory(base + 'mi/', listData, varPL);
 }
 
-function getNakshaMidiFactory(base) {
+function getNakshaMidiFactory(base, varPL) {
 var listData = [
 [1, ['1.1','1.1a'],'#372844','Martinique',true],
 [2, ['2.1','2.1a'],'#15181D','Woodsmoke',true],
@@ -76,10 +77,10 @@ var listData = [
 [24, ['24','24a'],'#C7AA64','Laser',true],
 [25, ['25','25a'],'#7E3D51','Cosmic',true],
 ];
-    return createNakshaFactory(base + 'md/', listData);
+    return createNakshaFactory(base + 'md/', listData, varPL);
 }
 
-function getNakshaMinuitFactory(base) {
+function getNakshaMinuitFactory(base, varPL) {
 var listData = [
 [1, ['1','1a'],'#6D3C55','Cosmic',true],
 [2, ['2.1','2.1a'],'#852A47','Camelot',true],
@@ -91,7 +92,7 @@ var listData = [
 [8, ['8.1','8.1a'],'#498640','Fern Green',true],
 [9, ['9.1','9.1a'],'#C97983','Old Rose',true],
 ];
-    return createNakshaFactory(base + 'mu/', listData);
+    return createNakshaFactory(base + 'mu/', listData, varPL);
 }
 
 function createNakshaEncoder() {
@@ -156,15 +157,16 @@ function createNakshaSKUsFactory(base) {
         encoder: createNakshaEncoder(),
         urlModifier: createNakshaURLModifer(),
         createSKU: function(sku) {
+            var varPL = varPLData[sku];
             switch(sku) {
                 case 'NKSHMC1512PP':
-                    return getNakshaMicroFactory(base);
+                    return getNakshaMicroFactory(base, varPL);
                 case 'NKSHMI1501PP':
-                    return getNakshaMiniFactory(base);
+                    return getNakshaMiniFactory(base, varPL);
                 case 'NKSHMD1501PP':
-                    return getNakshaMidiFactory(base);
+                    return getNakshaMidiFactory(base, varPL);
                 case 'NKSHMU1501PP':
-                    return getNakshaMinuitFactory(base);
+                    return getNakshaMinuitFactory(base, varPL);
                 default:
                     return null;
             }

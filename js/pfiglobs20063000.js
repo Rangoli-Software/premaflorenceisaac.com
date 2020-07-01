@@ -68,6 +68,13 @@ const cmData = [
 ['Titania Dress', 'TTNDRS1505Je', '0.36', '1.4', '/products/night/titania.html', 'FALSE'],
 ];
 
+const varPLData = {
+    NKSHMC1512PP: [5000,6000,7000],
+    NKSHMI1501PP: [6900,9150, 11000],
+    NKSHMD1501PP: [7250, 9300, 12000],
+    NKSHMU1501PP: [7800, 10150, 13000]
+}
+
 const plData = [
     ['TESTIT0000Hi', 1],
     ['AWTSHT1604Je', 5000],

@@ -125,7 +125,7 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, colSelData
             var that = this;
             return {
                 createProductComponent: function(shop) {
-                    var basePanelr = createBasePanelr(shop, that.prodJSON.product)
+                    var basePanelr = that.viewerFactory.createBase(shop);
                     return createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, addlViewer);
                 }
             };
@@ -251,6 +251,9 @@ function createUniqueItemList(listdata, product, factory) {
         },
         getDescriptor: function(i) {
             return this.factory.createDescriptor(this.base[i]);
+        },
+        getINRPrice(i) {
+            return this.product.inrPrice;
         },
         getItem: function(i, size) {
             var desc = this.getDescriptor(i);
@@ -908,6 +911,19 @@ function createBasePanelr(shop, product) {
     }
 }
 
+function createBasePanelrRange(shop, product, inrLo, inrHi) {
+    return {
+        shop: shop,
+        product: product,
+        inrLo: inrLo,
+        inrHi: inrHi,
+        createBasePanel: function () {
+            return '<h4 class="mb-2">' + this.product.name + '</h4>' +
+                '<div class="mb-5 text-gray-400"><span class="ml-1 font-size-h5 font-weight-bold">' + this.shop.getFXPriceHTML(this.inrLo) + (this.inrHi === undefined ? "" : " to " + this.shop.getFXPriceHTML(this.inrHi)) + '</span></div>';
+        }
+    }
+}
+
 function createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, variantSelector, sizeSelector, itemAdder, addlViewer) {
     return {
         prePanelr: prePanelr,
@@ -1108,7 +1124,7 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
             return this.cardCreator.createCard(
                 this.items.getImages(i),
                 this.getButtonId(i), 
-                this.productComponent.basePanelr.getPriceHTML());
+                this.productComponent.basePanelr.shop.getFXPriceHTML(this.items.getINRPrice(i)));
         },
         createCards: function() {
             if  ( this.items.base.length == 0 ) {
