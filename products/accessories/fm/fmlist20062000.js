@@ -12,7 +12,7 @@ function createFaceMaskFactory(base, listData) {
                     return 1;
                 },
                 getImagePath: function(idx) {
-                    return this.base + row[0] + '.jpg';
+                    return this.base + this.number + '.jpg';
                 },
                 getHue: function() {
                     return this.hsl.h;
