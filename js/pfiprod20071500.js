@@ -1264,18 +1264,25 @@ function createPageComponent(prodInfo, catalog, rendererFactory) {
                 $(this).append(html);
             });
         },
-        onSelectionChange: function () {
-            var renderer = this.getRenderer();
-            renderer.unregisterATC();
-            renderer.updateSelection();
+        unregisterATC: function() {
+            this.getRenderer().unregisterATC();
+        },
+        registerATC: function() {
             let that = this;
-            renderer.registerATC(function() {
+            this.getRenderer().registerATC(function() {
                 that.addToCart();
             });
+        },
+        onSelectionChange: function () {
+            this.unregisterATC();
+            this.getRenderer().updateSelection();
+            this.registerATC();
             this.updateItemPrices();
         },
         onReadyState() {
+            this.unregisterATC();
             this.updateBreadCrumb();
+            this.registerATC();
         },
         onUnitChange: function () {
             this.getRenderer().updateUnits();

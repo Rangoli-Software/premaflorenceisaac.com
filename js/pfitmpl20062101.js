@@ -397,10 +397,12 @@ const shop = {
     title: "Shop",
     url: "/shop.html",
     sub: [
+/*
         {
             title: "Artwear Naksha Skirt",
             url: "/products/artwear/naksha.html?s=d"
         },
+*/
         {
             title: "Handloom Face Mask",
             url: "/products/accessories/facemask.html"
@@ -488,6 +490,7 @@ const merchInfo = [
         ledes: ['A one-of-a-kind T-shirt for that unique individual!'],
         images: [{url: '/fabricart/TShirtColl.jpg'},{url: '/fabricart/ManWhiteS.jpg'},{url: '/fabricart/GirlBlackS.jpg'}]
     },
+/*
     {
         SKU: 'NKSHMU1501PP',
         title: 'ArtWear Naksha-Minuit',
@@ -516,6 +519,7 @@ const merchInfo = [
         ledes: ["#oneofakind skirt for all ages and sizes!"],
         images: [{url: '/people/ibpp.jpg'}]
     },
+*/
     {
         SKU: 'FACEMK2005Ta',
         title: 'Handloom Face Mask',
