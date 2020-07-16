@@ -252,8 +252,10 @@ function createUniqueItemList(listdata, product, factory) {
         getDescriptor: function(i) {
             return this.factory.createDescriptor(this.base[i]);
         },
-        getINRPrice(i) {
-            return this.product.inrPrice;
+        getINRPrice: function(i) {
+            var desc = this.getDescriptor(i);
+            var inrPrice = desc.getCWPrice != undefined ? desc.getCWPrice() : null;
+            return inrPrice != null? inrPrice : this.product.inrPrice;
         },
         getItem: function(i, size) {
             var desc = this.getDescriptor(i);
@@ -911,15 +913,20 @@ function createBasePanelr(shop, product) {
     }
 }
 
-function createBasePanelrRange(shop, product, inrLo, inrHi) {
+function createBasePanelrRange(shop, product, varPL) {
     return {
         shop: shop,
         product: product,
-        inrLo: inrLo,
-        inrHi: inrHi,
+        varPL: varPL,
         createBasePanel: function () {
+            var mn = product.inrPrice;
+            var mx = product.inrPrice;
+            Object.keys(this.varPL).forEach(function(k,i) {
+                mn = Math.min(mn, varPL[k]);
+                mx = Math.max(mx, varPL[k]);
+            });
             return '<h4 class="mb-2">' + this.product.name + '</h4>' +
-                '<div class="mb-5 font-size-h5 font-weight-bold"><span class="ml-1 text-gray-400">' + this.shop.getFXPriceHTML(this.inrLo) + (this.inrHi === undefined ? "" : '</span> - <span class="text-gray-400">' + this.shop.getFXPriceHTML(this.inrHi)) + '</span></div>';
+                '<div class="mb-5 font-size-h5 font-weight-bold"><span class="ml-1 text-gray-400">' + this.shop.getFXPriceHTML(mn) + '</span> - <span class="text-gray-400">' + this.shop.getFXPriceHTML(mx) + '</span></div>';
         }
     }
 }

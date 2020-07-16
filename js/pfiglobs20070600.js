@@ -69,7 +69,12 @@ const cmData = [
 ];
 
 const varPLData = {
-    NKSHMU1501PP: [10500, 13000]
+    NKSHMD1501PP: {
+        CW1: 12625
+    },
+    NKSHMU1501PP: {
+        CW1: 13650
+    }
 }
 
 const plData = [
