@@ -922,8 +922,9 @@ function createBasePanelrRange(shop, product, varPL) {
             var mn = product.inrPrice;
             var mx = product.inrPrice;
             Object.keys(this.varPL).forEach(function(k,i) {
-                mn = Math.min(mn, varPL[k]);
-                mx = Math.max(mx, varPL[k]);
+                var v = varPL[k];
+                mn = Math.min(mn, v);
+                mx = Math.max(mx, v);
             });
             return '<h4 class="mb-2">' + this.product.name + '</h4>' +
                 '<div class="mb-5 font-size-h5 font-weight-bold"><span class="ml-1 text-gray-400">' + this.shop.getFXPriceHTML(mn) + '</span> - <span class="text-gray-400">' + this.shop.getFXPriceHTML(mx) + '</span></div>';
