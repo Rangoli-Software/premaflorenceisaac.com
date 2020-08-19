@@ -51,6 +51,7 @@ function getNakshaMicroFactory(base, varPL) {
 [6, ['6', '6a'], '#1F1F1F', 'Mine Shaft', null],
 [7, ['7', '7a'], '#222526', 'Shark', null],
 [8, ['8', '8a'], '#512F2B', 'Cork', null],
+[9, ['9', '9a'], '#A2C2C3', 'Opal', null],
 ];
     return createNakshaFactory(base + 'mc/', listData, varPL);
 }
