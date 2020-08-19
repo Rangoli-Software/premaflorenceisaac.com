@@ -76,7 +76,7 @@ function getNakshaMidiFactory(base, varPL) {
 [10, ['10.6', '10a.6'], '#DACB6D', 'Chenin', null],
 [11, ['11.6', '11a.6'], '#171B1C', 'Woodsmoke', null],
 [12, ['12.6', '12a.6'], '#674857', 'Eggplant', null],
-//[13, ['13.6','13a.6'],'#DDBEA2','Cameo',null],
+[13, ['13.6','13a.6'],'#DDBEA2','Cameo',null],
 [14, ['14.6', '14a.6'], '#FBFCFD', 'Zircon', null],
 [15, ['15.6', '15a.6'], '#753D69', 'Cosmic', null],
 [16, ['16.6', '16a.6'], '#244A41', 'Plantation', null],
@@ -97,14 +97,15 @@ function getNakshaMidiFactory(base, varPL) {
 function getNakshaMinuitFactory(base, varPL) {
     var listData = [
 //[1, ['1','1a'],'#6D3C55','Cosmic',null],
-[2, ['2.5', '2a.5'], '#852A47', 'Camelot', null, 'CW1'],
-//[3, ['3.5','3a.5'],'#919A3C','Sycamore',null],
-[4, ['4.5', '4a.5'], '#F1E04E', 'Energy Yellow', null, 'CW1'],
-[5, ['5.5', '5a.5'], '#D26690', 'Hopbush', null, 'CW1'],
-[6, ['6.5', '6a.5'], '#D96A56', 'Terracotta', null],
-[7, ['7.5', '7a.5'], '#D29E59', 'Di Serria', null, 'CW1'],
-[8, ['8.5', '8a.5'], '#498640', 'Fern Green', null, 'CW1'],
-[9, ['9.5', '9a.5'], '#C97983', 'Old Rose', null],
+[2, ['2.6', '2a.6'], '#852A47', 'Camelot', null, 'CW1'],
+//[3, ['3.6','3a.6'],'#919A3C','Sycamore',null],
+[4, ['4.6', '4a.6'], '#F1E04E', 'Energy Yellow', null, 'CW1'],
+[5, ['5.6', '5a.6'], '#D26690', 'Hopbush', null, 'CW1'],
+[6, ['6.6', '6a.6'], '#D96A56', 'Terracotta', null],
+[7, ['7.6', '7a.6'], '#D29E59', 'Di Serria', null, 'CW1'],
+[8, ['8.6', '8a.6'], '#498640', 'Fern Green', null, 'CW1'],
+[9, ['9.6', '9a.6'], '#C97983', 'Old Rose', null],
+[10, ['10.6', '10a.6'], '#A2C2C3', 'Opal', null],
 ];
     return createNakshaFactory(base + 'mu/', listData, varPL);
 }
