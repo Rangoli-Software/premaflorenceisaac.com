@@ -51,7 +51,7 @@ function getNakshaMicroFactory(base, varPL) {
 [6, ['6', '6a'], '#1F1F1F', 'Mine Shaft', null],
 [7, ['7', '7a'], '#222526', 'Shark', null],
 [8, ['8', '8a'], '#512F2B', 'Cork', null],
-[9, ['9', '9a'], '#A2C2C3', 'Opal', null],
+[9, ['9', '9a'], '#CAF1F5', '', null],
 ];
     return createNakshaFactory(base + 'mc/', listData, varPL);
 }
@@ -106,7 +106,7 @@ function getNakshaMinuitFactory(base, varPL) {
 [7, ['7.6', '7a.6'], '#D29E59', 'Di Serria', null, 'CW1'],
 [8, ['8.6', '8a.6'], '#498640', 'Fern Green', null, 'CW1'],
 [9, ['9.6', '9a.6'], '#C97983', 'Old Rose', null],
-[10, ['10.6', '10a.6'], '#A2C2C3', 'Opal', null],
+[10, ['10.6', '10a.6'], '#CAF1F5', '', null],
 ];
     return createNakshaFactory(base + 'mu/', listData, varPL);
 }
