@@ -106,7 +106,7 @@ function getNakshaMinuitFactory(base, varPL) {
 [7, ['7.6', '7a.6'], '#D29E59', 'Di Serria', null, 'CW1'],
 [8, ['8.6', '8a.6'], '#498640', 'Fern Green', null, 'CW1'],
 [9, ['9.6', '9a.6'], '#C97983', 'Old Rose', null],
-[10, ['10.6', '10a.6'], '#CAF1F5', '', null],
+[10, ['10.6', '10a.6'], '#CAF1F5', '', null, 'CW1'],
 ];
     return createNakshaFactory(base + 'mu/', listData, varPL);
 }
