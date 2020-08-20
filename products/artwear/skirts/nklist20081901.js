@@ -85,7 +85,7 @@ function getNakshaMidiFactory(base, varPL) {
 [18, ['18.6', '18a.6'], '#B5AF50', 'Husk', null],
 [19, ['19.6', '19a.6'], '#823B6A', 'Cannon Pink', null],
 [20, ['20.6', '20a.6'], '#674567', 'Eggplant', null],
-[21, ['21.6', '21a.6'], '#18232F', 'Mirage', null, 'CW1'],
+[21, ['21.6', '21a.6'], '#263E55', '', null, 'CW1'],
 [22, ['22.6', '22a.6'], '#6F3045', 'Finn', null],
 [23, ['23.6', '23a.6'], '#389288', 'Lochinvar', null],
 [24, ['24.6', '24a.6'], '#C7AA64', 'Laser', null],
