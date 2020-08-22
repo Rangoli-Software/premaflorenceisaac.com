@@ -140,7 +140,7 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, colSelData
             var items = createUniqueItemList(this.uiFactory.listData, this.prodJSON.product, this.uiFactory);
             var productComponentFactory = this.createPCFactory();
             var itemCategorySelector = this.createItemCatSelector();
-            var sizeSelector = createSizeSelector(this.prodJSON.skuInfo.sizes, this.createSizePanelr().getToggleHTML(), null, "");
+            var sizeSelector = createSizeSelector(this.prodJSON.skuInfo.sizes, this.createSizePanelr().getToggleHTML(), null, this.modelTxt);
             var productComponent = productComponentFactory.createProductComponent(shop);
             return createUniqueItemsComponent(items, productComponentFactory, productComponent, itemCategorySelector, sizeSelector, this.cardCreator);
         },
