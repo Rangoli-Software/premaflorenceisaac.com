@@ -101,7 +101,7 @@ function createBrowseInfo(infoSections, numSections, baseBlackList) {
     };
 }
 
-function createComponentGenerator(uiFactory, prodJSON, viewerFactory, colSelData, isSquare, cardCreator) {
+function createComponentGenerator(uiFactory, prodJSON, viewerFactory, colSelData, isSquare, cardCreator, modelTxt) {
     return {
         viewerFactory: viewerFactory,
         cardCreator: cardCreator,
@@ -109,6 +109,7 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, colSelData
         prodJSON: prodJSON,
         colSelData: colSelData,
         isSquare: isSquare,
+        modelTxt: modelTxt,
         createSizePanelr: function() {
             var dimensioner = createDimensioner("cm", this.prodJSON.dimensionNames, this.prodJSON.dimensionsCm, this.prodJSON.styleImagePath);
             var chart = this.prodJSON.skuInfo.getSizeChart();
