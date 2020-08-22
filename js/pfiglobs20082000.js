@@ -69,6 +69,9 @@ const cmData = [
 ];
 
 const varPLData = {
+    NKSHMC1512PP: {
+        CW1: 7800
+    },
     NKSHMD1501PP: {
         CW1: 12625
     },
