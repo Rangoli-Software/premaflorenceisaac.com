@@ -377,7 +377,7 @@ function createProductDB() {
 const vb_catalog = {
     skus: ['ANGKRT1601Kh', 'ARAMPA1601Kh', 'KOHKRT1601Kh', 'MAVKRT1601Kh', 'NARKRT1601Kh', 'PNDPNT1601Kh', 'UBDPNT1601Kh'],
     shirts: ['ANGKRT1601Kh', 'KOHKRT1601Kh', 'MAVKRT1601Kh', 'NARKRT1601Kh'],
-    pants: ['ARAMPA1601Kh', 'PNDPNT1601Kh', 'UBDPNT1601Kh'],
+    pants: ['PNDPNT1601Kh', 'UBDPNT1601Kh'],
     getCategory: function (sku) {
         if (this.shirts.includes(sku)) {
             return "shirts";
