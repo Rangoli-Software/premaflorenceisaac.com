@@ -27,10 +27,11 @@ figcaption {
   visibility: hidden;
 }
 
+/*
 .custom-control-img .cat-color-is-empty ~ .custom-control-label {
   filter: grayscale(100%);
 }
-/*
+
 .flickity-enabled:focus {
     outline: none;
 }
