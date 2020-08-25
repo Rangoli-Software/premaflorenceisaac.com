@@ -4,10 +4,12 @@ function createFaceMaskFactory(base, listData) {
         base: base,
         createDescriptor: function(row) {
             var num = row[ 0 ];
+            var collected = row[ 3 ];
             return {
                 base: this.base,
                 number: num,
                 hsl: hexToHSL(row[1]),
+                collected: collected,
                 getNumImages: function() {
                     return 1;
                 },
@@ -23,8 +25,11 @@ function createFaceMaskFactory(base, listData) {
                 getV: function() {
                     return this.hsl.l;
                 },
-                getCollected: function() {
-                    return row[3];
+                isAvailable: function() {
+                    return this.collected === null;
+                },
+                getCollectedText: function() {
+                    return "Collected";
                 }
             };
         }
