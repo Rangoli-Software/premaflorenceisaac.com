@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020071701";
+const shopRevisionVersion = "2020082000";
 
 const cmData = [
 ['Helena Dress - PFI Tangail', 'HLNDRS1505PT', '', '', '/products/summerdreams/Helena.jpg', ''],
@@ -73,7 +73,8 @@ const varPLData = {
         CW1: 7800
     },
     NKSHMD1501PP: {
-        CW1: 12625
+        CW1: 12625,
+        CW2: 12625
     },
     NKSHMU1501PP: {
         CW1: 13650

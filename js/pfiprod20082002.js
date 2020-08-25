@@ -1135,7 +1135,8 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
             return this.cardCreator.createCard(
                 this.items.getImages(i),
                 this.getButtonId(i), 
-                this.productComponent.basePanelr.shop.getFXPriceHTML(this.items.getINRPrice(i)));
+                this.productComponent.basePanelr.shop.getFXPriceHTML(this.items.getINRPrice(i)),
+                this.items.getDescriptor(i).getCWDesc());
         },
         createCards: function() {
             if  ( this.items.base.length == 0 ) {
