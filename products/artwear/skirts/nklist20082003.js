@@ -1,3 +1,5 @@
+const nkdtformatter = new Intl.DateTimeFormat('en-US',{month: 'long', year: 'numeric'});
+
 function createNakshaFactory(base, listData, varPL) {
     return {
         listData: listData,
@@ -50,10 +52,17 @@ function createNakshaFactory(base, listData, varPL) {
                     return this.collected === null;
                 },
                 getCollectedText: function() {
+                    var res = "Collected";
                     var name = this.collected.Name;
-                    var date = Date.parse(this.collected.Date);
-                    var dateString = new Intl.DateTimeFormat('en-US',{month: 'long', year: 'numeric'}).format(date);
-                    return "Collected" + (name === undefined ? "" : " by " + name) + (date === undefined ? "" : " in " + dateString);
+                    if ( name !== undefined ) {
+                        res += " by " + name;
+                    }
+                    var date = this.collected.Date;
+                    if ( date !== undefined ) {
+                        var dt = Date.parse(date);
+                        res += " in " + nkdtformatter.format(dt);
+                    }
+                    return res;
                 }
             };
         }
