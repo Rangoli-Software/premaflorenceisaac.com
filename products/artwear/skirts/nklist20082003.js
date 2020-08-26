@@ -19,7 +19,6 @@ function createNakshaFactory(base, listData, varPL) {
                 cwDesc = (cw === 'CW1' ? 'Jamdani Lace' : 'Indigo In-Love')
             }
             var collected = row[4];
-            
             return {
                 base: this.base,
                 number: num,

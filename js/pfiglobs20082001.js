@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020082000";
+const shopRevisionVersion = "2020082100";
 
 const cmData = [
 ['Helena Dress - PFI Tangail', 'HLNDRS1505PT', '', '', '/products/summerdreams/Helena.jpg', ''],
