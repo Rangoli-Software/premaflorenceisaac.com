@@ -1094,7 +1094,7 @@ function createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, a
 function createUICardCreator() {
     return {
         colClasses: 'col-6 col-sm-4',
-        createCard: function(images, btnId, priceHTML) {
+        createCard: function(images, btnId, priceHTML, desc) {
             var res = '<div class="card mb-2">';
             var img = images.getImage(0);
             res += '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '" alt="' + img.text  + '" class="img-fluid" width="1000" height="1000"></a>';
