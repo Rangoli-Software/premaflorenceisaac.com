@@ -398,6 +398,10 @@ const shop = {
     url: "/shop.html",
     sub: [
         {
+            title: "Vagabond",
+            url: "/products/men/shop.html"
+        },
+        {
             title: "Artwear Naksha Skirt",
             url: "/products/artwear/naksha.html?s=d"
         },
