@@ -627,7 +627,7 @@ function createItemRenderer(parentId, item, shop, options) {
         },
         createOrderPanel: function () {
             var html = '<p>' + this.getOrderDescription() + '<br>' 
-                + this.shop.getPriceHTML(this.item.product) + '</p>'
+                + this.shop.getFXPriceHTML(this.item.price) + '</p>'
             + this.createRemoveFromCartButton();
             return this.createColumn(8, html);
         },

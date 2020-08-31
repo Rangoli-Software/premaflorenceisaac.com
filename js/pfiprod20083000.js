@@ -1165,7 +1165,8 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
         createItem: function(i) {
             var unique = this.items.getDescriptor(i);
             var product = this.items.product;
-            return createItem(product, product.inrPrice, this.size, unique.fabricColour, 1, unique.number, unique.getImagePath(0), true);
+            var inrPrice = unique.inrPrice !== undefined ? unique.inrPrice: product.inrPrice;
+            return createItem(product, inrPrice, this.size, unique.fabricColour, 1, unique.number, unique.getImagePath(0), true);
         },
         createHTML: function(list) {
             return '<form action="/shop/checkout.html" method="get"><div id="' + this.listId + '" class="item">'
