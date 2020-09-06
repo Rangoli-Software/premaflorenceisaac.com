@@ -1,6 +1,20 @@
-function createVBComponentFactory(prodInfo, dimensioner, sizer, categorizer) {
-    var navHelper = createNavHelper(prodInfo, categorizer, 'Men');
-    var relatedviewer = createEmptyViewer();
+function createVBRelatedViewer(skuInfo, catalog) {
+    var related = catalog.getPairWith(skuInfo.SKU);
+    if (related === null) {
+        return creatEmptyViewer();
+    }
+    var caption = 'Pair with';
+    var res = [];
+    for (var i = 0; i < related.length; i++) {
+        sku = related[i];
+        res.push(createRelatedItemCard(sku, catalog));
+    }
+    return createRelatedViewer(caption, res, 2);
+}
+
+function createVBComponentFactory(prodInfo, dimensioner, sizer, catalog) {
+    var navHelper = createNavHelper(prodInfo, catalog, 'Men');
+    var relatedviewer = createVBRelatedViewer(prodInfo.skuInfo, catalog);
     return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, "");
 }
 
@@ -378,6 +392,14 @@ const vb_catalog = {
     skus: ['ANGKRT1601Kh', 'ARAMPA1601Kh', 'KOHKRT1601Kh', 'MAVKRT1601Kh', 'NARKRT1601Kh', 'PNDPNT1601Kh', 'UBDPNT1601Kh'],
     shirts: ['ANGKRT1601Kh', 'KOHKRT1601Kh', 'MAVKRT1601Kh', 'NARKRT1601Kh'],
     pants: ['PNDPNT1601Kh', 'UBDPNT1601Kh'],
+    getPairWith: function(sku) {
+        if (this.shirts.includes(sku) ) {
+            return this.pants;
+        } else if ( this.pants.includes(sku)) {
+            return this.shirts;
+        }
+        return null;
+    },
     getCategory: function (sku) {
         if (this.shirts.includes(sku)) {
             return "shirts";

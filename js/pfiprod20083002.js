@@ -255,8 +255,17 @@ function createUniqueItemList(listdata, product, factory) {
         },
         getINRPrice: function(i) {
             var desc = this.getDescriptor(i);
-            var inrPrice = desc.getCWPrice != undefined ? desc.getCWPrice() : null;
-            return inrPrice != null? inrPrice : this.product.inrPrice;
+            var inrPrice;
+            if ( desc.getCWPrice !== undefined) {
+                var cwPrice = desc.getCWPrice();
+                if ( cwPrice !== null) {
+                    return cwPrice;
+                } else {
+                    return this.product.inrPrice;
+                }
+            } else {
+                return this.product.inrPrice;
+            }
         },
 /*
         getItem: function(i, size) {
@@ -749,6 +758,20 @@ function createItemAdder(prodInfo, variantSelector) {
     };
 }
 
+function createRelatedItemCard(SKU, catalog) {
+    return {
+        SKU: SKU,
+        catalog: catalog,
+        createCard: function() {
+            var entry = this.catalog.getProduct(this.SKU);
+            var res = '<div class="card mb-2"><div class="embed-responsive embed-responsive-1by1"><img class="embed-responsive-item" src="' + entry + '" style="object-fit: cover"></div><div class="card-body">';
+            res += ' <a href="' + entry.url + '">' + entry.name + '</a>';
+            res += '</div></div>';
+            return res;
+        }
+    };
+}
+
 function createRelatedLookCard(SKU, lkImg, idx, styles, catalog) {
     return {
         SKU: SKU,
@@ -796,24 +819,6 @@ function createStoryViewer(caption, items, sections, ncol) {
         for (var i = 0; i < itms.length && i < ncol[s]; i++) {
             res.push(createStoryCard(itms[rnd[i]], sections[s][rnd[i]]));
         }
-    }
-    return createRelatedViewer(caption, res, 2);
-}
-
-function createHEDRelatedViewer(skuInfo, looks, catalog) {
-    var related = looks.getRelatedStyles(skuInfo.SKU);
-    if (related === null) {
-        return creatEmptyViewer();
-    }
-    var caption = 'Pair with';
-    var res = [];
-    for (var i = 0; i < related.length; i++) {
-        var lk = related[i].look;
-        var st = (related[i].styles === undefined) 
-        ? looks.getLookFromTitle(lk).styles 
-        :   related[i].styles;
-        var lkImg = looks.getImagePath(lk);
-        res.push(createRelatedLookCard(skuInfo.SKU, lkImg, lk, st, catalog));
     }
     return createRelatedViewer(caption, res, 2);
 }
@@ -1165,7 +1170,7 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
         createItem: function(i) {
             var unique = this.items.getDescriptor(i);
             var product = this.items.product;
-            var inrPrice = unique.inrPrice !== undefined ? unique.inrPrice: product.inrPrice;
+            var inrPrice = (unique.inrPrice !== undefined && unique.inrPrice !== null) ? unique.inrPrice: product.inrPrice;
             return createItem(product, inrPrice, this.size, unique.fabricColour, 1, unique.number, unique.getImagePath(0), true);
         },
         createHTML: function(list) {

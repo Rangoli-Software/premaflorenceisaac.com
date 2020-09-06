@@ -1,3 +1,21 @@
+function createHEDRelatedViewer(skuInfo, looks, catalog) {
+    var related = looks.getRelatedStyles(skuInfo.SKU);
+    if (related === null) {
+        return creatEmptyViewer();
+    }
+    var caption = 'Pair with';
+    var res = [];
+    for (var i = 0; i < related.length; i++) {
+        var lk = related[i].look;
+        var st = (related[i].styles === undefined) 
+        ? looks.getLookFromTitle(lk).styles 
+        :   related[i].styles;
+        var lkImg = looks.getImagePath(lk);
+        res.push(createRelatedLookCard(skuInfo.SKU, lkImg, lk, st, catalog));
+    }
+    return createRelatedViewer(caption, res, 2);
+}
+
 function createHEDComponentFactory(prodInfo, dimensioner, sizer, looks, categorizer, catalog) {
     var navHelper = createNavHelper(prodInfo, categorizer, 'Happy Everyday');
     var relatedviewer = createHEDRelatedViewer(prodInfo.skuInfo, looks, catalog);
