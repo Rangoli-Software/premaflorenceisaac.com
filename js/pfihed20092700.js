@@ -792,7 +792,7 @@ function createLongOvertopJSON() {
 }
 
 function createShoulderStringDressJSON() {
-    var sku = "LTSDSL1501Vo";
+    var sku = "LTSDSL1501Kh";
     var basePath = "/products/happyeveryday/shdrstrg/"
     return createProductJSON(sku, basePath, shldData, hed_sizing_top, createCWImageFactory);
 }
@@ -972,7 +972,7 @@ const hed_sizing_pant = {
 }
 
 const hed_lookbook = {
-    styles: ['WNDRPA1709Kh', 'DRAWPA1609Kh', 'BERMPA1609Kh', 'CRPTOP1805Kh', 'TNKTPS1805Kh', 'VAMPAL1708Kh', 'TRPZTP1807Kh', 'LTSDSL1501Vo', 'LITLAY1708Vo', 'OVTPLO1501Vo', 'OVTPSH1501Vo', 'BALLPA1501Vo'],
+    styles: ['WNDRPA1709Kh', 'DRAWPA1609Kh', 'BERMPA1609Kh', 'CRPTOP1805Kh', 'TNKTPS1805Kh', 'VAMPAL1708Kh', 'TRPZTP1807Kh', 'LTSDSL1501Kh', 'LITLAY1708Vo', 'OVTPLO1501Vo', 'OVTPSH1501Vo', 'BALLPA1501Vo'],
     looks: [
         {
             title: '1.1',
@@ -1042,12 +1042,12 @@ const hed_lookbook = {
         {
             title: '11',
             idxsfx: '09',
-            styles: ['LTSDSL1501Vo']
+            styles: ['LTSDSL1501Kh']
         },
         {
             title: '12',
             idxsfx: '10',
-            styles: ['LTSDSL1501Vo', 'OVTPLO1501Vo']
+            styles: ['LTSDSL1501Kh', 'OVTPLO1501Vo']
         }
     ],
     getStyle2Looks: function () {
@@ -1129,7 +1129,7 @@ const hed_lookbook = {
                     styles: ['VAMPAL1708Kh']
                 }, {
                     look: '12',
-                    styles: ['LTSDSL1501Vo']
+                    styles: ['LTSDSL1501Kh']
                 }];
             case 'OVTPSH1501Vo':
                 return [{
@@ -1143,7 +1143,7 @@ const hed_lookbook = {
                 }, {
                     look: '1.3'
                 }];
-            case 'LTSDSL1501Vo':
+            case 'LTSDSL1501Kh':
                 return [{
                     look: '12'
                 }];
@@ -1165,10 +1165,10 @@ const hed_lookbook = {
 };
 
 const hed_catalog = {
-    skus: ['WNDRPA1709Kh', 'DRAWPA1609Kh', 'BERMPA1609Kh', 'BALLPA1501Vo', 'CRPTOP1805Kh', 'TNKTPS1805Kh', 'TRPZTP1807Kh', 'OVTPLO1501Vo', 'OVTPSH1501Vo', 'VAMPAL1708Kh', 'LTSDSL1501Vo', 'LITLAY1708Vo'],
+    skus: ['WNDRPA1709Kh', 'DRAWPA1609Kh', 'BERMPA1609Kh', 'BALLPA1501Vo', 'CRPTOP1805Kh', 'TNKTPS1805Kh', 'TRPZTP1807Kh', 'OVTPLO1501Vo', 'OVTPSH1501Vo', 'VAMPAL1708Kh', 'LTSDSL1501Kh', 'LITLAY1708Vo'],
     tops: ['CRPTOP1805Kh', 'TNKTPS1805Kh', 'VAMPAL1708Kh', 'TRPZTP1807Kh'],
     overtops: ['OVTPLO1501Vo', 'OVTPSH1501Vo'],
-    dresses: ['LTSDSL1501Vo', 'LITLAY1708Vo'],
+    dresses: ['LTSDSL1501Kh', 'LITLAY1708Vo'],
     pants: ['WNDRPA1709Kh', 'DRAWPA1609Kh', 'BERMPA1609Kh', 'BALLPA1501Vo'],
     getCategory: function (sku) {
         if (this.tops.includes(sku)) {
@@ -1257,7 +1257,7 @@ const hed_catalog = {
             lede: ''
         },
         {
-            sku: 'LTSDSL1501Vo',
+            sku: 'LTSDSL1501Kh',
             title: 'Butterfly Pea Shoulder String Dress',
             url: "/products/happyeveryday/shoulderstring.html",
             lede: ''
