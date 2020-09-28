@@ -1,7 +1,7 @@
 function createSDComponentFactory(prodInfo, dimensioner, sizer, categorizer) {
     var navHelper = createNavHelper(prodInfo, categorizer, 'Formals');
     var relatedviewer = createEmptyViewer();
-    var modelTxt = "The model is 5 ft 7 in (173 cm.) and wearing size '" + prodInfo.skuInfo.sizes[0] + "'";
+    var modelTxt = "The model is 5 ft 7 in (171 cm.) and wearing size '" + prodInfo.skuInfo.sizes[0] + "'";
     return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, modelTxt);
 }
 
@@ -164,7 +164,7 @@ const celaData = {
     garmentDetails: '<li>Freesize - Broad elastic at the waist</li><li>P.F.I. Tangail</li><li>Midi length</li><li>A line with voluminous flare</li>'
 };
 
-const cleoData = {
+const cleoTData = {
     imageFile: "sizing.jpg",
     dimensionNames: ["A. Length", "B. Back Bust", "C. Shoulder", "D. Armhole", "E. Sleeve Length", "F. Sleeve Hem"],
     dimensionsCm: {
@@ -216,6 +216,59 @@ const cleoData = {
     description: 'The Cleopatra Top is cut in ivory ahimsa silk and lined with cotton voile. The round neck is highlighted with black and silver silk P.F.I. Tangail border. It is sleeveless and adds a comfortable chic element to your outfit. Pair it with our Cleopatra Shorts or skirts to keep it easy.',
     garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>Short length</li><li>P.F.I. Tangail border at the neckline</li><li>Slips on</li><li>Cotton lining</li>'
 
+};
+
+const cleoSData = {
+    imageFile: "sizing.jpg",
+    dimensionNames: ["A. Length", "B. Back Bust", "C. Shoulder", "D. Armhole", "E. Sleeve Length", "F. Sleeve Hem"],
+    dimensionsCm: {
+        S: [
+            103,
+            47,
+            39,
+            48,
+            46,
+            30
+        ],
+        M: [
+            104,
+            49,
+            41,
+            50,
+            49,
+            32
+        ],
+        L: [
+            105,
+            51,
+            43,
+            52,
+            51,
+            34
+        ],
+        XL: [
+            106,
+            53,
+            45,
+            54,
+            53,
+            36
+        ]
+    },
+    getFabric: function (varidx) {
+        return "P.F.I. Tangail / Voile";
+    },
+    data: [
+        {
+            colourName: "Black &amp; Silver",
+            vid: "CW1",
+            colourPfx: "bl",
+            colourSfxs: ["hero", "front", "side"]
+        }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    description: 'Cleopatra Shorts are cut in ivory ahimsa silk and is enhanced by black and silver silk P.F.I. Tangail borders at the pocket and hems. It sits on your waist and has a comfortable wide hem for you to move around in. Pair it with our Cleopatra Top, it\'s a fun and elegant ensemble to have in your wardrobe.',
+    garmentDetails: '<li>Shorts</li><li>Wide-legged hem</li><li>P.F.I. Tangail borders at the pockets and hemline</li><li>Fly zip and button fastening at the front</li>'
 };
 
 const emlaData = {
@@ -378,7 +431,7 @@ const jlitData = {
     garmentDetails: '<li>Round neck</li><li>Cap lseeves</li><li>Asymmetrical</li><li>A line with flare</li><li>Buttons in the front</li>'
 };
 
-const nrsaData = {
+const nrsaTData = {
     imageFile: "sizing.jpg",
     dimensionNames: ["A. Length", "B. Back Bust", "C. Shoulder", "D. Armhole", "E. Sleeve Length", "F. Sleeve Hem"],
     dimensionsCm: {
@@ -427,9 +480,61 @@ const nrsaData = {
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    description: '',
-    garmentDetails: ''
+    description: 'The Nerissa Top has a high-low curved hem that exposes your mid-riff just right. It\'s cut in ivory ahimsa silk and the neck is highlighted in P.F.I. Tangail striped cotton. The boxy fit adds an edgy element to this sleeveless top. It\'s versatile and can be paired with high-waisted trousers or our Nerissa Pants. ',
+    garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>Cropped length</li><li>Curved hemline</li><li>Khadi striped panel at the neckline</li><li>Slips on</li>'
+};
 
+const nrsaPData = {
+    imageFile: "sizing.jpg",
+    dimensionNames: ["A. Length", "B. Back Bust", "C. Shoulder", "D. Armhole", "E. Sleeve Length", "F. Sleeve Hem"],
+    dimensionsCm: {
+        S: [
+            103,
+            47,
+            39,
+            48,
+            46,
+            30
+        ],
+        M: [
+            104,
+            49,
+            41,
+            50,
+            49,
+            32
+        ],
+        L: [
+            105,
+            51,
+            43,
+            52,
+            51,
+            34
+        ],
+        XL: [
+            106,
+            53,
+            45,
+            54,
+            53,
+            36
+        ]
+    },
+    getFabric: function (varidx) {
+        return "P.F.I. Tangail / Voile";
+    },
+    data: [
+        {
+            colourName: "Grey &amp; Gold",
+            vid: "CW1",
+            colourPfx: 'gr',
+            colourSfxs: ["hero", "front", "side"]
+        }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    description: 'Nerissa Pants are tailored to make formal wear chic. It\'s cut in P.F.I. Tangail striped cotton and is enhanced with silk silver P.F.I. Tangail borders on the pocket. It sits on your waist and tapers towards the hem. Pair it with our Nerissa Top or a crisp black shirt to ace that presentation.',
+    garmentDetails: '<li>Ankle length trousers</li><li>Tapers at the hem</li><li>P.F.I. Tangail borders at the pockets</li><li>Fly zip and button fastening at the front</li>'
 };
 
 const ophlData = {
@@ -665,14 +770,14 @@ function createCeliaSkirtJSON() {
 
 function createCleopatraTopJSON() {
     var sku = "CLPTRT1505PT";
-    var basePath = "/products/night/cleo/";
-    return createProductJSON(sku, basePath, cleoData, sd_sizing_top, createCWImageFactory);
+    var basePath = "/products/night/cleoT/";
+    return createProductJSON(sku, basePath, cleoTData, sd_sizing_top, createCWImageFactory);
 }
 
 function createCleopatraShortsJSON() {
     var sku = "CLPTRS1505PT";
-    var basePath = "/products/night/cleo/";
-    return createProductJSON(sku, basePath, cleoData, sd_sizing_top, createCWImageFactory);
+    var basePath = "/products/night/cleoS/";
+    return createProductJSON(sku, basePath, cleoSData, sd_sizing_top, createCWImageFactory);
 }
 
 function createEmiliaDressJSON() {
@@ -695,14 +800,14 @@ function createJulietDressJSON() {
 
 function createNerissaTopJSON() {
     var sku = "NRSSTP1505PT";
-    var basePath = "/products/night/nerissa/";
-    return createProductJSON(sku, basePath, nrsaData, sd_sizing_top, createCWImageFactory);
+    var basePath = "/products/night/nerissaT/";
+    return createProductJSON(sku, basePath, nrsaTData, sd_sizing_top, createCWImageFactory);
 }
 
 function createNerissaPantJSON() {
     var sku = "NRSPNT1505PT";
-    var basePath = "/products/night/nerissa/";
-    return createProductJSON(sku, basePath, nrsaData, sd_sizing_top, createCWImageFactory);
+    var basePath = "/products/night/nerissaP/";
+    return createProductJSON(sku, basePath, nrsaPData, sd_sizing_top, createCWImageFactory);
 }
 
 function createOpheliaDressJSON() {

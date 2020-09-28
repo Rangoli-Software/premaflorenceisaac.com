@@ -1,3 +1,5 @@
+const nkdtformatter = new Intl.DateTimeFormat('en-US',{month: 'long', year: 'numeric'});
+
 const moods = {
     title: "Moods",
     url: "/look.html?t=m",
