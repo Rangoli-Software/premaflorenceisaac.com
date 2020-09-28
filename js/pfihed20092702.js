@@ -810,7 +810,7 @@ function createSideslitDressJSON() {
 }
 
 function createTankTopJSON() {
-    var sku = "TNKTPS1805Kh";
+    var sku = "TNKTPS1902Kh";
     var basePath = "/products/happyeveryday/tnktp/";
     return createProductJSON(sku, basePath, ttData, hed_sizing_top, createCWImageFactory);
 }
@@ -972,7 +972,7 @@ const hed_sizing_pant = {
 }
 
 const hed_lookbook = {
-    styles: ['WNDRPA1709Kh', 'DRAWPA1609Kh', 'BERMPA1609Kh', 'CRPTOP1805Kh', 'TNKTPS1805Kh', 'VAMPAL1708Kh', 'TRPZTP1807Kh', 'LTSDSL1501Kh', 'LITLAY1708Vo', 'OVTPLO1501Vo', 'OVTPSH1501Vo', 'BALLPA1501Vo'],
+    styles: ['WNDRPA1709Kh', 'DRAWPA1609Kh', 'BERMPA1609Kh', 'CRPTOP1805Kh', 'TNKTPS1902Kh', 'VAMPAL1708Kh', 'TRPZTP1807Kh', 'LTSDSL1501Kh', 'LITLAY1708Vo', 'OVTPLO1501Vo', 'OVTPSH1501Vo', 'BALLPA1501Vo'],
     looks: [
         {
             title: '1.1',
@@ -1027,7 +1027,7 @@ const hed_lookbook = {
         {
             title: '8',
             idxsfx: '12',
-            styles: ['TNKTPS1805Kh', 'BERMPA1609Kh']
+            styles: ['TNKTPS1902Kh', 'BERMPA1609Kh']
         },
         {
             title: '9',
@@ -1113,7 +1113,7 @@ const hed_lookbook = {
                     look: '5',
                     styles: ['BERMPA1609Kh']
                 }];
-            case 'TNKTPS1805Kh':
+            case 'TNKTPS1902Kh':
                 return [{
                     look: '8',
                     styles: ['BERMPA1609Kh']
@@ -1165,8 +1165,8 @@ const hed_lookbook = {
 };
 
 const hed_catalog = {
-    skus: ['WNDRPA1709Kh', 'DRAWPA1609Kh', 'BERMPA1609Kh', 'BALLPA1501Vo', 'CRPTOP1805Kh', 'TNKTPS1805Kh', 'TRPZTP1807Kh', 'OVTPLO1501Vo', 'OVTPSH1501Vo', 'VAMPAL1708Kh', 'LTSDSL1501Kh', 'LITLAY1708Vo'],
-    tops: ['CRPTOP1805Kh', 'TNKTPS1805Kh', 'VAMPAL1708Kh', 'TRPZTP1807Kh'],
+    skus: ['WNDRPA1709Kh', 'DRAWPA1609Kh', 'BERMPA1609Kh', 'BALLPA1501Vo', 'CRPTOP1805Kh', 'TNKTPS1902Kh', 'TRPZTP1807Kh', 'OVTPLO1501Vo', 'OVTPSH1501Vo', 'VAMPAL1708Kh', 'LTSDSL1501Kh', 'LITLAY1708Vo'],
+    tops: ['CRPTOP1805Kh', 'TNKTPS1902Kh', 'VAMPAL1708Kh', 'TRPZTP1807Kh'],
     overtops: ['OVTPLO1501Vo', 'OVTPSH1501Vo'],
     dresses: ['LTSDSL1501Kh', 'LITLAY1708Vo'],
     pants: ['WNDRPA1709Kh', 'DRAWPA1609Kh', 'BERMPA1609Kh', 'BALLPA1501Vo'],
@@ -1227,7 +1227,7 @@ const hed_catalog = {
             lede: ''
         },
         {
-            sku: 'TNKTPS1805Kh',
+            sku: 'TNKTPS1902Kh',
             title: 'Bougainvillea Top',
             url: "/products/happyeveryday/tanktop.html",
             lede: ''
