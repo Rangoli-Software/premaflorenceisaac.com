@@ -69,6 +69,9 @@ const varPLData = {
     },
     NKSHMU1501PP: {
         CW1: 13650
+    },
+    NKSHDR1501Ta: {
+        CW1: 17550
     }
 }
 
@@ -86,7 +89,7 @@ const plData = [
 ['NKSHMI1501PP',9150],
 ['NKSHMD1501PP',12625],
 ['NKSHMU1501PP',10150],
-['NKSHDR1501Ta',9500],
+['NKSHDR1501Ta',13500],
 ['LOTSDR1501Ja',31000],
 
 
