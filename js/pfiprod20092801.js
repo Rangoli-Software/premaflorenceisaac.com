@@ -363,7 +363,7 @@ function createColourCategories(product, data, factory) {
             return items.base.length == 0;
         },
         unfiltered: function () {
-            return createUniqueItemList(this.factory.listData, this.product, this.factory);
+            return createUniqueItemList(this.factory.listData, this.product, this.factory).sortOnHue();
         },
         filterOnCategory: function (vidx) {
             var list = createUniqueItemList(this.factory.listData, this.product, this.factory);
