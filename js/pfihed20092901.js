@@ -7,9 +7,9 @@ function createHEDRelatedViewer(skuInfo, looks, catalog) {
     var res = [];
     for (var i = 0; i < related.length; i++) {
         var lk = related[i].look;
-        var st = (related[i].styles === undefined) 
-        ? looks.getLookFromTitle(lk).styles 
-        :   related[i].styles;
+        var st = (related[i].styles === undefined) ?
+            looks.getLookFromTitle(lk).styles :
+            related[i].styles;
         var lkImg = looks.getImagePath(lk);
         res.push(createRelatedLookCard(skuInfo.SKU, lkImg, lk, st, catalog));
     }
@@ -24,14 +24,10 @@ function createHEDComponentFactory(prodInfo, dimensioner, sizer, looks, categori
 }
 
 const ballData = {
-    imageFile: "sizing.jpg",
-    dimensionNames: ["A. Length", "B. Waist", "C. Hem"],
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Waist Elastic', 'C. Hips', 'D. Crotch', 'E. Hem'],
     dimensionsCm: {
-        Free: [
-            90,
-            30,
-            10
-        ]
+        Free: [90, 30, 152, 68, 10]
     },
     getFabric: function (varidx) {
         return "Voile";
@@ -68,37 +64,13 @@ const ballData = {
 };
 
 const brmdaData = {
-    imageFile: "sizing.jpg",
-    dimensionNames: ["A. Length", "B. Waist", "C. Hip", "D. Crotch", "E. Hem"],
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Waist', 'C. Hips', 'D. Crotch', 'E. Hem'],
     dimensionsCm: {
-        S: [
-            75,
-            70,
-            104,
-            60,
-            50
-        ],
-        M: [
-            77,
-            74,
-            110,
-            62,
-            52
-        ],
-        L: [
-            79,
-            78,
-            116,
-            63,
-            54
-        ],
-        XL: [
-            81,
-            82,
-            122,
-            65,
-            56
-        ]
+        S: [75, 70, 107, 60, 50],
+        M: [77, 74, 110, 62, 52],
+        L: [79, 78, 112, 63, 54],
+        XL: [81, 82, 115, 65, 56]
     },
     getFabric: function (varidx) {
         return "Khadi";
@@ -123,29 +95,13 @@ const brmdaData = {
 };
 
 const crptpData = {
-    imageFile: "sizing.jpg",
-    dimensionNames: ["A. Length", "B. Bust", "C. Armhole"],
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Hem'],
     dimensionsCm: {
-        S: [
-            39,
-            88,
-            48
-        ],
-        M: [
-            41,
-            92,
-            50
-        ],
-        L: [
-            43,
-            96,
-            52
-        ],
-        XL: [
-            45,
-            100,
-            54
-        ]
+        S: [39, 26, 92, 48, 90],
+        M: [41, 28, 96, 50, 94],
+        L: [43, 30, 100, 52, 98],
+        XL: [45, 32, 104, 54, 100]
     },
     getFabric: function (varidx) {
         if (varidx == 3) {
@@ -185,37 +141,13 @@ const crptpData = {
 };
 
 const drwstData = {
-    imageFile: "sizing.jpg",
-    dimensionNames: ["A. Length", "B. Waist", "C. Hips", "D. Crotch", "E. Hem"],
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Waist', 'C. Hips', 'D. Crotch', 'E. Hem'],
     dimensionsCm: {
-        S: [
-            99,
-            100,
-            104,
-            60,
-            54
-        ],
-        M: [
-            100,
-            104,
-            110,
-            62,
-            56
-        ],
-        L: [
-            101,
-            108,
-            116,
-            63,
-            58
-        ],
-        XL: [
-            102,
-            112,
-            122,
-            65,
-            60
-        ]
+        S: [99, 100, 100, 60, 54],
+        M: [100, 104, 104, 62, 56],
+        L: [101, 108, 108, 64, 58],
+        XL: [102, 112, 112, 67, 60]
     },
     getFabric: function (varidx) {
         return "Khadi";
@@ -240,7 +172,7 @@ const drwstData = {
 };
 
 const jodhData = {
-    imageFile: "sizing.jpg",
+    imageFile: "sizing1.jpg",
     dimensionNames: ["A. Length", "B. Waist", "C. Hip", "D. Crotch", "E. Hem"],
     dimensionsCm: {
         S: [
@@ -296,33 +228,13 @@ const jodhData = {
 };
 
 const llyrData = {
-    imageFile: "sizing.jpg",
-    dimensionNames: ["A. Length", "B. Bust", "C. Armhole", "D. Slit"],
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Slit'],
     dimensionsCm: {
-        S: [
-            129,
-            84,
-            53,
-            57
-        ],
-        M: [
-            130,
-            98,
-            55,
-            58
-        ],
-        L: [
-            131,
-            102,
-            57,
-            59
-        ],
-        XL: [
-            132,
-            106,
-            59,
-            60
-        ]
+        S: [129, 26, 94, 53, 57],
+        M: [130, 28, 98, 55, 58],
+        L: [131, 30, 102, 57, 59],
+        XL: [132, 32, 106, 59, 60]
     },
     getFabric: function (varidx) {
         return "Voile";
@@ -353,16 +265,10 @@ const llyrData = {
 };
 
 const lilyData = {
-    imageFile: "sizing.jpg",
-    dimensionNames: ["A. Length", "B. Waist", "C. Hips", "D. Crotch", "E. Hem"],
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Waist Elastic', 'C. Hips', 'D. Crotch', 'E. Hem'],
     dimensionsCm: {
-        Free: [
-            84,
-            64,
-            140,
-            90,
-            86
-        ]
+        Free: [84, 64, 140, 92, 85]
     },
     getFabric: function (varidx) {
         return "Khadi";
@@ -387,41 +293,13 @@ const lilyData = {
 };
 
 const lovrData = {
-    imageFile: "sizing.jpg",
-    dimensionNames: ["A. Length", "B. Back Bust", "C. Shoulder", "D. Armhole", "E. Sleeve Length", "F. Sleeve Hem"],
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Bicep', 'F. Sleeve Length', 'G. Sleeve Hem'],
     dimensionsCm: {
-        S: [
-            103,
-            47,
-            39,
-            48,
-            46,
-            30
-        ],
-        M: [
-            104,
-            49,
-            41,
-            50,
-            49,
-            32
-        ],
-        L: [
-            105,
-            51,
-            43,
-            52,
-            51,
-            34
-        ],
-        XL: [
-            106,
-            53,
-            45,
-            54,
-            53,
-            36
-        ]
+        S: [103, 39, 92, 47, 37, 46, 31],
+        M: [104, 41, 96, 49, 38.5, 47, 32],
+        L: [105, 43, 100, 52, 40, 48, 34],
+        XL: [106, 45, 104, 55, 43, 49, 36]
     },
     getFabric: function (varidx) {
         if (varidx == 3) {
@@ -462,33 +340,13 @@ const lovrData = {
 };
 
 const shldData = {
-    imageFile: "sizing.jpg",
-    dimensionNames: ["A. Length", "B. Armhole", "C. Bust", "D. Elastic"],
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Bust', 'C. Armhole'],
     dimensionsCm: {
-        S: [
-            117,
-            54,
-            94,
-            20
-        ],
-        M: [
-            118,
-            56,
-            98,
-            21
-        ],
-        L: [
-            119,
-            58,
-            102,
-            22
-        ],
-        XL: [
-            120,
-            60,
-            106,
-            23
-        ]
+        S: [117, 94, 51],
+        M: [119, 98, 54],
+        L: [121, 104, 57],
+        XL: [123, 110, 60]
     },
     getFabric: function (varidx) {
         return "Voile";
@@ -515,49 +373,17 @@ const shldData = {
     ],
     sizes: ['S', 'M', 'L', 'XL'],
     description: 'A tunic or summer dress from our \'Happy Everyday\' collection featuring an A-line cut, V neck with delicate shoulder straps and side pockets. Elastic in the back and drawstring in the front allows the dress flatter a variety of sizes and shapes. The dress is cut in 100% cotton voile to keep it light and breezy in summers. The electric blue will make you stand out in the daytime and evening mood. The dress can also be worn as a long tunic, with trousers or straight fit pants underneath.',
-    garmentDetails: '<li>V neck</li><li>Shoulder straps</li><li>A-line with a straight hem</li><li>Drawstring fastening in the front</li><li>Elastic in the back</li><li>Slips on</li>'    
+    garmentDetails: '<li>V neck</li><li>Shoulder straps</li><li>A-line with a straight hem</li><li>Drawstring fastening in the front</li><li>Elastic in the back</li><li>Slips on</li>'
 };
 
 const sovrData = {
-    imageFile: "sizing.jpg",
-    dimensionNames: ["A. Front Length", "B. Back Length", "C. Back Bust", "D. Shoulder", "E. Armhole", "F. Sleeve Length", "G. Sleeve Hem"],
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Back Bust', 'D. Armhole', 'E. Bicep', 'F. Sleeve Length', 'G. Sleeve Hem'],
     dimensionsCm: {
-        S: [
-            63,
-            39,
-            51,
-            41,
-            48,
-            49,
-            28
-        ],
-        M: [
-            65,
-            41,
-            53,
-            43,
-            50,
-            51,
-            30
-        ],
-        L: [
-            67,
-            43,
-            55,
-            45,
-            52,
-            53,
-            32
-        ],
-        XL: [
-            69,
-            45,
-            57,
-            47,
-            54,
-            55,
-            34
-        ],
+        S: [64, 41, 51, 48, 37, 49, 28],
+        M: [65, 43, 53, 50, 38.5, 51, 30],
+        L: [66, 45, 55, 53, 40, 53, 32],
+        XL: [67, 47, 57, 55, 43, 55, 34]
     },
     getFabric: function (varidx) {
         if (varidx == 3) {
@@ -597,33 +423,13 @@ const sovrData = {
 };
 
 const ssltData = {
-    imageFile: "sizing.jpg",
-    dimensionNames: ["A. Length", "B. Shoulder", "C. Bust", "D. Armhole"],
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Slit'],
     dimensionsCm: {
-        S: [
-            97,
-            27,
-            94,
-            45
-        ],
-        M: [
-            99,
-            29,
-            98,
-            47
-        ],
-        L: [
-            101,
-            31,
-            102,
-            49
-        ],
-        XL: [
-            103,
-            33,
-            106,
-            51
-        ]
+        S: [97, 27, 94, 45, 58],
+        M: [99, 29, 98, 47, 59],
+        L: [101, 31, 102, 49, 60],
+        XL: [103, 33, 106, 51, 61]
     },
     getFabric: function (varidx) {
         return "Khadi";
@@ -648,41 +454,13 @@ const ssltData = {
 };
 
 const ttData = {
-    imageFile: "sizing.jpg",
-    dimensionNames: ["A. Length", "B. Shoulder", "C. Bust", "D. Armhole", "E. Hem", "F. Elastic"],
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Hem'],
     dimensionsCm: {
-        S: [
-            55,
-            26,
-            88,
-            48,
-            94,
-            20
-        ],
-        M: [
-            57,
-            28,
-            92,
-            50,
-            96,
-            22
-        ],
-        L: [
-            59,
-            30,
-            96,
-            52,
-            98,
-            25
-        ],
-        XL: [
-            61,
-            32,
-            100,
-            54,
-            100,
-            27
-        ]
+        S: [55, 26, 92, 48, 94],
+        M: [57, 28, 96, 50, 96],
+        L.: [59, 30, 100, 52, 98],
+        XL: [61, 32, 104, 54, 100]
     },
     getFabric: function (varidx) {
         return "Khadi";
@@ -707,22 +485,13 @@ const ttData = {
 };
 
 const wngsData = {
-    imageFile: "sizing.jpg",
-    dimensionNames: ["A. Length", "B. Shoulder", "C. Bust", "D. Armhole", "E. Hem"],
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Hem'],
     dimensionsCm: {
-        Free: [
-            72,
-            34,
-            104,
-            52,
-            274
-        ]
+        Free: [72, 34, 104, 52, 274]
     },
     getFabric: function (varidx) {
-        if (varidx == 3) {
-            return "Khadi";
-        }
-        return "Voile";
+        return "Khadi";
     },
     data: [
         {
