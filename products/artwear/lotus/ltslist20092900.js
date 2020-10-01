@@ -68,7 +68,7 @@ function createLotusFactory(base, listData, varPL) {
     };
 }
 
-function getTamaraiFactory(sku) {
+function getLotusFactory(sku) {
 var listData = [
 [1, ['1F', '1B'], '#6E4C5B', 'Ferra', null],
 [2, ['2F', '2B'], '#B24958', 'Hippie Pink', null],
@@ -79,5 +79,5 @@ var listData = [
 ];
     var varPL = varPLData[sku];
 
-    return createTamaraiFactory('/products/artwear/lotus/', listData, varPL);
+    return createLotusFactory('/products/artwear/lotus/', listData, varPL);
 }
