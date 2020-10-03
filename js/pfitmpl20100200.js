@@ -876,6 +876,72 @@ function getTabContent(content, id, isActive) {
         + '</div>';
 }
 
+
+function createTabber(titles, ids, contents, vals, key, defaultVal, blacklister) {
+    return {
+        titles: titles,
+        ids: ids,
+        contents: contents,
+        vals: vals,
+        key: key,
+        defaultVal: defaultVal,
+        blacklister: blacklister,
+        toId: function(val){
+            var i = this.vals.indexOf(val);
+            return this.ids[i];
+        },
+        toVal(id){
+            var i = this.ids.indexOf(id);
+            return this.vals[i];
+        },
+        updateURL: function (oldId, newId) {
+            if (oldId !== newId) {
+                modifyUrl(this.key, this.toVal(newId));
+            }
+        },
+        createTabStrip: function() {
+            var res = "";
+            var urlVal = getUrlVars()[this.key];
+            for ( var i = 0; i < this.ids.length; i++ ) {
+                var isActive = (urlVal == this.vals[i]);
+                isActive = isActive || (this.vals[i] == this.defaultVal ? urlVal === undefined : false);
+                res += getTabItem(this.titles[i], this.ids[i], isActive);
+            } 
+            return res;
+        },
+        createTabContents: function() {
+            var res = "";
+            var urlVal = getUrlVars()[this.key];
+            for ( var i = 0; i < this.ids.length; i++ ) {
+                var isActive = (urlVal == this.vals[i]);
+                isActive = isActive || (this.vals[i] == this.defaultVal ? urlVal === undefined : false);
+                res += getTabContent(this.contents[i], this.ids[i], isActive);
+            } 
+            return res;
+        },
+        getBlacklist: function() {
+            if ( this.blacklister === undefined || this.blacklister === null) {
+                return [];
+            }
+            var res = [];
+            for ( var i = 0; i < this.ids.length; i++ ) {
+                res = res.concat(this.blacklister.getBlacklist(this.ids[i]));
+            }
+            return res;
+        },
+        enableDocumentReady: function() {
+            var that = this;
+            $(document).ready(function(){
+                $("a[data-toggle=\"tab\"]").on('shown.bs.tab', function(e){
+                    var newId = $(e.target).attr("href").slice(1);
+                    var oldId = $(e.relatedTarget).attr("href").slice(1);
+                    that.updateURL(oldId, newId);
+                })
+            });
+        }
+    };
+}
+
 function createFeatureItemCard(item, section) {
     var res = '<div class="card mb-2">';
     if ( item.imageURL !== undefined) {

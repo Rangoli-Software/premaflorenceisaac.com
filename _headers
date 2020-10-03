@@ -64,9 +64,6 @@
 /look/ramp/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
-/naksha/*.jpg
-	Cache-Control: public, max-age=31536000,  immutable
-
 /people/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
@@ -80,6 +77,21 @@
 	Cache-Control: public, max-age=31536000,  immutable
 
 /products/anotherway/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/artwear/skirts/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/artwear/skirts/mc/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/artwear/skirts/md/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/artwear/skirts/mi/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/artwear/skirts/mu/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
 /products/happyeveryday/*.jpg
@@ -143,6 +155,27 @@
 	Cache-Control: public, max-age=31536000,  immutable
 
 /products/itsmagic/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/men/angkor/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/men/arambol/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/men/koh/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/men/mavericks/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/men/narigama/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/men/pondy/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/men/ubud/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
 /products/movein/*.jpg
