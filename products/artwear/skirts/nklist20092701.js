@@ -133,7 +133,7 @@ function getNakshaMinuitFactory(base, varPL) {
 [9, ['9.6', '9a.6'], '#C97983', 'Old Rose', null],
 [10, ['10.6', '10a.6'], '#CAF1F5', '', null, 'CW1'],
 [11, ['11', '11a'], '#6BB3C1', 'Tradewind', null, 'CW1'],
-[12, ['12', '12a'], '#B09690', 'Del Rio', null, 'CW1'],
+[12, ['12', '12a'], '#B09690', 'Del Rio', {Name: 'Marieke', Date: '2020-10'}, 'CW1'],
 ];
     return createNakshaFactory(base + 'mu/', listData, varPL);
 }
