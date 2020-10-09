@@ -58,7 +58,7 @@ const sd_sizing_top = {
 }
 
 const bncaData = {
-    imageFile: "sizing.jpg",
+    imageFile: "sizing1.jpg",
     dimensionNames: ["A. Length", "B. Back Bust", "C. Shoulder", "D. Armhole", "E. Sleeve Length", "F. Sleeve Hem"],
     dimensionsCm: {
         S: [
@@ -112,7 +112,7 @@ const bncaData = {
 };
 
 const celaData = {
-    imageFile: "sizing.jpg",
+    imageFile: "sizing1.jpg",
     dimensionNames: ["A. Length", "B. Back Bust", "C. Shoulder", "D. Armhole", "E. Sleeve Length", "F. Sleeve Hem"],
     dimensionsCm: {
         S: [
@@ -165,7 +165,7 @@ const celaData = {
 };
 
 const cleoTData = {
-    imageFile: "sizing.jpg",
+    imageFile: "sizing1.jpg",
     dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole'],
     dimensionsCm: {
         S: [46, 30, 45, 43],
@@ -191,7 +191,7 @@ const cleoTData = {
 };
 
 const cleoSData = {
-    imageFile: "sizing.jpg",
+    imageFile: "sizing1.jpg",
     dimensionNames: ['A. Length', 'B. Waist', 'C. Hips', 'D. Crotch', 'E. Hem'],
     dimensionsCm: {
         S: [35, 76, 106, 58, 59],
@@ -216,7 +216,7 @@ const cleoSData = {
 };
 
 const emlaData = {
-    imageFile: "sizing.jpg",
+    imageFile: "sizing1.jpg",
     dimensionNames: ['A. Length', 'B. Bust', 'C. Armhole', 'D. Sleeve Width', 'E. Sleeve Hem', 'F. Sleeve Length'],
     dimensionsCm: {
         S: [105, 47, 43, 34, 26, 33],
@@ -242,7 +242,7 @@ const emlaData = {
 };
 
 const hlnaData = {
-    imageFile: "sizing.jpg",
+    imageFile: "sizing1.jpg",
     dimensionNames: ['A. Back Length', 'B. Front Length', 'C. Shoulders', 'D. Bust', 'E. Armhole', 'F. Hem'],
     dimensionsCm: {
         S: [131, 76, 28, 44, 40, 360],
@@ -267,7 +267,7 @@ const hlnaData = {
 };
 
 const jlitData = {
-    imageFile: "sizing.jpg",
+    imageFile: "sizing1.jpg",
     dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Sleeve Hem', 'F. Sleeve Length'],
     dimensionsCm: {
         S: [110, 35, 47, 42, 30, 10],
@@ -292,7 +292,7 @@ const jlitData = {
 };
 
 const nrsaTData = {
-    imageFile: "sizing.jpg",
+    imageFile: "sizing1.jpg",
     dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Hem'],
     dimensionsCm: {
         S: [37, 31, 45, 43, 90],
@@ -317,7 +317,7 @@ const nrsaTData = {
 };
 
 const nrsaPData = {
-    imageFile: "sizing.jpg",
+    imageFile: "sizing1.jpg",
     dimensionNames: ['A. Length', 'B. Waist', 'C. Hips', 'D. Crotch', 'E. Hem'],
     dimensionsCm: {
         S: [102, 76, 98, 61, 40],
@@ -342,7 +342,7 @@ const nrsaPData = {
 };
 
 const ophlData = {
-    imageFile: "sizing.jpg",
+    imageFile: "sizing1.jpg",
     dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole'],
     dimensionsCm: {
         S: [96, 20, 45, 60],
@@ -367,7 +367,7 @@ const ophlData = {
 };
 
 const prtaData = {
-    imageFile: "sizing.jpg",
+    imageFile: "sizing1.jpg",
     dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Hem', 'Back Zip'],
     dimensionsCm: {
         S: [51, 21, 45, 43, 94, 28],
@@ -393,7 +393,7 @@ const prtaData = {
 };
 
 const tmraData = {
-    imageFile: "sizing.jpg",
+    imageFile: "sizing1.jpg",
     dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Hem'],
     dimensionsCm: {
         S: [130, 32, 82, 45, 196],
@@ -418,7 +418,7 @@ const tmraData = {
 };
 
 const ttnaData = {
-    imageFile: "sizing.jpg",
+    imageFile: "sizing1.jpg",
     dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole'],
     dimensionsCm: {
         S: [46, 30, 45, 43],
