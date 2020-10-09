@@ -720,6 +720,7 @@ const sd_catalog = {
     //    pants: ['NRSPNT1505PT'],
     culottes: ['CLPTRS1505PT'],
     skirts: ['NKSHMI1501PT'],
+    nondresses: ['CLPTRT1505PT','CLPTRS1505PT','PRTATP1505PT','NKSHMI1501PT'],
     //    overtops: ['BNCJKT1505PT'],
     getCategory: function (sku) {
         if (this.dresses.includes(sku)) {
