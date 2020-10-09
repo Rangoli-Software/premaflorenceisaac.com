@@ -455,7 +455,7 @@ function createBiancaJacketJSON() {
 }
 
 function createCeliaSkirtJSON() {
-    var sku = "NKSHMD1501PT";
+    var sku = "NKSHMI1501PT";
     var basePath = "/products/night/celia/";
     return createProductJSON(sku, basePath, celaData, sd_sizing_top, createCWImageFactory);
 }
