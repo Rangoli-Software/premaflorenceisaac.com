@@ -400,6 +400,10 @@ const shop = {
     url: "/shop.html",
     sub: [
         {
+            title: "Ce Soir",
+            url: "/products/night/shop.html"
+        },
+        {
             title: "Vagabond",
             url: "/products/men/shop.html"
         },
