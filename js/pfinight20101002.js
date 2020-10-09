@@ -1,11 +1,54 @@
 function createSDComponentFactory(prodInfo, dimensioner, sizer, categorizer) {
     var navHelper = createNavHelper(prodInfo, categorizer, 'Formals');
     var relatedviewer = createEmptyViewer();
-    var modelTxt = "The model is 5 ft 7 in (171 cm.) and wearing size '" + prodInfo.skuInfo.sizes[0] + "'";
+    var modelTxt = "The model is 5 ft 7 in (171 cm.) and wearing size '" + prodInfo.skuInfo.sizes[0] + "'<br>This garment is bespoke-tailored (made to measure, sur-mesure), so the sizes in the chart are only the starting point for your order";
     return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, modelTxt);
 }
 
-const sd_sizing_top = {
+const sd_sizing_tops = {
+    sizeGeo: ["US", "UK", "EU", "IT", "GR", "JP", "RU"],
+    capGeo: ["US", "UK / AU / NZ", "EU / FR", "IT", "DE", "JP", "RU"],
+    chart: {
+        S: {
+            US: [6, 8],
+            UK: [10, 12],
+            EU: [38, 40],
+            IT: [42, 44],
+            DE: [36, 38],
+            JP: [11, 13],
+            RU: [44, 46]
+        },
+        M: {
+            US: [8, 10],
+            UK: [12, 14],
+            EU: [40, 42],
+            IT: [44, 46],
+            DE: [38, 40],
+            JP: [13, 15],
+            RU: [46, 48]
+        },
+        L: {
+            US: [10, 10],
+            UK: [14, 14],
+            EU: [42, 42],
+            IT: [46, 46],
+            DE: [40, 40],
+            JP: [15, 15],
+            RU: [48, 48]
+        },
+        XL: {
+            US: [10, 12],
+            UK: [14, 16],
+            EU: [42, 44],
+            IT: [46, 48],
+            DE: [40, 42],
+            JP: [15, 17],
+            RU: [48, 50]
+        },
+    }
+}
+
+const sd_sizing_bottoms = {
     sizeGeo: ["US", "UK", "EU", "IT", "GR", "JP", "RU"],
     capGeo: ["US", "UK / AU / NZ", "EU / FR", "IT", "DE", "JP", "RU"],
     chart: {
@@ -14,45 +57,140 @@ const sd_sizing_top = {
             UK: [12, 14],
             EU: [40, 42],
             IT: [44, 46],
-            GR: [38, 40],
+            DE: [38, 40],
             JP: [13, 15],
             RU: [46, 48]
         },
         M: {
+            US: [10, 10],
+            UK: [14, 14],
+            EU: [42, 42],
+            IT: [46, 46],
+            DE: [40, 40],
+            JP: [15, 15],
+            RU: [48, 48]
+        },
+        L: {
             US: [10, 12],
             UK: [14, 16],
             EU: [42, 44],
             IT: [46, 48],
-            GR: [40, 42],
+            DE: [40, 42],
             JP: [15, 17],
             RU: [48, 50]
         },
-        L: {
+        XL: {
             US: [12, 14],
             UK: [16, 18],
             EU: [44, 46],
             IT: [48, 50],
-            GR: [42, 44],
-            JP: [17, 19],
+            DE: [42, 44],
+            JP: [17, 18],
             RU: [50, 52]
         },
+        Free: {
+            US: [6, 14],
+            UK: [10, 18],
+            EU: [38, 46],
+            IT: [42, 50],
+            DE: [36, 44],
+            JP: [11, 19],
+            RU: [44, 52]
+        }
+    }
+}
+
+const sd_sizing_dresses = {
+    sizeGeo: ["US", "UK", "EU", "IT", "GR", "JP", "RU"],
+    capGeo: ["US", "UK / AU / NZ", "EU / FR", "IT", "DE", "JP", "RU"],
+    chart: {
+        S: {
+            US: [6, 8],
+            UK: [10, 12],
+            EU: [38, 40],
+            IT: [42, 44],
+            DE: [36, 38],
+            JP: [11, 13],
+            RU: [44, 46]
+        },
+        M: {
+            US: [8, 10],
+            UK: [12, 14],
+            EU: [40, 42],
+            IT: [44, 46],
+            DE: [38, 40],
+            JP: [13, 15],
+            RU: [46, 48]
+        },
+        L: {
+            US: [10, 10],
+            UK: [14, 14],
+            EU: [42, 42],
+            IT: [46, 46],
+            DE: [40, 40],
+            JP: [15, 15],
+            RU: [48, 48]
+        },
         XL: {
-            US: [14, 16],
-            UK: [18, 20],
-            EU: [46, 48],
-            IT: [50, 52],
-            GR: [44, 46],
-            JP: [19, 21],
-            RU: [52, 54]
+            US: [10, 12],
+            UK: [14, 16],
+            EU: [42, 44],
+            IT: [46, 48],
+            DE: [40, 42],
+            JP: [15, 17],
+            RU: [48, 50]
+        }
+    }
+}
+
+const sd_sizing_jersey_dresses = {
+    sizeGeo: ["US", "UK", "EU", "IT", "GR", "JP", "RU"],
+    capGeo: ["US", "UK / AU / NZ", "EU / FR", "IT", "DE", "JP", "RU"],
+    chart: {
+        S: {
+            US: [4, 4],
+            UK: [8, 8],
+            EU: [36, 36],
+            IT: [40, 40],
+            DE: [34, 34],
+            JP: [9, 9],
+            RU: [42, 42]
+        },
+        M: {
+            US: [4, 6],
+            UK: [8, 10],
+            EU: [36, 38],
+            IT: [40, 42],
+            DE: [34, 36],
+            JP: [9, 11],
+            RU: [42, 44]
+        },
+        L: {
+            US: [6, 8],
+            UK: [10, 12],
+            EU: [38, 40],
+            IT: [42, 44],
+            DE: [36, 38],
+            JP: [11, 13],
+            RU: [44, 46]
+        },
+        XL: {
+            US: [8, 10],
+            UK: [12, 14],
+            EU: [40, 42],
+            IT: [44, 46],
+            DE: [38, 40],
+            JP: [13, 15],
+            RU: [46, 48]
         },
         Free: {
-            US: [2, 12],
-            UK: [6, 16],
-            EU: [34, 44],
-            IT: [38, 48],
-            GR: [32, 42],
-            JP: [7, 17],
-            RU: [40, 50]
+            US: [4, 8],
+            UK: [8, 12],
+            EU: [40, 44],
+            IT: [44, 48],
+            DE: [38, 42],
+            JP: [13, 17],
+            RU: [46, 50]
         }
     }
 }
@@ -114,40 +252,7 @@ const bncaData = {
 const celaData = {
     imageFile: "sizing1.jpg",
     dimensionNames: ["A. Length", "B. Back Bust", "C. Shoulder", "D. Armhole", "E. Sleeve Length", "F. Sleeve Hem"],
-    dimensionsCm: {
-        S: [
-            103,
-            47,
-            39,
-            48,
-            46,
-            30
-        ],
-        M: [
-            104,
-            49,
-            41,
-            50,
-            49,
-            32
-        ],
-        L: [
-            105,
-            51,
-            43,
-            52,
-            51,
-            34
-        ],
-        XL: [
-            106,
-            53,
-            45,
-            54,
-            53,
-            36
-        ]
-    },
+    dimensionsCm: {},
     getFabric: function (varidx) {
         return "P.F.I. Tangail / Voile";
     },
@@ -159,7 +264,7 @@ const celaData = {
             colourSfxs: ["hero", "front", "side"]
         }
     ],
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['Free'],
     description: 'Celia Skirt is one of our favourite silhouettes. It\'s cut in the finest cotton P.F.I. Tangail. This exquisite cotton is often mistaken as silk by my clients. It has an incredible volume to play around in and is freesize! The waist band is made up of 9 rows of elastic. Because of the need for care while working with the delicate Tangail fabric, it can take a skilled tailor almost a full day of work to create this waistband. The result is a freesize waist with a snug, comfortable fit. It can work from day to night and it\'s groovy flare will have you swirling all day. Pair it with our Portia Top to take it up a notch or wear a basic t-shirt to keep it subtle.',
     garmentDetails: '<li>Freesize - Broad elastic at the waist</li><li>P.F.I. Tangail</li><li>Midi length</li><li>A line with voluminous flare</li>'
 };
@@ -437,93 +542,124 @@ const ttnaData = {
             colourSfxs: ["hero", "back", "side"]
         }
     ],
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['Free'],
     description: 'A superior quality jersey is used to drape this little black dress that will hug and flatter every shape. The jersey is gathered in the centre front and back and descends at the sideseam. The shoulder straps in black and silver silk P.F.I. Tangail can be worn on either sides or on the same side to make it an off-shoulder dress. ',
     garmentDetails: '<li>Draped dress</li><li>V neck</li><li>Sleeveless</li><li>P.F.I. Tangail border at the neckline</li>'
+};
+
+const violData = {
+    imageFile: "sizing.jpg",
+    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole'],
+    dimensionsCm: {
+        S: [98, 29, 90, 44],
+        M: [100, 31, 94, 46],
+        L: [102, 33, 98, 48],
+        XL: [104, 35, 102, 50]
+    },
+    getFabric: function (varidx) {
+        return "P.F.I. Tangail / Voile";
+    },
+    data: [
+        {
+            colourName: "Black &amp; Silver",
+            vid: "CW1",
+            colourPfx: 'bl',
+            colourSfxs: ["hero", "back", "side"]
+        }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    description: 'The round neck, sleeveless Viola Dress is cut in striped P.F.I. Tangail and blocked with black and silver silk P.F.I. Tangail borders. The fineness of the cotton P.F.I. Tangail is often mistaken as silk by my clients. The flirtatious volume of the dress is thoughtfully cut in bias to mimic your movements and play with you. The dress is easy to slip into and it stays true to the neutral palette of black and grey with metallic silver.',
+    garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>Asymmetrical</li><li>A line with voluminous flare</li><li>Slips on</li>'
 };
 
 function createBiancaDressJSON() {
     var sku = "BNCADR1505PT";
     var basePath = "/products/night/bianca/";
-    return createProductJSON(sku, basePath, bncaData, sd_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, bncaData, null, createCWImageFactory);
 }
 
 function createBiancaJacketJSON() {
     var sku = "BNCJKT1505PT";
     var basePath = "/products/night/bianca/";
-    return createProductJSON(sku, basePath, bncaData, sd_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, bncaData, null, createCWImageFactory);
 }
 
 function createCeliaSkirtJSON() {
     var sku = "NKSHMI1501PT";
     var basePath = "/products/night/celia/";
-    return createProductJSON(sku, basePath, celaData, sd_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, celaData, sd_sizing_bottoms, createCWImageFactory);
 }
 
 function createCleopatraTopJSON() {
     var sku = "CLPTRT1505PT";
     var basePath = "/products/night/cleoT/";
-    return createProductJSON(sku, basePath, cleoTData, sd_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, cleoTData, sd_sizing_tops, createCWImageFactory);
 }
 
 function createCleopatraShortsJSON() {
     var sku = "CLPTRS1505PT";
     var basePath = "/products/night/cleoS/";
-    return createProductJSON(sku, basePath, cleoSData, sd_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, cleoSData, sd_sizing_bottoms, createCWImageFactory);
 }
 
 function createEmiliaDressJSON() {
     var sku = "EMLDRS1505PT";
     var basePath = "/products/night/emilia/";
-    return createProductJSON(sku, basePath, emlaData, sd_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, emlaData, sd_sizing_bottoms, createCWImageFactory);
 }
 
 function createHelenaDressJSON() {
     var sku = "HLNDRS1505PT";
     var basePath = "/products/night/helena/";
-    return createProductJSON(sku, basePath, hlnaData, sd_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, hlnaData, sd_sizing_tops, createCWImageFactory);
 }
 
 function createJulietDressJSON() {
     var sku = "JLTDRS1505PT";
     var basePath = "/products/night/juliet/";
-    return createProductJSON(sku, basePath, jlitData, sd_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, jlitData, sd_sizing_tops, createCWImageFactory);
 }
 
 function createNerissaTopJSON() {
     var sku = "NRSSTP1505PT";
     var basePath = "/products/night/nerissaT/";
-    return createProductJSON(sku, basePath, nrsaTData, sd_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, nrsaTData, sd_sizing_tops, createCWImageFactory);
 }
 
 function createNerissaPantJSON() {
     var sku = "NRSPNT1505PT";
     var basePath = "/products/night/nerissaP/";
-    return createProductJSON(sku, basePath, nrsaPData, sd_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, nrsaPData, sd_sizing_bottoms, createCWImageFactory);
 }
 
 function createOpheliaDressJSON() {
     var sku = "OPHLDR1505PT";
     var basePath = "/products/night/ophelia/";
-    return createProductJSON(sku, basePath, ophlData, sd_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, ophlData, sd_sizing_dresses, createCWImageFactory);
 }
 
 function createPortiaTopJSON() {
     var sku = "PRTATP1505PT";
     var basePath = "/products/night/portia/";
-    return createProductJSON(sku, basePath, prtaData, sd_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, prtaData, sd_sizing_tops, createCWImageFactory);
 }
 
 function createTamoraDressJSON() {
     var sku = "BKLLTS1505Je";
     var basePath = "/products/night/tamora/";
-    return createProductJSON(sku, basePath, tmraData, sd_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, tmraData, sd_sizing_jersey_dresses, createCWImageFactory);
 }
 
 function createTitaniaDressJSON() {
     var sku = "TTNDRS1505Je";
     var basePath = "/products/night/titania/";
-    return createProductJSON(sku, basePath, ttnaData, sd_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, ttnaData, sd_sizing_jersey_dresses, createCWImageFactory);
+}
+
+function createViolaDressJSON() {
+    var sku = "VLADRS1505PT";
+    var basePath = "/products/night/viola/";
+    return createProductJSON(sku, basePath, ttnaData, sd_sizing_dresses, createCWImageFactory);
 }
 
 function createProductDB() {
@@ -571,12 +707,15 @@ function createProductDB() {
     var entry = createTitaniaDressJSON();
     map[entry.skuInfo.SKU] = entry;
 
+    var entry = createViolaDressJSON();
+    map[entry.skuInfo.SKU] = entry;
+
     return map;
 }
 
 const sd_catalog = {
-    skus: ['BNCJKT1505PT', 'BNCADR1505PT', 'NKSHMI1501PT', 'CLPTRT1505PT', 'CLPTRS1505PT', 'EMLDRS1505PT', 'HLNDRS1505PT', 'JLTDRS1505PT', 'NRSSTP1505PT', 'NRSPNT1505PT', 'OPHLDR1505PT', 'PRTATP1505PT', 'BKLLTS1505Je', 'TTNDRS1505Je'],
-    dresses: ['EMLDRS1505PT', 'HLNDRS1505PT', 'JLTDRS1505PT', 'OPHLDR1505PT', 'BKLLTS1505Je', 'TTNDRS1505Je'],
+    skus: ['BNCJKT1505PT', 'BNCADR1505PT', 'NKSHMI1501PT', 'CLPTRT1505PT', 'CLPTRS1505PT', 'EMLDRS1505PT', 'HLNDRS1505PT', 'JLTDRS1505PT', 'NRSSTP1505PT', 'NRSPNT1505PT', 'OPHLDR1505PT', 'PRTATP1505PT', 'BKLLTS1505Je', 'TTNDRS1505Je', 'VLADRS1505PT'],
+    dresses: ['EMLDRS1505PT', 'HLNDRS1505PT', 'JLTDRS1505PT', 'OPHLDR1505PT', 'BKLLTS1505Je', 'TTNDRS1505Je', 'VLADRS1505PT'],
     tops: ['CLPTRT1505PT', 'PRTATP1505PT'],
     //    pants: ['NRSPNT1505PT'],
     culottes: ['CLPTRS1505PT'],
