@@ -260,8 +260,8 @@ const celaData = {
         {
             colourName: "Black &amp; Silver",
             vid: "CW1",
-            colourPfx: "bl",
-            colourSfxs: ["hero", "front", "side"]
+            colourPfx: "b",
+            colourSfxs: ["1", "2", "3"]
         }
     ],
     sizes: ['Free'],
@@ -285,8 +285,8 @@ const cleoTData = {
         {
             colourName: "Black &amp; Silver",
             vid: "CW1",
-            colourPfx: "bl",
-            colourSfxs: ["hero", "front", "side"]
+            colourPfx: "b",
+            colourSfxs: ["1", "2", "3"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -311,8 +311,8 @@ const cleoSData = {
         {
             colourName: "Black &amp; Silver",
             vid: "CW1",
-            colourPfx: "bl",
-            colourSfxs: ["hero", "front", "side"]
+            colourPfx: "b",
+            colourSfxs: ["1", "2", "3"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -336,8 +336,8 @@ const emlaData = {
         {
             colourName: "Black &amp; Silver",
             vid: "CW1",
-            colourPfx: "bl",
-            colourSfxs: ["hero", "side", "detail-1", "detail-2"]
+            colourPfx: "b",
+            colourSfxs: ["1", "2", "3", "4", "5"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -362,8 +362,8 @@ const hlnaData = {
         {
             colourName: "Grey &amp; Gold",
             vid: "CW1",
-            colourPfx: "gr",
-            colourSfxs: ["hero", "front", "back", "side", "detail"]
+            colourPfx: "g",
+            colourSfxs: ["1", "2", "3", "4", "5"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -387,8 +387,8 @@ const jlitData = {
         {
             colourName: "Black &amp; Silver",
             vid: "CW1",
-            colourPfx: "bl",
-            colourSfxs: ["hero", "front", "side", "detail"]
+            colourPfx: "b",
+            colourSfxs: ["1", "2", "3", "4"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -462,8 +462,8 @@ const ophlData = {
         {
             colourName: "Black &amp; Silver",
             vid: "CW1",
-            colourPfx: 'bl',
-            colourSfxs: ["hero", "front", "side", "pose"]
+            colourPfx: "b",
+            colourSfxs: ["1", "2", "3", "4"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -487,8 +487,8 @@ const prtaData = {
         {
             colourName: "Black &amp; Silver",
             vid: "CW1",
-            colourPfx: 'bl',
-            colourSfxs: ["hero", "front", "side"]
+            colourPfx: "b",
+            colourSfxs: ["1", "2", "3"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -513,8 +513,8 @@ const tmraData = {
         {
             colourName: "Black &amp; Silver",
             vid: "CW1",
-            colourPfx: 'bl',
-            colourSfxs: ["hero", "back", "side"]
+            colourPfx: "b",
+            colourSfxs: ["1", "2", "3", "4"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -538,8 +538,8 @@ const ttnaData = {
         {
             colourName: "Black &amp; Silver",
             vid: "CW1",
-            colourPfx: 'bl',
-            colourSfxs: ["hero", "back", "side"]
+            colourPfx: "b",
+            colourSfxs: ["1", "2", "3", "4"]
         }
     ],
     sizes: ['Free'],
@@ -563,8 +563,8 @@ const violData = {
         {
             colourName: "Black &amp; Silver",
             vid: "CW1",
-            colourPfx: 'bl',
-            colourSfxs: ["hero", "back", "side"]
+            colourPfx: "b",
+            colourSfxs: ["1", "2", "3", "4"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -659,7 +659,7 @@ function createTitaniaDressJSON() {
 function createViolaDressJSON() {
     var sku = "VLADRS1505PT";
     var basePath = "/products/night/viola/";
-    return createProductJSON(sku, basePath, ttnaData, sd_sizing_dresses, createCWImageFactory);
+    return createProductJSON(sku, basePath, violData, sd_sizing_dresses, createCWImageFactory);
 }
 
 function createProductDB() {
