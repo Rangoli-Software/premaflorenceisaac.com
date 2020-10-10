@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020092901";
+const shopRevisionVersion = "2020101001";
 
 const cmData = [
 ['Test Live Trans','TESTIT0000Hi','0','0','','FALSE'],
