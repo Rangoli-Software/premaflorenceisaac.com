@@ -488,7 +488,7 @@ const prtaData = {
             colourName: "Black &amp; Silver",
             vid: "CW1",
             colourPfx: "b",
-            colourSfxs: ["1", "2", "3"]
+            colourSfxs: ["2", "1", "3"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
