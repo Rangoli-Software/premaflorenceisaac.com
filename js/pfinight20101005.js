@@ -14,7 +14,7 @@ const sd_sizing_tops = {
             UK: [10, 12],
             EU: [38, 40],
             IT: [42, 44],
-            DE: [36, 38],
+            GR: [36, 38],
             JP: [11, 13],
             RU: [44, 46]
         },
@@ -23,7 +23,7 @@ const sd_sizing_tops = {
             UK: [12, 14],
             EU: [40, 42],
             IT: [44, 46],
-            DE: [38, 40],
+            GR: [38, 40],
             JP: [13, 15],
             RU: [46, 48]
         },
@@ -32,7 +32,7 @@ const sd_sizing_tops = {
             UK: [14, 14],
             EU: [42, 42],
             IT: [46, 46],
-            DE: [40, 40],
+            GR: [40, 40],
             JP: [15, 15],
             RU: [48, 48]
         },
@@ -41,10 +41,10 @@ const sd_sizing_tops = {
             UK: [14, 16],
             EU: [42, 44],
             IT: [46, 48],
-            DE: [40, 42],
+            GR: [40, 42],
             JP: [15, 17],
             RU: [48, 50]
-        },
+        }
     }
 }
 
@@ -57,7 +57,7 @@ const sd_sizing_bottoms = {
             UK: [12, 14],
             EU: [40, 42],
             IT: [44, 46],
-            DE: [38, 40],
+            GR: [38, 40],
             JP: [13, 15],
             RU: [46, 48]
         },
@@ -66,7 +66,7 @@ const sd_sizing_bottoms = {
             UK: [14, 14],
             EU: [42, 42],
             IT: [46, 46],
-            DE: [40, 40],
+            GR: [40, 40],
             JP: [15, 15],
             RU: [48, 48]
         },
@@ -75,7 +75,7 @@ const sd_sizing_bottoms = {
             UK: [14, 16],
             EU: [42, 44],
             IT: [46, 48],
-            DE: [40, 42],
+            GR: [40, 42],
             JP: [15, 17],
             RU: [48, 50]
         },
@@ -84,7 +84,7 @@ const sd_sizing_bottoms = {
             UK: [16, 18],
             EU: [44, 46],
             IT: [48, 50],
-            DE: [42, 44],
+            GR: [42, 44],
             JP: [17, 18],
             RU: [50, 52]
         },
@@ -93,7 +93,7 @@ const sd_sizing_bottoms = {
             UK: [10, 18],
             EU: [38, 46],
             IT: [42, 50],
-            DE: [36, 44],
+            GR: [36, 44],
             JP: [11, 19],
             RU: [44, 52]
         }
@@ -109,7 +109,7 @@ const sd_sizing_dresses = {
             UK: [10, 12],
             EU: [38, 40],
             IT: [42, 44],
-            DE: [36, 38],
+            GR: [36, 38],
             JP: [11, 13],
             RU: [44, 46]
         },
@@ -118,7 +118,7 @@ const sd_sizing_dresses = {
             UK: [12, 14],
             EU: [40, 42],
             IT: [44, 46],
-            DE: [38, 40],
+            GR: [38, 40],
             JP: [13, 15],
             RU: [46, 48]
         },
@@ -127,7 +127,7 @@ const sd_sizing_dresses = {
             UK: [14, 14],
             EU: [42, 42],
             IT: [46, 46],
-            DE: [40, 40],
+            GR: [40, 40],
             JP: [15, 15],
             RU: [48, 48]
         },
@@ -136,7 +136,7 @@ const sd_sizing_dresses = {
             UK: [14, 16],
             EU: [42, 44],
             IT: [46, 48],
-            DE: [40, 42],
+            GR: [40, 42],
             JP: [15, 17],
             RU: [48, 50]
         }
@@ -152,7 +152,7 @@ const sd_sizing_jersey_dresses = {
             UK: [8, 8],
             EU: [36, 36],
             IT: [40, 40],
-            DE: [34, 34],
+            GR: [34, 34],
             JP: [9, 9],
             RU: [42, 42]
         },
@@ -161,7 +161,7 @@ const sd_sizing_jersey_dresses = {
             UK: [8, 10],
             EU: [36, 38],
             IT: [40, 42],
-            DE: [34, 36],
+            GR: [34, 36],
             JP: [9, 11],
             RU: [42, 44]
         },
@@ -170,7 +170,7 @@ const sd_sizing_jersey_dresses = {
             UK: [10, 12],
             EU: [38, 40],
             IT: [42, 44],
-            DE: [36, 38],
+            GR: [36, 38],
             JP: [11, 13],
             RU: [44, 46]
         },
@@ -179,7 +179,7 @@ const sd_sizing_jersey_dresses = {
             UK: [12, 14],
             EU: [40, 42],
             IT: [44, 46],
-            DE: [38, 40],
+            GR: [38, 40],
             JP: [13, 15],
             RU: [46, 48]
         },
@@ -188,10 +188,10 @@ const sd_sizing_jersey_dresses = {
             UK: [8, 12],
             EU: [40, 44],
             IT: [44, 48],
-            DE: [38, 42],
+            GR: [38, 42],
             JP: [13, 17],
             RU: [46, 50]
-        }
+        },
     }
 }
 
@@ -720,7 +720,7 @@ const sd_catalog = {
     //    pants: ['NRSPNT1505PT'],
     culottes: ['CLPTRS1505PT'],
     skirts: ['NKSHMI1501PT'],
-    nondresses: ['CLPTRT1505PT','CLPTRS1505PT','PRTATP1505PT','NKSHMI1501PT'],
+    nondresses: ['CLPTRT1505PT', 'CLPTRS1505PT', 'PRTATP1505PT', 'NKSHMI1501PT'],
     //    overtops: ['BNCJKT1505PT'],
     getCategory: function (sku) {
         if (this.dresses.includes(sku)) {
