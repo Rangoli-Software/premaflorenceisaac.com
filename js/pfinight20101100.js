@@ -251,8 +251,10 @@ const bncaData = {
 
 const celaData = {
     imageFile: "sizing1.jpg",
-    dimensionNames: ["A. Length", "B. Back Bust", "C. Shoulder", "D. Armhole", "E. Sleeve Length", "F. Sleeve Hem"],
-    dimensionsCm: {},
+    dimensionNames: ["A. Length", "B. Outer Layer Length", "C. Hem", "D. Waist - Relaxed", "D. Waist - Stretched"],
+    dimensionsCm: {
+        Free: [62,53,336,72,130]
+    },
     getFabric: function (varidx) {
         return "P.F.I. Tangail / Voile";
     },
