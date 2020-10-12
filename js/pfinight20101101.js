@@ -253,7 +253,7 @@ const celaData = {
     imageFile: "sizing1.jpg",
     dimensionNames: ["A. Length", "B. Outer Layer Length", "C. Hem", "D. Waist - Relaxed", "D. Waist - Stretched"],
     dimensionsCm: {
-        Free: [62,53,336,72,130]
+        Free: [62, 53, 336, 72, 130]
     },
     getFabric: function (varidx) {
         return "P.F.I. Tangail / Voile";
@@ -526,12 +526,10 @@ const tmraData = {
 
 const ttnaData = {
     imageFile: "sizing1.jpg",
-    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole'],
+    dimensionNames: ['Length', 'Bust', 'Armhole', 'Hem'],
     dimensionsCm: {
-        S: [46, 30, 45, 43],
-        M: [48, 32, 47, 45],
-        L: [50, 34, 49, 47],
-        XL: [52, 36, 51, 50]
+        S: [92, 92, 42, 104],
+        Free: [96, 100, 44, 112]
     },
     getFabric: function (varidx) {
         return "P.F.I. Tangail / Voile";
@@ -544,7 +542,7 @@ const ttnaData = {
             colourSfxs: ["1", "2", "3", "4"]
         }
     ],
-    sizes: ['Free'],
+    sizes: ['S', 'Free'],
     description: 'A superior quality jersey is used to drape this little black dress that will hug and flatter every shape. The jersey is gathered in the centre front and back and descends at the sideseam. The shoulder straps in black and silver silk P.F.I. Tangail can be worn on either sides or on the same side to make it an off-shoulder dress. ',
     garmentDetails: '<li>Draped dress</li><li>V neck</li><li>Sleeveless</li><li>P.F.I. Tangail border at the neckline</li>'
 };
