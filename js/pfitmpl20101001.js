@@ -583,7 +583,7 @@ const merchInfo = [
         images: [{url: '/products/happyeveryday/mood/mch-4.jpg'}]
     },
     {
-        SKU: 'LTSDSL1501Vo',
+        SKU: 'LTSDSL1501Kh',
         title: 'Butterfly Pea Shoulder String Dress',
         url: "/products/happyeveryday/shoulderstring.html",
         ledes: ['A dress that works from dawn to dusk'],
@@ -598,18 +598,19 @@ const merchInfo = [
     }
 ];
 
-function createMerchandisingCard(item) {
+function createMerchandisingCard(item, catalog) {
+    var title = catalog[ item.SKU ].name;
     var res = '<div class="card mb-2">';
     var len = item.images.length;
     var rndI = Math.floor(Math.random() * len);
     var img = item.images[rndI];
     res += '<div class="embed-responsive embed-responsive-1by1">';
-    res += '<img src="' + img.url + '" alt="' + item.title  + '" class="embed-responsive-item" style="object-fit: cover">';
+    res += '<img src="' + img.url + '" alt="' + title  + '" class="embed-responsive-item" style="object-fit: cover">';
     res += '</div>';
     res += '<div class="card-body px-0 pt-6 pb-4">';
     res += '<div class="card-subtitle mb-1"><span class="sc-item" data-field="price" data-vsku="' + item.SKU +'"></span></div>';
     if  ( item.url !== undefined ) {
-        res += '<h6 class="card-title mb-2">' + item.title + '<a  href="' + item.url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
+        res += '<h6 class="card-title mb-2">' + title + '<a  href="' + item.url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
     }
     len = item.ledes.length;
     rndI = Math.floor(Math.random() * len);
