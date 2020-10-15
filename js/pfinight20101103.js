@@ -233,7 +233,7 @@ const bncaData = {
         ]
     },
     getFabric: function (varidx) {
-        return P.F.I. Tangail;
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -256,7 +256,7 @@ const celaData = {
         Free: [62, 53, 336, 72, 130]
     },
     getFabric: function (varidx) {
-        return P.F.I. Tangail;
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -281,7 +281,7 @@ const cleoTData = {
         XL: [52, 36, 51, 50]
     },
     getFabric: function (varidx) {
-        return P.F.I. Tangail;
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -307,7 +307,7 @@ const cleoSData = {
         XL: [41, 88, 112, 68, 71]
     },
     getFabric: function (varidx) {
-        return P.F.I. Tangail;
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -332,7 +332,7 @@ const emlaData = {
         XL: [111, 53, 49, 40, 32, 36]
     },
     getFabric: function (varidx) {
-        return P.F.I. Tangail;
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -358,7 +358,7 @@ const hlnaData = {
         XL: [137, 82, 34, 50, 46, 372],
     },
     getFabric: function (varidx) {
-        return P.F.I. Tangail;
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -383,7 +383,7 @@ const jlitData = {
         XL: [116, 41, 53, 48, 36, 13],
     },
     getFabric: function (varidx) {
-        return P.F.I. Tangail;
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -408,7 +408,7 @@ const nrsaTData = {
         XL: [43, 37, 51, 49, 103]
     },
     getFabric: function (varidx) {
-        return P.F.I. Tangail;
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -433,7 +433,7 @@ const nrsaPData = {
         XL: [108, 90, 112, 75, 46]
     },
     getFabric: function (varidx) {
-        return P.F.I. Tangail;
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -458,7 +458,7 @@ const ophlData = {
         XL: [102, 26, 51, 66]
     },
     getFabric: function (varidx) {
-        return P.F.I. Tangail;
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -483,7 +483,7 @@ const prtaData = {
         XL: [57, 27, 51, 49, 110, 28]
     },
     getFabric: function (varidx) {
-        return P.F.I. Tangail;
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -509,7 +509,7 @@ const tmraData = {
         XL: [136, 38, 94, 51, 208],
     },
     getFabric: function (varidx) {
-        return P.F.I. Tangail;
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -526,13 +526,13 @@ const tmraData = {
 
 const ttnaData = {
     imageFile: "sizing1.jpg",
-    dimensionNames: ['Length', 'Bust', 'Armhole', 'Hem'],
+    dimensionNames: ['A. Length', 'B. Bust', 'C. Armhole', 'D. Hem'],
     dimensionsCm: {
         S: [92, 92, 42, 104],
         Free: [96, 100, 44, 112]
     },
     getFabric: function (varidx) {
-        return P.F.I. Tangail;
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -557,7 +557,7 @@ const violData = {
         XL: [104, 35, 102, 50]
     },
     getFabric: function (varidx) {
-        return P.F.I. Tangail;
+        return "P.F.I. Tangail";
     },
     data: [
         {
