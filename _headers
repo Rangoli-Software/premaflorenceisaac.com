@@ -79,6 +79,9 @@
 /products/anotherway/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
+/products/artwear/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
 /products/artwear/skirts/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
