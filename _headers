@@ -19,10 +19,16 @@
 /blog/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
+/blog/joyofcolour/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
 /blog/lb/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
 /fabricart/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/friends/abbie/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
 /fw/*.jpg
@@ -179,6 +185,39 @@
 	Cache-Control: public, max-age=31536000,  immutable
 
 /products/men/ubud/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/night/celia/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/night/cleoS/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/night/cleoT/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/night/emilia/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/night/helena/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/night/juliet/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/night/ophelia/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/night/portia/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/night/tamora/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/night/titania/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/night/viola/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
 /products/movein/*.jpg
