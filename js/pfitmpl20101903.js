@@ -369,12 +369,6 @@ const buzz = {
             imageHTML: '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/UD5KhbKHvCI?start=5" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
         },
         {
-            title: "Yves Story",
-            url: "https://www.linkedin.com/pulse/prema-florence-isaac-yves-richez-ph-d-/",
-            lede: 'Yves also wrote a short piece about our meeting on LinkedIn - Meeting with Prema Florence Isaac, creative and entrepreneur in India.',
-            imageURL: "https://www.talentreveal.com/uploads/3/1/2/1/31219479/talentreveallogo2018.png"
-        },
-        {
             title: "Alia ૐ",
             url: "https://aliaom.com/alia-yoga-prema-design-auroville/",
             lede: "Check out the blog article of Alia M'Hamdi, women's yoga teacher, about our meeting and her visit to the atelier.",
@@ -568,24 +562,24 @@ const merchInfo = [
     },
     {
         SKU: 'CRPTOP1805Kh',
-        title: 'Bougainvillea Crop Top',
+        title: 'Crop Top',
         url: "/products/happyeveryday/croptop.html",
         ledes: ['Basic summer top'],
-        images: [{url: '/products/happyeveryday/mood/mch-1.jpg'},{url: '/products/happyeveryday/mood/mch-4.jpg'},{url: '/products/happyeveryday/mood/mch-6.jpg'}]
+        images: [{url: '/products/happyeveryday/mood/mch-1.jpg'}]
     },
     {
         SKU: 'VAMPAL1708Kh',
-        title: 'Twiggy Side Slit Top',
+        title: 'Side Slit Top',
         url: "/products/happyeveryday/sideslit.html",
         ledes: ['Handwoven khadi to lighten up your summers'],
         images: [{url: '/products/happyeveryday/mood/mch-2.jpg'},{url: '/products/happyeveryday/mood/mch-7.jpg'}]
     },
     {
         SKU: 'OVTPLO1501Vo',
-        title: 'Long Floating Overlayer',
+        title: 'Long Overtop',
         url: "/products/happyeveryday/lovertop.html",
         ledes: ['Light breezy jacket for spring'],
-        images: [{url: '/products/happyeveryday/mood/mch-3.jpg'},{url: '/products/happyeveryday/mood/mch-5.jpg'}]
+        images: [{url: '/products/happyeveryday/mood/mch-3.jpg'},{url: '/blog/joyofcolour/2.jpg'}]
     },
     {
         SKU: 'BERMPA1609Kh',
@@ -596,14 +590,14 @@ const merchInfo = [
     },
     {
         SKU: 'LTSDSL1501Kh',
-        title: 'Butterfly Pea Shoulder String Dress',
+        title: 'String Dress',
         url: "/products/happyeveryday/shoulderstring.html",
         ledes: ['A dress that works from dawn to dusk'],
         images: [{url: '/products/happyeveryday/mood/mch-5.jpg'}]
     },
     {
         SKU: 'BALLPA1501Vo',
-        title: 'Balloon Flower Pants',
+        title: 'Balloon Pants',
         url: "/products/happyeveryday/balloon.html",
         ledes: ['Everyday basics for every mood'],
         images: [{url: '/products/happyeveryday/mood/mch-6.jpg'}]
