@@ -277,9 +277,9 @@ const clients = {
     sub: [
         {
             title: "Rainbow Girl",
-            url: "/friends/abbie.html",
+            url: "/look/abbie.html",
             lede: "Collaborating with Abbie Stirrup",
-            imageURL: "/friends/abbie/tt.jpg"
+            imageURL: "/look/friends/tt.jpg"
         },
         {
             title: "Gangsta Gal",
