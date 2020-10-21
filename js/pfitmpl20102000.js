@@ -498,6 +498,27 @@ function getSubEntry(item, url) {
 
 const merchInfo = [
     {
+        SKU: 'HLNDRS1505PT',
+        title: '',
+        url: '/products/night/helena.html',
+        ledes: [''],
+        images: [{url: '/look/moods/cs/helena.jpg'}]
+    },
+    {
+        SKU: 'JLTDRS1505PT',
+        title: '',
+        url: '/products/night/juliet.html',
+        ledes: [''],
+        images: [{url: '/look/moods/cs/juliet.jpg'}]
+    },
+    {
+        SKU: 'BKLLTS1505Je',
+        title: '',
+        url: '/products/night/tamora.html',
+        ledes: [''],
+        images: [{url: '/look/moods/cs/tamora.jpg'}]
+    },
+    {
         SKU: 'AWTSHT1604Je',
         title: 'Woven Canvas T Shirt',
         url: '/fabricartT.html',
