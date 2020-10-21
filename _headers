@@ -70,7 +70,13 @@
 /journey/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
+/look/friends/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
 /look/moods/hed/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/look/prema/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
 /look/ramp/*.jpg
