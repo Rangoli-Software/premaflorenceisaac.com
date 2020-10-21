@@ -369,7 +369,7 @@ const hlnaData = {
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    description: 'The high-low hemline with voluminous flare gives a flattering flow to the Helena dress. It\'s cut in P.F.I. Tangail cotton in grey stripes featuring an origami-ed silver P.F.I. Tangail border in the front. The contrasting red lining in voile lifts up the muted colour palette. A subtle detail of origami-ed silver P.F.I. Tangail border on the lining of the dress adds to the elegance. The hem is finished with cascading ruffles to add more playfulness to the A line dress.',
+    description: 'The high-low hemline and voluminous flare give the Helena Dress a flatteringly flamboyant flow. It is cut in my custom hand woven grey-striped P.F.I. Tangail. Featuring an origami pleated panel in front and in the inner layer constructed from my gold P.F.I. silk Tangail border. The contrasting red inner layer flashes in and out of view as the garment moves and flows, lifting up the muted colour palette. The hem is finished with playful cascading ruffles.',
     garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>High-low hemline</li><li>P.F.I Tangail border in the front</li><li>Contrasting lining in voile</li><li>Zip at the back</li><li>A line with voluminous flare</li>'
 };
 
@@ -509,7 +509,7 @@ const tmraData = {
         XL: [136, 38, 94, 51, 208],
     },
     getFabric: function (varidx) {
-        return "P.F.I. Tangail";
+        return "Modal Jersey with P.F.I. Tangail Trims";
     },
     data: [
         {
@@ -520,7 +520,7 @@ const tmraData = {
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    description: 'Tamora Dress is cut in a superior jersey to give a flattering shape. The jersey is draped and twisted to support your bust which will help you go bra-free. The deep V neck gives an illusion of a slender frame. The neck and hemline are accentuated with black and silver silk P.F.I. Tangail border that adds a subtle charm to the black dress.',
+    description: 'The Tamora Dress is cut in a superior modal jersey to give a flattering shape. The fabric is draped and twisted to support your bust (go bra-free!). The deep V-neck gives an illusion of a slender frame. The neck and hemline are accentuated with black and silver silk P.F.I. Tangail borders that add a subtle charm to the black dress.</p><p>The dress has been worn to weddings (both by the bride and by guests), celebrity events and other festive celebrations.',
     garmentDetails: '<li>Floor length</li><li>V neck</li><li>Deep V neckline at the back</li><li>Sleeveless</li><li>Gathers in the front</li><li>A line</li><li>P.F.I Tangail border at the neckline and hem</li>'
 };
 
@@ -532,7 +532,7 @@ const ttnaData = {
         Free: [96, 100, 44, 112]
     },
     getFabric: function (varidx) {
-        return "P.F.I. Tangail";
+        return "Modal Jersey with P.F.I. Tangail Trims";
     },
     data: [
         {

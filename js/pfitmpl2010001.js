@@ -673,7 +673,6 @@ function createSqPanelImageList(panelNumArr) {
 function createWovenCanvasImage() {
     var panelNums = [545,548,549,552,565,571];
     var panelImgs  =  createSqPanelImageList(panelNums);
-    //    return createCarousel("car-panels", panelImgs);
     var len = panelImgs.length;
     var rndI = Math.floor(Math.random() * len);
     var itm = panelImgs[rndI];
