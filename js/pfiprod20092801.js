@@ -261,25 +261,16 @@ function createUniqueItemList(listdata, product, factory) {
             return this.factory.createDescriptor(this.base[i]);
         },
         getINRPrice: function (i) {
-            var desc = this.getDescriptor(i);
-            var inrPrice;
-            if (desc.getCWPrice !== undefined) {
-                var cwPrice = desc.getCWPrice();
-                if (cwPrice !== null) {
-                    return cwPrice;
-                } else {
-                    return this.product.inrPrice;
-                }
-            } else {
-                return this.product.inrPrice;
-            }
+            return this.getDescriptor(i).getCWPrice();
         },
-        /*
-                getItem: function(i, size) {
-                    var desc = this.getDescriptor(i);
-                    return createItem(this.product, this.product.inrPrice, size, desc.fabricColour, 1, desc.number, desc.imageURL, true);
-                },
-        */
+        findIndexOf: function(rowId) {
+            for ( var i = 0; i < this.base.length; i++ ) {
+                if ( this.factory.hasRowId(rowId, this.base[i]) ) {
+                    return i;
+                }
+            }
+            return null;
+        },
         filterOnValue: function (range) {
             var nList = [];
             for (var i = 0; i < this.base.length; i++) {
