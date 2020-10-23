@@ -11,7 +11,7 @@ function createFaceMaskFactory(base, listData, product, varPL) {
             var cwDesc;
             if (row[4] === undefined) {
                 cwPrice = product.inrPrice;
-                cwDesc = 'Art Wear - One of a Kind';
+                cwDesc = 'Art Wear';
             } else {
                 var cw = row[4];
                 var vpl = this.varPL === undefined ? null : this.varPL[cw];
