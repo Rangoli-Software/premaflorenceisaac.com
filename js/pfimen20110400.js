@@ -14,7 +14,7 @@ function createVBRelatedViewer(skuInfo, catalog) {
 
 function createVBComponentFactory(prodInfo, dimensioner, sizer, catalog) {
     var navHelper = createNavHelper(prodInfo, catalog, 'Men');
-//    var relatedviewer = createVBRelatedViewer(prodInfo.skuInfo, catalog);
+    //    var relatedviewer = createVBRelatedViewer(prodInfo.skuInfo, catalog);
     var relatedviewer = createEmptyViewer();
     return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, "");
 }
@@ -320,6 +320,56 @@ const ubudData = {
 
 };
 
+const mntPData = {
+    imageFile: "sizing.jpg",
+    dimensionNames: ['A. Length', 'B. Waist', 'C. Hips', 'D. Crotch', 'E. Hem'],
+    dimensionsCm: {
+        S: [103, 76, 102, 60, 35],
+        M: [105, 80, 108, 64, 37],
+        L: [107, 84, 114, 68, 39],
+        XL: [109, 88, 120, 73, 41]
+    },
+    getFabric: function (varidx) {
+        return "Stretch Poplin / P.F.I. Tangail";
+    },
+    data: [
+        {
+            colourName: "Black",
+            vid: "CW1",
+            colourPfx: "black",
+            colourSfxs: []
+        }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    description: 'The Manhattan Pants are tailored in -- fabric that has a slight stretch so you can dance around like Marouane. The golden PFI Tangail borders at the pocket and on the folded hems add a metallic touch to the subtle beige trousers.',
+    garmentDetails: '<li>Fitted trousers</li><li>Two side pockets</li><li>PFI Tangail border on folded hems</li>'
+};
+
+const mntSData = {
+    imageFile: "sizing.jpg",
+    dimensionNames: ['A. Length', 'B. Shoulder', 'C. Chest', 'D. Armhole', 'E. Sleeve Length', 'F. Sleeve Width'],
+    dimensionsCm: {
+        S: [71, 45, 104, 48, 66, 38],
+        M: [73, 47, 108, 50, 68, 40],
+        L: [75, 49, 112, 52, 70, 42],
+        XL: [77, 51, 116, 54, 72, 44]
+    },
+    getFabric: function (varidx) {
+        return "Stretch Poplin / P.F.I. Tangail";
+    },
+    data: [
+        {
+            colourName: "Black",
+            vid: "CW1",
+            colourPfx: "black",
+            colourSfxs: ["hero", "front", "back", "side", "detail", "detail-2"]
+        }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    description: '',
+    garmentDetails: '<li>Fitted shirt with darts</li><li>Full sleeves</li><li>Hidden PFI Tangail border on the placket and cuffs</li>'
+};
+
 function createAngkorKurtaJSON() {
     var sku = "ANGKRT1601Kh";
     var basePath = "/products/men/angkor/";
@@ -362,6 +412,18 @@ function createUbudPantJSON() {
     return createProductJSON(sku, basePath, ubudData, vb_sizing_top, createCWImageFactory);
 }
 
+function createManhattanShirtJSON() {
+    var sku = "MNHTST2016SP";
+    var basePath = "/products/men/mansht/";
+    return createProductJSON(sku, basePath, mntSData, vb_sizing_top, createCWImageFactory);
+}
+
+function createManhattanPantJSON() {
+    var sku = "MNHTPT2018SP";
+    var basePath = "/products/men/manpnt/";
+    return createProductJSON(sku, basePath, mntPData, vb_sizing_top, createCWImageFactory);
+}
+
 function createProductDB() {
     var map = {};
 
@@ -386,17 +448,23 @@ function createProductDB() {
     var entry = createUbudPantJSON();
     map[entry.skuInfo.SKU] = entry;
 
+    var entry = createManhattanPantJSON();
+    map[entry.skuInfo.SKU] = entry;
+
+    var entry = createManhattanShirtJSON();
+    map[entry.skuInfo.SKU] = entry;
+
     return map;
 }
 
 const vb_catalog = {
-    skus: ['ANGKRT1601Kh', 'ARAMPA1601Kh', 'KOHKRT1601Kh', 'MAVKRT1601Kh', 'NARKRT1601Kh', 'PNDPNT1601Kh', 'UBDPNT1601Kh'],
+    skus: ['ANGKRT1601Kh', 'ARAMPA1601Kh', 'KOHKRT1601Kh', 'MAVKRT1601Kh', 'NARKRT1601Kh', 'PNDPNT1601Kh', 'UBDPNT1601Kh', 'MNHTST2016SP', 'MNHTPT2018SP'],
     shirts: ['ANGKRT1601Kh', 'KOHKRT1601Kh', 'MAVKRT1601Kh', 'NARKRT1601Kh'],
     pants: ['PNDPNT1601Kh', 'UBDPNT1601Kh'],
-    getPairWith: function(sku) {
-        if (this.shirts.includes(sku) ) {
+    getPairWith: function (sku) {
+        if (this.shirts.includes(sku)) {
             return this.pants;
-        } else if ( this.pants.includes(sku)) {
+        } else if (this.pants.includes(sku)) {
             return this.shirts;
         }
         return null;
