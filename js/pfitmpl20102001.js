@@ -196,6 +196,12 @@ const atelier = {
     url: "/blog.html?t=a",
     sub: [
         {
+            title: "Jamdani Lace",
+            url: "/blog/naksha2020.html",
+            lede: "The Jamdani Lace Naksha Capsule",
+            imageURL: "/products/artwear/skirts/mu/12.jpg"
+        },
+        {
             title: "Joy of Colour",
             url: "/blog/joyofcolour.html",
             lede: "Expression of artistic vision through the joyful use of colour",
@@ -276,6 +282,12 @@ const clients = {
     url: "/look.html?t=f",
     sub: [
         {
+            title: "#artwear",
+            url: "/people/artwear.html",
+            lede: "Images of friends wearing my signature ArtWear silhouettes",
+            imageURL: "/friends/2.jpg"
+        },
+        {
             title: "Rainbow Girl",
             url: "/look/abbie.html",
             lede: "Collaborating with Abbie Stirrup",
@@ -292,12 +304,6 @@ const clients = {
             url: "/people/oneofakind.html",
             lede: "The unique individuals who have collected my woven canvases",
             imageURL: "/people/ooak/sl02.jpg"
-        },
-        {
-            title: "#artwear",
-            url: "/people/artwear.html",
-            lede: "Images of friends wearing my signature ArtWear silhouettes",
-            imageURL: "/people/EricaNaksha1.jpg"
         },
         {
             title: "Curators",

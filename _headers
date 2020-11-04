@@ -112,6 +112,9 @@
 /products/artwear/skirts/mu/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
+/products/artwear/tamarai/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
 /products/happyeveryday/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
