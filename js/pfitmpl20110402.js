@@ -284,7 +284,7 @@ const clients = {
         {
             title: "#artwear",
             url: "/people/artwear.html",
-            lede: "Images of friends wearing my signature ArtWear silhouettes",
+            lede: "Images of friends wearing my signature Art Wear silhouettes",
             imageURL: "/look/friends/2.jpg"
         },
         {
@@ -420,7 +420,7 @@ const shop = {
             url: "/products/men/shop.html"
         },
         {
-            title: "Artwear Naksha Skirt",
+            title: "Art Wear Naksha Skirt",
             url: "/products/artwear/naksha.html?s=d"
         },
         {
@@ -533,28 +533,28 @@ const merchInfo = [
     },
     {
         SKU: 'NKSHMU1501PP',
-        title: 'ArtWear Naksha-Minuit',
+        title: 'Art Wear Naksha-Minuit',
         url: '/products/artwear/naksha.html?s=u',
         ledes: ["#oneofakind skirt for all ages and sizes!"],
         images: [{url: '/people/minm.jpg'}]
     },
     {
         SKU: 'NKSHMD1501PP',
-        title: 'ArtWear Naksha-Midi',
+        title: 'Art Wear Naksha-Midi',
         url: '/products/artwear/naksha.html?s=d',
         ledes: ["#oneofakind skirt for all ages and sizes!"],
         images: [{url: '/people/mmib.jpg'},{url: '/people/slkb.jpg'},{url: '/people/ibgirl.jpg'}]
     },
     {
         SKU: 'NKSHMI1501PP',
-        title: 'ArtWear Naksha-Mini',
+        title: 'Art Wear Naksha-Mini',
         url: '/products/artwear/naksha.html?s=i',
         ledes: ["#oneofakind skirt for all ages and sizes!"],
         images: [{url: '/people/EricaNaksha1.jpg'}]
     },
     {
         SKU: 'NKSHMC1512PP',
-        title: 'ArtWear Naksha-Micro',
+        title: 'Art Wear Naksha-Micro',
         url: '/products/artwear/naksha.html?s=c',
         ledes: ["#oneofakind skirt for all ages and sizes!"],
         images: [{url: '/people/ibpp.jpg'}]
