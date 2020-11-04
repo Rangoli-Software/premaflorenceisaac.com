@@ -394,7 +394,7 @@ const jlitData = {
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    description: 'The asymmetrical panels are collaged in ivory ahimsa silk, silver P.F.I. Tangail borders and black P.F.I. Tangail cotton with tiny silver motifs. The buttons in the front make it easier to slip into this modest round neck dress with cap sleeves. Pair it with black or silver high heels and enjoy your formal dinners.',
+    description: 'The asymmetrical panels of the Juliet Dress are composed from a collage of ivory ahimsa silk, silver P.F.I. Tangail borders and black P.F.I. Tangail fabric with tiny silver Jamdani motifs. The buttons in the front make it easy to slip into this elegant cap-sleeved, round neck dress. Pair it with black or silver high heels for special dates!',
     garmentDetails: '<li>Round neck</li><li>Cap lseeves</li><li>Asymmetrical</li><li>A line with flare</li><li>Buttons in the front</li>'
 };
 
