@@ -285,7 +285,7 @@ const clients = {
             title: "#artwear",
             url: "/people/artwear.html",
             lede: "Images of friends wearing my signature ArtWear silhouettes",
-            imageURL: "/friends/2.jpg"
+            imageURL: "/look/friends/2.jpg"
         },
         {
             title: "Rainbow Girl",
