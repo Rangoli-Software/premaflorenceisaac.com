@@ -535,28 +535,28 @@ const merchInfo = [
         SKU: 'NKSHMU1501PP',
         title: 'Art Wear Naksha-Minuit',
         url: '/products/artwear/naksha.html?s=u',
-        ledes: ["#oneofakind skirt for all ages and sizes!"],
-        images: [{url: '/people/minm.jpg'}]
+        ledes: ["Full length #oneofakind skirt for all ages and sizes!"],
+        images: [{url: '/people/minm.jpg'},{url: '/look/friends/1.jpg'}]
     },
     {
         SKU: 'NKSHMD1501PP',
         title: 'Art Wear Naksha-Midi',
         url: '/products/artwear/naksha.html?s=d',
         ledes: ["#oneofakind skirt for all ages and sizes!"],
-        images: [{url: '/people/mmib.jpg'},{url: '/people/slkb.jpg'},{url: '/people/ibgirl.jpg'}]
+        images: [{url: '/people/mmib.jpg'},{url: '/people/slkb.jpg'},{url: '/people/ibgirl.jpg'},{url: '/look/friends/2.jpg'},{url: '/g/look/nkshofstp.jpg'}]
     },
     {
         SKU: 'NKSHMI1501PP',
         title: 'Art Wear Naksha-Mini',
         url: '/products/artwear/naksha.html?s=i',
-        ledes: ["#oneofakind skirt for all ages and sizes!"],
+        ledes: ["#oneofakind mini skirt for all ages and sizes!"],
         images: [{url: '/people/EricaNaksha1.jpg'}]
     },
     {
         SKU: 'NKSHMC1512PP',
         title: 'Art Wear Naksha-Micro',
         url: '/products/artwear/naksha.html?s=c',
-        ledes: ["#oneofakind skirt for all ages and sizes!"],
+        ledes: ["#oneofakind micro skirt for all ages and sizes!"],
         images: [{url: '/people/ibpp.jpg'}]
     },
     {
