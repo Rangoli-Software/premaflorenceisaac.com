@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020110401";
+const shopRevisionVersion = "2020110403";
 
 const cmData = [
 ['Test Live Trans','TESTIT0000Hi','0','0','','FALSE'],
@@ -47,20 +47,19 @@ const cmData = [
 
 ['Bianca Dress','BNCADR1505PT','','1.15','/products/night/biancaD.html','FALSE'],
 ['Bianca Jacket','BNCJKT1505PT','','1.15','/products/night/biancaJ.html','FALSE'],
-['Celia Mini Skirt','NKSHMI1501PT','0.3','1.15','/products/night/celia.html','FALSE'],
-['Cleopatra Top','CLPTRT1505PT','0.1','1.15','/products/night/cleoT.html','FALSE'],
+['Celia Mini Skirt','NKSHMI1501PT','0.25','1.15','/products/night/celia.html','FALSE'],
+['Cleopatra Top','CLPTRT1505PT','0.05','1.15','/products/night/cleoT.html','FALSE'],
 ['Cleopatra Shorts','CLPTRS1505PT','0.1','1.15','/products/night/cleoS.html','FALSE'],
-['Emilia Dress','EMLDRS1505PT','0.35','1.15','/products/night/emilia.html','FALSE'],
-['Helena Dress','HLNDRS1505PT','0.45','1.15','/products/night/helena.html','FALSE'],
-['Juliet Dress','JLTDRS1505PT','0.35','1.15','/products/night/juliet.html','FALSE'],
-['Nerissa Top','NRSSTP1505PT','0.1','1.15','/products/night/nerissaT.html','FALSE'],
-['Nerissa Pants','NRSPNT1505PT','0.25','1.15','/products/night/nerissaP.html','FALSE'],
-['Ophelia Dress','OPHLDR1505PT','0.35','1.15','/products/night/ophelia.html','FALSE'],
-['Portia Top','PRTATP1505PT','0.1','1.15','/products/night/portia.html','FALSE'],
-['Tamora Dress','BKLLTS1505Je','0.5','1.15','/products/night/tamora.html','FALSE'],
-['Titania Dress','TTNDRS1505Je','0.4','1.15','/products/night/titania.html','FALSE'],
-['Viola Dress','VLADRS1505PT','0.35','1.15','/products/night/viola.html','FALSE'],
-
+['Emilia Dress','EMLDRS1505PT','0.2','1.15','/products/night/emilia.html','FALSE'],
+['Helena Dress','HLNDRS1505PT','0.25','1.15','/products/night/helena.html','FALSE'],
+['Juliet Dress','JLTDRS1505PT','0.25','1.15','/products/night/juliet.html','FALSE'],
+['Nerissa Top','NRSSTP1505PT','','1.15','/products/night/nerissaT.html','FALSE'],
+['Nerissa Pants','NRSPNT1505PT','','1.15','/products/night/nerissaP.html','FALSE'],
+['Ophelia Dress','OPHLDR1505PT','0.2','1.15','/products/night/ophelia.html','FALSE'],
+['Portia Top','PRTATP1505PT','0.075','1.15','/products/night/portia.html','FALSE'],
+['Tamora Dress','BKLLTS1505Je','0.35','1.15','/products/night/tamora.html','FALSE'],
+['Titania Dress','TTNDRS1505Je','0.2','1.15','/products/night/titania.html','FALSE'],
+['Viola Dress','VLADRS1505PT','0.2','1.15','/products/night/viola.html','FALSE'],
 
 ['Jasmine Dress','NKSDSL1701PT','','','','FALSE']
 ];
