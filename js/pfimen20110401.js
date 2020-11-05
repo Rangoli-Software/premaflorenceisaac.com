@@ -341,7 +341,7 @@ const mntPData = {
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    description: 'The Manhattan Pants are tailored in -- fabric that has a slight stretch so you can dance around like Marouane. The golden PFI Tangail borders at the pocket and on the folded hems add a metallic touch to the subtle beige trousers.',
+    description: 'The Manhattan Pants are tailored in imported high-quality poplin fabric that has a slight stretch. The golden PFI Tangail borders at the pocket and on the folded hems add a metallic touch to the subtle beige trousers.',
     garmentDetails: '<li>Fitted trousers</li><li>Two side pockets</li><li>PFI Tangail border on folded hems</li>'
 };
 
@@ -355,7 +355,7 @@ const mntSData = {
         XL: [77, 51, 116, 54, 72, 44]
     },
     getFabric: function (varidx) {
-        return "Stretch Poplin / P.F.I. Tangail";
+        return "Stretch Cambric / P.F.I. Tangail";
     },
     data: [
         {
@@ -366,7 +366,7 @@ const mntSData = {
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    description: '',
+    description: 'The shirt is constructed in imported high-quality and lightweight cambric that has a slight stretch.',
     garmentDetails: '<li>Fitted shirt with darts</li><li>Full sleeves</li><li>Hidden PFI Tangail border on the placket and cuffs</li>'
 };
 
