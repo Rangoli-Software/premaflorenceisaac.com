@@ -161,14 +161,7 @@ const kohData = {
     imageFile: "sizing.jpg",
     dimensionNames: ["A. Length", "B. Shoulder", "C. Chest", "D. Armhole", "E. Sleeve Length", "F. Sleeve Hem"],
     dimensionsCm: {
-        S: [
-            68,
-            46,
-            110,
-            50,
-            17,
-            17.5
-        ],
+        S: [68, 46, 110, 50, 17, 17.5],
         M: [
             70,
             48,
@@ -215,15 +208,7 @@ const mvrkData = {
     imageFile: "sizing.jpg",
     dimensionNames: ["A. Length Left", "B. Length Right", "C. Shoulder", "D. Chest", "E. Armhole", "F. Sleeve Length", "G. Sleeve Hem"],
     dimensionsCm: {
-        S: [
-            88,
-            63,
-            46,
-            110,
-            50,
-            17,
-            17.5
-        ],
+        S: [88, 63, 46, 110, 50, 17, 17.5],
         M: [90, 65, 48, 114, 52, 18, 19],
         L: [94, 67, 50, 118, 55, 19, 21],
         XL: [97, 69, 52, 124, 59, 20, 23, ]
@@ -334,10 +319,10 @@ const mntPData = {
     },
     data: [
         {
-            colourName: "Black",
+            colourName: "Beige",
             vid: "CW1",
-            colourPfx: "black",
-            colourSfxs: []
+            colourPfx: "beige",
+            colourSfxs: ["f","b","d1","d2","d3","d4"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -359,10 +344,10 @@ const mntSData = {
     },
     data: [
         {
-            colourName: "Black",
+            colourName: "Navy",
             vid: "CW1",
-            colourPfx: "black",
-            colourSfxs: ["hero", "front", "back", "side", "detail", "detail-2"]
+            colourPfx: "navy",
+            colourSfxs: ["f", "b", "d1", "d2", "d3"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -379,7 +364,7 @@ function createAngkorKurtaJSON() {
 function createArambolPantJSON() {
     var sku = "ARAMPA1601Kh";
     var basePath = "/products/men/arambol/";
-    return createProductJSON(sku, basePath, aramData, vb_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, aramData, null, createCWImageFactory);
 }
 
 function createKohKurtaJSON() {
@@ -409,7 +394,7 @@ function createPondyPantJSON() {
 function createUbudPantJSON() {
     var sku = "UBDPNT1601Kh";
     var basePath = "/products/men/ubud/";
-    return createProductJSON(sku, basePath, ubudData, vb_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, ubudData, null, createCWImageFactory);
 }
 
 function createManhattanShirtJSON() {
@@ -421,7 +406,7 @@ function createManhattanShirtJSON() {
 function createManhattanPantJSON() {
     var sku = "MNHTPT2018SP";
     var basePath = "/products/men/manpnt/";
-    return createProductJSON(sku, basePath, mntPData, vb_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, mntPData, null, createCWImageFactory);
 }
 
 function createProductDB() {
