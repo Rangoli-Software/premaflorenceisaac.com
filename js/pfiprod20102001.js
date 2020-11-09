@@ -956,6 +956,7 @@ function createBasePanelrRange(shop, product, varPL) {
     }
 }
 
+
 function createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, variantSelector, sizeSelector, itemAdder, addlViewer) {
     return {
         prePanelr: prePanelr,
@@ -1288,7 +1289,7 @@ function createProductComponentFactory(prodInfo, dimensioner, sizer, addlViewer,
     var itemAdder = createItemAdder();
     return {
         createProductComponent: function (shop) {
-            var basePanelr = createBasePanelr(shop, prodInfo.product)
+            var basePanelr = createBasePanelr(shop, prodInfo.product);
             return createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, variantSelector, sizeSelector, itemAdder, addlViewer);
         },
         getBreadCrumb: function () {

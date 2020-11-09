@@ -326,8 +326,8 @@ const mntPData = {
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    description: 'The Manhattan Pants are tailored in imported high-quality poplin fabric that has a slight stretch. The golden PFI Tangail borders at the pocket and on the folded hems add a metallic touch to the subtle beige trousers.',
-    garmentDetails: '<li>Fitted trousers</li><li>Two side pockets</li><li>PFI Tangail border on folded hems</li>'
+    description: 'The Manhattan Trouser is tailored in a high-quality poplin fabric that has a slight stretch. The golden PFI Tangail borders at the front and back pockets, and on the folded hems to add a metallic touch to the subtle beige trousers. Adjust the length by leaving the hems unfolded for an alternate look.',
+    garmentDetails: '<li>Fitted trousers</li><li>Two side pockets</li><li>PFI Tangail border on the folded hems and pockets</li><li>Zip and button fastening in the front</li><li>Two front vertical pockets</li><li>One back pocket</li>'
 };
 
 const mntSData = {
@@ -351,14 +351,14 @@ const mntSData = {
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    description: 'The shirt is constructed in imported high-quality and lightweight cambric that has a slight stretch.',
-    garmentDetails: '<li>Fitted shirt with darts</li><li>Full sleeves</li><li>Hidden PFI Tangail border on the placket and cuffs</li>'
+    description: 'The Manhattan Shirt is constructed in a high-quality stretch cambric. It is fitted with darts in the front and back, and the slight stretch in the fabric makes it easy to move around. The dark navy blue shirt is accentuated with silk golden PFI Tangail borders at the edges of the collar, hidden trims at the placket and cuffs.',
+    garmentDetails: '<li>Fitted shirt with darts</li><li>Full sleeves</li><li>Button closure in front</li><li>Silk golden PFI Tangail border on the placket, cuffs and collar</li>'
 };
 
 function createAngkorKurtaJSON() {
     var sku = "ANGKRT1601Kh";
     var basePath = "/products/men/angkor/";
-    return createProductJSON(sku, basePath, angkData, vb_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, angkData, null, createCWImageFactory);
 }
 
 function createArambolPantJSON() {
@@ -370,25 +370,25 @@ function createArambolPantJSON() {
 function createKohKurtaJSON() {
     var sku = "KOHKRT1601Kh";
     var basePath = "/products/men/koh/";
-    return createProductJSON(sku, basePath, kohData, vb_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, kohData, null, createCWImageFactory);
 }
 
 function createMavericksKurtaJSON() {
     var sku = "MAVKRT1601Kh";
     var basePath = "/products/men/mavericks/";
-    return createProductJSON(sku, basePath, mvrkData, vb_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, mvrkData, null, createCWImageFactory);
 }
 
 function createNarigamaKurtaJSON() {
     var sku = "NARKRT1601Kh";
     var basePath = "/products/men/narigama/";
-    return createProductJSON(sku, basePath, nrgmData, vb_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, nrgmData, null, createCWImageFactory);
 }
 
 function createPondyPantJSON() {
     var sku = "PNDPNT1601Kh";
     var basePath = "/products/men/pondy/";
-    return createProductJSON(sku, basePath, pndyData, vb_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, pndyData, null, createCWImageFactory);
 }
 
 function createUbudPantJSON() {
@@ -400,7 +400,7 @@ function createUbudPantJSON() {
 function createManhattanShirtJSON() {
     var sku = "MNHTST2016SP";
     var basePath = "/products/men/mansht/";
-    return createProductJSON(sku, basePath, mntSData, vb_sizing_top, createCWImageFactory);
+    return createProductJSON(sku, basePath, mntSData, null, createCWImageFactory);
 }
 
 function createManhattanPantJSON() {

@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020110403";
+const shopRevisionVersion = "2020110404";
 
 const cmData = [
 ['Test Live Trans','TESTIT0000Hi','0','0','','FALSE'],
@@ -8,16 +8,14 @@ const cmData = [
 ['Dip-Dye Scarf','DPDYSF1501PT','0.36','1.2','/products/scarves/TurbanMood.jpg','FALSE'],
 ['Champagne Bag','CHMPGN1501JL','0.0208333333333333','1.1','/products/home/cbaglite.jpg','FALSE'],
 
-
 ['Handloom Facemask','FACEMK2005Ta','0.0095','1.2','/products/accessories/facemask.html','TRUE'],
 ['Naksha Micro Skirt','NKSHMC1512PP','0.15','1.4','/products/artwear/naksha.html?s=c','TRUE'],
 ['Naksha Mini Skirt','NKSHMI1501PP','0.25','1.4','/products/artwear/naksha.html?s=m','TRUE'],
 ['Naksha Midi Skirt','NKSHMD1501PP','0.3','1.4','/products/artwear/naksha.html?s=d','TRUE'],
 ['Naksha Minuit Skirt','NKSHMU1501PP','0.4','1.4','/products/artwear/naksha.html?s=u','TRUE'],
 ['Tamarai Dress','NKSHDR1501Ta','0.35','1.2','/products/artwear/tamarai.html','TRUE'],
-['Malligai Dress','NKSDSL1701Ta','','','','TRUE'],
-['Lotus Dress','LOTSDR1501Ja','0.35','1.2','/products/artwear/lotus.html','TRUE'],
-
+['Malligai Dress','NKSDSL1701Ta','0.35','1.2','/products/artwear/malligai.html','TRUE'],
+['Kamalam Dress','LOTSDR1501Ja','0.35','1.2','/products/artwear/lotus.html','TRUE'],
 
 ['Angkor Kurta','ANGKRT1601Kh','0.1','1.1','/products/men/angkor.html','FALSE'],
 ['Arambol 3/4 Pants','ARAMPA1601Kh','','','/products/men/arambol.html','FALSE'],
@@ -29,21 +27,19 @@ const cmData = [
 ['Pondy Pant','PNDPNT1601Kh','0.15','1.2','/products/men/pondy.html','FALSE'],
 ['Ubud Pant','UBDPNT1601Kh','0.1875','1.2','/products/men/ubud.html','FALSE'],
 
-
 ['Shoulder String Dress','LTSDSL1501Kh','0.25','1.15','/products/happyeveryday/shoulderstring.html','FALSE'],
 ['Side Slit Top','VAMPAL1708Kh','0.1','1.15','/products/happyeveryday/sideslit.html','FALSE'],
 ['Light Layered Dress','LITLAY1708Vo','0.15','1.15','/products/happyeveryday/layer.html','FALSE'],
 ['Crop Top','CRPTOP1805Kh','0.025','1.15','/products/happyeveryday/croptop.html','FALSE'],
 ['Tank Top','TNKTPS1902Kh','0.04','1.15','/products/happyeveryday/tanktop.html','FALSE'],
 ['Wings Top','TRPZTP1807Kh','0.1','1.15','/products/happyeveryday/wings.html','FALSE'],
-['Bermuda Pants','BERMPA1609Kh','0.12','1.15','/products/happyeveryday/bermuda.html','FALSE'],
-['Drawstring Pants','DRAWPA1609Kh','0.12','1.15','/products/happyeveryday/drawstring.html','FALSE'],
-['Lily Pants','WNDRPA1709Kh','0.15','1.15','/products/happyeveryday/lily.html','FALSE'],
-['Balloon Pants','BALLPA1501Vo','0.25','1.15','/products/happyeveryday/balloon.html','FALSE'],
-['Jodhpur Pants','JODHPA1708Kh','','','/products/happyeveryday/jodhpur.html','FALSE'],
+['Bermuda Pant','BERMPA1609Kh','0.12','1.15','/products/happyeveryday/bermuda.html','FALSE'],
+['Drawstring Pant','DRAWPA1609Kh','0.12','1.15','/products/happyeveryday/drawstring.html','FALSE'],
+['Lily Pant','WNDRPA1709Kh','0.15','1.15','/products/happyeveryday/lily.html','FALSE'],
+['Harem Pant','BALLPA1501Vo','0.25','1.15','/products/happyeveryday/balloon.html','FALSE'],
+['Jodhpur Pant','JODHPA1708Kh','','','/products/happyeveryday/jodhpur.html','FALSE'],
 ['Floating Overlayer','OVTPSH1501Vo','0.0375','1.15','/products/happyeveryday/shovertop.html','FALSE'],
 ['Floating Long Overlayer','OVTPLO1501Vo','0.075','1.15','/products/happyeveryday/lovertop.html','FALSE'],
-
 
 ['Bianca Dress','BNCADR1505PT','','1.15','/products/night/biancaD.html','FALSE'],
 ['Bianca Jacket','BNCJKT1505PT','','1.15','/products/night/biancaJ.html','FALSE'],
@@ -54,14 +50,30 @@ const cmData = [
 ['Helena Dress','HLNDRS1505PT','0.25','1.15','/products/night/helena.html','FALSE'],
 ['Juliet Dress','JLTDRS1505PT','0.25','1.15','/products/night/juliet.html','FALSE'],
 ['Nerissa Top','NRSSTP1505PT','','1.15','/products/night/nerissaT.html','FALSE'],
-['Nerissa Pants','NRSPNT1505PT','','1.15','/products/night/nerissaP.html','FALSE'],
+['Nerissa Pant','NRSPNT1505PT','','1.15','/products/night/nerissaP.html','FALSE'],
 ['Ophelia Dress','OPHLDR1505PT','0.2','1.15','/products/night/ophelia.html','FALSE'],
 ['Portia Top','PRTATP1505PT','0.075','1.15','/products/night/portia.html','FALSE'],
 ['Tamora Dress','BKLLTS1505Je','0.35','1.15','/products/night/tamora.html','FALSE'],
 ['Titania Dress','TTNDRS1505Je','0.2','1.15','/products/night/titania.html','FALSE'],
 ['Viola Dress','VLADRS1505PT','0.2','1.15','/products/night/viola.html','FALSE'],
 
-['Jasmine Dress','NKSDSL1701PT','','','','FALSE']
+['Jasmine Dress','NKSDSL1701PT','','','','FALSE'],
+
+['Balloon Pant','KBALPA1601Vo','','','/products/itsmagic/balloon.html','FALSE'],
+['Flow Dress','KDHRDR1601Rv','','','','FALSE'],
+['Fairy Skirt','FAIRSK1601Rv','','','','FALSE'],
+['Fairy Top','FAIRTP1601Je','','','','FALSE'],
+['Half Pant','HLFPNT1601Kh','','','','FALSE'],
+['Half Pant Topsy','HLFTPS1601Kh','','','','FALSE'],
+['Princess Dress','PRNCDR1501Rv','','','','FALSE'],
+['Racerback Top','KRACBK1501Je','','','','FALSE'],
+['Royal Kurta','KRAJKT1601Rv','','','','FALSE'],
+['Prince Kurta','YUVRTC1601Rv','','','','FALSE'],
+['Wave Dress','KWAVDR1601Rv','','','','FALSE'],
+
+['Kidikini','KIDIKI1501Vi','','','','FALSE'],
+['Koh Kurta','KKOHKT1601Kh','','','','FALSE'],
+['Dragon Cape','DNOCPE1708AS','','','','FALSE']
 ];
 
 const varPLData = {
@@ -88,7 +100,6 @@ const plData = [
 ['DPDYSF1501PT',5700],
 ['CHMPGN1501JL',1750],
 
-
 ['FACEMK2005Ta',700],
 ['NKSHMC1512PP',6000],
 ['NKSHMI1501PP',9150],
@@ -97,7 +108,6 @@ const plData = [
 ['NKSHDR1501Ta',13500],
 ['NKSDSL1701Ta',13500],
 ['LOTSDR1501Ja',22800],
-
 
 ['ANGKRT1601Kh',9900],
 ['ARAMPA1601Kh',5400],
@@ -108,7 +118,6 @@ const plData = [
 ['NARKRT1601Kh',9900],
 ['PNDPNT1601Kh',4350],
 ['UBDPNT1601Kh',13500],
-
 
 ['LTSDSL1501Kh',5000],
 ['VAMPAL1708Kh',2900],
@@ -123,7 +132,6 @@ const plData = [
 ['JODHPA1708Kh',3000],
 ['OVTPSH1501Vo',1700],
 ['OVTPLO1501Vo',2000],
-
 
 ['BNCADR1505PT',29700],
 ['BNCJKT1505PT',29700],
@@ -141,6 +149,21 @@ const plData = [
 ['TTNDRS1505Je',29700],
 ['VLADRS1505PT',29700],
 
+['NKSDSL1701PT',17500],
 
-['NKSDSL1701PT',17500]
+['KBALPA1601Vo',1350],
+['KDHRDR1601Rv',2100],
+['FAIRSK1601Rv',1850],
+['FAIRTP1601Je',975],
+['HLFPNT1601Kh',975],
+['HLFTPS1601Kh',1450],
+['PRNCDR1501Rv',2750],
+['KRACBK1501Je',975],
+['KRAJKT1601Rv',2650],
+['YUVRTC1601Rv',2100],
+['KWAVDR1601Rv',2500],
+
+['KIDIKI1501Vi',1950],
+['KKOHKT1601Kh',2750],
+['DNOCPE1708AS',2000]
 ];
