@@ -961,87 +961,77 @@ const hed_catalog = {
     summaries: [
         {
             sku: 'BALLPA1501Vo',
-            title: 'Balloon Flower Pants',
             url: "/products/happyeveryday/balloon.html",
             lede: 'Full length Harem Pants'
         },
         {
             sku: 'BERMPA1609Kh',
-            title: 'Wild Pansy Pants',
             url: "/products/happyeveryday/bermuda.html",
             lede: 'Calf length Bermuda pants'
         },
         {
             sku: 'DRAWPA1609Kh',
-            title: 'Gloriosa Tie Pants',
             url: "/products/happyeveryday/drawstring.html",
             lede: 'Wide legged drawstring pants'
         },
         {
             sku: 'JODHPA1708Kh',
-            title: 'Jodhpur Pants',
             url: "/products/happyeveryday/jodhpur.html",
             lede: 'Full length Jodhpur cut pants'
         },
         {
             sku: 'WNDRPA1709Kh',
-            title: 'Pineapple Lily Pants',
             url: "/products/happyeveryday/lily.html",
             lede: 'Drawstring  waist and hem'
         },
         {
             sku: 'CRPTOP1805Kh',
-            title: 'Bougainvillea Crop Top',
             url: "/products/happyeveryday/croptop.html",
             lede: ''
         },
         {
             sku: 'TNKTPS1902Kh',
-            title: 'Bougainvillea Top',
             url: "/products/happyeveryday/tanktop.html",
             lede: ''
         },
         {
             sku: 'TRPZTP1807Kh',
-            title: 'Lotus Wings Top',
             url: "/products/happyeveryday/wings.html",
             lede: ''
         },
         {
             sku: 'OVTPLO1501Vo',
-            title: 'Long Floating Overlayer',
             url: "/products/happyeveryday/lovertop.html",
             lede: ''
         },
         {
             sku: 'OVTPSH1501Vo',
-            title: 'Floating Overlayer',
             url: "/products/happyeveryday/shovertop.html",
             lede: ''
         },
         {
             sku: 'VAMPAL1708Kh',
-            title: 'Twiggy Side Slit Top',
             url: "/products/happyeveryday/sideslit.html",
             lede: ''
         },
         {
             sku: 'LTSDSL1501Kh',
-            title: 'Butterfly Pea Shoulder String Dress',
             url: "/products/happyeveryday/shoulderstring.html",
             lede: ''
         },
         {
             sku: 'LITLAY1708Vo',
-            title: 'Love Power Layered Dress',
             url: "/products/happyeveryday/layer.html",
             lede: ''
         },
     ],
     getSummary: function (sku) {
+        var catalog = getProductCatalog();
         for (var i = 0; i < this.summaries.length; i++) {
             if (this.summaries[i].sku === sku) {
-                return this.summaries[i];
+                var sum = this.summaries[i];
+                sum.title = catalog.getProduct(sum.sku).name;
+                return sum;
             }
         }
         return null;

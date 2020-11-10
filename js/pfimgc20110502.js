@@ -68,6 +68,12 @@ itsmagic.princess = {
             picPfx: "5",
             cwPix: ["F", "B", "R"]
         },
+        {
+            colourName: "Green with Aqua",
+            vid: "CW6",
+            picPfx: "6",
+            cwPix: ["F", "B", "R"]
+        },
     ],
     sizes: ['2-4', '5-7', '8-10'],
     description: '',
@@ -120,8 +126,11 @@ itsmagic.createCatalog = function () {
             return this.productDB[sku];
         },
         getCategory: function (sku) {
-            if (this.dresses.includes(sku)) {
-                return "dresses";
+            if (this.girls.includes(sku)) {
+                return "girls";
+            }
+            if (this.boys.includes(sku)) {
+                return "boys";
             }
             return null;
         },
