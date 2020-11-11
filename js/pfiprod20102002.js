@@ -146,7 +146,7 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, colSelData
             var items = createUniqueItemList(this.uiFactory.listData, this.uiFactory);
             var productComponentFactory = this.createPCFactory();
             var itemCategorySelector = this.createItemCatSelector();
-            var sizeSelector = createSizeSelector(this.prodJSON.skuInfo.sizes, this.createSizePanelr().getToggleHTML(), null, this.modelTxt);
+            var sizeSelector = createSizeSelector(this.prodJSON.skuInfo.sizes, this.createSizePanelr().getToggleHTML(), null, this.modelTxt, "Size");
             var productComponent = productComponentFactory.createProductComponent(shop);
             return createUniqueItemsComponent(items, productComponentFactory, productComponent, itemCategorySelector, sizeSelector, this.cardCreator);
         },
@@ -594,12 +594,13 @@ function createVariantSelector(prodInfo) {
 }
 
 
-function createSizeSelector(sizes, toggleHTML, eventFn, modelTxt) {
+function createSizeSelector(sizes, toggleHTML, eventFn, modelTxt, captionTxt) {
     return {
         sizes: sizes,
         toggleHTML: toggleHTML,
         eventFn: eventFn,
         modelTxt: modelTxt,
+        captionTxt: captionTxt,
         sizeRadioName: 'sizeRadio',
         getSizeIdx: function (valSize) {
             for (var i = 0; i < this.sizes.length; i++) {
@@ -619,7 +620,7 @@ function createSizeSelector(sizes, toggleHTML, eventFn, modelTxt) {
         },
         createSelectorPanel: function (szIdx) {
             var id = this.sizeRadioName + "Group";
-            var res = this.modelTxt + '<div class="form-group"><label for="' + id + '">Size:</label> <span id="' + id + '" class="mb-2">';
+            var res = this.modelTxt + '<div class="form-group"><label for="' + id + '">' + this.captionTxt + ':</label> <span id="' + id + '" class="mb-2">';
             var idPfx = this.sizeRadioName + "ID";
             for (var i = 0; i < this.sizes.length; i++) {
                 var checked = (i == szIdx);
@@ -1280,12 +1281,12 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
     };
 }
 
-function createProductComponentFactory(prodInfo, dimensioner, sizer, addlViewer, navHelper, modelTxt) {
+function createProductComponentFactory(prodInfo, dimensioner, sizer, addlViewer, navHelper, modelTxt, captionTxt) {
     var prePanelr = createEmptyViewer();
     var sizePanelr = createSizePanelr(prodInfo.skuInfo, dimensioner, sizer);
     var carousel = createProductCarousel(prodInfo, false);
     var variantSelector = createVariantSelector(prodInfo);
-    var sizeSelector = createSizeSelector(prodInfo.skuInfo.sizes, sizePanelr.getToggleHTML(), null, modelTxt);
+    var sizeSelector = createSizeSelector(prodInfo.skuInfo.sizes, sizePanelr.getToggleHTML(), null, modelTxt, captionTxt);
     var itemAdder = createItemAdder();
     return {
         createProductComponent: function (shop) {

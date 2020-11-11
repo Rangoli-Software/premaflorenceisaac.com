@@ -18,7 +18,7 @@ itsmagic.createComponentFactory = function (prodInfo, dimensioner, sizer, catalo
     var navHelper = createNavHelper(prodInfo, catalog, 'It\'s Magic');
     //    var relatedviewer = itsmagic.createRelatedViewer(prodInfo.skuInfo, catalog);
     var relatedviewer = createEmptyViewer();
-    return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, "");
+    return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, "", "Age");
 }
 
 itsmagic.sizing_top = {};

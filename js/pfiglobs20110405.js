@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020110404";
+const shopRevisionVersion = "2020110405";
 
 const cmData = [
 ['Test Live Trans','TESTIT0000Hi','0','0','','FALSE'],
@@ -60,20 +60,20 @@ const cmData = [
 ['Jasmine Dress','NKSDSL1701PT','','','','FALSE'],
 
 ['Balloon Pant','KBALPA1601Vo','','','/products/itsmagic/balloon.html','FALSE'],
-['Flow Dress','KDHRDR1601Rv','','','','FALSE'],
-['Fairy Skirt','FAIRSK1601Rv','','','','FALSE'],
-['Fairy Top','FAIRTP1601Je','','','','FALSE'],
-['Half Pant','HLFPNT1601Kh','','','','FALSE'],
-['Half Pant Topsy','HLFTPS1601Kh','','','','FALSE'],
-['Princess Dress','PRNCDR1501Rv','','','','FALSE'],
-['Racerback Top','KRACBK1501Je','','','','FALSE'],
-['Royal Kurta','KRAJKT1601Rv','','','','FALSE'],
-['Prince Kurta','YUVRTC1601Rv','','','','FALSE'],
-['Wave Dress','KWAVDR1601Rv','','','','FALSE'],
+['Flow Dress','KDHRDR1601Rv','','','/products/itsmagic/flow.html','FALSE'],
+['Fairy Skirt','FAIRSK1601Rv','','','/products/itsmagic/fairyS.html','FALSE'],
+['Fairy Top','FAIRTP1601Je','','','/products/itsmagic/fairyT.html','FALSE'],
+['Half Pant','HLFPNT1601Kh','','','/products/itsmagic/halfpant.html','FALSE'],
+['Half Pant Topsy','HLFTPS1601Kh','','','/products/itsmagic/halfpantT.html','FALSE'],
+['Princess Dress','PRNCDR1501Rv','','','/products/itsmagic/princess.html','FALSE'],
+['Racerback Top','KRACBK1501Je','','','/products/itsmagic/racerback.html','FALSE'],
+['Royal Kurta','KRAJKT1601Rv','','','/products/itsmagic/royal.html','FALSE'],
+['Prince Kurta','YUVRTC1601Rv','','','/products/itsmagic/prince.html','FALSE'],
+['Wave Dress','KWAVDR1601Rv','','','/products/itsmagic/wave.html','FALSE'],
 
-['Kidikini','KIDIKI1501Vi','','','','FALSE'],
-['Koh Kurta','KKOHKT1601Kh','','','','FALSE'],
-['Dragon Cape','DNOCPE1708AS','','','','FALSE']
+['Kidikini','KIDIKI1501Vi','','','/products/itsmagic/kidikini.html','FALSE'],
+['Koh Kurta','KKOHKT1601Kh','','','/products/kids/koh.html','FALSE'],
+['Dragon Cape','DNOCPE1708AS','','','/products/kids/dragon.html','FALSE']
 ];
 
 const varPLData = {

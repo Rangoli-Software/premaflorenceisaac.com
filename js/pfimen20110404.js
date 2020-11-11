@@ -16,7 +16,7 @@ function createVBComponentFactory(prodInfo, dimensioner, sizer, catalog) {
     var navHelper = createNavHelper(prodInfo, catalog, 'Men');
     //    var relatedviewer = createVBRelatedViewer(prodInfo.skuInfo, catalog);
     var relatedviewer = createEmptyViewer();
-    return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, "");
+    return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, "", "Size");
 }
 
 const vb_sizing_top = {

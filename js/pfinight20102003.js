@@ -2,7 +2,7 @@ function createSDComponentFactory(prodInfo, dimensioner, sizer, categorizer) {
     var navHelper = createNavHelper(prodInfo, categorizer, 'Ce Soir');
     var relatedviewer = createEmptyViewer();
     var modelTxt = "The model is 5 ft 7 in (171 cm.) and wearing size '" + prodInfo.skuInfo.sizes[0] + "'<br>This garment is bespoke-tailored (sur-mesure), so the sizes in the chart are only the starting point for your order<br>";
-    return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, modelTxt);
+    return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, modelTxt, "Size");
 }
 
 const sd_sizing_tops = {
