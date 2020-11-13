@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020110405";
+const shopRevisionVersion = "2020110407";
 
 const cmData = [
 ['Test Live Trans','TESTIT0000Hi','0','0','','FALSE'],
@@ -21,7 +21,7 @@ const cmData = [
 ['Arambol 3/4 Pants','ARAMPA1601Kh','','','/products/men/arambol.html','FALSE'],
 ['Koh Kurta','KOHKRT1601Kh','0.1','1.1','/products/men/koh.html','FALSE'],
 ['Manhattan Shirt','MNHTST2016SP','0.15','1.1','/products/men/manhattanS.html','FALSE'],
-['Manhattan Pant','MNHTPT2018SP','0.45','1.1','/products/men/manhattanP.html','FALSE'],
+['Manhattan Trouser','MNHTPT2018SP','0.45','1.1','/products/men/manhattanP.html','FALSE'],
 ['Mavericks Kurta','MAVKRT1601Kh','0.1375','1.1','/products/men/mavericks.html','FALSE'],
 ['Narigama Kurta','NARKRT1601Kh','0.1375','1.1','/products/men/narigama.html','FALSE'],
 ['Pondy Pant','PNDPNT1601Kh','0.15','1.2','/products/men/pondy.html','FALSE'],
