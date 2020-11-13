@@ -16,6 +16,7 @@ itsmagic.createRelatedViewer = function (skuInfo, catalog) {
 
 itsmagic.createNavHelper = function (prodInfo) {
     return {
+        prodInfo: prodInfo,
         getBreadCrumb: function () {
             var levels = [{
                 title: 'Shop',

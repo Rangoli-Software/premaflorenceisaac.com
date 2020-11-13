@@ -322,7 +322,7 @@ const mntPData = {
             colourName: "Khaki",
             vid: "CW1",
             colourPfx: "khaki",
-            colourSfxs: ["f","b","s","d1","d2"]
+            colourSfxs: ["f1","b","s","d1","d2"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -347,7 +347,7 @@ const mntSData = {
             colourName: "Navy",
             vid: "CW1",
             colourPfx: "navy",
-            colourSfxs: ["f", "b", "s", "d1", "d2"]
+            colourSfxs: ["f", "b1", "s", "d11", "d2"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
