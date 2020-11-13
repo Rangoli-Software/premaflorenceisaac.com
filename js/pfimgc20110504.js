@@ -26,7 +26,7 @@ itsmagic.sizing_top = {};
 itsmagic.princess = {
     SKU: 'PRNCDR1501Rv',
     imgDir: 'princess',
-    imageFile: "",
+    imageFile: "sizing",
     dimensionNames: ['A. Chest', 'B. Waist', 'C. Length'],
     dimensionsCm: {
         '2-4': [30, 56, 66],
@@ -80,6 +80,90 @@ itsmagic.princess = {
     garmentDetails: ''
 };
 
+itsmagic.flow = {
+    SKU: 'KDHRDR1601Rv',
+    imgDir: 'flow',
+    imageFile: "sizing",
+    dimensionNames: ['A. Chest', 'B. Waist', 'C. Length'],
+    dimensionsCm: {
+        '2-4': [30, 56, 66],
+        '5-7': [32, 60, 75],
+        '8-10': [38, 70, 87]
+    },
+    getFabric: function (varidx) {
+        return "Voile";
+    },
+    data: [
+        {
+            colourName: "Aqua with Lemon",
+            vid: "CW1",
+            picPfx: "1",
+            carouselPix: ["F", "B", "R", "D1", "D2"],
+            cwPix: ["F", "R"]
+        },
+        {
+            colourName: "Lavender with Chartreuse",
+            vid: "CW2",
+            picPfx: "2",
+            cwPix: ["F", "R"]
+        },
+        {
+            colourName: "Pink with Rose",
+            vid: "CW3",
+            picPfx: "3",
+            cwPix: ["F", "R"]
+        }
+    ],
+    sizes: ['2-4', '5-7', '8-10'],
+    description: '',
+    garmentDetails: ''
+};
+
+itsmagic.wave = {
+    SKU: 'KWAVDR1601Rv',
+    imgDir: 'wave',
+    imageFile: "sizing",
+    dimensionNames: ['A. Chest', 'B. Waist', 'C. Length'],
+    dimensionsCm: {
+        '2-4': [30, 56, 66],
+        '5-7': [32, 60, 75],
+        '8-10': [38, 70, 87]
+    },
+    getFabric: function (varidx) {
+        return "Voile";
+    },
+    data: [
+        {
+            colourName: "Chartreuse & Green & Krishna Blue over Lemon",
+            vid: "CW1",
+            picPfx: "1",
+            carouselPix: ["F", "B", "R", "D1", "D2"],
+            cwPix: ["F", "R"]
+        },
+        {
+            colourName: "Lavender & Rose & Old Rose over Aqua",
+            vid: "CW2",
+            picPfx: "2",
+            cwPix: ["F", "R"]
+        },
+        {
+            colourName: "Orange & Lemon & Pink over Chartreuse",
+            vid: "CW3",
+            picPfx: "3",
+            cwPix: ["F", "R"]
+        },
+        {
+            colourName: "Dark Grey & Brass & Silver Sheen over Sunflower",
+            vid: "CW3",
+            picPfx: "3",
+            cwPix: ["F", "R"]
+        }
+    ],
+    sizes: ['2-4', '5-7', '8-10'],
+    description: '',
+    garmentDetails: ''
+};
+
 function createIMImageFactory(that, vidx) {
     return {
         that: that,
@@ -105,10 +189,10 @@ itsmagic.createJSON = function (style) {
 
 itsmagic.createCatalog = function () {
     return {
-        styles: [itsmagic.princess],
+        styles: [itsmagic.princess, itsmagic.flow, itsmagic.wave],
         boys: [],
-        girls: [itsmagic.princess.SKU],
-        dresses: [itsmagic.princess.SKU],
+        girls: [itsmagic.princess.SKU, itsmagic.flow, itsmagic.wave],
+        dresses: [itsmagic.princess.SKU, itsmagic.flow, itsmagic.wave],
         tops: [],
         shirts: [],
         pants: [],

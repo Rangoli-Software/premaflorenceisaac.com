@@ -9,9 +9,9 @@ const cmData = [
 ['Champagne Bag','CHMPGN1501JL','0.0208333333333333','1.1','/products/home/cbaglite.jpg','FALSE'],
 
 ['Handloom Facemask','FACEMK2005Ta','0.0095','1.2','/products/accessories/facemask.html','TRUE'],
-['Naksha Micro Skirt','NKSHMC1512PP','0.15','1.4','/products/artwear/naksha.html?s=c','TRUE'],
-['Naksha Mini Skirt','NKSHMI1501PP','0.25','1.4','/products/artwear/naksha.html?s=m','TRUE'],
-['Naksha Midi Skirt','NKSHMD1501PP','0.3','1.4','/products/artwear/naksha.html?s=d','TRUE'],
+['Naksha Micro Skirt','NKSHMC1512PP','0.18','1.4','/products/artwear/naksha.html?s=c','TRUE'],
+['Naksha Mini Skirt','NKSHMI1501PP','0.28','1.4','/products/artwear/naksha.html?s=m','TRUE'],
+['Naksha Midi Skirt','NKSHMD1501PP','0.34','1.4','/products/artwear/naksha.html?s=d','TRUE'],
 ['Naksha Minuit Skirt','NKSHMU1501PP','0.4','1.4','/products/artwear/naksha.html?s=u','TRUE'],
 ['Tamarai Dress','NKSHDR1501Ta','0.35','1.2','/products/artwear/tamarai.html','TRUE'],
 ['Malligai Dress','NKSDSL1701Ta','0.35','1.2','/products/artwear/malligai.html','TRUE'],
