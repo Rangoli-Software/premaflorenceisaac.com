@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020110407";
+const shopRevisionVersion = "2020110408";
 
 const cmData = [
 ['Test Live Trans','TESTIT0000Hi','0','0','','FALSE'],
@@ -93,7 +93,7 @@ const varPLData = {
 }
 
 const plData = [
-['TESTIT0000Hi',1],
+    ['TESTIT0000Hi',1],
 
 ['AWTSHT1604Je',5000],
 ['KAGTIE1601Kh',3550],
@@ -152,16 +152,16 @@ const plData = [
 ['NKSDSL1701PT',17500],
 
 ['KBALPA1601Vo',1350],
-['KDHRDR1601Rv',2100],
+['KDHRDR1601Rv',2250],
 ['FAIRSK1601Rv',1850],
 ['FAIRTP1601Je',975],
 ['HLFPNT1601Kh',975],
 ['HLFTPS1601Kh',1450],
-['PRNCDR1501Rv',2750],
+['PRNCDR1501Rv',2975],
 ['KRACBK1501Je',975],
 ['KRAJKT1601Rv',2650],
 ['YUVRTC1601Rv',2100],
-['KWAVDR1601Rv',2500],
+['KWAVDR1601Rv',2625],
 
 ['KIDIKI1501Vi',1950],
 ['KKOHKT1601Kh',2750],
