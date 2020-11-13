@@ -412,6 +412,10 @@ const shop = {
     url: "/shop.html",
     sub: [
         {
+            title: "It's Magic",
+            url: "/products/itsmagic/shop.html"
+        },
+        {
             title: "Ce Soir",
             url: "/products/night/shop.html"
         },
@@ -503,6 +507,41 @@ function getSubEntry(item, url) {
 }
 
 const merchInfo = [
+    {
+        SKU: 'PRNCDR1501Rv',
+        title: '',
+        url: '/products/itsmagic/princess.html',
+        ledes: [''],
+        images: [{url: '/products/itsmagic/Princess.jpg'}]
+    },
+    {
+        SKU: 'KWAVDR1601Rv',
+        title: '',
+        url: '/products/itsmagic/wave.html',
+        ledes: [''],
+        images: [{url: '/products/itsmagic/Wave.jpg'}]
+    },
+    {
+        SKU: 'KDHRDR1601Rv',
+        title: '',
+        url: '/products/itsmagic/flow.html',
+        ledes: [''],
+        images: [{url: '/products/itsmagic/Dhara.jpg'}]
+    },
+    {
+        SKU: 'KDHRDR1601Rv',
+        title: '',
+        url: '/products/itsmagic/flow.html',
+        ledes: [''],
+        images: [{url: '/products/itsmagic/Dhara.jpg'}]
+    },
+    {
+        SKU: 'KDHRDR1601Rv',
+        title: '',
+        url: '/products/itsmagic/flow.html',
+        ledes: [''],
+        images: [{url: '/products/itsmagic/Dhara.jpg'}]
+    },
     {
         SKU: 'HLNDRS1505PT',
         title: '',

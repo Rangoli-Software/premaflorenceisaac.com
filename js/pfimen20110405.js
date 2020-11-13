@@ -319,10 +319,10 @@ const mntPData = {
     },
     data: [
         {
-            colourName: "Beige",
+            colourName: "Khaki",
             vid: "CW1",
-            colourPfx: "beige",
-            colourSfxs: ["f","b","d1","d2","d3","d4"]
+            colourPfx: "khaki",
+            colourSfxs: ["f","b","s","d1","d2"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -347,7 +347,7 @@ const mntSData = {
             colourName: "Navy",
             vid: "CW1",
             colourPfx: "navy",
-            colourSfxs: ["f", "b", "d1", "d2", "d3"]
+            colourSfxs: ["f", "b", "s", "d1", "d2"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],

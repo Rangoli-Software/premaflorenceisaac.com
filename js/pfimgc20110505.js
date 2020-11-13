@@ -14,8 +14,25 @@ itsmagic.createRelatedViewer = function (skuInfo, catalog) {
     return createRelatedViewer(caption, res, 2);
 }
 
+itsmagic.createNavHelper = function (prodInfo) {
+    return {
+        getBreadCrumb: function () {
+            var levels = [{
+                title: 'Shop',
+                url: '/shop.html'
+            }, {
+                title: 'It\'s Magic',
+                url: '/products/itsmagic/shop.html'
+            }, {
+                title: this.prodInfo.product.name
+            }];
+            return createBreadCrumbLevels(levels);
+        }
+    };
+}
+
 itsmagic.createComponentFactory = function (prodInfo, dimensioner, sizer, catalog) {
-    var navHelper = createNavHelper(prodInfo, catalog, 'It\'s Magic');
+    var navHelper = itsmagic.createNavHelper(prodInfo);
     //    var relatedviewer = itsmagic.createRelatedViewer(prodInfo.skuInfo, catalog);
     var relatedviewer = createEmptyViewer();
     return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, "", "Age");
@@ -26,7 +43,7 @@ itsmagic.sizing_top = {};
 itsmagic.princess = {
     SKU: 'PRNCDR1501Rv',
     imgDir: 'princess',
-    imageFile: "sizing",
+    imageFile: "sizing.jpg",
     dimensionNames: ['A. Chest', 'B. Waist', 'C. Length'],
     dimensionsCm: {
         '2-4': [30, 56, 66],
@@ -83,7 +100,7 @@ itsmagic.princess = {
 itsmagic.flow = {
     SKU: 'KDHRDR1601Rv',
     imgDir: 'flow',
-    imageFile: "sizing",
+    imageFile: "sizing.jpg",
     dimensionNames: ['A. Chest', 'B. Waist', 'C. Length'],
     dimensionsCm: {
         '2-4': [30, 56, 66],
@@ -122,7 +139,7 @@ itsmagic.flow = {
 itsmagic.wave = {
     SKU: 'KWAVDR1601Rv',
     imgDir: 'wave',
-    imageFile: "sizing",
+    imageFile: "sizing.jpg",
     dimensionNames: ['A. Chest', 'B. Waist', 'C. Length'],
     dimensionsCm: {
         '2-4': [30, 56, 66],
@@ -137,26 +154,26 @@ itsmagic.wave = {
             colourName: "Chartreuse & Green & Krishna Blue over Lemon",
             vid: "CW1",
             picPfx: "1",
-            carouselPix: ["F", "B", "R", "D1", "D2"],
-            cwPix: ["F", "R"]
+            carouselPix: ["F", "B", "D1", "D2"],
+            cwPix: ["F", "B"]
         },
         {
             colourName: "Lavender & Rose & Old Rose over Aqua",
             vid: "CW2",
             picPfx: "2",
-            cwPix: ["F", "R"]
+            cwPix: ["F", "B"]
         },
         {
             colourName: "Orange & Lemon & Pink over Chartreuse",
             vid: "CW3",
             picPfx: "3",
-            cwPix: ["F", "R"]
+            cwPix: ["F", "B"]
         },
         {
             colourName: "Dark Grey & Brass & Silver Sheen over Sunflower",
-            vid: "CW3",
-            picPfx: "3",
-            cwPix: ["F", "R"]
+            vid: "CW4",
+            picPfx: "4",
+            cwPix: ["F", "B"]
         }
     ],
     sizes: ['2-4', '5-7', '8-10'],
@@ -191,8 +208,8 @@ itsmagic.createCatalog = function () {
     return {
         styles: [itsmagic.princess, itsmagic.flow, itsmagic.wave],
         boys: [],
-        girls: [itsmagic.princess.SKU, itsmagic.flow, itsmagic.wave],
-        dresses: [itsmagic.princess.SKU, itsmagic.flow, itsmagic.wave],
+        girls: [itsmagic.princess.SKU, itsmagic.flow.SKU, itsmagic.wave.SKU],
+        dresses: [itsmagic.princess.SKU, itsmagic.flow.SKU, itsmagic.wave.SKU],
         tops: [],
         shirts: [],
         pants: [],
