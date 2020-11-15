@@ -45,11 +45,11 @@ itsmagic.princess = {
     SKU: 'PRNCDR1501Rv',
     imgDir: 'princess',
     imageFile: "sizing.jpg",
-    dimensionNames: ['A. Chest', 'B. Waist', 'C. Length'],
+    dimensionNames: ['A. Length', 'B. Chest', 'C. Waist', 'D. Armhole'],
     dimensionsCm: {
-        '2-4': [30, 56, 66],
-        '5-7': [32, 60, 75],
-        '8-10': [38, 70, 87]
+        '2-4': [66, 60, 56, 36],
+        '5-7': [75, 64, 60, 40],
+        '8-10': [87, 76, 70, 46]
     },
     getFabric: function (varidx) {
         return "Voile";
@@ -102,11 +102,11 @@ itsmagic.flow = {
     SKU: 'KDHRDR1601Rv',
     imgDir: 'flow',
     imageFile: "sizing.jpg",
-    dimensionNames: ['A. Chest', 'B. Waist', 'C. Length'],
+    dimensionNames: ['A. Length', 'B. Shoulder', 'C. Chest', 'D. Armhole'],
     dimensionsCm: {
-        '2-4': [30, 56, 66],
-        '5-7': [32, 60, 75],
-        '8-10': [38, 70, 87]
+        '2-4': [54, 16, 54, 16],
+        '5-7': [61, 17, 58, 17],
+        '8-10': [72, 18, 62, 18]
     },
     getFabric: function (varidx) {
         return "Voile";
@@ -141,11 +141,11 @@ itsmagic.wave = {
     SKU: 'KWAVDR1601Rv',
     imgDir: 'wave',
     imageFile: "sizing.jpg",
-    dimensionNames: ['A. Chest', 'B. Waist', 'C. Length'],
+    dimensionNames: ['A. Length', 'B. Shoulder', 'C. Chest', 'D. Armhole'],
     dimensionsCm: {
-        '2-4': [30, 56, 66],
-        '5-7': [32, 60, 75],
-        '8-10': [38, 70, 87]
+        '2-4': [60, 12, 60, 42],
+        '5-7': [66, 14, 70, 45],
+        '8-10': [73, 16, 76, 48]
     },
     getFabric: function (varidx) {
         return "Voile";

@@ -578,7 +578,9 @@ function createVariantSelector(prodInfo) {
             if (this.variants.data.length > 1) {
                 for (var i = 0; i < this.variants.data.length; i++) {
                     var opt = this.variants.data[i];
-                    res += '<div class="custom-control custom-control-inline custom-control-img"><input type="radio" onclick="onSelectionChange()" class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + '><label class="custom-control-label" for="' + name + i + '"><span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + this.prodInfo.getImages(i).getImage(0).url + ');"></span></label></div>';
+                    res += '<div class="custom-control custom-control-inline custom-control-img"><input type="radio" onclick="onSelectionChange()" class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + '><label class="custom-control-label" for="' + name + i + '"' + '>' /*+ '<span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + this.prodInfo.getImages(i).getImage(0).url + ');"></span>'*/
+                    + '<img class="img-fluid" src="' + this.prodInfo.getImages(i).getImage(0).url + '">'
+                    + '</label></div>';
                 }
             }
             res += '</div>';
