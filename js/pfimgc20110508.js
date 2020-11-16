@@ -182,6 +182,85 @@ itsmagic.wave = {
     garmentDetails: ''
 };
 
+itsmagic.kidikini = {
+    SKU: 'KIDIKI1501Vi',
+    imgDir: 'kidikini',
+    imageFile: "sizing.jpg",
+    dimensionNames: ['A. Top', 'B. Waist', 'C. Hem'],
+    dimensionsCm: {
+        '1-2': [13.5, 36, 19],
+        '2-4': [15.5, 40, 23],
+        '5-7': [17, 46, 26],
+        '8-10': [19, 50, 30]
+    },
+    getFabric: function (varidx) {
+        return "Viscose";
+    },
+    data: [
+        {
+            colourName: "Turmeric with Chilly",
+            vid: "CW1",
+            picPfx: "1-",
+            carouselPix: ["F", "B", "R", "D1", "D2"],
+            cwPix: ["1", "2", "3"]
+        },
+        {
+            colourName: "Krishna with Chartreuse",
+            vid: "CW2",
+            picPfx: "2-",
+            cwPix: ["1", "2", "3"]
+        }
+    ],
+    sizes: ['1-2', '2-4', '5-7', '8-10'],
+    description: '',
+    garmentDetails: ''
+};
+
+itsmagic.halfpant = {
+    SKU: 'HLFPNT1601Kh',
+    imgDir: 'halfpant',
+    imageFile: "sizing.jpg",
+    dimensionNames: ['A. Length', 'B. Waist', 'C. Hem', 'D. Crotch'],
+    dimensionsCm: {
+        '2-4': [43, 46, 18.5, 56],
+        '5-7': [47, 50, 19, 58],
+        '8-10': [51, 54, 19, 62]
+    },
+    getFabric: function (varidx) {
+        return "Voile";
+    },
+    data: [
+        {
+            colourName: "Grey",
+            vid: "CW1",
+            picPfx: "1",
+            carouselPix: ["F", "B", "D1", "D2", "D3", "D4"],
+            cwPix: ["F", "B"]
+        },
+        {
+            colourName: "Green",
+            vid: "CW2",
+            picPfx: "2",
+            cwPix: ["F", "B"]
+        },
+        {
+            colourName: "Bordeaux",
+            vid: "CW3",
+            picPfx: "3",
+            cwPix: ["F", "B"]
+        },
+        {
+            colourName: "Jean",
+            vid: "CW4",
+            picPfx: "5",
+            cwPix: ["F", "B"]
+        }
+    ],
+    sizes: ['2-4', '5-7', '8-10'],
+    description: '',
+    garmentDetails: ''
+};
+
 function createIMImageFactory(that, vidx) {
     return {
         that: that,
@@ -207,9 +286,9 @@ itsmagic.createJSON = function (style) {
 
 itsmagic.createCatalog = function () {
     return {
-        styles: [itsmagic.princess, itsmagic.flow, itsmagic.wave],
-        boys: [],
-        girls: [itsmagic.princess.SKU, itsmagic.flow.SKU, itsmagic.wave.SKU],
+        styles: [itsmagic.princess, itsmagic.flow, itsmagic.wave, itsmagic.kidikini, itsmagic.halfpant],
+        boys: [itsmagic.halfpant.SKU],
+        girls: [itsmagic.princess.SKU, itsmagic.flow.SKU, itsmagic.wave.SKU, itsmagic.kidikini.SKU],
         dresses: [itsmagic.princess.SKU, itsmagic.flow.SKU, itsmagic.wave.SKU],
         tops: [],
         shirts: [],

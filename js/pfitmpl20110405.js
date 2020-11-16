@@ -508,6 +508,20 @@ function getSubEntry(item, url) {
 
 const merchInfo = [
     {
+        SKU: 'HLFPNT1601Kh',
+        title: '',
+        url: '/products/itsmagic/halfpant.html',
+        ledes: [''],
+        images: [{url: '/products/itsmagic/HalfPant.jpg'}]
+    },
+    {
+        SKU: 'KIDIKI1501Vi',
+        title: '',
+        url: '/products/itsmagic/kidikini.html',
+        ledes: [''],
+        images: [{url: '/products/itsmagic/Kidikini.jpg'}]
+    },
+    {
         SKU: 'PRNCDR1501Rv',
         title: '',
         url: '/products/itsmagic/princess.html',
@@ -520,20 +534,6 @@ const merchInfo = [
         url: '/products/itsmagic/wave.html',
         ledes: [''],
         images: [{url: '/products/itsmagic/Wave.jpg'}]
-    },
-    {
-        SKU: 'KDHRDR1601Rv',
-        title: '',
-        url: '/products/itsmagic/flow.html',
-        ledes: [''],
-        images: [{url: '/products/itsmagic/Dhara.jpg'}]
-    },
-    {
-        SKU: 'KDHRDR1601Rv',
-        title: '',
-        url: '/products/itsmagic/flow.html',
-        ledes: [''],
-        images: [{url: '/products/itsmagic/Dhara.jpg'}]
     },
     {
         SKU: 'KDHRDR1601Rv',
@@ -1121,7 +1121,7 @@ function pickSection(section) {
 }
 
 function selectSections() {
-    return [pickSection([atelier, origin]), pickSection([about, buzz, archives, lotm, lookbook, moods, ramp, clients])];
+    return [pickSection([atelier, origin]), pickSection([about, buzz, archives, lotm, moods, ramp, clients])];
 }
 
 function filterMerch(skus, blacklist) {
@@ -1145,8 +1145,8 @@ function pickMerch(skus, blacklist) {
 }
 
 function selectMerch(blacklist) {
-    var leftSKUs = ['OVTPLO1501Vo','VAMPAL1708Kh','LTSDSL1501Kh','DPDYSF1501PT','KAGTIE1601Kh','CHMPGN1501JL','NKSHMD1501PP','NKSHMC1512PP'];
-    var restSKUs = ['BERMPA1609Kh','BALLPA1501Vo','CRPTOP1805Kh','FACEMK2005Ta','AWTSHT1604Je','NKSHMU1501PP','NKSHMI1501PP'];
+    var leftSKUs = ['OVTPLO1501Vo','VAMPAL1708Kh','LTSDSL1501Kh','DPDYSF1501PT','KAGTIE1601Kh','CHMPGN1501JL','NKSHMD1501PP','NKSHMC1512PP','BKLLTS1505Je','JLTDRS1505PT','PRNCDR1501Rv'];
+    var restSKUs = ['BERMPA1609Kh','BALLPA1501Vo','CRPTOP1805Kh','FACEMK2005Ta','AWTSHT1604Je','NKSHMU1501PP','NKSHMI1501PP','HLNDRS1505PT','KDHRDR1601Rv','KWAVDR1601Rv'];
     return [pickMerch(leftSKUs, blacklist), pickMerch(restSKUs, blacklist)];
 }
 
