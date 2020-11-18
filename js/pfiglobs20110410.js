@@ -1,12 +1,12 @@
-const shopRevisionVersion = "2020110408";
+const shopRevisionVersion = "2020110410";
 
 const cmData = [
 ['Test Live Trans','TESTIT0000Hi','0','0','','FALSE'],
 
-['Woven Canvas on T','AWTSHT1604Je','0.2','1.2','/fabricart/TShirtColl.jpg','TRUE'],
-['Kagera Tie','KAGTIE1601Kh','0.094','1.1','/products/ties/Black.jpg','FALSE'],
-['Dip-Dye Scarf','DPDYSF1501PT','0.36','1.2','/products/scarves/TurbanMood.jpg','FALSE'],
-['Champagne Bag','CHMPGN1501JL','0.0208333333333333','1.1','/products/home/cbaglite.jpg','FALSE'],
+['Woven Canvas on T','AWTSHT1604Je','0.2','1.2','/fabricartT.html','TRUE'],
+['Kagera Tie','KAGTIE1601Kh','0.094','1.1','/products/ties/kagera.html','FALSE'],
+['Dip-Dye Scarf','DPDYSF1501PT','0.36','1.2','/products/scarves/dipdye.html','FALSE'],
+['Champagne Bag','CHMPGN1501JL','0.0208333333333333','1.1','/products/home/champagnebag.html','FALSE'],
 
 ['Handloom Facemask','FACEMK2005Ta','0.0095','1.2','/products/accessories/facemask.html','TRUE'],
 ['Naksha Micro Skirt','NKSHMC1512PP','0.18','1.4','/products/artwear/naksha.html?s=c','TRUE'],
@@ -61,12 +61,15 @@ const cmData = [
 
 ['Balloon Pant','KBALPA1601Vo','','','/products/itsmagic/balloon.html','FALSE'],
 ['Flow Dress','KDHRDR1601Rv','','','/products/itsmagic/flow.html','FALSE'],
+['Fairy Set','FAIRST2011Rv','','','/products/itsmagic/fairy.html','FALSE'],
 ['Fairy Skirt','FAIRSK1601Rv','','','/products/itsmagic/fairyS.html','FALSE'],
 ['Fairy Top','FAIRTP1601Je','','','/products/itsmagic/fairyT.html','FALSE'],
+['Gypsy Set','KGYPST1601Rv','','','/products/itsmagic/gypsy.html','FALSE'],
 ['Half Pant','HLFPNT1601Kh','','','/products/itsmagic/halfpant.html','FALSE'],
 ['Half Pant Topsy','HLFTPS1601Kh','','','/products/itsmagic/halfpantT.html','FALSE'],
 ['Princess Dress','PRNCDR1501Rv','','','/products/itsmagic/princess.html','FALSE'],
 ['Racerback Top','KRACBK1501Je','','','/products/itsmagic/racerback.html','FALSE'],
+['Full Pant','KRAJPT1601Kh','','','/products/itsmagic/fullpant.html','FALSE'],
 ['Royal Kurta','KRAJKT1601Rv','','','/products/itsmagic/royal.html','FALSE'],
 ['Prince Kurta','YUVRTC1601Rv','','','/products/itsmagic/prince.html','FALSE'],
 ['Wave Dress','KWAVDR1601Rv','','','/products/itsmagic/wave.html','FALSE'],
@@ -93,7 +96,7 @@ const varPLData = {
 }
 
 const plData = [
-    ['TESTIT0000Hi',1],
+['TESTIT0000Hi',1],
 
 ['AWTSHT1604Je',5000],
 ['KAGTIE1601Kh',3550],
@@ -153,12 +156,15 @@ const plData = [
 
 ['KBALPA1601Vo',1350],
 ['KDHRDR1601Rv',2250],
+['FAIRST2011Rv',2825],
 ['FAIRSK1601Rv',1850],
 ['FAIRTP1601Je',975],
+['KGYPST1601Rv',5850],
 ['HLFPNT1601Kh',975],
 ['HLFTPS1601Kh',1450],
 ['PRNCDR1501Rv',2975],
 ['KRACBK1501Je',975],
+['KRAJPT1601Kh',975],
 ['KRAJKT1601Rv',2650],
 ['YUVRTC1601Rv',2100],
 ['KWAVDR1601Rv',2625],

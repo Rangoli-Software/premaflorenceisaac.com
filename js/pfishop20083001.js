@@ -21,12 +21,12 @@ function createCatalog() {
     return ret;
 }
 
-function createCatalogMedia(name, sku, isUnique, imageURL, weight, volFactor) {
+function createCatalogMedia(name, sku, isUnique, url, weight, volFactor) {
     return {
         name: name,
         sku: sku,
         isUnique: isUnique,
-        imageURL: imageURL,
+        url: url,
         weight: parseFloat(weight),
         volFactor: parseFloat(volFactor)
     };
@@ -74,7 +74,7 @@ function createProductCatalog(cat, pl) {
         getProduct: function(code) {
             var cm = this.catalog[ code ];
             var pr = this.priceList[ code ];
-            return createProduct(cm.name, "", cm.sku, cm.isUnique, pr.price, '', cm.imageURL, cm.weight, cm.volFactor);
+            return createProduct(cm.name, "", cm.sku, cm.isUnique, pr.price, '', cm.url, cm.weight, cm.volFactor);
         }
     };
 }

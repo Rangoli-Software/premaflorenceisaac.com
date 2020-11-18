@@ -508,163 +508,147 @@ function getSubEntry(item, url) {
 
 const merchInfo = [
     {
+        SKU: 'KGYPST1601Rv',
+        ledes: [''],
+        images: [{url: '/products/itsmagic/GypsySet.jpg'}]
+    },
+    {
+        SKU: 'KRAJPT1601Kh',
+        ledes: [''],
+        images: [{url: '/products/itsmagic/RajPantsSq2.jpg'}]
+    },
+    {
+        SKU: 'FAIRST2011Rv',
+        ledes: [''],
+        images: [{url: '/products/itsmagic/FairySet.jpg'}]
+    },
+    {
+        SKU: 'KBALPA1601Vo',
+        ledes: [''],
+        images: [{url: '/products/itsmagic/Balloon.jpg'}]
+    },
+    {
+        SKU: 'KRAJKT1601Rv',
+        ledes: [''],
+        images: [{url: '/products/itsmagic/RajKurta.jpg'},{url: '/products/itsmagic/RajBoy.jpg'}]
+    },
+    {
+        SKU: 'YUVRTC1601Rv',
+        ledes: [''],
+        images: [{url: '/products/itsmagic/Yuvraj.jpg'}]
+    },
+    {
         SKU: 'HLFPNT1601Kh',
-        title: '',
-        url: '/products/itsmagic/halfpant.html',
         ledes: [''],
         images: [{url: '/products/itsmagic/HalfPant.jpg'}]
     },
     {
         SKU: 'KIDIKI1501Vi',
-        title: '',
-        url: '/products/itsmagic/kidikini.html',
         ledes: [''],
         images: [{url: '/products/itsmagic/Kidikini.jpg'}]
     },
     {
         SKU: 'PRNCDR1501Rv',
-        title: '',
-        url: '/products/itsmagic/princess.html',
         ledes: [''],
         images: [{url: '/products/itsmagic/Princess.jpg'}]
     },
     {
         SKU: 'KWAVDR1601Rv',
-        title: '',
-        url: '/products/itsmagic/wave.html',
         ledes: [''],
         images: [{url: '/products/itsmagic/Wave.jpg'}]
     },
     {
         SKU: 'KDHRDR1601Rv',
-        title: '',
-        url: '/products/itsmagic/flow.html',
         ledes: [''],
         images: [{url: '/products/itsmagic/Dhara.jpg'}]
     },
     {
         SKU: 'HLNDRS1505PT',
-        title: '',
-        url: '/products/night/helena.html',
         ledes: [''],
         images: [{url: '/look/moods/cs/helena.jpg'}]
     },
     {
         SKU: 'JLTDRS1505PT',
-        title: '',
-        url: '/products/night/juliet.html',
         ledes: [''],
         images: [{url: '/look/moods/cs/juliet.jpg'}]
     },
     {
         SKU: 'BKLLTS1505Je',
-        title: '',
-        url: '/products/night/tamora.html',
         ledes: [''],
         images: [{url: '/look/moods/cs/tamora.jpg'}]
     },
     {
         SKU: 'AWTSHT1604Je',
-        title: 'Woven Canvas T Shirt',
-        url: '/fabricartT.html',
         ledes: ['A one-of-a-kind T-shirt for that unique individual!'],
         images: [{url: '/fabricart/TShirtColl.jpg'},{url: '/fabricart/ManWhiteS.jpg'},{url: '/fabricart/GirlBlackS.jpg'}]
     },
     {
         SKU: 'NKSHMU1501PP',
-        title: 'Art Wear Naksha-Minuit',
-        url: '/products/artwear/naksha.html?s=u',
         ledes: ["Full length #oneofakind skirt for all ages and sizes!"],
         images: [{url: '/people/minm.jpg'},{url: '/look/friends/1.jpg'}]
     },
     {
         SKU: 'NKSHMD1501PP',
-        title: 'Art Wear Naksha-Midi',
-        url: '/products/artwear/naksha.html?s=d',
         ledes: ["#oneofakind skirt for all ages and sizes!"],
         images: [{url: '/people/mmib.jpg'},{url: '/people/slkb.jpg'},{url: '/people/ibgirl.jpg'},{url: '/look/friends/2.jpg'},{url: '/g/look/nkshofstp.jpg'}]
     },
     {
         SKU: 'NKSHMI1501PP',
-        title: 'Art Wear Naksha-Mini',
-        url: '/products/artwear/naksha.html?s=i',
         ledes: ["#oneofakind mini skirt for all ages and sizes!"],
         images: [{url: '/people/EricaNaksha1.jpg'}]
     },
     {
         SKU: 'NKSHMC1512PP',
-        title: 'Art Wear Naksha-Micro',
-        url: '/products/artwear/naksha.html?s=c',
         ledes: ["#oneofakind micro skirt for all ages and sizes!"],
         images: [{url: '/people/ibpp.jpg'}]
     },
     {
         SKU: 'FACEMK2005Ta',
-        title: 'Handloom Face Mask',
-        url: '/products/accessories/facemask.html',
         ledes: ["#oneofakind facemask to keep you safe in style and comfort"],
         images: [{url: '/people/nfm01.jpg'},{url: '/people/nfm02.jpg'},{url: '/people/nfm03.jpg'}]
     },
     {
         SKU: 'DPDYSF1501PT',
-        title: 'Dip-Dye Scarf',
-        url: '/products/scarves/dipdye.html',
         ledes: ["A gorgeous example of the Tangail Weavers' Craft"],
         images: [{url: '/products/scarves/TurbanMood.jpg'},{url: '/products/scarves/ShawlMood.jpg'}]
     },
     {
         SKU: 'KAGTIE1601Kh',
-        title: 'Kagera Tie',
-        url: '/products/ties/kagera.html',
         ledes: ['Artsy, hand-woven, hand-crafted Neckwear','For the gentleman of refined taste - a two-tone khadi tie with a border of treasured tangail'],
         images: [{url: '/products/ties/Black.jpg'},{url: '/products/ties/Red.jpg'}]
     },
     {
         SKU: 'CHMPGN1501JL',
-        title: 'Champagne Bottle Bag',
-        url: "/products/home/champagnebag.html",
         ledes: ['The perfect gift bag for that exclusive vintage'],
         images: [{url: '/products/home/CBCCMD.jpg'},{url: '/products/home/CBCGMD.jpg'},{url: '/products/home/CBMBMD.jpg'}]
     },
     {
         SKU: 'CRPTOP1805Kh',
-        title: 'Crop Top',
-        url: "/products/happyeveryday/croptop.html",
         ledes: ['Basic summer top'],
         images: [{url: '/products/happyeveryday/mood/mch-1.jpg'}]
     },
     {
         SKU: 'VAMPAL1708Kh',
-        title: 'Side Slit Top',
-        url: "/products/happyeveryday/sideslit.html",
         ledes: ['Handwoven khadi to lighten up your summers'],
         images: [{url: '/products/happyeveryday/mood/mch-2.jpg'},{url: '/products/happyeveryday/mood/mch-7.jpg'}]
     },
     {
         SKU: 'OVTPLO1501Vo',
-        title: 'Long Overtop',
-        url: "/products/happyeveryday/lovertop.html",
         ledes: ['Light breezy jacket for spring'],
         images: [{url: '/products/happyeveryday/mood/mch-3.jpg'},{url: '/blog/joyofcolour/2.jpg'}]
     },
     {
         SKU: 'BERMPA1609Kh',
-        title: 'Wild Pansy Pants',
-        url: "/products/happyeveryday/bermuda.html",
         ledes: ['Casual pants to work and lounge in'],
         images: [{url: '/products/happyeveryday/mood/mch-4.jpg'}]
     },
     {
         SKU: 'LTSDSL1501Kh',
-        title: 'String Dress',
-        url: "/products/happyeveryday/shoulderstring.html",
         ledes: ['A dress that works from dawn to dusk'],
         images: [{url: '/products/happyeveryday/mood/mch-5.jpg'}]
     },
     {
         SKU: 'BALLPA1501Vo',
-        title: 'Balloon Pants',
-        url: "/products/happyeveryday/balloon.html",
         ledes: ['Everyday basics for every mood'],
         images: [{url: '/products/happyeveryday/mood/mch-6.jpg'}]
     }
@@ -672,6 +656,7 @@ const merchInfo = [
 
 function createMerchandisingCard(item, catalog) {
     var title = catalog[ item.SKU ].name;
+    var url = catalog[ item.SKU ].url;
     var res = '<div class="card mb-2">';
     var len = item.images.length;
     var rndI = Math.floor(Math.random() * len);
@@ -682,7 +667,7 @@ function createMerchandisingCard(item, catalog) {
     res += '<div class="card-body px-0 pt-6 pb-4">';
     res += '<div class="card-subtitle mb-1"><span class="sc-item" data-field="price" data-vsku="' + item.SKU +'"></span></div>';
     if  ( item.url !== undefined ) {
-        res += '<h6 class="card-title mb-2">' + title + '<a  href="' + item.url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
+        res += '<h6 class="card-title mb-2">' + title + '<a  href="' + url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
     }
     len = item.ledes.length;
     rndI = Math.floor(Math.random() * len);

@@ -227,7 +227,7 @@ itsmagic.halfpant = {
         '8-10': [51, 54, 19, 62]
     },
     getFabric: function (varidx) {
-        return "Voile";
+        return "Khadi";
     },
     data: [
         {
@@ -261,6 +261,285 @@ itsmagic.halfpant = {
     garmentDetails: ''
 };
 
+itsmagic.prince = {
+    SKU: 'YUVRTC1601Rv',
+    imgDir: 'prince',
+    imageFile: "sizing.jpg",
+    dimensionNames: ['A. Length', 'B. Shoulder', 'C. Chest', 'D. Armhole', 'E. Sleeve', 'F. Bicep'],
+    dimensionsCm: {
+        '2-4': [45, 36, 72, 38, 12, 13.5],
+        '5-7': [48, 38, 76, 40, 13, 14.5],
+        '8-10': [54, 40, 80, 42, 15, 16.5]
+    },
+    getFabric: function (varidx) {
+        return "Khadi & Voile";
+    },
+    data: [
+        {
+            colourName: "Burnt Orange with Chartreuse",
+            vid: "CW1",
+            picPfx: "1",
+            carouselPix: ["F", "B", "D1", "D2", "RF", "RB"],
+            cwPix: ["F", "B", "RF", "RB"]
+        },
+        {
+            colourName: "Indigo with Chilly",
+            vid: "CW2",
+            picPfx: "2",
+            cwPix: ["F", "B", "RF", "RB"]
+        },
+        {
+            colourName: "Turquoise with Orange",
+            vid: "CW3",
+            picPfx: "3",
+            cwPix: ["F", "B", "RF", "RB"]
+        },
+        {
+            colourName: "Grey with Silver Sheen",
+            vid: "CW4",
+            picPfx: "4",
+            cwPix: ["F", "B", "RF", "RB"]
+        }
+    ],
+    sizes: ['2-4', '5-7', '8-10'],
+    description: '',
+    garmentDetails: ''
+};
+
+itsmagic.royal = {
+    SKU: 'KRAJKT1601Rv',
+    imgDir: 'royal',
+    imageFile: "sizing.jpg",
+    dimensionNames: ['A. Length', 'B. Shoulder', 'C. Chest', 'D. Armhole', 'E. Sleeve', 'F. Bicep'],
+    dimensionsCm: {
+        '2-4': [57, 26, 76, 38, 35.5, 22],
+        '5-7': [60, 28, 80, 41, 37, 24],
+        '8-10': [66, 32, 89, 44, 42, 27]
+    },
+    getFabric: function (varidx) {
+        return "Khadi & Voile";
+    },
+    data: [
+        {
+            colourName: "Silver Sheen with Off-White",
+            vid: "CW1",
+            picPfx: "1",
+            carouselPix: ["F", "B", "D1", "D2", "RF", "RB"],
+            cwPix: ["F", "B", "RF", "RB"]
+        },
+        {
+            colourName: "Steel with Sunflower",
+            vid: "CW2",
+            picPfx: "2",
+            cwPix: ["F", "B", "RF", "RB"]
+        },
+        {
+            colourName: "Black with Brass",
+            vid: "CW3",
+            picPfx: "3",
+            cwPix: ["F", "B", "RF", "RB"]
+        },
+        {
+            colourName: "Black with Chartreuse",
+            vid: "CW4",
+            picPfx: "4",
+            cwPix: ["F", "B", "RF", "RB"]
+        },
+        {
+            colourName: "Krishna with Dark Grey",
+            vid: "CW5",
+            picPfx: "5",
+            cwPix: ["F", "B", "RF", "RB"]
+        }
+    ],
+    sizes: ['2-4', '5-7', '8-10'],
+    description: '',
+    garmentDetails: ''
+};
+
+itsmagic.fullpant = {
+    SKU: 'KRAJPT1601Kh',
+    imgDir: 'fullpant',
+    imageFile: "sizing.jpg",
+    dimensionNames: ['A. Length', 'B. Waist', 'C. Hem', 'D. Crotch'],
+    dimensionsCm: {
+        '2-4': [60, 46, , ],
+        '5-7': [65, 50, , ],
+        '8-10': [75, 54, , ]
+    },
+    getFabric: function (varidx) {
+        return "Khadi";
+    },
+    data: [
+        {
+            colourName: "Jean",
+            vid: "CW1",
+            picPfx: "1",
+            carouselPix: ["F", "B", "D1", "D2", "D3", "D4"],
+            cwPix: ["F", "B", "D1"]
+        },
+        {
+            colourName: "Black",
+            vid: "CW2",
+            picPfx: "2",
+            cwPix: ["F", "B", "D1"]
+        },
+        {
+            colourName: "Grey",
+            vid: "CW3",
+            picPfx: "3",
+            cwPix: ["F", "B", "D1"]
+        }
+    ],
+    sizes: ['2-4', '5-7', '8-10'],
+    description: '',
+    garmentDetails: ''
+};
+
+itsmagic.balloon = {
+    SKU: 'KBALPA1601Vo',
+    imgDir: 'balloon',
+    imageFile: "sizing.jpg",
+    dimensionNames: ['A. Length', 'B. Waist', 'C. Hem', 'D. Crotch'],
+    dimensionsCm: {
+        '2-4': [59, 46, 22, 38],
+        '5-7': [66, 50, 86, 43],
+        '8-10': [76, 54, 96, 48]
+    },
+    getFabric: function (varidx) {
+        return "Voile";
+    },
+    data: [
+        {
+            colourName: "Pink with Krishna",
+            vid: "CW1",
+            picPfx: "1",
+            carouselPix: ["F", "B", "D1", "D2", "D3", "RF", "RB"],
+            cwPix: ["F", "RF"]
+        },
+        {
+            colourName: "Sunflower with Lemon",
+            vid: "CW2",
+            picPfx: "2",
+            cwPix: ["F", "RF"]
+        },
+        {
+            colourName: "Aqua with Lemon",
+            vid: "CW3",
+            picPfx: "3",
+            cwPix: ["F", "RF"]
+        },
+        {
+            colourName: "Green with Aqua",
+            vid: "CW4",
+            picPfx: "4",
+            cwPix: ["F", "RF"]
+        },
+        {
+            colourName: "Krishna with Aqua",
+            vid: "CW5",
+            picPfx: "5",
+            cwPix: ["F", "RF"]
+        },
+        {
+            colourName: "Orange with Lemon",
+            vid: "CW6",
+            picPfx: "6",
+            cwPix: ["F", "RF"]
+        },
+        {
+            colourName: "Santa with Anise",
+            vid: "CW7",
+            picPfx: "7",
+            cwPix: ["F", "RF"]
+        },
+        {
+            colourName: "Steel with Brass",
+            vid: "CW8",
+            picPfx: "8",
+            cwPix: ["F", "RF"]
+        },
+    ],
+    sizes: ['2-4', '5-7', '8-10'],
+    description: '',
+    garmentDetails: ''
+};
+
+itsmagic.fairy = {
+    SKU: 'FAIRST2011Rv',
+    imgDir: 'fairy',
+    imageFile: "sizing.jpg",
+    dimensionNames: ['A. Top Length', 'B. Shoulder', 'C. Chest', 'D. Armhole', 'E. Skirt Length', 'F. Waist'],
+    dimensionsCm: {
+        '2-4': [30, 12, 52, 24, 32, 40],
+        '5-7': [32, 15, 56, 26, 42, 46],
+        '8-10': [35, 17, 60, 29, 52, 50]
+    },
+    getFabric: function (varidx) {
+        return "Jersey & Voile";
+    },
+    data: [
+        {
+            colourName: "Orange on Sunflower with Lemon",
+            vid: "CW1",
+            picPfx: "1",
+            carouselPix: ["F", "B", "D1", "D2", "R"],
+            cwPix: ["F", "R"]
+        },
+        {
+            colourName: "Aqua on Bougainvillea with Aqua",
+            vid: "CW2",
+            picPfx: "2",
+            cwPix: ["F", "R"]
+        },
+        {
+            colourName: "Pink on Pink with Rose",
+            vid: "CW3",
+            picPfx: "3",
+            cwPix: ["F", "R"]
+        }
+    ],
+    sizes: ['2-4', '5-7', '8-10'],
+    description: '',
+    garmentDetails: ''
+};
+
+itsmagic.gypsy = {
+    SKU: 'KGYPST1601Rv',
+    imgDir: 'gypsy',
+    imageFile: "sizing.jpg",
+    dimensionNames: [],
+    dimensionsCm: {
+    },
+    getFabric: function (varidx) {
+        return "Voile & Tangail Border";
+    },
+    data: [
+        {
+            colourName: "Orange with Lemon",
+            vid: "CW1",
+            picPfx: "1",
+            carouselPix: ["F", "RF"],
+            cwPix: ["F", "RF"]
+        },
+        {
+            colourName: "Lavender with Aqua",
+            vid: "CW2",
+            picPfx: "2",
+            cwPix: ["F", "RF"]
+        },
+        {
+            colourName: "Pink with Lemon",
+            vid: "CW3",
+            picPfx: "3",
+            cwPix: ["F", "RF"]
+        }
+    ],
+    sizes: ['2-4', '5-7', '8-10'],
+    description: '',
+    garmentDetails: ''
+};
+
 function createIMImageFactory(that, vidx) {
     return {
         that: that,
@@ -286,9 +565,10 @@ itsmagic.createJSON = function (style) {
 
 itsmagic.createCatalog = function () {
     return {
-        styles: [itsmagic.princess, itsmagic.flow, itsmagic.wave, itsmagic.kidikini, itsmagic.halfpant],
-        boys: [itsmagic.halfpant.SKU],
-        girls: [itsmagic.princess.SKU, itsmagic.flow.SKU, itsmagic.wave.SKU, itsmagic.kidikini.SKU],
+        styles: [itsmagic.princess, itsmagic.flow, itsmagic.wave, itsmagic.fairy, itsmagic.gypsy, itsmagic.kidikini, itsmagic.halfpant, itsmagic.fullpant, itsmagic.prince, itsmagic.royal, itsmagic.balloon],
+        unisex: [itsmagic.balloon.SKU],
+        boys: [itsmagic.halfpant.SKU, itsmagic.fullpant.SKU, itsmagic.prince.SKU, itsmagic.royal.SKU],
+        girls: [itsmagic.princess.SKU, itsmagic.flow.SKU, itsmagic.wave.SKU, itsmagic.fairy.SKU, itsmagic.gypsy.SKU, itsmagic.kidikini.SKU],
         dresses: [itsmagic.princess.SKU, itsmagic.flow.SKU, itsmagic.wave.SKU],
         tops: [],
         shirts: [],
@@ -307,6 +587,9 @@ itsmagic.createCatalog = function () {
             return this.productDB[sku];
         },
         getCategory: function (sku) {
+            if (this.unisex.includes(sku)) {
+                return "unisex";
+            }
             if (this.girls.includes(sku)) {
                 return "girls";
             }
