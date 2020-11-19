@@ -1055,13 +1055,13 @@ function createItemCard(item) {
 
 function createSection(pages) {
     var brkColCls = "col-md-4";
-    var res = '<section class="pt-5 pb-3"><div class="container"><div class="row">';
+    var res = '<section class="pt-5 pb-3"><div class="row">';
     for (var i = 0; i < pages.sub.length; i++) {
         res += '<div class="col-12 ' + brkColCls + '">';
         res += createItemCard(pages.sub[ i ]);
         res += '</div>';
     }
-    res += '</div></div></section>';
+    res += '</div></section>';
     return res;
 }
 
