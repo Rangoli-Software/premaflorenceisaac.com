@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020110411";
+const shopRevisionVersion = "2020111900";
 
 const cmData = [
 ['Test Live Trans','TESTIT0000Hi','0','0','','FALSE'],
@@ -59,22 +59,22 @@ const cmData = [
 
 ['Jasmine Dress','NKSDSL1701PT','','','','FALSE'],
 
-['Balloon Pant','KBALPA1601Vo','','','/products/itsmagic/balloon.html','FALSE'],
-['Flow Dress','KDHRDR1601Rv','','','/products/itsmagic/flow.html','FALSE'],
-['Fairy Set','FAIRST2011Rv','','','/products/itsmagic/fairy.html','FALSE'],
-['Fairy Skirt','FAIRSK1601Rv','','','/products/itsmagic/fairyS.html','FALSE'],
-['Fairy Top','FAIRTP1601Je','','','/products/itsmagic/fairyT.html','FALSE'],
-['Gypsy Set','KGYPST1601Rv','','','/products/itsmagic/gypsy.html','FALSE'],
-['Half Pant','HLFPNT1601Kh','','','/products/itsmagic/halfpant.html','FALSE'],
-['Half Pant Topsy','HLFTPS1601Kh','','','/products/itsmagic/halfpantT.html','FALSE'],
-['Princess Dress','PRNCDR1501Rv','','','/products/itsmagic/princess.html','FALSE'],
-['Racerback Top','KRACBK1501Je','','','/products/itsmagic/racerback.html','FALSE'],
-['Full Pant','KRAJPT1601Kh','','','/products/itsmagic/fullpant.html','FALSE'],
-['Royal Kurta','KRAJKT1601Rv','','','/products/itsmagic/royal.html','FALSE'],
-['Prince Kurta','YUVRTC1601Rv','','','/products/itsmagic/prince.html','FALSE'],
-['Wave Dress','KWAVDR1601Rv','','','/products/itsmagic/wave.html','FALSE'],
+['Balloon Pant','KBALPA1601Vo','0.1','1.15','/products/itsmagic/balloon.html','FALSE'],
+['Flow Dress','KDHRDR1601Rv','0.1','1.15','/products/itsmagic/flow.html','FALSE'],
+['Fairy Set','FAIRST2011Rv','0.1','1.15','/products/itsmagic/fairy.html','FALSE'],
+['Fairy Skirt','FAIRSK1601Rv','0.1','1.15','/products/itsmagic/fairyS.html','FALSE'],
+['Fairy Top','FAIRTP1601Je','0.1','1.15','/products/itsmagic/fairyT.html','FALSE'],
+['Gypsy Set','KGYPST1601Rv','0.1','1.15','/products/itsmagic/gypsy.html','FALSE'],
+['Half Pant','HLFPNT1601Kh','0.1','1.15','/products/itsmagic/halfpant.html','FALSE'],
+['Half Pant Topsy','HLFTPS1601Kh','0.1','1.15','/products/itsmagic/halfpantT.html','FALSE'],
+['Princess Dress','PRNCDR1501Rv','0.1','1.15','/products/itsmagic/princess.html','FALSE'],
+['Racerback Top','KRACBK1501Je','0.1','1.15','/products/itsmagic/racerback.html','FALSE'],
+['Full Pant','KRAJPT1601Kh','0.1','1.15','/products/itsmagic/fullpant.html','FALSE'],
+['Royal Kurta','KRAJKT1601Rv','0.1','1.15','/products/itsmagic/royal.html','FALSE'],
+['Prince Kurta','YUVRTC1601Rv','0.1','1.15','/products/itsmagic/prince.html','FALSE'],
+['Wave Dress','KWAVDR1601Rv','0.1','1.15','/products/itsmagic/wave.html','FALSE'],
 
-['Kidikini','KIDIKI1501Vi','','','/products/itsmagic/kidikini.html','FALSE'],
+['Kidikini','KIDIKI1501Vi','0.1','1.15','/products/itsmagic/kidikini.html','FALSE'],
 ['Koh Kurta','KKOHKT1601Kh','','','/products/kids/koh.html','FALSE'],
 ['Dragon Cape','DNOCPE1708AS','','','/products/kids/dragon.html','FALSE']
 ];
