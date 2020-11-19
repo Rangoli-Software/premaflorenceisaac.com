@@ -36,7 +36,8 @@ itsmagic.createComponentFactory = function (prodInfo, dimensioner, sizer, catalo
     var navHelper = itsmagic.createNavHelper(prodInfo);
     //    var relatedviewer = itsmagic.createRelatedViewer(prodInfo.skuInfo, catalog);
     var relatedviewer = createEmptyViewer();
-    return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, "", "Age");
+    var sizeTxt = "Please email/DM us to check on size & colour availability before placing your order";
+    return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, sizeTxt, "Age");
 }
 
 itsmagic.sizing_top = {};
