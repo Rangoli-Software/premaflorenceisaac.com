@@ -178,6 +178,15 @@
 /products/itsmagic/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
+/products/itsmagic/princess/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/itsmagic/wave/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/itsmagic/prince/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
 /products/men/angkor/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
