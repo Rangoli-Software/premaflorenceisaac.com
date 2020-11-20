@@ -510,8 +510,11 @@ itsmagic.gypsy = {
     SKU: 'KGYPST1601Rv',
     imgDir: 'gypsy',
     imageFile: "sizing.jpg",
-    dimensionNames: [],
+    dimensionNames: ['A. Top Length', 'B. Shoulder', 'C. Chest', 'D. Armhole', 'E. Sleeve Width', 'F. Sleeve Length', 'G. Skirt Length', 'H. Waist'],
     dimensionsCm: {
+        '2-4': [36, 22, 60, 30, 24, 10, 43, 46],
+        '5-7': [43, 24, 70, 32, 26, 13, 48, 50],
+        '8-10': [48, 26, 76, 35, 28, 15, 53, 54]
     },
     getFabric: function (varidx) {
         return "Voile & Tangail Border";
@@ -546,8 +549,11 @@ itsmagic.layer = {
     SKU: 'KLGTLY1601Rv',
     imgDir: 'layer',
     imageFile: "sizing.jpg",
-    dimensionNames: [],
+    dimensionNames: ['A. Length', 'B. Shoulder', 'C. Chest', 'D. Armhole'],
     dimensionsCm: {
+        '2-4': [63, 20.5, 62, 28],
+        '5-7': [70, 23, 68, 31],
+        '8-10': [79, 26, 74, 34]
     },
     getFabric: function (varidx) {
         return "Voile";
