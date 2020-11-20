@@ -508,6 +508,11 @@ function getSubEntry(item, url) {
 
 const merchInfo = [
     {
+        SKU: 'KLGTLY1601Rv',
+        ledes: [''],
+        images: [{url: '/products/itsmagic/LightLayer.jpg'}]
+    },
+    {
         SKU: 'KGYPST1601Rv',
         ledes: [''],
         images: [{url: '/products/itsmagic/GypsySet.jpg'}]
@@ -1129,7 +1134,7 @@ function pickMerch(skus, blacklist) {
 
 function selectMerch(blacklist) {
     var leftSKUs = ['OVTPLO1501Vo','VAMPAL1708Kh','LTSDSL1501Kh','DPDYSF1501PT','KAGTIE1601Kh','CHMPGN1501JL','NKSHMD1501PP','NKSHMC1512PP','BKLLTS1505Je','JLTDRS1505PT','PRNCDR1501Rv','FAIRST2011Rv','YUVRTC1601Rv'];
-    var restSKUs = ['BERMPA1609Kh','BALLPA1501Vo','CRPTOP1805Kh','FACEMK2005Ta','AWTSHT1604Je','NKSHMU1501PP','NKSHMI1501PP','HLNDRS1505PT','KDHRDR1601Rv','KWAVDR1601Rv','KBALPA1601Vo','KGYPST1601Rv','HLFPNT1601Kh'];
+    var restSKUs = ['BERMPA1609Kh','BALLPA1501Vo','CRPTOP1805Kh','FACEMK2005Ta','AWTSHT1604Je','NKSHMU1501PP','NKSHMI1501PP','HLNDRS1505PT','KDHRDR1601Rv','KWAVDR1601Rv','KBALPA1601Vo','KGYPST1601Rv','HLFPNT1601Kh','KLGTLY1601Rv'];
     return [pickMerch(leftSKUs, blacklist), pickMerch(restSKUs, blacklist)];
 }
 

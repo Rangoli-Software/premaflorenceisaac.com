@@ -542,6 +542,42 @@ itsmagic.gypsy = {
     garmentDetails: ''
 };
 
+itsmagic.layer = {
+    SKU: 'KLGTLY1601Rv',
+    imgDir: 'layer',
+    imageFile: "sizing.jpg",
+    dimensionNames: [],
+    dimensionsCm: {
+    },
+    getFabric: function (varidx) {
+        return "Voile";
+    },
+    data: [
+        {
+            colourName: "Green with Aqua",
+            vid: "CW1",
+            picPfx: "1",
+            carouselPix: ["F", "B", "RF"],
+            cwPix: ["F", "B", "RF"]
+        },
+        {
+            colourName: "Orange with Sunflower",
+            vid: "CW2",
+            picPfx: "2",
+            cwPix: ["F", "B", "RF"]
+        },
+        {
+            colourName: "Pink with Krishna",
+            vid: "CW3",
+            picPfx: "3",
+            cwPix: ["F", "B", "RF"]
+        }
+    ],
+    sizes: ['2-4', '5-7', '8-10'],
+    description: '',
+    garmentDetails: ''
+};
+
 function createIMImageFactory(that, vidx) {
     return {
         that: that,
@@ -567,11 +603,11 @@ itsmagic.createJSON = function (style) {
 
 itsmagic.createCatalog = function () {
     return {
-        styles: [itsmagic.princess, itsmagic.flow, itsmagic.wave, itsmagic.fairy, itsmagic.gypsy, itsmagic.kidikini, itsmagic.halfpant, itsmagic.fullpant, itsmagic.prince, itsmagic.royal, itsmagic.balloon],
+        styles: [itsmagic.princess, itsmagic.flow, itsmagic.wave, itsmagic.layer, itsmagic.fairy, itsmagic.gypsy, itsmagic.kidikini, itsmagic.halfpant, itsmagic.fullpant, itsmagic.prince, itsmagic.royal, itsmagic.balloon],
         unisex: [itsmagic.balloon.SKU],
         boys: [itsmagic.halfpant.SKU, itsmagic.fullpant.SKU, itsmagic.prince.SKU, itsmagic.royal.SKU],
-        girls: [itsmagic.princess.SKU, itsmagic.flow.SKU, itsmagic.wave.SKU, itsmagic.fairy.SKU, itsmagic.gypsy.SKU, itsmagic.kidikini.SKU],
-        dresses: [itsmagic.princess.SKU, itsmagic.flow.SKU, itsmagic.wave.SKU],
+        girls: [itsmagic.princess.SKU, itsmagic.flow.SKU, itsmagic.wave.SKU, itsmagic.layer.SKU, itsmagic.fairy.SKU, itsmagic.gypsy.SKU, itsmagic.kidikini.SKU],
+        dresses: [],
         tops: [],
         shirts: [],
         pants: [],
