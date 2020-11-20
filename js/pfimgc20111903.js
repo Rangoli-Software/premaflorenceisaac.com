@@ -41,7 +41,7 @@ itsmagic.createComponentFactory = function (prodInfo, dimensioner, sizer, catalo
 }
 
 itsmagic.shippingHTML = getShippingInfoUL(['If the item is in stock,  it will be ready to ship within 1 business day of your order.']);
-itsmatic.washcareHTML = khadi_washcareHTML;
+itsmagic.washcareHTML = khadi_washcareHTML;
 
 itsmagic.princess = {
     SKU: 'PRNCDR1501Rv',
