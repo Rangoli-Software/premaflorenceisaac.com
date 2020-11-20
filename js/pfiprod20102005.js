@@ -1283,10 +1283,10 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
     };
 }
 
-function createProductComponentFactory(prodInfo, dimensioner, sizer, addlViewer, navHelper, modelTxt, captionTxt) {
+function createProductComponentFactory(prodInfo, dimensioner, sizer, addlViewer, navHelper, modelTxt, captionTxt, isStacked) {
     var prePanelr = createEmptyViewer();
     var sizePanelr = createSizePanelr(prodInfo.skuInfo, dimensioner, sizer);
-    var carousel = createProductCarousel(prodInfo, false);
+    var carousel = isStacked ? createSquareProductCarousel(prodInfo) : createProductCarousel(prodInfo, false);
     var variantSelector = createVariantSelector(prodInfo);
     var sizeSelector = createSizeSelector(prodInfo.skuInfo.sizes, sizePanelr.getToggleHTML(), null, modelTxt, captionTxt);
     var itemAdder = createItemAdder();

@@ -37,7 +37,7 @@ itsmagic.createComponentFactory = function (prodInfo, dimensioner, sizer, catalo
     //    var relatedviewer = itsmagic.createRelatedViewer(prodInfo.skuInfo, catalog);
     var relatedviewer = createEmptyViewer();
     var sizeTxt = "<p>Please email/DM us to check on size & colour availability before placing your order</p>";
-    return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, sizeTxt, "Age");
+    return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, sizeTxt, "Age", true);
 }
 
 itsmagic.shippingHTML = getShippingInfoUL(['If the item is in stock,  it will be ready to ship within 1 business day of your order.']);
