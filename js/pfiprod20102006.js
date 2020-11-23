@@ -1223,7 +1223,7 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
         },
         createItem: function (i) {
             var unique = this.items.getDescriptor(i);
-            return createItem(unique.product, unique.getCWPrice(), this.size, unique.fabricColour, 1, unique.number, unique.getImagePath(0), true);
+            return createItem(this.items.factory.product, unique.getCWPrice(), this.size, unique.fabricColour, 1, unique.number, unique.getImagePath(0), true);
         },
         createHTML: function (list) {
             return '<form action="/shop/checkout.html" method="get"><div id="' + this.listId + '" class="item">' +
