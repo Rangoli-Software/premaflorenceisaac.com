@@ -74,7 +74,7 @@ function getTamaraiFactory(sku) {
 var listData = [
 [1, ['1F', '1B'], '#1C272B', 'Ebony Clay', null, 'CW1'],
 [2, ['2F', '2B'], '#1D1E2B', 'Steel Gray', {Name: 'Priyanka', Date: '2020-09'}, 'CW1'],
-[3, ['3F', '3B'], '#EFF1F2', 'Porcelain', null],
+[3, ['3F', '3B'], '#EFF1F2', 'Porcelain', {Name: 'Michel', Date: '2020-11'}],
 [4, ['4F', '4B'], '#E1E7B2', 'Caper', null],
 ];
     var varPL = varPLData[sku];

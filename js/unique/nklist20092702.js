@@ -80,7 +80,7 @@ function getNakshaMicroFactory(base, product, varPL) {
 [5, ['5', '5a'], '#202A2C', 'Outer Space', null],
 [6, ['6', '6a'], '#1F1F1F', 'Mine Shaft', null],
 [7, ['7', '7a'], '#222526', 'Shark', null],
-[8, ['8', '8a'], '#512F2B', 'Cork', null],
+[8, ['8', '8a'], '#512F2B', 'Cork', {Name: 'Michel', Date: '2020-11'}],
 [9, ['9', '9a'], '#CAF1F5', '', null, 'CW1'],
 ];
     return createNakshaFactory(base + 'mc/', listData, product, varPL);
@@ -95,7 +95,7 @@ function getNakshaMiniFactory(base, product, varPL) {
 
 function getNakshaMidiFactory(base, product, varPL) {
     var listData = [
-[1, ['1.6', '1a.6'], '#372844', 'Martinique', null, 'CW2'],
+[1, ['1.6', '1a.6'], '#372844', 'Martinique', {Name: 'Michel', Date: '2020-11'}],
 [2, ['2.6', '2a.6'], '#15181D', 'Woodsmoke', null],
 [3, ['3.6', '3a.6'], '#9D5A68', 'Coral Tree', null],
 [4, ['4.6', '4a.6'], '#A9AC8A', 'Locust', null],
