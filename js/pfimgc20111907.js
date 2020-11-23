@@ -97,7 +97,7 @@ itsmagic.princess = {
     ],
     sizes: ['2-4', '5-7', '8-10'],
     description: '',
-    garmentDetails: ''
+    garmentDetails: '<li>100% cotton voile</li><li>Shoulder straps</li><li>Sleeveless</li><li>Round neck</li><li>Reversible</li><li>Contrasting colour on the reverse side</li><li>Elastic on the back</li><li>Zari border in the front</li><li>Slips on</li>'
 };
 
 itsmagic.flow = {
@@ -136,7 +136,7 @@ itsmagic.flow = {
     ],
     sizes: ['2-4', '5-7', '8-10'],
     description: '',
-    garmentDetails: ''
+    garmentDetails: '<li>100% cotton voile</li><li>Shoulder straps</li><li>Sleeveless</li><li>V neck</li><li>Reversible</li><li>Contrasting colour on the reverse side - Slips on</li>'
 };
 
 itsmagic.wave = {
@@ -181,7 +181,7 @@ itsmagic.wave = {
     ],
     sizes: ['2-4', '5-7', '8-10'],
     description: '',
-    garmentDetails: ''
+    garmentDetails: '<li>100% cotton voile</li><li>Shoulder straps</li><li>Sleeveless</li><li>Round neck</li><li>Asymmetric hemline</li><li>Slips on</li>'
 };
 
 itsmagic.kidikini = {
@@ -215,7 +215,7 @@ itsmagic.kidikini = {
     ],
     sizes: ['1-2', '2-4', '5-7', '8-10'],
     description: '',
-    garmentDetails: ''
+    garmentDetails: '<li>Two-piece swim suit</li><li>Tie-up in the front</li><li>Reversible top</li><li>Contrasting colour on the reverse side</li>'
 };
 
 itsmagic.halfpant = {
@@ -260,7 +260,7 @@ itsmagic.halfpant = {
     ],
     sizes: ['2-4', '5-7', '8-10'],
     description: '',
-    garmentDetails: ''
+    garmentDetails: '<li>100% cotton Khadi</li><li>Elastic at the waist</li><li>Side pockets</li><li>Zari borders at the pockets and hem</li><li>Fold hems to adjust the length</li><li>Zari border details inside the folded hems</li>'
 };
 
 itsmagic.prince = {
@@ -305,7 +305,7 @@ itsmagic.prince = {
     ],
     sizes: ['2-4', '5-7', '8-10'],
     description: '',
-    garmentDetails: ''
+    garmentDetails: '<li></li>'
 };
 
 itsmagic.royal = {
@@ -356,7 +356,7 @@ itsmagic.royal = {
     ],
     sizes: ['2-4', '5-7', '8-10'],
     description: '',
-    garmentDetails: ''
+    garmentDetails: '<li>100%  Khadi</li><li>Round neck with half placket</li><li>Half sleeves</li><li>Reversible</li><li>Reverse side in 100% cotton voile</li><li>Contrasting colour on the reverse side</li>'
 };
 
 itsmagic.fullpant = {
@@ -365,9 +365,9 @@ itsmagic.fullpant = {
     imageFile: "sizing.jpg",
     dimensionNames: ['A. Length', 'B. Waist', 'C. Hem', 'D. Crotch'],
     dimensionsCm: {
-        '2-4': [60, 46, , ],
-        '5-7': [65, 50, , ],
-        '8-10': [75, 54, , ]
+        '2-4': [60, 46, 26, 56],
+        '5-7': [65, 50, 28, 59],
+        '8-10': [75, 54, 30, 63]
     },
     getFabric: function (varidx) {
         return "Khadi";
@@ -395,7 +395,7 @@ itsmagic.fullpant = {
     ],
     sizes: ['2-4', '5-7', '8-10'],
     description: '',
-    garmentDetails: ''
+    garmentDetails: '<li>100% cotton Khadi</li><li>Elastic at the waist</li><li>Full length</li><li>Side pockets</li><li>Zari borders at the pockets and hem</li><li>Fold hems to adjust the length</li><li>Zari border details inside the folded hems</li>'
 };
 
 itsmagic.balloon = {
@@ -464,7 +464,7 @@ itsmagic.balloon = {
     ],
     sizes: ['2-4', '5-7', '8-10'],
     description: '',
-    garmentDetails: ''
+    garmentDetails: '<li>100% cotton voile</li><li>Elastic on the waist and hems</li><li>Reversible</li><li>Shorts attached on the reverse side in a contrasting colour </li>'
 };
 
 itsmagic.fairy = {
@@ -503,7 +503,7 @@ itsmagic.fairy = {
     ],
     sizes: ['2-4', '5-7', '8-10'],
     description: '',
-    garmentDetails: ''
+    garmentDetails: '<li>Top in cotton jersey</li><li>T back/li><li>Round neck/li><li>Sleeveless/li><li>Slips on/li><li>Skirt in 100% cotton voile/li><li>Waist band in cotton jersey/li><li>Zari border at the hem</li>'
 };
 
 itsmagic.gypsy = {
@@ -542,7 +542,8 @@ itsmagic.gypsy = {
     ],
     sizes: ['2-4', '5-7', '8-10'],
     description: '',
-    garmentDetails: ''
+    garmentDetails: '<li>100% cotton voile<li><li>Zari borders at the hem of the top and sleeves<li><li>Tangail borders at the hem of the skirt<li><li>Curved V neck<li><li>Half sleeves<li><li>Elastic on the waist<li><li>Both top and skirt are reversible<li><li>Contrasting colour on the reverse side</li>'
+    garmentDetails: '<li>100% cotton voile<li><li>Zari borders at the hem of the top and sleeves<li><li>Tangail borders at the hem of the skirt<li><li>Curved V neck<li><li>Half sleeves<li><li>Elastic on the waist<li><li>Both top and skirt are reversible<li><li>Contrasting colour on the reverse side</li>'
 };
 
 itsmagic.layer = {
@@ -581,7 +582,7 @@ itsmagic.layer = {
     ],
     sizes: ['2-4', '5-7', '8-10'],
     description: '',
-    garmentDetails: ''
+    garmentDetails: '<li>100% cotton voile</li><li>Two separate dresses as a set</li><li>Under dress in a contrasting colour</li><li>Top layer with side slits</li><li>Shoulder straps</li><li>Sleeveless</li><li>Round neck</li><li>Reversible</li><li>Slips on</li>'
 };
 
 function createIMImageFactory(that, vidx) {

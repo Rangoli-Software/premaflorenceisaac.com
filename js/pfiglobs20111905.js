@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020111904";
+const shopRevisionVersion = "2020111905";
 
 const cmData = [
 ['Test Live Trans','TESTIT0000Hi','0','0','','FALSE'],
@@ -72,7 +72,7 @@ const cmData = [
 ['Racerback Top','KRACBK1501Je','','1.15','/products/itsmagic/racerback.html','FALSE'],
 ['Full Pant','KRAJPT1601Kh','0.06','1.15','/products/itsmagic/fullpant.html','FALSE'],
 ['Royal Kurta','KRAJKT1601Rv','0.1','1.15','/products/itsmagic/royal.html','FALSE'],
-['Prince Kurta','YUVRTC1601Rv','0.1','1.15','/products/itsmagic/prince.html','FALSE'],
+['Prince Tunic','YUVRTC1601Rv','0.1','1.15','/products/itsmagic/prince.html','FALSE'],
 ['Wave Dress','KWAVDR1601Rv','0.1','1.15','/products/itsmagic/wave.html','FALSE'],
 
 ['Kidikini','KIDIKI1501Vi','0.02','1.15','/products/itsmagic/kidikini.html','FALSE'],
@@ -82,14 +82,14 @@ const cmData = [
 
 const varPLData = {
     NKSHMC1512PP: {
-        CW1: 7800
+        CW1: 9000
     },
     NKSHMD1501PP: {
         CW1: 12625,
         CW2: 12625
     },
     NKSHMU1501PP: {
-        CW1: 13650
+        CW1: 15750
     },
     NKSHDR1501Ta: {
         CW1: 17550
