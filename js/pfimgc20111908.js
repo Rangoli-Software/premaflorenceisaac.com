@@ -543,7 +543,6 @@ itsmagic.gypsy = {
     sizes: ['2-4', '5-7', '8-10'],
     description: '',
     garmentDetails: '<li>100% cotton voile<li><li>Zari borders at the hem of the top and sleeves<li><li>Tangail borders at the hem of the skirt<li><li>Curved V neck<li><li>Half sleeves<li><li>Elastic on the waist<li><li>Both top and skirt are reversible<li><li>Contrasting colour on the reverse side</li>'
-    garmentDetails: '<li>100% cotton voile<li><li>Zari borders at the hem of the top and sleeves<li><li>Tangail borders at the hem of the skirt<li><li>Curved V neck<li><li>Half sleeves<li><li>Elastic on the waist<li><li>Both top and skirt are reversible<li><li>Contrasting colour on the reverse side</li>'
 };
 
 itsmagic.layer = {
