@@ -1436,7 +1436,7 @@ function renderProductDetails(summary, detailsHTML, washcareHTML, shippingInfoHT
         res += '<a class="nav-link active" data-toggle="tab" href="#description">Summary</a>';
     }
     if (detailsHTML !== null) {
-        res += '<a class="nav-link" data-toggle="tab" href="#details">Details</a>';
+        res += '<a class="nav-link' + (summary === null ? ' active' : '') + '" data-toggle="tab" href="#details">Details</a>';
     }
     if (washcareHTML !== null) {
         res += '<a class="nav-link" data-toggle="tab" href="#care">Care</a>';
@@ -1451,7 +1451,7 @@ function renderProductDetails(summary, detailsHTML, washcareHTML, shippingInfoHT
             '</div></div>';
     }
     if (detailsHTML !== null) {
-        res += '<div class="tab-pane fade" id="details"><div class="item py-2">' +
+        res += '<div class="tab-pane fade' + (summary === null ? ' show active' : '') + '" id="details"><div class="item py-2">' +
             detailsHTML +
             '</div></div>';
     }
