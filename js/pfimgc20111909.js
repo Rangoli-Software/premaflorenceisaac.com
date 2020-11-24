@@ -305,7 +305,7 @@ itsmagic.prince = {
     ],
     sizes: ['2-4', '5-7', '8-10'],
     description: '',
-    garmentDetails: '<li></li>'
+    garmentDetails: '<li>100%  Khadi</li><li>Round neck with half placket</li><li>Half sleeves</li><li>Reversible</li><li>Reverse side in 100% cotton voile</li><li>Contrasting colour on the reverse side</li>'
 };
 
 itsmagic.royal = {
@@ -503,7 +503,7 @@ itsmagic.fairy = {
     ],
     sizes: ['2-4', '5-7', '8-10'],
     description: '',
-    garmentDetails: '<li>Top in cotton jersey</li><li>T back/li><li>Round neck/li><li>Sleeveless/li><li>Slips on/li><li>Skirt in 100% cotton voile/li><li>Waist band in cotton jersey/li><li>Zari border at the hem</li>'
+    garmentDetails: '<li>Top in cotton jersey</li><li>T back</li><li>Round neck</li><li>Sleeveless</li><li>Slips on</li><li>Skirt in 100% cotton voile</li><li>Waist band in cotton jersey</li><li>Zari border at the hem</li>'
 };
 
 itsmagic.gypsy = {
@@ -542,7 +542,7 @@ itsmagic.gypsy = {
     ],
     sizes: ['2-4', '5-7', '8-10'],
     description: '',
-    garmentDetails: '<li>100% cotton voile<li><li>Zari borders at the hem of the top and sleeves<li><li>Tangail borders at the hem of the skirt<li><li>Curved V neck<li><li>Half sleeves<li><li>Elastic on the waist<li><li>Both top and skirt are reversible<li><li>Contrasting colour on the reverse side</li>'
+    garmentDetails: '<li>100% cotton voile</li><li>Zari borders at the hem of the top and sleeves</li><li>Tangail borders at the hem of the skirt</li><li>Curved V neck</li><li>Half sleeves</li><li>Elastic on the waist</li><li>Both top and skirt are reversible</li><li>Contrasting colour on the reverse side</li>'
 };
 
 itsmagic.layer = {

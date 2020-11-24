@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020111905";
+const shopRevisionVersion = "2020111907";
 
 const cmData = [
 ['Test Live Trans','TESTIT0000Hi','0','0','','FALSE'],
@@ -85,8 +85,7 @@ const varPLData = {
         CW1: 9000
     },
     NKSHMD1501PP: {
-        CW1: 12625,
-        CW2: 12625
+        CW2: 13500
     },
     NKSHMU1501PP: {
         CW1: 15750
@@ -106,9 +105,9 @@ const plData = [
 
 ['FACEMK2005Ta',700],
 ['NKSHMC1512PP',6000],
-['NKSHMI1501PP',9150],
+['NKSHMI1501PP',9000],
 ['NKSHMD1501PP',9720],
-['NKSHMU1501PP',10150],
+['NKSHMU1501PP',10500],
 ['NKSHDR1501Ta',13500],
 ['NKSDSL1701Ta',13500],
 ['LOTSDR1501Ja',22800],
