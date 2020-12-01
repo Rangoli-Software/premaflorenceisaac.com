@@ -1,5 +1,11 @@
 const artwear = {};
 
+function createArtwearJSON(style) {
+    var sku = style.SKU;
+    var factory = style.getFactory(sku);
+    return createUIProductJSON(sku, factory.base, style.prodData, style.sizing);
+}
+
 artwear.tamarai = {};
 artwear.tamarai.SKU = 'NKSHDR1501Ta';
 artwear.tamarai.createFactory = createTamaraiFactory;
@@ -38,28 +44,25 @@ artwear.tamarai.shippingHTML = getShippingInfoUL(['Since our Tamarai Dresses are
 artwear.tamarai.createCardCreator = function () {
     return createArtWearCardCreator(createSquareImageCarousel);
 };
+artwear.tamarai.createJSON = createArtwearJSON;
 
-artwear.nakshaminuit = {};
-artwear.nakshaminuit.SKU = 'NKSHMU1501PP';
-artwear.nakshamidi = {};
-artwear.nakshamidi.SKU = '';
-artwear.nakshamini = {};
-artwear.nakshamini.SKU = '';
-artwear.nakshamicro = {};
-artwear.nakshamicro.SKU = '';
+artwear.nakshaminuit = naksha.createStyle(naksha.minuitSKU);
+artwear.nakshamidi = naksha.createStyle(naksha.midiSKU);
+artwear.nakshamini = naksha.createStyle(naksha.miniSKU);
+artwear.nakshamicro = naksha.createStyle(naksha.microSKU);
 
 artwear.createCatalog = function () {
     return {
-        styles: [artwear.tamarai],
+        styles: [artwear.tamarai, artwear.nakshaminuit, artwear.nakshamidi, artwear.nakshamini, artwear.nakshamicro],
         dresses: [artwear.tamarai.SKU],
-        skirts: [],
-        tops: [],
+        skirts: [artwear.nakshaminuit.SKU, artwear.nakshamidi.SKU, artwear.nakshamini.SKU, artwear.nakshamicro.SKU],
+        separates: [],
         productDB: null,
         createProductDB: function () {
             var map = {};
             for (var i = 0; i < this.styles.length; i++) {
                 var style = this.styles[i];
-                var entry = itsmagic.createJSON(style);
+                var entry = style.createJSON(style);
                 map[entry.skuInfo.SKU] = entry;
             }
             return map;
@@ -74,9 +77,12 @@ artwear.createCatalog = function () {
             if (this.skirts.includes(sku)) {
                 return "skirts";
             }
+            if (this.separates.includes(sku)) {
+                return "separates";
+            }
             return null;
         },
-        initialize: function () {
+        initialize: function() {
             this.productDB = this.createProductDB();
         }
     }

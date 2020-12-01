@@ -13,7 +13,7 @@ function createNakshaFactory(base, listData, product, varPL) {
             var cwDesc;
             if (row[5] === undefined) {
                 cwPrice = this.product.inrPrice;
-                cwDesc = 'Tangail';
+                cwDesc = 'Tangail Tradition';
             } else {
                 var cw = row[5];
                 var vpl = this.varPL[cw];
@@ -141,93 +141,4 @@ function getNakshaMinuitFactory(base, product, varPL) {
 [12, ['12', '12a'], '#B09690', 'Del Rio', {Name: 'Marieke', Date: '2020-10'}, 'CW1'],
 ];
     return createNakshaFactory(base + 'mu/', listData, product, varPL);
-}
-
-function createNakshaSKUsList(base) {
-    return {
-        base: base,
-        createSKU: function (sku) {
-            var product = getProductCatalog().getProduct(sku);
-            var varPL = varPLData[sku];
-            switch (sku) {
-                case 'NKSHMC1512PP':
-                    return getNakshaMicroFactory(base, product, varPL);
-                case 'NKSHMI1501PP':
-                    return getNakshaMiniFactory(base, product, varPL);
-                case 'NKSHMD1501PP':
-                    return getNakshaMidiFactory(base, product, varPL);
-                case 'NKSHMU1501PP':
-                    return getNakshaMinuitFactory(base, product, varPL);
-                default:
-                    return null;
-            }
-        }
-    };
-}
-
-function createNakshaEncoder() {
-    return {
-        toSKU: function (c) {
-            switch (c) {
-                case 'u':
-                    return 'NKSHMU1501PP';
-                case 'd':
-                    return 'NKSHMD1501PP';
-                case 'i':
-                    return 'NKSHMI1501PP';
-                case 'c':
-                    return 'NKSHMC1512PP';
-                default:
-                    return null;
-            }
-        },
-        toCode: function (sku) {
-            switch (sku) {
-                case 'NKSHMC1512PP':
-                    return 'c';
-                case 'NKSHMI1501PP':
-                    return 'i';
-                case 'NKSHMD1501PP':
-                    return 'd';
-                case 'NKSHMU1501PP':
-                    return 'u';
-                default:
-                    return null;
-            }
-        }
-    };
-}
-
-function createNakshaURLModifer() {
-    return {
-        paramName: 's',
-        defaultCode: 'd',
-        getCodeOrDefault: function () {
-            var c = this.getCode();
-            if (c === undefined) {
-                c = this.defaultCode;
-            }
-            return c;
-        },
-        getCode: function () {
-            return getUrlVars()[this.paramName];
-        },
-        updateURL: function (c) {
-            var oldC = this.getCode();
-            if (oldC !== c) {
-                modifyUrl(this.paramName, c);
-            }
-        }
-    }
-}
-
-function createNakshaSKUsFactory(listFactory) {
-    return {
-        listFactory: listFactory,
-        encoder: createNakshaEncoder(),
-        urlModifier: createNakshaURLModifer(),
-        createSKU: function (sku) {
-            return this.listFactory.createSKU(sku);
-        }
-    };
 }
