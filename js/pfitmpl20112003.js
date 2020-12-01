@@ -412,6 +412,10 @@ const shop = {
     url: "/shop.html",
     sub: [
         {
+            title: "Art Wear",
+            url: "/products/artwear/shop.html"
+        },
+        {
             title: "It's Magic",
             url: "/products/itsmagic/shop.html"
         },
@@ -422,14 +426,6 @@ const shop = {
         {
             title: "Vagabond",
             url: "/products/men/shop.html"
-        },
-        {
-            title: "Art Wear Naksha Skirt",
-            url: "/products/artwear/naksha.html?s=d"
-        },
-        {
-            title: "Handloom Face Mask",
-            url: "/products/accessories/facemask.html"
         },
         {
             title: "Happy Everyday",
