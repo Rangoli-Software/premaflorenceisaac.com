@@ -132,6 +132,7 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, colSelData
             createProductCarousel(this.prodJSON, false);
             var that = this;
             return {
+                navHelper: this.viewerFactory.createNavHelper(),
                 createProductComponent: function (shop) {
                     var basePanelr = that.viewerFactory.createBase(shop);
                     return createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, addlViewer);
@@ -1182,13 +1183,7 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
         cardCreator: cardCreator,
         listId: 'artwear-list',
         getBreadCrumb: function () {
-            var levels = [{
-                title: 'Shop',
-                url: '/shop.html'
-            }, {
-                title: this.productComponent.basePanelr.product.name
-            }];
-            return createBreadCrumbLevels(levels);
+            return this.productComponentFactory.navHelper.getBreadCrumb();
         },
         createCard: function (i) {
             return this.cardCreator.createCard(

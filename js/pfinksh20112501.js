@@ -372,6 +372,9 @@ naksha.createUICFactory = function (scope, colSelData, browseInfo) {
                 },
                 create: function () {
                     return createCatenatedViewer([detailViewer, storyViewer]);
+                },
+                createNavHelper: function() {
+                    return artwear.createNavHelper(this.product);
                 }
             };
             return createComponentGenerator(factory, prodJSON, viewerFactory, this.colSelData, false, this.scope.createCardCreator(sku), "The model is 5 ft 3 in (160 cm).");
