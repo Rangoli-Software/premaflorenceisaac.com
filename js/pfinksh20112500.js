@@ -7,25 +7,25 @@ function createSKUs(factory) {
         factory: factory,
         data: [
             {
-                SKU: 'NKSHMU1501PP',
+                SKU: artwear.nakshaminuit.SKU,
                 text: 'Minuit',
                 image: 'minuitL4',
                 pxWidth: '65'
             },
             {
-                SKU: 'NKSHMD1501PP',
+                SKU: artwear.nakshamidi.SKU,
                 text: 'Midi',
                 image: 'midiL4',
                 pxWidth: '59.28'
             },
             {
-                SKU: 'NKSHMI1501PP',
+                SKU: artwear.nakshamini.SKU,
                 text: 'Mini',
                 image: 'miniL3',
                 pxWidth: '48.88'
             },
             {
-                SKU: 'NKSHMC1512PP',
+                SKU: artwear.nakshamicro.SKU,
                 text: 'Micro',
                 image: 'microL4',
                 pxWidth: '44.72'

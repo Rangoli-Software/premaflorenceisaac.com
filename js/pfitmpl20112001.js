@@ -508,6 +508,11 @@ function getSubEntry(item, url) {
 
 const merchInfo = [
     {
+        SKU: 'NKSHDR1501Ta',
+        ledes: [''],
+        images: [{url: '/look/ramp/j201.jpg'}]
+    },
+    {
         SKU: 'KLGTLY1601Rv',
         ledes: [''],
         images: [{url: '/products/itsmagic/LightLayer.jpg'}]
