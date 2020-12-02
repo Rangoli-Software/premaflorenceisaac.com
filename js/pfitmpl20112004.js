@@ -504,6 +504,11 @@ function getSubEntry(item, url) {
 
 const merchInfo = [
     {
+        SKU: 'LOTSDR1501Ja',
+        ledes: [''],
+        images: [{url: '/products/holydaysreboot/Lotus.jpg'}]
+    },
+    {
         SKU: 'NKSHDR1501Ta',
         ledes: [''],
         images: [{url: '/look/ramp/j201.jpg'}]
