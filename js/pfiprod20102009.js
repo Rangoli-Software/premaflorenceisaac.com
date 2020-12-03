@@ -64,7 +64,7 @@ function createBrowseInfo(infoSections, numSections, baseBlackList) {
     return {
         infoSections: infoSections,
         numSections: numSections,
-        baseList: baseBlackList.splice(),
+//        baseList: baseBlackList.splice(),
         getArticles: function () {
             var res = [];
             for (var i = 0; i < infoSections.length; i++) {
@@ -820,16 +820,6 @@ function createRelatedLookCard(SKU, lkImg, idx, styles, catalog) {
     };
 }
 
-function createStoryCard(item, section) {
-    return {
-        item: item,
-        section: section,
-        createCard: function () {
-            return createFeatureItemCard(this.item, this.section);
-        }
-    };
-}
-
 function createStoryViewer(caption, items, sections, ncol) {
     var res = [];
     for (var s = 0; s < items.length; s++) {
@@ -837,7 +827,7 @@ function createStoryViewer(caption, items, sections, ncol) {
         var keys = Array.from(itms.keys());
         var rnd = shuffle(keys);
         for (var i = 0; i < itms.length && i < ncol[s]; i++) {
-            res.push(createStoryCard(itms[rnd[i]], sections[s][rnd[i]]));
+            res.push(createStoryRef(sections[s][rnd[i]],itms[rnd[i]]));
         }
     }
     return createRelatedViewer(caption, res, 2);

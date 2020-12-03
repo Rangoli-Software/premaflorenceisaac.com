@@ -670,30 +670,9 @@ const merchInfo = [
     }
 ];
 
-function createMerchandisingCard(item, catalog) {
-    var title = catalog[ item.SKU ].name;
-    var url = catalog[ item.SKU ].url;
-    var res = '<div class="card mb-2">';
-    var len = item.images.length;
-    var rndI = Math.floor(Math.random() * len);
-    var img = item.images[rndI];
-    res += '<div class="embed-responsive embed-responsive-1by1">';
-    res += '<img src="' + img.url + '" alt="' + title  + '" class="embed-responsive-item" style="object-fit: cover">';
-    res += '</div>';
-    res += '<div class="card-body px-0 pt-6 pb-4">';
-    res += '<div class="card-subtitle mb-1"><span class="sc-item" data-field="price" data-vsku="' + item.SKU +'"></span></div>';
-    res += '<h6 class="card-title mb-2">' + title + '<a  href="' + url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
-    len = item.ledes.length;
-    rndI = Math.floor(Math.random() * len);
-    var lede = item.ledes[rndI];
-    res += '<p class="mb-1">' + lede + '</p>';
-    res += '</div></div>';
-    return res;
-}
-
 function getHostName(url) {
     var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
-    if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
+    if (match !== null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
         return match[2];
     }
     else {
@@ -742,27 +721,6 @@ function createWovenCanvasImage() {
     var rndI = Math.floor(Math.random() * len);
     var itm = panelImgs[rndI];
     return '<img class="d-block img-fluid" src="' + itm.imageURL +  '" alt="Woven Canvas #' + panelNums[rndI] + '">';
-}
-
-function selectFeature(section) {
-    var len = section.sub.length;
-    var rndI = Math.floor(Math.random() * len);
-    return section.sub[ rndI ];
-}
-
-function selectFeatures(sections, blacklist) {
-    var items = [];
-    var pars = [];
-    for (var i = 0; i < sections.length; i++ ) {
-        var sec = sections[ i ];
-        var sel = selectFeature(sec);
-        while (blacklist.includes(sel.url)) {
-            sel = selectFeature(sec);
-        }
-        items.push(sel);
-        pars.push(sec);
-    }
-    return [items, pars];
 }
 
 function createBreadCrumb(location) {
@@ -951,17 +909,13 @@ function getTabContent(content, id, isActive) {
         + '</div>';
 }
 
-
-function createTabber(titles, ids, contents, vals, key, defaultVal, blacklister, bl_ids) {
+function createUrlVarSelector(ids, vals, key, defaultVal) {
     return {
-        titles: titles,
         ids: ids,
-        contents: contents,
         vals: vals,
         key: key,
         defaultVal: defaultVal,
-        blacklister: blacklister,
-        bl_ids: bl_ids === undefined ? ids : bl_ids,
+        length: ids.length,
         toId: function(val){
             var i = this.vals.indexOf(val);
             return this.ids[i];
@@ -975,6 +929,24 @@ function createTabber(titles, ids, contents, vals, key, defaultVal, blacklister,
                 modifyUrl(this.key, this.toVal(newId));
             }
         },
+        getURLValue: function() {
+            return getUrlVars()[this.key];
+        },
+        isActive: function(i) {
+            var v = this.getURLValue();
+            var isActive = (v == this.vals[i]);
+            return isActive || (this.vals[i] == this.defaultVal ? v === undefined : false);
+        }
+    }
+}
+
+function createTabber(uvSel, titles, contents, blacklister, bl_ids) {
+    return {
+        uvSel: uvSel,
+        titles: titles,
+        contents: contents,
+        blacklister: blacklister,
+        bl_ids: bl_ids === undefined ? uvSel.ids : bl_ids,
         createTabbedSection: function() {
             return '<ul class="nav nav-tabs nav-justified">'
                 + this.createTabStrip()
@@ -984,21 +956,19 @@ function createTabber(titles, ids, contents, vals, key, defaultVal, blacklister,
         },
         createTabStrip: function() {
             var res = "";
-            var urlVal = getUrlVars()[this.key];
-            for ( var i = 0; i < this.ids.length; i++ ) {
-                var isActive = (urlVal == this.vals[i]);
-                isActive = isActive || (this.vals[i] == this.defaultVal ? urlVal === undefined : false);
-                res += getTabItem(this.titles[i], this.ids[i], isActive);
+            var urlVal = uvSel.getURLValue();
+            for ( var i = 0; i < this.uvSel.length; i++ ) {
+                var isActive = uvSel.isActive(i);
+                res += getTabItem(this.titles[i], this.uvSel.ids[i], isActive);
             } 
             return res;
         },
         createTabContents: function() {
             var res = "";
-            var urlVal = getUrlVars()[this.key];
-            for ( var i = 0; i < this.ids.length; i++ ) {
-                var isActive = (urlVal == this.vals[i]);
-                isActive = isActive || (this.vals[i] == this.defaultVal ? urlVal === undefined : false);
-                res += getTabContent(this.contents[i], this.ids[i], isActive);
+            var urlVal = uvSel.getURLValue();
+            for ( var i = 0; i < this.uvSel.ids.length; i++ ) {
+                var isActive = uvSel.isActive(i);
+                res += getTabContent(this.contents[i], this.uvSel.ids[i], isActive);
             } 
             return res;
         },
@@ -1018,32 +988,11 @@ function createTabber(titles, ids, contents, vals, key, defaultVal, blacklister,
                 $("a[data-toggle=\"tab\"]").on('shown.bs.tab', function(e){
                     var newId = $(e.target).attr("href").slice(1);
                     var oldId = $(e.relatedTarget).attr("href").slice(1);
-                    that.updateURL(oldId, newId);
+                    that.uvSel.updateURL(oldId, newId);
                 })
             });
         }
     };
-}
-
-function createFeatureItemCard(item, section) {
-    var res = '<div class="card mb-2">';
-    if ( item.imageURL !== undefined) {
-        res += '<div class="embed-responsive embed-responsive-1by1">';
-        res += '<img src="' + item.imageURL + '" alt="' + item.title  + '" class="embed-responsive-item" style="object-fit: cover">';
-        res += '</div>';
-    } else if (item.imageHTML !== undefined ) {
-        res += item.imageHTML;
-    } else if (item.imageScript !== undefined ) {
-        res += eval(item.imageScript);
-    }
-    res += '<div class="card-body px-0 pt-6 pb-4">';
-    res += '<div class="card-subtitle mb-1"><a class="text-muted" href="'  + section.url + '">' + section.title +'</a></div>';
-    if  ( item.url !== undefined ) {
-        res += '<h6 class="card-title mb-2">' + item.title + '<a  href="' + item.url + '"' +(getHostName(item.url) === null ? '' : ' target="_blank"') +  '><i class="fa ' + (getHostName(item.url) === null ? 'fa-arrow-right' : 'fa-external-link') + ' ml-2"></i></a></h6>';
-    }
-    res += '<p class="mb-1">' + item.lede + '</p>';
-    res += '</div></div>';
-    return res;
 }
 
 function createItemCard(item) {
@@ -1093,78 +1042,16 @@ function shuffle(array) {
     return array;
 }
 
-function createRelated(header, merch, items, sections, orderidxs) {
-    var catalog = createCatalog();
-    var brkColCls = "col-sm-6 col-md-3";
-    var res = '<div class="container mb-5"><section class="pt-4"><h5>' + header + '</h5><div class="row">';
-    var ordI = 0;
-    orderidxs = shuffle(orderidxs);
-    if ( merch !== null) {
-        for (var i = 0; i < merch.length && ordI < orderidxs.length; i++) {
-            res += '<div class="col-6 ' + brkColCls + " order-" + orderidxs[ordI] + '">' +  createMerchandisingCard(merch[ i ], catalog) + '</div>';
-            ordI++;
-        }
-    }
-    for (var i = 0; i < items.length && ordI < orderidxs.length; i++) {
-        res += '<div class="col-6 ' + brkColCls +  " order-" + orderidxs[ordI] + '">' +  createFeatureItemCard(items[ i ], sections[ i ]) + '</div>';
-        ordI++;
-    }
-    res += '</div></section></div>';
-    return res;
-}
-
-function pickSection(section) {
-    var len = section.length;
-    var rndI = Math.floor(Math.random() * len);
-    return section[ rndI ];
-}
-
-function selectSections() {
-    return [pickSection([atelier, origin]), pickSection([about, buzz, archives, lotm, moods, ramp, clients])];
-}
-
-function filterMerch(skus, blacklist) {
-    var res = [];
-    for(var i = 0; i < merchInfo.length; i++) {
-        var val = merchInfo[i];
-        if (skus.includes(val.SKU)) {
-            if ( ! blacklist.includes(val.url) ) {
-                res.push(val);
-            }
-        }
-    }
-    return res;
-}
-
-function pickMerch(skus, blacklist) {
-    var flt = filterMerch(skus, blacklist);
-    var len = flt.length;
-    var rndI = Math.floor(Math.random() * len);
-    return flt[ rndI ];
-}
-
-function selectMerch(blacklist) {
-    var leftSKUs = ['OVTPLO1501Vo','VAMPAL1708Kh','LTSDSL1501Kh','DPDYSF1501PT','KAGTIE1601Kh','CHMPGN1501JL','NKSHMD1501PP','NKSHMC1512PP','BKLLTS1505Je','JLTDRS1505PT','PRNCDR1501Rv','FAIRST2011Rv','YUVRTC1601Rv'];
-    var restSKUs = ['BERMPA1609Kh','BALLPA1501Vo','CRPTOP1805Kh','FACEMK2005Ta','AWTSHT1604Je','NKSHMU1501PP','NKSHMI1501PP','HLNDRS1505PT','KDHRDR1601Rv','KWAVDR1601Rv','KBALPA1601Vo','KGYPST1601Rv','HLFPNT1601Kh','KLGTLY1601Rv'];
-    return [pickMerch(leftSKUs, blacklist), pickMerch(restSKUs, blacklist)];
-}
-
-function createFeatures(header, blacklist) {
-    var res = selectFeatures(selectSections(), blacklist);
-    var mch = selectMerch(blacklist);
-    return createRelated(header, mch, res[0], res[1],[1,4,7,10]);
-}
-
 function createCarousel(carId, carItems) {
     var id = "carousel-" + carId;
     var res = '<div id="' + id + '" class="carousel slide" data-ride="carousel" data-interval="2500"><ol class="carousel-indicators">';
     for (var i = 0; i < carItems.length; i++) {
-        res += '<li data-target="#' + id + '" data-slide-to="' + i + '"' + (i == 0 ? '" class="active"' : '') + '></li>';
+        res += '<li data-target="#' + id + '" data-slide-to="' + i + '"' + (i === 0 ? '" class="active"' : '') + '></li>';
     }
     res += '</ol><div class="carousel-inner">';
     for (i = 0; i < carItems.length; i++) {
         var itm = carItems[i];
-        res += '<div class="carousel-item' + (i == 0 ? ' active' : '') + '">'
+        res += '<div class="carousel-item' + (i === 0 ? ' active' : '') + '">'
             + '<img class="d-block img-fluid" src="' + itm.imageURL +  '"' +  (itm.width !== undefined ?  'width="' + itm.width +  '"' : "") +
             (itm.height !== undefined ?  'height="' + itm.height +  '"' : "") + '>'
             + '</div>';
@@ -1320,10 +1207,6 @@ function createShareBar(location) {
         + createINBtn(location) 
         + '</span>'
         + '</div></div>';
-}
-
-function storyBrowser(blacklist) {
-    return createFeatures("Featured", blacklist);
 }
 
 function botNav(botImgTag, location) {
