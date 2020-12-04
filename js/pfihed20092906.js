@@ -934,6 +934,8 @@ const hed_lookbook = {
 };
 
 const hed_catalog = {
+    title: "Happy Everyday",
+    shopURL: "/products/happyeveryday/shop.html",
     skus: ['WNDRPA1709Kh', 'DRAWPA1609Kh', 'BERMPA1609Kh', 'BALLPA1501Vo', 'CRPTOP1805Kh', 'TNKTPS1902Kh', 'TRPZTP1807Kh', 'OVTPLO1501Vo', 'OVTPSH1501Vo', 'VAMPAL1708Kh', 'LTSDSL1501Kh', 'LITLAY1708Vo'],
     tops: ['CRPTOP1805Kh', 'TNKTPS1902Kh', 'VAMPAL1708Kh', 'TRPZTP1807Kh'],
     overtops: ['OVTPLO1501Vo', 'OVTPSH1501Vo'],

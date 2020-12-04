@@ -443,6 +443,8 @@ function createProductDB() {
 }
 
 const vb_catalog = {
+    title: "Vagabond",
+    shopURL: "/products/men/shop.html",
     skus: ['ANGKRT1601Kh', 'ARAMPA1601Kh', 'KOHKRT1601Kh', 'MAVKRT1601Kh', 'NARKRT1601Kh', 'PNDPNT1601Kh', 'UBDPNT1601Kh', 'MNHTST2016SP', 'MNHTPT2018SP'],
     shirts: ['ANGKRT1601Kh', 'KOHKRT1601Kh', 'MAVKRT1601Kh', 'NARKRT1601Kh'],
     pants: ['PNDPNT1601Kh', 'UBDPNT1601Kh'],

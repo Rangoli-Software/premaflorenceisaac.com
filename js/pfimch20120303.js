@@ -98,7 +98,7 @@ function createPageSelector(mips, wl, bl) {
             while (this.blacklist.includes(sel, 'url') || this.blacklist.includesImg(sel)) {
                 idx = getRandomIdx(section.sub);
                 sel = section.sub[idx];
-            };
+            }
             return createStoryRef(section, sel);
         },
         selectFeatures: function() {
@@ -107,7 +107,10 @@ function createPageSelector(mips, wl, bl) {
             return [this.selFeature(bg), this.selFeature(ab)];
         },
         selMerch: function(skuList) {
-            var fltMI = this.miPageSet.filter(page => !this.blacklist.includes(page, 'url') && !this.blacklist.includesImg(page));
+            var blacklist = this.blacklist;
+            var fltMI = this.miPageSet.filter(function(page){
+                return !blacklist.includes(page, 'url') && !blacklist.includesImg(page);
+            });
             var idx = getRandomIdx(skuList);
             var sku = skuList[idx];
             var sel = fltMI.select("SKU", sku);
@@ -187,7 +190,6 @@ function createStoryRef(section, item) {
 }
 
 function createRelated(header, cards, orderidxs) {
-    var catalog = createCatalog();
     var brkColCls = "col-sm-6 col-md-3";
     var res = '<div id="featuredBrowse" class="container mb-5"><section class="pt-4"><h5>' + header + '</h5><div class="row">';
     var ordI = 0;

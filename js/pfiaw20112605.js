@@ -127,6 +127,9 @@ artwear.nakshamicro = naksha.createStyle(naksha.microSKU);
 
 artwear.createCatalog = function () {
     return {
+        title: "Art Wear",
+        shopURL: "/products/artwear/shop.html",
+        skus: null,
         styles: [artwear.tamarai, artwear.kamalam, artwear.kaftan, artwear.nakshaminuit, artwear.nakshamidi, artwear.nakshamini, artwear.nakshamicro, artwear.facemask],
         dresses: [artwear.tamarai.SKU, artwear.kamalam.SKU, artwear.kaftan.SKU],
         separates: [artwear.nakshaminuit.SKU, artwear.nakshamidi.SKU, artwear.nakshamini.SKU, artwear.nakshamicro.SKU],
@@ -158,6 +161,7 @@ artwear.createCatalog = function () {
         },
         initialize: function () {
             this.productDB = this.createProductDB();
+            this.skus = this.styles.map(p => p.SKU);
         }
     }
 }

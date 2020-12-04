@@ -609,6 +609,9 @@ itsmagic.createJSON = function (style) {
 
 itsmagic.createCatalog = function () {
     return {
+        title: "It's Magic",
+        shopURL: "/products/itsmagic/shop.html",
+        skus: null,
         styles: [itsmagic.princess, itsmagic.flow, itsmagic.wave, itsmagic.layer, itsmagic.fairy, itsmagic.gypsy, itsmagic.kidikini, itsmagic.halfpant, itsmagic.fullpant, itsmagic.prince, itsmagic.royal, itsmagic.balloon],
         unisex: [itsmagic.balloon.SKU],
         boys: [itsmagic.halfpant.SKU, itsmagic.fullpant.SKU, itsmagic.prince.SKU, itsmagic.royal.SKU],
@@ -644,6 +647,7 @@ itsmagic.createCatalog = function () {
         },
         initialize: function () {
             this.productDB = this.createProductDB();
+            this.skus = this.styles.map(p => p.SKU);
         }
     }
 }
