@@ -132,7 +132,7 @@ function createMerchandisingRef(item) {
         lede: null,
         setRandImg: function() {
             this.imageURL = item.images[getRandomIdx(item.images)].url;
-            this.lede = item.ledes[getRandomIdx(this.ledes)];
+            this.lede = item.ledes[getRandomIdx(item.ledes)];
         },
         createCard: function () {
             var res = '<div class="card mb-2">';
