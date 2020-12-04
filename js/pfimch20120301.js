@@ -23,11 +23,26 @@ function createSiteMap(siteMap) {
 function createPageSet(pages) {
     return {
         pages: pages,
-        includes: function (page) {
-            var url = page.url;
+        includes: function (page, key) {
+            var url = page[key];
             if (url === undefined) {return false;}
-            for (var i = 0; i < this.pages.length; i++) {
-                if (url === this.pages[i].url){
+            return this.select(key, url) !== undefined;
+        },
+        includesImg: function(page) {
+            var url = page.imageURL;
+            if (url === undefined) {
+                return false;
+            }
+            if ( this.select('imageURL', url) !== undefined ) {
+                return true;
+            }
+            var imgs = page.images;
+            if ( imgs === undefined) {
+                return false;
+            }
+            for (var i = 0; i < imgs.length; i++) {
+                url = imgs[i].url;
+                if ( this.select('imageURL', url) !== null) {
                     return true;
                 }
             }
@@ -80,7 +95,7 @@ function createPageSelector(mips, wl, bl) {
 
             var idx = getRandomIdx(section.sub);
             var sel = section.sub[idx];
-            while (this.blacklist.includes(sel)) {
+            while (this.blacklist.includes(sel, 'url') || this.blacklist.includesImg(sel)) {
                 idx = getRandomIdx(section.sub);
                 sel = section.sub[idx];
             };
@@ -92,7 +107,7 @@ function createPageSelector(mips, wl, bl) {
             return [this.selFeature(bg), this.selFeature(ab)];
         },
         selMerch: function(skuList) {
-            var fltMI = this.miPageSet.filter(page => !this.blacklist.includes(page));
+            var fltMI = this.miPageSet.filter(page => !this.blacklist.includes(page, 'url') && !this.blacklist.includesImg(page));
             var idx = getRandomIdx(skuList);
             var sku = skuList[idx];
             var sel = fltMI.select("SKU", sku);
@@ -110,23 +125,26 @@ function createPageSelector(mips, wl, bl) {
 
 function createMerchandisingRef(item) {
     return {
-        itm: item,
+        SKU: item.SKU,
+        title: item.title,
+        url: item.url,
+        imageURL: item.imageURL,
+        lede: null,
         setRandImg: function() {
-            item.imageURL = item.images[getRandomIdx(item.images)].url;
+            this.imageURL = item.images[getRandomIdx(item.images)].url;
+            this.lede = item.ledes[getRandomIdx(this.ledes)];
         },
         createCard: function () {
-            var item = this.itm;
-            var title = item.title;
-            var url = item.url;
             var res = '<div class="card mb-2">';
             res += '<div class="embed-responsive embed-responsive-1by1">';
-            res += '<img src="' + item.imageURL + '" alt="' + title + '" class="embed-responsive-item" style="object-fit: cover">';
+            res += '<img src="' + this.imageURL + '" alt="' + this.title + '" class="embed-responsive-item" style="object-fit: cover">';
             res += '</div>';
             res += '<div class="card-body px-0 pt-6 pb-4">';
-            res += '<div class="card-subtitle mb-1"><span class="sc-item" data-field="price" data-vsku="' + item.SKU + '"></span></div>';
-            res += '<h6 class="card-title mb-2">' + title + '<a  href="' + url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
-            var lede = item.ledes[getRandomIdx(item.ledes)];
-            res += '<p class="mb-1">' + lede + '</p>';
+            res += '<div class="card-subtitle mb-1"><span class="sc-item" data-field="price" data-vsku="' + this.SKU + '"></span></div>';
+            res += '<h6 class="card-title mb-2">' + this.title + '<a  href="' + this.url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
+            if ( this.lede !== null) {
+                res += '<p class="mb-1">' + this.lede + '</p>';
+            }
             res += '</div></div>';
             return res;
         }
@@ -137,25 +155,31 @@ function createStoryRef(section, item) {
     return {
         sec: section,
         sel: item,
+        title: item.title,
+        url: item.url,
+        imageURL: item.imageURL,
+        imageHTML: item.imageHTML,
+        imageScript: item.imageScript,
+        lede: item.lede,
         createCard: function() {
             var section = this.sec;
             var item = this.sel;
             var res = '<div class="card mb-2">';
-            if (item.imageURL !== undefined) {
+            if (this.imageURL !== undefined) {
                 res += '<div class="embed-responsive embed-responsive-1by1">';
-                res += '<img src="' + item.imageURL + '" alt="' + item.title + '" class="embed-responsive-item" style="object-fit: cover">';
+                res += '<img src="' + this.imageURL + '" alt="' + this.title + '" class="embed-responsive-item" style="object-fit: cover">';
                 res += '</div>';
-            } else if (item.imageHTML !== undefined) {
-                res += item.imageHTML;
-            } else if (item.imageScript !== undefined) {
-                res += eval(item.imageScript);
+            } else if (this.imageHTML !== undefined) {
+                res += this.imageHTML;
+            } else if (this.imageScript !== undefined) {
+                res += eval(this.imageScript);
             }
             res += '<div class="card-body px-0 pt-6 pb-4">';
-            res += '<div class="card-subtitle mb-1"><a class="text-muted" href="' + section.url + '">' + section.title + '</a></div>';
+            res += '<div class="card-subtitle mb-1"><a class="text-muted" href="' + this.sec.url + '">' + this.sec.title + '</a></div>';
             if (item.url !== undefined) {
-                res += '<h6 class="card-title mb-2">' + item.title + '<a  href="' + item.url + '"' + (getHostName(item.url) === null ? '' : ' target="_blank"') + '><i class="fa ' + (getHostName(item.url) === null ? 'fa-arrow-right' : 'fa-external-link') + ' ml-2"></i></a></h6>';
+                res += '<h6 class="card-title mb-2">' + this.title + '<a  href="' + this.url + '"' + (getHostName(this.url) === null ? '' : ' target="_blank"') + '><i class="fa ' + (getHostName(this.url) === null ? 'fa-arrow-right' : 'fa-external-link') + ' ml-2"></i></a></h6>';
             }
-            res += '<p class="mb-1">' + item.lede + '</p>';
+            res += '<p class="mb-1">' + this.lede + '</p>';
             res += '</div></div>';
             return res;
         }
@@ -165,7 +189,7 @@ function createStoryRef(section, item) {
 function createRelated(header, cards, orderidxs) {
     var catalog = createCatalog();
     var brkColCls = "col-sm-6 col-md-3";
-    var res = '<div class="container mb-5"><section class="pt-4"><h5>' + header + '</h5><div class="row">';
+    var res = '<div id="featuredBrowse" class="container mb-5"><section class="pt-4"><h5>' + header + '</h5><div class="row">';
     var ordI = 0;
     orderidxs = shuffle(orderidxs);
     for (var i = 0; i < cards.length && ordI < orderidxs.length; i++) {
