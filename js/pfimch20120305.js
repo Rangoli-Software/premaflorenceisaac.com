@@ -77,8 +77,8 @@ function createPageIndex(page) {
 
         createFeatures: function() {
             var pageSel = createPageSelector(this.miPageSet, this.mentioned, this.included);
-            var stories = pageSel.selectFeatures();
             var merch = pageSel.selectMerch();
+            var stories = pageSel.selectFeatures();
             return createRelated("Features", merch.concat(stories), [1, 4, 7, 10]);
         }
     }
@@ -89,6 +89,8 @@ function createPageSelector(mips, wl, bl) {
         miPageSet: mips,
         blacklist: bl,
         whitelist: wl,
+        maxMerch: 2,
+        merchSKUs: pfiavG.lineMerchSKUs.flat(),
         selFeature: function(secList) {
             var i = getRandomIdx(secList);
             var section = secList[i];
@@ -106,23 +108,23 @@ function createPageSelector(mips, wl, bl) {
             var ab = [about, buzz, archives, lotm, moods, ramp, clients];
             return [this.selFeature(bg), this.selFeature(ab)];
         },
-        selMerch: function(skuList) {
+        selectMerch: function() {
             var blacklist = this.blacklist;
             var fltMI = this.miPageSet.filter(function(page){
                 return !blacklist.includes(page, 'url') && !blacklist.includesImg(page);
             });
-            var idx = getRandomIdx(skuList);
-            var sku = skuList[idx];
-            var sel = fltMI.select("SKU", sku);
-            var img = sel.images[getRandomIdx(sel.images)];
-            sel.imageURL = img.url;
-            return createMerchandisingRef(sel);
+            var fltSKUs = this.merchSKUs.filter(sku => fltMI.select('SKU', sku) !== undefined);
+            fltSKUs = shuffle(fltSKUs);
+            var res = [];
+            for (var i = 0, nR = 0; i < fltSKUs.length && nR < this.maxMerch; i++, nR++) {
+                var sku = fltSKUs[i];
+                var sel = fltMI.select('SKU', sku);
+                var img = sel.images[getRandomIdx(sel.images)];
+                sel.imageURL = img.url;
+                res.push(createMerchandisingRef(sel));
+            }
+            return res;
         },
-        selectMerch: function() {
-            var leftSKUs = ['OVTPLO1501Vo', 'VAMPAL1708Kh', 'LTSDSL1501Kh', 'DPDYSF1501PT', 'KAGTIE1601Kh', 'CHMPGN1501JL', 'NKSHMD1501PP', 'NKSHMC1512PP', 'BKLLTS1505Je', 'JLTDRS1505PT', 'PRNCDR1501Rv', 'FAIRST2011Rv', 'YUVRTC1601Rv'];
-            var restSKUs = ['BERMPA1609Kh', 'BALLPA1501Vo', 'CRPTOP1805Kh', 'FACEMK2005Ta', 'AWTSHT1604Je', 'NKSHMU1501PP', 'NKSHMI1501PP', 'HLNDRS1505PT', 'KDHRDR1601Rv', 'KWAVDR1601Rv', 'KBALPA1601Vo', 'KGYPST1601Rv', 'HLFPNT1601Kh', 'KLGTLY1601Rv'];
-            return [this.selMerch(leftSKUs), this.selMerch(restSKUs)];
-        }
     }
 }
 
