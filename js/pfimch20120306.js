@@ -136,7 +136,13 @@ function createMerchandisingRef(item) {
         imageURL: item.imageURL,
         lede: null,
         setRandImg: function() {
-            this.imageURL = item.images[getRandomIdx(item.images)].url;
+            this.setImg(getRandomIdx(item.images));
+            this.setRandLede();
+        },
+        setImg(idx) {
+            this.imageURL = item.images[idx].url;
+        },
+        setRandLede() {
             this.lede = item.ledes[getRandomIdx(item.ledes)];
         },
         createCard: function () {
