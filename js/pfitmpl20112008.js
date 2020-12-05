@@ -516,8 +516,7 @@ const merchInfo = [
     {
         SKU: 'NKSHDR1501Ta',
         ledes: [''],
-        images: [{url: '/look/ramp/j201.jpg'}]
-    },
+        images: [{url: '/look/ramp/j201.jpg'},{url: '/people/tmribzSq.jpg'}]    },
     {
         SKU: 'KLGTLY1601Rv',
         ledes: [''],
@@ -616,7 +615,7 @@ const merchInfo = [
     {
         SKU: 'NKSHMC1512PP',
         ledes: ["#oneofakind micro skirt for all ages and sizes!"],
-        images: [{url: '/people/ibpp.jpg'}]
+        images: [{url: '/people/nmnibz.jpg'}]
     },
     {
         SKU: 'FACEMK2005Ta',
@@ -712,7 +711,6 @@ function createSqPanelImageList(panelNumArr) {
     }
     return res;
 }
-
 
 function createWovenCanvasImage() {
     var panelNums = [545,548,549,552,565,571];
