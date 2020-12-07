@@ -611,6 +611,7 @@ pfiavG.getLineInitializer(itsmagic).initialize();
 
 itsmagic.categorizer = createFieldCategorizer(
     itsmagic.catalog,
+    ["Girls", "Boys", "Both"],
     ["girls", "boys", "unisex"],
     ["g", "b", "u"],
     "t",

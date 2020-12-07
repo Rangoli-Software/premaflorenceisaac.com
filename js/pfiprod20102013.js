@@ -41,16 +41,17 @@ function rgbToHSL(hexRGB) {
     };
 }
 
-function createFieldCategorizer(catalog, ids, tabvals, tabvar, tabdefault) {
+function createFieldCategorizer(catalog, titles, ids, tabvals, tabvar, tabdefault) {
     return {
         catalog: catalog,
         baseURL: catalog.shopURL,
+        titles: titles,
         ids: ids,
         tabvals: tabvals,
         tabvar: tabvar,
         tabdefault: tabdefault,
         createUrlVarSelector: function () {
-            return createUrlVarSelector(this.ids, this.tabvals, this.tabvar, this.tabdefault);
+            return createUrlVarSelector(this.titles, this.ids, this.tabvals, this.tabvar, this.tabdefault);
         },
         getCategory: function (sku) {
             var idx = this.ids.findIndex(id => this.catalog[id].includes(sku));

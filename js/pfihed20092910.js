@@ -952,6 +952,7 @@ pfiavG.getLineInitializer(happyED).initialize();
 
 happyED.categorizer = createFieldCategorizer(
     happyED.catalog,
+    ["Pants", "Tops", "Jackets", "Dresses"],
     ["pants", "tops", "overtops", "dresses"],
     ["p", "t", "o", "d"],
     "t",

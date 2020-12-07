@@ -363,6 +363,7 @@ pfiavG.getLineInitializer(vagabond).initialize();
 
 vagabond.categorizer = createFieldCategorizer(
     vagabond.catalog,
+    ["Tailored", "Kurtas", "Pants"],
     ["fitted", "tops", "pants"],
     ["f", "s", "p"],
     "t",

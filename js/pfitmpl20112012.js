@@ -907,8 +907,9 @@ function getTabContent(content, id, isActive) {
         + '</div>';
 }
 
-function createUrlVarSelector(ids, vals, key, defaultVal) {
+function createUrlVarSelector(titles, ids, vals, key, defaultVal) {
     return {
+        titles: titles,
         ids: ids,
         vals: vals,
         key: key,
@@ -938,10 +939,9 @@ function createUrlVarSelector(ids, vals, key, defaultVal) {
     }
 }
 
-function createTabber(uvSel, titles, cardlists) {
+function createTabber(uvSel, cardlists) {
     return {
         uvSel: uvSel,
-        titles: titles,
         cardlists: cardlists,
         createTabbedSection: function() {
             return '<ul class="nav nav-tabs nav-justified">'
@@ -955,7 +955,7 @@ function createTabber(uvSel, titles, cardlists) {
             var urlVal = uvSel.getURLValue();
             for ( var i = 0; i < this.uvSel.length; i++ ) {
                 var isActive = uvSel.isActive(i);
-                res += getTabItem(this.titles[i], this.uvSel.ids[i], isActive);
+                res += getTabItem(this.uvSel.titles[i], this.uvSel.ids[i], isActive);
             } 
             return res;
         },

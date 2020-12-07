@@ -638,6 +638,7 @@ pfiavG.getLineInitializer(cesoir).initialize();
 
 cesoir.categorizer = createFieldCategorizer(
     cesoir.catalog,
+    ["Dresses", "Separates"],
     ["dresses", "nondresses"],
     ["d", "n"],
     "t",

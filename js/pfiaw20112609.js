@@ -153,6 +153,7 @@ pfiavG.getLineInitializer(artwear).initialize();
 
 artwear.categorizer = createFieldCategorizer(
     artwear.catalog,
+    ["Dresses", "Separates", "Extras"],
     ["dresses", "separates", "extras"],
     ["d", "s", "e"],
     "t",
