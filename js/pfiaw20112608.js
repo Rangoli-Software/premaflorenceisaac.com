@@ -126,64 +126,34 @@ artwear.nakshamidi = naksha.createStyle(naksha.midiSKU);
 artwear.nakshamini = naksha.createStyle(naksha.miniSKU);
 artwear.nakshamicro = naksha.createStyle(naksha.microSKU);
 
-artwear.createCatalog = function () {
-    return {
-        title: "Art Wear",
-        shopURL: "/products/artwear/shop.html",
-        skus: null,
-        styles: [artwear.tamarai, artwear.kamalam, artwear.kaftan, artwear.nakshaminuit, artwear.nakshamidi, artwear.nakshamini, artwear.nakshamicro, artwear.facemask],
-        dresses: [artwear.tamarai.SKU, artwear.kamalam.SKU, artwear.kaftan.SKU],
-        separates: [artwear.nakshaminuit.SKU, artwear.nakshamidi.SKU, artwear.nakshamini.SKU, artwear.nakshamicro.SKU],
-        extras: [artwear.facemask.SKU],
-        productDB: null,
-        createProductDB: function () {
-            var map = {};
-            for (var i = 0; i < this.styles.length; i++) {
-                var style = this.styles[i];
-                var entry = style.createJSON(style);
-                map[entry.skuInfo.SKU] = entry;
-            }
-            return map;
-        },
-        getProduct: function (sku) {
-            return this.productDB[sku];
-        },
-        getCategory: function (sku) {
-            if (this.dresses.includes(sku)) {
-                return "dresses";
-            }
-            if (this.separates.includes(sku)) {
-                return "separates";
-            }
-            if (this.separates.includes(sku)) {
-                return "extras";
-            }
-            return null;
-        },
-        initialize: function () {
-            this.productDB = this.createProductDB();
-            this.skus = this.styles.map(p => p.SKU);
+artwear.catalog = {
+    title: "Art Wear",
+    shopURL: "/products/artwear/shop.html",
+    skus: null,
+    styles: [artwear.tamarai, artwear.kamalam, artwear.kaftan, artwear.nakshaminuit, artwear.nakshamidi, artwear.nakshamini, artwear.nakshamicro, artwear.facemask],
+    dresses: [artwear.tamarai.SKU, artwear.kamalam.SKU, artwear.kaftan.SKU],
+    separates: [artwear.nakshaminuit.SKU, artwear.nakshamidi.SKU, artwear.nakshamini.SKU, artwear.nakshamicro.SKU],
+    extras: [artwear.facemask.SKU],
+    productDB: null,
+    getProduct: function (sku) {
+        return this.productDB[sku];
+    },
+    createProductDB: function () {
+        var map = {};
+        for (var i = 0; i < this.styles.length; i++) {
+            var style = this.styles[i];
+            var entry = style.createJSON(style);
+            map[entry.skuInfo.SKU] = entry;
         }
+        return map;
     }
 }
 
-artwear.createNavHelper = function (product) {
-    return {
-        product: product,
-        getBreadCrumb: function () {
-            var levels = [{
-                title: 'Shop',
-                url: '/shop.html'
-            }, {
-                title: 'Art Wear',
-                url: '/products/artwear/shop.html'
-            }, {
-                title: this.product.name
-            }];
-            return createBreadCrumbLevels(levels);
-        }
-    };
-}
+pfiavG.getLineInitializer(artwear).initialize();
 
-artwear.catalog = artwear.createCatalog();
-artwear.catalog.initialize();
+artwear.categorizer = createFieldCategorizer(
+    artwear.catalog,
+    ["dresses", "separates", "extras"],
+    ["d", "s", "e"],
+    "t",
+    "d");

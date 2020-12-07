@@ -41,6 +41,34 @@ function rgbToHSL(hexRGB) {
     };
 }
 
+function createFieldCategorizer(catalog, ids, tabvals, tabvar, tabdefault) {
+    return {
+        catalog: catalog,
+        baseURL: catalog.shopURL,
+        ids: ids,
+        tabvals: tabvals,
+        tabvar: tabvar,
+        tabdefault: tabdefault,
+        createUrlVarSelector: function () {
+            return createUrlVarSelector(this.ids, this.tabvals, this.tabvar, this.tabdefault);
+        },
+        getCategory: function (sku) {
+            var idx = this.ids.findIndex(id => this.catalog[id].includes(sku));
+            if (0 <= idx) {
+                return this.ids[idx];
+            }
+            return null;
+        },
+        getTabVal: function (sku) {
+            var idx = this.ids.findIndex(id => this.catalog[id].includes(sku));
+            if (0 <= idx) {
+                return this.tabvals[idx];
+            }
+            return this.tabdefault;
+        }
+    };
+}
+
 function createColSelData(path, data) {
     return {
         path: path,
@@ -744,9 +772,8 @@ function createNavHelper(prodInfo, categorizer, title) {
             return createBreadCrumbLevels(levels);
         },
         getCategoryURL: function () {
-            var res = "shop.html";
-            var cat = this.categorizer.getCategory(this.prodInfo.skuInfo.SKU);
-            return res + (cat === null ? "" : "?t=" + cat[0]);
+            var tabval = this.categorizer.getTabVal(this.prodInfo.skuInfo.SKU);
+            return this.categorizer.baseURL + "?t=" + tabval;
         },
     };
 }

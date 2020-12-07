@@ -1,6 +1,6 @@
 const happyED = {};
 
-happyED.createRelatedViewer = function(skuInfo, looks, catalog) {
+happyED.createRelatedViewer = function (skuInfo, looks, catalog) {
     var related = looks.getRelatedStyles(skuInfo.SKU);
     if (related === null) {
         return creatEmptyViewer();
@@ -18,8 +18,8 @@ happyED.createRelatedViewer = function(skuInfo, looks, catalog) {
     return createRelatedViewer(caption, res, 2);
 }
 
-happyED.createComponentFactory = function(prodInfo, dimensioner, sizer, looks, categorizer, catalog) {
-    var navHelper = createNavHelper(prodInfo, categorizer, 'Happy Everyday');
+happyED.createComponentFactory = function (prodInfo, dimensioner, sizer, looks, categorizer, catalog) {
+    var navHelper = createNavHelper(prodInfo, categorizer, happyED.catalog.title);
     var relatedviewer = happyED.createRelatedViewer(prodInfo.skuInfo, looks, catalog);
     var modelTxt = "The model is 5 ft 7.5 in (171.5 cm.) and wearing size '" + prodInfo.skuInfo.sizes[0] + "'";
     return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, modelTxt, "Size", false);
@@ -854,129 +854,105 @@ const hed_lookbook = {
     }
 };
 
-happyED.createCatalog = function () {
-    return {
-        title: "Happy Everyday",
-        shopURL: "/products/happyeveryday/shop.html",
-        skus: null,
-        styles: [happyED.lily, happyED.drawstring, happyED.bermuda, happyED.harem, happyED.crop, happyED.tank,
+happyED.catalog = {
+    title: "Happy Everyday",
+    shopURL: "/products/happyeveryday/shop.html",
+    skus: null,
+    styles: [happyED.lily, happyED.drawstring, happyED.bermuda, happyED.harem, happyED.crop, happyED.tank,
             happyED.wings, happyED.longovertop, happyED.shortovertop, happyED.sideslit, happyED.shoulderstring, happyED.layer],
-        tops: [happyED.crop.SKU, happyED.tank.SKU, happyED.sideslit.SKU, happyED.wings.SKU],
-        overtops: [happyED.longovertop.SKU, happyED.shortovertop.SKU],
-        dresses: [happyED.shoulderstring.SKU, happyED.layer.SKU],
-        pants: [happyED.lily.SKU, happyED.drawstring.SKU, happyED.bermuda.SKU, happyED.harem.SKU],
-        productDB: null,
-        createProductDB: function () {
-            var map = {};
-            for (var i = 0; i < this.styles.length; i++) {
-                var style = this.styles[i];
-                var entry = happyED.createJSON(style);
-                map[entry.skuInfo.SKU] = entry;
-            }
-            return map;
+    tops: [happyED.crop.SKU, happyED.tank.SKU, happyED.sideslit.SKU, happyED.wings.SKU],
+    overtops: [happyED.longovertop.SKU, happyED.shortovertop.SKU],
+    dresses: [happyED.shoulderstring.SKU, happyED.layer.SKU],
+    pants: [happyED.lily.SKU, happyED.drawstring.SKU, happyED.bermuda.SKU, happyED.harem.SKU],
+    productDB: null,
+    getProduct: function (sku) {
+        return this.productDB[sku];
+    },
+    summaries: [
+        {
+            sku: 'BALLPA1501Vo',
+            url: "/products/happyeveryday/balloon.html",
+            lede: 'Full length Harem Pants'
         },
-        getProduct: function (sku) {
-            return this.productDB[sku];
+        {
+            sku: 'BERMPA1609Kh',
+            url: "/products/happyeveryday/bermuda.html",
+            lede: 'Calf length Bermuda pants'
         },
-        getCategory: function (sku) {
-            if (this.tops.includes(sku)) {
-                return "tops";
-            }
-            if (this.overtops.includes(sku)) {
-                return "overtops";
-            }
-            if (this.dresses.includes(sku)) {
-                return "dresses";
-            }
-            if (this.pants.includes(sku)) {
-                return "pants";
-            }
-            return null;
+        {
+            sku: 'DRAWPA1609Kh',
+            url: "/products/happyeveryday/drawstring.html",
+            lede: 'Wide legged drawstring pants'
         },
-        initialize: function () {
-            this.productDB = this.createProductDB();
-            this.skus = this.styles.map(p => p.SKU);
+        {
+            sku: 'JODHPA1708Kh',
+            url: "/products/happyeveryday/jodhpur.html",
+            lede: 'Full length Jodhpur cut pants'
         },
-        summaries: [
-            {
-                sku: 'BALLPA1501Vo',
-                url: "/products/happyeveryday/balloon.html",
-                lede: 'Full length Harem Pants'
+        {
+            sku: 'WNDRPA1709Kh',
+            url: "/products/happyeveryday/lily.html",
+            lede: 'Drawstring  waist and hem'
         },
-            {
-                sku: 'BERMPA1609Kh',
-                url: "/products/happyeveryday/bermuda.html",
-                lede: 'Calf length Bermuda pants'
+        {
+            sku: 'CRPTOP1805Kh',
+            url: "/products/happyeveryday/croptop.html",
+            lede: ''
         },
-            {
-                sku: 'DRAWPA1609Kh',
-                url: "/products/happyeveryday/drawstring.html",
-                lede: 'Wide legged drawstring pants'
+        {
+            sku: 'TNKTPS1902Kh',
+            url: "/products/happyeveryday/tanktop.html",
+            lede: ''
         },
-            {
-                sku: 'JODHPA1708Kh',
-                url: "/products/happyeveryday/jodhpur.html",
-                lede: 'Full length Jodhpur cut pants'
+        {
+            sku: 'TRPZTP1807Kh',
+            url: "/products/happyeveryday/wings.html",
+            lede: ''
         },
-            {
-                sku: 'WNDRPA1709Kh',
-                url: "/products/happyeveryday/lily.html",
-                lede: 'Drawstring  waist and hem'
+        {
+            sku: 'OVTPLO1501Vo',
+            url: "/products/happyeveryday/lovertop.html",
+            lede: ''
         },
-            {
-                sku: 'CRPTOP1805Kh',
-                url: "/products/happyeveryday/croptop.html",
-                lede: ''
+        {
+            sku: 'OVTPSH1501Vo',
+            url: "/products/happyeveryday/shovertop.html",
+            lede: ''
         },
-            {
-                sku: 'TNKTPS1902Kh',
-                url: "/products/happyeveryday/tanktop.html",
-                lede: ''
+        {
+            sku: 'VAMPAL1708Kh',
+            url: "/products/happyeveryday/sideslit.html",
+            lede: ''
         },
-            {
-                sku: 'TRPZTP1807Kh',
-                url: "/products/happyeveryday/wings.html",
-                lede: ''
+        {
+            sku: 'LTSDSL1501Kh',
+            url: "/products/happyeveryday/shoulderstring.html",
+            lede: ''
         },
-            {
-                sku: 'OVTPLO1501Vo',
-                url: "/products/happyeveryday/lovertop.html",
-                lede: ''
-        },
-            {
-                sku: 'OVTPSH1501Vo',
-                url: "/products/happyeveryday/shovertop.html",
-                lede: ''
-        },
-            {
-                sku: 'VAMPAL1708Kh',
-                url: "/products/happyeveryday/sideslit.html",
-                lede: ''
-        },
-            {
-                sku: 'LTSDSL1501Kh',
-                url: "/products/happyeveryday/shoulderstring.html",
-                lede: ''
-        },
-            {
-                sku: 'LITLAY1708Vo',
-                url: "/products/happyeveryday/layer.html",
-                lede: ''
+        {
+            sku: 'LITLAY1708Vo',
+            url: "/products/happyeveryday/layer.html",
+            lede: ''
         },
     ],
-        getSummary: function (sku) {
-            var catalog = pfiavG.productCatalog;
-            for (var i = 0; i < this.summaries.length; i++) {
-                if (this.summaries[i].sku === sku) {
-                    var sum = this.summaries[i];
-                    sum.title = catalog.getProduct(sum.sku).name;
-                    return sum;
-                }
+    getSummary: function (sku) {
+        var catalog = pfiavG.productCatalog;
+        for (var i = 0; i < this.summaries.length; i++) {
+            if (this.summaries[i].sku === sku) {
+                var sum = this.summaries[i];
+                sum.title = catalog.getProduct(sum.sku).name;
+                return sum;
             }
-            return null;
         }
-    };
-}
+        return null;
+    }
+};
 
-happyED.catalog = happyED.createCatalog();
-happyED.catalog.initialize();
+pfiavG.getLineInitializer(happyED).initialize();
+
+happyED.categorizer = createFieldCategorizer(
+    happyED.catalog,
+    ["pants", "tops", "overtops", "dresses"],
+    ["p", "t", "o", "d"],
+    "t",
+    "p");

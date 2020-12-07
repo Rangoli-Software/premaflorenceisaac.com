@@ -138,3 +138,24 @@ function createCatalogDisplay(catalog, merchOnly) {
         }
     }
 }
+
+pfiavG.getLineInitializer = function (thisLine) {
+    return {
+        thisLine: thisLine,
+        catalog: thisLine.catalog,
+        createProductDB: function () {
+            var map = {};
+            for (var i = 0; i < this.catalog.styles.length; i++) {
+                var style = this.catalog.styles[i];
+                var entry = this.thisLine.createJSON(style);
+                map[entry.skuInfo.SKU] = entry;
+            }
+            return map;
+        },
+        initialize: function () {
+            this.catalog.productDB = 
+                this.catalog.createProductDB === undefined ? this.createProductDB() : this.catalog.createProductDB();
+            this.catalog.skus = this.catalog.styles.map(p => p.SKU);
+        }
+    };
+}

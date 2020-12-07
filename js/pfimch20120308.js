@@ -132,11 +132,17 @@ function createPageSelector(mips, wl, bl) {
     }
 }
 
-function createProductCard(sku, title, url, imageURL, lede) {
+function createProductCard(sku, title, url, imageURL, lede, isSq) {
     var res = '<div class="card mb-2">';
-    res += '<div class="embed-responsive embed-responsive-1by1">';
-    res += '<img src="' + imageURL + '" alt="' + title + '" class="embed-responsive-item" style="object-fit: cover">';
-    res += '</div>';
+    if (isSq) {
+        res += '<div class="embed-responsive embed-responsive-1by1">';
+        res += '<img src="' + imageURL + '" alt="' + title + '" class="embed-responsive-item" style="object-fit: cover">';
+        res += '</div>';
+    } else {
+        res += '<div class="card-img">'
+        res += '<img src="' + imageURL + '" alt="' + title + '" class="img-fluid card-img-top card-img-front">';
+        res += '</div>';
+    }
     res += '<div class="card-body px-0 pt-6 pb-4">';
     res += '<div class="card-subtitle mb-1"><span class="sc-item" data-field="price" data-vsku="' + sku + '"></span></div>';
     res += '<h6 class="card-title mb-2">' + title + '<a  href="' + url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
@@ -156,7 +162,7 @@ function createProductRef(product) {
             this.imageURL = imgurl;
         },
         createCard: function () {
-            return createProductCard(product.sku, this.title, this.url, this.imageURL, null);
+            return createProductCard(product.sku, this.title, this.url, this.imageURL, null, false);
         }
     };
 }
@@ -179,7 +185,7 @@ function createMerchandisingRef(item) {
             this.lede = item.ledes[getRandomIdx(item.ledes)];
         },
         createCard: function () {
-            return createProductCard(this.SKU, this.title, this.url, this.imageURL, this.lede);
+            return createProductCard(this.SKU, this.title, this.url, this.imageURL, this.lede, true);
         }
     }
 }

@@ -1,4 +1,6 @@
-function createVBRelatedViewer(skuInfo, catalog) {
+const vagabond = {};
+
+vagabond.createRelatedViewer = function (skuInfo, catalog) {
     var related = catalog.getPairWith(skuInfo.SKU);
     if (related === null) {
         return creatEmptyViewer();
@@ -12,66 +14,17 @@ function createVBRelatedViewer(skuInfo, catalog) {
     return createRelatedViewer(caption, res, 2);
 }
 
-function createVBComponentFactory(prodInfo, dimensioner, sizer, catalog) {
-    var navHelper = createNavHelper(prodInfo, catalog, 'Men');
+vagabond.createComponentFactory = function (prodInfo, dimensioner, sizer, categorizer) {
+    var navHelper = createNavHelper(prodInfo, categorizer, vagabond.catalog.title);
     //    var relatedviewer = createVBRelatedViewer(prodInfo.skuInfo, catalog);
     var relatedviewer = createEmptyViewer();
     return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, "", "Size", false);
 }
 
-const vb_sizing_top = {
-    sizeGeo: ["US", "UK", "EU", "IT", "GR", "JP", "RU"],
-    capGeo: ["US", "UK / AU / NZ", "EU / FR", "IT", "DE", "JP", "RU"],
-    chart: {
-        S: {
-            US: [8, 10],
-            UK: [12, 14],
-            EU: [40, 42],
-            IT: [44, 46],
-            GR: [38, 40],
-            JP: [13, 15],
-            RU: [46, 48]
-        },
-        M: {
-            US: [10, 12],
-            UK: [14, 16],
-            EU: [42, 44],
-            IT: [46, 48],
-            GR: [40, 42],
-            JP: [15, 17],
-            RU: [48, 50]
-        },
-        L: {
-            US: [12, 14],
-            UK: [16, 18],
-            EU: [44, 46],
-            IT: [48, 50],
-            GR: [42, 44],
-            JP: [17, 19],
-            RU: [50, 52]
-        },
-        XL: {
-            US: [14, 16],
-            UK: [18, 20],
-            EU: [46, 48],
-            IT: [50, 52],
-            GR: [44, 46],
-            JP: [19, 21],
-            RU: [52, 54]
-        },
-        Free: {
-            US: [2, 12],
-            UK: [6, 16],
-            EU: [34, 44],
-            IT: [38, 48],
-            GR: [32, 42],
-            JP: [7, 17],
-            RU: [40, 50]
-        }
-    }
-}
-
-const angkData = {
+vagabond.angkor = {
+    SKU: "ANGKRT1601Kh",
+    imgDir: 'angkor',
+    sizing: null,
     imageFile: "sizing.jpg",
     dimensionNames: ["A. Length", "B. Shoulder", "C. Chest", "D. Armhole", "E. Sleeve Length", "F. Sleeve Hem"],
     dimensionsCm: {
@@ -131,7 +84,10 @@ const angkData = {
 
 };
 
-const aramData = {
+vagabond.arambol = {
+    SKU: "ARAMPA1601Kh",
+    imgDir: 'arambol',
+    sizing: null,
     imageFile: "sizing.jpg",
     dimensionNames: ["A. Length", "B. Waist Elastic", "C. Hips", "D. Crotch", "E. Leg Hem"],
     dimensionsCm: {
@@ -157,7 +113,10 @@ const aramData = {
 
 };
 
-const kohData = {
+vagabond.koh = {
+    SKU: "KOHKRT1601Kh",
+    imgDir: 'koh',
+    sizing: null,
     imageFile: "sizing.jpg",
     dimensionNames: ["A. Length", "B. Shoulder", "C. Chest", "D. Armhole", "E. Sleeve Length", "F. Sleeve Hem"],
     dimensionsCm: {
@@ -204,7 +163,10 @@ const kohData = {
 
 };
 
-const mvrkData = {
+vagabond.mavericks = {
+    SKU: "MAVKRT1601Kh",
+    imgDir: 'mavericks',
+    sizing: null,
     imageFile: "sizing.jpg",
     dimensionNames: ["A. Length Left", "B. Length Right", "C. Shoulder", "D. Chest", "E. Armhole", "F. Sleeve Length", "G. Sleeve Hem"],
     dimensionsCm: {
@@ -229,7 +191,10 @@ const mvrkData = {
     garmentDetails: '<li>High neckline</li><li>Asymmetrical</li><li>Short sleeves</li><li>Slips on</li>'
 };
 
-const nrgmData = {
+vagabond.narigama = {
+    SKU: "NARKRT1601Kh",
+    imgDir: 'narigama',
+    sizing: null,
     imageFile: "sizing.jpg",
     dimensionNames: ["A. Length", "B. Shoulder", "C. Chest", "D. Armhole", "E. Sleeve Length", "F. Bicep"],
     dimensionsCm: {
@@ -254,7 +219,10 @@ const nrgmData = {
     garmentDetails: '<li>Short kurta</li><li>Mandarin collar</li><li>Full sleeves with cuff</li><li>Pintuck detail in the front</li>'
 };
 
-const pndyData = {
+vagabond.pondy = {
+    SKU: "PNDPNT1601Kh",
+    imgDir: 'pondy',
+    sizing: null,
     imageFile: "sizing.jpg",
     dimensionNames: ["A. Length", "B. Waist Elastic", "C. Hips", "D. Crotch", "E. Leg Hem"],
     dimensionsCm: {
@@ -279,7 +247,10 @@ const pndyData = {
     garmentDetails: '<li>Elastic and adjustable drawstring at the waist</li><li>P.F.I. Tangail border at hem</li><li>Side pockets</li>'
 };
 
-const ubudData = {
+vagabond.ubud = {
+    SKU: "UBDPNT1601Kh",
+    imgDir: 'ubud',
+    sizing: null,
     imageFile: "sizing.jpg",
     dimensionNames: ["A. Length", "B. Waist Elastic", "C. Hips", "D. Crotch", "E. Leg Hem"],
     dimensionsCm: {
@@ -305,7 +276,10 @@ const ubudData = {
 
 };
 
-const mntPData = {
+vagabond.manhattanpant = {
+    SKU: "MNHTPT2018SP",
+    imgDir: 'manpnt',
+    sizing: null,
     imageFile: "sizing.jpg",
     dimensionNames: ['A. Length', 'B. Waist', 'C. Hips', 'D. Crotch', 'E. Hem'],
     dimensionsCm: {
@@ -322,7 +296,7 @@ const mntPData = {
             colourName: "Khaki",
             vid: "CW1",
             colourPfx: "khaki",
-            colourSfxs: ["f1","s","d1","d2"]
+            colourSfxs: ["f1", "s", "d1", "d2"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -330,7 +304,10 @@ const mntPData = {
     garmentDetails: '<li>Fitted trousers</li><li>Two side pockets</li><li>PFI Tangail border on the folded hems and pockets</li><li>Zip and button fastening in the front</li><li>Two front vertical pockets</li><li>One back pocket</li>'
 };
 
-const mntSData = {
+vagabond.manhattanshirt = {
+    SKU: "MNHTST2016SP",
+    imgDir: 'mansht',
+    sizing: null,
     imageFile: "sizing.jpg",
     dimensionNames: ['A. Length', 'B. Shoulder', 'C. Chest', 'D. Armhole', 'E. Sleeve Length', 'F. Sleeve Width'],
     dimensionsCm: {
@@ -355,100 +332,19 @@ const mntSData = {
     garmentDetails: '<li>Fitted shirt with darts</li><li>Full sleeves</li><li>Button closure in front</li><li>Silk golden PFI Tangail border on the placket, cuffs and collar</li>'
 };
 
-function createAngkorKurtaJSON() {
-    var sku = "ANGKRT1601Kh";
-    var basePath = "/products/men/angkor/";
-    return createProductJSON(sku, basePath, angkData, null, createCWImageFactory);
+vagabond.createJSON = function (style) {
+    var basePath = "/products/men/" + style.imgDir + "/";
+    return createProductJSON(style.SKU, basePath, style, style.sizing, createCWImageFactory);
 }
 
-function createArambolPantJSON() {
-    var sku = "ARAMPA1601Kh";
-    var basePath = "/products/men/arambol/";
-    return createProductJSON(sku, basePath, aramData, null, createCWImageFactory);
-}
-
-function createKohKurtaJSON() {
-    var sku = "KOHKRT1601Kh";
-    var basePath = "/products/men/koh/";
-    return createProductJSON(sku, basePath, kohData, null, createCWImageFactory);
-}
-
-function createMavericksKurtaJSON() {
-    var sku = "MAVKRT1601Kh";
-    var basePath = "/products/men/mavericks/";
-    return createProductJSON(sku, basePath, mvrkData, null, createCWImageFactory);
-}
-
-function createNarigamaKurtaJSON() {
-    var sku = "NARKRT1601Kh";
-    var basePath = "/products/men/narigama/";
-    return createProductJSON(sku, basePath, nrgmData, null, createCWImageFactory);
-}
-
-function createPondyPantJSON() {
-    var sku = "PNDPNT1601Kh";
-    var basePath = "/products/men/pondy/";
-    return createProductJSON(sku, basePath, pndyData, null, createCWImageFactory);
-}
-
-function createUbudPantJSON() {
-    var sku = "UBDPNT1601Kh";
-    var basePath = "/products/men/ubud/";
-    return createProductJSON(sku, basePath, ubudData, null, createCWImageFactory);
-}
-
-function createManhattanShirtJSON() {
-    var sku = "MNHTST2016SP";
-    var basePath = "/products/men/mansht/";
-    return createProductJSON(sku, basePath, mntSData, null, createCWImageFactory);
-}
-
-function createManhattanPantJSON() {
-    var sku = "MNHTPT2018SP";
-    var basePath = "/products/men/manpnt/";
-    return createProductJSON(sku, basePath, mntPData, null, createCWImageFactory);
-}
-
-function createProductDB() {
-    var map = {};
-
-    var entry = createAngkorKurtaJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createArambolPantJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createKohKurtaJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createMavericksKurtaJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createNarigamaKurtaJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createPondyPantJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createUbudPantJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createManhattanPantJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createManhattanShirtJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    return map;
-}
-
-const vb_catalog = {
+vagabond.catalog = {
     title: "Vagabond",
     shopURL: "/products/men/shop.html",
-    skus: ['ANGKRT1601Kh', 'ARAMPA1601Kh', 'KOHKRT1601Kh', 'MAVKRT1601Kh', 'NARKRT1601Kh', 'PNDPNT1601Kh', 'UBDPNT1601Kh', 'MNHTST2016SP', 'MNHTPT2018SP'],
-    tops: ['ANGKRT1601Kh', 'KOHKRT1601Kh', 'MAVKRT1601Kh', 'NARKRT1601Kh'],
-    pants: ['PNDPNT1601Kh', 'UBDPNT1601Kh'],
-    fitted: ['MNHTST2016SP', 'MNHTPT2018SP'],
+    skus: null,
+    styles: [vagabond.angkor, vagabond.arambol, vagabond.koh, vagabond.mavericks, vagabond.narigama, vagabond.pondy, vagabond.ubud, vagabond.manhattanshirt, vagabond.manhattanpant],
+    tops: [vagabond.angkor.SKU, vagabond.koh.SKU, vagabond.mavericks.SKU, vagabond.narigama.SKU],
+    pants: [vagabond.pondy.SKU, vagabond.ubud.SKU],
+    fitted: [vagabond.manhattanshirt.SKU, vagabond.manhattanpant.SKU],
     getPairWith: function (sku) {
         if (this.shirts.includes(sku)) {
             return this.pants;
@@ -457,20 +353,17 @@ const vb_catalog = {
         }
         return null;
     },
-    getCategory: function (sku) {
-        if (this.shirts.includes(sku)) {
-            return "tops";
-        }
-        if (this.pants.includes(sku)) {
-            return "pants";
-        }
-        if (this.fitted.includes(sku)) {
-            return "fitted";
-        }
-        return null;
-    },
-    productDB: createProductDB(),
+    productDB: null,
     getProduct: function (sku) {
         return this.productDB[sku];
     }
 };
+
+pfiavG.getLineInitializer(vagabond).initialize();
+
+vagabond.categorizer = createFieldCategorizer(
+    vagabond.catalog,
+    ["fitted", "tops", "pants"],
+    ["f", "s", "p"],
+    "t",
+    "f");

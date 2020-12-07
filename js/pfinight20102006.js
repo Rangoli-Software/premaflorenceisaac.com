@@ -1,5 +1,7 @@
-function createSDComponentFactory(prodInfo, dimensioner, sizer, categorizer) {
-    var navHelper = createNavHelper(prodInfo, categorizer, 'Ce Soir');
+const cesoir = {};
+
+cesoir.createComponentFactory = function (prodInfo, dimensioner, sizer, categorizer) {
+    var navHelper = createNavHelper(prodInfo, categorizer, cesoir.catalog.title);
     var relatedviewer = createEmptyViewer();
     var modelTxt = "The model is 5 ft 7 in (171 cm.) and wearing size '" + prodInfo.skuInfo.sizes[0] + "'<br>This garment is bespoke-tailored (sur-mesure), so the sizes in the chart are only the starting point for your order<br>";
     return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, modelTxt, "Size", false);
@@ -195,7 +197,10 @@ const sd_sizing_jersey_dresses = {
     }
 }
 
-const bncaData = {
+cesoir.bianca = {
+    SKU: "BNCADR1505PT",
+    imgDir: 'bianca',
+    sizing: null,
     imageFile: "sizing1.jpg",
     dimensionNames: ["A. Length", "B. Back Bust", "C. Shoulder", "D. Armhole", "E. Sleeve Length", "F. Sleeve Hem"],
     dimensionsCm: {
@@ -249,7 +254,10 @@ const bncaData = {
 
 };
 
-const celaData = {
+cesoir.celia = {
+    SKU: "NKSHMI1501PT",
+    imgDir: 'celia',
+    sizing: sd_sizing_bottoms,
     imageFile: "sizing1.jpg",
     dimensionNames: ["A. Length", "B. Outer Layer Length", "C. Hem", "D. Waist - Relaxed", "D. Waist - Stretched"],
     dimensionsCm: {
@@ -271,7 +279,10 @@ const celaData = {
     garmentDetails: '<li>Freesize - Broad elastic at the waist</li><li>P.F.I. Tangail</li><li>Midi length</li><li>A line with voluminous flare</li>'
 };
 
-const cleoTData = {
+cesoir.cleopatratop = {
+    SKU: "CLPTRT1505PT",
+    imgDir: 'cleoT',
+    sizing: sd_sizing_tops,
     imageFile: "sizing1.jpg",
     dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole'],
     dimensionsCm: {
@@ -297,7 +308,10 @@ const cleoTData = {
 
 };
 
-const cleoSData = {
+cesoir.cleopatrashorts = {
+    SKU: "CLPTRS1505PT",
+    imgDir: 'cleoS',
+    sizing: sd_sizing_bottoms,
     imageFile: "sizing1.jpg",
     dimensionNames: ['A. Length', 'B. Waist', 'C. Hips', 'D. Crotch', 'E. Hem'],
     dimensionsCm: {
@@ -322,7 +336,10 @@ const cleoSData = {
     garmentDetails: '<li>Shorts</li><li>Wide-legged hem</li><li>P.F.I. Tangail borders at the pockets and hemline</li><li>Fly zip and button fastening at the front</li>'
 };
 
-const emlaData = {
+cesoir.emilia = {
+    SKU: "EMLDRS1505PT",
+    imgDir: 'emilia',
+    sizing: sd_sizing_bottoms,
     imageFile: "sizing1.jpg",
     dimensionNames: ['A. Length', 'B. Bust', 'C. Armhole', 'D. Sleeve Width', 'E. Sleeve Hem', 'F. Sleeve Length'],
     dimensionsCm: {
@@ -348,7 +365,10 @@ const emlaData = {
 
 };
 
-const hlnaData = {
+cesoir.helena = {
+    SKU: "HLNDRS1505PT",
+    imgDir: 'helena',
+    sizing: sd_sizing_tops,
     imageFile: "sizing1.jpg",
     dimensionNames: ['A. Back Length', 'B. Front Length', 'C. Shoulders', 'D. Bust', 'E. Armhole', 'F. Hem'],
     dimensionsCm: {
@@ -373,7 +393,10 @@ const hlnaData = {
     garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>High-low hemline</li><li>P.F.I Tangail border in the front</li><li>Contrasting lining in voile</li><li>Zip at the back</li><li>A line with voluminous flare</li>'
 };
 
-const jlitData = {
+cesoir.juliet = {
+    SKU: "JLTDRS1505PT",
+    imgDir: 'juliet',
+    sizing: sd_sizing_tops,
     imageFile: "sizing1.jpg",
     dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Sleeve Hem', 'F. Sleeve Length'],
     dimensionsCm: {
@@ -398,7 +421,10 @@ const jlitData = {
     garmentDetails: '<li>Round neck</li><li>Cap lseeves</li><li>Asymmetrical</li><li>A line with flare</li><li>Buttons in the front</li>'
 };
 
-const nrsaTData = {
+cesoir.nerissatop = {
+    SKU: "NRSSTP1505PT",
+    imgDir: 'nerissaT',
+    sizing: sd_sizing_tops,
     imageFile: "sizing1.jpg",
     dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Hem'],
     dimensionsCm: {
@@ -423,7 +449,10 @@ const nrsaTData = {
     garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>Cropped length</li><li>Curved hemline</li><li>Khadi striped panel at the neckline</li><li>Slips on</li>'
 };
 
-const nrsaPData = {
+cesoir.nerissapant = {
+    SKU: "NRSPNT1505PT",
+    imgDir: 'nerissaP',
+    sizing: sd_sizing_bottoms,
     imageFile: "sizing1.jpg",
     dimensionNames: ['A. Length', 'B. Waist', 'C. Hips', 'D. Crotch', 'E. Hem'],
     dimensionsCm: {
@@ -448,7 +477,10 @@ const nrsaPData = {
     garmentDetails: '<li>Ankle length trousers</li><li>Tapers at the hem</li><li>P.F.I. Tangail borders at the pockets</li><li>Fly zip and button fastening at the front</li>'
 };
 
-const ophlData = {
+cesoir.ophelia = {
+    SKU: "OPHLDR1505PT",
+    imgDir: 'ophelia',
+    sizing: sd_sizing_dresses,
     imageFile: "sizing1.jpg",
     dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole'],
     dimensionsCm: {
@@ -473,7 +505,10 @@ const ophlData = {
     garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>A line with voluminous flare</li><li>Zip at the back</li><li>Lining in voile</li>'
 };
 
-const prtaData = {
+cesoir.portia = {
+    SKU: "PRTATP1505PT",
+    imgDir: 'portia',
+    sizing: sd_sizing_tops,
     imageFile: "sizing1.jpg",
     dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Hem'],
     dimensionsCm: {
@@ -499,7 +534,10 @@ const prtaData = {
 
 };
 
-const tmraData = {
+cesoir.tamora = {
+    SKU: "BKLLTS1505Je",
+    imgDir: 'tamora',
+    sizing: sd_sizing_jersey_dresses,
     imageFile: "sizing1.jpg",
     dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Hem'],
     dimensionsCm: {
@@ -524,7 +562,10 @@ const tmraData = {
     garmentDetails: '<li>Floor length</li><li>V neck</li><li>Deep V neckline at the back</li><li>Sleeveless</li><li>Gathers in the front</li><li>A line</li><li>P.F.I Tangail border at the neckline and hem</li>'
 };
 
-const ttnaData = {
+cesoir.titania = {
+    SKU: "TTNDRS1505Je",
+    imgDir: 'titania',
+    sizing: sd_sizing_jersey_dresses,
     imageFile: "sizing1.jpg",
     dimensionNames: ['A. Length', 'B. Bust', 'C. Armhole', 'D. Hem'],
     dimensionsCm: {
@@ -547,7 +588,10 @@ const ttnaData = {
     garmentDetails: '<li>Draped dress</li><li>V neck</li><li>Sleeveless</li><li>P.F.I. Tangail border at the neckline</li>'
 };
 
-const violData = {
+cesoir.viola = {
+    SKU: "VLADRS1505PT",
+    imgDir: 'viola',
+    sizing: sd_sizing_dresses,
     imageFile: "sizing.jpg",
     dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole'],
     dimensionsCm: {
@@ -572,186 +616,29 @@ const violData = {
     garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>Asymmetrical</li><li>A line with voluminous flare</li><li>Slips on</li>'
 };
 
-function createBiancaDressJSON() {
-    var sku = "BNCADR1505PT";
-    var basePath = "/products/night/bianca/";
-    return createProductJSON(sku, basePath, bncaData, null, createCWImageFactory);
+cesoir.createJSON = function (style) {
+    var basePath = "/products/night/" + style.imgDir + "/";
+    return createProductJSON(style.SKU, basePath, style, style.sizing, createCWImageFactory);
 }
 
-function createBiancaJacketJSON() {
-    var sku = "BNCJKT1505PT";
-    var basePath = "/products/night/bianca/";
-    return createProductJSON(sku, basePath, bncaData, null, createCWImageFactory);
-}
-
-function createCeliaSkirtJSON() {
-    var sku = "NKSHMI1501PT";
-    var basePath = "/products/night/celia/";
-    return createProductJSON(sku, basePath, celaData, sd_sizing_bottoms, createCWImageFactory);
-}
-
-function createCleopatraTopJSON() {
-    var sku = "CLPTRT1505PT";
-    var basePath = "/products/night/cleoT/";
-    return createProductJSON(sku, basePath, cleoTData, sd_sizing_tops, createCWImageFactory);
-}
-
-function createCleopatraShortsJSON() {
-    var sku = "CLPTRS1505PT";
-    var basePath = "/products/night/cleoS/";
-    return createProductJSON(sku, basePath, cleoSData, sd_sizing_bottoms, createCWImageFactory);
-}
-
-function createEmiliaDressJSON() {
-    var sku = "EMLDRS1505PT";
-    var basePath = "/products/night/emilia/";
-    return createProductJSON(sku, basePath, emlaData, sd_sizing_bottoms, createCWImageFactory);
-}
-
-function createHelenaDressJSON() {
-    var sku = "HLNDRS1505PT";
-    var basePath = "/products/night/helena/";
-    return createProductJSON(sku, basePath, hlnaData, sd_sizing_tops, createCWImageFactory);
-}
-
-function createJulietDressJSON() {
-    var sku = "JLTDRS1505PT";
-    var basePath = "/products/night/juliet/";
-    return createProductJSON(sku, basePath, jlitData, sd_sizing_tops, createCWImageFactory);
-}
-
-function createNerissaTopJSON() {
-    var sku = "NRSSTP1505PT";
-    var basePath = "/products/night/nerissaT/";
-    return createProductJSON(sku, basePath, nrsaTData, sd_sizing_tops, createCWImageFactory);
-}
-
-function createNerissaPantJSON() {
-    var sku = "NRSPNT1505PT";
-    var basePath = "/products/night/nerissaP/";
-    return createProductJSON(sku, basePath, nrsaPData, sd_sizing_bottoms, createCWImageFactory);
-}
-
-function createOpheliaDressJSON() {
-    var sku = "OPHLDR1505PT";
-    var basePath = "/products/night/ophelia/";
-    return createProductJSON(sku, basePath, ophlData, sd_sizing_dresses, createCWImageFactory);
-}
-
-function createPortiaTopJSON() {
-    var sku = "PRTATP1505PT";
-    var basePath = "/products/night/portia/";
-    return createProductJSON(sku, basePath, prtaData, sd_sizing_tops, createCWImageFactory);
-}
-
-function createTamoraDressJSON() {
-    var sku = "BKLLTS1505Je";
-    var basePath = "/products/night/tamora/";
-    return createProductJSON(sku, basePath, tmraData, sd_sizing_jersey_dresses, createCWImageFactory);
-}
-
-function createTitaniaDressJSON() {
-    var sku = "TTNDRS1505Je";
-    var basePath = "/products/night/titania/";
-    return createProductJSON(sku, basePath, ttnaData, sd_sizing_jersey_dresses, createCWImageFactory);
-}
-
-function createViolaDressJSON() {
-    var sku = "VLADRS1505PT";
-    var basePath = "/products/night/viola/";
-    return createProductJSON(sku, basePath, violData, sd_sizing_dresses, createCWImageFactory);
-}
-
-function createProductDB() {
-    var map = {};
-
-    var entry = createBiancaDressJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createBiancaJacketJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createCeliaSkirtJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createCleopatraTopJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createCleopatraShortsJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createEmiliaDressJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createHelenaDressJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createJulietDressJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createNerissaTopJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createNerissaPantJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createOpheliaDressJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createPortiaTopJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createTamoraDressJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createTitaniaDressJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    var entry = createViolaDressJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    return map;
-}
-
-const sd_catalog = {
+cesoir.catalog = {
     title: "Ce Soir",
     shopURL: "/products/night/shop.html",
-
-    skus: ['BNCJKT1505PT', 'BNCADR1505PT', 'NKSHMI1501PT', 'CLPTRT1505PT', 'CLPTRS1505PT', 'EMLDRS1505PT', 'HLNDRS1505PT', 'JLTDRS1505PT', 'NRSSTP1505PT', 'NRSPNT1505PT', 'OPHLDR1505PT', 'PRTATP1505PT', 'BKLLTS1505Je', 'TTNDRS1505Je', 'VLADRS1505PT'],
-    dresses: ['EMLDRS1505PT', 'HLNDRS1505PT', 'JLTDRS1505PT', 'OPHLDR1505PT', 'BKLLTS1505Je', 'TTNDRS1505Je', 'VLADRS1505PT'],
-    tops: ['CLPTRT1505PT', 'PRTATP1505PT'],
-    //    pants: ['NRSPNT1505PT'],
-    culottes: ['CLPTRS1505PT'],
-    skirts: ['NKSHMI1501PT'],
-    nondresses: ['CLPTRT1505PT', 'CLPTRS1505PT', 'PRTATP1505PT', 'NKSHMI1501PT'],
-    //    overtops: ['BNCJKT1505PT'],
-    getCategory: function (sku) {
-        if (this.dresses.includes(sku)) {
-            return "dresses";
-        }
-        if (this.tops.includes(sku)) {
-            return "tops";
-        }
-        /*
-        if (this.pants.includes(sku)) {
-            return "pants";
-        }
-*/
-        if (this.culottes.includes(sku)) {
-            return "culottes";
-        }
-        if (this.skirts.includes(sku)) {
-            return "skirts";
-        }
-        /*
-        if (this.overtops.includes(sku)) {
-            return "overtops";
-        }
-*/
-        return null;
-    },
-    productDB: createProductDB(),
+    skus: null,
+    styles: [cesoir.bianca, cesoir.celia, cesoir.cleopatrashorts, cesoir.cleopatratop, cesoir.emilia, cesoir.helena, cesoir.juliet, cesoir.nerissapant, cesoir.nerissatop, cesoir.ophelia, cesoir.portia, cesoir.tamora, cesoir.titania, cesoir.viola],
+    dresses: [cesoir.emilia.SKU, cesoir.helena.SKU, cesoir.juliet.SKU, cesoir.ophelia.SKU, cesoir.tamora.SKU, cesoir.titania.SKU, cesoir.viola.SKU],
+    nondresses: [cesoir.cleopatrashorts.SKU, cesoir.cleopatratop.SKU, cesoir.celia.SKU, cesoir.portia.SKU],
+    productDB: null,
     getProduct: function (sku) {
         return this.productDB[sku];
     }
 };
+
+pfiavG.getLineInitializer(cesoir).initialize();
+
+cesoir.categorizer = createFieldCategorizer(
+    cesoir.catalog,
+    ["dresses", "nondresses"],
+    ["d", "n"],
+    "t",
+    "d");

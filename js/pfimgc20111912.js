@@ -14,26 +14,8 @@ itsmagic.createRelatedViewer = function (skuInfo, catalog) {
     return createRelatedViewer(caption, res, 2);
 }
 
-itsmagic.createNavHelper = function (prodInfo) {
-    return {
-        prodInfo: prodInfo,
-        getBreadCrumb: function () {
-            var levels = [{
-                title: 'Shop',
-                url: '/shop.html'
-            }, {
-                title: 'It\'s Magic',
-                url: '/products/itsmagic/shop.html'
-            }, {
-                title: this.prodInfo.product.name
-            }];
-            return createBreadCrumbLevels(levels);
-        }
-    };
-}
-
-itsmagic.createComponentFactory = function (prodInfo, dimensioner, sizer, catalog) {
-    var navHelper = itsmagic.createNavHelper(prodInfo);
+itsmagic.createComponentFactory = function (prodInfo, dimensioner, sizer, categorizer) {
+    var navHelper = createNavHelper(prodInfo, categorizer, itsmagic.catalog.title);
     //    var relatedviewer = itsmagic.createRelatedViewer(prodInfo.skuInfo, catalog);
     var relatedviewer = createEmptyViewer();
     var sizeTxt = "<p>Please email/DM us to check on size & colour availability before placing your order</p>";
@@ -607,50 +589,29 @@ itsmagic.createJSON = function (style) {
     return createProductJSON(style.SKU, basePath, style, null, createIMImageFactory);
 }
 
-itsmagic.createCatalog = function () {
-    return {
-        title: "It's Magic",
-        shopURL: "/products/itsmagic/shop.html",
-        skus: null,
-        styles: [itsmagic.princess, itsmagic.flow, itsmagic.wave, itsmagic.layer, itsmagic.fairy, itsmagic.gypsy, itsmagic.kidikini, itsmagic.halfpant, itsmagic.fullpant, itsmagic.prince, itsmagic.royal, itsmagic.balloon],
-        unisex: [itsmagic.balloon.SKU],
-        boys: [itsmagic.halfpant.SKU, itsmagic.fullpant.SKU, itsmagic.prince.SKU, itsmagic.royal.SKU],
-        girls: [itsmagic.princess.SKU, itsmagic.flow.SKU, itsmagic.wave.SKU, itsmagic.layer.SKU, itsmagic.fairy.SKU, itsmagic.gypsy.SKU, itsmagic.kidikini.SKU],
-        dresses: [],
-        tops: [],
-        shirts: [],
-        pants: [],
-        productDB: null,
-        createProductDB: function () {
-            var map = {};
-            for (var i = 0; i < this.styles.length; i++) {
-                var style = this.styles[i];
-                var entry = itsmagic.createJSON(style);
-                map[entry.skuInfo.SKU] = entry;
-            }
-            return map;
-        },
-        getProduct: function (sku) {
-            return this.productDB[sku];
-        },
-        getCategory: function (sku) {
-            if (this.unisex.includes(sku)) {
-                return "unisex";
-            }
-            if (this.girls.includes(sku)) {
-                return "girls";
-            }
-            if (this.boys.includes(sku)) {
-                return "boys";
-            }
-            return null;
-        },
-        initialize: function () {
-            this.productDB = this.createProductDB();
-            this.skus = this.styles.map(p => p.SKU);
-        }
-    }
+itsmagic.catalog = {
+    title: "It's Magic",
+    shopURL: "/products/itsmagic/shop.html",
+    skus: null,
+    styles: [itsmagic.princess, itsmagic.flow, itsmagic.wave, itsmagic.layer, itsmagic.fairy, itsmagic.gypsy, itsmagic.kidikini, itsmagic.halfpant, itsmagic.fullpant, itsmagic.prince, itsmagic.royal, itsmagic.balloon],
+    unisex: [itsmagic.balloon.SKU],
+    boys: [itsmagic.halfpant.SKU, itsmagic.fullpant.SKU, itsmagic.prince.SKU, itsmagic.royal.SKU],
+    girls: [itsmagic.princess.SKU, itsmagic.flow.SKU, itsmagic.wave.SKU, itsmagic.layer.SKU, itsmagic.fairy.SKU, itsmagic.gypsy.SKU, itsmagic.kidikini.SKU],
+    dresses: [],
+    tops: [],
+    shirts: [],
+    pants: [],
+    productDB: null,
+    getProduct: function (sku) {
+        return this.productDB[sku];
+    },
 }
 
-itsmagic.catalog = itsmagic.createCatalog();
-itsmagic.catalog.initialize();
+pfiavG.getLineInitializer(itsmagic).initialize();
+
+itsmagic.categorizer = createFieldCategorizer(
+    itsmagic.catalog,
+    ["girls", "boys", "unisex"],
+    ["g", "b", "u"],
+    "t",
+    "g");
