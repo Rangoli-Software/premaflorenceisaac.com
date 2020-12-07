@@ -938,13 +938,11 @@ function createUrlVarSelector(ids, vals, key, defaultVal) {
     }
 }
 
-function createTabber(uvSel, titles, contents, blacklister, bl_ids) {
+function createTabber(uvSel, titles, cardlists) {
     return {
         uvSel: uvSel,
         titles: titles,
-        contents: contents,
-        blacklister: blacklister,
-        bl_ids: bl_ids === undefined ? uvSel.ids : bl_ids,
+        cardlists: cardlists,
         createTabbedSection: function() {
             return '<ul class="nav nav-tabs nav-justified">'
                 + this.createTabStrip()
@@ -966,18 +964,8 @@ function createTabber(uvSel, titles, contents, blacklister, bl_ids) {
             var urlVal = uvSel.getURLValue();
             for ( var i = 0; i < this.uvSel.ids.length; i++ ) {
                 var isActive = uvSel.isActive(i);
-                res += getTabContent(this.contents[i], this.uvSel.ids[i], isActive);
+                res += getTabContent(this.cardlists[i].createHTML(), this.uvSel.ids[i], isActive);
             } 
-            return res;
-        },
-        getBlacklist: function() {
-            if ( this.blacklister === undefined || this.blacklister === null) {
-                return [];
-            }
-            var res = [];
-            for ( var i = 0; i < this.ids.length; i++ ) {
-                res = res.concat(this.blacklister.getBlacklist(this.bl_ids[i]));
-            }
             return res;
         },
         enableDocumentReady: function() {
@@ -991,41 +979,6 @@ function createTabber(uvSel, titles, contents, blacklister, bl_ids) {
             });
         }
     };
-}
-
-function createItemCard(item) {
-    var res = '<div class="card mb-2">';
-    if ( item.badge !== undefined ) {
-        res += '<div class="badge badge-white card-badge card-badge-left text-uppercase">' + item.badge + '</div>';
-    }
-    if ( item.imageURL !== undefined) {
-        res += '<div class="embed-responsive embed-responsive-1by1">';
-        res += '<img src="' + item.imageURL + '" alt="' + item.title  + '" class="embed-responsive-item" style="object-fit: cover">';
-        res += '</div>';
-    } else if (item.imageHTML !== undefined ) {
-        res += item.imageHTML;
-    } else if (item.imageScript !== undefined ) {
-        res += eval(item.imageScript);
-    }
-    res += '<div class="card-body px-0 pt-6 pb-4">';
-    if  (item.url !== undefined) {
-        res += '<h6 class="card-title mb-2">' + item.title + '<a  href="' + item.url + '"' +(getHostName(item.url) === null ? '' : ' target="_blank"') +  '><i class="fa ' + (getHostName(item.url) === null ? 'fa-arrow-right' : 'fa-external-link') + ' ml-2"></i></a></h6>';
-    }
-    res += '<p class="mb-1">' + item.lede + '</p>';
-    res += '</div></div>';
-    return res;
-}
-
-function createSection(pages) {
-    var brkColCls = "col-md-4";
-    var res = '<section class="pt-5 pb-3"><div class="row">';
-    for (var i = 0; i < pages.sub.length; i++) {
-        res += '<div class="col-12 ' + brkColCls + '">';
-        res += createItemCard(pages.sub[ i ]);
-        res += '</div>';
-    }
-    res += '</div></section>';
-    return res;
 }
 
 function shuffle(array) {

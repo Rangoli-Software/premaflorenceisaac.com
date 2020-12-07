@@ -98,7 +98,7 @@ var listData = [
 ['37','#3A9C7A','Ocean Green',null,'CW1'],
 ];
 
-    var product = getProductCatalog().getProduct(sku);
+    var product = pfiavG.productCatalog.getProduct(sku);
     var varPL = varPLData[sku];
 
     return createFaceMaskFactory('/products/accessories/fm/', listData, product, varPL);

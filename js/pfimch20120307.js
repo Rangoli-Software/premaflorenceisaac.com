@@ -5,12 +5,12 @@ function getRandomIdx(arr) {
 function createSiteMap(siteMap) {
     return {
         sm: siteMap,
-        findStory: function(url) {
+        findStory: function (url) {
             for (var i = 1; i < this.sm.length; i++) {
                 var sec = sm[i];
                 for (var j = 0; j < sec.sub.length; j++) {
                     var itm = sec.sub[i];
-                    if ( itm.url === url ) {
+                    if (itm.url === url) {
                         return [sec, itm];
                     }
                 }
@@ -25,34 +25,38 @@ function createPageSet(pages) {
         pages: pages,
         includes: function (page, key) {
             var url = page[key];
-            if (url === undefined) {return false;}
+            if (url === undefined) {
+                return false;
+            }
             return this.select(key, url) !== undefined;
         },
-        includesImg: function(page) {
+        includesImg: function (page) {
             var url = page.imageURL;
             if (url === undefined) {
                 return false;
             }
-            if ( this.select('imageURL', url) !== undefined ) {
+            if (this.select('imageURL', url) !== undefined) {
                 return true;
             }
             var imgs = page.images;
-            if ( imgs === undefined) {
+            if (imgs === undefined) {
                 return false;
             }
             for (var i = 0; i < imgs.length; i++) {
                 url = imgs[i].url;
-                if ( this.select('imageURL', url) !== null) {
+                if (this.select('imageURL', url) !== null) {
                     return true;
                 }
             }
             return false;
         },
-        filter: function(fn) {
+        filter: function (fn) {
             return createPageSet(pages.filter(fn));
         },
-        select: function(key, val){
-            return this.pages.find(function(page){ return page[key] === val});
+        select: function (key, val) {
+            return this.pages.find(function (page) {
+                return page[key] === val
+            });
         }
     }
 }
@@ -75,7 +79,7 @@ function createPageIndex(page) {
         mentioned: createPageSet([]),
         miPageSet: createMIPageSet(),
 
-        createFeatures: function() {
+        createFeatures: function () {
             var pageSel = createPageSelector(this.miPageSet, this.mentioned, this.included);
             var merch = pageSel.selectMerch();
             var stories = pageSel.selectFeatures();
@@ -91,7 +95,7 @@ function createPageSelector(mips, wl, bl) {
         whitelist: wl,
         maxMerch: 2,
         merchSKUs: pfiavG.lineMerchSKUs.flat(),
-        selFeature: function(secList) {
+        selFeature: function (secList) {
             var i = getRandomIdx(secList);
             var section = secList[i];
 
@@ -103,14 +107,14 @@ function createPageSelector(mips, wl, bl) {
             }
             return createStoryRef(section, sel);
         },
-        selectFeatures: function() {
+        selectFeatures: function () {
             var bg = [atelier, origin];
             var ab = [about, buzz, archives, lotm, moods, ramp, clients];
             return [this.selFeature(bg), this.selFeature(ab)];
         },
-        selectMerch: function() {
+        selectMerch: function () {
             var blacklist = this.blacklist;
-            var fltMI = this.miPageSet.filter(function(page){
+            var fltMI = this.miPageSet.filter(function (page) {
                 return !blacklist.includes(page, 'url') && !blacklist.includesImg(page);
             });
             var fltSKUs = this.merchSKUs.filter(sku => fltMI.select('SKU', sku) !== undefined);
@@ -128,6 +132,35 @@ function createPageSelector(mips, wl, bl) {
     }
 }
 
+function createProductCard(sku, title, url, imageURL, lede) {
+    var res = '<div class="card mb-2">';
+    res += '<div class="embed-responsive embed-responsive-1by1">';
+    res += '<img src="' + imageURL + '" alt="' + title + '" class="embed-responsive-item" style="object-fit: cover">';
+    res += '</div>';
+    res += '<div class="card-body px-0 pt-6 pb-4">';
+    res += '<div class="card-subtitle mb-1"><span class="sc-item" data-field="price" data-vsku="' + sku + '"></span></div>';
+    res += '<h6 class="card-title mb-2">' + title + '<a  href="' + url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
+    if (lede !== null) {
+        res += '<p class="mb-1">' + lede + '</p>';
+    }
+    res += '</div></div>';
+    return res;
+}
+
+function createProductRef(product) {
+    return {
+        title: product.name,
+        url: product.url,
+        imageURL: null,
+        setImg(imgurl) {
+            this.imageURL = imgurl;
+        },
+        createCard: function () {
+            return createProductCard(product.sku, this.title, this.url, this.imageURL, null);
+        }
+    };
+}
+
 function createMerchandisingRef(item) {
     return {
         SKU: item.SKU,
@@ -135,7 +168,7 @@ function createMerchandisingRef(item) {
         url: item.url,
         imageURL: item.imageURL,
         lede: null,
-        setRandImg: function() {
+        setRandImg: function () {
             this.setImg(getRandomIdx(item.images));
             this.setRandLede();
         },
@@ -146,18 +179,7 @@ function createMerchandisingRef(item) {
             this.lede = item.ledes[getRandomIdx(item.ledes)];
         },
         createCard: function () {
-            var res = '<div class="card mb-2">';
-            res += '<div class="embed-responsive embed-responsive-1by1">';
-            res += '<img src="' + this.imageURL + '" alt="' + this.title + '" class="embed-responsive-item" style="object-fit: cover">';
-            res += '</div>';
-            res += '<div class="card-body px-0 pt-6 pb-4">';
-            res += '<div class="card-subtitle mb-1"><span class="sc-item" data-field="price" data-vsku="' + this.SKU + '"></span></div>';
-            res += '<h6 class="card-title mb-2">' + this.title + '<a  href="' + this.url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
-            if ( this.lede !== null) {
-                res += '<p class="mb-1">' + this.lede + '</p>';
-            }
-            res += '</div></div>';
-            return res;
+            return createProductCard(this.SKU, this.title, this.url, this.imageURL, this.lede);
         }
     }
 }
@@ -172,7 +194,7 @@ function createStoryRef(section, item) {
         imageHTML: item.imageHTML,
         imageScript: item.imageScript,
         lede: item.lede,
-        createCard: function() {
+        createCard: function () {
             var section = this.sec;
             var item = this.sel;
             var res = '<div class="card mb-2">';

@@ -883,7 +883,7 @@ function createAllCartComponents(shop, tlpc) {
 }
 
 function createShopPageComponent() {
-    var catalog = getProductCatalog();
+    var catalog = pfiavG.productCatalog;
     return {
         catalog: catalog,
         allCartC: null,

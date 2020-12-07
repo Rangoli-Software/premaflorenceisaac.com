@@ -1,4 +1,6 @@
-function createHEDRelatedViewer(skuInfo, looks, catalog) {
+const happyED = {};
+
+happyED.createRelatedViewer = function(skuInfo, looks, catalog) {
     var related = looks.getRelatedStyles(skuInfo.SKU);
     if (related === null) {
         return creatEmptyViewer();
@@ -16,626 +18,12 @@ function createHEDRelatedViewer(skuInfo, looks, catalog) {
     return createRelatedViewer(caption, res, 2);
 }
 
-function createHEDComponentFactory(prodInfo, dimensioner, sizer, looks, categorizer, catalog) {
+happyED.createComponentFactory = function(prodInfo, dimensioner, sizer, looks, categorizer, catalog) {
     var navHelper = createNavHelper(prodInfo, categorizer, 'Happy Everyday');
-    var relatedviewer = createHEDRelatedViewer(prodInfo.skuInfo, looks, catalog);
+    var relatedviewer = happyED.createRelatedViewer(prodInfo.skuInfo, looks, catalog);
     var modelTxt = "The model is 5 ft 7.5 in (171.5 cm.) and wearing size '" + prodInfo.skuInfo.sizes[0] + "'";
     return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, modelTxt, "Size", false);
 }
-
-const ballData = {
-    imageFile: "sizing1.jpg",
-    dimensionNames: ['A. Length', 'B. Waist Elastic', 'C. Hips', 'D. Crotch', 'E. Hem'],
-    dimensionsCm: {
-        Free: [90, 30, 152, 68, 10]
-    },
-    getFabric: function (varidx) {
-        return "Voile";
-    },
-    data: [
-        {
-            colourName: "Magenta",
-            vid: "CW1",
-            colourPfx: "magenta",
-            colourSfxs: ["f", "b", "r", "d1", "d2"]
-        },
-        {
-            colourName: "Electric Blue",
-            vid: "CW2",
-            colourPfx: "blue",
-            colourSfxs: ["f", "b", "r", "d1", "d2"]
-        },
-        {
-            colourName: "Candy Red",
-            vid: "CW3",
-            colourPfx: "red",
-            colourSfxs: ["f", "b", "r", "d1", "d2"]
-        },
-        {
-            colourName: "Calm Tan",
-            vid: "CW4",
-            colourPfx: "tan",
-            colourSfxs: ["f", "b", "r", "d1", "d2"]
-        }
-    ],
-    sizes: ['Free'],
-    description: '"Happy Everyday" includes more fun silhouettes for your daily routine. This carefree pant features a stretch waistband to fit a variety of sizes. It is cut in a breathable 100% cotton voile and is gathered at the waist and hem. As a "crushed" garment, it needs no ironing, only needing to be twisted and tied after wash. The colour options vary from vibrant to neutral and cater to every taste. The candy red, magenta and electric blue exaggerate this voluminous silhouette while the calm tan brings it down a notch. Whether you pair it with a crop top or a tunic, this pants works with different lengths and styles.',
-    garmentDetails: '<li>Elastic waist with drawstring</li><li>Calf-length</li><li>Two side pockets</li>'
-};
-
-const brmdaData = {
-    imageFile: "sizing1.jpg",
-    dimensionNames: ['A. Length', 'B. Waist', 'C. Hips', 'D. Crotch', 'E. Hem'],
-    dimensionsCm: {
-        S: [75, 70, 107, 60, 50],
-        M: [77, 74, 110, 62, 52],
-        L: [79, 78, 112, 63, 54],
-        XL: [81, 82, 115, 65, 56]
-    },
-    getFabric: function (varidx) {
-        return "Khadi";
-    },
-    data: [
-        {
-            colourName: "Magenta",
-            vid: "CW1",
-            colourPfx: "magenta",
-            colourSfxs: ["f", "b", "r"]
-        },
-        {
-            colourName: "Calm Tan",
-            vid: "CW2",
-            colourPfx: "tan",
-            colourSfxs: ["f", "b", "r"]
-        }
-    ],
-    sizes: ['S', 'M', 'L', 'XL'],
-    description: 'This calf-length pant from our Happy Everyday collection is one of my favourite basics. The elastic in the waistband and hems makes it easy to slip into and move around in. The side pockets give this 100% cotton khadi pant more utility.  Pair it with our flared Lotus Wings Top, a shirt, crop top or a tank top - it will work from dawn to dusk, from morning meetings to evening strolls. This pant is available in a vibrant solid magenta and a neutral calm tan, suitable to a wide range of personalities and moods.',
-    garmentDetails: '<li>Elastic waist with drawstring</li><li>Calf-length</li><li>Two side pockets</li>'
-};
-
-const crptpData = {
-    imageFile: "sizing1.jpg",
-    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Hem'],
-    dimensionsCm: {
-        S: [39, 26, 92, 48, 90],
-        M: [41, 28, 96, 50, 94],
-        L: [43, 30, 100, 52, 98],
-        XL: [45, 32, 104, 54, 100]
-    },
-    getFabric: function (varidx) {
-        if (varidx == 3) {
-            return "Khadi";
-        }
-        return "Voile";
-    },
-    data: [
-        {
-            colourName: "Magenta",
-            vid: "CW1",
-            colourPfx: "magenta",
-            colourSfxs: ["f", "b", "r"]
-        },
-        {
-            colourName: "Electric Blue",
-            vid: "CW2",
-            colourPfx: "blue",
-            colourSfxs: ["f", "b", "r"]
-        },
-        {
-            colourName: "Candy Red",
-            vid: "CW3",
-            colourPfx: "red",
-            colourSfxs: ["f", "b", "r"]
-        },
-        {
-            colourName: "Calm Tan",
-            vid: "CW4",
-            colourPfx: "tan",
-            colourSfxs: ["f", "b", "r"]
-        }
-    ],
-    sizes: ['S', 'M', 'L', 'XL'],
-    description: 'Our Happy Everyday collection is all about bold colour blocking of modern silhouettes. This boxy crop top is fun to pair with different bottoms. It\'s a round neck and sleeveless. The elastic in the back makes the top flattering to wear. The magenta lifts up the minimal cut and 100% cotton voile keeps it breezy in summers. Pair it with our Balloon Pants, your own culottes, trousers, skirts or basically anything - it\'s versatility ensures that you will wear it often.',
-    garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>Boxy cut</li><li>Elastic in the back</li><li>Slips on</li>'
-};
-
-const drwstData = {
-    imageFile: "sizing1.jpg",
-    dimensionNames: ['A. Length', 'B. Waist', 'C. Hips', 'D. Crotch', 'E. Hem'],
-    dimensionsCm: {
-        S: [99, 100, 100, 60, 54],
-        M: [100, 104, 104, 62, 56],
-        L: [101, 108, 108, 64, 58],
-        XL: [102, 112, 112, 67, 60]
-    },
-    getFabric: function (varidx) {
-        return "Khadi";
-    },
-    data: [
-        {
-            colourName: "Magenta",
-            vid: "CW1",
-            colourPfx: "magenta",
-            colourSfxs: ["f", "b", "r"]
-        },
-        {
-            colourName: "Calm Tan",
-            vid: "CW2",
-            colourPfx: "tan",
-            colourSfxs: ["f", "b", "r"]
-        }
-    ],
-    sizes: ['S', 'M', 'L', 'XL'],
-    description: 'Another lounge pant from our Happy Everyday collection. The adjustable drawstring on the waist makes it easier to slip into and move around in. This wide-legged pant is cut in 100% cotton khadi. Pair it with our flared Lotus Wings Top, a shirt, crop top or a tank top - it will work from dawn to dusk, from morning meetings to evening strolls. This pant is available in a vibrant solid magenta and a neutral calm tan, suitable to a wide range of personalities and moods.',
-    garmentDetails: '<li>Drawstring waist</li><li>Full length</li><li>Wide hem</li>'
-};
-
-const jodhData = {
-    imageFile: "sizing1.jpg",
-    dimensionNames: ["A. Length", "B. Waist", "C. Hip", "D. Crotch", "E. Hem"],
-    dimensionsCm: {
-        S: [
-            75,
-            70,
-            104,
-            60,
-            50
-        ],
-        M: [
-            77,
-            74,
-            110,
-            62,
-            52
-        ],
-        L: [
-            79,
-            78,
-            116,
-            63,
-            54
-        ],
-        XL: [
-            81,
-            82,
-            122,
-            65,
-            56
-        ]
-    },
-    getFabric: function (varidx) {
-        return "Khadi";
-    },
-
-    data: [
-        {
-            colourName: "Magenta",
-            vid: "CW1",
-            colourPfx: "magenta",
-            colourSfxs: ["f", "b", "r"]
-        },
-        {
-            colourName: "Calm Tan",
-            vid: "CW2",
-            colourPfx: "tan",
-            colourSfxs: ["f", "b", "r"]
-        }
-    ],
-    sizes: ['S', 'M', 'L', 'XL'],
-    description: 'This lounge pant from our Happy Everyday collection is one of my favourite basics. The elastic on the waist and tapered fit gives it a flattering shape. The side pockets give this 100% cotton khadi pants more utility. Pair it with our flared Lotus Wings Top, a shirt, crop top or a tank top - it will work from day to night, from morning meetings to an evening stroll. These pants are available in a vibrant solid magenta and a neutral calm tan, which fits every personality and makes it even more wearable.',
-    garmentDetails: '<li>Elastic waist with drawstring</li><li>Full length</li><li>Two side pockets</li>'
-};
-
-const llyrData = {
-    imageFile: "sizing1.jpg",
-    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Slit'],
-    dimensionsCm: {
-        S: [129, 26, 94, 53, 57],
-        M: [130, 28, 98, 55, 58],
-        L: [131, 30, 102, 57, 59],
-        XL: [132, 32, 106, 59, 60]
-    },
-    getFabric: function (varidx) {
-        return "Voile";
-    },
-    data: [
-        {
-            colourName: "Magenta",
-            vid: "CW1",
-            colourPfx: "magenta",
-            colourSfxs: ["f", "b", "r", "d1", "d2"]
-        },
-        {
-            colourName: "Electric Blue",
-            vid: "CW2",
-            colourPfx: "blue",
-            colourSfxs: ["f", "b", "r", "d1", "d2"]
-        },
-        {
-            colourName: "Candy Red",
-            vid: "CW3",
-            colourPfx: "red",
-            colourSfxs: ["f", "b", "r", "d1", "d2"]
-        }
-    ],
-    sizes: ['S', 'M', 'L', 'XL'],
-    description: 'Happy Everyday" - as the name of the line suggests, this vibrant dress is made for your daily routine. The 100% cotton voile feels light on the skin, especially in summers. The A-line silhouette with side slits makes it easy to move around in. The lively candy red or magenta lifts up this simple round neck, sleeveless dress. The dress can also be worn with a pair of trousers, denim or palazzos underneath.',
-    garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>A-line with side slits</li><li>Slips on</li>'
-};
-
-const lilyData = {
-    imageFile: "sizing1.jpg",
-    dimensionNames: ['A. Length', 'B. Waist Elastic', 'C. Hips', 'D. Crotch', 'E. Hem'],
-    dimensionsCm: {
-        Free: [84, 64, 140, 92, 85]
-    },
-    getFabric: function (varidx) {
-        return "Khadi";
-    },
-    data: [
-        {
-            colourName: "Magenta",
-            vid: "CW1",
-            colourPfx: "magenta",
-            colourSfxs: ["f", "b", "r"]
-        },
-        {
-            colourName: "Calm Tan",
-            vid: "CW2",
-            colourPfx: "tan",
-            colourSfxs: ["f", "b", "r"]
-        }
-    ],
-    sizes: ['Free'],
-    description: '"Happy Everyday" includes more fun silhouettes to wear in your daily routine. This is a carefree pant, with a wide stretchable waistband to fit a wide range of sizes. The material is a breathable 100% cotton khadi. The colour options vary from vibrant to neutral to cater to every taste. The magenta exaggerates this relaxed silhouette while the calm tan brings it down a notch. Pair it with a crop top or a shirt as you please - these pants will work with every length and style.',
-    garmentDetails: '<li>Elastic waist</li><li>Wide hem</li><li>Adjustable hem with string</li><li>Slips on</li>'
-};
-
-const lovrData = {
-    imageFile: "sizing1.jpg",
-    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Bicep', 'F. Sleeve Length', 'G. Sleeve Hem'],
-    dimensionsCm: {
-        S: [103, 39, 92, 47, 37, 46, 31],
-        M: [104, 41, 96, 49, 38.5, 47, 32],
-        L: [105, 43, 100, 52, 40, 48, 34],
-        XL: [106, 45, 104, 55, 43, 49, 36]
-    },
-    getFabric: function (varidx) {
-        if (varidx == 3) {
-            return "Khadi";
-        }
-        return "Voile";
-    },
-    data: [
-        {
-            colourName: "Magenta",
-            vid: "CW1",
-            colourPfx: "magenta",
-            colourSfxs: ["f", "b", "r"]
-        },
-        {
-            colourName: "Electric Blue",
-            vid: "CW2",
-            colourPfx: "blue",
-            colourSfxs: ["f", "b", "r"]
-        },
-        {
-            colourName: "Candy Red",
-            vid: "CW3",
-            colourPfx: "red",
-            colourSfxs: ["f", "b", "r"]
-        },
-        {
-            colourName: "Calm Tan",
-            vid: "CW4",
-            colourPfx: "tan",
-            colourSfxs: ["f", "b", "r"]
-        }
-    ],
-    sizes: ['S', 'M', 'L', 'XL'],
-    description: 'Blocking of bold hues in tropical fabrics to infuse simplicity and design in everyday life is the core of "Happy Everyday". This overtop is particularly inspired by the warm climate of the coastal town that is Auroville. The light 100% cotton voile protects from the extreme heat, but also acts as a coverup in the chilly evenings. Tie-up the front flaps over a maxi dress or a top and bottoms to add a tonal layer, its magenta will add life to the lazy summers.',
-    garmentDetails: '<li>3/4 Sleeves</li><li>front tie-up</li><li>Slips on</li>'
-
-};
-
-const shldData = {
-    imageFile: "sizing1.jpg",
-    dimensionNames: ['A. Length', 'B. Bust', 'C. Armhole'],
-    dimensionsCm: {
-        S: [117, 94, 51],
-        M: [119, 98, 54],
-        L: [121, 104, 57],
-        XL: [123, 110, 60]
-    },
-    getFabric: function (varidx) {
-        return "Voile";
-    },
-    data: [
-        {
-            colourName: "Magenta",
-            vid: "CW1",
-            colourPfx: "magenta",
-            colourSfxs: ["f", "b", "r"]
-        },
-        {
-            colourName: "Electric Blue",
-            vid: "CW2",
-            colourPfx: "blue",
-            colourSfxs: ["f", "b", "r"]
-        },
-        {
-            colourName: "Candy Red",
-            vid: "CW3",
-            colourPfx: "red",
-            colourSfxs: ["f", "b", "r"]
-        }
-    ],
-    sizes: ['S', 'M', 'L', 'XL'],
-    description: 'A tunic or summer dress from our \'Happy Everyday\' collection featuring an A-line cut, V neck with delicate shoulder straps and side pockets. Elastic in the back and drawstring in the front allows the dress flatter a variety of sizes and shapes. The dress is cut in 100% cotton voile to keep it light and breezy in summers. The electric blue will make you stand out in the daytime and evening mood. The dress can also be worn as a long tunic, with trousers or straight fit pants underneath.',
-    garmentDetails: '<li>V neck</li><li>Shoulder straps</li><li>A-line with a straight hem</li><li>Drawstring fastening in the front</li><li>Elastic in the back</li><li>Slips on</li>'
-};
-
-const sovrData = {
-    imageFile: "sizing1.jpg",
-    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Back Bust', 'D. Armhole', 'E. Bicep', 'F. Sleeve Length', 'G. Sleeve Hem'],
-    dimensionsCm: {
-        S: [64, 41, 51, 48, 37, 49, 28],
-        M: [65, 43, 53, 50, 38.5, 51, 30],
-        L: [66, 45, 55, 53, 40, 53, 32],
-        XL: [67, 47, 57, 55, 43, 55, 34]
-    },
-    getFabric: function (varidx) {
-        if (varidx == 3) {
-            return "Khadi";
-        }
-        return "Voile";
-    },
-    data: [
-        {
-            colourName: "Magenta",
-            vid: "CW1",
-            colourPfx: "magenta",
-            colourSfxs: ["f", "b", "r"]
-        },
-        {
-            colourName: "Electric Blue",
-            vid: "CW2",
-            colourPfx: "blue",
-            colourSfxs: ["f", "b", "r"]
-        },
-        {
-            colourName: "Candy Red",
-            vid: "CW3",
-            colourPfx: "red",
-            colourSfxs: ["f", "b", "r"]
-        },
-        {
-            colourName: "Calm Tan",
-            vid: "CW4",
-            colourPfx: "tan",
-            colourSfxs: ["f", "b", "r"]
-        }
-    ],
-    sizes: ['S', 'M', 'L', 'XL'],
-    description: 'Blocking of bold hues in tropical fabrics to infuse simplicity and design in everyday life is the core of Happy Everyday. This overtop is particularly inspired by the warm climate of the coastal town that is Auroville. The light 100% cotton voile protects from the extreme heat, but also acts as a coverup in the chilly evenings. Tie-up the front flaps over a maxi dress or a top and bottoms to add a tonal layer, its magenta will add life to the lazy summers.',
-    garmentDetails: '<li>3/4 Sleeves</li><li>Shorter back; front tie-up flaps</li><li>Slips on</li>'
-};
-
-const ssltData = {
-    imageFile: "sizing1.jpg",
-    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Slit'],
-    dimensionsCm: {
-        S: [97, 27, 94, 45, 58],
-        M: [99, 29, 98, 47, 59],
-        L: [101, 31, 102, 49, 60],
-        XL: [103, 33, 106, 51, 61]
-    },
-    getFabric: function (varidx) {
-        return "Khadi";
-    },
-    data: [
-        {
-            colourName: "Calm Tan",
-            vid: "CW1",
-            colourPfx: "tan",
-            colourSfxs: ["f", "b", "r", "l"]
-        },
-        {
-            colourName: "Magenta",
-            vid: "CW2",
-            colourPfx: "magenta",
-            colourSfxs: ["f", "b", "r"]
-        }
-    ],
-    sizes: ['S', 'M', 'L', 'XL'],
-    description: 'Our Happy Everyday collection includes casual pieces like this asymmetric tunic. Its A-line cut with a side slit makes it easy to pair with different bottoms and allows for interesting colour blocking. This basic round neck, sleeveless top in pink Khadi is a contemporary ode to the kurta. The vibrant magenta lifts up the minimalist silhouette and 100% cotton Khadi keeps it cool in summers.  Pair it with your salwar, trousers or palazzos - it\'s versatility allows it to be worn in a variety of settings.',
-    garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>A-line with a slit on the left</li><li>Asymmetrical hem</li><li>Slips on</li>'
-};
-
-const ttData = {
-    imageFile: "sizing1.jpg",
-    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Hem'],
-    dimensionsCm: {
-        S: [55, 26, 92, 48, 94],
-        M: [57, 28, 96, 50, 96],
-        L: [59, 30, 100, 52, 98],
-        XL: [61, 32, 104, 54, 100]
-    },
-    getFabric: function (varidx) {
-        return "Khadi";
-    },
-    data: [
-        {
-            colourName: "Magenta",
-            vid: "CW1",
-            colourPfx: "magenta",
-            colourSfxs: ["f", "b", "r"]
-        },
-        {
-            colourName: "Calm Tan",
-            vid: "CW2",
-            colourPfx: "tan",
-            colourSfxs: ["f", "b", "r"]
-        }
-    ],
-    sizes: ['S', 'M', 'L', 'XL'],
-    description: 'This classic top from our Happy Everyday edit is cut in a 100% cotton khadi to make the everyday heat more endurable. The boxy feel of the top gives an interesting silhouette when paired with pyjamas, trousers or skirts. It\'s sleeveless, has a round neck and an elastic in the back to make it easy to slip on. The magenta brightens the otherwise subtle top. Pair it with our Balloon Pants, your own culottes, trousers, skirts or basically anything - it\'s versatility will encourage you to wear it often.',
-    garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>Boxy cut</li><li>Elastic in the back</li><li>Slips on</li>'
-};
-
-const wngsData = {
-    imageFile: "sizing1.jpg",
-    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Hem'],
-    dimensionsCm: {
-        Free: [72, 34, 104, 52, 274]
-    },
-    getFabric: function (varidx) {
-        return "Khadi";
-    },
-    data: [
-        {
-            colourName: "Calm Tan",
-            vid: "CW1",
-            colourPfx: "tan",
-            colourSfxs: ["f", "b", "l", "d"]
-        },
-        {
-            colourName: "Magenta",
-            vid: "CW2",
-            colourPfx: "magenta",
-            colourSfxs: ["f", "b", "r", "d"]
-        }
-    ],
-    sizes: ['Free'],
-    description: 'Our Happy Everyday collection also includes fun silhouettes in Khadi like the Lotus Wings Top - a breezy style which will fit you now and in 10 years as well. Its A-line flare makes it playful to wear and easy to move around in. This sleeveless top is cut in 100% cotton Khadi which gives the top its structured fall that stays away from the skin. The classic Tan is versatile to pair with a lot of colours like electric blue, candy red, magenta or neutrals - black and white. Pair it with boxy culottes or skinny jeans - the top can work with your taste and mood.',
-    garmentDetails: '<li>Drape collar</li><li>Sleeveless</li><li>A-line flare with round hem</li><li>Slips on</li>'
-};
-
-function createBalloonPantJSON() {
-    var sku = "BALLPA1501Vo";
-    var basePath = "/products/happyeveryday/blln/";
-    return createProductJSON(sku, basePath, ballData, hed_sizing_pant, createCWImageFactory);
-}
-
-function createBermudaPantJSON() {
-    var sku = "BERMPA1609Kh";
-    var basePath = "/products/happyeveryday/brmda/";
-    return createProductJSON(sku, basePath, brmdaData, hed_sizing_pant, createCWImageFactory);
-}
-
-function createCropTopJSON() {
-    var sku = "CRPTOP1805Kh";
-    var basePath = "/products/happyeveryday/crptp/";
-    return createProductJSON(sku, basePath, crptpData, hed_sizing_top, createCWImageFactory);
-}
-
-function createDrawstringPantJSON() {
-    var sku = "DRAWPA1609Kh";
-    var basePath = "/products/happyeveryday/drwstrg/";
-    return createProductJSON(sku, basePath, drwstData, hed_sizing_pant, createCWImageFactory);
-}
-
-function createJodhpurPantJSON() {
-    var sku = "JODHPA1708Kh";
-    var basePath = "/products/happyeveryday/jdhpr/";
-    return createProductJSON(sku, basePath, jodhData, hed_sizing_pant, createCWImageFactory);
-}
-
-function createLayerDressJSON() {
-    var sku = "LITLAY1708Vo";
-    var basePath = "/products/happyeveryday/lyr/";
-    return createProductJSON(sku, basePath, llyrData, hed_sizing_top, createCWImageFactory);
-}
-
-function createLilyPantJSON() {
-    var sku = "WNDRPA1709Kh";
-    var basePath = "/products/happyeveryday/lly/";
-    return createProductJSON(sku, basePath, lilyData, hed_sizing_pant, createCWImageFactory);
-}
-
-function createLongOvertopJSON() {
-    var sku = "OVTPLO1501Vo";
-    var basePath = "/products/happyeveryday/lovrtp/"
-    return createProductJSON(sku, basePath, lovrData, hed_sizing_top, createCWImageFactory);
-}
-
-function createShoulderStringDressJSON() {
-    var sku = "LTSDSL1501Kh";
-    var basePath = "/products/happyeveryday/shdrstrg/"
-    return createProductJSON(sku, basePath, shldData, hed_sizing_top, createCWImageFactory);
-}
-
-function createShortOvertopJSON() {
-    var sku = "OVTPSH1501Vo";
-    var basePath = "/products/happyeveryday/shvrtp/";
-    return createProductJSON(sku, basePath, sovrData, hed_sizing_top, createCWImageFactory);
-}
-
-function createSideslitDressJSON() {
-    var sku = "VAMPAL1708Kh";
-    var basePath = "/products/happyeveryday/sdslt/";
-    return createProductJSON(sku, basePath, ssltData, hed_sizing_top, createCWImageFactory);
-}
-
-function createTankTopJSON() {
-    var sku = "TNKTPS1902Kh";
-    var basePath = "/products/happyeveryday/tnktp/";
-    return createProductJSON(sku, basePath, ttData, hed_sizing_top, createCWImageFactory);
-}
-
-function createWingsTopJSON() {
-    var sku = "TRPZTP1807Kh";
-    var basePath = "/products/happyeveryday/wngs/";
-    return createProductJSON(sku, basePath, wngsData, hed_sizing_top, createCWImageFactory);
-}
-
-function createProductDB() {
-    var map = {};
-
-    var entry = createBalloonPantJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    entry = createBermudaPantJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    entry = createCropTopJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    entry = createDrawstringPantJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    entry = createJodhpurPantJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    entry = createLayerDressJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    entry = createLilyPantJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    entry = createLongOvertopJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    entry = createShoulderStringDressJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    entry = createShortOvertopJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    entry = createSideslitDressJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    entry = createTankTopJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    entry = createWingsTopJSON();
-    map[entry.skuInfo.SKU] = entry;
-
-    return map;
-}
-
-
 const hed_sizing_top = {
     sizeGeo: ["US", "UK", "EU", "IT", "GR", "JP", "RU"],
     capGeo: ["US", "UK / AU / NZ", "EU / FR", "IT", "DE", "JP", "RU"],
@@ -738,6 +126,539 @@ const hed_sizing_pant = {
             RU: [40, 54]
         }
     }
+}
+
+happyED.harem = {
+    SKU: "BALLPA1501Vo",
+    imgDir: 'blln',
+    sizing: hed_sizing_pant,
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Waist Elastic', 'C. Hips', 'D. Crotch', 'E. Hem'],
+    dimensionsCm: {
+        Free: [90, 30, 152, 68, 10]
+    },
+    getFabric: function (varidx) {
+        return "Voile";
+    },
+    data: [
+        {
+            colourName: "Magenta",
+            vid: "CW1",
+            colourPfx: "magenta",
+            colourSfxs: ["f", "b", "r", "d1", "d2"]
+        },
+        {
+            colourName: "Electric Blue",
+            vid: "CW2",
+            colourPfx: "blue",
+            colourSfxs: ["f", "b", "r", "d1", "d2"]
+        },
+        {
+            colourName: "Candy Red",
+            vid: "CW3",
+            colourPfx: "red",
+            colourSfxs: ["f", "b", "r", "d1", "d2"]
+        },
+        {
+            colourName: "Calm Tan",
+            vid: "CW4",
+            colourPfx: "tan",
+            colourSfxs: ["f", "b", "r", "d1", "d2"]
+        }
+    ],
+    sizes: ['Free'],
+    description: '"Happy Everyday" includes more fun silhouettes for your daily routine. This carefree pant features a stretch waistband to fit a variety of sizes. It is cut in a breathable 100% cotton voile and is gathered at the waist and hem. As a "crushed" garment, it needs no ironing, only needing to be twisted and tied after wash. The colour options vary from vibrant to neutral and cater to every taste. The candy red, magenta and electric blue exaggerate this voluminous silhouette while the calm tan brings it down a notch. Whether you pair it with a crop top or a tunic, this pants works with different lengths and styles.',
+    garmentDetails: '<li>Elastic waist with drawstring</li><li>Calf-length</li><li>Two side pockets</li>'
+};
+
+happyED.bermuda = {
+    SKU: "BERMPA1609Kh",
+    imgDir: 'brmda',
+    sizing: hed_sizing_pant,
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Waist', 'C. Hips', 'D. Crotch', 'E. Hem'],
+    dimensionsCm: {
+        S: [75, 70, 107, 60, 50],
+        M: [77, 74, 110, 62, 52],
+        L: [79, 78, 112, 63, 54],
+        XL: [81, 82, 115, 65, 56]
+    },
+    getFabric: function (varidx) {
+        return "Khadi";
+    },
+    data: [
+        {
+            colourName: "Magenta",
+            vid: "CW1",
+            colourPfx: "magenta",
+            colourSfxs: ["f", "b", "r"]
+        },
+        {
+            colourName: "Calm Tan",
+            vid: "CW2",
+            colourPfx: "tan",
+            colourSfxs: ["f", "b", "r"]
+        }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    description: 'This calf-length pant from our Happy Everyday collection is one of my favourite basics. The elastic in the waistband and hems makes it easy to slip into and move around in. The side pockets give this 100% cotton khadi pant more utility.  Pair it with our flared Lotus Wings Top, a shirt, crop top or a tank top - it will work from dawn to dusk, from morning meetings to evening strolls. This pant is available in a vibrant solid magenta and a neutral calm tan, suitable to a wide range of personalities and moods.',
+    garmentDetails: '<li>Elastic waist with drawstring</li><li>Calf-length</li><li>Two side pockets</li>'
+};
+
+happyED.crop = {
+    SKU: "CRPTOP1805Kh",
+    imgDir: 'crptp',
+    sizing: hed_sizing_top,
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Hem'],
+    dimensionsCm: {
+        S: [39, 26, 92, 48, 90],
+        M: [41, 28, 96, 50, 94],
+        L: [43, 30, 100, 52, 98],
+        XL: [45, 32, 104, 54, 100]
+    },
+    getFabric: function (varidx) {
+        if (varidx == 3) {
+            return "Khadi";
+        }
+        return "Voile";
+    },
+    data: [
+        {
+            colourName: "Magenta",
+            vid: "CW1",
+            colourPfx: "magenta",
+            colourSfxs: ["f", "b", "r"]
+        },
+        {
+            colourName: "Electric Blue",
+            vid: "CW2",
+            colourPfx: "blue",
+            colourSfxs: ["f", "b", "r"]
+        },
+        {
+            colourName: "Candy Red",
+            vid: "CW3",
+            colourPfx: "red",
+            colourSfxs: ["f", "b", "r"]
+        },
+        {
+            colourName: "Calm Tan",
+            vid: "CW4",
+            colourPfx: "tan",
+            colourSfxs: ["f", "b", "r"]
+        }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    description: 'Our Happy Everyday collection is all about bold colour blocking of modern silhouettes. This boxy crop top is fun to pair with different bottoms. It\'s a round neck and sleeveless. The elastic in the back makes the top flattering to wear. The magenta lifts up the minimal cut and 100% cotton voile keeps it breezy in summers. Pair it with our Balloon Pants, your own culottes, trousers, skirts or basically anything - it\'s versatility ensures that you will wear it often.',
+    garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>Boxy cut</li><li>Elastic in the back</li><li>Slips on</li>'
+};
+
+happyED.drawstring = {
+    SKU: "DRAWPA1609Kh",
+    imgDir: 'drwstrg',
+    sizing: hed_sizing_pant,
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Waist', 'C. Hips', 'D. Crotch', 'E. Hem'],
+    dimensionsCm: {
+        S: [99, 100, 100, 60, 54],
+        M: [100, 104, 104, 62, 56],
+        L: [101, 108, 108, 64, 58],
+        XL: [102, 112, 112, 67, 60]
+    },
+    getFabric: function (varidx) {
+        return "Khadi";
+    },
+    data: [
+        {
+            colourName: "Magenta",
+            vid: "CW1",
+            colourPfx: "magenta",
+            colourSfxs: ["f", "b", "r"]
+        },
+        {
+            colourName: "Calm Tan",
+            vid: "CW2",
+            colourPfx: "tan",
+            colourSfxs: ["f", "b", "r"]
+        }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    description: 'Another lounge pant from our Happy Everyday collection. The adjustable drawstring on the waist makes it easier to slip into and move around in. This wide-legged pant is cut in 100% cotton khadi. Pair it with our flared Lotus Wings Top, a shirt, crop top or a tank top - it will work from dawn to dusk, from morning meetings to evening strolls. This pant is available in a vibrant solid magenta and a neutral calm tan, suitable to a wide range of personalities and moods.',
+    garmentDetails: '<li>Drawstring waist</li><li>Full length</li><li>Wide hem</li>'
+};
+
+happyED.jodhpur = {
+    SKU: "JODHPA1708Kh",
+    imgDir: 'jdhpr',
+    sizing: hed_sizing_pant,
+    imageFile: "sizing1.jpg",
+    dimensionNames: ["A. Length", "B. Waist", "C. Hip", "D. Crotch", "E. Hem"],
+    dimensionsCm: {
+        S: [
+            75,
+            70,
+            104,
+            60,
+            50
+        ],
+        M: [
+            77,
+            74,
+            110,
+            62,
+            52
+        ],
+        L: [
+            79,
+            78,
+            116,
+            63,
+            54
+        ],
+        XL: [
+            81,
+            82,
+            122,
+            65,
+            56
+        ]
+    },
+    getFabric: function (varidx) {
+        return "Khadi";
+    },
+
+    data: [
+        {
+            colourName: "Magenta",
+            vid: "CW1",
+            colourPfx: "magenta",
+            colourSfxs: ["f", "b", "r"]
+        },
+        {
+            colourName: "Calm Tan",
+            vid: "CW2",
+            colourPfx: "tan",
+            colourSfxs: ["f", "b", "r"]
+        }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    description: 'This lounge pant from our Happy Everyday collection is one of my favourite basics. The elastic on the waist and tapered fit gives it a flattering shape. The side pockets give this 100% cotton khadi pants more utility. Pair it with our flared Lotus Wings Top, a shirt, crop top or a tank top - it will work from day to night, from morning meetings to an evening stroll. These pants are available in a vibrant solid magenta and a neutral calm tan, which fits every personality and makes it even more wearable.',
+    garmentDetails: '<li>Elastic waist with drawstring</li><li>Full length</li><li>Two side pockets</li>'
+};
+
+happyED.layer = {
+    SKU: "LITLAY1708Vo",
+    imgDir: 'lyr',
+    sizing: hed_sizing_top,
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Slit'],
+    dimensionsCm: {
+        S: [129, 26, 94, 53, 57],
+        M: [130, 28, 98, 55, 58],
+        L: [131, 30, 102, 57, 59],
+        XL: [132, 32, 106, 59, 60]
+    },
+    getFabric: function (varidx) {
+        return "Voile";
+    },
+    data: [
+        {
+            colourName: "Magenta",
+            vid: "CW1",
+            colourPfx: "magenta",
+            colourSfxs: ["f", "b", "r", "d1", "d2"]
+        },
+        {
+            colourName: "Electric Blue",
+            vid: "CW2",
+            colourPfx: "blue",
+            colourSfxs: ["f", "b", "r", "d1", "d2"]
+        },
+        {
+            colourName: "Candy Red",
+            vid: "CW3",
+            colourPfx: "red",
+            colourSfxs: ["f", "b", "r", "d1", "d2"]
+        }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    description: 'Happy Everyday" - as the name of the line suggests, this vibrant dress is made for your daily routine. The 100% cotton voile feels light on the skin, especially in summers. The A-line silhouette with side slits makes it easy to move around in. The lively candy red or magenta lifts up this simple round neck, sleeveless dress. The dress can also be worn with a pair of trousers, denim or palazzos underneath.',
+    garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>A-line with side slits</li><li>Slips on</li>'
+};
+
+happyED.lily = {
+    SKU: "WNDRPA1709Kh",
+    imgDir: 'lly',
+    sizing: hed_sizing_pant,
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Waist Elastic', 'C. Hips', 'D. Crotch', 'E. Hem'],
+    dimensionsCm: {
+        Free: [84, 64, 140, 92, 85]
+    },
+    getFabric: function (varidx) {
+        return "Khadi";
+    },
+    data: [
+        {
+            colourName: "Magenta",
+            vid: "CW1",
+            colourPfx: "magenta",
+            colourSfxs: ["f", "b", "r"]
+        },
+        {
+            colourName: "Calm Tan",
+            vid: "CW2",
+            colourPfx: "tan",
+            colourSfxs: ["f", "b", "r"]
+        }
+    ],
+    sizes: ['Free'],
+    description: '"Happy Everyday" includes more fun silhouettes to wear in your daily routine. This is a carefree pant, with a wide stretchable waistband to fit a wide range of sizes. The material is a breathable 100% cotton khadi. The colour options vary from vibrant to neutral to cater to every taste. The magenta exaggerates this relaxed silhouette while the calm tan brings it down a notch. Pair it with a crop top or a shirt as you please - these pants will work with every length and style.',
+    garmentDetails: '<li>Elastic waist</li><li>Wide hem</li><li>Adjustable hem with string</li><li>Slips on</li>'
+};
+
+happyED.longovertop = {
+    SKU: "OVTPLO1501Vo",
+    imgDir: 'lovrtp',
+    sizing: hed_sizing_top,
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Bicep', 'F. Sleeve Length', 'G. Sleeve Hem'],
+    dimensionsCm: {
+        S: [103, 39, 92, 47, 37, 46, 31],
+        M: [104, 41, 96, 49, 38.5, 47, 32],
+        L: [105, 43, 100, 52, 40, 48, 34],
+        XL: [106, 45, 104, 55, 43, 49, 36]
+    },
+    getFabric: function (varidx) {
+        if (varidx == 3) {
+            return "Khadi";
+        }
+        return "Voile";
+    },
+    data: [
+        {
+            colourName: "Magenta",
+            vid: "CW1",
+            colourPfx: "magenta",
+            colourSfxs: ["f", "b", "r"]
+        },
+        {
+            colourName: "Electric Blue",
+            vid: "CW2",
+            colourPfx: "blue",
+            colourSfxs: ["f", "b", "r"]
+        },
+        {
+            colourName: "Candy Red",
+            vid: "CW3",
+            colourPfx: "red",
+            colourSfxs: ["f", "b", "r"]
+        },
+        {
+            colourName: "Calm Tan",
+            vid: "CW4",
+            colourPfx: "tan",
+            colourSfxs: ["f", "b", "r"]
+        }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    description: 'Blocking of bold hues in tropical fabrics to infuse simplicity and design in everyday life is the core of "Happy Everyday". This overtop is particularly inspired by the warm climate of the coastal town that is Auroville. The light 100% cotton voile protects from the extreme heat, but also acts as a coverup in the chilly evenings. Tie-up the front flaps over a maxi dress or a top and bottoms to add a tonal layer, its magenta will add life to the lazy summers.',
+    garmentDetails: '<li>3/4 Sleeves</li><li>front tie-up</li><li>Slips on</li>'
+
+};
+
+happyED.shoulderstring = {
+    SKU: "LTSDSL1501Kh",
+    imgDir: 'shdrstrg',
+    sizing: hed_sizing_top,
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Bust', 'C. Armhole'],
+    dimensionsCm: {
+        S: [117, 94, 51],
+        M: [119, 98, 54],
+        L: [121, 104, 57],
+        XL: [123, 110, 60]
+    },
+    getFabric: function (varidx) {
+        return "Voile";
+    },
+    data: [
+        {
+            colourName: "Magenta",
+            vid: "CW1",
+            colourPfx: "magenta",
+            colourSfxs: ["f", "b", "r"]
+        },
+        {
+            colourName: "Electric Blue",
+            vid: "CW2",
+            colourPfx: "blue",
+            colourSfxs: ["f", "b", "r"]
+        },
+        {
+            colourName: "Candy Red",
+            vid: "CW3",
+            colourPfx: "red",
+            colourSfxs: ["f", "b", "r"]
+        }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    description: 'A tunic or summer dress from our \'Happy Everyday\' collection featuring an A-line cut, V neck with delicate shoulder straps and side pockets. Elastic in the back and drawstring in the front allows the dress flatter a variety of sizes and shapes. The dress is cut in 100% cotton voile to keep it light and breezy in summers. The electric blue will make you stand out in the daytime and evening mood. The dress can also be worn as a long tunic, with trousers or straight fit pants underneath.',
+    garmentDetails: '<li>V neck</li><li>Shoulder straps</li><li>A-line with a straight hem</li><li>Drawstring fastening in the front</li><li>Elastic in the back</li><li>Slips on</li>'
+};
+
+happyED.shortovertop = {
+    SKU: "OVTPSH1501Vo",
+    imgDir: 'shvrtp',
+    sizing: hed_sizing_top,
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Back Bust', 'D. Armhole', 'E. Bicep', 'F. Sleeve Length', 'G. Sleeve Hem'],
+    dimensionsCm: {
+        S: [64, 41, 51, 48, 37, 49, 28],
+        M: [65, 43, 53, 50, 38.5, 51, 30],
+        L: [66, 45, 55, 53, 40, 53, 32],
+        XL: [67, 47, 57, 55, 43, 55, 34]
+    },
+    getFabric: function (varidx) {
+        if (varidx == 3) {
+            return "Khadi";
+        }
+        return "Voile";
+    },
+    data: [
+        {
+            colourName: "Magenta",
+            vid: "CW1",
+            colourPfx: "magenta",
+            colourSfxs: ["f", "b", "r"]
+        },
+        {
+            colourName: "Electric Blue",
+            vid: "CW2",
+            colourPfx: "blue",
+            colourSfxs: ["f", "b", "r"]
+        },
+        {
+            colourName: "Candy Red",
+            vid: "CW3",
+            colourPfx: "red",
+            colourSfxs: ["f", "b", "r"]
+        },
+        {
+            colourName: "Calm Tan",
+            vid: "CW4",
+            colourPfx: "tan",
+            colourSfxs: ["f", "b", "r"]
+        }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    description: 'Blocking of bold hues in tropical fabrics to infuse simplicity and design in everyday life is the core of Happy Everyday. This overtop is particularly inspired by the warm climate of the coastal town that is Auroville. The light 100% cotton voile protects from the extreme heat, but also acts as a coverup in the chilly evenings. Tie-up the front flaps over a maxi dress or a top and bottoms to add a tonal layer, its magenta will add life to the lazy summers.',
+    garmentDetails: '<li>3/4 Sleeves</li><li>Shorter back; front tie-up flaps</li><li>Slips on</li>'
+};
+
+happyED.sideslit = {
+    SKU: "VAMPAL1708Kh",
+    imgDir: 'sdslt',
+    sizing: hed_sizing_top,
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Slit'],
+    dimensionsCm: {
+        S: [97, 27, 94, 45, 58],
+        M: [99, 29, 98, 47, 59],
+        L: [101, 31, 102, 49, 60],
+        XL: [103, 33, 106, 51, 61]
+    },
+    getFabric: function (varidx) {
+        return "Khadi";
+    },
+    data: [
+        {
+            colourName: "Calm Tan",
+            vid: "CW1",
+            colourPfx: "tan",
+            colourSfxs: ["f", "b", "r", "l"]
+        },
+        {
+            colourName: "Magenta",
+            vid: "CW2",
+            colourPfx: "magenta",
+            colourSfxs: ["f", "b", "r"]
+        }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    description: 'Our Happy Everyday collection includes casual pieces like this asymmetric tunic. Its A-line cut with a side slit makes it easy to pair with different bottoms and allows for interesting colour blocking. This basic round neck, sleeveless top in pink Khadi is a contemporary ode to the kurta. The vibrant magenta lifts up the minimalist silhouette and 100% cotton Khadi keeps it cool in summers.  Pair it with your salwar, trousers or palazzos - it\'s versatility allows it to be worn in a variety of settings.',
+    garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>A-line with a slit on the left</li><li>Asymmetrical hem</li><li>Slips on</li>'
+};
+
+happyED.tank = {
+    SKU: "TNKTPS1902Kh",
+    imgDir: 'tnktp',
+    sizing: hed_sizing_top,
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Hem'],
+    dimensionsCm: {
+        S: [55, 26, 92, 48, 94],
+        M: [57, 28, 96, 50, 96],
+        L: [59, 30, 100, 52, 98],
+        XL: [61, 32, 104, 54, 100]
+    },
+    getFabric: function (varidx) {
+        return "Khadi";
+    },
+    data: [
+        {
+            colourName: "Magenta",
+            vid: "CW1",
+            colourPfx: "magenta",
+            colourSfxs: ["f", "b", "r"]
+        },
+        {
+            colourName: "Calm Tan",
+            vid: "CW2",
+            colourPfx: "tan",
+            colourSfxs: ["f", "b", "r"]
+        }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    description: 'This classic top from our Happy Everyday edit is cut in a 100% cotton khadi to make the everyday heat more endurable. The boxy feel of the top gives an interesting silhouette when paired with pyjamas, trousers or skirts. It\'s sleeveless, has a round neck and an elastic in the back to make it easy to slip on. The magenta brightens the otherwise subtle top. Pair it with our Balloon Pants, your own culottes, trousers, skirts or basically anything - it\'s versatility will encourage you to wear it often.',
+    garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>Boxy cut</li><li>Elastic in the back</li><li>Slips on</li>'
+};
+
+happyED.wings = {
+    SKU: "TRPZTP1807Kh",
+    imgDir: 'wngs',
+    sizing: hed_sizing_top,
+    imageFile: "sizing1.jpg",
+    dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Hem'],
+    dimensionsCm: {
+        Free: [72, 34, 104, 52, 274]
+    },
+    getFabric: function (varidx) {
+        return "Khadi";
+    },
+    data: [
+        {
+            colourName: "Calm Tan",
+            vid: "CW1",
+            colourPfx: "tan",
+            colourSfxs: ["f", "b", "l", "d"]
+        },
+        {
+            colourName: "Magenta",
+            vid: "CW2",
+            colourPfx: "magenta",
+            colourSfxs: ["f", "b", "r", "d"]
+        }
+    ],
+    sizes: ['Free'],
+    description: 'Our Happy Everyday collection also includes fun silhouettes in Khadi like the Lotus Wings Top - a breezy style which will fit you now and in 10 years as well. Its A-line flare makes it playful to wear and easy to move around in. This sleeveless top is cut in 100% cotton Khadi which gives the top its structured fall that stays away from the skin. The classic Tan is versatile to pair with a lot of colours like electric blue, candy red, magenta or neutrals - black and white. Pair it with boxy culottes or skinny jeans - the top can work with your taste and mood.',
+    garmentDetails: '<li>Drape collar</li><li>Sleeveless</li><li>A-line flare with round hem</li><li>Slips on</li>'
+};
+
+happyED.createJSON = function (style) {
+    var basePath = "/products/happyeveryday/" + style.imgDir + "/";
+    return createProductJSON(style.SKU, basePath, style, style.sizing, createCWImageFactory);
 }
 
 const hed_lookbook = {
@@ -933,109 +854,129 @@ const hed_lookbook = {
     }
 };
 
-const hed_catalog = {
-    title: "Happy Everyday",
-    shopURL: "/products/happyeveryday/shop.html",
-    skus: ['WNDRPA1709Kh', 'DRAWPA1609Kh', 'BERMPA1609Kh', 'BALLPA1501Vo', 'CRPTOP1805Kh', 'TNKTPS1902Kh', 'TRPZTP1807Kh', 'OVTPLO1501Vo', 'OVTPSH1501Vo', 'VAMPAL1708Kh', 'LTSDSL1501Kh', 'LITLAY1708Vo'],
-    tops: ['CRPTOP1805Kh', 'TNKTPS1902Kh', 'VAMPAL1708Kh', 'TRPZTP1807Kh'],
-    overtops: ['OVTPLO1501Vo', 'OVTPSH1501Vo'],
-    dresses: ['LTSDSL1501Kh', 'LITLAY1708Vo'],
-    pants: ['WNDRPA1709Kh', 'DRAWPA1609Kh', 'BERMPA1609Kh', 'BALLPA1501Vo'],
-    getCategory: function (sku) {
-        if (this.tops.includes(sku)) {
-            return "tops";
-        }
-        if (this.overtops.includes(sku)) {
-            return "overtops";
-        }
-        if (this.dresses.includes(sku)) {
-            return "dresses";
-        }
-        if (this.pants.includes(sku)) {
-            return "pants";
-        }
-        return null;
-    },
-    productDB: createProductDB(),
-    getProduct: function (sku) {
-        return this.productDB[sku];
-    },
-    summaries: [
-        {
-            sku: 'BALLPA1501Vo',
-            url: "/products/happyeveryday/balloon.html",
-            lede: 'Full length Harem Pants'
+happyED.createCatalog = function () {
+    return {
+        title: "Happy Everyday",
+        shopURL: "/products/happyeveryday/shop.html",
+        skus: null,
+        styles: [happyED.lily, happyED.drawstring, happyED.bermuda, happyED.harem, happyED.crop, happyED.tank,
+            happyED.wings, happyED.longovertop, happyED.shortovertop, happyED.sideslit, happyED.shoulderstring, happyED.layer],
+        tops: [happyED.crop.SKU, happyED.tank.SKU, happyED.sideslit.SKU, happyED.wings.SKU],
+        overtops: [happyED.longovertop.SKU, happyED.shortovertop.SKU],
+        dresses: [happyED.shoulderstring.SKU, happyED.layer.SKU],
+        pants: [happyED.lily.SKU, happyED.drawstring.SKU, happyED.bermuda.SKU, happyED.harem.SKU],
+        productDB: null,
+        createProductDB: function () {
+            var map = {};
+            for (var i = 0; i < this.styles.length; i++) {
+                var style = this.styles[i];
+                var entry = happyED.createJSON(style);
+                map[entry.skuInfo.SKU] = entry;
+            }
+            return map;
         },
-        {
-            sku: 'BERMPA1609Kh',
-            url: "/products/happyeveryday/bermuda.html",
-            lede: 'Calf length Bermuda pants'
+        getProduct: function (sku) {
+            return this.productDB[sku];
         },
-        {
-            sku: 'DRAWPA1609Kh',
-            url: "/products/happyeveryday/drawstring.html",
-            lede: 'Wide legged drawstring pants'
+        getCategory: function (sku) {
+            if (this.tops.includes(sku)) {
+                return "tops";
+            }
+            if (this.overtops.includes(sku)) {
+                return "overtops";
+            }
+            if (this.dresses.includes(sku)) {
+                return "dresses";
+            }
+            if (this.pants.includes(sku)) {
+                return "pants";
+            }
+            return null;
         },
-        {
-            sku: 'JODHPA1708Kh',
-            url: "/products/happyeveryday/jodhpur.html",
-            lede: 'Full length Jodhpur cut pants'
+        initialize: function () {
+            this.productDB = this.createProductDB();
+            this.skus = this.styles.map(p => p.SKU);
         },
-        {
-            sku: 'WNDRPA1709Kh',
-            url: "/products/happyeveryday/lily.html",
-            lede: 'Drawstring  waist and hem'
+        summaries: [
+            {
+                sku: 'BALLPA1501Vo',
+                url: "/products/happyeveryday/balloon.html",
+                lede: 'Full length Harem Pants'
         },
-        {
-            sku: 'CRPTOP1805Kh',
-            url: "/products/happyeveryday/croptop.html",
-            lede: ''
+            {
+                sku: 'BERMPA1609Kh',
+                url: "/products/happyeveryday/bermuda.html",
+                lede: 'Calf length Bermuda pants'
         },
-        {
-            sku: 'TNKTPS1902Kh',
-            url: "/products/happyeveryday/tanktop.html",
-            lede: ''
+            {
+                sku: 'DRAWPA1609Kh',
+                url: "/products/happyeveryday/drawstring.html",
+                lede: 'Wide legged drawstring pants'
         },
-        {
-            sku: 'TRPZTP1807Kh',
-            url: "/products/happyeveryday/wings.html",
-            lede: ''
+            {
+                sku: 'JODHPA1708Kh',
+                url: "/products/happyeveryday/jodhpur.html",
+                lede: 'Full length Jodhpur cut pants'
         },
-        {
-            sku: 'OVTPLO1501Vo',
-            url: "/products/happyeveryday/lovertop.html",
-            lede: ''
+            {
+                sku: 'WNDRPA1709Kh',
+                url: "/products/happyeveryday/lily.html",
+                lede: 'Drawstring  waist and hem'
         },
-        {
-            sku: 'OVTPSH1501Vo',
-            url: "/products/happyeveryday/shovertop.html",
-            lede: ''
+            {
+                sku: 'CRPTOP1805Kh',
+                url: "/products/happyeveryday/croptop.html",
+                lede: ''
         },
-        {
-            sku: 'VAMPAL1708Kh',
-            url: "/products/happyeveryday/sideslit.html",
-            lede: ''
+            {
+                sku: 'TNKTPS1902Kh',
+                url: "/products/happyeveryday/tanktop.html",
+                lede: ''
         },
-        {
-            sku: 'LTSDSL1501Kh',
-            url: "/products/happyeveryday/shoulderstring.html",
-            lede: ''
+            {
+                sku: 'TRPZTP1807Kh',
+                url: "/products/happyeveryday/wings.html",
+                lede: ''
         },
-        {
-            sku: 'LITLAY1708Vo',
-            url: "/products/happyeveryday/layer.html",
-            lede: ''
+            {
+                sku: 'OVTPLO1501Vo',
+                url: "/products/happyeveryday/lovertop.html",
+                lede: ''
+        },
+            {
+                sku: 'OVTPSH1501Vo',
+                url: "/products/happyeveryday/shovertop.html",
+                lede: ''
+        },
+            {
+                sku: 'VAMPAL1708Kh',
+                url: "/products/happyeveryday/sideslit.html",
+                lede: ''
+        },
+            {
+                sku: 'LTSDSL1501Kh',
+                url: "/products/happyeveryday/shoulderstring.html",
+                lede: ''
+        },
+            {
+                sku: 'LITLAY1708Vo',
+                url: "/products/happyeveryday/layer.html",
+                lede: ''
         },
     ],
-    getSummary: function (sku) {
-        var catalog = getProductCatalog();
-        for (var i = 0; i < this.summaries.length; i++) {
-            if (this.summaries[i].sku === sku) {
-                var sum = this.summaries[i];
-                sum.title = catalog.getProduct(sum.sku).name;
-                return sum;
+        getSummary: function (sku) {
+            var catalog = pfiavG.productCatalog;
+            for (var i = 0; i < this.summaries.length; i++) {
+                if (this.summaries[i].sku === sku) {
+                    var sum = this.summaries[i];
+                    sum.title = catalog.getProduct(sum.sku).name;
+                    return sum;
+                }
             }
+            return null;
         }
-        return null;
-    }
-};
+    };
+}
+
+happyED.catalog = happyED.createCatalog();
+happyED.catalog.initialize();

@@ -81,7 +81,7 @@ var listData = [
 [5, ['5F', '5B'], '#6A3C3E', 'Congo Brown', null],
 ];
     var varPL = varPLData[sku];
-    var product = getProductCatalog().getProduct(sku);
+    var product = pfiavG.productCatalog.getProduct(sku);
 
     return createKaftanFactory('/products/artwear/kaftan/', product, listData, varPL);
 }

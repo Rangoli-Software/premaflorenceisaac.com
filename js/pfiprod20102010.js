@@ -156,7 +156,7 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, colSelData
 
 function createProductJSON(sku, basePath, prodData, sizingChart, imageFactory) {
     return {
-        product: getProductCatalog().getProduct(sku),
+        product: pfiavG.productCatalog.getProduct(sku),
         styleImagePath: basePath + prodData.imageFile,
         dimensionNames: prodData.dimensionNames,
         dimensionsCm: prodData.dimensionsCm,

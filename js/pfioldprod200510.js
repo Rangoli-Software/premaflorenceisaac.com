@@ -88,7 +88,7 @@ function createRenderer(shop, options, productObjects, tlcc) {
 }
 
 function createProductPageComponent(sku, listData) {
-    var catalog = getProductCatalog();
+    var catalog = pfiavG.productCatalog;
     var product = catalog.getProduct(sku);
     var prodObjs = createProductObjects(listData, product);
     return {

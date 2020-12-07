@@ -82,7 +82,7 @@ var listData = [
 [6, ['6F', '6B'], '#B49D91', 'Thatch', null],
 ];
     var varPL = varPLData[sku];
-    var product = getProductCatalog().getProduct(sku);
+    var product = pfiavG.productCatalog.getProduct(sku);
 
     return createKamalamFactory('/products/artwear/kamalam/', product, listData, varPL);
 }

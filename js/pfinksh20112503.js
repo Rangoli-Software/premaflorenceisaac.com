@@ -9,7 +9,7 @@ naksha.createSKUsList = function (base) {
     return {
         base: base,
         createSKU: function (sku) {
-            var product = getProductCatalog().getProduct(sku);
+            var product = pfiavG.productCatalog.getProduct(sku);
             var varPL = varPLData[sku];
             switch (sku) {
                 case naksha.microSKU:
@@ -35,7 +35,7 @@ naksha.createEncoder = function () {
                     return naksha.minuitSKU;
                 case 'd':
                     return naksha.midiSKU;
-                case 'i':
+                case 'm':
                     return naksha.miniSKU;
                 case 'c':
                     return naksha.microSKU;
@@ -48,7 +48,7 @@ naksha.createEncoder = function () {
                 case naksha.microSKU:
                     return 'c';
                 case naksha.miniSKU:
-                    return 'i';
+                    return 'm';
                 case naksha.midiSKU:
                     return 'd';
                 case naksha.minuitSKU:

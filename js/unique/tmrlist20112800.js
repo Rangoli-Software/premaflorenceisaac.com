@@ -80,7 +80,7 @@ var listData = [
 [6, ['6F', '6B'], '#962E33', 'Stiletto', null],
 ];
     var varPL = varPLData[sku];
-    var product = getProductCatalog().getProduct(sku);
+    var product = pfiavG.productCatalog.getProduct(sku);
 
     return createTamaraiFactory('/products/artwear/tamarai/', product, listData, varPL);
 }

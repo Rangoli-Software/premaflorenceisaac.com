@@ -446,7 +446,7 @@ const vb_catalog = {
     title: "Vagabond",
     shopURL: "/products/men/shop.html",
     skus: ['ANGKRT1601Kh', 'ARAMPA1601Kh', 'KOHKRT1601Kh', 'MAVKRT1601Kh', 'NARKRT1601Kh', 'PNDPNT1601Kh', 'UBDPNT1601Kh', 'MNHTST2016SP', 'MNHTPT2018SP'],
-    shirts: ['ANGKRT1601Kh', 'KOHKRT1601Kh', 'MAVKRT1601Kh', 'NARKRT1601Kh'],
+    tops: ['ANGKRT1601Kh', 'KOHKRT1601Kh', 'MAVKRT1601Kh', 'NARKRT1601Kh'],
     pants: ['PNDPNT1601Kh', 'UBDPNT1601Kh'],
     fitted: ['MNHTST2016SP', 'MNHTPT2018SP'],
     getPairWith: function (sku) {
@@ -459,7 +459,7 @@ const vb_catalog = {
     },
     getCategory: function (sku) {
         if (this.shirts.includes(sku)) {
-            return "shirts";
+            return "tops";
         }
         if (this.pants.includes(sku)) {
             return "pants";
