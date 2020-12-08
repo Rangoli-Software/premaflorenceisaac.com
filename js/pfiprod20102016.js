@@ -268,19 +268,17 @@ function createUniqueItemList(listdata, factory) {
             return this.base[i][0];
         },
         getImages: function (i) {
-            var desc = this.getDescriptor(i);
-            var text = this.factory.product.name;
+            let desc = this.getDescriptor(i);
+            let text = this.factory.product.name;
             return {
-                desc: desc,
-                text: text,
                 getNumImages: function () {
-                    return this.desc.getNumImages();
+                    return desc.getNumImages();
                 },
                 getImage: function (i) {
-                    var that = this;
+					let idx = i;
                     return {
-                        url: that.desc.getImagePath(i),
-                        text: that.text
+                        url: desc.getImagePath(idx),
+                        text: text + "-" + idx
                     };
                 }
             };

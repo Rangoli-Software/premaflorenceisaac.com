@@ -120,6 +120,77 @@ artwear.kamalam.createCardCreator = function () {
 };
 artwear.kamalam.createJSON = createArtwearJSON;
 
+artwear.saritop = {};
+artwear.saritop.SKU = 'SARITP1501Pa';
+artwear.saritop.getFactory = getSariTopFactory;
+artwear.saritop.sizing = artwear.dressSizing;
+artwear.saritop.prodData = {
+    imageFile: "sizing.jpg",
+    dimensionNames: ['A. Length', 'B. Neck Width', 'C. Bust'],
+    dimensionsCm: {
+        'Free': [110, 82, 120]
+    },
+    data: [{
+        vid: "CW1",
+        images: ["5pF", "5pB", "5pS", "5pD1", "5pD2"]
+    }],
+    sizes: ['S', 'M', 'L', 'XL'],
+    description: '',
+    garmentDetails: '',
+};
+artwear.saritop.shippingHTML = getShippingInfoUL(['Since our Sari Tops are on sale in several physical locations in addition to the website, there is a chance that the dress that you have selected has already been sold. In this case, we will let you select another dress, or refund your purchase price, as you prefer.']);
+artwear.saritop.createCardCreator = function () {
+    return createArtWearCardCreator(createSquareImageCarousel);
+};
+artwear.saritop.createJSON = createArtwearJSON;
+
+artwear.ravakai = {};
+artwear.ravakai.SKU = 'JULITP1501Pa';
+artwear.ravakai.getFactory = getRavakaiFactory;
+artwear.ravakai.sizing = artwear.dressSizing;
+artwear.ravakai.prodData = {
+    imageFile: "sizing.jpg",
+    dimensionNames: ['A. Length', 'B. Neck Width', 'C. Bust'],
+    dimensionsCm: {
+        'Free': [110, 82, 120]
+    },
+    data: [{
+        vid: "CW1",
+        images: ["1pF", "1pB", "1pS", "1pD1", "1pD2"]
+    }],
+    sizes: ['S', 'M', 'L', 'XL'],
+    description: '',
+    garmentDetails: '',
+};
+artwear.ravakai.shippingHTML = getShippingInfoUL(['Since our Sari Tops are on sale in several physical locations in addition to the website, there is a chance that the dress that you have selected has already been sold. In this case, we will let you select another dress, or refund your purchase price, as you prefer.']);
+artwear.ravakai.createCardCreator = function () {
+    return createArtWearCardCreator(createSquareImageCarousel);
+};
+artwear.ravakai.createJSON = createArtwearJSON;
+
+artwear.madras = {};
+artwear.madras.SKU = 'MDRSTP1606PP';
+artwear.madras.getFactory = getMadrasFactory;
+artwear.madras.sizing = artwear.dressSizing;
+artwear.madras.prodData = {
+    imageFile: "sizing.jpg",
+    dimensionNames: ['A. Length', 'B. Neck Width', 'C. Bust'],
+    dimensionsCm: {
+        'Free': [110, 82, 120]
+    },
+    data: [{
+        vid: "CW1",
+        images: ["7pF", "7pB", "7pS", "7pD1", "7pD2"]
+    }],
+    sizes: ['Free'],
+    description: '',
+    garmentDetails: '',
+};
+artwear.madras.shippingHTML = getShippingInfoUL(['Since our Sari Tops are on sale in several physical locations in addition to the website, there is a chance that the dress that you have selected has already been sold. In this case, we will let you select another dress, or refund your purchase price, as you prefer.']);
+artwear.madras.createCardCreator = function () {
+    return createArtWearCardCreator(createSquareImageCarousel);
+};
+artwear.madras.createJSON = createArtwearJSON;
 
 artwear.nakshaminuit = naksha.createStyle(naksha.minuitSKU);
 artwear.nakshamidi = naksha.createStyle(naksha.midiSKU);
@@ -130,9 +201,10 @@ artwear.catalog = {
     title: "Art Wear",
     shopURL: "/products/artwear/shop.html",
     skus: null,
-    styles: [artwear.tamarai, artwear.kamalam, artwear.kaftan, artwear.nakshaminuit, artwear.nakshamidi, artwear.nakshamini, artwear.nakshamicro, artwear.facemask],
+    styles: [artwear.tamarai, artwear.kamalam, artwear.kaftan, artwear.saritop, artwear.ravakai, artwear.madras, artwear.nakshaminuit, artwear.nakshamidi, artwear.nakshamini, artwear.nakshamicro, artwear.facemask],
     dresses: [artwear.tamarai.SKU, artwear.kamalam.SKU, artwear.kaftan.SKU],
-    separates: [artwear.nakshaminuit.SKU, artwear.nakshamidi.SKU, artwear.nakshamini.SKU, artwear.nakshamicro.SKU],
+    skirts: [artwear.nakshaminuit.SKU, artwear.nakshamidi.SKU, artwear.nakshamini.SKU, artwear.nakshamicro.SKU],
+    separates: [artwear.saritop.SKU, artwear.ravakai.SKU, artwear.madras.SKU],
     extras: [artwear.facemask.SKU],
     productDB: null,
     getProduct: function (sku) {
@@ -153,8 +225,8 @@ pfiavG.getLineInitializer(artwear).initialize();
 
 artwear.categorizer = createFieldCategorizer(
     artwear.catalog,
-    ["Dresses", "Separates", "Extras"],
-    ["dresses", "separates", "extras"],
-    ["d", "s", "e"],
+    ["Dresses", "Skirts", "Separates", "Extras"],
+    ["dresses", "skirts", "separates", "extras"],
+    ["d", "k", "s", "e"],
     "t",
     "d");
