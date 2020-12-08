@@ -1366,6 +1366,7 @@ function createPageComponent(prodInfo, catalog, rendererFactory) {
             this.unregisterATC();
             this.updateBreadCrumb();
             this.registerATC();
+            this.updateItemPrices();
         },
         onUnitChange: function () {
             this.getRenderer().updateUnits();
