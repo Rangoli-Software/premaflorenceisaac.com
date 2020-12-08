@@ -1436,6 +1436,7 @@ function createUIPageComponent(catalog, itemsComponent, itemsComponentFactory) {
         onReadyState() {
             this.onColourCategoryChange();
             this.updateBreadCrumb();
+            this.updateItemPrices();
         },
         onUnitChange: function () {
             this.itemsComponent.updateUnits();
