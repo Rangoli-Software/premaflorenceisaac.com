@@ -379,7 +379,13 @@ function createColourCategories(data, factory) {
             return items.base.length == 0;
         },
         unfiltered: function () {
-            return createUniqueItemList(this.factory.listData, this.factory).sortOnHue();
+            var list = createUniqueItemList(this.factory.listData, this.factory);
+            var clrList = list.filterOnValue(this.colourValRange).filterOnSaturation(this.colourRange).base;
+            var greyList = list.base.filter(x => !clrList.includes(x));
+			var sortedClrs = createUniqueItemList(clrList, this.factory).sortOnHue();
+			var sortedGrey = createUniqueItemList(greyList, this.factory).sortOnV();
+			var full = sortedClrs.base.concat(sortedGrey.base);
+			return createUniqueItemList(full, this.factory);
         },
         filterOnCategory: function (vidx) {
             var list = createUniqueItemList(this.factory.listData, this.factory);
