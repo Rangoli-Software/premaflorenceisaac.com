@@ -525,6 +525,7 @@ const merchInfo = [
     },
     {
         SKU: 'SARITP1501Pa',
+        ledes: [''],
         images: [{url: '/g/merch/sari1.jpg'},{url: '/g/merch/sari2.jpg'}]
     },
     {

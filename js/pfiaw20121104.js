@@ -193,7 +193,7 @@ artwear.madras.createJSON = createArtwearJSON;
 
 artwear.payara = {};
 artwear.payara.SKU = 'TRPZTP1807Pa';
-artwear.payara.getFactory = getPankhFactory;
+artwear.payara.getFactory = getPayaraFactory;
 artwear.payara.sizing = artwear.dressSizing;
 artwear.payara.prodData = {
 	imageFile: "sizing.jpg",
@@ -203,7 +203,7 @@ artwear.payara.prodData = {
 	},
 	data: [{
 		vid: "CW1",
-		images: ["7pF", "7pB", "7pS", "7pD1", "7pD2"]
+		images: ["1pF", "1pB", "1pS", "1pD1", "1pD2"]
     }],
 	sizes: ['Free'],
 	description: '',
