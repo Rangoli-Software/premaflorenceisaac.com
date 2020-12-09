@@ -161,7 +161,7 @@ artwear.ravakai.prodData = {
 	description: '',
 	garmentDetails: '',
 };
-artwear.ravakai.shippingHTML = getShippingInfoUL(['Since our Sari Tops are on sale in several physical locations in addition to the website, there is a chance that the dress that you have selected has already been sold. In this case, we will let you select another dress, or refund your purchase price, as you prefer.']);
+artwear.ravakai.shippingHTML = getShippingInfoUL(['Since our Ravakai Tops are on sale in several physical locations in addition to the website, there is a chance that the top that you have selected has already been sold. In this case, we will let you select another dress, or refund your purchase price, as you prefer.']);
 artwear.ravakai.createCardCreator = function () {
 	return createArtWearCardCreator(createSquareImageCarousel);
 };
@@ -185,7 +185,7 @@ artwear.madras.prodData = {
 	description: '',
 	garmentDetails: '',
 };
-artwear.madras.shippingHTML = getShippingInfoUL(['Since our Sari Tops are on sale in several physical locations in addition to the website, there is a chance that the dress that you have selected has already been sold. In this case, we will let you select another dress, or refund your purchase price, as you prefer.']);
+artwear.madras.shippingHTML = getShippingInfoUL(['Since our Madras Tops are on sale in several physical locations in addition to the website, there is a chance that the top that you have selected has already been sold. In this case, we will let you select another dress, or refund your purchase price, as you prefer.']);
 artwear.madras.createCardCreator = function () {
 	return createArtWearCardCreator(createSquareImageCarousel);
 };
@@ -209,7 +209,7 @@ artwear.payara.prodData = {
 	description: '',
 	garmentDetails: '',
 };
-artwear.payara.shippingHTML = getShippingInfoUL(['Since our Sari Tops are on sale in several physical locations in addition to the website, there is a chance that the dress that you have selected has already been sold. In this case, we will let you select another dress, or refund your purchase price, as you prefer.']);
+artwear.payara.shippingHTML = getShippingInfoUL(['Since our Payara Tops are on sale in several physical locations in addition to the website, there is a chance that the top that you have selected has already been sold. In this case, we will let you select another dress, or refund your purchase price, as you prefer.']);
 artwear.payara.createCardCreator = function () {
 	return createArtWearCardCreator(createSquareImageCarousel);
 };
@@ -233,11 +233,35 @@ artwear.longovertop.prodData = {
 	description: '',
 	garmentDetails: '',
 };
-artwear.longovertop.shippingHTML = getShippingInfoUL(['Since our Sari Tops are on sale in several physical locations in addition to the website, there is a chance that the dress that you have selected has already been sold. In this case, we will let you select another dress, or refund your purchase price, as you prefer.']);
+artwear.longovertop.shippingHTML = getShippingInfoUL(['Since our Long Overtops are on sale in several physical locations in addition to the website, there is a chance that the overtop that you have selected has already been sold. In this case, we will let you select another dress, or refund your purchase price, as you prefer.']);
 artwear.longovertop.createCardCreator = function () {
 	return createArtWearCardCreator(createSquareImageCarousel);
 };
 artwear.longovertop.createJSON = createArtwearJSON;
+
+artwear.shortovertop = {};
+artwear.shortovertop.SKU = 'OVTPSH1501Pa';
+artwear.shortovertop.getFactory = getShortOvertopFactory;
+artwear.shortovertop.sizing = artwear.dressSizing;
+artwear.shortovertop.prodData = {
+	imageFile: "sizing.jpg",
+	dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Sleeve Width', 'F. Sleeve Length'],
+	dimensionsCm: {
+		'Free': [69, 33, 108, 36, 30, 12]
+	},
+	data: [{
+		vid: "CW1",
+		images: ["1MF", "1MB", "1MS", "1MD1", "1MD2"]
+    }],
+	sizes: ['Free'],
+	description: '',
+	garmentDetails: '',
+};
+artwear.shortovertop.shippingHTML = getShippingInfoUL(['Since our Short Overtops are on sale in several physical locations in addition to the website, there is a chance that the overtop that you have selected has already been sold. In this case, we will let you select another dress, or refund your purchase price, as you prefer.']);
+artwear.shortovertop.createCardCreator = function () {
+	return createArtWearCardCreator(createSquareImageCarousel);
+};
+artwear.shortovertop.createJSON = createArtwearJSON;
 
 artwear.nakshaminuit = naksha.createStyle(naksha.minuitSKU);
 artwear.nakshamidi = naksha.createStyle(naksha.midiSKU);
@@ -248,10 +272,10 @@ artwear.catalog = {
 	title: "Art Wear",
 	shopURL: "/products/artwear/shop.html",
 	skus: null,
-	styles: [artwear.tamarai, artwear.kamalam, artwear.kaftan, artwear.saritop, artwear.ravakai, artwear.madras, artwear.payara, artwear.longovertop, artwear.nakshaminuit, artwear.nakshamidi, artwear.nakshamini, artwear.nakshamicro, artwear.facemask],
+	styles: [artwear.tamarai, artwear.kamalam, artwear.kaftan, artwear.saritop, artwear.ravakai, artwear.madras, artwear.payara, artwear.longovertop, artwear.shortovertop, artwear.nakshaminuit, artwear.nakshamidi, artwear.nakshamini, artwear.nakshamicro, artwear.facemask],
 	dresses: [artwear.tamarai.SKU, artwear.kamalam.SKU, artwear.kaftan.SKU],
 	skirts: [artwear.nakshaminuit.SKU, artwear.nakshamidi.SKU, artwear.nakshamini.SKU, artwear.nakshamicro.SKU],
-	separates: [artwear.saritop.SKU, artwear.ravakai.SKU, artwear.madras.SKU, artwear.payara.SKU, artwear.longovertop.SKU],
+	separates: [artwear.saritop.SKU, artwear.ravakai.SKU, artwear.madras.SKU, artwear.payara.SKU, artwear.longovertop.SKU, artwear.shortovertop.SKU],
 	extras: [artwear.facemask.SKU],
 	productDB: null,
 	getProduct: function (sku) {
