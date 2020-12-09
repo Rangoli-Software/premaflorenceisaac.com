@@ -511,7 +511,7 @@ const merchInfo = [
     {
         SKU: 'TRPZTP1807Pa',
         ledes: [''],
-        images: [{url: '/fw/IMG_2301.jpg'},{url: '/g/merch/payara1.jpg'},{url: '/g/merch/payara2.jpg'}]
+        images: [{url: '/g/merch/payara1.jpg'},{url: '/g/merch/payara2.jpg'}]
     },
     {
         SKU: 'MDRSTP1606PP',
