@@ -137,6 +137,102 @@ function createBrowseInfo(infoSections, numSections, baseBlackList) {
     };
 }
 
+function createUIColourWayFactory(product, varPL, descMap) {
+    return {
+        product: product,
+        varPL: varPL,
+        descMap: descMap,
+        getPrice: function (cw) {
+            if (cw === undefined || this.varPL === undefined) {
+                return this.product.inrPrice;
+            }
+            return this.varPL[cw];
+        },
+        getDescription: function (cw) {
+            if (cw === undefined) {
+                return this.descMap['CW1']
+            }
+            return this.descMap[cw];
+        }
+    }
+}
+
+function createUICollectedText(collected) {
+    var res = "Collected";
+    var name = collected.Name;
+    if (name !== undefined) {
+        res += " by " + name;
+    }
+    var date = collected.Date;
+    if (date !== undefined) {
+        var dt = Date.parse(date);
+        res += " in " + nkdtformatter.format(dt);
+    }
+    return res;
+}
+
+function createUIDescriptorFactory(base, product, listData, cwFactory) {
+    return {
+        listData: listData,
+        product: product,
+        base: base,
+        cwFactory: cwFactory,
+        getRowId: function (row) {
+            return row[0];
+        },
+        createDescriptor: function (r) {
+            var num = this.getRowId(r);
+            var collected = r[4];
+            var cw = r[5]
+            var cwPrice = this.cwFactory.getPrice(cw);
+            var cwDesc = this.cwFactory.getDescription(cw);
+			let row = r;
+            return {
+                base: this.base,
+                number: num,
+                hsl: hexToHSL(row[2]),
+                inrPrice: cwPrice,
+                catDesc: cwDesc,
+                collected: collected,
+                getNumImages: function () {
+                    return row[1].length;
+                },
+                getImagePath: function (idx) {
+                    return this.base + row[1][idx] + '.jpg';
+                },
+                getHue: function () {
+                    return this.hsl.h;
+                },
+                getSat: function () {
+                    return this.hsl.s;
+                },
+                getV: function () {
+                    return this.hsl.l;
+                },
+                getCWPrice: function () {
+                    return this.inrPrice;
+                },
+                getCWDesc: function () {
+                    return this.catDesc;
+                },
+                isAvailable: function () {
+                    return this.collected === null;
+                },
+                getCollectedText: function () {
+                    return createUICollectedText(this.collected);
+                }
+            };
+        }
+    };
+}
+
+function createStyleDescFactory(sku, basedir, listdata, descmap) {
+    var product = pfiavG.productCatalog.getProduct(sku);
+    var varPL = varPLData[sku];
+    var cwFactory = createUIColourWayFactory(product, varPL, descmap);
+    return createUIDescriptorFactory(basedir, product, listdata, cwFactory);
+}
+
 function createComponentGenerator(uiFactory, prodJSON, viewerFactory, colSelData, isSquare, cardCreator, modelTxt) {
     return {
         viewerFactory: viewerFactory,

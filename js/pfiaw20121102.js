@@ -49,7 +49,6 @@ artwear.facemask.createJSON = createArtwearJSON;
 
 artwear.tamarai = {};
 artwear.tamarai.SKU = 'NKSHDR1501Ta';
-artwear.tamarai.createFactory = createTamaraiFactory;
 artwear.tamarai.getFactory = getTamaraiFactory;
 artwear.tamarai.sizing = artwear.dressSizing;
 artwear.tamarai.prodData = {

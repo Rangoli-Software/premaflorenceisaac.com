@@ -109,7 +109,7 @@ const varPLData = {
         CW1: 15750
     },
     NKSHDR1501Ta: {
-        CW1: 17550
+        CW2: 17550
     },
 	MDRSTP1606PP: {
 		CW2: 7500
