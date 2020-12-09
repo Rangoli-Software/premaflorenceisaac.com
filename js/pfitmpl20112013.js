@@ -504,19 +504,44 @@ function getSubEntry(item, url) {
 
 const merchInfo = [
     {
+        SKU: 'OVTPLO1501Pa',
+        ledes: [''],
+        images: [{url: '/blog/FlorDuomo.jpg'},{url: '/g/merch/lovr1.jpg'},{url: '/g/merch/lovr2.jpg'}]
+    },
+    {
+        SKU: 'TRPZTP1807Pa',
+        ledes: [''],
+        images: [{url: '/fw/IMG_2301.jpg'},{url: '/g/merch/payara1.jpg'},{url: '/g/merch/payara2.jpg'}]
+    },
+    {
+        SKU: 'MDRSTP1606PP',
+        ledes: [''],
+        images: [{url: '/g/merch/mdrs.jpg'}]
+    },
+    {
+        SKU: 'JULITP1501Pa',
+        ledes: [''],
+        images: [{url: '/placeholder.jpg'}]
+    },
+    {
+        SKU: 'SARITP1501Pa',
+        images: [{url: '/g/merch/sari1.jpg'},{url: '/g/merch/sari2.jpg'}]
+    },
+    {
         SKU: 'LNKFTN1501Ja',
         ledes: [''],
-        images: [{url: '/products/holydaysreboot/Kaftan.jpg'}]
+        images: [{url: '/products/holydaysreboot/Kaftan.jpg'},{url: '/g/merch/kaftan.jpg'}]
     },
     {
         SKU: 'LOTSDR1501Ja',
         ledes: [''],
-        images: [{url: '/products/holydaysreboot/Lotus.jpg'}]
+        images: [{url: '/products/holydaysreboot/Lotus.jpg'},{url: '/g/merch/kmlm.jpg'}]
     },
     {
         SKU: 'NKSHDR1501Ta',
         ledes: [''],
-        images: [{url: '/look/ramp/j201.jpg'},{url: '/people/tmribzSq.jpg'}]    },
+        images: [{url: '/look/ramp/j201.jpg'},{url: '/people/tmribzSq.jpg'},{url: '/g/merch/tmri.jpg'}]    }
+	,
     {
         SKU: 'KLGTLY1601Rv',
         ledes: [''],

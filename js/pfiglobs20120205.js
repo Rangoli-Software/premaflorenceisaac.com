@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020120202";
+const shopRevisionVersion = "2020120205";
 
 const pfiavG = {};
 pfiavG.lineNames = ["Art Wear", "It's Magic", "Ce Soir", "Happy Everyday"];
@@ -25,7 +25,7 @@ const cmData = [
 ['Trikona Dress','DELTDR1611PP','0.4','1.2','/products/artwear/trikona.html','TRUE'],
 ['Sari Top','SARITP1501Pa','0.4','1.2','/products/artwear/sari.html','TRUE'],
 ['Ravakai Top','JULITP1501Pa','0.4','1.2','/products/artwear/ravakai.html','TRUE'],
-['Pankh Top','TRPZTP1807Pa','0.4','1.2','/products/artwear/pankh.html','TRUE'],
+['Payara Top','TRPZTP1807Pa','0.4','1.2','/products/artwear/payara.html','TRUE'],
 ['Madras Top','MDRSTP1606PP','0.4','1.2','/products/artwear/madras.html','TRUE'],
 ['Chhota Overtop','OVTPSH1501Pa','0.4','1.2','/products/artwear/sovertop.html','TRUE'],
 ['Overtop','OVERTP1501Pa','0.4','1.2','/products/artwear/overtop.html','TRUE'],

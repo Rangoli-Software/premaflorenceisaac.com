@@ -191,6 +191,30 @@ artwear.madras.createCardCreator = function () {
 };
 artwear.madras.createJSON = createArtwearJSON;
 
+artwear.payara = {};
+artwear.payara.SKU = 'TRPZTP1807Pa';
+artwear.payara.getFactory = getPankhFactory;
+artwear.payara.sizing = artwear.dressSizing;
+artwear.payara.prodData = {
+	imageFile: "sizing.jpg",
+	dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Sleeve Width', 'F. Sleeve Length'],
+	dimensionsCm: {
+		'Free': [69, 33, 108, 36, 30, 12]
+	},
+	data: [{
+		vid: "CW1",
+		images: ["7pF", "7pB", "7pS", "7pD1", "7pD2"]
+    }],
+	sizes: ['Free'],
+	description: '',
+	garmentDetails: '',
+};
+artwear.payara.shippingHTML = getShippingInfoUL(['Since our Sari Tops are on sale in several physical locations in addition to the website, there is a chance that the dress that you have selected has already been sold. In this case, we will let you select another dress, or refund your purchase price, as you prefer.']);
+artwear.payara.createCardCreator = function () {
+	return createArtWearCardCreator(createSquareImageCarousel);
+};
+artwear.payara.createJSON = createArtwearJSON;
+
 artwear.nakshaminuit = naksha.createStyle(naksha.minuitSKU);
 artwear.nakshamidi = naksha.createStyle(naksha.midiSKU);
 artwear.nakshamini = naksha.createStyle(naksha.miniSKU);
@@ -200,10 +224,10 @@ artwear.catalog = {
 	title: "Art Wear",
 	shopURL: "/products/artwear/shop.html",
 	skus: null,
-	styles: [artwear.tamarai, artwear.kamalam, artwear.kaftan, artwear.saritop, artwear.ravakai, artwear.madras, artwear.nakshaminuit, artwear.nakshamidi, artwear.nakshamini, artwear.nakshamicro, artwear.facemask],
+	styles: [artwear.tamarai, artwear.kamalam, artwear.kaftan, artwear.saritop, artwear.ravakai, artwear.madras, artwear.payara, artwear.nakshaminuit, artwear.nakshamidi, artwear.nakshamini, artwear.nakshamicro, artwear.facemask],
 	dresses: [artwear.tamarai.SKU, artwear.kamalam.SKU, artwear.kaftan.SKU],
 	skirts: [artwear.nakshaminuit.SKU, artwear.nakshamidi.SKU, artwear.nakshamini.SKU, artwear.nakshamicro.SKU],
-	separates: [artwear.saritop.SKU, artwear.ravakai.SKU, artwear.madras.SKU],
+	separates: [artwear.saritop.SKU, artwear.ravakai.SKU, artwear.madras.SKU, artwear.payara.SKU],
 	extras: [artwear.facemask.SKU],
 	productDB: null,
 	getProduct: function (sku) {
