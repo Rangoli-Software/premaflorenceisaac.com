@@ -1,9 +1,9 @@
-const shopRevisionVersion = "2020120206";
+const shopRevisionVersion = "2020120207";
 
 const pfiavG = {};
 pfiavG.lineNames = ["Art Wear", "It's Magic", "Ce Soir", "Happy Everyday"];
 pfiavG.lineMerchSKUs = [
-	["NKSHDR1501Ta","LOTSDR1501Ja","LNKFTN1501Ja","SARITP1501Pa","JULITP1501Pa","MDRSTP1606PP","TRPZTP1807Pa","OVTPLO1501Pa","NKSHMU1501PP","NKSHMD1501PP","NKSHMI1501PP","NKSHMC1512PP","FACEMK2005Ta"], 
+	["NKSHDR1501Ta","LOTSDR1501Ja","LNKFTN1501Ja","SARITP1501Pa","MDRSTP1606PP","TRPZTP1807Pa","OVTPLO1501Pa","NKSHMU1501PP","NKSHMD1501PP","NKSHMI1501PP","NKSHMC1512PP","FACEMK2005Ta"], 
     ["KLGTLY1601Rv", "KGYPST1601Rv", "KRAJPT1601Kh", "FAIRST2011Rv", "KBALPA1601Vo", "KRAJKT1601Rv", "YUVRTC1601Rv", "HLFPNT1601Kh", "KIDIKI1501Vi", "PRNCDR1501Rv", "KWAVDR1601Rv", "KDHRDR1601Rv"], 
     ["HLNDRS1505PT", "JLTDRS1505PT", "BKLLTS1505Je"], 
     ["CRPTOP1805Kh", "VAMPAL1708Kh", "OVTPLO1501Vo", "BERMPA1609Kh", "LTSDSL1501Kh", "BALLPA1501Vo"]
@@ -27,9 +27,9 @@ const cmData = [
 ['Ravakai Top','JULITP1501Pa','0.4','1.2','/products/artwear/ravakai.html','TRUE'],
 ['Payara Top','TRPZTP1807Pa','0.4','1.2','/products/artwear/payara.html','TRUE'],
 ['Madras Top','MDRSTP1606PP','0.4','1.2','/products/artwear/madras.html','TRUE'],
-['Chhota Overtop','OVTPSH1501Pa','0.4','1.2','/products/artwear/sovertop.html','TRUE'],
-['Overtop','OVERTP1501Pa','0.4','1.2','/products/artwear/overtop.html','TRUE'],
-['Lamba Aavaran','OVTPLO1501Pa','0.4','1.2','/products/artwear/lovertop.html','TRUE'],
+['Seragu Overtop','OVTPSH1501Pa','0.4','1.2','/products/artwear/sovertop.html','TRUE'],
+['Pallu Overtop','OVERTP1501Pa','0.4','1.2','/products/artwear/overtop.html','TRUE'],
+['Aanchal Overtop','OVTPLO1501Pa','0.4','1.2','/products/artwear/lovertop.html','TRUE'],
 ['Tamarai Dress','NKSHDR1501Ta','0.35','1.2','/products/artwear/tamarai.html','TRUE'],
 ['Malligai Dress','NKSDSL1701Ta','0.35','1.2','/products/artwear/malligai.html','TRUE'],
 ['Kamalam Dress','LOTSDR1501Ja','0.35','1.2','/products/artwear/kamalam.html','TRUE'],
