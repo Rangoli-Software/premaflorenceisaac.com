@@ -556,7 +556,7 @@ const merchInfo = [
     {
         SKU: 'KGYPST1601Rv',
         ledes: [''],
-        images: [{url: '/products/itsmagic/GypsySet.jpg'}]
+        images: [{url: '/products/itsmagic/GypsySet.jpg'},{url: '/g/merch/gypsy.jpg'}]
     },
     {
         SKU: 'KRAJPT1601Kh',
@@ -576,12 +576,12 @@ const merchInfo = [
     {
         SKU: 'KRAJKT1601Rv',
         ledes: [''],
-        images: [{url: '/products/itsmagic/RajKurta.jpg'},{url: '/products/itsmagic/RajBoy.jpg'}]
+        images: [{url: '/products/itsmagic/RajKurta.jpg'},{url: '/products/itsmagic/RajBoy.jpg'},{url: '/g/merch/royal1.jpg'},{url: '/g/merch/royal2.jpg'}]
     },
     {
         SKU: 'YUVRTC1601Rv',
         ledes: [''],
-        images: [{url: '/products/itsmagic/Yuvraj.jpg'}]
+        images: [{url: '/products/itsmagic/Yuvraj.jpg'},{url: '/g/merch/prince.jpg'}]
     },
     {
         SKU: 'HLFPNT1601Kh',
@@ -596,12 +596,12 @@ const merchInfo = [
     {
         SKU: 'PRNCDR1501Rv',
         ledes: [''],
-        images: [{url: '/products/itsmagic/Princess.jpg'}]
+        images: [{url: '/products/itsmagic/Princess.jpg'},{url: '/g/merch/princess.jpg'}]
     },
     {
         SKU: 'KWAVDR1601Rv',
         ledes: [''],
-        images: [{url: '/products/itsmagic/Wave.jpg'}]
+        images: [{url: '/products/itsmagic/Wave.jpg'},{url: '/g/merch/wave.jpg'}]
     },
     {
         SKU: 'KDHRDR1601Rv',
