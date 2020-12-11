@@ -4,6 +4,11 @@ const promos = {
 		discountPercentage: 20
 	}
 };
+const headers = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+};
 
 exports.handler = async (event, context, callback) => {
 	console.log(promos);
@@ -16,12 +21,13 @@ exports.handler = async (event, context, callback) => {
 		if (promo === undefined || promo === null) {
 			return {
 				statusCode: 200,
+				headers,
 				body: null
 			}
 		}
-
 		return {
 			statusCode: 200,
+			headers,
 			body: JSON.stringify(promo)
 		}
 	} catch (e) {
