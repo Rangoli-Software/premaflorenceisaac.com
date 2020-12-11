@@ -504,11 +504,6 @@ function getSubEntry(item, url) {
 
 const merchInfo = [
     {
-        SKU: 'OVTPSH1501Pa',
-        ledes: [''],
-        images: [{url: '/placeholder.jpg'}]
-    },
-    {
         SKU: 'OVTPLO1501Pa',
         ledes: [''],
         images: [{url: '/blog/FlorDuomo.jpg'},{url: '/g/merch/lovr1.jpg'},{url: '/g/merch/lovr2.jpg'}]
@@ -516,17 +511,12 @@ const merchInfo = [
     {
         SKU: 'TRPZTP1807Pa',
         ledes: [''],
-        images: [{url: '/g/merch/payara1.jpg'},{url: '/g/merch/payara2.jpg'}]
+        images: [{url: '/g/merch/payara2.jpg'}]
     },
     {
         SKU: 'MDRSTP1606PP',
         ledes: [''],
         images: [{url: '/g/merch/mdrs.jpg'}]
-    },
-    {
-        SKU: 'JULITP1501Pa',
-        ledes: [''],
-        images: [{url: '/placeholder.jpg'}]
     },
     {
         SKU: 'SARITP1501Pa',
@@ -536,7 +526,7 @@ const merchInfo = [
     {
         SKU: 'LNKFTN1501Ja',
         ledes: [''],
-        images: [{url: '/products/holydaysreboot/Kaftan.jpg'},{url: '/g/merch/kaftan.jpg'}]
+        images: [{url: '/products/holydaysreboot/Kaftan.jpg'},{url: '/g/aw/HDRKaftan1AW.jpg'}]
     },
     {
         SKU: 'LOTSDR1501Ja',
@@ -581,7 +571,7 @@ const merchInfo = [
     {
         SKU: 'YUVRTC1601Rv',
         ledes: [''],
-        images: [{url: '/products/itsmagic/Yuvraj.jpg'},{url: '/g/merch/prince.jpg'}]
+        images: [{url: '/g/merch/prince.jpg'}]
     },
     {
         SKU: 'HLFPNT1601Kh',
@@ -1236,7 +1226,7 @@ function scriptSrcs() {
 }
 
 function getShopTop() {
-    return '<div class="modal fade" id="shopping-cart" tabindex="-1" role="dialog" aria-labelledby="shoppingCartTitle" aria-hidden="true"> <div class="modal-dialog modal-dialog-centered" role="document"> <div class="modal-content"> <div class="modal-header"> <div class="modal-title" id="shoppingCartTitle"> <div class="row p-1 text-left"> <strong>Your Shopping Cart</strong> </div></div><button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div><div class="modal-body"> <div class="item p-1 text-left"> <strong><span>Total: <span class="sc-currency-string"><i class="fa fa-inr"> </i></span> <span class="sc-total">0</span></span></strong><br><span>Subtotal: <span class="sc-currency-string"><i class="fa fa-inr"> </i></span> <span class="sc-subtotal">0</span></span><br><span>Shipping: <span class="sc-currency-string"><i class="fa fa-inr"></i></span> <span class="sc-shipping">0</span></span> </div><div class="item sc-item-list"> </div><div class="row p-1" style="background-color: white; color: black"> <div class="col align-self-center"><span></span></div></div></div><div class="modal-footer"> <button class="btn btn-secondary btn-sm sc-save-changes float-left" type="button">Save Cart</button> <button class="btn btn-warning btn-sm sc-checkout float-right" type="button">Checkout</button> </div></div></div></div><div class="modal fade" id="checkout-form" tabindex="-1" role="dialog" aria-labelledby="checkoutFormTitle" aria-hidden="true"> <div class="modal-dialog modal-dialog-centered" role="document"> <div class="modal-content"> <div class="modal-header"> <div class="modal-title" id="checkoutFormTitle"> <p><strong>Checkout with Paypal<span class="align-top">*</span></strong></p></div><button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div><div class="modal-body"> <div id="form-group" class="row p-1" style="background-color: white; color: black"> <div class="col text-center"> <div class="form-check form-check-inline"> <input class="form-check-input" id="sc-ship-to-india" type="checkbox" value=""> <label class="form-check-label" for="sc-ship-to-india">Ship to India</label> </div><div class="form-check form-check-inline"> <input class="form-check-input" id="sc-ship-express" type="checkbox" value=""> <label class="form-check-label" for="sc-ship-express">Express Shipping</label> </div></div></div><div class="row p-1"> <div class="col-12"> <p class="float-left"><small><strong><span>Total: <span class="sc-currency-string"><i class="fa fa-inr"></i></span> <span class="sc-total">0</span></span></strong><br><span>Subtotal: <span class="sc-currency-string"><i class="fa fa-inr"> </i></span> <span class="sc-subtotal">0</span></span><br><span>Shipping: <span class="sc-currency-string"><i class="fa fa-inr"></i></span> <span class="sc-shipping">0</span></span></small></p><div id="sc-paypal-btn" class="float-right"></div></div></div><div class="item sc-item-list"> </div></div><div class="modal-footer sc-checkout-btn"> <div> <p><span class="align-top">*</span><small>To maximize the security of your data, we do not collect your personal details on our website. When you complete your secure payment through PayPal, we receive your contact information and shipping address from them.</small></p></div></div></div></div></div><div class="modal fade" id="paypal-return" tabindex="-1" role="dialog" aria-hidden="true"> <div class="modal-dialog modal-dialog-centered" role="document"> <div class="modal-content"> <div class="modal-header"> <div class="modal-title pptitle"></div><button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div><div class="modal-body"> <p class="ppmessage"></p></div></div></div></div>';
+    return '<div class="modal fade" id="shopping-cart" tabindex="-1" role="dialog" aria-labelledby="shoppingCartTitle" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content"><div class="modal-header"><div class="modal-title" id="shoppingCartTitle"><div class="row p-1 text-left"> <strong>Your Shopping Cart</strong> </div></div><button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button></div><div class="modal-body"><div class="item p-1 text-left"> <strong><span>Total: <span class="sc-currency-string"><i class="fa fa-inr"> </i></span> <span class="sc-total">0</span></span></strong><br><span>Subtotal: <span class="sc-currency-string"><i class="fa fa-inr"> </i></span> <span class="sc-subtotal">0</span></span><br><span>Shipping: <span class="sc-currency-string"><i class="fa fa-inr"></i></span> <span class="sc-shipping">0</span></span> </div><div class="item sc-item-list"> </div><div class="row p-1" style="background-color: white; color: black"><div class="col align-self-center"><span></span></div></div></div><div class="modal-footer"> <button class="btn btn-secondary btn-sm sc-save-changes float-left" type="button">Save Cart</button> <button class="btn btn-warning btn-sm sc-finalize float-right" type="button">Proceed to Buy</button> </div></div></div></div><div class="modal fade" id="finalize-form" tabindex="-1" role="dialog" aria-labelledby="finalizeFormTitle" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content"><div class="modal-header"><div class="modal-title" id="finalizeFormTitle"><p><strong>Finalize Order</strong></p></div><button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button></div><div class="modal-body"><div class="row p-1"><div class="col-12"><small><strong><span>Total: <span class="sc-currency-string"><i class="fa fa-inr"></i></span> <span class="sc-total">0</span></span></strong><br><span>Subtotal: <span class="sc-currency-string"><i class="fa fa-inr"> </i></span> <span class="sc-subtotal">0</span></span><br><span class="sc-discount-display"><span>Discount: <span class="sc-currency-string"><i class="fa fa-inr"></i></span> <span class="sc-discount">0</span></span><br></span><span>Shipping: <span class="sc-currency-string"><i class="fa fa-inr"></i></span> <span class="sc-shipping">0</span></span></small></div></div><div id="form-group" class="row p-1" style="background-color: white; color: black"><div class="col text-center"><div class="form-check form-check-inline"> <input class="form-check-input" id="sc-ship-to-india" type="checkbox" value=""> <label class="form-check-label" for="sc-ship-to-india">Ship to India</label> </div><div class="form-check form-check-inline"> <input class="form-check-input" id="sc-ship-express" type="checkbox" value=""> <label class="form-check-label" for="sc-ship-express">Express Shipping</label> </div></div></div><div class="row p-1"><div class="col text-center"><small><button id="btnOffer" class="btn btn-outline btn-sm dropdown-toggle" type="button" data-target="#promoForm" data-toggle="collapse" aria-haspopup="true" aria-expanded="false">Add Gift Card or Promo Code</button><form class="collapse" id="promoForm"><div class="form-group sc-code-group"><div class="input-group"><input type="text" class="form-control" id="sc-offer-code" placeholder="Enter Code" aria-describedby="codeHelpBlock"><div class="input-group-append"><button class="btn btn-secondary sc-apply-code" type="button">Apply</button></div></div><small id="codeHelpBlock" class="form-text text-muted"></small></div></form></small></div></div></div><div class="modal-footer"><button class="btn btn-warning btn-sm sc-checkout float-right" type="button">Checkout</button></div></div></div></div><div class="modal fade" id="checkout-form" tabindex="-1" role="dialog" aria-labelledby="checkoutFormTitle" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content"><div class="modal-header"><div class="modal-title" id="checkoutFormTitle"><p><strong>Checkout with Paypal<span class="align-top">*</span></strong></p></div><button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button></div><div class="modal-body"><div class="row p-1"><div class="col-12"><p class="float-left"><strong><span>Order Total: <span class="sc-currency-string"><i class="fa fa-inr"></i></span> <span class="sc-total">0</span></span></strong></p><div id="sc-paypal-btn" class="float-right"></div></div></div><div class="item sc-item-list"> </div></div><div class="modal-footer sc-checkout-btn"><div><p><span class="align-top">*</span><small>To maximize the security of your data, we do not collect your personal details on our website. When you complete your secure payment through PayPal, we receive your contact information and shipping address from them.</small></p></div></div></div></div></div><div class="modal fade" id="paypal-return" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content"><div class="modal-header"><div class="modal-title pptitle"></div><button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button></div><div class="modal-body"><p class="ppmessage"></p></div></div></div></div>';
 }
 
 function getShopHeader() {
