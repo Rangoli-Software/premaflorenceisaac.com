@@ -6,6 +6,8 @@ const promos = {
 };
 
 exports.handler = async (event, context, callback) => {
+	console.log(promos);
+	console.log(event);
 	const payload = JSON.parse(event.body);
 	const promoKey = payload.promoKey;
 
