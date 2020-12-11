@@ -17,18 +17,15 @@ exports.handler = async (event, context, callback) => {
 	const promoKey = payload.promoKey;
 
 	try {
+		const res = {};
 		const promo = promos[promoKey];
-		if (promo === undefined || promo === null) {
-			return {
-				statusCode: 200,
-				headers,
-				body: null
-			}
+		if (promo !== undefined && promo !== null) {
+			res.promo = promo;
 		}
 		return {
 			statusCode: 200,
 			headers,
-			body: JSON.stringify(promo)
+			body: JSON.stringify(res)
 		}
 	} catch (e) {
 		return {
