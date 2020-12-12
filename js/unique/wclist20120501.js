@@ -1,3 +1,22 @@
+/*
+function createNewFMListData(listData) {
+	var res = [];
+	for (var i = 0; i < listData.length; i++) {
+		var row = [];
+		row.push(i + 1);
+		row.push(listData[i][0])
+		row.push([listData[i][1]])
+		row.push(listData[i][2])
+		row.push(listData[i][3])
+		if (listData[i][4] !== undefined) {
+			row.push(listData[i][4]);
+		}
+		res.push(row);
+	}
+	return res;
+}
+*/
+
 function createWovenCanvasFactory(base, product, listData, varPL) {
     return {
         listData: listData,

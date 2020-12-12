@@ -183,7 +183,7 @@ function createUIDescriptorFactory(base, product, listData, cwFactory) {
         createDescriptor: function (r) {
             var num = this.getRowId(r);
             var collected = r[4];
-            var cw = r[5]
+            var cw = r[5];
             var cwPrice = this.cwFactory.getPrice(cw);
             var cwDesc = this.cwFactory.getDescription(cw);
 			let row = r;
@@ -220,7 +220,10 @@ function createUIDescriptorFactory(base, product, listData, cwFactory) {
                 },
                 getCollectedText: function () {
                     return createUICollectedText(this.collected);
-                }
+                },
+				getSize: function() {
+					return row[6];
+				}
             };
         }
     };
