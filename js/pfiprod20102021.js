@@ -1049,15 +1049,25 @@ function createSizePanelr(skuInfo, dimensioner, sizer) {
 }
 
 function createBasePanelr(shop, product) {
+	var priceString = shop.getPriceHTML(product);
+	var varPL = varPLData[product.sku];
+	if ( varPL !== undefined) {
+		var mn = product.inrPrice;
+		var mx = product.inrPrice;
+		Object.keys(varPL).forEach(function (k, i) {
+			var v = varPL[k];
+			mn = Math.min(mn, v);
+			mx = Math.max(mx, v);
+		});
+		priceString = shop.getFXPriceHTML(mn) + " - " + shop.getFXPriceHTML(mx);
+	}
     return {
-        shop: shop,
+		shop: shop,
         product: product,
-        getPriceHTML: function () {
-            return this.shop.getPriceHTML(this.product);
-        },
+		priceString: priceString,
         createBasePanel: function () {
             return '<h4 class="mb-2">' + this.product.name + '</h4>' +
-                '<div class="mb-5 text-gray-400"><span class="ml-1 font-size-h5 font-weight-bold">' + this.getPriceHTML() + '</span></div>';
+                '<div class="mb-5 text-gray-400"><span class="ml-1 font-size-h5 font-weight-bold">' + priceString + '</span></div>';
         }
     }
 }
@@ -1076,7 +1086,7 @@ function createBasePanelrRange(shop, product, varPL) {
                 mx = Math.max(mx, v);
             });
             return '<h4 class="mb-2">' + this.product.name + '</h4>' +
-                '<div class="mb-5 font-size-h5 font-weight-bold"><span class="ml-1 text-gray-400">' + this.shop.getFXPriceHTML(mn) + '</span> - <span class="text-gray-400">' + this.shop.getFXPriceHTML(mx) + '</span></div>';
+                '<div class="mb-5 font-size-h5 font-weight-bold"><span class="ml-1 text-gray-400">' + this.shop.getFXPriceHTML(mn) + ' - ' + this.shop.getFXPriceHTML(mx) + '</span></div>';
         }
     }
 }
