@@ -30,10 +30,7 @@ artwear.facemask.prodData = {
 	imageFile: "sizing.jpg",
 	dimensionNames: ["A. Width", "B. Height"],
 	dimensionsCm: {
-		Free: [
-            29,
-            15,
-        ]
+		Free: [29, 15]
 	},
 	data: [{
 		vid: "CW1",
@@ -122,12 +119,15 @@ artwear.kamalam.createJSON = createArtwearJSON;
 artwear.saritop = {};
 artwear.saritop.SKU = 'SARITP1501Pa';
 artwear.saritop.getFactory = getSariTopFactory;
-artwear.saritop.sizing = artwear.dressSizing;
+artwear.saritop.sizing = null;
 artwear.saritop.prodData = {
 	imageFile: "sizing.jpg",
-	dimensionNames: ['A. Length', 'B. Neck Width', 'C. Bust'],
+	dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole'],
 	dimensionsCm: {
-		'Free': [110, 82, 120]
+		'S. ': [56, 27, 94, 51],
+		'M': [57, 29, 98, 53],
+		'L': [58, 31, 102, 55],
+		'XL': [59, 33, 106, 57]
 	},
 	data: [{
 		vid: "CW1",
@@ -146,12 +146,15 @@ artwear.saritop.createJSON = createArtwearJSON;
 artwear.ravakai = {};
 artwear.ravakai.SKU = 'JULITP1501Pa';
 artwear.ravakai.getFactory = getRavakaiFactory;
-artwear.ravakai.sizing = artwear.dressSizing;
+artwear.ravakai.sizing = null;
 artwear.ravakai.prodData = {
 	imageFile: "sizing.jpg",
-	dimensionNames: ['A. Length', 'B. Neck Width', 'C. Bust'],
+	dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Sleeve Length', 'F. Sleeve Width'],
 	dimensionsCm: {
-		'Free': [110, 82, 120]
+		'S': [57, 38, 98, 43, 22, 31],
+		'M': [58, 40, 100, 45, 23, 32],
+		'L': [59, 42, 106, 47, 24, 33],
+		'XL': [60, 44, 110, 49, 25, 34]
 	},
 	data: [{
 		vid: "CW1",
@@ -170,7 +173,7 @@ artwear.ravakai.createJSON = createArtwearJSON;
 artwear.madras = {};
 artwear.madras.SKU = 'MDRSTP1606PP';
 artwear.madras.getFactory = getMadrasFactory;
-artwear.madras.sizing = artwear.dressSizing;
+artwear.madras.sizing = null;
 artwear.madras.prodData = {
 	imageFile: "sizing.jpg",
 	dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Sleeve Width', 'F. Sleeve Length'],
@@ -194,12 +197,12 @@ artwear.madras.createJSON = createArtwearJSON;
 artwear.payara = {};
 artwear.payara.SKU = 'TRPZTP1807Pa';
 artwear.payara.getFactory = getPayaraFactory;
-artwear.payara.sizing = artwear.dressSizing;
+artwear.payara.sizing = null;
 artwear.payara.prodData = {
 	imageFile: "sizing.jpg",
-	dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Sleeve Width', 'F. Sleeve Length'],
+	dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole'],
 	dimensionsCm: {
-		'Free': [69, 33, 108, 36, 30, 12]
+		'Free': [72, 34, 104, 52]
 	},
 	data: [{
 		vid: "CW1",
@@ -218,18 +221,21 @@ artwear.payara.createJSON = createArtwearJSON;
 artwear.longovertop = {};
 artwear.longovertop.SKU = 'OVTPLO1501Pa';
 artwear.longovertop.getFactory = getLongOvertopFactory;
-artwear.longovertop.sizing = artwear.dressSizing;
+artwear.longovertop.sizing = null;
 artwear.longovertop.prodData = {
 	imageFile: "sizing.jpg",
 	dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Sleeve Width', 'F. Sleeve Length'],
 	dimensionsCm: {
-		'Free': [69, 33, 108, 36, 30, 12]
+		'S. ': [103, 39, 94, 48, 31, 46],
+		'M': [104, 41, 98, 50, 32, 47],
+		'L': [105, 43, 102, 52, 34.5, 48],
+		'XL': [106, 45, 106, 54, 36.5, 49]
 	},
 	data: [{
 		vid: "CW1",
 		images: ["1MF", "1MB", "1MS", "1MD1", "1MD2"]
     }],
-	sizes: ['Free'],
+	sizes: ['S', 'M', 'L', 'XL'],
 	description: '',
 	garmentDetails: '',
 };
@@ -242,18 +248,21 @@ artwear.longovertop.createJSON = createArtwearJSON;
 artwear.shortovertop = {};
 artwear.shortovertop.SKU = 'OVTPSH1501Pa';
 artwear.shortovertop.getFactory = getShortOvertopFactory;
-artwear.shortovertop.sizing = artwear.dressSizing;
+artwear.shortovertop.sizing = null;
 artwear.shortovertop.prodData = {
 	imageFile: "sizing.jpg",
-	dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Sleeve Width', 'F. Sleeve Length'],
+	dimensionNames: ['A. Front Length', 'B. Back Length', 'C. Shoulders', 'D. Bust', 'E. Armhole', 'F. Sleeve Width', 'G. Sleeve Length'],
 	dimensionsCm: {
-		'Free': [69, 33, 108, 36, 30, 12]
+		'S. ': [64, 40, 41, 102, 48, 14, 47],
+		'M': [65, 41, 43, 106, 50, 14.5, 48],
+		'L': [66, 42, 46, 110, 52, 15, 49],
+		'XL': [67, 43, 47, 114, 54, 15.5, 50]
 	},
 	data: [{
 		vid: "CW1",
 		images: ["1MF", "1MB", "1MS", "1MD1", "1MD2"]
     }],
-	sizes: ['Free'],
+	sizes: ['S', 'M', 'L', 'XL'],
 	description: '',
 	garmentDetails: '',
 };

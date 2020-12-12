@@ -143,13 +143,13 @@ function createUIColourWayFactory(product, varPL, descMap) {
         varPL: varPL,
         descMap: descMap,
         getPrice: function (cw) {
-            if (cw === undefined || this.varPL === undefined) {
+            if (cw === undefined || this.varPL === undefined || cw === null) {
                 return this.product.inrPrice;
             }
             return this.varPL[cw];
         },
         getDescription: function (cw) {
-            if (cw === undefined) {
+            if (cw === undefined || cw === null) {
                 return this.descMap['CW1']
             }
             return this.descMap[cw];
@@ -1271,6 +1271,9 @@ function createUICardCreatorBase(imgCreator, colClasses) {
             res += '<div class="card-body px-0 pt-2 pb-4 text-center">';
             res += '<div class="card-title mb-2"><span>' + desc.getCWDesc() + '</span></div>';
             res += '<div class="card-subtitle mb-3"><span>' + priceHTML + '</span></div>';
+			if ( desc.getSize() !== undefined ) {
+				res += '<p>Size: ' + desc.getSize() + '</p>'
+			}
             if (desc.isAvailable()) {
                 res += createAddToCartButton(btnId);
             } else {
