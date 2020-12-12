@@ -504,6 +504,11 @@ function getSubEntry(item, url) {
 
 const merchInfo = [
     {
+        SKU: 'OVTPSH1501Pa',
+        ledes: [''],
+        images: [{url: '/g/merch/sovr1.jpg'},{url: '/g/merch/sovr2.jpg'}]
+    },
+    {
         SKU: 'OVTPLO1501Pa',
         ledes: [''],
         images: [{url: '/blog/FlorDuomo.jpg'},{url: '/g/merch/lovr1.jpg'},{url: '/g/merch/lovr2.jpg'}]
