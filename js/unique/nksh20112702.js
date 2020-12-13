@@ -53,6 +53,9 @@ function createNakshaFactory(base, listData, product, varPL) {
                 isAvailable: function() {
                     return this.collected === null;
                 },
+				getSize: function () {
+					return undefined;
+				},
                 getCollectedText: function() {
                     var res = "Collected";
                     var name = this.collected.Name;
