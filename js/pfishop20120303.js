@@ -521,6 +521,17 @@ function createPaypalCheckoutButton(id, shop, cart, calc, allCartC) {
 	}, id);
 }
 
+function updatePageItemPrices(catalog, shop) {
+	var elts = $('.sc-item[data-field="price"]');
+	elts.each(function (index) {
+		var sku = $(this).data('vsku');
+		var prod = catalog.getProduct(sku);
+		$(this).empty();
+		var html = getPriceStringHTML(shop, prod);
+		$(this).append(html);
+	});
+}
+
 function createCurrencySelectorComponent(shop, allCartC) {
 	return {
 		shop: shop,
@@ -1043,15 +1054,7 @@ function createShopPageComponent() {
 			return "scpp-" + num;
 		},
 		updateItemPrices: function () {
-			var elts = $('.sc-item');
-			var that = this;
-			elts.each(function (index) {
-				var sku = $(this).data('vsku');
-				var prod = that.catalog.getProduct(sku);
-				$(this).empty();
-				var html = that.allCartC.shop.getPriceHTML(prod);
-				$(this).append(html);
-			});
+			updatePageItemPrices(this.catalog, this.allCartC.shop);
 		},
 		onDocumentReady: function () {
 			this.init();

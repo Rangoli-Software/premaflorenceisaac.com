@@ -339,12 +339,7 @@ naksha.createUICFactory = function (scope, colSelData, browseInfo) {
 					return skuSelViewer;
 				},
 				createBase: function (shop) {
-					var pl = factory.varPL;
-					if (pl === undefined) {
-						return createBasePanelr(shop, this.product);
-					} else {
-						return createBasePanelrRange(shop, this.product, pl);
-					}
+					return createBasePanelr(shop, this.product);
 				},
 				create: function () {
 					return createCatenatedViewer([detailViewer, storyViewer]);
@@ -353,7 +348,7 @@ naksha.createUICFactory = function (scope, colSelData, browseInfo) {
 					return createNavHelper(prodJSON, artwear.categorizer, artwear.catalog.title);
 				}
 			};
-			return createComponentGenerator(factory, prodJSON, viewerFactory, this.colSelData, false, this.scope.createCardCreator(sku), "The model is 5 ft 3 in (160 cm).");
+			return createComponentGenerator(factory, prodJSON, viewerFactory, this.colSelData, true, this.scope.createCardCreator(sku), "The model is 5 ft 3 in (160 cm).");
 		},
 		updateURL: function (sku) {
 			var encoder = this.scope.urlUpdater.encoder;

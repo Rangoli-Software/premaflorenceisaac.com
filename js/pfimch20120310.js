@@ -112,6 +112,10 @@ function createPageSelector(mips, wl, bl) {
             var ab = [about, buzz, archives, lotm, moods, ramp, clients];
             return [this.selFeature(bg), this.selFeature(ab)];
         },
+		findSection: function(sku) {
+			var lineIdx = pfiavG.lineMerchSKUs.findIndex(skulist => skulist.includes(sku) );
+			return pfiavG.lineMerchSections[lineIdx];
+		},
         selectMerch: function () {
             var blacklist = this.blacklist;
             var fltMI = this.miPageSet.filter(function (page) {
@@ -125,14 +129,14 @@ function createPageSelector(mips, wl, bl) {
                 var sel = fltMI.select('SKU', sku);
                 var img = sel.images[getRandomIdx(sel.images)];
                 sel.imageURL = img.url;
-                res.push(createMerchandisingRef(sel));
+                res.push(createMerchandisingRef(sel, this.findSection(sku)));
             }
             return res;
         },
     }
 }
 
-function createProductCard(sku, title, url, imageURL, lede, isSq) {
+function createProductCard(sku, title, url, imageURL, lede, isSq, section) {
     var res = '<div class="card mb-2">';
     if (isSq) {
         res += '<div class="embed-responsive embed-responsive-1by1">';
@@ -144,8 +148,14 @@ function createProductCard(sku, title, url, imageURL, lede, isSq) {
         res += '</div>';
     }
     res += '<div class="card-body px-0 pt-6 pb-4">';
-    res += '<div class="card-subtitle mb-1"><span class="sc-item" data-field="price" data-vsku="' + sku + '"></span></div>';
-    res += '<h6 class="card-title mb-2">' + title + '<a  href="' + url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
+	if (section === undefined) {
+		res += '<div class="card-subtitle mb-1"><span class="sc-item" data-field="price" data-vsku="' + sku + '"></span></div>';
+    	res += '<h6 class="card-title mb-2">' + title + '<a  href="' + url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
+	} else {
+		res += '<div class="card-subtitle mb-1"><a class="text-muted" href="' + section.url + '">' + section.title + '</a></div>';
+    	res += '<h6 class="card-title mb-2">' + title + '<a  href="' + url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
+		res += '<p><span class="sc-item" data-field="price" data-vsku="' + sku + '"></span></p>'
+	}
     if (lede !== null) {
         res += '<p class="mb-1">' + lede + '</p>';
     }
@@ -167,7 +177,7 @@ function createProductRef(product) {
     };
 }
 
-function createMerchandisingRef(item) {
+function createMerchandisingRef(item, section) {
     return {
         SKU: item.SKU,
         title: item.title,
@@ -185,7 +195,7 @@ function createMerchandisingRef(item) {
             this.lede = item.ledes[getRandomIdx(item.ledes)];
         },
         createCard: function () {
-            return createProductCard(this.SKU, this.title, this.url, this.imageURL, this.lede, true);
+            return createProductCard(this.SKU, this.title, this.url, this.imageURL, this.lede, true, section);
         }
     }
 }

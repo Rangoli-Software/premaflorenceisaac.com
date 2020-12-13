@@ -1,13 +1,26 @@
-const shopRevisionVersion = "2020120210";
+const shopRevisionVersion = "2020120211";
 
 const pfiavG = {};
 pfiavG.lineNames = ["Art Wear", "It's Magic", "Ce Soir", "Happy Everyday"];
 pfiavG.lineMerchSKUs = [
-	["NKSHDR1501Ta","LOTSDR1501Ja","LNKFTN1501Ja","SARITP1501Pa","MDRSTP1606PP","TRPZTP1807Pa","OVTPLO1501Pa","NKSHMU1501PP","NKSHMD1501PP","NKSHMI1501PP","NKSHMC1512PP","FACEMK2005Ta","OVTPSH1501Pa"], 
-    ["KLGTLY1601Rv", "KGYPST1601Rv", "KRAJPT1601Kh", "FAIRST2011Rv", "KBALPA1601Vo", "KRAJKT1601Rv", "YUVRTC1601Rv", "HLFPNT1601Kh", "KIDIKI1501Vi", "PRNCDR1501Rv", "KWAVDR1601Rv", "KDHRDR1601Rv"], 
-    ["HLNDRS1505PT", "JLTDRS1505PT", "BKLLTS1505Je"], 
+    ["OVTPSH1501Pa", "OVTPLO1501Pa", "TRPZTP1807Pa", "MDRSTP1606PP", "SARITP1501Pa", "LNKFTN1501Ja", "LOTSDR1501Ja", "NKSHDR1501Ta", "NKSHMU1501PP", "NKSHMD1501PP", "NKSHMI1501PP", "NKSHMC1512PP", "FACEMK2005Ta"],
+    ["KLGTLY1601Rv", "KGYPST1601Rv", "KRAJPT1601Kh", "FAIRST2011Rv", "KBALPA1601Vo", "KRAJKT1601Rv", "YUVRTC1601Rv", "HLFPNT1601Kh", "KIDIKI1501Vi", "PRNCDR1501Rv", "KWAVDR1601Rv", "KDHRDR1601Rv"],
+    ["HLNDRS1505PT", "JLTDRS1505PT", "BKLLTS1505Je"],
     ["CRPTOP1805Kh", "VAMPAL1708Kh", "OVTPLO1501Vo", "BERMPA1609Kh", "LTSDSL1501Kh", "BALLPA1501Vo"]
 ];
+pfiavG.lineMerchSections = [{
+    "title": "Art Wear",
+    "url": "/products/artwear/shop.html"
+}, {
+    "title": "It's Magic",
+    "url": "/products/itsmagic/shop.html"
+}, {
+    "title": "Ce Soir",
+    "url": "/products/night/shop.html"
+}, {
+    "title": "Happy Everyday",
+    "url": "/products/happyeveryday/shop.html"
+}];
 
 const cmData = [
 ['Test Live Trans','TESTIT0000Hi','0','0','','FALSE'],

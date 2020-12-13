@@ -112,15 +112,7 @@ function createProductPageComponent(sku, listData) {
             return this.allCartC.addToCart(item);
         },
         updateItemPrices: function() {
-            var elts =$('.sc-item');
-            var that = this;
-            elts.each(function(index) {
-                var sku = $(this).data('vsku');
-                var prod =  that.catalog.getProduct(sku);
-                $(this).empty();
-                var html = that.allCartC.shop.getPriceHTML(prod);
-                $(this).append(html);
-            });
+			updatePageItemPrices(this.catalog, this.allCartC.shop);
         },
         renderProductList: function() {
             var renderer = createRenderer(this.allCartC.shop, {}, this.prodObjs, this);

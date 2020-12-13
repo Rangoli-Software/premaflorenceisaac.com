@@ -506,7 +506,7 @@ const merchInfo = [
     {
         SKU: 'OVTPSH1501Pa',
         ledes: [''],
-        images: [{url: '/g/merch/sovr1.jpg'},{url: '/g/merch/sovr2.jpg'}]
+        images: [{url: '/g/merch/sovr1.jpg'}]
     },
     {
         SKU: 'OVTPLO1501Pa',
@@ -916,6 +916,21 @@ function createTopNav() {
     return res;
 }
 
+function getPriceStringHTML(shop, product) {
+	var priceString = shop.getPriceHTML(product);
+	var varPL = varPLData[product.sku];
+	if ( varPL !== undefined) {
+		var mn = product.inrPrice;
+		var mx = product.inrPrice;
+		Object.keys(varPL).forEach(function (k, i) {
+			var v = varPL[k];
+			mn = Math.min(mn, v);
+			mx = Math.max(mx, v);
+		});
+		priceString = shop.getFXPriceHTML(mn) + " - " + shop.getFXPriceHTML(mx);
+	}
+	return priceString;
+}
 
 function pfisig() {
     return '<strong>Prema Florence Isaac</strong>';

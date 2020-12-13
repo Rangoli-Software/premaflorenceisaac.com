@@ -277,7 +277,7 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, colSelData
             var itemCategorySelector = this.createItemCatSelector();
             var sizeSelector = createSizeSelector(this.prodJSON.skuInfo.sizes, this.createSizePanelr().getToggleHTML(), null, this.modelTxt, "Size");
             var productComponent = productComponentFactory.createProductComponent(shop);
-            return createUniqueItemsComponent(items, productComponentFactory, productComponent, itemCategorySelector, sizeSelector, this.cardCreator);
+            return createUniqueItemsComponent(shop, items, productComponentFactory, productComponent, itemCategorySelector, sizeSelector, this.cardCreator);
         },
     };
 }
@@ -1049,20 +1049,8 @@ function createSizePanelr(skuInfo, dimensioner, sizer) {
 }
 
 function createBasePanelr(shop, product) {
-	var priceString = shop.getPriceHTML(product);
-	var varPL = varPLData[product.sku];
-	if ( varPL !== undefined) {
-		var mn = product.inrPrice;
-		var mx = product.inrPrice;
-		Object.keys(varPL).forEach(function (k, i) {
-			var v = varPL[k];
-			mn = Math.min(mn, v);
-			mx = Math.max(mx, v);
-		});
-		priceString = shop.getFXPriceHTML(mn) + " - " + shop.getFXPriceHTML(mx);
-	}
+	var priceString = getPriceStringHTML(shop, product);
     return {
-		shop: shop,
         product: product,
 		priceString: priceString,
         createBasePanel: function () {
@@ -1071,26 +1059,6 @@ function createBasePanelr(shop, product) {
         }
     }
 }
-
-function createBasePanelrRange(shop, product, varPL) {
-    return {
-        shop: shop,
-        product: product,
-        varPL: varPL,
-        createBasePanel: function () {
-            var mn = product.inrPrice;
-            var mx = product.inrPrice;
-            Object.keys(this.varPL).forEach(function (k, i) {
-                var v = varPL[k];
-                mn = Math.min(mn, v);
-                mx = Math.max(mx, v);
-            });
-            return '<h4 class="mb-2">' + this.product.name + '</h4>' +
-                '<div class="mb-5 font-size-h5 font-weight-bold"><span class="ml-1 text-gray-400">' + this.shop.getFXPriceHTML(mn) + ' - ' + this.shop.getFXPriceHTML(mx) + '</span></div>';
-        }
-    }
-}
-
 
 function createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, variantSelector, sizeSelector, itemAdder, addlViewer) {
     return {
@@ -1306,8 +1274,9 @@ function createArtWearCardCreator(carouselFn) {
     return createUICardCreatorBase(createCarouselImageCreator(carouselFn), 'col-12 col-sm-6');
 }
 
-function createUniqueItemsComponent(items, productComponentFactory, productComponent, itemCategorySelector, sizeSelector, cardCreator) {
+function createUniqueItemsComponent(shop, items, productComponentFactory, productComponent, itemCategorySelector, sizeSelector, cardCreator) {
     return {
+		shop: shop,
         size: 'Free',
         items: items,
         productComponentFactory: productComponentFactory,
@@ -1323,7 +1292,7 @@ function createUniqueItemsComponent(items, productComponentFactory, productCompo
             return this.cardCreator.createCard(
                 this.items.getImages(i),
                 this.getButtonId(i),
-                this.productComponent.basePanelr.shop.getFXPriceHTML(this.items.getINRPrice(i)),
+                this.shop.getFXPriceHTML(this.items.getINRPrice(i)),
                 this.items.getDescriptor(i));
         },
         createCards: function () {
@@ -1453,15 +1422,7 @@ function createPageComponent(prodInfo, catalog, rendererFactory) {
             return this.allCartC.addToCart(item);
         },
         updateItemPrices: function () {
-            var elts = $('.sc-item');
-            let that = this;
-            elts.each(function (index) {
-                var sku = $(this).data('vsku');
-                var prod = that.catalog.getProduct(sku);
-                $(this).empty();
-                var html = that.allCartC.shop.getPriceHTML(prod);
-                $(this).append(html);
-            });
+			updatePageItemPrices(this.catalog, this.allCartC.shop);
         },
         unregisterATC: function () {
             this.getRenderer().unregisterATC();
@@ -1504,15 +1465,7 @@ function createUIPageComponent(catalog, itemsComponent, itemsComponentFactory) {
             return this.allCartC.addToCart(item);
         },
         updateItemPrices: function () {
-            var elts = $('.sc-item');
-            var that = this;
-            elts.each(function (index) {
-                var sku = $(this).data('vsku');
-                var prod = that.catalog.getProduct(sku);
-                $(this).empty();
-                var html = that.allCartC.shop.getPriceHTML(prod);
-                $(this).append(html);
-            });
+			updatePageItemPrices(this.catalog, this.allCartC.shop);
         },
         updateItemCategories: function () {
             var that = this;
