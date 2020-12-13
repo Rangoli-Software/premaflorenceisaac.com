@@ -506,7 +506,7 @@ const merchInfo = [
     {
         SKU: 'OVTPSH1501Pa',
         ledes: [''],
-        images: [{url: '/g/merch/sovr1.jpg'}]
+        images: [{url: '/g/merch/sovr.jpg'}]
     },
     {
         SKU: 'OVTPLO1501Pa',
