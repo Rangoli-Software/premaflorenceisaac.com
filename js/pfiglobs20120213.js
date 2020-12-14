@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020120211";
+const shopRevisionVersion = "2020120213";
 
 const pfiavG = {};
 pfiavG.lineNames = ["Art Wear", "It's Magic", "Ce Soir", "Happy Everyday"];
@@ -129,6 +129,13 @@ const varPLData = {
 	},
 	OVTPLO1501Pa: {
 		CW3: 9000
+	},
+	AWTSHT1604Je: {
+/*
+		CW1: 5000,
+		CW3: 5000,
+*/
+		CW3: 7500
 	}
 }
 

@@ -1,314 +1,273 @@
-/*
-function createNewFMListData(listData) {
-	var res = [];
-	for (var i = 0; i < listData.length; i++) {
-		var row = [];
-		row.push(i + 1);
-		row.push(listData[i][0])
-		row.push([listData[i][1]])
-		row.push(listData[i][2])
-		row.push(listData[i][3])
-		if (listData[i][4] !== undefined) {
-			row.push(listData[i][4]);
+function createWovenCanvasItemFactory(product, varPL, descMap) {
+	return {
+		product: product,
+		varPL: varPL,
+		descMap: descMap,
+		getPrice: function (cw) {
+			if (cw === undefined || this.varPL === undefined || cw === null) {
+				return this.product.inrPrice;
+			}
+			return this.varPL[cw];
+		},
+		getCategoryDescription: function (cw) {
+			if (cw === undefined || cw === null) {
+				return this.descMap['CW1']
+			}
+			return this.descMap[cw];
+		},
+		getFGColor: function (row) {
+			var fabricColor = row[8].color;
+			if ( fabricColor === "White")  {
+				return "black";
+			} else {
+				return "white";
+			}
+		},
+		getBGColor: function (row) {
+			var fabricColor = row[8].color;
+			if ( fabricColor === "White")  {
+				return "white";
+			} else if (fabricColor === "Black") {
+				return "black"
+			} else {
+				return "#13004C";
+			}
+		},
+		getDescription: function (row) {
+			return "# " + row[0] + '<br>' +
+				row[7].Width + " cm. x " + row[7].Height + " cm.";
+		},
+		getGarmentColour: function(row) {
+			return row[8].color;
+		},
+		getCurated: function(row){
+			return row[9];
 		}
-		res.push(row);
 	}
-	return res;
-}
-*/
-
-function createWovenCanvasFactory(base, product, listData, varPL) {
-    return {
-        listData: listData,
-        product: product,
-        base: base,
-        varPL: varPL,
-        getRowId: function(row) {
-            return row[0];
-        },
-        createDescriptor: function(row) {
-            var num = this.getRowId(row);
-            var collected = row[ 4 ];
-            var cwPrice;
-            var cwDesc;
-            if (row[5] === undefined) {
-                cwPrice = this.product.inrPrice;
-                cwDesc = 'Tangail';
-            } else {
-                var cw = row[5];
-                var vpl = this.varPL[cw];
-                cwPrice = vpl === undefined ? this.product.inrPrice : vpl;
-                cwDesc = 'Indigo In-Love';
-            }
-            return {
-                base: this.base,
-                number: num,
-                hsl: hexToHSL(row[2]),
-                inrPrice: cwPrice,
-                catDesc: cwDesc,
-                collected: collected,
-                getNumImages: function () {
-                    return row[1].length;
-                },
-                getImagePath: function (idx) {
-                    return this.base + row[1][idx] + '.jpg';
-                },
-                getHue: function() {
-                    return this.hsl.h;
-                },
-                getSat: function() {
-                    return this.hsl.s;
-                },
-                getV: function() {
-                    return this.hsl.l;
-                },
-                getCWPrice: function () {
-                    return this.inrPrice;
-                },
-                getCWDesc: function () {
-                    return this.catDesc;
-                },
-                isAvailable: function() {
-                    return this.collected === null;
-                },
-                getCollectedText: function() {
-                    var res = "Collected";
-                    var name = this.collected.Name;
-                    if ( name !== undefined ) {
-                        res += " by " + name;
-                    }
-                    var date = this.collected.Date;
-                    if ( date !== undefined ) {
-                        var dt = Date.parse(date);
-                        res += " in " + nkdtformatter.format(dt);
-                    }
-                    return res;
-                }
-            };
-        }
-    };
 }
 
-var colListData = [
-['501','/tbc/501.jpg','Black','12','30','Mar 2018','Elrun','',''],
-['502','/tbc/502.jpg','Black','12','28.5','Mar 2018','','',''],
-['503','/tbc/503.jpg','Black','12','30.75','Aug 2018','','',''],
-['504','/tbc/504.jpg','Black','12','30.5','Dec 2018','','S',''],
-['505','/tbc/505.jpg','White','12.4','32.1','Mar 2018','Kartik','',''],
-['506','/tbc/506.jpg','White','11.9','27.6','Oct 2018','Aloke','',''],
-['507','/tbc/507.jpg','Black','12.1','30.1','Feb 2018','','',''],
-['508','/tbc/508.jpg','Black','11.9','30','Mar 2018','','',''],
-['509','/tbc/509.jpg','Black','12','28','Jun 2018','Alessandro','',''],
-['510','/tbc/510.jpg','White','12.1','30.6','Feb 2018','Catarina','',''],
-['511','/tbc/511.jpg','Black','11.8','29.7','Oct 2018','Al','',''],
-['512','/tbc/512.jpg','White','12.1','28.5','','','',''],
-['513','/tbc/513.jpg','White','12','29.6','Mar 2018','Nir','',''],
-['514','/tbc/514.jpg','White','12.1','31.7','Feb 2018','','',''],
-['515','/tbc/515.jpg','White','11.9','29.9','Feb 2019','','L',''],
-['516','/tbc/516.jpg','White','12.3','29.1','Aug 2018','Tom','',''],
-['517','/tbc/517.jpg','Black','12.2','30.6','Sep 2018','','',''],
-['518','/tbc/518.jpg','Black','11.9','30.8','Jun 2018','Nitika','',''],
-['519','/tbc/519.jpg','Black','12','32.4','Mar 2018','Cecilie','',''],
-['520','/tbc/520.jpg','Black','12.1','34.1','Jun 2018','Taran','',''],
-['521','/tbc/521.jpg','Black','12','30.7','Mar 2018','','',''],
-['522','/tbc/522.jpg','Black','12.1','30.4','Jun 2018','Rick','',''],
-['523','/tbc/523.jpg','Black','12','31.3','Mar 2018','Nir','',''],
-['524','/tbc/524.jpg','Black','12','32.1','Mar 2018','Elrun','',''],
-['525','/tbc/525.jpg','White','12','31','Aug 2018','','',''],
-['526','/tbc/526.jpg','Black','12','30','Apr 2018','Vikas','',''],
-['527','/tbc/527.jpg','Black','12.1','25.5','Sep 2018','','',''],
-['528','/tbc/528.jpg','White','12.1','28.8','','','',''],
-['529','/tbc/529.jpg','White','12','30.9','Aug 2018','','',''],
-['530','/tbc/530.jpg','Black','12','28','Aug 2018','','',''],
-['531','/tbc/531.jpg','Black','12','30.4','Jun 2018','Kavi','',''],
-['532','/tbc/532.jpg','Black','12.1','28','Aug 2018','','',''],
-['533','/tbc/533.jpg','Black','12','29.5','Aug 2018','','',''],
-['534','/tbc/534.jpg','Black','12','30','Aug 2018','','',''],
-['535','/tbc/535.jpg','Black','12','32.8','Jun 2018','Kevin','',''],
-['536','/tbc/536.jpg','Black','12','32.6','Jun 2018','Bimal','',''],
-['537','/tbc/537.jpg','Black','12','32.8','Jun 2015','Brittany','',''],
-['538','/tbc/538.jpg','Black','12','32.1','Aug 2018','','',''],
-['539','/tbc/539.jpg','Black','12','33.1','Feb 2019','','XXL',''],
-['540','/tbc/540.jpg','Black','12','34.5','Oct 2018','','',''],
-['541','/tbc/541.jpg','White','12','33.4','Apr 2019','Sebastien','XXL',''],
-['542','/tbc/542.jpg','Black','12','32.3','Nov 2018','','L',''],
-['543','/tbc/543.jpg','Black','12','31.7','Dec 2018','','M',''],
-['544','/tbc/544.jpg','Black','12.3','33.6','Jan 2019','','XXL',''],
-['545','/tbc/545.jpg','Black','12','32.2','Nov 2018','','M',''],
-['546','/tbc/546.jpg','Black','12','30.8','Sep 2020','Alok','L',''],
-['547','/tbc/547.jpg','White','12.3','27.7','','','S',''],
-['548','/tbc/548.jpg','Black','12.2','32.6','Oct 2018','','',''],
-['549','/tbc/549.jpg','Black','12.1','29.9','Oct 2018','','',''],
-['550','/tbc/550.jpg','Black','12.2','28','Sep 2019','','S',''],
-['551','/tbc/551.jpg','Black','12.1','29.3','Nov 2018','','L',''],
-['552','/tbc/552.jpg','Black','12.2','31.9','Mar 2019','','XL',''],
-['553','/tbc/553.jpg','White','12.1','29.9','Feb 2019','','M',''],
-['554','/tbc/554.jpg','Black','12.1','28.7','Feb 2020','','M',''],
-['555','/tbc/555.jpg','White','12.3','30.2','','','',''],
-['556','/tbc/556.jpg','White','12.1','29.2','','','',''],
-['557','/tbc/557.jpg','White','12.4','28.2','','','',''],
-['558','/tbc/558.jpg','White','12.2','29','Mar 2019','','M',''],
-['559','/tbc/559.jpg','White','12.5','29.3','Oct 2019','','M',''],
-['560','/tbc/560.jpg','White','12','30.2','Nov 2018','','',''],
-['561','/tbc/561.jpg','White','12.1','33.9','Dec 2019','','XL',''],
-['562','/tbc/562.jpg','Black','12.1','29.6','Dec 2019','','M',''],
-['563','/tbc/563.jpg','White','12','31.3','Jan 2019','','L',''],
-['564','/tbc/564.jpg','Black','12','34.2','Dec 2019','','XL',''],
-['565','/tbc/565.jpg','Black','12.4','31.8','Mar 2019','','M',''],
-['566','/tbc/566.jpg','White','12.1','36.8','','','',''],
-['567','/tbc/567.jpg','White','12.2','35.4','','','',''],
-['568','/tbc/568.jpg','Black','12.1','32.1','Nov 2018','','L',''],
-['569','/tbc/569.jpg','White','12.1','30.3','','','S',''],
-['570','/tbc/570.jpg','Black','12.1','29','Dec 2019','Marouane','S',''],
-['571','/tbc/571.jpg','Black','12.3','33.3','Jan 2019','','XL',''],
-['572','/tbc/572.jpg','White','12.1','31.9','Jan 2019','','XL',''],
-['573','/tbc/573.jpg','White','12.1','30.3','Jan 2019','','M',''],
-['574','/tbc/574.jpg','Black','12','31.4','Feb 2020','','M',''],
-['575','/tbc/575.jpg','Black','12','33.9','Sep 2020','Alok','L',''],
-['576','/tbc/576.jpg','Black','12','34.1','Dec 2019','','',''],
-['577','/tbc/577.jpg','Black','12','34','Feb 2020','Abbie','XXL',''],
-['578','/tbc/578.jpg','Black','12.2','29.9','Aug 2020','','M',''],
-['579','/tbc/579.jpg','Black','12.1','28.8','Nov 2018','Kazimieras','',''],
-['580','/tbc/580.jpg','Black','11.9','28','','','S',''],
-['581','/tbc/581.jpg','Black','12.1','29.6','','','M',''],
-['582','/tbc/582.jpg','Black','12','30.9','Sep 2019','Erich','',''],
-['583','/tbc/583.jpg','Black','12.1','32.5','Feb 2020','','L',''],
-['584','/tbc/584.jpg','Black','12.2','32.4','Mar 2019','','L',''],
-['585','/tbc/585.jpg','Black','12','28.6','Dec 2019','','M',''],
-['586','/tbc/586.jpg','Black','12','32','','','L',''],
-['587','/tbc/587.jpg','Black','12.1','34.2','Sep 2020','Paul','',''],
-['588','/tbc/588.jpg','Black','12','30.6','Sep 2019','Joerg','XL',''],
-['589','/tbc/589.jpg','Black','12','30','Feb 2020','','M',''],
-['590','/tbc/590.jpg','Black','12','31.6','Apr 2019','Kartik','L',''],
-['591','/tbc/591.jpg','Black','12.1','34.4','Nov 2018','','',''],
-['592','/tbc/592.jpg','White','12','32','','','S',''],
-['593','/tbc/593.jpg','Black','12','34.5','Jan 2020','Muriel','XL',''],
-['594','/tbc/594.jpg','White','12','31.5','Sep 2020','Indre','M',''],
-['595','/tbc/595.jpg','White','12','32','Sep 2019','Erich','XL',''],
-['596','/tbc/596.jpg','Black','12','34.5','Feb 2020','','XL',''],
-['597','/tbc/597.jpg','White','12','32.5','Feb 2020','','XXL',''],
-['598','/tbc/598.jpg','White','12','32','Dec 2019','','L',''],
-['599','/tbc/599.jpg','White','12','30','Dec 2019','','M',''],
-['600','/tbc/600.jpg','Black','12','36','','','XL',''],
-['601','/tbc/601.jpg','White','12','33.5','Jan 2020','Muriel','XL',''],
-['602','/tbc/602.jpg','White','12','30','','','M',''],
-['603','/tbc/603.jpg','White','12','30.5','','','L',''],
-['604','/tbc/604.jpg','White','12','34.5','Jan 2020','Muriel','XL',''],
-['605','/tbc/605.jpg','White','12','28','','','M',''],
-['606','/tbc/606.jpg','Black','12','33','Jan 2020','Muriel','XL',''],
-['607','/tbc/607.jpg','Black','12','31','Dec 2019','','S',''],
-['608','/tbc/608.jpg','Black','12','33','Dec 2019','','XL',''],
-['609','/tbc/609.jpg','Black','12','31.5','Sep 2020','Indre','M',''],
-['610','/tbc/610.jpg','Black','12','34','Sep 2020','Indre','XL',''],
-['611','/tbc/611.jpg','Black','12','31','Jan 2020','','M',''],
-['612','/tbc/612.jpg','Indigo','12','36','','','M',''],
-['613','/tbc/613.jpg','White','12','36','','','XL',''],
-['614','/tbc/614.jpg','White','12','32','Jun 2020','Mary','M',''],
-['615','/tbc/615.jpg','White','12','33','Jan 2020','','L',''],
-['616','/tbc/616.jpg','Black','12','30','','','S',''],
-['617','/tbc/617.jpg','Black','12','31.5','Jan 2020','','M',''],
-['618','/tbc/618.jpg','Black','12','30.5','','','S',''],
-['619','/tbc/619.jpg','Black','12','34','','','XL',''],
-['620','/tbc/620.jpg','Black','12','32','Feb 2020','Savitri','',''],
-['621','/tbc/621.jpg','Black','12','32.5','','','XL',''],
-['622','/tbc/622.jpg','Black','12','29','Feb 2020','','',''],
-['623','/tbc/623.jpg','White','12','34.5','','','XL',''],
-['624','/tbc/624.jpg','Black','12','32','','','L',''],
-['625','/tbc/625.jpg','White','12','27','Feb 2020','Dan','',''],
-['626','/tbc/626.jpg','White','12','31','','','M',''],
-['627','/tbc/627.jpg','White','12','32.5','Aug 2020','','L',''],
-['628','/tbc/628.jpg','White','12','34','','','',''],
-['629','/tbc/629.jpg','Black','12','35.5','Mar 2020','Anne','',''],
-['630','/tbc/630.jpg','Black','12','35.5','','','',''],
-['631','/tbc/631.jpg','White','12','33','','','XL',''],
-['632','/tbc/632.jpg','Indigo','12','34','','','L',''],
-['633','/tbc/633.jpg','Black','12','30','','','','AV'],
-['634','/tbc/634.jpg','Black','12','30','','','','AV'],
-['635','/tbc/635.jpg','Black','12','30','','','','AV'],
-['636','/tbc/636.jpg','Black','12','30','','','','AV'],
-['637','/tbc/637.jpg','Black','12','30','','','','AV'],
-['638','/tbc/638.jpg','Black','12','30','','','','AV / Missing'],
-['639','/tbc/639.jpg','Black','12','30.5','Jul 2020','Alex','M',''],
-['640','/tbc/640.jpg','Black','12','29','','','S',''],
-['641','/tbc/641.jpg','Black','12','32','','','L',''],
-['642','/tbc/642.jpg','Black','12','','','','XL',''],
-['643','/tbc/643.jpg','Black','12','32','Oct 2020','Sahiba','M',''],
-['644','/tbc/644.jpg','Black','12','','','','XL',''],
-['645','/tbc/645.jpg','Black','12','32','','','M',''],
-['646','/tbc/646.jpg','Black','12','','','','L',''],
-['647','/tbc/647.jpg','Black','12','','','','XL',''],
-['648','/tbc/648.jpg','White','12','','Jun 2020','Michel','L',''],
-['649','/tbc/649.jpg','White','12','','Jul 2020','Alex','M',''],
-['650','/tbc/650.jpg','White','12','30','','','S','TD'],
-['651','/tbc/651.jpg','White','12','31','','','M','TD'],
-['652','/tbc/652.jpg','White','12','31.5','Feb 2020','','',''],
-['653','/tbc/653.jpg','Black','12','27.5','','','',''],
-['654','/tbc/654.jpg','Black','12','33','','','XL','TD'],
-['655','/tbc/655.jpg','Black','12','33.5','','','XL','TD'],
-['656','/tbc/656.jpg','Black','12','30','Feb 2020','','',''],
-['657','/tbc/657.jpg','Black','12','30','','','',''],
-['658','/tbc/658.jpg','Black','12','30','','','',''],
-['659','/tbc/659.jpg','Black','12','30','','','S','TD'],
-['660','/tbc/660.jpg','Black','12','30','','','',''],
-['661','/tbc/661.jpg','Black','12','30','','','',''],
-['662','/tbc/662.jpg','Black','12','31','','','M','TD'],
-['663','/tbc/663.jpg','Black','12','30.5','','','M','TD'],
-['664','/tbc/664.jpg','Black','12','32.5','','','L','TD'],
-['665','/tbc/665.jpg','Black','12','32.5','','','L','TD'],
-['666','/tbc/666.jpg','Black','12','32','','','',''],
-['667','/tbc/667.jpg','Black','12','32.5','','','',''],
-['668','/tbc/668.jpg','White','12','31.5','','','L','TD'],
-['669','/tbc/669.jpg','White','12','33','','','XL','TD'],
-['670','/tbc/670.jpg','White','12','30','','','','AV'],
-['671','/tbc/671.jpg','White','12','30','','','','AV'],
-['672','/tbc/672.jpg','White','12','30','','','','AV'],
-['673','/tbc/673.jpg','White','12','30','','','','AV'],
-['674','/tbc/674.jpg','White','12','30','','','S','AV'],
-['675','/tbc/675.jpg','White','12','34.7','','','',''],
-['676','/tbc/676.jpg','White','12','32','','','',''],
-['677','/tbc/677.jpg','White','12','32.6','','','',''],
-['678','/tbc/678.jpg','White','12','31','','','',''],
-['679','/tbc/679.jpg','White','12','31','Mar 2020','Vaishnavi','',''],
-['680','/tbc/680.jpg','White','12','30.5','Sep 2020','Charlaine','',''],
-['681','/tbc/681.jpg','White','12','30.5','','','',''],
-['682','/tbc/682.jpg','White','12','31','','','',''],
-['683','/tbc/683.jpg','White','12','30','Mar 2020','Anne','',''],
-['684','/tbc/684.jpg','White','12','34','','','',''],
-['685','/tbc/685.jpg','White','12','32','Sep 2020','Charlaine','',''],
-['686','/tbc/686.jpg','White','12','33.3','','','',''],
-['687','/tbc/687.jpg','Black','12','34','','','',''],
-['688','/tbc/688.jpg','Black','12','32','','','',''],
-['689','/tbc/689.jpg','Black','12','35.5','Mar 2020','Martine','',''],
-['690','/tbc/690.jpg','Black','12','33','','','',''],
-['691','/tbc/691.jpg','Black','12','31','','','',''],
-['692','/tbc/692.jpg','Black','12','32.5','','','',''],
-['693','/tbc/693.jpg','Black','12','32','','','',''],
-['694','/tbc/694.jpg','Black','12','30.5','','','',''],
-['695','/tbc/695.jpg','White','12','34.5','','','',''],
-['696','/tbc/696.jpg','Black','12','30','','','',''],
-['697','/tbc/697.jpg','Black','12','34.5','','','',''],
-['698','/tbc/698.jpg','Black','12','34','','','',''],
-['699','/tbc/699.jpg','Black','12','36.5','','','',''],
-['700','/tbc/700.jpg','White','12','30','','','',''],
-['701','/tbc/701.jpg','White','12','33','','','',''],
-['702','/tbc/702.jpg','Black','12','30','','','',''],
-['703','/tbc/703.jpg','White','12','29.5','','','',''],
-['704','/tbc/704.jpg','White','12','31','','','',''],
-['705','/tbc/705.jpg','White','12','29.5','','','',''],
-['706','/tbc/706.jpg','Black','12','33','','','',''],
-['707','/tbc/707.jpg','Black','12','29.5','Oct 2020','Sabina','','']
+function createWovenCanvasStyleDescFactory(sku, basedir, listdata, descmap) {
+	var product = pfiavG.productCatalog.getProduct(sku);
+	var varPL = varPLData[sku];
+	var cwFactory = createWovenCanvasItemFactory(product, varPL, descmap);
+	return createUIDescriptorFactory(basedir, product, listdata, cwFactory);
+}
+
+function getWovenCanvasFactory(sku) {
+var listData = [
+    ["501", ["501"], "", "", { "Date": "Mar 2018", "Name": "Elrun" }, "CW2", null, { "Height": "12", "Width": "30" }, { "color": "Black" }, null],
+    ["502", ["502"], "", "", { "Date": "Mar 2018" }, "CW2", null, { "Height": "12", "Width": "28.5" }, { "color": "Black" }, null],
+    ["503", ["503"], "", "", { "Date": "Aug 2018" }, "CW2", null, { "Height": "12", "Width": "30.75" }, { "color": "Black" }, null],
+    ["504", ["504"], "", "", { "Date": "Dec 2018" }, "CW2", "S", { "Height": "12", "Width": "30.5" }, { "color": "Black", "size": "S" }, null],
+    ["505", ["505"], "", "", { "Date": "Mar 2018", "Name": "Kartik" }, "CW1", null, { "Height": "12.4", "Width": "32.1" }, { "color": "White" }, null],
+    ["506", ["506"], "", "", { "Date": "Oct 2018", "Name": "Aloke" }, "CW1", null, { "Height": "11.9", "Width": "27.6" }, { "color": "White" }, null],
+    ["507", ["507"], "", "", { "Date": "Feb 2018" }, "CW2", null, { "Height": "12.1", "Width": "30.1" }, { "color": "Black" }, null],
+    ["508", ["508"], "", "", { "Date": "Mar 2018" }, "CW2", null, { "Height": "11.9", "Width": "30" }, { "color": "Black" }, null],
+    ["509", ["509"], "", "", { "Date": "Jun 2018", "Name": "Alessandro" }, "CW2", null, { "Height": "12", "Width": "28" }, { "color": "Black" }, null],
+    ["510", ["510"], "", "", { "Date": "Feb 2018", "Name": "Catarina" }, "CW1", null, { "Height": "12.1", "Width": "30.6" }, { "color": "White" }, null],
+    ["511", ["511"], "", "", { "Date": "Oct 2018", "Name": "Al" }, "CW2", null, { "Height": "11.8", "Width": "29.7" }, { "color": "Black" }, null],
+    ["512", ["512"], "", "", null, "CW1", null, { "Height": "12.1", "Width": "28.5" }, { "color": "White" }, null],
+    ["513", ["513"], "", "", { "Date": "Mar 2018", "Name": "Nir" }, "CW1", null, { "Height": "12", "Width": "29.6" }, { "color": "White" }, null],
+    ["514", ["514"], "", "", { "Date": "Feb 2018" }, "CW1", null, { "Height": "12.1", "Width": "31.7" }, { "color": "White" }, null],
+    ["515", ["515"], "", "", { "Date": "Feb 2019" }, "CW1", "L", { "Height": "11.9", "Width": "29.9" }, { "color": "White", "size": "L" }, null],
+    ["516", ["516"], "", "", { "Date": "Aug 2018", "Name": "Tom" }, "CW1", null, { "Height": "12.3", "Width": "29.1" }, { "color": "White" }, null],
+    ["517", ["517"], "", "", { "Date": "Sep 2018" }, "CW2", null, { "Height": "12.2", "Width": "30.6" }, { "color": "Black" }, null],
+    ["518", ["518"], "", "", { "Date": "Jun 2018", "Name": "Nitika" }, "CW2", null, { "Height": "11.9", "Width": "30.8" }, { "color": "Black" }, null],
+    ["519", ["519"], "", "", { "Date": "Mar 2018", "Name": "Cecilie" }, "CW2", null, { "Height": "12", "Width": "32.4" }, { "color": "Black" }, null],
+    ["520", ["520"], "", "", { "Date": "Jun 2018", "Name": "Taran" }, "CW2", null, { "Height": "12.1", "Width": "34.1" }, { "color": "Black" }, null],
+    ["521", ["521"], "", "", { "Date": "Mar 2018" }, "CW2", null, { "Height": "12", "Width": "30.7" }, { "color": "Black" }, null],
+    ["522", ["522"], "", "", { "Date": "Jun 2018", "Name": "Rick" }, "CW2", null, { "Height": "12.1", "Width": "30.4" }, { "color": "Black" }, null],
+    ["523", ["523"], "", "", { "Date": "Mar 2018", "Name": "Nir" }, "CW2", null, { "Height": "12", "Width": "31.3" }, { "color": "Black" }, null],
+    ["524", ["524"], "", "", { "Date": "Mar 2018", "Name": "Elrun" }, "CW2", null, { "Height": "12", "Width": "32.1" }, { "color": "Black" }, null],
+    ["525", ["525"], "", "", { "Date": "Aug 2018" }, "CW1", null, { "Height": "12", "Width": "31" }, { "color": "White" }, null],
+    ["526", ["526"], "", "", { "Date": "Apr 2018", "Name": "Vikas" }, "CW2", null, { "Height": "12", "Width": "30" }, { "color": "Black" }, null],
+    ["527", ["527"], "", "", { "Date": "Sep 2018" }, "CW2", null, { "Height": "12.1", "Width": "25.5" }, { "color": "Black" }, null],
+    ["528", ["528"], "", "", null, "CW1", null, { "Height": "12.1", "Width": "28.8" }, { "color": "White" }, null],
+    ["529", ["529"], "", "", { "Date": "Aug 2018" }, "CW1", null, { "Height": "12", "Width": "30.9" }, { "color": "White" }, null],
+    ["530", ["530"], "", "", { "Date": "Aug 2018" }, "CW2", null, { "Height": "12", "Width": "28" }, { "color": "Black" }, null],
+    ["531", ["531"], "", "", { "Date": "Jun 2018", "Name": "Kavi" }, "CW2", null, { "Height": "12", "Width": "30.4" }, { "color": "Black" }, null],
+    ["532", ["532"], "", "", { "Date": "Aug 2018" }, "CW2", null, { "Height": "12.1", "Width": "28" }, { "color": "Black" }, null],
+    ["533", ["533"], "", "", { "Date": "Aug 2018" }, "CW2", null, { "Height": "12", "Width": "29.5" }, { "color": "Black" }, null],
+    ["534", ["534"], "", "", { "Date": "Aug 2018" }, "CW2", null, { "Height": "12", "Width": "30" }, { "color": "Black" }, null],
+    ["535", ["535"], "", "", { "Date": "Jun 2018", "Name": "Kevin" }, "CW2", null, { "Height": "12", "Width": "32.8" }, { "color": "Black" }, null],
+    ["536", ["536"], "", "", { "Date": "Jun 2018", "Name": "Bimal" }, "CW2", null, { "Height": "12", "Width": "32.6" }, { "color": "Black" }, null],
+    ["537", ["537"], "", "", { "Date": "Jun 2015", "Name": "Brittany" }, "CW2", null, { "Height": "12", "Width": "32.8" }, { "color": "Black" }, null],
+    ["538", ["538"], "", "", { "Date": "Aug 2018" }, "CW2", null, { "Height": "12", "Width": "32.1" }, { "color": "Black" }, null],
+    ["539", ["539"], "", "", { "Date": "Feb 2019" }, "CW2", "XXL", { "Height": "12", "Width": "33.1" }, { "color": "Black", "size": "XXL" }, null],
+    ["540", ["540"], "", "", { "Date": "Oct 2018" }, "CW2", null, { "Height": "12", "Width": "34.5" }, { "color": "Black" }, null],
+    ["541", ["541"], "", "", { "Date": "Apr 2019", "Name": "Sebastien" }, "CW1", "XXL", { "Height": "12", "Width": "33.4" }, { "color": "White", "size": "XXL" }, null],
+    ["542", ["542"], "", "", { "Date": "Nov 2018" }, "CW2", "L", { "Height": "12", "Width": "32.3" }, { "color": "Black", "size": "L" }, null],
+    ["543", ["543"], "", "", { "Date": "Dec 2018" }, "CW2", "M", { "Height": "12", "Width": "31.7" }, { "color": "Black", "size": "M" }, null],
+    ["544", ["544"], "", "", { "Date": "Jan 2019" }, "CW2", "XXL", { "Height": "12.3", "Width": "33.6" }, { "color": "Black", "size": "XXL" }, null],
+    ["545", ["545"], "", "", { "Date": "Nov 2018" }, "CW2", "M", { "Height": "12", "Width": "32.2" }, { "color": "Black", "size": "M" }, null],
+    ["546", ["546"], "", "", { "Date": "Sep 2020", "Name": "Alok" }, "CW2", "L", { "Height": "12", "Width": "30.8" }, { "color": "Black", "size": "L" }, null],
+    ["547", ["547"], "", "", null, "CW3", "S", { "Height": "12.3", "Width": "27.7" }, { "color": "Indigo", "size": "S" }, null],
+    ["548", ["548"], "", "", { "Date": "Oct 2018" }, "CW2", null, { "Height": "12.2", "Width": "32.6" }, { "color": "Black" }, null],
+    ["549", ["549"], "", "", { "Date": "Oct 2018" }, "CW2", null, { "Height": "12.1", "Width": "29.9" }, { "color": "Black" }, null],
+    ["550", ["550"], "", "", { "Date": "Sep 2019" }, "CW2", "S", { "Height": "12.2", "Width": "28" }, { "color": "Black", "size": "S" }, null],
+    ["551", ["551"], "", "", { "Date": "Nov 2018" }, "CW2", "L", { "Height": "12.1", "Width": "29.3" }, { "color": "Black", "size": "L" }, null],
+    ["552", ["552"], "", "", { "Date": "Mar 2019" }, "CW2", "XL", { "Height": "12.2", "Width": "31.9" }, { "color": "Black", "size": "XL" }, null],
+    ["553", ["553"], "", "", { "Date": "Feb 2019" }, "CW1", "M", { "Height": "12.1", "Width": "29.9" }, { "color": "White", "size": "M" }, null],
+    ["554", ["554"], "", "", { "Date": "Feb 2020" }, "CW2", "M", { "Height": "12.1", "Width": "28.7" }, { "color": "Black", "size": "M" }, null],
+    ["555", ["555"], "", "", null, "CW1", null, { "Height": "12.3", "Width": "30.2" }, { "color": "White" }, null],
+    ["556", ["556"], "", "", null, "CW1", null, { "Height": "12.1", "Width": "29.2" }, { "color": "White" }, null],
+    ["557", ["557"], "", "", null, "CW1", null, { "Height": "12.4", "Width": "28.2" }, { "color": "White" }, null],
+    ["558", ["558"], "", "", { "Date": "Mar 2019" }, "CW1", "M", { "Height": "12.2", "Width": "29" }, { "color": "White", "size": "M" }, null],
+    ["559", ["559"], "", "", { "Date": "Oct 2019" }, "CW1", "M", { "Height": "12.5", "Width": "29.3" }, { "color": "White", "size": "M" }, null],
+    ["560", ["560"], "", "", { "Date": "Nov 2018" }, "CW1", null, { "Height": "12", "Width": "30.2" }, { "color": "White" }, null],
+    ["561", ["561"], "", "", { "Date": "Dec 2019" }, "CW1", "XL", { "Height": "12.1", "Width": "33.9" }, { "color": "White", "size": "XL" }, null],
+    ["562", ["562"], "", "", { "Date": "Dec 2019" }, "CW2", "M", { "Height": "12.1", "Width": "29.6" }, { "color": "Black", "size": "M" }, null],
+    ["563", ["563"], "", "", { "Date": "Jan 2019" }, "CW1", "L", { "Height": "12", "Width": "31.3" }, { "color": "White", "size": "L" }, null],
+    ["564", ["564"], "", "", { "Date": "Dec 2019" }, "CW2", "XL", { "Height": "12", "Width": "34.2" }, { "color": "Black", "size": "XL" }, null],
+    ["565", ["565"], "", "", { "Date": "Mar 2019" }, "CW2", "M", { "Height": "12.4", "Width": "31.8" }, { "color": "Black", "size": "M" }, null],
+    ["566", ["566"], "", "", null, "CW1", null, { "Height": "12.1", "Width": "36.8" }, { "color": "White" }, null],
+    ["567", ["567"], "", "", null, "CW1", null, { "Height": "12.2", "Width": "35.4" }, { "color": "White" }, null],
+    ["568", ["568"], "", "", { "Date": "Nov 2018" }, "CW2", "L", { "Height": "12.1", "Width": "32.1" }, { "color": "Black", "size": "L" }, null],
+    ["569", ["569"], "", "", null, "CW1", "S", { "Height": "12.1", "Width": "30.3" }, { "color": "White", "size": "S" }, null],
+    ["570", ["570"], "", "", { "Date": "Dec 2019", "Name": "Marouane" }, "CW2", "S", { "Height": "12.1", "Width": "29" }, { "color": "Black", "size": "S" }, null],
+    ["571", ["571"], "", "", { "Date": "Jan 2019" }, "CW2", "XL", { "Height": "12.3", "Width": "33.3" }, { "color": "Black", "size": "XL" }, null],
+    ["572", ["572"], "", "", { "Date": "Jan 2019" }, "CW1", "XL", { "Height": "12.1", "Width": "31.9" }, { "color": "White", "size": "XL" }, null],
+    ["573", ["573"], "", "", { "Date": "Jan 2019" }, "CW1", "M", { "Height": "12.1", "Width": "30.3" }, { "color": "White", "size": "M" }, null],
+    ["574", ["574"], "", "", { "Date": "Feb 2020" }, "CW2", "M", { "Height": "12", "Width": "31.4" }, { "color": "Black", "size": "M" }, null],
+    ["575", ["575"], "", "", { "Date": "Sep 2020", "Name": "Alok" }, "CW2", "L", { "Height": "12", "Width": "33.9" }, { "color": "Black", "size": "L" }, null],
+    ["576", ["576"], "", "", { "Date": "Dec 2019" }, "CW2", null, { "Height": "12", "Width": "34.1" }, { "color": "Black" }, null],
+    ["577", ["577"], "", "", { "Date": "Feb 2020", "Name": "Abbie" }, "CW2", "XXL", { "Height": "12", "Width": "34" }, { "color": "Black", "size": "XXL" }, null],
+    ["578", ["578"], "", "", { "Date": "Aug 2020" }, "CW2", "M", { "Height": "12.2", "Width": "29.9" }, { "color": "Black", "size": "M" }, null],
+    ["579", ["579"], "", "", { "Date": "Nov 2018", "Name": "Kazimieras" }, "CW2", null, { "Height": "12.1", "Width": "28.8" }, { "color": "Black" }, null],
+    ["580", ["580"], "", "", null, "CW2", "S", { "Height": "11.9", "Width": "28" }, { "color": "Black", "size": "S" }, null],
+    ["581", ["581"], "", "", null, "CW2", "M", { "Height": "12.1", "Width": "29.6" }, { "color": "Black", "size": "M" }, null],
+    ["582", ["582"], "", "", { "Date": "Sep 2019", "Name": "Erich" }, "CW2", null, { "Height": "12", "Width": "30.9" }, { "color": "Black" }, null],
+    ["583", ["583"], "", "", { "Date": "Feb 2020" }, "CW2", "L", { "Height": "12.1", "Width": "32.5" }, { "color": "Black", "size": "L" }, null],
+    ["584", ["584"], "", "", { "Date": "Mar 2019" }, "CW2", "L", { "Height": "12.2", "Width": "32.4" }, { "color": "Black", "size": "L" }, null],
+    ["585", ["585"], "", "", { "Date": "Dec 2019" }, "CW2", "M", { "Height": "12", "Width": "28.6" }, { "color": "Black", "size": "M" }, null],
+    ["586", ["586"], "", "", null, "CW2", "L", { "Height": "12", "Width": "32" }, { "color": "Black", "size": "L" }, null],
+    ["587", ["587"], "", "", { "Date": "Sep 2020", "Name": "Paul" }, "CW2", null, { "Height": "12.1", "Width": "34.2" }, { "color": "Black" }, null],
+    ["588", ["588"], "", "", { "Date": "Sep 2019", "Name": "Joerg" }, "CW2", "XL", { "Height": "12", "Width": "30.6" }, { "color": "Black", "size": "XL" }, null],
+    ["589", ["589"], "", "", { "Date": "Feb 2020" }, "CW2", "M", { "Height": "12", "Width": "30" }, { "color": "Black", "size": "M" }, null],
+    ["590", ["590"], "", "", { "Date": "Apr 2019", "Name": "Kartik" }, "CW2", "L", { "Height": "12", "Width": "31.6" }, { "color": "Black", "size": "L" }, null],
+    ["591", ["591"], "", "", { "Date": "Nov 2018" }, "CW2", null, { "Height": "12.1", "Width": "34.4" }, { "color": "Black" }, null],
+    ["592", ["592"], "", "", null, "CW1", "S", { "Height": "12", "Width": "32" }, { "color": "White", "size": "S" }, null],
+    ["593", ["593"], "", "", { "Date": "Jan 2020", "Name": "Muriel" }, "CW2", "XL", { "Height": "12", "Width": "34.5" }, { "color": "Black", "size": "XL" }, null],
+    ["594", ["594"], "", "", { "Date": "Sep 2020", "Name": "Indre" }, "CW1", "M", { "Height": "12", "Width": "31.5" }, { "color": "White", "size": "M" }, null],
+    ["595", ["595"], "", "", { "Date": "Sep 2019", "Name": "Erich" }, "CW1", "XL", { "Height": "12", "Width": "32" }, { "color": "White", "size": "XL" }, null],
+    ["596", ["596"], "", "", { "Date": "Feb 2020" }, "CW2", "XL", { "Height": "12", "Width": "34.5" }, { "color": "Black", "size": "XL" }, null],
+    ["597", ["597"], "", "", { "Date": "Feb 2020" }, "CW1", "XXL", { "Height": "12", "Width": "32.5" }, { "color": "White", "size": "XXL" }, null],
+    ["598", ["598"], "", "", { "Date": "Dec 2019" }, "CW1", "L", { "Height": "12", "Width": "32" }, { "color": "White", "size": "L" }, null],
+    ["599", ["599"], "", "", { "Date": "Dec 2019" }, "CW1", "M", { "Height": "12", "Width": "30" }, { "color": "White", "size": "M" }, null],
+    ["600", ["600"], "", "", null, "CW2", "XL", { "Height": "12", "Width": "36" }, { "color": "Black", "size": "XL" }, null],
+    ["601", ["601"], "", "", { "Date": "Jan 2020", "Name": "Muriel" }, "CW1", "XL", { "Height": "12", "Width": "33.5" }, { "color": "White", "size": "XL" }, null],
+    ["602", ["602"], "", "", null, "CW3", "M", { "Height": "12", "Width": "30" }, { "color": "Indigo", "size": "M" }, null],
+    ["603", ["603"], "", "", null, "CW3", "L", { "Height": "12", "Width": "30.5" }, { "color": "Indigo", "size": "L" }, null],
+    ["604", ["604"], "", "", { "Date": "Jan 2020", "Name": "Muriel" }, "CW1", "XL", { "Height": "12", "Width": "34.5" }, { "color": "White", "size": "XL" }, null],
+    ["605", ["605"], "", "", null, "CW1", "M", { "Height": "12", "Width": "28" }, { "color": "White", "size": "M" }, null],
+    ["606", ["606"], "", "", { "Date": "Jan 2020", "Name": "Muriel" }, "CW2", "XL", { "Height": "12", "Width": "33" }, { "color": "Black", "size": "XL" }, null],
+    ["607", ["607"], "", "", { "Date": "Dec 2019" }, "CW2", "S", { "Height": "12", "Width": "31" }, { "color": "Black", "size": "S" }, null],
+    ["608", ["608"], "", "", { "Date": "Dec 2019" }, "CW2", "XL", { "Height": "12", "Width": "33" }, { "color": "Black", "size": "XL" }, null],
+    ["609", ["609"], "", "", { "Date": "Sep 2020", "Name": "Indre" }, "CW2", "M", { "Height": "12", "Width": "31.5" }, { "color": "Black", "size": "M" }, null],
+    ["610", ["610"], "", "", { "Date": "Sep 2020", "Name": "Indre" }, "CW2", "XL", { "Height": "12", "Width": "34" }, { "color": "Black", "size": "XL" }, null],
+    ["611", ["611"], "", "", { "Date": "Jan 2020" }, "CW2", "M", { "Height": "12", "Width": "31" }, { "color": "Black", "size": "M" }, null],
+    ["612", ["612"], "", "", { "Date": "Nov 2020", "Name": "Paul" }, "CW3", "M", { "Height": "12", "Width": "36" }, { "color": "Indigo", "size": "M" }, null],
+    ["613", ["613"], "", "", null, "CW3", "XL", { "Height": "12", "Width": "36" }, { "color": "Indigo", "size": "XL" }, null],
+    ["614", ["614"], "", "", { "Date": "Jun 2020", "Name": "Mary" }, "CW1", "M", { "Height": "12", "Width": "32" }, { "color": "White", "size": "M" }, null],
+    ["615", ["615"], "", "", { "Date": "Jan 2020" }, "CW1", "L", { "Height": "12", "Width": "33" }, { "color": "White", "size": "L" }, null],
+    ["616", ["616"], "", "", null, "CW2", "S", { "Height": "12", "Width": "30" }, { "color": "Black", "size": "S" }, null],
+    ["617", ["617"], "", "", { "Date": "Jan 2020" }, "CW2", "M", { "Height": "12", "Width": "31.5" }, { "color": "Black", "size": "M" }, null],
+    ["618", ["618"], "", "", null, "CW2", "S", { "Height": "12", "Width": "30.5" }, { "color": "Black", "size": "S" }, null],
+    ["619", ["619"], "", "", null, "CW2", "XL", { "Height": "12", "Width": "34" }, { "color": "Black", "size": "XL" }, null],
+    ["620", ["620"], "", "", { "Date": "Feb 2020", "Name": "Savitri" }, "CW2", null, { "Height": "12", "Width": "32" }, { "color": "Black" }, null],
+    ["621", ["621"], "", "", null, "CW2", "XL", { "Height": "12", "Width": "32.5" }, { "color": "Black", "size": "XL" }, null],
+    ["622", ["622"], "", "", { "Date": "Feb 2020" }, "CW2", null, { "Height": "12", "Width": "29" }, { "color": "Black" }, null],
+    ["623", ["623"], "", "", null, "CW1", "XL", { "Height": "12", "Width": "34.5" }, { "color": "White", "size": "XL" }, null],
+    ["624", ["624"], "", "", null, "CW2", "L", { "Height": "12", "Width": "32" }, { "color": "Black", "size": "L" }, null],
+    ["625", ["625"], "", "", { "Date": "Feb 2020", "Name": "Dan" }, "CW1", null, { "Height": "12", "Width": "27" }, { "color": "White" }, null],
+    ["626", ["626"], "", "", null, "CW1", "M", { "Height": "12", "Width": "31" }, { "color": "White", "size": "M" }, null],
+    ["627", ["627"], "", "", { "Date": "Aug 2020" }, "CW1", "L", { "Height": "12", "Width": "32.5" }, { "color": "White", "size": "L" }, null],
+    ["628", ["628"], "", "", null, "CW1", null, { "Height": "12", "Width": "34" }, { "color": "White" }, null],
+    ["629", ["629"], "", "", { "Date": "Mar 2020", "Name": "Anne" }, "CW2", null, { "Height": "12", "Width": "35.5" }, { "color": "Black" }, null],
+    ["630", ["630"], "", "", null, "CW2", null, { "Height": "12", "Width": "35.5" }, { "color": "Black" }, null],
+    ["631", ["631"], "", "", null, "CW3", "XL", { "Height": "12", "Width": "33" }, { "color": "Indigo", "size": "XL" }, null],
+    ["632", ["632"], "", "", null, "CW3", "L", { "Height": "12", "Width": "34" }, { "color": "Indigo", "size": "L" }, null],
+    ["633", ["633"], "", "", null, "CW2", null, { "Height": "12", "Width": "30" }, { "color": "Black" }, { "code": "AV" }],
+    ["634", ["634"], "", "", null, "CW2", null, { "Height": "12", "Width": "30" }, { "color": "Black" }, { "code": "AV" }],
+    ["635", ["635"], "", "", null, "CW2", null, { "Height": "12", "Width": "30" }, { "color": "Black" }, { "code": "AV" }],
+    ["636", ["636"], "", "", null, "CW2", null, { "Height": "12", "Width": "30" }, { "color": "Black" }, { "code": "AV" }],
+    ["637", ["637"], "", "", null, "CW2", null, { "Height": "12", "Width": "30" }, { "color": "Black" }, { "code": "AV" }],
+    ["638", ["638"], "", "", null, "CW2", null, { "Height": "12", "Width": "30" }, { "color": "Black" }, { "code": "AV / Missing" }],
+    ["639", ["639"], "", "", { "Date": "Jul 2020", "Name": "Alex" }, "CW2", "M", { "Height": "12", "Width": "30.5" }, { "color": "Black", "size": "M" }, null],
+    ["640", ["640"], "", "", null, "CW2", "S", { "Height": "12", "Width": "29" }, { "color": "Black", "size": "S" }, null],
+    ["641", ["641"], "", "", null, "CW2", "L", { "Height": "12", "Width": "32" }, { "color": "Black", "size": "L" }, null],
+    ["642", ["642"], "", "", null, "CW2", "XL", { "Height": "12", "Width": "" }, { "color": "Black", "size": "XL" }, null],
+    ["643", ["643"], "", "", { "Date": "Oct 2020", "Name": "Sahiba" }, "CW2", "M", { "Height": "12", "Width": "32" }, { "color": "Black", "size": "M" }, null],
+    ["644", ["644"], "", "", null, "CW2", "XL", { "Height": "12", "Width": "" }, { "color": "Black", "size": "XL" }, null],
+    ["645", ["645"], "", "", null, "CW2", "M", { "Height": "12", "Width": "32" }, { "color": "Black", "size": "M" }, null],
+    ["646", ["646"], "", "", null, "CW2", "L", { "Height": "12", "Width": "" }, { "color": "Black", "size": "L" }, null],
+    ["647", ["647"], "", "", null, "CW2", "XL", { "Height": "12", "Width": "" }, { "color": "Black", "size": "XL" }, null],
+    ["648", ["648"], "", "", { "Date": "Jun 2020", "Name": "Michel" }, "CW1", "L", { "Height": "12", "Width": "" }, { "color": "White", "size": "L" }, null],
+    ["649", ["649"], "", "", { "Date": "Jul 2020", "Name": "Alex" }, "CW1", "M", { "Height": "12", "Width": "" }, { "color": "White", "size": "M" }, null],
+    ["650", ["650"], "", "", null, "CW1", "S", { "Height": "12", "Width": "30" }, { "color": "White", "size": "S" }, { "code": "TD" }],
+    ["651", ["651"], "", "", null, "CW1", "M", { "Height": "12", "Width": "31" }, { "color": "White", "size": "M" }, { "code": "TD" }],
+    ["652", ["652"], "", "", { "Date": "Feb 2020" }, "CW1", null, { "Height": "12", "Width": "31.5" }, { "color": "White" }, null],
+    ["653", ["653"], "", "", null, "CW2", null, { "Height": "12", "Width": "27.5" }, { "color": "Black" }, null],
+    ["654", ["654"], "", "", null, "CW2", "XL", { "Height": "12", "Width": "33" }, { "color": "Black", "size": "XL" }, { "code": "TD" }],
+    ["655", ["655"], "", "", null, "CW2", "XL", { "Height": "12", "Width": "33.5" }, { "color": "Black", "size": "XL" }, { "code": "TD" }],
+    ["656", ["656"], "", "", { "Date": "Feb 2020" }, "CW2", null, { "Height": "12", "Width": "30" }, { "color": "Black" }, null],
+    ["657", ["657"], "", "", null, "CW2", null, { "Height": "12", "Width": "30" }, { "color": "Black" }, null],
+    ["658", ["658"], "", "", null, "CW2", null, { "Height": "12", "Width": "30" }, { "color": "Black" }, null],
+    ["659", ["659"], "", "", null, "CW2", "S", { "Height": "12", "Width": "30" }, { "color": "Black", "size": "S" }, { "code": "TD" }],
+    ["660", ["660"], "", "", null, "CW2", null, { "Height": "12", "Width": "30" }, { "color": "Black" }, null],
+    ["661", ["661"], "", "", null, "CW2", null, { "Height": "12", "Width": "30" }, { "color": "Black" }, null],
+    ["662", ["662"], "", "", null, "CW2", "M", { "Height": "12", "Width": "31" }, { "color": "Black", "size": "M" }, { "code": "TD" }],
+    ["663", ["663"], "", "", null, "CW2", "M", { "Height": "12", "Width": "30.5" }, { "color": "Black", "size": "M" }, { "code": "TD" }],
+    ["664", ["664"], "", "", null, "CW2", "L", { "Height": "12", "Width": "32.5" }, { "color": "Black", "size": "L" }, { "code": "TD" }],
+    ["665", ["665"], "", "", null, "CW2", "L", { "Height": "12", "Width": "32.5" }, { "color": "Black", "size": "L" }, { "code": "TD" }],
+    ["666", ["666"], "", "", null, "CW2", null, { "Height": "12", "Width": "32" }, { "color": "Black" }, null],
+    ["667", ["667"], "", "", null, "CW2", null, { "Height": "12", "Width": "32.5" }, { "color": "Black" }, null],
+    ["668", ["668"], "", "", null, "CW1", "L", { "Height": "12", "Width": "31.5" }, { "color": "White", "size": "L" }, { "code": "TD" }],
+    ["669", ["669"], "", "", null, "CW1", "XL", { "Height": "12", "Width": "33" }, { "color": "White", "size": "XL" }, { "code": "TD" }],
+    ["670", ["670"], "", "", null, "CW1", null, { "Height": "12", "Width": "30" }, { "color": "White" }, { "code": "AV" }],
+    ["671", ["671"], "", "", null, "CW1", null, { "Height": "12", "Width": "30" }, { "color": "White" }, { "code": "AV" }],
+    ["672", ["672"], "", "", null, "CW1", null, { "Height": "12", "Width": "30" }, { "color": "White" }, { "code": "AV" }],
+    ["673", ["673"], "", "", null, "CW1", null, { "Height": "12", "Width": "30" }, { "color": "White" }, { "code": "AV" }],
+    ["674", ["674"], "", "", null, "CW1", "S", { "Height": "12", "Width": "30" }, { "color": "White", "size": "S" }, { "code": "AV" }],
+    ["675", ["675"], "", "", null, "CW1", null, { "Height": "12", "Width": "34.7" }, { "color": "White" }, null],
+    ["676", ["676"], "", "", null, "CW1", null, { "Height": "12", "Width": "32" }, { "color": "White" }, null],
+    ["677", ["677"], "", "", null, "CW1", null, { "Height": "12", "Width": "32.6" }, { "color": "White" }, null],
+    ["678", ["678"], "", "", null, "CW1", null, { "Height": "12", "Width": "31" }, { "color": "White" }, null],
+    ["679", ["679"], "", "", { "Date": "Mar 2020", "Name": "Vaishnavi" }, "CW1", null, { "Height": "12", "Width": "31" }, { "color": "White" }, null],
+    ["680", ["680"], "", "", { "Date": "Sep 2020", "Name": "Charlaine" }, "CW1", null, { "Height": "12", "Width": "30.5" }, { "color": "White" }, null],
+    ["681", ["681"], "", "", null, "CW1", null, { "Height": "12", "Width": "30.5" }, { "color": "White" }, null],
+    ["682", ["682"], "", "", null, "CW1", null, { "Height": "12", "Width": "31" }, { "color": "White" }, null],
+    ["683", ["683"], "", "", { "Date": "Mar 2020", "Name": "Anne" }, "CW1", null, { "Height": "12", "Width": "30" }, { "color": "White" }, null],
+    ["684", ["684"], "", "", null, "CW1", null, { "Height": "12", "Width": "34" }, { "color": "White" }, null],
+    ["685", ["685"], "", "", { "Date": "Sep 2020", "Name": "Charlaine" }, "CW1", null, { "Height": "12", "Width": "32" }, { "color": "White" }, null],
+    ["686", ["686"], "", "", null, "CW3", null, { "Height": "12", "Width": "33.3" }, { "color": "Indigo" }, null],
+    ["687", ["687"], "", "", null, "CW2", null, { "Height": "12", "Width": "34" }, { "color": "Black" }, null],
+    ["688", ["688"], "", "", null, "CW2", null, { "Height": "12", "Width": "32" }, { "color": "Black" }, null],
+    ["689", ["689"], "", "", { "Date": "Mar 2020", "Name": "Martine" }, "CW2", null, { "Height": "12", "Width": "35.5" }, { "color": "Black" }, null],
+    ["690", ["690"], "", "", null, "CW2", null, { "Height": "12", "Width": "33" }, { "color": "Black" }, null],
+    ["691", ["691"], "", "", null, "CW2", null, { "Height": "12", "Width": "31" }, { "color": "Black" }, null],
+    ["692", ["692"], "", "", null, "CW2", null, { "Height": "12", "Width": "32.5" }, { "color": "Black" }, null],
+    ["693", ["693"], "", "", null, "CW2", null, { "Height": "12", "Width": "32" }, { "color": "Black" }, null],
+    ["694", ["694"], "", "", null, "CW2", null, { "Height": "12", "Width": "30.5" }, { "color": "Black" }, null],
+    ["695", ["695"], "", "", null, "CW1", null, { "Height": "12", "Width": "34.5" }, { "color": "White" }, null],
+    ["696", ["696"], "", "", null, "CW2", null, { "Height": "12", "Width": "30" }, { "color": "Black" }, null],
+    ["697", ["697"], "", "", null, "CW2", null, { "Height": "12", "Width": "34.5" }, { "color": "Black" }, null],
+    ["698", ["698"], "", "", null, "CW2", null, { "Height": "12", "Width": "34" }, { "color": "Black" }, null],
+    ["699", ["699"], "", "", null, "CW2", null, { "Height": "12", "Width": "36.5" }, { "color": "Black" }, null],
+    ["700", ["700"], "", "", null, "CW1", null, { "Height": "12", "Width": "30" }, { "color": "White" }, null],
+    ["701", ["701"], "", "", null, "CW1", null, { "Height": "12", "Width": "33" }, { "color": "White" }, null],
+    ["702", ["702"], "", "", null, "CW2", null, { "Height": "12", "Width": "30" }, { "color": "Black" }, null],
+    ["703", ["703"], "", "", { "Date": "Dec 2020", "Name": "Jelena" }, "CW1", null, { "Height": "12", "Width": "29.5" }, { "color": "White" }, null],
+    ["704", ["704"], "", "", null, "CW1", null, { "Height": "12", "Width": "31" }, { "color": "White" }, null],
+    ["705", ["705"], "", "", null, "CW1", null, { "Height": "12", "Width": "29.5" }, { "color": "White" }, null],
+    ["706", ["706"], "", "", null, "CW2", null, { "Height": "12", "Width": "33" }, { "color": "Black" }, null],
+    ["707", ["707"], "", "", { "Date": "Oct 2020", "Name": "Sabina" }, "CW2", null, { "Height": "12", "Width": "29.5" }, { "color": "Black" }, null]
 ];
-
-function createTShirtDescriptor(tshirtArr) {
-    return {
-        number: tshirtArr[ 0 ],
-        imageURL: tshirtArr[ 1 ],
-        fabricColour: tshirtArr[ 2 ],
-        height: tshirtArr[ 3 ],
-        width: tshirtArr[ 4 ],
-        collDate: tshirtArr[ 5 ],
-        collector: tshirtArr[ 6 ],
-        size: tshirtArr[ 7 ],
-        shop: tshirtArr[ 8 ]
+    var basedir = '/products/wovencanvas/wc/';
+    var descMap = {
+        CW1: 'Tangail Tradition',
+        CW3: 'Indigo In-Love'
     };
+
+    return createWovenCanvasStyleDescFactory(sku, basedir, listData, descMap);
 }

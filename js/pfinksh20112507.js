@@ -216,22 +216,22 @@ naksha.getVariants = function (sku) {
 		case naksha.microSKU:
 			return {
 				vid: "AW",
-				images: ["front", "back", "side", "detail1", "detail2"]
+					images: ["front", "back", "side", "detail1", "detail2"]
 			};
 		case naksha.miniSKU:
 			return {
 				vid: "AW",
-				images: ["front", "back", "side", "detail1", "detail2"]
+					images: ["front", "back", "side", "detail1", "detail2"]
 			};
 		case naksha.midiSKU:
 			return {
 				vid: "AW",
-				images: ["front", "back", "side", "detail1", "detail2"]
+					images: ["front", "back", "side", "detail1", "detail2"]
 			};
 		case naksha.minuitSKU:
 			return {
 				vid: "AW",
-				images: ["front", "back", "side", "detail1", "detail2"]
+					images: ["front", "back", "side", "detail1", "detail2"]
 			};
 		default:
 			return null;
@@ -323,7 +323,6 @@ naksha.createUICFactory = function (scope, colSelData, browseInfo) {
 	var skuSelector = scope.createSKUSelector(skus);
 	return {
 		scope: scope,
-		colSelData: colSelData,
 		skuSelector: skuSelector,
 		browseInfo: browseInfo,
 		createGenerator: function (sku) {
@@ -346,9 +345,17 @@ naksha.createUICFactory = function (scope, colSelData, browseInfo) {
 				},
 				createNavHelper: function () {
 					return createNavHelper(prodJSON, artwear.categorizer, artwear.catalog.title);
+				},
+				createList: function () {
+					return createUniqueItemList(factory.listData, factory);
+				},
+				createCategorySelector: function () {
+					var selCategory = createColourCategories(colSelData, factory);
+					return createColourCategorySelector(selCategory);
 				}
 			};
-			return createComponentGenerator(factory, prodJSON, viewerFactory, this.colSelData, true, this.scope.createCardCreator(sku), "The model is 5 ft 3 in (160 cm).");
+			var sizeSelector = createSizeSelector(prodJSON.skuInfo.sizes, pfiavG.sizeModalInfo.getToggleHTML(), null, "The model is 5 ft 3 in (160 cm).", "Size");
+			return createComponentGenerator(factory, prodJSON, viewerFactory, sizeSelector, true, this.scope.createCardCreator(sku));
 		},
 		updateURL: function (sku) {
 			var encoder = this.scope.urlUpdater.encoder;
