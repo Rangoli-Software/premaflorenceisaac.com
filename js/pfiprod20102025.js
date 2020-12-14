@@ -203,7 +203,7 @@ function createUIDescriptorFactory(base, product, listData, itemFactory) {
 				itemFactory: this.itemFactory,
 				base: this.base,
 				number: num,
-				hsl: (row[2] === '') ? hexToHSL(row[2]) : null,
+				hsl: (row[2] !== '') ? hexToHSL(row[2]) : null,
 				inrPrice: cwPrice,
 				catDesc: cwDesc,
 				collected: collected,
@@ -283,21 +283,19 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, sizeSelect
 				createSquareProductCarousel(this.prodJSON) :
 				createProductCarousel(this.prodJSON, false);
 			var that = this;
+			var vntSelector = this.viewerFactory.createVarSel();
 			return {
 				navHelper: this.viewerFactory.createNavHelper(),
 				createProductComponent: function (shop) {
 					var basePanelr = that.viewerFactory.createBase(shop);
-					return createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, addlViewer);
+					return createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, addlViewer, vntSelector);
 				}
 			};
-		},
-		createItemCatSelector: function () {
-			return this.viewerFactory.createCategorySelector();
 		},
 		createUIC: function (shop) {
 			var items = this.viewerFactory.createList();
 			var productComponentFactory = this.createPCFactory();
-			var itemCategorySelector = this.createItemCatSelector();
+			var itemCategorySelector = this.viewerFactory.createCategorySelector();
 			var sizeSelector = this.sizeSelector;
 			var productComponent = productComponentFactory.createProductComponent(shop);
 			return createUniqueItemsComponent(shop, items, productComponentFactory, productComponent, itemCategorySelector, sizeSelector, this.cardCreator);
@@ -419,7 +417,7 @@ function createUniqueItemList(listdata, factory) {
 		getINRPrice: function (i) {
 			return this.getDescriptor(i).getCWPrice();
 		},
-		filterOnSize: function(size) {
+		filterOnSize: function (size) {
 			var nList = [];
 			for (var i = 0; i < this.base.length; i++) {
 				var val = this.getDescriptor(i).getSize();
@@ -821,9 +819,10 @@ function createSizeSelector(sizes, toggleHTML, eventFn, modelTxt, captionTxt) {
 	}
 }
 
-function createColourCategoryUI(categories) {
+function createColourCategoryUI(categories, caption) {
 	return {
 		divId: 'catSelector',
+		caption: caption,
 		categories: categories,
 		captionId: 'rangeCaption',
 		colourRadioName: "colRadio",
@@ -836,14 +835,14 @@ function createColourCategoryUI(categories) {
 		},
 		setCaption: function (caption) {
 			if (caption === undefined) {
-				caption = this.categories.getCategory(this.getSelectedCatIdx()).colourName;
+				caption = this.categories.getCategory(this.getSelectedIdx()).colourName;
 			}
 			$('#' + this.captionId).replaceWith(this.createCaption(caption));
 		},
 		getCatIdx: function (valColour) {
 			return this.categories.getCatIdx(valColour);
 		},
-		getSelectedCatIdx: function () {
+		getSelectedIdx: function () {
 			return this.getCatIdx(this.getSelectedCategory());
 		},
 		getSelectedCategory: function () {
@@ -862,27 +861,24 @@ function createColourCategoryUI(categories) {
 			return res;
 		},
 		createDiv: function (varIdx) {
-			var res = '<div id="' + this.divId + '">Colour Range: ' +
+			var res = '<div id="' + this.divId + '">' + this.caption + ': ' +
 				this.createCaption(this.categories.getCategory(varIdx).colourName) +
 				this.createColourPanel(this.colourRadioName, varIdx) +
 				'</div>';
 			return res;
-		},
-		getSelectedCatIdx: function () {
-			return this.getCatIdx(this.getSelectedCategory());
 		},
 		getNonEmptyCatIdx: function () {
 			return this.categories.getFirstNonEmptyIdx();
 		},
 		updateSelection: function () {
 			if (this.hasCategories()) {
-				var varIdx = this.colourCategoryUI.getSelectedCatIdx();
+				var varIdx = this.getSelectedIdx();
 				$('#' + this.divId).replaceWith(this.createDiv(varIdx));
 			}
 		},
 		getItems: function () {
 			if (this.hasCategories()) {
-				var varIdx = this.getSelectedCatIdx();
+				var varIdx = this.getSelectedIdx();
 				return this.categories.filterOnCategory(varIdx);
 			} else {
 				return this.categories.unfiltered();
@@ -894,7 +890,7 @@ function createColourCategoryUI(categories) {
 function createColourSizeCategorySelector(categories, sizeSelector) {
 	return {
 		sizeSelector: sizeSelector,
-		colourCategoryUI: createColourCategoryUI(categories),
+		colourCategoryUI: createColourCategoryUI(categories, "Colour"),
 		getEmptyStatusHTML: function () {
 			return '<div class="alert alert-info" role="alert">There are no items that match your selection</div>';
 		},
@@ -904,13 +900,16 @@ function createColourSizeCategorySelector(categories, sizeSelector) {
 		},
 		updateSelection: function () {
 			this.colourCategoryUI.updateSelection();
+		},
+		getSelectedIdx: function () {
+			return this.colourCategoryUI.getSelectedIdx();
 		}
 	}
 }
 
 function createColourCategorySelector(categories) {
 	return {
-		colourCategoryUI: createColourCategoryUI(categories),
+		colourCategoryUI: createColourCategoryUI(categories, "Colour Range"),
 		getEmptyStatusHTML: function () {
 			return '<div class="alert alert-info" role="alert">There are no items that match your selection</div>';
 		},
@@ -1228,12 +1227,22 @@ function createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, var
 	};
 }
 
-function createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, addlViewer) {
+function createConstantSelector(idx) {
+	return {
+		getSelectedIdx: function () {
+			return idx;
+		}
+	};
+}
+
+function createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, addlViewer, vntSelector) {
 	return {
 		prePanelr: prePanelr,
 		basePanelr: basePanelr,
 		sizePanelr: sizePanelr,
-		carousel: carousel.createVariantCarousel(0),
+		varidx: 0,
+		vntSelector: vntSelector,
+		carousel: carousel,
 		addlViewer: addlViewer,
 		prodPanelId: 'prodPanel',
 		prodImageId: 'prodImages',
@@ -1257,7 +1266,7 @@ function createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, a
 
 			$("#" + this.prodPanelId).replaceWith(imageHTML);
 
-			this.carousel.update();
+			this.carousel.createVariantCarousel(this.varidx).update();
 		},
 		updateImageInfo: function () {
 			var divImgId = "#" + this.prodImageId;
@@ -1265,7 +1274,7 @@ function createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, a
 			$(divImgId).fadeOut("slow", function () {
 				var imageHTML = that.createImageDiv();
 				$(this).replaceWith(imageHTML);
-				that.carousel.update();
+				that.carousel.createVariantCarousel(that.varidx).update();
 				$(divImgId).fadeIn("slow");
 			});
 
@@ -1273,17 +1282,23 @@ function createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, a
 			$(divInfoId).fadeOut("slow", function () {
 				var infoHTML = that.createInfoDiv();
 				$(this).replaceWith(infoHTML);
-				that.carousel.update();
 				$(divInfoId).fadeIn("slow");
 			})
 		},
+		updateVariant: function () {
+			var newid = this.vntSelector.getSelectedIdx();
+			if (newid !== -1) {
+				this.varidx = newid;
+			}
+		},
 		updateSelection: function () {
+			this.updateVariant();
 			this.updateImageInfo();
 			this.sizePanelr.update();
 		},
 		createImageDiv: function () {
 			return '<div class="form-row mb-4" id="' + this.prodImageId + '">' +
-				this.carousel.createImageCarousel() +
+				this.carousel.createVariantCarousel(this.varidx).createImageCarousel() +
 				'</div>';
 		},
 		createInfoDiv: function () {
@@ -1573,6 +1588,7 @@ function createUIPageComponent(catalog, itemsComponent, itemsComponentFactory) {
 			if (this.itemsComponent.itemCategorySelector.colourCategoryUI.hasCategories()) {
 				this.itemsComponent.itemCategorySelector.colourCategoryUI.setCaption(colVal);
 			}
+			this.updateSelection();
 			this.updateItemCategories();
 			this.updateItemPrices();
 		},
@@ -1583,7 +1599,6 @@ function createUIPageComponent(catalog, itemsComponent, itemsComponentFactory) {
 		onReadyState() {
 			this.onColourCategoryChange();
 			this.updateBreadCrumb();
-			this.updateItemPrices();
 		},
 		onUnitChange: function () {
 			this.itemsComponent.updateUnits();

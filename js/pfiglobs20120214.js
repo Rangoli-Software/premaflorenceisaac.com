@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020120213";
+const shopRevisionVersion = "2020120214";
 
 const pfiavG = {};
 pfiavG.lineNames = ["Art Wear", "It's Magic", "Ce Soir", "Happy Everyday"];
