@@ -81,7 +81,7 @@ artwear.kaftan.prodData = {
 	},
 	data: [{
 		vid: "CW1",
-		images: ["4pF", "4pS", "4pD1", "4pD2"]
+		images: ["4pF.1", "4pB", "4pS.1", "4pD1", "4pD2"]
     }],
 	sizes: ['Free'],
 	description: 'This Moroccan inspired silhouette is an oversized Kaftan with full sleeves and wide round neck.  An exquisite handwoven Jamdani sari with minimal motifs and intricate contrasting borders is used to form 8 different panels. Whole 10 meters of the border are used to adorn the sleeves, hem, and front and back panels. The gathered sari at the side seam adds to the volume and makes it wearable by most shapes and sizes. The self-tie string at the waist helps you to adjust the fit of the Kaftan. The lining is stitched in a lightweight 100% cotton ovile in a matching colour.',
@@ -105,7 +105,7 @@ artwear.kamalam.prodData = {
 	},
 	data: [{
 		vid: "CW1",
-		images: ["4pF", "4pB", "4pS", "4pD1", "4pD2", "4pD3"]
+		images: ["4pF.1", "4pB", "4pS.1", "4pD1", "4pD2", "4pD3"]
     }],
 	sizes: ['Free'],
 	description: 'The Kamalam Dress is a freesize, A-line dress with voluminous flare. One Jamdani sari is used to drape the lotus-like blooming flounce that falls from your underbust. The pallu of the sari is constructed into a V-neck bodice without shoulders and armholes to let the dress follow your curves. The self-tie string in the front with an elastic in the back makes it easier to slip into and adjust the fit of the dress. The lining is stitched in lightweight 100% cotton voile in a colour that compliments the translucency of the Jamdani.',
@@ -132,7 +132,7 @@ artwear.saritop.prodData = {
 	},
 	data: [{
 		vid: "CW1",
-		images: ["5pF", "5pB", "5pS", "5pD1", "5pD2"]
+		images: ["5pF", "5pB", "5pS.1", "5pD1", "5pD2"]
     }],
 	sizes: ['S', 'M', 'L', 'XL'],
 	description: 'A careful curation of Tangail sari pallus are cut into this basic round neck, sleeveless top. The top is lined in a contrasting colour of 100% cotton voile which feels soft on the skin. The boxy cut of the top makes it easy to slip into and move around. Pair it with our Naksha Skirt or palazzos or jeans, the traditional textile in a western silhouette will uplift any outfit.',
@@ -185,7 +185,7 @@ artwear.madras.prodData = {
 	},
 	data: [{
 		vid: "CW1",
-		images: ["7pF", "7pB", "7pS", "7pD1", "7pD2"]
+		images: ["7pF.1", "7pB.1", "7pS.1", "7pD1", "7pD2"]
     }],
 	sizes: ['Free'],
 	description: 'Our Art Wear collection also includes fun tops in Tangail like the Madras Top - a breezy style which will  flatter many shapes and sizes. Its A line flare makes it playful to wear and easy to move around in. The top has cap sleeves and round neck. The top is versatile and can be paired with  boxy culottes or skinny jeans or yoga pants - the top can work with your taste and mood.',
@@ -209,7 +209,7 @@ artwear.payara.prodData = {
 	},
 	data: [{
 		vid: "CW1",
-		images: ["1pF", "1pB", "1pS", "1pD1", "1pD2"]
+		images: ["1pF.1", "1pB", "1pS", "1pD1", "1pD2"]
     }],
 	sizes: ['Free'],
 	description: 'Our Art Wear collection also includes fun tops in Tangail like the Payara Top - a breezy style which will can flatter many shapes and sizes. Its A line flare makes it playful to wear and easy to move around in. This sleeveless top is lined in 100% cotton voile which is soft on the skin. The top is versatile and can be paired with  boxy culottes or skinny jeans or yoga pants - the top can work with your taste and mood.',
@@ -236,7 +236,7 @@ artwear.longovertop.prodData = {
 	},
 	data: [{
 		vid: "CW1",
-		images: ["1MF", "1MB", "1MS", "1MD1", "1MD2"]
+		images: ["1MF.1", "1MB", "1MS", "1MD1.1", "1MD2.1"]
     }],
 	sizes: ['S', 'M', 'L', 'XL'],
 	description: 'We added easy-to-go silhouettes to our Art Wear collection for you to pair with your everyday basics. The Aanchal Overtop is particularly inspired by the warm climate of the coastal town that is Auroville. It\'s cut in 100% cotton Tangail or Jamdani Lace that acts as a coverup in chilly evenings. The string fastening in the front can be left open over a maxi dress or a top and jeans to add a tonal layer.',
@@ -264,7 +264,7 @@ artwear.shortovertop.prodData = {
 	},
 	data: [{
 		vid: "CW1",
-		images: ["1MF", "1MB", "1MS", "1MD1", "1MD2"]
+		images: ["1MF.1", "1MB.1", "1MS.1", "1MD1", "1MD2"]
     }],
 	sizes: ['S', 'M', 'L', 'XL'],
 	description: 'We added easy-to-go silhouettes to our Art Wear collection for you to pair with your everyday basics. The Pallu Overtop is particularly inspired by the warm climate of the coastal town that is Auroville. It\'s cut in 100% cotton Tangail that acts as a coverup in chilly evenings. Tie-up the flaps in the front over a maxi dress or leave it open to add an interesting boxy silhouette over your top and jeans.',
