@@ -352,6 +352,22 @@ naksha.createUICFactory = function (scope, colSelData, browseInfo) {
 				createCategorySelector: function () {
 					var selCategory = createColourCategories(colSelData, factory);
 					return createColourCategorySelector(selCategory);
+				},
+				createVarSel: function () {
+					return {
+						getSelectedIdx: function () {
+							return 0;
+						}
+					}
+				},
+				createPanelRVs: function () {
+					var itemsRVlist = [SelChangeReason.colorCategoryChange, SelChangeReason.skuChange];
+					return createPanelRVs(
+						SelChangeReason.createValidator(itemsRVlist),
+						SelChangeReason.createValidator([SelChangeReason.colorChange, SelChangeReason.skuChange]),
+						SelChangeReason.createValidator([SelChangeReason.skuChange]),
+						SelChangeReason.createValidator([SelChangeReason.unitChange, SelChangeReason.skuChange])
+					);
 				}
 			};
 			var sizeSelector = createSizeSelector(prodJSON.skuInfo.sizes, pfiavG.sizeModalInfo.getToggleHTML(), null, "The model is 5 ft 3 in (160 cm).", "Size");
