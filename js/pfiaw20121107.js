@@ -21,7 +21,8 @@ artwear.dressSizing = {
 		}
 	}
 };
-artwear.modelTxt = "The model is 5 ft 4.5 in (164 cm)."
+
+artwear.modelTxt = "The model is 5 ft 4.5 in (164 cm)"
 
 artwear.facemask = {};
 artwear.facemask.SKU = 'FACEMK2005Ta';
@@ -134,7 +135,7 @@ artwear.saritop.prodData = {
 		images: ["5pF", "5pB", "5pS", "5pD1", "5pD2"]
     }],
 	sizes: ['S', 'M', 'L', 'XL'],
-	description: '',
+	description: 'A careful curation of Tangail sari pallus are cut into this basic round neck, sleeveless top. The top is lined in a contrasting colour of 100% cotton voile which feels soft on the skin. The boxy cut of the top makes it easy to slip into and move around. Pair it with our Naksha Skirt or palazzos or jeans, the traditional textile in a western silhouette will uplift any outfit.',
 	garmentDetails: '',
 };
 artwear.saritop.shippingHTML = getShippingInfoUL(['Since our Sari Tops are on sale in several physical locations in addition to the website, there is a chance that the dress that you have selected has already been sold. In this case, we will let you select another dress, or refund your purchase price, as you prefer.']);
@@ -142,6 +143,7 @@ artwear.saritop.createCardCreator = function () {
 	return createArtWearCardCreator(createSquareImageCarousel);
 };
 artwear.saritop.createJSON = createArtwearJSON;
+artwear.shortovertop.modelTxt = artwear.modelTxt + " and wearing size 'S'";
 
 artwear.ravakai = {};
 artwear.ravakai.SKU = 'JULITP1501Pa';
@@ -161,7 +163,7 @@ artwear.ravakai.prodData = {
 		images: ["1pF", "1pB", "1pS", "1pD1", "1pD2"]
     }],
 	sizes: ['S', 'M', 'L', 'XL'],
-	description: '',
+	description: 'A careful curation of Tangail sari pallus are cut into this basic, half sleeves top with a curved V neck. The top is lined in a contrasting colour of 100% cotton voile which feels soft on the skin. The boxy cut of the top makes it easy to slip into and move around. Pair it with our Drawstring Pants or palazzos or jeans, the traditional textile in a western silhouette will uplift any outfit.',
 	garmentDetails: '',
 };
 artwear.ravakai.shippingHTML = getShippingInfoUL(['Since our Ravakai Tops are on sale in several physical locations in addition to the website, there is a chance that the top that you have selected has already been sold. In this case, we will let you select another dress, or refund your purchase price, as you prefer.']);
@@ -169,6 +171,7 @@ artwear.ravakai.createCardCreator = function () {
 	return createArtWearCardCreator(createSquareImageCarousel);
 };
 artwear.ravakai.createJSON = createArtwearJSON;
+artwear.shortovertop.modelTxt = artwear.modelTxt + " and wearing size 'S'";
 
 artwear.madras = {};
 artwear.madras.SKU = 'MDRSTP1606PP';
@@ -185,7 +188,7 @@ artwear.madras.prodData = {
 		images: ["7pF", "7pB", "7pS", "7pD1", "7pD2"]
     }],
 	sizes: ['Free'],
-	description: '',
+	description: 'Our Art Wear collection also includes fun tops in Tangail like the Madras Top - a breezy style which will  flatter many shapes and sizes. Its A line flare makes it playful to wear and easy to move around in. The top has cap sleeves and round neck. The top is versatile and can be paired with  boxy culottes or skinny jeans or yoga pants - the top can work with your taste and mood.',
 	garmentDetails: '',
 };
 artwear.madras.shippingHTML = getShippingInfoUL(['Since our Madras Tops are on sale in several physical locations in addition to the website, there is a chance that the top that you have selected has already been sold. In this case, we will let you select another dress, or refund your purchase price, as you prefer.']);
@@ -209,7 +212,7 @@ artwear.payara.prodData = {
 		images: ["1pF", "1pB", "1pS", "1pD1", "1pD2"]
     }],
 	sizes: ['Free'],
-	description: '',
+	description: 'Our Art Wear collection also includes fun tops in Tangail like the Payara Top - a breezy style which will can flatter many shapes and sizes. Its A line flare makes it playful to wear and easy to move around in. This sleeveless top is lined in 100% cotton voile which is soft on the skin. The top is versatile and can be paired with  boxy culottes or skinny jeans or yoga pants - the top can work with your taste and mood.',
 	garmentDetails: '',
 };
 artwear.payara.shippingHTML = getShippingInfoUL(['Since our Payara Tops are on sale in several physical locations in addition to the website, there is a chance that the top that you have selected has already been sold. In this case, we will let you select another dress, or refund your purchase price, as you prefer.']);
@@ -236,7 +239,7 @@ artwear.longovertop.prodData = {
 		images: ["1MF", "1MB", "1MS", "1MD1", "1MD2"]
     }],
 	sizes: ['S', 'M', 'L', 'XL'],
-	description: '',
+	description: 'We added easy-to-go silhouettes to our Art Wear collection for you to pair with your everyday basics. The Aanchal Overtop is particularly inspired by the warm climate of the coastal town that is Auroville. It\'s cut in 100% cotton Tangail or Jamdani Lace that acts as a coverup in chilly evenings. The string fastening in the front can be left open over a maxi dress or a top and jeans to add a tonal layer.',
 	garmentDetails: '',
 };
 artwear.longovertop.shippingHTML = getShippingInfoUL(['Since our Long Overtops are on sale in several physical locations in addition to the website, there is a chance that the overtop that you have selected has already been sold. In this case, we will let you select another dress, or refund your purchase price, as you prefer.']);
@@ -244,6 +247,7 @@ artwear.longovertop.createCardCreator = function () {
 	return createArtWearCardCreator(createSquareImageCarousel);
 };
 artwear.longovertop.createJSON = createArtwearJSON;
+artwear.shortovertop.modelTxt = artwear.modelTxt + " and wearing size 'S'";
 
 artwear.shortovertop = {};
 artwear.shortovertop.SKU = 'OVTPSH1501Pa';
@@ -263,7 +267,7 @@ artwear.shortovertop.prodData = {
 		images: ["1MF", "1MB", "1MS", "1MD1", "1MD2"]
     }],
 	sizes: ['S', 'M', 'L', 'XL'],
-	description: '',
+	description: 'We added easy-to-go silhouettes to our Art Wear collection for you to pair with your everyday basics. The Pallu Overtop is particularly inspired by the warm climate of the coastal town that is Auroville. It\'s cut in 100% cotton Tangail that acts as a coverup in chilly evenings. Tie-up the flaps in the front over a maxi dress or leave it open to add an interesting boxy silhouette over your top and jeans.',
 	garmentDetails: '',
 };
 artwear.shortovertop.shippingHTML = getShippingInfoUL(['Since our Short Overtops are on sale in several physical locations in addition to the website, there is a chance that the overtop that you have selected has already been sold. In this case, we will let you select another dress, or refund your purchase price, as you prefer.']);
@@ -271,6 +275,7 @@ artwear.shortovertop.createCardCreator = function () {
 	return createArtWearCardCreator(createSquareImageCarousel);
 };
 artwear.shortovertop.createJSON = createArtwearJSON;
+artwear.shortovertop.modelTxt = artwear.modelTxt + " and wearing size 'M'";
 
 artwear.nakshaminuit = naksha.createStyle(naksha.minuitSKU);
 artwear.nakshamidi = naksha.createStyle(naksha.midiSKU);
