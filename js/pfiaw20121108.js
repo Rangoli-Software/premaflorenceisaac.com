@@ -143,7 +143,7 @@ artwear.saritop.createCardCreator = function () {
 	return createArtWearCardCreator(createSquareImageCarousel);
 };
 artwear.saritop.createJSON = createArtwearJSON;
-artwear.shortovertop.modelTxt = artwear.modelTxt + " and wearing size 'S'";
+artwear.saritop.modelTxt = artwear.modelTxt + " and wearing size 'S'";
 
 artwear.ravakai = {};
 artwear.ravakai.SKU = 'JULITP1501Pa';
@@ -171,7 +171,7 @@ artwear.ravakai.createCardCreator = function () {
 	return createArtWearCardCreator(createSquareImageCarousel);
 };
 artwear.ravakai.createJSON = createArtwearJSON;
-artwear.shortovertop.modelTxt = artwear.modelTxt + " and wearing size 'S'";
+artwear.ravakai.modelTxt = artwear.modelTxt + " and wearing size 'S'";
 
 artwear.madras = {};
 artwear.madras.SKU = 'MDRSTP1606PP';
@@ -247,7 +247,7 @@ artwear.longovertop.createCardCreator = function () {
 	return createArtWearCardCreator(createSquareImageCarousel);
 };
 artwear.longovertop.createJSON = createArtwearJSON;
-artwear.shortovertop.modelTxt = artwear.modelTxt + " and wearing size 'S'";
+artwear.longovertop.modelTxt = artwear.modelTxt + " and wearing size 'S'";
 
 artwear.shortovertop = {};
 artwear.shortovertop.SKU = 'OVTPSH1501Pa';
