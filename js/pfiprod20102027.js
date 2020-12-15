@@ -1181,7 +1181,7 @@ function createDefaultPanelRVs() {
 	return createPanelRVs(
 		null,
 		SelChangeReason.createValidator([SelChangeReason.colorChange]),
-		SelChangeReason.createNullValidator(),
+		SelChangeReason.createValidator([SelChangeReason.currencyChange]),
 		SelChangeReason.createNullValidator()
 	);
 }
@@ -1523,6 +1523,9 @@ function createUniqueItemsComponent(shop, items, productComponentFactory, produc
 			})
 		},
 		updateSelection: function (shop, fn, reason) {
+			if ( SelChangeReason.currencyChange  === reason ) {
+				this.shop = shop;
+			}
 			this.productComponent = this.productComponentFactory.createProductComponent(shop);
 			this.productComponent.updateSelection(reason);
 			this.updateItemCategories(fn, reason);
@@ -1664,6 +1667,8 @@ function createUIPageComponent(catalog, itemsComponent, itemsComponentFactory) {
 					return this.clrVal !== newval;
 				case SelChangeReason.colorCategoryChange:
 					return this.colRngVal !== newval;
+				case SelChangeReason.currencyChange:
+					return true;
 				default:
 					return false;
 			}

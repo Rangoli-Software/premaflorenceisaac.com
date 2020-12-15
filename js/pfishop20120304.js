@@ -980,7 +980,7 @@ function createAllCartComponents(shop, tlpc) {
 			this.cartC.setShop(shop);
 			this.finalizeC.setShop(shop);
 			this.checkoutC.setShop(shop);
-			this.tlpc.onSelectionChange();
+			this.tlpc.onSelectionChange(SelChangeReason.currencyChange, shop.currency);
 		},
 		initCartComponents: function (cart) {
 			this.curSelC = createCurrencySelectorComponent(this.shop, this);

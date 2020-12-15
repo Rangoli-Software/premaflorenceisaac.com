@@ -646,7 +646,7 @@ const merchInfo = [
     {
         SKU: 'FACEMK2005Ta',
         ledes: ["#oneofakind facemask to keep you safe in style and comfort"],
-        images: [{url: '/people/nfm01.jpg'},{url: '/people/nfm02.jpg'},{url: '/people/nfm03.jpg'},{url: '/look/friends/gg-ping.jpg'},{url: '/look/friends/gg-aqua.jpg'},{url: '/look/friends/gg-ind-1.jpg'}]
+        images: [{url: '/people/nfm01.jpg'},{url: '/people/nfm02.jpg'},{url: '/people/nfm03.jpg'},{url: '/look/friends/gg-pink.jpg'},{url: '/look/friends/gg-aqua.jpg'},{url: '/look/friends/gg-ind-1.jpg'}]
     },
     {
         SKU: 'DPDYSF1501PT',

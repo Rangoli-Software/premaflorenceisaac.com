@@ -365,7 +365,7 @@ naksha.createUICFactory = function (scope, colSelData, browseInfo) {
 					return createPanelRVs(
 						SelChangeReason.createValidator(itemsRVlist),
 						SelChangeReason.createValidator([SelChangeReason.colorChange, SelChangeReason.skuChange]),
-						SelChangeReason.createValidator([SelChangeReason.skuChange]),
+						SelChangeReason.createValidator([SelChangeReason.skuChange, SelChangeReason.currencyChange]),
 						SelChangeReason.createValidator([SelChangeReason.unitChange, SelChangeReason.skuChange])
 					);
 				}
