@@ -10,17 +10,19 @@ artwear.dressSizing = {
 	sizeGeo: ["US", "UK", "EU", "IT", "GR", "JP", "RU"],
 	capGeo: ["US", "UK / AU / NZ", "EU / FR", "IT", "DE", "JP", "RU"],
 	chart: {
-		Free: {
-			US: [4, 18],
-			UK: [8, 22],
-			EU: [36, 50],
-			IT: [40, 54],
-			GR: [34, 48],
-			JP: [9, 23],
-			RU: [42, 56]
-		}
+		Free: {US:[4,18],UK:[8,22],EU:[36,50],IT:[40,54],GR:[34,48],JP:[9,23],RU:[42,56]}
 	}
 };
+artwear.topsizing = {
+	sizeGeo: ["US", "UK", "EU", "IT", "GR", "JP", "RU"],
+	capGeo: ["US", "UK / AU / NZ", "EU / FR", "IT", "DE", "JP", "RU"],
+	chart: {
+		S:{US:[8,10],UK:[12,14],EU:[40,42],IT:[44,46],GR:[38,40],JP:[13,15],RU:[44,48]},
+		M:{US:[10],UK:[14],EU:[42],IT:[46],GR:[40],JP:[15],RU:[48]},
+		L:{US:[10,12],UK:[14,16],EU:[42,44],IT:[46,48],GR:[40,42],JP:[15,17],RU:[48,50]},
+		XL:{US:[12,14],UK:[16,18],EU:[44,46],IT:[48,50],GR:[42,44],JP:[17,19],RU:[50,52]}
+	}
+}
 
 artwear.modelTxt = "The model is 5 ft 4.5 in (164 cm)"
 
@@ -120,7 +122,7 @@ artwear.kamalam.createJSON = createArtwearJSON;
 artwear.saritop = {};
 artwear.saritop.SKU = 'SARITP1501Pa';
 artwear.saritop.getFactory = getSariTopFactory;
-artwear.saritop.sizing = null;
+artwear.saritop.sizing = artwear.topsizing;
 artwear.saritop.prodData = {
 	imageFile: "sizing.jpg",
 	dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole'],
@@ -148,7 +150,16 @@ artwear.saritop.modelTxt = artwear.modelTxt + " and wearing size 'S'";
 artwear.ravakai = {};
 artwear.ravakai.SKU = 'JULITP1501Pa';
 artwear.ravakai.getFactory = getRavakaiFactory;
-artwear.ravakai.sizing = null;
+artwear.ravakai.sizing = {
+	sizeGeo: ["US", "UK", "EU", "IT", "GR", "JP", "RU"],
+	capGeo: ["US", "UK / AU / NZ", "EU / FR", "IT", "DE", "JP", "RU"],
+	chart: {
+		S:{US:[10],UK:[14],EU:[42],IT:[46],GR:[40],JP:[15],RU:[48]},
+		M:{US:[10,12],UK:[14,16],EU:[42,44],IT:[46,48],GR:[40,42],JP:[15,17],RU:[48,50]},
+		L:{US:[12,14],UK:[16,18],EU:[44,46],IT:[48,50],GR:[42,44],JP:[17,19],RU:[50,52]},
+		XL:{US:[14],UK:[18],EU:[46],IT:[50],GR:[44],JP:[19],RU:[52]}
+	}
+};
 artwear.ravakai.prodData = {
 	imageFile: "sizing.jpg",
 	dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Sleeve Length', 'F. Sleeve Width'],
@@ -176,7 +187,13 @@ artwear.ravakai.modelTxt = artwear.modelTxt + " and wearing size 'S'";
 artwear.madras = {};
 artwear.madras.SKU = 'MDRSTP1606PP';
 artwear.madras.getFactory = getMadrasFactory;
-artwear.madras.sizing = null;
+artwear.madras.sizing = {
+	sizeGeo: ["US", "UK", "EU", "IT", "GR", "JP", "RU"],
+	capGeo: ["US", "UK / AU / NZ", "EU / FR", "IT", "DE", "JP", "RU"],
+	chart: {
+		Free:{US:[4,16],UK:[8,20],EU:[36,48],IT:[40,52],GR:[34,46],JP:[9,21],RU:[42,54]}
+	}
+};
 artwear.madras.prodData = {
 	imageFile: "sizing.jpg",
 	dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Sleeve Width', 'F. Sleeve Length'],
@@ -200,7 +217,13 @@ artwear.madras.createJSON = createArtwearJSON;
 artwear.payara = {};
 artwear.payara.SKU = 'TRPZTP1807Pa';
 artwear.payara.getFactory = getPayaraFactory;
-artwear.payara.sizing = null;
+artwear.payara.sizing = {
+	sizeGeo: ["US", "UK", "EU", "IT", "GR", "JP", "RU"],
+	capGeo: ["US", "UK / AU / NZ", "EU / FR", "IT", "DE", "JP", "RU"],
+	chart: {
+		Free:{US:[4,14],UK:[8,18],EU:[36,46],IT:[40,50],GR:[34,44],JP:[9,19],RU:[42,52]}
+	}
+};
 artwear.payara.prodData = {
 	imageFile: "sizing.jpg",
 	dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole'],
@@ -224,7 +247,7 @@ artwear.payara.createJSON = createArtwearJSON;
 artwear.longovertop = {};
 artwear.longovertop.SKU = 'OVTPLO1501Pa';
 artwear.longovertop.getFactory = getLongOvertopFactory;
-artwear.longovertop.sizing = null;
+artwear.longovertop.sizing = artwear.topsizing;
 artwear.longovertop.prodData = {
 	imageFile: "sizing.jpg",
 	dimensionNames: ['A. Length', 'B. Shoulders', 'C. Bust', 'D. Armhole', 'E. Sleeve Width', 'F. Sleeve Length'],
@@ -252,7 +275,16 @@ artwear.longovertop.modelTxt = artwear.modelTxt + " and wearing size 'S'";
 artwear.shortovertop = {};
 artwear.shortovertop.SKU = 'OVTPSH1501Pa';
 artwear.shortovertop.getFactory = getShortOvertopFactory;
-artwear.shortovertop.sizing = null;
+artwear.shortovertop.sizing = {
+	sizeGeo: ["US", "UK", "EU", "IT", "GR", "JP", "RU"],
+	capGeo: ["US", "UK / AU / NZ", "EU / FR", "IT", "DE", "JP", "RU"],
+	chart: {
+		S:{US:[10,12],UK:[14,16],EU:[42,44],IT:[46,48],GR:[40,42],JP:[15,17],RU:[48,50]},
+		M:{US:[12,14],UK:[16,18],EU:[44,46],IT:[48,50],GR:[42,44],JP:[17,19],RU:[50,52]},
+		X:{US:[14,16],UK:[18,20],EU:[46,48],IT:[50,52],GR:[44,46],JP:[19,21],RU:[52,54]},
+		XL:{US:[16],UK:[20],EU:[48],IT:[52],GR:[46],JP:[21],RU:[54]}
+	}
+};
 artwear.shortovertop.prodData = {
 	imageFile: "sizing.jpg",
 	dimensionNames: ['A. Front Length', 'B. Back Length', 'C. Shoulders', 'D. Bust', 'E. Armhole', 'F. Sleeve Width', 'G. Sleeve Length'],
