@@ -193,7 +193,7 @@ wovencanvas.tshirt.getFactory = getWovenCanvasFactory;
 wovencanvas.tshirt.prodData = {
 	imageFile: "sizing.jpg",
 	dimensionNames: ["Shoulder", "Chest", "Length"],
-	dimensionsCm: {
+	dimensionsIn: {
 		S: [15.5, 38, 26],
 		M: [16.5, 40, 27],
 		L: [17.5, 42, 28],

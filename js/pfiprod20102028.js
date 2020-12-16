@@ -291,7 +291,9 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, sizeSelect
 		prodJSON: prodJSON,
 		isSquare: isSquare,
 		createSizePanelr: function () {
-			var dimensioner = createDimensioner("cm", this.prodJSON.dimensionNames, this.prodJSON.dimensionsCm, this.prodJSON.styleImagePath);
+			var dimensioner = (this.prodJSON.dimensionsIn  === undefined)
+			?  createDimensioner("cm", this.prodJSON.dimensionNames, this.prodJSON.dimensionsCm, this.prodJSON.styleImagePath)
+			:  createDimensioner("in", this.prodJSON.dimensionNames, this.prodJSON.dimensionsIn, this.prodJSON.styleImagePath);
 			var chart = this.prodJSON.skuInfo.getSizeChart();
 			var sizeChartr = chart !== null ? createSizeChartr(chart) : null;
 			return createSizePanelr(this.prodJSON.skuInfo, dimensioner, sizeChartr);
@@ -332,6 +334,7 @@ function createProductJSON(sku, basePath, prodData, sizingChart, imageFactory) {
 		styleImagePath: basePath + prodData.imageFile,
 		dimensionNames: prodData.dimensionNames,
 		dimensionsCm: prodData.dimensionsCm,
+		dimensionsIn: prodData.dimensionsIn,
 		imageFactory: imageFactory,
 		variants: {
 			getFabric: function (varidx) {

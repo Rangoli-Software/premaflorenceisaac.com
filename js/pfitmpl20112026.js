@@ -709,8 +709,6 @@ const merchInfo = [
 		SKU: 'NKSHMU1501PP',
 		ledes: ["Full length #oneofakind skirt for all ages and sizes!"],
 		images: [{
-			url: '/people/minm.jpg'
-		}, {
 			url: '/look/friends/1.jpg'
 		}]
     },
@@ -787,6 +785,13 @@ const merchInfo = [
 			url: '/products/home/CBCGMD.jpg'
 		}, {
 			url: '/products/home/CBMBMD.jpg'
+		}]
+    },
+	{
+		SKU: 'TRPZTP1807Kh',
+		ledes: [''],
+		images: [{
+			url: '/look/friends/tt.jpg'
 		}]
     },
 	{
