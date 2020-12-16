@@ -415,6 +415,10 @@ const shop = {
 	url: "/shop.html",
 	sub: [
 		{
+			title: "Woven Canvas T Shirt",
+			url: "/products/wovencanvas/tshirt.html"
+        },
+		{
 			title: "Art Wear",
 			url: "/products/artwear/shop.html"
         },
@@ -433,10 +437,6 @@ const shop = {
 		{
 			title: "Happy Everyday",
 			url: "/products/happyeveryday/shop.html"
-        },
-		{
-			title: "Woven Canvas T Shirt",
-			url: "/fabricartT.html"
         },
 		{
 			title: "Dip-Dye Scarf",
@@ -506,6 +506,17 @@ function getSubEntry(item, url) {
 }
 
 const merchInfo = [
+	{
+		SKU: 'AWTSHT1604Je',
+		ledes: ['A one-of-a-kind T-shirt for that unique individual!'],
+		images: [{
+			url: '/fabricart/TShirtColl.jpg'
+		}, {
+			url: '/fabricart/ManWhiteS.jpg'
+		}, {
+			url: '/fabricart/GirlBlackS.jpg'
+		}]
+    },
 	{
 		SKU: 'OVTPSH1501Pa',
 		ledes: [''],
@@ -692,17 +703,6 @@ const merchInfo = [
 		ledes: [''],
 		images: [{
 			url: '/look/moods/cs/tamora.jpg'
-		}]
-    },
-	{
-		SKU: 'AWTSHT1604Je',
-		ledes: ['A one-of-a-kind T-shirt for that unique individual!'],
-		images: [{
-			url: '/fabricart/TShirtColl.jpg'
-		}, {
-			url: '/fabricart/ManWhiteS.jpg'
-		}, {
-			url: '/fabricart/GirlBlackS.jpg'
 		}]
     },
 	{
@@ -1094,6 +1094,29 @@ function getTabContent(content, id, isActive) {
 		'" id="' + id + '" role="tabpanel">' +
 		content +
 		'</div>';
+}
+
+function createURLModifer(paramName, defaultCode) {
+	return {
+		paramName: paramName,
+		defaultCode: defaultCode,
+		getCodeOrDefault: function () {
+			var c = this.getCode();
+			if (c === undefined) {
+				c = this.defaultCode;
+			}
+			return c;
+		},
+		getCode: function () {
+			return getUrlVars()[this.paramName];
+		},
+		updateURL: function (c) {
+			var oldC = this.getCode();
+			if (oldC !== c) {
+				modifyUrl(this.paramName, c);
+			}
+		}
+	}
 }
 
 function createUrlVarSelector(titles, ids, vals, key, defaultVal) {

@@ -170,15 +170,17 @@ function createColourChoiceCategories(data, factory) {
 	}
 };
 
-function createCategoryUIViewer(selCategory) {
+function createCategoryUIViewer(selCategory, selIdx) {
 	return {
 		selCategory: selCategory,
+		selIdx: selIdx,
 		getSelectedIdx: function () {
 			var newidx = this.selCategory.getSelectedIdx();
 			if (newidx != -1) {
+				this.selIdx = newidx;
 				return newidx;
 			}
-			return 0;
+			return this.selIdx;
 		},
 		createDiv: function() {
 			return this.selCategory.createDiv(this.getSelectedIdx());
@@ -187,6 +189,8 @@ function createCategoryUIViewer(selCategory) {
 }
 
 const wovencanvas = {};
+wovencanvas.createJSON = createWovenCanvasJSON;
+
 wovencanvas.tshirt = {};
 wovencanvas.tshirt.SKU = 'AWTSHT1604Je';
 wovencanvas.tshirt.getFactory = getWovenCanvasFactory;
@@ -241,4 +245,18 @@ wovencanvas.tshirt.prodData = {
 wovencanvas.tshirt.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
 wovencanvas.tshirt.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
 wovencanvas.tshirt.createCardCreator = createWovenCanvasCardCreator;
-wovencanvas.tshirt.createJSON = createWovenCanvasJSON;
+
+wovencanvas.catalog = {
+	title: "Woven Canvas",
+	shopURL: "/products/wovencanvas/shop.html",
+	skus: null,
+	styles: [wovencanvas.tshirt],
+	garments: [wovencanvas.tshirt.SKU],
+	extras: [],
+	productDB: null,
+	getProduct: function (sku) {
+		return this.productDB[sku];
+	}
+}
+
+pfiavG.getLineInitializer(wovencanvas).initialize();

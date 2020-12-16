@@ -60,33 +60,10 @@ naksha.createEncoder = function () {
 	};
 }
 
-naksha.createURLModifer = function () {
-	return {
-		paramName: 's',
-		defaultCode: 'd',
-		getCodeOrDefault: function () {
-			var c = this.getCode();
-			if (c === undefined) {
-				c = this.defaultCode;
-			}
-			return c;
-		},
-		getCode: function () {
-			return getUrlVars()[this.paramName];
-		},
-		updateURL: function (c) {
-			var oldC = this.getCode();
-			if (oldC !== c) {
-				modifyUrl(this.paramName, c);
-			}
-		}
-	}
-}
-
 naksha.createURLUpdater = function () {
 	return {
 		encoder: naksha.createEncoder(),
-		urlModifier: naksha.createURLModifer(),
+		urlModifier: createURLModifer('s','d')
 	};
 }
 

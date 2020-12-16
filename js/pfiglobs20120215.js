@@ -1,14 +1,18 @@
-const shopRevisionVersion = "2020120214";
+const shopRevisionVersion = "2020120215";
 
 const pfiavG = {};
 pfiavG.lineNames = ["Art Wear", "It's Magic", "Ce Soir", "Happy Everyday"];
 pfiavG.lineMerchSKUs = [
+    ["AWTSHT1604Je"],
     ["OVTPSH1501Pa", "OVTPLO1501Pa", "TRPZTP1807Pa", "MDRSTP1606PP", "SARITP1501Pa", "LNKFTN1501Ja", "LOTSDR1501Ja", "NKSHDR1501Ta", "NKSHMU1501PP", "NKSHMD1501PP", "NKSHMI1501PP", "NKSHMC1512PP", "FACEMK2005Ta"],
     ["KLGTLY1601Rv", "KGYPST1601Rv", "KRAJPT1601Kh", "FAIRST2011Rv", "KBALPA1601Vo", "KRAJKT1601Rv", "YUVRTC1601Rv", "HLFPNT1601Kh", "KIDIKI1501Vi", "PRNCDR1501Rv", "KWAVDR1601Rv", "KDHRDR1601Rv"],
     ["HLNDRS1505PT", "JLTDRS1505PT", "BKLLTS1505Je"],
-    ["CRPTOP1805Kh", "VAMPAL1708Kh", "OVTPLO1501Vo", "BERMPA1609Kh", "LTSDSL1501Kh", "BALLPA1501Vo"]
+    ["TRPZTP1807Kh", "CRPTOP1805Kh", "VAMPAL1708Kh", "OVTPLO1501Vo", "BERMPA1609Kh", "LTSDSL1501Kh", "BALLPA1501Vo"]
 ];
 pfiavG.lineMerchSections = [{
+    "title": "Woven Canvas",
+    "url": "/products/wovencanvas/shop.html"
+}, {
     "title": "Art Wear",
     "url": "/products/artwear/shop.html"
 }, {
@@ -25,7 +29,7 @@ pfiavG.lineMerchSections = [{
 const cmData = [
 ['Test Live Trans','TESTIT0000Hi','0','0','','FALSE'],
 
-['Woven Canvas on T','AWTSHT1604Je','0.2','1.2','/fabricartT.html','TRUE'],
+['Woven Canvas on T','AWTSHT1604Je','0.2','1.2','/products/wovencanvas/tshirt.html','TRUE'],
 ['Kagera Tie','KAGTIE1601Kh','0.094','1.1','/products/ties/kagera.html','FALSE'],
 ['Dip-Dye Scarf','DPDYSF1501PT','0.36','1.2','/products/scarves/dipdye.html','FALSE'],
 ['Champagne Bag','CHMPGN1501JL','0.0208333333333333','1.1','/products/home/champagnebag.html','FALSE'],
