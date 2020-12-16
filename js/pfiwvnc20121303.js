@@ -190,6 +190,28 @@ const wovencanvas = {};
 wovencanvas.tshirt = {};
 wovencanvas.tshirt.SKU = 'AWTSHT1604Je';
 wovencanvas.tshirt.getFactory = getWovenCanvasFactory;
+wovencanvas.tshirt.menssizing = { 
+	sizeGeo: ["US", "UK", "EU", "GR", "JP", "RU"], 
+	capGeo: ["US", "UK", "EU", "DE", "JP", "RU"], 
+	chart: {
+		S: { US: [38], UK: [38], EU: [48], GR: [42], JP: [17], RU: [50] }, 
+		M: { US: [40], UK: [40], EU: [50], GR: [44], JP: [19], RU: [52] }, 
+		L: { US: [42], UK: [42], EU: [52], GR: [46], JP: [21], RU: [54] }, 
+		XL: { US: [44], UK: [44], EU: [54], GR: [48], JP: [23], RU: [56] }, 
+		XXL: { US: [46], UK: [46], EU: [56], GR: [50], JP: [25], RU: [58] } 
+	}
+};
+wovencanvas.tshirt.womensizing = { 
+	sizeGeo: ["US", "UK", "EU", "IT", "GR", "JP", "RU"], 
+	capGeo: ["US", "UK", "EU / FR", "IT", "DE", "JP", "RU"], 
+	chart: { 
+		S: { US: [8], UK: [12], EU: [40], IT: [44], GR: [38], JP: [13], RU: [46] }, 
+		M: { US: [10], UK: [14], EU: [42], IT: [46], GR: [40], JP: [15], RU: [48] }, 
+		L: { US: [12], UK: [16], EU: [44], IT: [48], GR: [42], JP: [17], RU: [50] }, 
+		XL: { US: [14], UK: [18], EU: [46], IT: [50], GR: [44], JP: [19], RU: [52] }, 
+		XXL: { US: [16], UK: [20], EU: [48], IT: [52], GR: [46], JP: [21], RU: [54] } 
+	} 
+};
 wovencanvas.tshirt.prodData = {
 	imageFile: "sizing.jpg",
 	dimensionNames: ["Shoulder", "Chest", "Length"],

@@ -43,6 +43,7 @@ function rgbToHSL(hexRGB) {
 
 const SelChangeReason = {
 	currencyChange: 'CurrencyChange',
+	genderChange: 'GenderChange',
 	unitChange: 'UnitChange',
 	skuChange: 'SKUChange',
 	sizeChange: 'SizeChange',
@@ -291,12 +292,19 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, sizeSelect
 		prodJSON: prodJSON,
 		isSquare: isSquare,
 		createSizePanelr: function () {
-			var dimensioner = (this.prodJSON.dimensionsIn  === undefined)
-			?  createDimensioner("cm", this.prodJSON.dimensionNames, this.prodJSON.dimensionsCm, this.prodJSON.styleImagePath)
-			:  createDimensioner("in", this.prodJSON.dimensionNames, this.prodJSON.dimensionsIn, this.prodJSON.styleImagePath);
-			var chart = this.prodJSON.skuInfo.getSizeChart();
-			var sizeChartr = chart !== null ? createSizeChartr(chart) : null;
-			return createSizePanelr(this.prodJSON.skuInfo, dimensioner, sizeChartr);
+			var prodJSON = this.prodJSON;
+			var skuInfo = prodJSON.skuInfo;
+			var dimensioner = (prodJSON.dimensionsIn === undefined) ?
+				createDimensioner("cm", prodJSON.dimensionNames, prodJSON.dimensionsCm, prodJSON.styleImagePath, undefined, skuInfo.sizes) :
+				createDimensioner("in", prodJSON.dimensionNames, prodJSON.dimensionsIn, prodJSON.styleImagePath, undefined, skuInfo.sizes);
+			var sizeChartr;
+			if (viewerFactory.createSizeChartr === undefined) {
+				var chart = skuInfo.getSizeChart();
+				sizeChartr = chart !== null ? createSizeChartr(chart, skuInfo.sizes) : null;
+			} else {
+				sizeChartr = viewerFactory.createSizeChartr();
+			}
+			return createSizePanelr(prodJSON.skuInfo, dimensioner, sizeChartr);
 		},
 		createPCFactory: function () {
 			var prePanelr = this.viewerFactory.createPre();
@@ -1131,22 +1139,27 @@ function createSizePanelr(skuInfo, dimensioner, sizer) {
 		dimensioner: dimensioner,
 		sizer: sizer,
 		sizeDlgId: pfiavG.sizeModalInfo.sizeDlgId,
+		contentId: 'sizingContents',
 		getSizeModal: function () {
-			return getSizeModalWithId(this.sizeDlgId, this.createSizingPanel());
+			return getSizeModalWithId(this.sizeDlgId, this.contentId, this.createSizingPanel());
 		},
 		createSizingPanel: function () {
 			var res = '';
 			if (this.sizer !== null) {
 				res += '<h6>International Sizing</h6>' +
-					this.sizer.createSizeChart(this.skuInfo.sizes) +
+					this.sizer.createSizeChart() +
 					'<p>The sizing chart above is only approximate. Please check the actual garment measurements below to find your size. Please email us at prema.florence.isaac@gmail.com or WhatsApp +919443362528 if you have further questions or wish to customize your order.</p>';
 			}
 			res += '<h6 class="mb-0">Product Measurements</h6>' +
-				this.dimensioner.createMeasurementsPanel("in", this.skuInfo.sizes);
+				this.dimensioner.createMeasurementsPanel("cm");
 			return res;
 		},
-		update: function () {
-			$("#" + this.sizeDlgId).replaceWith(this.getSizeModal());
+		update: function (reason) {
+			if (SelChangeReason.genderChange === reason) {
+				this.sizer.update();
+			} else {
+				$("#" + this.sizeDlgId).replaceWith(this.getSizeModal());
+			}
 		},
 		updateUnits: function () {
 			var tableid = '#' + this.dimensioner.tableId;
@@ -1266,7 +1279,7 @@ function createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, var
 				this.updateInfoDiv();
 			}
 			if (this.srv.sizingRV.isValid(reason)) {
-				this.sizePanelr.update();
+				this.sizePanelr.update(reason);
 			}
 		},
 		createImageDiv: function (varIdx) {
@@ -1353,7 +1366,7 @@ function createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, a
 				this.updateInfoDiv();
 			}
 			if (this.srv.sizingRV.isValid(reason)) {
-				this.sizePanelr.update();
+				this.sizePanelr.update(reason);
 			}
 		},
 		createImageDiv: function () {
@@ -1526,7 +1539,7 @@ function createUniqueItemsComponent(shop, items, productComponentFactory, produc
 			})
 		},
 		updateSelection: function (shop, fn, reason) {
-			if ( SelChangeReason.currencyChange  === reason ) {
+			if (SelChangeReason.currencyChange === reason) {
 				this.shop = shop;
 			}
 			this.productComponent = this.productComponentFactory.createProductComponent(shop);
@@ -1671,6 +1684,8 @@ function createUIPageComponent(catalog, itemsComponent, itemsComponentFactory) {
 				case SelChangeReason.colorCategoryChange:
 					return this.colRngVal !== newval;
 				case SelChangeReason.currencyChange:
+					return true;
+				case SelChangeReason.genderChange:
 					return true;
 				default:
 					return false;
