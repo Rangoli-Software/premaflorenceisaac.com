@@ -262,6 +262,9 @@
 /products/vagabond/Angkor/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
+/products/wovencanvas/wc/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
 /tapestries/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
