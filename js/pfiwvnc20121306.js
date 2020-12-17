@@ -84,47 +84,76 @@ function createPanelsList(listData, factory) {
 		getDescriptor: function (i) {
 			return this.factory.createDescriptor(this.base[i]);
 		},
-		filterUnsoldPanels: function () {
-			var nList = [];
-			for (var i = 0; i <= this.base.length - 1; i++) {
-				var row = this.base[i];
-				var desc = this.getDescriptor(i);
-				if (desc.isAvailable()) {
-					nList.push(row);
-				}
+		sortOn: function (cmp) {
+			var keys = Array.from(this.base.keys());
+			let that = this;
+			keys.sort(cmp);
+			var res = [];
+			for (var i = 0; i < keys.length; i++) {
+				res.push(this.base[keys[i]]);
 			}
-			return createPanelsList(nList, this.factory);
+			return createPanelsList(res, this.factory);
+		},
+		sortOnNumber: function () {
+			let that = this;
+			return this.sortOn(function (l, r) {
+				var hL = that.getDescriptor(l).number;
+				var hR = that.getDescriptor(r).number;
+				return hL < hR ? -1 : (hL > hR ? 1 : 0);
+			});
+		},
+		filterFinal: function() {
+			let that = this;
+			var avl  = this.filter(function(i) {
+				return that.getDescriptor(i).isAvailable();
+			});
+			var col  = this.filter(function(i) {
+				return that.getDescriptor(i).isCollected();
+			});
+			shuffle(col.base);
+			var conc = createPanelsList(avl.base.concat(col.base.slice(0,2)), this.factory);
+			return conc.sortOnNumber();
+		},
+		filter: function(fn) {
+			var keys = Array.from(this.base.keys());
+			let that = this;
+			var filtered = keys.filter(fn);
+			var res = [];
+			for (var i = 0; i < filtered.length; i++) {
+				res.push(this.base[filtered[i]]);
+			}
+			return createPanelsList(res, this.factory);
+		},
+		filterOutColour: function (color) {
+			let that = this;
+			return this.filter(function(i) {
+				var row = that.base[i];
+				var desc = that.getDescriptor(i);
+				return desc.itemFactory.getGarmentColour(row) !== color;
+			});
 		},
 		filterOnColour: function (color) {
-			var nList = [];
-			for (var i = 0; i <= this.base.length - 1; i++) {
-				var row = this.base[i];
-				var desc = this.getDescriptor(i);
-				if (desc.itemFactory.getGarmentColour(row) === color) {
-					nList.push(row);
-				}
-			}
-			return createPanelsList(nList, this.factory);
+			let that = this;
+			return this.filter(function(i) {
+				var row = that.base[i];
+				var desc = that.getDescriptor(i);
+				return desc.itemFactory.getGarmentColour(row) === color;
+			});
 		},
 		filterOnSize: function (size) {
-			var nList = [];
-			for (var i = 0; i <= this.base.length - 1; i++) {
-				var row = this.base[i];
-				var desc = this.getDescriptor(i);
+			let that = this;
+			return this.filter(function(i) {
+				var row = that.base[i];
+				var desc = that.getDescriptor(i);
 				var recSize = desc.getSize();
 				if (recSize === null) {
 					var panel = row[7];
 					var width = parseFloat(panel.Width);
-					if (this.worksWithSize(width, size)) {
-						nList.push(row);
-					}
+					return that.worksWithSize(width, size);
 				} else {
-					if (recSize == size) {
-						nList.push(row);
-					}
+					return (recSize == size);
 				}
-			}
-			return createPanelsList(nList, this.factory);
+			});
 		}
 	}
 }
@@ -162,10 +191,13 @@ function createColourChoiceCategories(data, factory) {
 			var len = this.getNumCategories();
 			return Math.floor(Math.random() * len);
 		},
+		unfiltered: function() {
+			return createPanelsList(this.factory.listData, this.factory);
+		},
 		filterOnCategory: function (cat) {
 			var clr = this.getCategory(cat);
 			var list = createPanelsList(this.factory.listData, this.factory);
-			return list.filterOnColour(clr.colourName).filterUnsoldPanels();
+			return list.filterOnColour(clr.colourName);
 		}
 	}
 };

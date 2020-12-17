@@ -250,6 +250,9 @@ function createUIDescriptorFactory(base, product, listData, itemFactory) {
 				getCWDesc: function () {
 					return this.catDesc;
 				},
+				isCollected: function () {
+					return this.collected !== null;
+				},
 				isAvailable: function () {
 					return this.collected === null && this.getCurated() === null;
 				},
@@ -450,6 +453,9 @@ function createUniqueItemList(listdata, factory) {
 		},
 		getINRPrice: function (i) {
 			return this.getDescriptor(i).getCWPrice();
+		},
+		filterFinal: function() {
+			return this;
 		},
 		filterOnSize: function (size) {
 			var nList = [];
@@ -933,7 +939,7 @@ function createColourSizeCategorySelector(categories, sizeSelector) {
 		},
 		getItems: function () {
 			var size = this.sizeSelector.getSelectedSize();
-			return this.colourCategoryUI.getItems().filterOnSize(size);
+			return this.colourCategoryUI.getItems().filterOnSize(size).filterFinal();
 		},
 		updateSelection: function (reason) {
 			if (this.reasonValidator.isValid(reason)) {
