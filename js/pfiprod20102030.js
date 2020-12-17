@@ -611,7 +611,7 @@ function createSquareImageCarousel(images, idSfx) {
 		panelId: panelId,
 		navId: navId,
 		createImageCarousel: function () {
-			return '<div class="col-12">' + this.createImagePanel() +
+			return '<div class="col-12 px-0">' + this.createImagePanel() +
 				this.createImageNav() + '</div>';
 		},
 		createImageNav: function () {
@@ -1283,7 +1283,7 @@ function createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, var
 			}
 		},
 		createImageDiv: function (varIdx) {
-			return '<div class="form-row" id="' + this.prodImageId + '">' +
+			return '<div class="row mb-4" id="' + this.prodImageId + '">' +
 				this.carousel.createVariantCarousel(varIdx).createImageCarousel() +
 				'</div>';
 		},
@@ -1370,7 +1370,7 @@ function createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, a
 			}
 		},
 		createImageDiv: function () {
-			return '<div class="form-row" id="' + this.prodImageId + '">' +
+			return '<div class="row mb-4" id="' + this.prodImageId + '">' +
 				this.carousel.createVariantCarousel(this.varidx).createImageCarousel() +
 				'</div>';
 		},
