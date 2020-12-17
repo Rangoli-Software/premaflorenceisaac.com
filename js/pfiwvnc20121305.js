@@ -10,12 +10,12 @@ function createWovenCanvasCardCreator() {
 		createCard: function (images, btnId, priceHTML, desc) {
 			var res = '<div class="item sc-panel" style="background-color: ' +
 				desc.getBGColor() + ';color: ' + desc.getFGColor() + ';"><div class="row">';
-			res += '<div class="col-md-7"><div class="row"><div class="col-10 offset-1"><figure>' +
+			res += '<div class="col-md-8"><div class="row"><div class="col-10 offset-1"><figure>' +
 				'<img src="' + images.getImage(0).url + '" class="img-fluid center-block">' +
 				'</figure>' +
 				'<p style="color: ' + desc.getFGColor() + '; text-align: center">Woven Canvas ' + desc.getDescription() + '</p>' +
 				'</div></div></div>';
-			res += '<div class="col-md-5 align-self-center"><div class="row"><div class="col-10 offset-1 text-center">' +
+			res += '<div class="col-md-4 align-self-center"><div class="row"><div class="col-10 offset-1 text-center">' +
 				'<p style="font-size: 150%">' + priceHTML + '</p>';
 
 			if (desc.isAvailable()) {
