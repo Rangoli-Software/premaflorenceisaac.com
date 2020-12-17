@@ -18,7 +18,7 @@ vagabond.createComponentFactory = function (prodInfo, dimensioner, sizer, catego
     var navHelper = createNavHelper(prodInfo, categorizer, vagabond.catalog.title);
     //    var relatedviewer = createVBRelatedViewer(prodInfo.skuInfo, catalog);
     var relatedviewer = createEmptyViewer();
-    return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, "", "Size", false);
+    return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, "", "Size", true);
 }
 
 vagabond.angkor = {

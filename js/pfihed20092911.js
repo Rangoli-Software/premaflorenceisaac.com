@@ -22,7 +22,7 @@ happyED.createComponentFactory = function (prodInfo, dimensioner, sizer, looks, 
     var navHelper = createNavHelper(prodInfo, categorizer, happyED.catalog.title);
     var relatedviewer = happyED.createRelatedViewer(prodInfo.skuInfo, looks, catalog);
     var modelTxt = "The model is 5 ft 7.5 in (171.5 cm.) and wearing size '" + prodInfo.skuInfo.sizes[0] + "'";
-    return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, modelTxt, "Size", false);
+    return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, modelTxt, "Size", true);
 }
 const hed_sizing_top = {
     sizeGeo: ["US", "UK", "EU", "IT", "GR", "JP", "RU"],
