@@ -52,6 +52,9 @@
 /g/look/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
+/g/merch/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
 /g/p/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
