@@ -57,17 +57,7 @@ function createNakshaFactory(base, listData, product, varPL) {
 					return undefined;
 				},
                 getCollectedText: function() {
-                    var res = "Collected";
-                    var name = this.collected.Name;
-                    if ( name !== undefined ) {
-                        res += " by " + name;
-                    }
-                    var date = this.collected.Date;
-                    if ( date !== undefined ) {
-                        var dt = Date.parse(date);
-                        res += " in " + nkdtformatter.format(dt);
-                    }
-                    return res;
+					return createUICollectedText(this.collected);
                 }
             };
         }
