@@ -241,6 +241,9 @@
 /products/men/arambol/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
+/products/men/kagera/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
 /products/men/koh/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
