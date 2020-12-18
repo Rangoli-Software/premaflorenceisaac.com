@@ -771,6 +771,10 @@ const merchInfo = [
 			url: '/products/scarves/TurbanMood.jpg'
 		}, {
 			url: '/products/scarves/ShawlMood.jpg'
+		}, {
+			url: '/people/nmnibz.jpg'
+		}, {
+			url: '/g/look/look01.jpg'
 		}]
     },
 	{
