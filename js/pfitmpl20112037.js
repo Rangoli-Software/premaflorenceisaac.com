@@ -516,8 +516,6 @@ const merchInfo = [
 		}, {
 			url: '/people/ooak/sl02.jpg'
 		}, {
-			url: '/people/ooak/sl03.jpg'
-		}, {
 			url: '/g/merch/wc1.jpg'
 		}, {
 			url: '/g/merch/wc4.jpg'
