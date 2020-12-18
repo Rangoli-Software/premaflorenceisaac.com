@@ -332,6 +332,61 @@ vagabond.manhattanshirt = {
     garmentDetails: '<li>Fitted shirt with darts</li><li>Full sleeves</li><li>Button closure in front</li><li>Silk golden PFI Tangail border on the placket, cuffs and collar</li>'
 };
 
+vagabond.kageratie = {
+    SKU: "KAGTIE1601Kh",
+    imgDir: 'kagera',
+    sizing: null,
+    imageFile: "",
+    dimensionNames: ['A. Length', 'B. Width'],
+    dimensionsCm: {
+        Free: [140, [3,6]]
+    },
+    getFabric: function (varidx) {
+        return "Khadi / P.F.I. Tangail";
+    },
+    data: [
+        {
+            colourName: "Red",
+            vid: "CW1",
+            colourPfx: "red",
+            colourSfxs: ["p"]
+        },
+        {
+            colourName: "Blue",
+            vid: "CW2",
+            colourPfx: "blue",
+            colourSfxs: ["p"]
+        },
+        {
+            colourName: "Denim",
+            vid: "CW3",
+            colourPfx: "denim",
+            colourSfxs: ["p"]
+        },
+        {
+            colourName: "Old Rose",
+            vid: "CW4",
+            colourPfx: "bougainvillea",
+            colourSfxs: ["p"]
+        },
+        {
+            colourName: "Grey",
+            vid: "CW5",
+            colourPfx: "grey",
+            colourSfxs: ["p"]
+        },
+        {
+            colourName: "Black",
+            vid: "CW6",
+            colourPfx: "black",
+            colourSfxs: ["p"]
+        }
+    ],
+    sizes: ['Free'],
+    description: '',
+    garmentDetails: ''
+};
+
 vagabond.createJSON = function (style) {
     var basePath = "/products/men/" + style.imgDir + "/";
     return createProductJSON(style.SKU, basePath, style, style.sizing, createCWImageFactory);
@@ -341,10 +396,11 @@ vagabond.catalog = {
     title: "Vagabond",
     shopURL: "/products/men/shop.html",
     skus: null,
-    styles: [vagabond.angkor, vagabond.arambol, vagabond.koh, vagabond.mavericks, vagabond.narigama, vagabond.pondy, vagabond.ubud, vagabond.manhattanshirt, vagabond.manhattanpant],
+    styles: [vagabond.angkor, vagabond.arambol, vagabond.koh, vagabond.mavericks, vagabond.narigama, vagabond.pondy, vagabond.ubud, vagabond.manhattanshirt, vagabond.manhattanpant, vagabond.kageratie],
     tops: [vagabond.angkor.SKU, vagabond.koh.SKU, vagabond.mavericks.SKU, vagabond.narigama.SKU],
     pants: [vagabond.pondy.SKU, vagabond.ubud.SKU],
     fitted: [vagabond.manhattanshirt.SKU, vagabond.manhattanpant.SKU],
+	extras: [vagabond.kageratie.SKU],
     getPairWith: function (sku) {
         if (this.shirts.includes(sku)) {
             return this.pants;
@@ -363,8 +419,8 @@ pfiavG.getLineInitializer(vagabond).initialize();
 
 vagabond.categorizer = createFieldCategorizer(
     vagabond.catalog,
-    ["Tailored", "Kurtas", "Pants"],
-    ["fitted", "tops", "pants"],
-    ["f", "s", "p"],
+    ["Tailored", "Kurtas", "Pants", "Extras"],
+    ["fitted", "tops", "pants", "extras"],
+    ["f", "s", "p", "e"],
     "t",
     "f");

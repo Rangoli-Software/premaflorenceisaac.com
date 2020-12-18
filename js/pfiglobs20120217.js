@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020120216";
+const shopRevisionVersion = "2020120217";
 
 const pfiavG = {};
 pfiavG.lineNames = ["Art Wear", "It's Magic", "Ce Soir", "Happy Everyday"];
@@ -30,7 +30,6 @@ const cmData = [
 ['Test Live Trans','TESTIT0000Hi','0','0','','FALSE'],
 
 ['Woven Canvas on T','AWTSHT1604Je','0.2','1.2','/products/wovencanvas/tshirt.html','TRUE'],
-['Kagera Tie','KAGTIE1601Kh','0.094','1.1','/products/ties/kagera.html','FALSE'],
 ['Dip-Dye Scarf','DPDYSF1501PT','0.36','1.2','/products/scarves/dipdye.html','FALSE'],
 ['Champagne Bag','CHMPGN1501JL','0.0208333333333333','1.1','/products/home/champagnebag.html','FALSE'],
 
@@ -61,6 +60,7 @@ const cmData = [
 ['Narigama Kurta','NARKRT1601Kh','0.1375','1.1','/products/men/narigama.html','FALSE'],
 ['Pondy Pant','PNDPNT1601Kh','0.15','1.2','/products/men/pondy.html','FALSE'],
 ['Ubud Pant','UBDPNT1601Kh','0.1875','1.2','/products/men/ubud.html','FALSE'],
+['Kagera Tie','KAGTIE1601Kh','0.094','1.1','/products/men/kagera.html','FALSE'],
 
 ['Shoulder String Dress','LTSDSL1501Kh','0.25','1.15','/products/happyeveryday/shoulderstring.html','FALSE'],
 ['Sideslit Top','VAMPAL1708Kh','0.1','1.15','/products/happyeveryday/sideslit.html','FALSE'],

@@ -91,7 +91,7 @@ var listData = [
     ["534", ["534"], "", "", { "Date": "2018-08" }, "CW2", null, { "Height": "12", "Width": "30" }, { "color": "Black" }, null],
     ["535", ["535"], "", "", { "Date": "2018-06", "Name": "Kevin" }, "CW2", null, { "Height": "12", "Width": "32.8" }, { "color": "Black" }, null],
     ["536", ["536"], "", "", { "Date": "2018-06", "Name": "Bimal" }, "CW2", null, { "Height": "12", "Width": "32.6" }, { "color": "Black" }, null],
-    ["537", ["537"], "", "", { "Date": "2015-06", "Name": "Brittany" }, "CW2", null, { "Height": "12", "Width": "32.8" }, { "color": "Black" }, null],
+    ["537", ["537"], "", "", { "Date": "2018-06", "Name": "Brittany" }, "CW2", null, { "Height": "12", "Width": "32.8" }, { "color": "Black" }, null],
     ["538", ["538"], "", "", { "Date": "2018-08" }, "CW2", null, { "Height": "12", "Width": "32.1" }, { "color": "Black" }, null],
     ["539", ["539"], "", "", { "Date": "2019-02" }, "CW2", "XXL", { "Height": "12", "Width": "33.1" }, { "color": "Black", "size": "XXL" }, null],
     ["540", ["540"], "", "", { "Date": "2018-10" }, "CW2", null, { "Height": "12", "Width": "34.5" }, { "color": "Black" }, null],

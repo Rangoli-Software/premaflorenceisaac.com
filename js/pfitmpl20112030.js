@@ -1596,7 +1596,11 @@ function createDimensioner(units, dimensionNames, dimensions, imagePath, dimVari
 						continue;
 					}
 					var dim = dims[i];
-					table += '<td>' + fn(dim) + '</td>';
+					if (! Array.isArray(dim)) {
+						table += '<td>' + fn(dim) + '</td>';
+					} else {
+						table += '<td>' + fn(dim[0]) + " - " + fn(dim[1]) + '</td>';
+					}
 				}
 				table += '</tr>'
 			}

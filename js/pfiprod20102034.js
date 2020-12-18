@@ -763,6 +763,7 @@ function createVariantSelector(prodInfo) {
 		variants: prodInfo.variants,
 		colourRadioName: "colRadio",
 		sizeRadioName: "sizeRadio",
+		colorCaption: "colorCaption",
 		createItem: function (qty) {
 			var vidx = this.getSelectedVariant();
 			var size = this.getSelectedSize();
@@ -796,11 +797,11 @@ function createVariantSelector(prodInfo) {
 			return '<div class="row mb-4"><div class="col-6 text-left">Fabric: <strong>' + this.variants.getFabric(varIdx) + '</strong></div>'
 		},
 		createColourPanel: function (name, varIdx) {
-			var res = '<div class="col-6 text-right">Colour: <strong id="colorCaption">' + this.variants.getColourName(varIdx) + '</strong></div></div>' + '<div class="mb-8 ml-n1">';
+			var res = '<div class="col-6 text-right">Colour: <strong id="' + this.colorCaption + '">' + this.variants.getColourName(varIdx) + '</strong></div></div>' + '<div class="mb-8 ml-n1">';
 			if (this.variants.data.length > 1) {
 				for (var i = 0; i < this.variants.data.length; i++) {
 					var opt = this.variants.data[i];
-					res += '<div class="custom-control custom-control-inline custom-control-img"><input type="radio" onclick="onColourChange(\'' + opt.colourName + '\')"' + ' class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + '><label class="custom-control-label" for="' + name + i + '"' + '>' /*+ '<span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + this.prodInfo.getImages(i).getImage(0).url + ');"></span>'*/ +
+					res += '<div class="custom-control custom-control-inline custom-control-img my-1"><input type="radio" onclick="onColourChange(\'' + opt.colourName + '\')"' + ' class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + ' data-toggle="form-caption" data-target="#' + this.colorCaption + '"><label class="custom-control-label" for="' + name + i + '">' /*+ '<span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + this.prodInfo.getImages(i).getImage(0).url + ');"></span>'*/ +
 						'<img class="img-fluid" src="' + this.prodInfo.getImages(i).getImage(0).url + '">' +
 						'</label></div>';
 				}
