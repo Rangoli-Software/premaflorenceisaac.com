@@ -508,8 +508,6 @@ const merchInfo = [
 		SKU: 'AWTSHT1604Je',
 		ledes: ['A one-of-a-kind T-shirt for that unique individual!'],
 		images: [{
-			url: '/fabricart/TShirtColl.jpg'
-		}, {
 			url: '/g/merch/wc2.jpg'
 		}, {
 			url: '/g/merch/wc3.jpg'
