@@ -421,8 +421,8 @@ const shop = {
 	url: "/shop.html",
 	sub: [
 		{
-			title: "Woven Canvas T Shirt",
-			url: "/products/wovencanvas/tshirt.html"
+			title: "Woven Canvas",
+			url: "/products/wovencanvas/shop.html"
         },
 		{
 			title: "Art Wear",
