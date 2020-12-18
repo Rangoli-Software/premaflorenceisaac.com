@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020120218";
+const shopRevisionVersion = "2020120219";
 
 const pfiavG = {};
 pfiavG.lineNames = ["Art Wear", "It's Magic", "Ce Soir", "Happy Everyday"];
@@ -22,7 +22,7 @@ pfiavG.lineMerchSections = [
 const cmData = [
 ['Test Live Trans','TESTIT0000Hi','0','0','','FALSE'],
 
-['Woven Canvas on T','AWTSHT1604Je','0.2','1.2','/products/wovencanvas/tshirt.html','TRUE'],
+['P.F.I. T-Shirt','AWTSHT1604Je','0.2','1.2','/products/wovencanvas/tshirt.html','TRUE'],
 ['Dip-Dye Scarf','DPDYSF1501PT','0.36','1.2','/products/scarves/dipdye.html','FALSE'],
 ['Champagne Bag','CHMPGN1501JL','0.0208333333333333','1.1','/products/home/champagnebag.html','FALSE'],
 
