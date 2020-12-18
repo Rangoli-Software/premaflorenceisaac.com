@@ -259,6 +259,12 @@ const atelier = {
 			imageURL: "/atelier/PranSq.jpg"
         },
 		{
+			title: "Kagera",
+			url: "/products/ties/kagera.html",
+			lede: 'Manifesting a designer Tie',
+			imageURL: "/products/ties/Black.jpg"
+        },
+		{
 			title: "KidinMi Launch",
 			url: "/kidinmi.html",
 			lede: 'After 10 years on the drawing boards, I am finally ready to launch my new kids label!! - <strong>KidinMi</strong>',
@@ -441,10 +447,6 @@ const shop = {
 		{
 			title: "Dip-Dye Scarf",
 			url: "/products/scarves/dipdye.html"
-        },
-		{
-			title: "Kagera Tie",
-			url: "/products/ties/kagera.html"
         },
 		{
 			title: "Champagne Bottle Bag",
