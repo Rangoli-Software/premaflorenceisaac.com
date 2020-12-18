@@ -281,7 +281,7 @@ wovencanvas.tshirt.createCardCreator = createWovenCanvasCardCreator;
 
 wovencanvas.catalog = {
 	title: "Woven Canvas",
-	shopURL: "/products/wovencanvas/tshirt.html",
+	shopURL: "/products/wovencanvas/shop.html",
 	skus: null,
 	styles: [wovencanvas.tshirt],
 	garments: [wovencanvas.tshirt.SKU],
@@ -293,3 +293,11 @@ wovencanvas.catalog = {
 }
 
 pfiavG.getLineInitializer(wovencanvas).initialize();
+
+wovencanvas.categorizer = createFieldCategorizer(
+	wovencanvas.catalog,
+    ["All"],
+    ["skus"],
+    ["a"],
+	"t",
+	"a");

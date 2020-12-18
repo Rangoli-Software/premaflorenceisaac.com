@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020120217";
+const shopRevisionVersion = "2020120218";
 
 const pfiavG = {};
 pfiavG.lineNames = ["Art Wear", "It's Magic", "Ce Soir", "Happy Everyday"];
@@ -7,24 +7,17 @@ pfiavG.lineMerchSKUs = [
     ["OVTPSH1501Pa", "OVTPLO1501Pa", "TRPZTP1807Pa", "MDRSTP1606PP", "SARITP1501Pa", "LNKFTN1501Ja", "LOTSDR1501Ja", "NKSHDR1501Ta", "NKSHMU1501PP", "NKSHMD1501PP", "NKSHMI1501PP", "NKSHMC1512PP", "FACEMK2005Ta"],
     ["KLGTLY1601Rv", "KGYPST1601Rv", "KRAJPT1601Kh", "FAIRST2011Rv", "KBALPA1601Vo", "KRAJKT1601Rv", "YUVRTC1601Rv", "HLFPNT1601Kh", "KIDIKI1501Vi", "PRNCDR1501Rv", "KWAVDR1601Rv", "KDHRDR1601Rv"],
     ["HLNDRS1505PT", "JLTDRS1505PT", "BKLLTS1505Je"],
-    ["TRPZTP1807Kh", "CRPTOP1805Kh", "VAMPAL1708Kh", "OVTPLO1501Vo", "BERMPA1609Kh", "LTSDSL1501Kh", "BALLPA1501Vo"]
+    ["TRPZTP1807Kh", "CRPTOP1805Kh", "VAMPAL1708Kh", "OVTPLO1501Vo", "BERMPA1609Kh", "LTSDSL1501Kh", "BALLPA1501Vo"],
+    ["DPDYSF1501PT"]
 ];
-pfiavG.lineMerchSections = [{
-    "title": "Woven Canvas",
-    "url": "/products/wovencanvas/tshirt.html"
-}, {
-    "title": "Art Wear",
-    "url": "/products/artwear/shop.html"
-}, {
-    "title": "It's Magic",
-    "url": "/products/itsmagic/shop.html"
-}, {
-    "title": "Ce Soir",
-    "url": "/products/night/shop.html"
-}, {
-    "title": "Happy Everyday",
-    "url": "/products/happyeveryday/shop.html"
-}];
+pfiavG.lineMerchSections = [
+	{ "title": "Woven Canvas", "url": "/products/wovencanvas/shop.html" }, 
+	{ "title": "Art Wear", "url": "/products/artwear/shop.html" }, 
+	{ "title": "It's Magic", "url": "/products/itsmagic/shop.html" }, 
+	{ "title": "Ce Soir", "url": "/products/night/shop.html" }, 
+	{ "title": "Happy Everyday", "url": "/products/happyeveryday/shop.html" },
+	{ "title": "Extras", "url": "/products/xtras/shop.html" }
+];
 
 const cmData = [
 ['Test Live Trans','TESTIT0000Hi','0','0','','FALSE'],
