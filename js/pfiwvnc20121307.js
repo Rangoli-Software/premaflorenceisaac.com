@@ -280,7 +280,7 @@ wovencanvas.tshirt.createCardCreator = createWovenCanvasCardCreator;
 
 wovencanvas.catalog = {
 	title: "Woven Canvas",
-	shopURL: "/products/wovencanvas/shop.html",
+	shopURL: "/products/wovencanvas/tshirt.html",
 	skus: null,
 	styles: [wovencanvas.tshirt],
 	garments: [wovencanvas.tshirt.SKU],

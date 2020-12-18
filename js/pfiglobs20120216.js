@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020120215";
+const shopRevisionVersion = "2020120216";
 
 const pfiavG = {};
 pfiavG.lineNames = ["Art Wear", "It's Magic", "Ce Soir", "Happy Everyday"];
@@ -11,7 +11,7 @@ pfiavG.lineMerchSKUs = [
 ];
 pfiavG.lineMerchSections = [{
     "title": "Woven Canvas",
-    "url": "/products/wovencanvas/shop.html"
+    "url": "/products/wovencanvas/tshirt.html"
 }, {
     "title": "Art Wear",
     "url": "/products/artwear/shop.html"
