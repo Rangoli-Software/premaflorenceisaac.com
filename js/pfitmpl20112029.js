@@ -512,9 +512,15 @@ const merchInfo = [
 		images: [{
 			url: '/fabricart/TShirtColl.jpg'
 		}, {
-			url: '/fabricart/ManWhiteS.jpg'
+			url: '/g/merch/wc2.jpg'
 		}, {
-			url: '/fabricart/GirlBlackS.jpg'
+			url: '/g/merch/wc3.jpg'
+		}, {
+			url: '/people/ooak/sl01.jpg'
+		}, {
+			url: '/people/ooak/sl02.jpg'
+		}, {
+			url: '/people/ooak/sl03.jpg'
 		}]
     },
 	{
