@@ -277,6 +277,7 @@ wovencanvas.tshirt.prodData = {
 wovencanvas.tshirt.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
 wovencanvas.tshirt.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
 wovencanvas.tshirt.createCardCreator = createWovenCanvasCardCreator;
+wovencanvas.tshirt.createCardCreator = createWovenCanvasCardCreator;
 
 wovencanvas.catalog = {
 	title: "Woven Canvas",

@@ -445,12 +445,8 @@ const shop = {
 			url: "/products/happyeveryday/shop.html"
         },
 		{
-			title: "Dip-Dye Scarf",
-			url: "/products/scarves/dipdye.html"
-        },
-		{
-			title: "Champagne Bottle Bag",
-			url: "/products/home/champagnebag.html"
+			title: "Extras",
+			url: "/products/xtras/shop.html"
         }
     ]
 };
@@ -1135,6 +1131,9 @@ function createUrlVarSelector(titles, ids, vals, key, defaultVal) {
 		key: key,
 		defaultVal: defaultVal,
 		length: ids.length,
+		hasTabs: function () {
+			return this.ids.length > 1;
+		},
 		toId: function (val) {
 			var i = this.vals.indexOf(val);
 			return this.ids[i];
@@ -1164,11 +1163,15 @@ function createTabber(uvSel, cardlists) {
 		uvSel: uvSel,
 		cardlists: cardlists,
 		createTabbedSection: function () {
-			return '<ul class="nav nav-tabs nav-justified">' +
-				this.createTabStrip() +
-				'</ul><div class="tab-content">' +
-				this.createTabContents() +
-				'</div>';
+			if (this.uvSel.hasTabs()) {
+				return '<ul class="nav nav-tabs nav-justified">' +
+					this.createTabStrip() +
+					'</ul><div class="tab-content">' +
+					this.createTabContents() +
+					'</div>';
+			} else {
+				return this.cardlists[0].createHTML();
+			}
 		},
 		createTabStrip: function () {
 			var res = "";
@@ -1496,55 +1499,54 @@ function createSizeChartr(sizing, sizes) {
 			table += '</tbody></table></div>';
 			return table;
 		},
-		update: function() {
-		}
+		update: function () {}
 	}
 }
 
 function createGenderSizeChartr(mensSizing, womensSizing, sizes) {
-    return {
+	return {
 		curIdx: 0,
-        chartrs: [createSizeChartr(mensSizing, sizes), createSizeChartr(womensSizing, sizes)],
-        tableId: 'IntlSizing',
-        radioName: 'GenderVal',
-        eventFnStr: 'onGenderChange',
-        radios: [{
-            value: 'men',
-            text: "Men",
+		chartrs: [createSizeChartr(mensSizing, sizes), createSizeChartr(womensSizing, sizes)],
+		tableId: 'IntlSizing',
+		radioName: 'GenderVal',
+		eventFnStr: 'onGenderChange',
+		radios: [{
+				value: 'men',
+				text: "Men",
         },
-        {
-            value: 'women',
-            text: "Women",
+			{
+				value: 'women',
+				text: "Women",
         }],
-		createSizeChart: function() {
+		createSizeChart: function () {
 			return this.createSexSelectorChart(this.curIdx);
 		},
-        createButton(rad, isActive) {
-            return '<label class="btn btn-xxs btn-outline-dark font-size-xxxs rounded-0 ' + (isActive ? "active" : "") + '"><input type="radio" name="' + this.radioName + '" value="' + rad.value + '" onclick="' + this.eventFnStr + '(\'' + rad.value + '\')"' + (isActive ? ' checked' : '') + '>' + rad.text + '</label>';
-        },
-        createSexSelectorChart: function (idx) {
-            return '<div class="row align-items-center"><div class="col-12 text-center py-5"><div class="btn-group btn-group-toggle ml-auto py-5" data-toggle="buttons">' + this.createButton(this.radios[0], idx == 0) + this.createButton(this.radios[1], idx == 1) + '</div>' + '<div id="' + this.tableId + '">' + this.createSelectedChart(idx) + '</div></div></div>';
-        },
-        createSelectedChart: function (idx) {
-            return this.chartrs[idx].createSizeChart();
-        },
-        getIndex: function(value) {
-            for(var i = 0; i < this.radios.length; i++) {
-                if ( value == this.radios[i].value) {
-                    return i;
-                }
-            }
-            return -1;
-        },
-        update: function() {
-            $('#' + this.tableId + '').empty();
-            var selRadio = $("input[name='" + this.radioName + "']:checked");
-            var idx = this.getIndex(selRadio.val())
+		createButton(rad, isActive) {
+			return '<label class="btn btn-xxs btn-outline-dark font-size-xxxs rounded-0 ' + (isActive ? "active" : "") + '"><input type="radio" name="' + this.radioName + '" value="' + rad.value + '" onclick="' + this.eventFnStr + '(\'' + rad.value + '\')"' + (isActive ? ' checked' : '') + '>' + rad.text + '</label>';
+		},
+		createSexSelectorChart: function (idx) {
+			return '<div class="row align-items-center"><div class="col-12 text-center py-5"><div class="btn-group btn-group-toggle ml-auto py-5" data-toggle="buttons">' + this.createButton(this.radios[0], idx == 0) + this.createButton(this.radios[1], idx == 1) + '</div>' + '<div id="' + this.tableId + '">' + this.createSelectedChart(idx) + '</div></div></div>';
+		},
+		createSelectedChart: function (idx) {
+			return this.chartrs[idx].createSizeChart();
+		},
+		getIndex: function (value) {
+			for (var i = 0; i < this.radios.length; i++) {
+				if (value == this.radios[i].value) {
+					return i;
+				}
+			}
+			return -1;
+		},
+		update: function () {
+			$('#' + this.tableId + '').empty();
+			var selRadio = $("input[name='" + this.radioName + "']:checked");
+			var idx = this.getIndex(selRadio.val())
 			this.curIdx = idx;
-            var table = this.createSelectedChart(idx);
-            $(table).appendTo('#' + this.tableId + '');
-        }
-    };
+			var table = this.createSelectedChart(idx);
+			$(table).appendTo('#' + this.tableId + '');
+		}
+	};
 }
 
 function createDimensioner(units, dimensionNames, dimensions, imagePath, dimVariation, sizes) {
@@ -1566,9 +1568,9 @@ function createDimensioner(units, dimensionNames, dimensions, imagePath, dimVari
 		},
 		createMeasurementsTable: function (units) {
 			return '<div class="btn-group btn-group-toggle ml-auto py-5" data-toggle="buttons"><label class="btn btn-xxs btn-circle btn-outline-dark font-size-xxxs rounded-0 active">' + this.createUnitInput(units, "in", "IN") + '</label><label class="btn btn-xxs btn-circle btn-outline-dark font-size-xxxs rounded-0 ml-2">' + this.createUnitInput(units, "cm", "CM") + '</label></div>' + '<div id="' + this.tableId + '">' + this.createSizingTable(units) + '</div>';
-/*
-			return '<div class="btn-group btn-group-toggle ml-auto py-5" data-toggle="buttons"><label class="btn btn-xxs btn-circle btn-outline-dark font-size-xxxs rounded-0 active"><input type="radio" name="' + this.unitFieldName + '" value="in" onclick="' + this.eventFnStr + '" checked>IN</label><label class="btn btn-xxs btn-circle btn-outline-dark font-size-xxxs rounded-0 ml-2"><input type="radio" name="' + this.unitFieldName + '" value="cm" onclick="' + this.eventFnStr + '">CM</label></div>' + '<div id="' + this.tableId + '">' + this.createSizingTable(units) + '</div>';
-*/
+			/*
+						return '<div class="btn-group btn-group-toggle ml-auto py-5" data-toggle="buttons"><label class="btn btn-xxs btn-circle btn-outline-dark font-size-xxxs rounded-0 active"><input type="radio" name="' + this.unitFieldName + '" value="in" onclick="' + this.eventFnStr + '" checked>IN</label><label class="btn btn-xxs btn-circle btn-outline-dark font-size-xxxs rounded-0 ml-2"><input type="radio" name="' + this.unitFieldName + '" value="cm" onclick="' + this.eventFnStr + '">CM</label></div>' + '<div id="' + this.tableId + '">' + this.createSizingTable(units) + '</div>';
+			*/
 		},
 		createSizingTable: function (units) {
 			var fn = (units === this.dimensionUnits) ? identity : (units == "in" ? cm2inches : inches2cm);
@@ -1598,7 +1600,7 @@ function createDimensioner(units, dimensionNames, dimensions, imagePath, dimVari
 						continue;
 					}
 					var dim = dims[i];
-					if (! Array.isArray(dim)) {
+					if (!Array.isArray(dim)) {
 						table += '<td>' + fn(dim) + '</td>';
 					} else {
 						table += '<td>' + fn(dim[0]) + " - " + fn(dim[1]) + '</td>';

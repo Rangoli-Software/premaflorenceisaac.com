@@ -72,6 +72,9 @@ function createFieldCategorizer(catalog, titles, ids, tabvals, tabvar, tabdefaul
 		tabvals: tabvals,
 		tabvar: tabvar,
 		tabdefault: tabdefault,
+		hasTabs: function () {
+			return this.ids.length > 1;
+		},
 		createUrlVarSelector: function () {
 			return createUrlVarSelector(this.titles, this.ids, this.tabvals, this.tabvar, this.tabdefault);
 		},
@@ -88,6 +91,14 @@ function createFieldCategorizer(catalog, titles, ids, tabvals, tabvar, tabdefaul
 				return this.tabvals[idx];
 			}
 			return this.tabdefault;
+		},
+		getUrl: function (sku) {
+			if (this.hasTabs()) {
+				var tabval = this.getTabVal(sku);
+				return this.baseURL + "?" + this.tabvar + "=" + tabval;
+			} else {
+				return this.baseURL;
+			}
 		}
 	};
 }
@@ -115,7 +126,6 @@ function createBrowseInfo(infoSections, numSections, baseBlackList) {
 	return {
 		infoSections: infoSections,
 		numSections: numSections,
-		//        baseList: baseBlackList.splice(),
 		getArticles: function () {
 			var res = [];
 			for (var i = 0; i < infoSections.length; i++) {
@@ -454,7 +464,7 @@ function createUniqueItemList(listdata, factory) {
 		getINRPrice: function (i) {
 			return this.getDescriptor(i).getCWPrice();
 		},
-		filterFinal: function() {
+		filterFinal: function () {
 			return this;
 		},
 		filterOnSize: function (size) {
@@ -991,16 +1001,12 @@ function createNavHelper(prodInfo, categorizer, title) {
 				url: '/shop.html'
             }, {
 				title: this.title,
-				url: this.getCategoryURL()
+				url: this.categorizer.getUrl(this.prodInfo.skuInfo.SKU)
             }, {
 				title: this.prodInfo.product.name
             }];
 			return createBreadCrumbLevels(levels);
-		},
-		getCategoryURL: function () {
-			var tabval = this.categorizer.getTabVal(this.prodInfo.skuInfo.SKU);
-			return this.categorizer.baseURL + "?t=" + tabval;
-		},
+		}
 	};
 }
 
