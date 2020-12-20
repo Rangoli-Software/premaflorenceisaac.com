@@ -296,7 +296,13 @@ function createStyleDescFactory(sku, basedir, listdata, descmap) {
 	return createUIDescriptorFactory(basedir, product, listdata, cwFactory);
 }
 
-function createComponentGenerator(uiFactory, prodJSON, viewerFactory, sizeSelector, isSquare, cardCreator) {
+function createNullURLUpdater() {
+	return {
+		updateURL: function (arg) {}
+	};
+}
+
+function createComponentGenerator(uiFactory, prodJSON, viewerFactory, sizeSelector, isSquare, cardCreator, varidx) {
 	return {
 		viewerFactory: viewerFactory,
 		sizeSelector: sizeSelector,
@@ -333,7 +339,7 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, sizeSelect
 				navHelper: this.viewerFactory.createNavHelper(),
 				createProductComponent: function (shop) {
 					var basePanelr = that.viewerFactory.createBase(shop);
-					return createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, addlViewer, vntSelector, srv);
+					return createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, addlViewer, vntSelector, srv, varidx);
 				}
 			};
 		},
@@ -344,7 +350,8 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, sizeSelect
 			var sizeSelector = this.sizeSelector;
 			var productComponent = productComponentFactory.createProductComponent(shop);
 			var srv = this.viewerFactory.createPanelRVs();
-			return createUniqueItemsComponent(shop, items, productComponentFactory, productComponent, itemCategorySelector, sizeSelector, this.cardCreator, srv.itemsRV);
+			var urlUpdater = this.viewerFactory.getURLUpdater === undefined ? createNullURLUpdater() : this.viewerFactory.getURLUpdater();
+			return createUniqueItemsComponent(shop, items, productComponentFactory, productComponent, itemCategorySelector, sizeSelector, this.cardCreator, srv.itemsRV, urlUpdater);
 		},
 	};
 }
@@ -363,6 +370,12 @@ function createProductJSON(sku, basePath, prodData, sizingChart, imageFactory) {
 			},
 			getColourName: function (varidx) {
 				return this.data[varidx].colourName;
+			},
+			getVarIdx: function (key, val) {
+				return this.data.findIndex(itm => itm[key] === val);
+			},
+			getVarVal: function (key, idx) {
+				return this.data[idx][key];
 			},
 			data: prodData.data
 		},
@@ -886,11 +899,11 @@ function createColourCategoryUI(categories, caption, colourCategoryFn) {
 		createCaption: function (caption) {
 			return '<strong id="' + this.captionId + '">' + caption + '</strong>';
 		},
-		setCaption: function (caption) {
-			if (caption === undefined) {
-				caption = this.categories.getCategory(this.getSelectedIdx()).colourName;
+		setRange: function (range) {
+			if (range === undefined) {
+				range = this.categories.getCategory(this.getSelectedIdx()).colourName;
 			}
-			$('#' + this.captionId).replaceWith(this.createCaption(caption));
+			$('#' + this.captionId).replaceWith(this.createCaption(range));
 		},
 		getCatIdx: function (valColour) {
 			return this.categories.getCatIdx(valColour);
@@ -979,15 +992,6 @@ function createColourCategorySelector(categories) {
 			}
 		}
 	}
-}
-
-function createLevelsNavHelper(levels) {
-	return {
-		levels: levels,
-		getBreadCrumb: function () {
-			return createBreadCrumbLevels(this.levels);
-		}
-	};
 }
 
 function createNavHelper(prodInfo, categorizer, title) {
@@ -1185,14 +1189,18 @@ function createSizePanelr(skuInfo, dimensioner, sizer) {
 	};
 }
 
-function createBasePanelr(shop, product) {
-	var priceString = getPriceStringHTML(shop, product);
+function createBasePanelr(shop, variants, product) {
 	return {
+		shop: shop,
+		variants: variants,
 		product: product,
-		priceString: priceString,
-		createBasePanel: function () {
-			return '<h4 class="mb-2">' + this.product.name + '</h4>' +
-				'<div class="mb-5 text-gray-400"><span class="ml-1 font-size-h5 font-weight-bold">' + priceString + '</span></div>';
+		createBasePanel: function (varidx) {
+			return '<h4 class="mb-2">' 
+				+ this.product.name + (this.variants === null ? '' : " - " + this.variants.data[varidx].Name)
+				+ '</h4>' +
+				'<div class="mb-5 text-gray-400"><span class="ml-1 font-size-h5 font-weight-bold">' 
+				+ getPriceStringHTML(this.shop, this.product, (this.variants === null ?  undefined : this.variants.data[varidx].vid))
+				+ '</span></div>';
 		}
 	}
 }
@@ -1301,7 +1309,7 @@ function createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, var
 				'</div>';
 		},
 		createInfoDiv: function (varIdx, szIdx) {
-			var res = '<div id="' + this.prodInfoId + '">' + this.basePanelr.createBasePanel() + '<form>' +
+			var res = '<div id="' + this.prodInfoId + '">' + this.basePanelr.createBasePanel(varidx) + '<form>' +
 				this.variantSelector.createSelectorPanel(varIdx) +
 				this.sizeSelector.createSelectorPanel(szIdx) +
 				this.itemAdder.createDiv() +
@@ -1313,12 +1321,12 @@ function createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, var
 	};
 }
 
-function createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, addlViewer, vntSelector, srv) {
+function createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, addlViewer, vntSelector, srv, varidx) {
 	return {
 		prePanelr: prePanelr,
 		basePanelr: basePanelr,
 		sizePanelr: sizePanelr,
-		varidx: 0,
+		varidx: varidx,
 		vntSelector: vntSelector,
 		carousel: carousel,
 		addlViewer: addlViewer,
@@ -1388,7 +1396,7 @@ function createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, a
 				'</div>';
 		},
 		createInfoDiv: function () {
-			var res = '<div id="' + this.prodInfoId + '">' + this.basePanelr.createBasePanel() +
+			var res = '<div id="' + this.prodInfoId + '">' + this.basePanelr.createBasePanel(this.varidx) +
 				this.addlViewer.createDiv() + '</div>';
 			return res;
 		}
@@ -1452,7 +1460,7 @@ function createArtWearCardCreator(carouselFn) {
 	return createUICardCreatorBase(createCarouselImageCreator(carouselFn), 'col-12 col-sm-6');
 }
 
-function createUniqueItemsComponent(shop, items, productComponentFactory, productComponent, itemCategorySelector, sizeSelector, cardCreator, itemsRV) {
+function createUniqueItemsComponent(shop, items, productComponentFactory, productComponent, itemCategorySelector, sizeSelector, cardCreator, itemsRV, urlUpdater) {
 	return {
 		shop: shop,
 		items: items,
@@ -1462,7 +1470,14 @@ function createUniqueItemsComponent(shop, items, productComponentFactory, produc
 		sizeSelector: sizeSelector,
 		cardCreator: cardCreator,
 		itemsRV: itemsRV,
+		urlUpdater: urlUpdater,
 		listId: 'artwear-list',
+		updateURL: function (reason) {
+			if (!this.itemsRV.isValid(reason)) {
+				return;
+			}
+			this.urlUpdater.updateURL(reason);
+		},
 		getBreadCrumb: function () {
 			return this.productComponentFactory.navHelper.getBreadCrumb();
 		},
@@ -1576,7 +1591,7 @@ function createProductComponentFactory(prodInfo, dimensioner, sizer, addlViewer,
 	var srv = createDefaultPanelRVs();
 	return {
 		createProductComponent: function (shop) {
-			var basePanelr = createBasePanelr(shop, prodInfo.product);
+			var basePanelr = createBasePanelr(shop, null, prodInfo.product);
 			return createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, variantSelector, sizeSelector, itemAdder, addlViewer, srv);
 		},
 		getBreadCrumb: function () {
@@ -1585,22 +1600,25 @@ function createProductComponentFactory(prodInfo, dimensioner, sizer, addlViewer,
 	};
 }
 
-function createPageComponent(prodInfo, catalog, rendererFactory) {
+function createPageComponent(prodInfo, catalog, productComponentFactory) {
 	return {
 		catalog: catalog,
 		prodInfo: prodInfo,
-		rendererFactory: rendererFactory,
+		productComponentFactory: productComponentFactory,
 		allCartC: null,
 		sizeVal: null,
 		clrVal: null,
 		init: function (shop) {
 			this.allCartC = createAllCartComponents(shop, this);
 		},
+		updateURL: function (arg) {
+
+		},
 		updateBreadCrumb: function () {
-			$('.breadcrumb').replaceWith(this.rendererFactory.getBreadCrumb())
+			$('.breadcrumb').replaceWith(this.productComponentFactory.getBreadCrumb())
 		},
 		createRenderer: function (shop) {
-			return this.rendererFactory.createProductComponent(shop);
+			return this.productComponentFactory.createProductComponent(shop);
 		},
 		getRenderer: function () {
 			return this.createRenderer(this.allCartC.shop);
@@ -1667,6 +1685,9 @@ function createUIPageComponent(catalog, itemsComponent, itemsComponentFactory) {
 				},
 				reason);
 		},
+		updateURL: function (reason) {
+			this.itemsComponent.updateURL(reason);
+		},
 		updateBreadCrumb: function () {
 			$('.breadcrumb').replaceWith(this.itemsComponent.getBreadCrumb())
 		},
@@ -1682,8 +1703,9 @@ function createUIPageComponent(catalog, itemsComponent, itemsComponentFactory) {
 				return;
 			}
 			if (this.itemsComponent.itemCategorySelector.colourCategoryUI.hasCategories()) {
-				this.itemsComponent.itemCategorySelector.colourCategoryUI.setCaption(colRngVal);
+				this.itemsComponent.itemCategorySelector.colourCategoryUI.setRange(colRngVal);
 			}
+			this.updateURL(null);
 			this.updateSelection(SelChangeReason.colorCategoryChange);
 			this.updateItemPrices();
 			this.colRngVal = colRngVal;
@@ -1720,6 +1742,7 @@ function createUIPageComponent(catalog, itemsComponent, itemsComponentFactory) {
 			if (!this.valueChanged(reason, value)) {
 				return;
 			}
+			this.updateURL(reason);
 			this.updateSelection(reason);
 			this.updateItemPrices();
 			this.updateValue(reason, value);

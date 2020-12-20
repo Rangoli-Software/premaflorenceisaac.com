@@ -526,8 +526,9 @@ function updatePageItemPrices(catalog, shop) {
 	elts.each(function (index) {
 		var sku = $(this).data('vsku');
 		var prod = catalog.getProduct(sku);
+		var vnt = $(this).data('vid');
 		$(this).empty();
-		var html = getPriceStringHTML(shop, prod);
+		var html = getPriceStringHTML(shop, prod, vnt);
 		$(this).append(html);
 	});
 }

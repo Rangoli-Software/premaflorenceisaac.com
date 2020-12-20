@@ -2,24 +2,6 @@ function getRandomIdx(arr) {
 	return Math.floor(Math.random() * arr.length);
 }
 
-function createSiteMap(siteMap) {
-	return {
-		sm: siteMap,
-		findStory: function (url) {
-			for (var i = 1; i < this.sm.length; i++) {
-				var sec = sm[i];
-				for (var j = 0; j < sec.sub.length; j++) {
-					var itm = sec.sub[i];
-					if (itm.url === url) {
-						return [sec, itm];
-					}
-				}
-			}
-			return null;
-		}
-	}
-}
-
 function createPageSet(pages) {
 	return {
 		pages: pages,
@@ -152,33 +134,60 @@ function createMerchandisingSampler(items) {
 	return createItemSampler(items, merchWeights, 'SKU');
 }
 
+function createStorySampler(all) {
+	var cum = 0;
+	all.forEach(i => cum += i.weight);
+	return createNUSampler(cum, all, [], 'url');
+}
+
+function createStorySample(item, weight) {
+	var clone =  JSON.parse(JSON.stringify(item));
+	clone.weight = weight;
+	return clone;
+}
+
 function createPageSelector(mips, wl, bl) {
 	var merchSKUs = pfiavG.lineMerchSKUs.flat();
+	var sections = [atelier, origin, about, buzz, archives, lotm, moods, ramp, clients];
+	var weights = [3, 5, 2, 2, 1, 3, 1, 2, 5];
+	var allstories = sections.flatMap((sec, secidx) => sec.sub.map(pg => createStorySample(pg, weights[secidx])));
 	return {
+		sections: sections,
+		allstories: allstories,
 		miPageSet: mips,
 		blacklist: bl,
 		whitelist: wl,
+		maxStories: 2,
 		maxMerch: 2,
 		merchSKUs: merchSKUs,
 		merchSKUSampler: createMerchandisingSampler(merchSKUs),
-		selFeature: function (secList) {
-			var i = getRandomIdx(secList);
-			var section = secList[i];
-
-			var idx = getRandomIdx(section.sub);
-			var sel = section.sub[idx];
-			while (this.blacklist.includes(sel, 'url') || this.blacklist.includesImg(sel)) {
-				idx = getRandomIdx(section.sub);
-				sel = section.sub[idx];
-			}
-			return createStoryRef(section, sel);
+		storySampler: createStorySampler(allstories),
+		filterStories: function () {
+			var blacklist = this.blacklist;
+			return this.allstories.filter(function (page) {
+				return !blacklist.includes(page, 'url') && !blacklist.includesImg(page);
+			});
+		},
+		selectURLs: function (fltS) {
+			var sampler = this.storySampler.filter(fltS.map(pg => pg.url));
+			return sampler.sampleN(this.maxStories).sample.map(s => s.url);
+		},
+		findStorySection: function (url) {
+			var secIdx = this.sections.findIndex(sec => sec.sub.find(pg => pg.url === url) !== undefined);
+			return this.sections[secIdx];
 		},
 		selectFeatures: function () {
-			var bg = [atelier, origin];
-			var ab = [about, buzz, archives, lotm, moods, ramp, clients];
-			return [this.selFeature(bg), this.selFeature(ab)];
+			var fltS = this.filterStories();
+			var fltURLs = this.selectURLs(fltS);
+			var res = [];
+			for (var i = 0; i < fltURLs.length; i++) {
+				var url = fltURLs[i];
+				var sel = this.allstories.find(pg => pg.url === url);
+				res.push(createStoryRef(this.findStorySection(url), sel));
+			}
+			return res;
 		},
-		findSection: function (sku) {
+		findMerchSection: function (sku) {
 			var lineIdx = pfiavG.lineMerchSKUs.findIndex(skulist => skulist.includes(sku));
 			return pfiavG.lineMerchSections[lineIdx];
 		},
@@ -202,7 +211,7 @@ function createPageSelector(mips, wl, bl) {
 				var sel = fltMI.select('SKU', sku);
 				var img = sel.images[getRandomIdx(sel.images)];
 				sel.imageURL = img.url;
-				res.push(createMerchandisingRef(sel, this.findSection(sku)));
+				res.push(createMerchandisingRef(sel, this.findMerchSection(sku)));
 			}
 			return res;
 		},

@@ -4,7 +4,7 @@ const nkdtformatter = new Intl.DateTimeFormat('en-US', {
 });
 
 const moods = {
-	title: "Moods",
+	title: "Stories",
 	url: "/look.html?t=m",
 	sub: [
 		{
@@ -1072,20 +1072,29 @@ function createTopNav() {
 	return res;
 }
 
-function getPriceStringHTML(shop, product) {
+function getPriceStringHTML(shop, product, vid) {
 	var priceString = shop.getPriceHTML(product);
 	var varPL = varPLData[product.sku];
-	if (varPL !== undefined) {
-		var mn = product.inrPrice;
-		var mx = product.inrPrice;
-		Object.keys(varPL).forEach(function (k, i) {
-			var v = varPL[k];
-			mn = Math.min(mn, v);
-			mx = Math.max(mx, v);
-		});
-		priceString = shop.getFXPriceHTML(mn) + " - " + shop.getFXPriceHTML(mx);
+	if (vid === undefined) {
+		if (varPL !== undefined) {
+			var mn = product.inrPrice;
+			var mx = product.inrPrice;
+			Object.keys(varPL).forEach(function (k, i) {
+				var v = varPL[k];
+				mn = Math.min(mn, v);
+				mx = Math.max(mx, v);
+			});
+			priceString = shop.getFXPriceHTML(mn) + " - " + shop.getFXPriceHTML(mx);
+		}
+		return priceString;
+	} else {
+		var prV = varPL[vid];
+		if  (prV !== undefined) {
+			return shop.getFXPriceHTML(prV);
+		} else {
+			return priceString;
+		}
 	}
-	return priceString;
 }
 
 function pfisig() {
@@ -1135,7 +1144,7 @@ function createUrlVarSelector(titles, ids, vals, key, defaultVal) {
 		key: key,
 		defaultVal: defaultVal,
 		length: ids.length,
-		hasTabs: function () {
+		hasChoices: function () {
 			return this.ids.length > 1;
 		},
 		toId: function (val) {
@@ -1156,8 +1165,8 @@ function createUrlVarSelector(titles, ids, vals, key, defaultVal) {
 		},
 		isActive: function (i) {
 			var v = this.getURLValue();
-			var isActive = (v == this.vals[i]);
-			return isActive || (this.vals[i] == this.defaultVal ? v === undefined : false);
+			var isActive = (v === this.vals[i]);
+			return isActive || (this.vals[i] === this.defaultVal ? v === undefined : false);
 		}
 	}
 }
@@ -1167,7 +1176,7 @@ function createTabber(uvSel, cardlists) {
 		uvSel: uvSel,
 		cardlists: cardlists,
 		createTabbedSection: function () {
-			if (this.uvSel.hasTabs()) {
+			if (this.uvSel.hasChoices()) {
 				return '<ul class="nav nav-tabs nav-justified">' +
 					this.createTabStrip() +
 					'</ul><div class="tab-content">' +
@@ -1179,18 +1188,16 @@ function createTabber(uvSel, cardlists) {
 		},
 		createTabStrip: function () {
 			var res = "";
-			var urlVal = uvSel.getURLValue();
 			for (var i = 0; i < this.uvSel.length; i++) {
-				var isActive = uvSel.isActive(i);
+				var isActive = this.uvSel.isActive(i);
 				res += getTabItem(this.uvSel.titles[i], this.uvSel.ids[i], isActive);
 			}
 			return res;
 		},
 		createTabContents: function () {
 			var res = "";
-			var urlVal = uvSel.getURLValue();
 			for (var i = 0; i < this.uvSel.ids.length; i++) {
-				var isActive = uvSel.isActive(i);
+				var isActive = this.uvSel.isActive(i);
 				res += getTabContent(this.cardlists[i].createHTML(), this.uvSel.ids[i], isActive);
 			}
 			return res;

@@ -98,7 +98,7 @@ function getNakshaMidiFactory(base, product, varPL) {
 [8, ['8.6', '8a.6'], '#8D2C42', 'Stiletto', null],
 [9, ['9.6', '9a.6'], '#252945', 'Martinique', null],
 [10, ['10.6', '10a.6'], '#DACB6D', 'Chenin', {Name: 'Prema'}],
-[11, ['11.6', '11a.6'], '#171B1C', 'Woodsmoke', null],
+[11, ['11.6', '11a.6'], '#171B1C', 'Woodsmoke', {Name: 'Judith', Date:'2020-12'}],
 [12, ['12.6', '12a.6'], '#674857', 'Eggplant', null],
 [13, ['13.6','13a.6'],'#DDBEA2','Cameo',{Name: 'Judith', Date: '2020-07'}],
 [14, ['14.6', '14a.6'], '#FBFCFD', 'Zircon', null],
@@ -121,7 +121,7 @@ function getNakshaMidiFactory(base, product, varPL) {
 function getNakshaMinuitFactory(base, product, varPL) {
     var listData = [
 //[1, ['1','1a'],'#6D3C55','Cosmic',null],
-[2, ['2.6', '2a.6'], '#852A47', 'Camelot', null, 'CW1'],
+[2, ['2.6', '2a.6'], '#852A47', 'Camelot', {Name: 'Judith', Date:'2020-12'}, 'CW1'],
 //[3, ['3.6','3a.6'],'#919A3C','Sycamore',null],
 [4, ['4.6', '4a.6'], '#F1E04E', 'Energy Yellow', null, 'CW1'],
 [5, ['5.6', '5a.6'], '#D26690', 'Hopbush', null, 'CW1'],

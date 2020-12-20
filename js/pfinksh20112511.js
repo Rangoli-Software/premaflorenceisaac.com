@@ -315,7 +315,7 @@ naksha.createUICFactory = function (scope, colSelData, browseInfo) {
 					return skuSelViewer;
 				},
 				createBase: function (shop) {
-					return createBasePanelr(shop, this.product);
+					return createBasePanelr(shop, null, this.product);
 				},
 				create: function () {
 					return createCatenatedViewer([detailViewer, storyViewer]);
@@ -348,7 +348,7 @@ naksha.createUICFactory = function (scope, colSelData, browseInfo) {
 				}
 			};
 			var sizeSelector = createSizeSelector(prodJSON.skuInfo.sizes, pfiavG.sizeModalInfo.getToggleHTML(), null, "The model is 5 ft 3 in (160 cm).", "Size");
-			return createComponentGenerator(factory, prodJSON, viewerFactory, sizeSelector, true, this.scope.createCardCreator(sku));
+			return createComponentGenerator(factory, prodJSON, viewerFactory, sizeSelector, true, this.scope.createCardCreator(sku),0);
 		},
 		updateURL: function (sku) {
 			var encoder = this.scope.urlUpdater.encoder;
