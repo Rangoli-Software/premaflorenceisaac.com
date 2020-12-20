@@ -1309,7 +1309,7 @@ function createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, var
 				'</div>';
 		},
 		createInfoDiv: function (varIdx, szIdx) {
-			var res = '<div id="' + this.prodInfoId + '">' + this.basePanelr.createBasePanel(varidx) + '<form>' +
+			var res = '<div id="' + this.prodInfoId + '">' + this.basePanelr.createBasePanel(varIdx) + '<form>' +
 				this.variantSelector.createSelectorPanel(varIdx) +
 				this.sizeSelector.createSelectorPanel(szIdx) +
 				this.itemAdder.createDiv() +
