@@ -99,39 +99,38 @@ function createNUSampler(total, items, sample, itemkey) {
 			return sam;
 		},
 		filter: function (keys) {
-			var items = this.items.filter(i => keys.includes(i[this.itemkey]));
-			var sample = this.sample.filter(i => keys.includes(i[this.itemkey]));
+			var itms = this.items.filter(i => keys.includes(i[this.itemkey]));
+			var smpl = this.sample.filter(i => keys.includes(i[this.itemkey]));
 			var cum = 0;
-			items.forEach(i => cum += i.weight);
-			return createNUSampler(cum, items, sample, this.itemkey);
+			itms.forEach(i => cum += i.weight);
+			return createNUSampler(cum, itms, smpl, this.itemkey);
 		}
 	};
 }
 
-function createItemSampler(allkeys, weights, itemkey) {
-	var items = [];
-	var tot = 0;
-	for (var i = 0; i < allkeys.length; i++) {
-		var key = allkeys[i];
-		var w = weights[key];
-		var weight = (w !== undefined) ? w : 1;
-		tot += weight;
-		var item = {
-			weight: weight
-		};
-		item[itemkey] = key;
-		items.push(item);
-	}
-	return createNUSampler(tot, items, [], itemkey);
+function createItemSample(sku, weight) {
+	return {
+		SKU: sku,
+		weight: weight
+	};
 }
 
-function createMerchandisingSampler(items) {
+function createMerchandisingSampler(merchSKUs, merchSections, sectionWeights) {
 	var merchWeights = {
-		AWTSHT1604Je: 10,
-		NKSHMD1501PP: 10,
-		FACEMK2005Ta: 10
+		AWTSHT1604Je: 30,
+		NKSHMD1501PP: 30,
+		FACEMK2005Ta: 20
 	};
-	return createItemSampler(items, merchWeights, 'SKU');
+	var items = merchSKUs.flatMap((skulist, idx) => skulist.map(sku => createItemSample(sku, merchWeights[sku] !== undefined ? merchWeights[sku] : sectionWeights[idx])));
+	var cum = 0;
+	items.forEach(i => cum += i.weight);
+	return createNUSampler(cum, items, [], 'SKU');
+}
+
+function createStorySample(item, weight) {
+	var clone = JSON.parse(JSON.stringify(item));
+	clone.weight = weight;
+	return clone;
 }
 
 function createStorySampler(all) {
@@ -140,14 +139,44 @@ function createStorySampler(all) {
 	return createNUSampler(cum, all, [], 'url');
 }
 
-function createStorySample(item, weight) {
-	var clone =  JSON.parse(JSON.stringify(item));
-	clone.weight = weight;
-	return clone;
-}
-
 function createPageSelector(mips, wl, bl) {
-	var merchSKUs = pfiavG.lineMerchSKUs.flat();
+	var lineMerchSKUs = [
+    ["AWTSHT1604Je"],
+    ["OVTPSH1501Pa", "OVTPLO1501Pa", "TRPZTP1807Pa", "MDRSTP1606PP", "SARITP1501Pa", "LNKFTN1501Ja", "LOTSDR1501Ja", "NKSHDR1501Ta", "NKSHMU1501PP", "NKSHMD1501PP", "NKSHMI1501PP", "NKSHMC1512PP", "FACEMK2005Ta"],
+    ["KLGTLY1601Rv", "KGYPST1601Rv", "KRAJPT1601Kh", "FAIRST2011Rv", "KBALPA1601Vo", "KRAJKT1601Rv", "YUVRTC1601Rv", "HLFPNT1601Kh", "KIDIKI1501Vi", "PRNCDR1501Rv", "KWAVDR1601Rv", "KDHRDR1601Rv"],
+    ["HLNDRS1505PT", "JLTDRS1505PT", "BKLLTS1505Je"],
+    ["TRPZTP1807Kh", "CRPTOP1805Kh", "VAMPAL1708Kh", "OVTPLO1501Vo", "BERMPA1609Kh", "LTSDSL1501Kh", "BALLPA1501Vo"],
+    ["DPDYSF1501PT"]
+	];
+	var lineMerchSections = [
+		{
+			"title": "Woven Canvas",
+			"url": "/products/wovencanvas/shop.html"
+		},
+		{
+			"title": "Art Wear",
+			"url": "/products/artwear/shop.html"
+		},
+		{
+			"title": "It's Magic",
+			"url": "/products/itsmagic/shop.html"
+		},
+		{
+			"title": "Ce Soir",
+			"url": "/products/night/shop.html"
+		},
+		{
+			"title": "Happy Everyday",
+			"url": "/products/happyeveryday/shop.html"
+		},
+		{
+			"title": "Extras",
+			"url": "/products/xtras/shop.html"
+		}
+	];
+	var lineMerchWeights = [3, 3, 2, 2, 1, 2];
+
+	var merchSKUs = lineMerchSKUs.flat();
 	var sections = [atelier, origin, about, buzz, archives, lotm, moods, ramp, clients];
 	var weights = [3, 5, 2, 2, 1, 3, 1, 2, 5];
 	var allstories = sections.flatMap((sec, secidx) => sec.sub.map(pg => createStorySample(pg, weights[secidx])));
@@ -160,7 +189,7 @@ function createPageSelector(mips, wl, bl) {
 		maxStories: 2,
 		maxMerch: 2,
 		merchSKUs: merchSKUs,
-		merchSKUSampler: createMerchandisingSampler(merchSKUs),
+		merchSKUSampler: createMerchandisingSampler(lineMerchSKUs, lineMerchSections, lineMerchWeights),
 		storySampler: createStorySampler(allstories),
 		filterStories: function () {
 			var blacklist = this.blacklist;
@@ -181,15 +210,15 @@ function createPageSelector(mips, wl, bl) {
 			var fltURLs = this.selectURLs(fltS);
 			var res = [];
 			for (var i = 0; i < fltURLs.length; i++) {
-				var url = fltURLs[i];
+				let url = fltURLs[i];
 				var sel = this.allstories.find(pg => pg.url === url);
 				res.push(createStoryRef(this.findStorySection(url), sel));
 			}
 			return res;
 		},
 		findMerchSection: function (sku) {
-			var lineIdx = pfiavG.lineMerchSKUs.findIndex(skulist => skulist.includes(sku));
-			return pfiavG.lineMerchSections[lineIdx];
+			var lineIdx = lineMerchSKUs.findIndex(skulist => skulist.includes(sku));
+			return lineMerchSections[lineIdx];
 		},
 		filterMerchPages: function () {
 			var blacklist = this.blacklist;
@@ -282,16 +311,16 @@ function createMerchandisingRef(item, section) {
 	}
 }
 
-function createStoryRef(section, item) {
+function createStoryRef(s, itm) {
 	return {
-		sec: section,
-		sel: item,
-		title: item.title,
-		url: item.url,
-		imageURL: item.imageURL,
-		imageHTML: item.imageHTML,
-		imageScript: item.imageScript,
-		lede: item.lede,
+		sec: s,
+		sel: itm,
+		title: itm.title,
+		url: itm.url,
+		imageURL: itm.imageURL,
+		imageHTML: itm.imageHTML,
+		imageScript: itm.imageScript,
+		lede: itm.lede,
 		createCard: function () {
 			var section = this.sec;
 			var item = this.sel;
@@ -321,10 +350,10 @@ function createRelated(header, cards, orderidxs) {
 	var brkColCls = "col-sm-6 col-md-3";
 	var res = '<div id="featuredBrowse" class="container mb-5"><section class="pt-4"><h5>' + header + '</h5><div class="row">';
 	var ordI = 0;
-	orderidxs = shuffle(orderidxs);
-	for (var i = 0; i < cards.length && ordI < orderidxs.length; i++) {
+	var oi = shuffle(orderidxs.slice());
+	for (var i = 0; i < cards.length && ordI < oi.length; i++) {
 		var card = cards[i];
-		res += '<div class="col-6 ' + brkColCls + " order-" + orderidxs[ordI] + '">' + card.createCard() + '</div>';
+		res += '<div class="col-6 ' + brkColCls + " order-" + oi[ordI] + '">' + card.createCard() + '</div>';
 		ordI++;
 	}
 	res += '</div></section></div>';
