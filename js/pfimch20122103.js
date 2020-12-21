@@ -250,7 +250,7 @@ function createPageSelector(mips) {
 }
 
 function createProductCard(sku, title, url, imageURL, lede, isSq, section) {
-	var res = '<div class="card mb-2 px-1">';
+	var res = '<div class="card mb-2 px-1 px-md-2">';
 	if (isSq) {
 		res += '<div class="embed-responsive embed-responsive-1by1">';
 		res += '<img src="' + imageURL + '" alt="' + title + '" class="embed-responsive-item" style="object-fit: cover">';
@@ -324,7 +324,7 @@ function createStoryRef(s, itm) {
 		createCard: function () {
 			var section = this.sec;
 			var item = this.sel;
-			var res = '<div class="card mb-2 px-1">';
+			var res = '<div class="card mb-2 px-1 px-md-2">';
 			if (this.imageURL !== undefined) {
 				res += '<div class="embed-responsive embed-responsive-1by1">';
 				res += '<img src="' + this.imageURL + '" alt="' + this.title + '" class="embed-responsive-item" style="object-fit: cover">';
