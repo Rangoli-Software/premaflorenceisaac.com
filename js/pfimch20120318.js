@@ -267,7 +267,7 @@ function createProductCard(sku, title, url, imageURL, lede, isSq, section) {
 	} else {
 		res += '<div class="card-subtitle mb-1"><a class="text-muted" href="' + section.url + '">' + section.title + '</a></div>';
 		res += '<h6 class="card-title mb-2">' + title + '<a  href="' + url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
-		res += '<p><span class="sc-item" data-field="price" data-vsku="' + sku + '"></span></p>'
+		res += '<p class="mb-1><span class="sc-item" data-field="price" data-vsku="' + sku + '"></span></p>'
 	}
 	if (lede !== null) {
 		res += '<p class="mb-1">' + lede + '</p>';
