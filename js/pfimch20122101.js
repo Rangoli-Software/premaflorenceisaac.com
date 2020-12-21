@@ -260,7 +260,7 @@ function createProductCard(sku, title, url, imageURL, lede, isSq, section) {
 		res += '<img src="' + imageURL + '" alt="' + title + '" class="img-fluid card-img-top card-img-front">';
 		res += '</div>';
 	}
-	res += '<div class="card-body px-0 pt-6 pb-4">';
+	res += '<div class="card-body px-0 pt-6 pb-4 px-1">';
 	if (section === undefined) {
 		res += '<div class="card-subtitle mb-1"><span class="sc-item" data-field="price" data-vsku="' + sku + '"></span></div>';
 		res += '<h6 class="card-title mb-2">' + title + '<a  href="' + url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
@@ -334,7 +334,7 @@ function createStoryRef(s, itm) {
 			} else if (this.imageScript !== undefined) {
 				res += eval(this.imageScript);
 			}
-			res += '<div class="card-body px-0 pt-6 pb-4">';
+			res += '<div class="card-body px-0 pt-6 pb-4 px-1">';
 			res += '<div class="card-subtitle mb-1"><a class="text-muted" href="' + this.sec.url + '">' + this.sec.title + '</a></div>';
 			if (item.url !== undefined) {
 				res += '<h6 class="card-title mb-2">' + this.title + '<a  href="' + this.url + '"' + (getHostName(this.url) === null ? '' : ' target="_blank"') + '><i class="fa ' + (getHostName(this.url) === null ? 'fa-arrow-right' : 'fa-external-link') + ' ml-2"></i></a></h6>';
