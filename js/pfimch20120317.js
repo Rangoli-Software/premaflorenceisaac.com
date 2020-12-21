@@ -223,7 +223,7 @@ function createPageSelector(mips) {
 		filterMerchPages: function () {
 			var blacklist = pfiavG.pageIdx.included;
 			return this.miPageSet.filter(function (page) {
-				return !blacklist.includes(page, 'url') && !blacklist.includesImg(page);
+				return !blacklist.includes(page, 'url') && !blacklist.includesImg(page) && !blacklist.includes(page, 'SKU');
 			});
 		},
 		selectSKUs: function (fltMI) {
@@ -353,7 +353,7 @@ function createRelated(header, cards, orderidxs) {
 	var oi = shuffle(orderidxs.slice());
 	for (var i = 0; i < cards.length && ordI < oi.length; i++) {
 		var card = cards[i];
-		res += '<div class="col-6 ' + brkColCls + " order-" + oi[ordI] + ' px-1 px-md-2">' + card.createCard() + '</div>';
+		res += '<div class="col-6 ' + brkColCls + " order-" + oi[ordI] + '">' + card.createCard() + '</div>';
 		ordI++;
 	}
 	res += '</div></section></div>';

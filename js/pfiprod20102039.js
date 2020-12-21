@@ -1104,7 +1104,7 @@ function createRelatedViewer(caption, related, ncol) {
 		createDiv: function () {
 			var res = '<h6>' + this.caption + '</h6><div class="row">';
 			for (var i = 0; i < this.related.length && i < this.ncol; i++) {
-				res += '<div class="col-6 px-1 px-md-2">' + this.related[i].createCard() + '</div>';
+				res += '<div class="col-6">' + this.related[i].createCard() + '</div>';
 			}
 			res += '</div>';
 			return res;
@@ -1692,6 +1692,7 @@ function createUIPageComponent(catalog, itemsComponent, itemsComponentFactory) {
 			$('.breadcrumb').replaceWith(this.itemsComponent.getBreadCrumb())
 		},
 		onSKUChange: function (sku) {
+			pfiavG.pageIdx.page.SKU = sku;
 			var icGen = this.itemsComponentFactory.createGenerator(sku);
 			this.itemsComponent = icGen.createUIC(this.allCartC.shop);
 			this.updateSelection(SelChangeReason.skuChange);
