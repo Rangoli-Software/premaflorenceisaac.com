@@ -1102,7 +1102,7 @@ function createRelatedViewer(caption, related, ncol) {
 		related: related,
 		ncol: ncol,
 		createDiv: function () {
-			var res = '<h6>' + this.caption + '</h6><div class="row no-gutters">';
+			var res = '<h6>' + this.caption + '</h6><div class="row no-gutters m-n1 m-md-n2">';
 			for (var i = 0; i < this.related.length && i < this.ncol; i++) {
 				res += '<div class="col-6">' + this.related[i].createCard() + '</div>';
 			}
