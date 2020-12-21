@@ -292,9 +292,6 @@ function createProductRef(product) {
 
 function createMerchandisingRef(item, section) {
 	return {
-		SKU: item.SKU,
-		title: item.title,
-		url: item.url,
 		imageURL: item.imageURL,
 		lede: null,
 		setRandImg: function () {
@@ -308,7 +305,8 @@ function createMerchandisingRef(item, section) {
 			this.lede = item.ledes[getRandomIdx(item.ledes)];
 		},
 		createCard: function () {
-			return createProductCard(this.SKU, this.title, this.url, this.imageURL, this.lede, true, section);
+			var url = (item.vidx === undefined) ? item.url :  item.url + "?v=" + item.vidx;
+			return createProductCard(item.SKU, item.title, url, this.imageURL, this.lede, true, section);
 		}
 	}
 }

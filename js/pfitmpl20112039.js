@@ -506,10 +506,19 @@ function getSubEntry(item, url) {
 const merchInfo = [
 	{
 		SKU: 'AWTSHT1604Je',
-		ledes: ['A one-of-a-kind T-shirt for that unique individual!'],
+		vidx: '1',
+		SKUvid: 'AWTSHT1604Je-CW1',
+		ledes: ['In White. A #oneofakind T-shirt.'],
 		images: [{
 			url: '/g/merch/wc2.jpg'
-		}, {
+		}]
+    },
+	{
+		SKU: 'AWTSHT1604Je',
+		vidx: '2',
+		SKUvid: 'AWTSHT1604Je-CW2',
+		ledes: ['In Black. For that #oneofakind person!'],
+		images: [{
 			url: '/g/merch/wc3.jpg'
 		}, {
 			url: '/people/ooak/sl01.jpg'

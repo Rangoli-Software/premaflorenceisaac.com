@@ -101,10 +101,11 @@ function createStoryDisplay() {
     }
 }
 
-function createCatalogDisplay(catalog, merchOnly) {
+function createCatalogDisplay(catalog, merchOnly, skuOnly) {
     return {
         merchOnly: merchOnly,
         catalog: catalog,
+		skuOnly: skuOnly,
         miPageSet: pfiavG.pageIdx.miPageSet,
         createProductCardRefs: function (fname) {
             var skus = this.catalog[fname];
@@ -118,11 +119,18 @@ function createCatalogDisplay(catalog, merchOnly) {
             }
             return res;
         },
+		getMerchItem: function(ith) {
+			if (this.skuOnly) {
+                return this.miPageSet.select('SKU', ith);
+			} else {
+                return this.miPageSet.select('SKUvid', ith);
+			}
+		},
         createMerchCardRefs: function (fname) {
             var skus = this.catalog[fname];
             var res = [];
             for (var i = 0; i < skus.length; i++) {
-                var item = this.miPageSet.select('SKU', skus[i]);
+                var item = this.getMerchItem(skus[i]);
                 if (item === undefined) {
                     continue;
                 }

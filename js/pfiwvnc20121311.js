@@ -286,6 +286,7 @@ wovencanvas.catalog = {
 	shopURL: "/products/wovencanvas/shop.html",
 	skus: null,
 	styles: [wovencanvas.tshirt],
+	skuvariants:['AWTSHT1604Je-CW1','AWTSHT1604Je-CW2'],
 	garments: [wovencanvas.tshirt.SKU],
 	extras: [],
 	productDB: null,
@@ -299,7 +300,7 @@ pfiavG.getLineInitializer(wovencanvas).initialize();
 wovencanvas.categorizer = createFieldCategorizer(
 	wovencanvas.catalog,
     ["All"],
-    ["skus"],
+    ["skuvariants"],
     ["a"],
 	"t",
 	"a");
