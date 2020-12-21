@@ -62,9 +62,11 @@ function createPageIndex(page) {
 		miPageSet: createMIPageSet(),
 
 		createFeatures: function () {
-			var pageSel = createPageSelector(this.miPageSet, this.mentioned, this.included);
+			var pageSel = createPageSelector(this.miPageSet);
 			var merch = pageSel.selectMerch();
+			this.included = createPageSet(this.included.pages.concat(merch));
 			var stories = pageSel.selectFeatures();
+			this.included = createPageSet(this.included.pages.concat(stories));
 			return createRelated("Features", merch.concat(stories), [1, 4, 7, 10]);
 		}
 	}
@@ -139,7 +141,7 @@ function createStorySampler(all) {
 	return createNUSampler(cum, all, [], 'url');
 }
 
-function createPageSelector(mips, wl, bl) {
+function createPageSelector(mips) {
 	var lineMerchSKUs = [
     ["AWTSHT1604Je"],
     ["OVTPSH1501Pa", "OVTPLO1501Pa", "TRPZTP1807Pa", "MDRSTP1606PP", "SARITP1501Pa", "LNKFTN1501Ja", "LOTSDR1501Ja", "NKSHDR1501Ta", "NKSHMU1501PP", "NKSHMD1501PP", "NKSHMI1501PP", "NKSHMC1512PP", "FACEMK2005Ta"],
@@ -184,15 +186,13 @@ function createPageSelector(mips, wl, bl) {
 		sections: sections,
 		allstories: allstories,
 		miPageSet: mips,
-		blacklist: bl,
-		whitelist: wl,
 		maxStories: 2,
 		maxMerch: 2,
 		merchSKUs: merchSKUs,
 		merchSKUSampler: createMerchandisingSampler(lineMerchSKUs, lineMerchSections, lineMerchWeights),
 		storySampler: createStorySampler(allstories),
 		filterStories: function () {
-			var blacklist = this.blacklist;
+			var blacklist = pfiavG.pageIdx.included;
 			return this.allstories.filter(function (page) {
 				return !blacklist.includes(page, 'url') && !blacklist.includesImg(page);
 			});
@@ -221,7 +221,7 @@ function createPageSelector(mips, wl, bl) {
 			return lineMerchSections[lineIdx];
 		},
 		filterMerchPages: function () {
-			var blacklist = this.blacklist;
+			var blacklist = pfiavG.pageIdx.included;
 			return this.miPageSet.filter(function (page) {
 				return !blacklist.includes(page, 'url') && !blacklist.includesImg(page);
 			});
@@ -240,7 +240,9 @@ function createPageSelector(mips, wl, bl) {
 				var sel = fltMI.select('SKU', sku);
 				var img = sel.images[getRandomIdx(sel.images)];
 				sel.imageURL = img.url;
-				res.push(createMerchandisingRef(sel, this.findMerchSection(sku)));
+				var ref = createMerchandisingRef(sel, this.findMerchSection(sku));
+				ref.setRandLede();
+				res.push(ref);
 			}
 			return res;
 		},
