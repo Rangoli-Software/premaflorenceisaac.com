@@ -353,7 +353,7 @@ function createRelated(header, cards, orderidxs) {
 	var oi = shuffle(orderidxs.slice());
 	for (var i = 0; i < cards.length && ordI < oi.length; i++) {
 		var card = cards[i];
-		res += '<div class="col-6 ' + brkColCls + " order-" + oi[ordI] + '">' + card.createCard() + '</div>';
+		res += '<div class="col-6 ' + brkColCls + " order-" + oi[ordI] + ' px-1 px-md-2">' + card.createCard() + '</div>';
 		ordI++;
 	}
 	res += '</div></section></div>';
