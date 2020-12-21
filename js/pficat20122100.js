@@ -72,7 +72,7 @@ function createCardlist(cardRefs) {
     return {
         cardRefs: cardRefs,
         createHTML: function () {
-            var res = '<section class="pt-5 pb-3"><div class="row">';
+            var res = '<section class="pt-5 pb-3"><div class="row no-gutters">';
             for (var i = 0; i < this.cardRefs.length; i++) {
                 res += '<div class="col-6 col-md-4">'
                 res += this.cardRefs[i].createCard();

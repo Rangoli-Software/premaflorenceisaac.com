@@ -348,7 +348,7 @@ function createStoryRef(s, itm) {
 
 function createRelated(header, cards, orderidxs) {
 	var brkColCls = "col-sm-6 col-md-3";
-	var res = '<div id="featuredBrowse" class="container mb-5"><section class="pt-4"><h5>' + header + '</h5><div class="row">';
+	var res = '<div id="featuredBrowse" class="container mb-5"><section class="pt-4"><h5>' + header + '</h5><div class="row no-gutters">';
 	var ordI = 0;
 	var oi = shuffle(orderidxs.slice());
 	for (var i = 0; i < cards.length && ordI < oi.length; i++) {
