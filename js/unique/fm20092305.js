@@ -42,7 +42,7 @@ listData = [
     [32, ["32"], "#EEF7E6", "Feta", null],
     [33, ["33"], "#E36D7E", "Deep Blush", null],
     [34, ["34"], "#107586", "Surfie Green", null, "CW2"],
-    [35, ["35"], "#A72850", "Night Shadz", {Name: "Jelena", Date: "2020-12"}, "CW2"],
+    [35, ["35"], "#A72850", "Night Shadz", null, "CW2"],
     [36, ["36"], "#32423D", "Outer Space", null, "CW2"],
     [37, ["37"], "#3A9C7A", "Ocean Green", null, "CW2"]
 ];
