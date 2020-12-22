@@ -291,8 +291,12 @@ function createProductRef(product) {
 }
 
 function createMerchandisingRef(item, section) {
+	var url = (item.vidx === undefined) ? item.url :  item.url + "?v=" + item.vidx;
 	return {
+		SKU: item.SKU,
+		vidx: item.vidx,
 		imageURL: item.imageURL,
+		url: url,
 		lede: null,
 		setRandImg: function () {
 			this.setImg(getRandomIdx(item.images));
@@ -305,8 +309,7 @@ function createMerchandisingRef(item, section) {
 			this.lede = item.ledes[getRandomIdx(item.ledes)];
 		},
 		createCard: function () {
-			var url = (item.vidx === undefined) ? item.url :  item.url + "?v=" + item.vidx;
-			return createProductCard(item.SKU, item.title, url, this.imageURL, this.lede, true, section);
+			return createProductCard(this.SKU, item.title, this.url, this.imageURL, this.lede, true, section);
 		}
 	}
 }
