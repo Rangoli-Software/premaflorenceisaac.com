@@ -15,7 +15,7 @@ extras.dipdye = {
 	SKU: 'DPDYSF1501PT',
 	basePath: '/products/scarves/',
 	imgDir: 'dipdye',
-	imageFile: ".jpg",
+	imageFile: "sizing.jpg",
 	dimensionNames: ["A. Length", "B. Width", "C. Pom-Pom Fringe Width"],
 	dimensionsCm: {
 		Free: [[183, 186], [59, 60], 2.5]

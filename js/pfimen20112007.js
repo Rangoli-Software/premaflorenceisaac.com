@@ -336,7 +336,7 @@ vagabond.kageratie = {
     SKU: "KAGTIE1601Kh",
     imgDir: 'kagera',
     sizing: null,
-    imageFile: "",
+    imageFile: "sizing.jpg",
     dimensionNames: ['A. Length', 'B. Width'],
     dimensionsCm: {
         Free: [140, [3,6]]
