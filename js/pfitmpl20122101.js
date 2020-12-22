@@ -1019,6 +1019,12 @@ function createShopMenuHTML() {
 	return createDDContents([col]);
 }
 
+function createLookMenuHTML() {
+	var col1 = createDDColumn([lotm, moods], "col-6");
+	var col2 = createDDColumn([clients, ramp], "col-6");
+	return createDDContents([col1, col2]);
+}
+
 function createStyledList(jsonArray) {
 	var res = '<ul class="list-styled mb-6 font-size-sm">';
 	for (var i = 0; i < jsonArray.length; i++) {
@@ -1091,7 +1097,7 @@ function createShopMM() {
 }
 
 function createLookMM() {
-	return createMinWidthWithContents(createLookDDContents(), "345px", true)
+	return createDDMenu("tlLookMnu", true, "345px", createLookMenuHTML());
 }
 
 function createBlogDD() {
