@@ -926,7 +926,7 @@ function createBreadCrumbContents(location) {
 		if (level1)
 			for (var j = 0; j < level1.sub.length; j++) {
 				var level2 = level1.sub[j];
-				if (level2.url == path) {
+				if (level2.url === path) {
 					return createBreadCrumbLevels([level1, level2]);
 				}
 			}
@@ -937,7 +937,9 @@ function createBreadCrumbContents(location) {
 function createBreadCrumbLevels(levels) {
 	var res = '<ol class="breadcrumb mb-0 font-size-xs text-gray-400">';
 	if (levels !== undefined && levels !== null) {
-		res += '<li class="breadcrumb-item"><a class="text-gray-400" href="/index.html">Home</a></li>';
+		if ( levels[0].title !== 'Shop') {
+			res += '<li class="breadcrumb-item"><a class="text-gray-400" href="/index.html">Home</a></li>';
+		}
 		for (var i = 0; i < levels.length - 1; i++) {
 			var level = levels[i];
 			if (level.title !== undefined) {
@@ -950,6 +952,73 @@ function createBreadCrumbLevels(levels) {
 	return res;
 }
 
+function createItemUrl(item, cls) {
+	var res = "";
+	if (item.url !== undefined) {
+		if (getHostName(item.url) === null) {
+			res += '<a href="' + item.url + '"' + (cls === null ? '' : ' class="' + cls + '"') + '>';
+		} else {
+			res += '<a href="' + item.url + '" target="_blank' + (cls === null ? '' : ' class="' + cls + '"') + '">';
+		}
+	}
+	res += item.title;
+	if (item.url !== undefined) {
+		if (getHostName(item.url) === null) {
+			res += '</a>';
+		} else {
+			res += '<i class="fa fa-external-link-alt"></i></a>';
+		}
+	}
+	return res;
+}
+
+function createDDList(items) {
+	var res = '<ul class="list-styled mb-3 font-size-sm">';
+	for (var i = 0; i < items.length; i++) {
+		var item = items[i];
+		if (item.title === undefined) {
+			continue;
+		}
+		res += '<li class="list-styled-item mt-2">' + createItemUrl(item, "list-styled-link") + '</li>';
+	}
+	res += '</ul>';
+	return res;
+}
+
+function createDDColumn(itemLists, colCls) {
+	var res = '<div class="mx-3 py-3 ' + colCls + '">';
+	for (var i = 0; i < itemLists.length; i++) {
+		var item = itemLists[i];
+		if (item.title === undefined) {
+			continue;
+		}
+		res += '<div class="' + (i === 0 ? "mb-3" : "my-3") + ' font-weight-bold">';
+		res += createItemUrl(item);
+		res += '</div>';
+		res += createDDList(item.sub);
+	}
+	res += '</div>';
+	return res;
+}
+
+function createDDContents(cols) {
+	var res = '<div class="row">';
+	for (var i = 0; i < cols.length; i++) {
+		res += cols[i];
+	}
+	res += '</div>';
+	return res;
+}
+
+function createDDMenu(id, alignRight, width, contents) {
+	return '<div class="mw-100 m-3 dropdown-menu' + (alignRight ? " dropdown-menu-right" : "") + '" id="' + id + '" style="min-width: ' + width + ';">'+ contents + '</div>';
+}
+
+function createShopMenuHTML() {
+	var col = createDDColumn([shop, faqs], "col-12");
+	return createDDContents([col]);
+}
+
 function createStyledList(jsonArray) {
 	var res = '<ul class="list-styled mb-6 font-size-sm">';
 	for (var i = 0; i < jsonArray.length; i++) {
@@ -957,7 +1026,7 @@ function createStyledList(jsonArray) {
 		if (item.title === undefined) {
 			continue;
 		}
-		res += '<li class="list-styled-item"><a class="list-styled-link" href="' + item.url + '"' + (getHostName(item.url) === null ? "" : ' target="_blank"') + '>' + item.title + (getHostName(item.url) === null ? "" : ' <i class="fa fa-external-link"></i>') + '</a></li>';
+		res += '<li class="list-styled-item">' + createItemUrl(item, "list-styled-link") + '</li>';
 	}
 	res += '</ul>';
 	return res;
@@ -971,21 +1040,7 @@ function createDropdownColumn(itemLists, colCls) {
 			continue;
 		}
 		res += '<div class="' + (i === 0 ? "mb-5" : "my-5") + ' font-weight-bold">';
-		if (item.url !== undefined) {
-			if (getHostName(item.url) === null) {
-				res += '<a href="' + item.url + '">';
-			} else {
-				res += '<a href="' + item.url + '" target="_blank">';
-			}
-		}
-		res += item.title;
-		if (item.url !== undefined) {
-			if (getHostName(item.url) === null) {
-				res += '</a>';
-			} else {
-				res += '<i class="fa fa-external-link-alt"></i></a>';
-			}
-		}
+		res += createItemUrl(item, null);
 		res += '</div>';
 		res += createStyledList(item.sub);
 	}
@@ -1002,33 +1057,49 @@ function createDropdownCard(cols) {
 	return res;
 }
 
-function createMinWidthDDCard(cols, width, alignRight) {
+function createMinWidthWithContents(html, width, alignRight) {
 	var res = '<div class="dropdown-menu' + (alignRight ? " dropdown-menu-right" : "") + '" style="min-width: ' + width + ';">';
-	res += createDropdownCard(cols);
+	res += html;
 	res += '</div>';
 	return res;
 }
 
-function createShopMM() {
+function createLookDDContents() {
+	var col1 = createDropdownColumn([lotm, moods], "col-6");
+	var col2 = createDropdownColumn([clients, ramp], "col-6");
+	return createDropdownCard([col1, col2]);
+}
+
+function createBlogDDContents() {
+	var col1 = createDropdownColumn([atelier], "col-6");
+	var col2 = createDropdownColumn([origin, archives], "col-6");
+	return createDropdownCard([col1, col2]);
+}
+
+function createAboutDDContents() {
+	var col1 = createDropdownColumn([about, buzzTL, lookbook], "col-12");
+	return createDropdownCard([col1]);
+}
+
+function createShopDDContents() {
 	var col1 = createDropdownColumn([shop, faqs], "col-12");
-	return createMinWidthDDCard([col1], "190px", false);
+	return createDropdownCard([col1]);
+}
+
+function createShopMM() {
+	return createDDMenu("tlShopMnu", false, "190px", createShopMenuHTML());
 }
 
 function createLookMM() {
-	var col1 = createDropdownColumn([lotm, moods], "col-6");
-	var col2 = createDropdownColumn([clients, ramp], "col-6");
-	return createMinWidthDDCard([col1, col2], "345px", true);
+	return createMinWidthWithContents(createLookDDContents(), "345px", true)
 }
 
 function createBlogDD() {
-	var col1 = createDropdownColumn([atelier], "col-6");
-	var col2 = createDropdownColumn([origin, archives], "col-6");
-	return createMinWidthDDCard([col1, col2], "320px", true);
+	return createMinWidthWithContents(createBlogDDContents(), "320px", true);
 }
 
 function createAboutDD() {
-	var col1 = createDropdownColumn([about, buzzTL, lookbook], "col-12");
-	return createMinWidthDDCard([col1], "145px", true);
+	return createMinWidthWithContents(createAboutDDContents(), "145px", true);
 }
 
 function createTopNav() {
@@ -1071,7 +1142,7 @@ function getPriceStringHTML(shop, product, vid) {
 		return priceString;
 	} else {
 		var prV = varPL[vid];
-		if  (prV !== undefined) {
+		if (prV !== undefined) {
 			return shop.getFXPriceHTML(prV);
 		} else {
 			return priceString;

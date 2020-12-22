@@ -1003,7 +1003,7 @@ function createNavHelper(prodInfo, categorizer, title) {
 			var levels = [{
 				title: 'Shop',
 				url: '/shop.html'
-            }, {
+			},{
 				title: this.title,
 				url: this.categorizer.getUrl(this.prodInfo.skuInfo.SKU)
             }, {
