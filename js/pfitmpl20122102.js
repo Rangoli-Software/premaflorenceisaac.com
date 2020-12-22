@@ -986,7 +986,7 @@ function createDDList(items) {
 }
 
 function createDDColumn(itemLists, colCls) {
-	var res = '<div class="mx-3 py-3 ' + colCls + '">';
+	var res = '<div class="py-3 ' + colCls + '">';
 	for (var i = 0; i < itemLists.length; i++) {
 		var item = itemLists[i];
 		if (item.title === undefined) {
@@ -1011,7 +1011,7 @@ function createDDContents(cols) {
 }
 
 function createDDMenu(id, alignRight, width, contents) {
-	return '<div class="mw-100 m-3 dropdown-menu' + (alignRight ? " dropdown-menu-right" : "") + '" id="' + id + '" style="min-width: ' + width + ';">'+ contents + '</div>';
+	return '<div class="mw-100 m-3 px-3 dropdown-menu' + (alignRight ? " dropdown-menu-right" : "") + '" id="' + id + '" style="min-width: ' + width + ';">'+ contents + '</div>';
 }
 
 function createShopMenuHTML() {
