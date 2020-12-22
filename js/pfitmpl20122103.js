@@ -1025,6 +1025,17 @@ function createLookMenuHTML() {
 	return createDDContents([col1, col2]);
 }
 
+function createBlogMenuHTML() {
+	var col1 = createDDColumn([atelier], "col-6");
+	var col2 = createDDColumn([origin, archives], "col-6");
+	return createDDContents([col1, col2]);
+}
+
+function createAboutMenuHTML() {
+	var col1 = createDDColumn([about, buzzTL, lookbook], "col-12");
+	return createDDContents([col1]);
+}
+
 function createStyledList(jsonArray) {
 	var res = '<ul class="list-styled mb-6 font-size-sm">';
 	for (var i = 0; i < jsonArray.length; i++) {
@@ -1093,19 +1104,21 @@ function createShopDDContents() {
 }
 
 function createShopMM() {
-	return createDDMenu("tlShopMnu", false, "190px", createShopMenuHTML());
+	return createDDMenu("tlShopMnu", false, "140px", createShopMenuHTML());
 }
 
 function createLookMM() {
-	return createDDMenu("tlLookMnu", true, "345px", createLookMenuHTML());
+	return createDDMenu("tlLookMnu", true, "320px", createLookMenuHTML());
 }
 
 function createBlogDD() {
-	return createMinWidthWithContents(createBlogDDContents(), "320px", true);
+	return createDDMenu("tlBlogMnu", true, "320px", createBlogMenuHTML());
+//	return createMinWidthWithContents(createBlogDDContents(), "320px", true);
 }
 
 function createAboutDD() {
-	return createMinWidthWithContents(createAboutDDContents(), "145px", true);
+	return createDDMenu("tlAboutMnu", true, "145px", createAboutMenuHTML());
+//	return createMinWidthWithContents(createAboutDDContents(), "145px", true);
 }
 
 function createTopNav() {
