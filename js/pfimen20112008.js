@@ -1,19 +1,5 @@
 const vagabond = {};
 
-vagabond.createRelatedViewer = function (skuInfo, catalog) {
-    var related = catalog.getPairWith(skuInfo.SKU);
-    if (related === null) {
-        return creatEmptyViewer();
-    }
-    var caption = 'Pair with';
-    var res = [];
-    for (var i = 0; i < related.length; i++) {
-        sku = related[i];
-        res.push(createRelatedItemCard(sku, catalog));
-    }
-    return createRelatedViewer(caption, res, 2);
-}
-
 vagabond.createComponentFactory = function (prodInfo, dimensioner, sizer, categorizer) {
     var navHelper = createNavHelper(prodInfo, categorizer, vagabond.catalog.title);
     //    var relatedviewer = createVBRelatedViewer(prodInfo.skuInfo, catalog);

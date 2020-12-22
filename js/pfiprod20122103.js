@@ -1047,7 +1047,7 @@ function createRelatedItemCard(SKU, catalog) {
 		catalog: catalog,
 		createCard: function () {
 			var entry = this.catalog.getProduct(this.SKU);
-			var res = '<div class="card mb-2"><div class="embed-responsive embed-responsive-1by1"><img class="embed-responsive-item" src="' + entry + '" style="object-fit: cover"></div><div class="card-body">';
+			var res = '<div class="card mb-2 px-1 px-md-2"><div class="embed-responsive embed-responsive-1by1"><img class="embed-responsive-item" src="' + entry + '" style="object-fit: cover"></div><div class="card-body">';
 			res += ' <a href="' + entry.url + '">' + entry.name + '</a>';
 			res += '</div></div>';
 			return res;
@@ -1063,7 +1063,7 @@ function createRelatedLookCard(SKU, lkImg, idx, styles, catalog) {
 		styles: styles,
 		catalog: catalog,
 		createCard: function () {
-			var res = '<div class="card mb-2"><div class="embed-responsive embed-responsive-1by1"><img class="embed-responsive-item" src="' + this.lkImg + '" style="object-fit: cover"></div><div class="card-body">';
+			var res = '<div class="card mb-2 px-1 px-md-2"><div class="embed-responsive embed-responsive-1by1"><img class="embed-responsive-item" src="' + this.lkImg + '" style="object-fit: cover"></div><div class="card-body">';
 			var first = true;
 			for (var i = 0; i < this.styles.length; i++) {
 				var sty = this.styles[i];
@@ -1430,7 +1430,7 @@ function createUICardCreatorBase(imgCreator, colClasses) {
 		imgCreator: imgCreator,
 		colClasses: colClasses,
 		createCard: function (images, btnId, priceHTML, desc) {
-			var res = '<div class="card mb-2">';
+			var res = '<div class="card mb-2 px-1 px-md-2">';
 			res += this.imgCreator.createImageDiv(images, btnId);
 			res += '<div class="card-body px-0 pt-2 pb-4 text-center">';
 			res += '<div class="card-title mb-2"><span>' + desc.getCWDesc() + '</span></div>';
@@ -1492,7 +1492,7 @@ function createUniqueItemsComponent(shop, items, productComponentFactory, produc
 			if (this.items.base.length == 0) {
 				return this.itemCategorySelector.getEmptyStatusHTML();
 			}
-			var ret = '<div class="row">';
+			var ret = '<div class="row no-gutters mx-n1 mx-md-n2">';
 			for (var i = 0; i < this.items.base.length; i++) {
 				ret += '<div class="' + this.cardCreator.colClasses + '">'
 				ret += this.createCard(i);
