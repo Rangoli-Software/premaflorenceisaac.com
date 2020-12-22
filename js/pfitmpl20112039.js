@@ -1009,33 +1009,6 @@ function createMinWidthDDCard(cols, width, alignRight) {
 	return res;
 }
 
-function createFullWidthDDCard(cols) {
-	var res = '<div class="dropdown-menu w-100"><div class="container">';
-	res += createDropdownCard(cols);
-	res += '</div></div>';
-	return res;
-}
-
-function createMegaMenuSection(item) {
-	return '<div class="col-6 col-md">\
-<div class="mb-5 font-weight-bold">' + item.title + '</div>' +
-		createStyledList(item.sub) + '</div>';
-}
-
-function createMegaMenuImage(item) {
-	return '<div class="col-4 d-none d-lg-block">\
-<div class="card">\
-<img class="card-img" src="' + item.imageURL + '" alt="...">\
-<div class="card-img-overlay bg-dark-0 bg-hover align-items-center">\
-<div class="text-center">\
-<a class="btn btn-white stretched-link" href="' + item.url + '">' +
-		item.title + '<i class="fa fa-arrow-right ml-2"></i></a>\
-</div>\
-</div>\
-</div>\
-</div>';
-}
-
 function createShopMM() {
 	var col1 = createDropdownColumn([shop, faqs], "col-12");
 	return createMinWidthDDCard([col1], "190px", false);
