@@ -63,11 +63,17 @@ function createPageIndex(page) {
 
 		createFeatures: function () {
 			var pageSel = createPageSelector(this.miPageSet);
-			var merch = pageSel.selectMerch();
+			var merch = pageSel.selectMerch(2);
 			this.included = createPageSet(this.included.pages.concat(merch));
-			var stories = pageSel.selectFeatures();
+			var stories = pageSel.selectFeatures(2);
 			this.included = createPageSet(this.included.pages.concat(stories));
 			return createRelated("Features", merch.concat(stories), [1, 4, 7, 10]);
+		},
+		createShopCard: function() {
+			var pageSel = createPageSelector(this.miPageSet);
+			var merch = pageSel.selectMerch(1);
+			this.included = createPageSet(this.included.pages.concat(merch));
+			return merch[0].createCard();
 		}
 	}
 }
@@ -186,8 +192,6 @@ function createPageSelector(mips) {
 		sections: sections,
 		allstories: allstories,
 		miPageSet: mips,
-		maxStories: 2,
-		maxMerch: 2,
 		merchSKUs: merchSKUs,
 		merchSKUSampler: createMerchandisingSampler(lineMerchSKUs, lineMerchSections, lineMerchWeights),
 		storySampler: createStorySampler(allstories),
@@ -197,17 +201,17 @@ function createPageSelector(mips) {
 				return !blacklist.includes(page, 'url') && !blacklist.includesImg(page);
 			});
 		},
-		selectURLs: function (fltS) {
+		selectURLs: function (fltS, nStories) {
 			var sampler = this.storySampler.filter(fltS.map(pg => pg.url));
-			return sampler.sampleN(this.maxStories).sample.map(s => s.url);
+			return sampler.sampleN(nStories).sample.map(s => s.url);
 		},
 		findStorySection: function (url) {
 			var secIdx = this.sections.findIndex(sec => sec.sub.find(pg => pg.url === url) !== undefined);
 			return this.sections[secIdx];
 		},
-		selectFeatures: function () {
+		selectFeatures: function (nStories) {
 			var fltS = this.filterStories();
-			var fltURLs = this.selectURLs(fltS);
+			var fltURLs = this.selectURLs(fltS, nStories);
 			var res = [];
 			for (var i = 0; i < fltURLs.length; i++) {
 				let url = fltURLs[i];
@@ -226,14 +230,14 @@ function createPageSelector(mips) {
 				return !blacklist.includes(page, 'url') && !blacklist.includesImg(page) && !blacklist.includes(page, 'SKU');
 			});
 		},
-		selectSKUs: function (fltMI) {
+		selectSKUs: function (fltMI, nMerch) {
 			var fltSKUs = this.merchSKUs.filter(sku => fltMI.select('SKU', sku) !== undefined);
 			var sampler = this.merchSKUSampler.filter(fltSKUs);
-			return sampler.sampleN(this.maxMerch).sample.map(s => s.SKU);
+			return sampler.sampleN(nMerch).sample.map(s => s.SKU);
 		},
-		selectMerch: function () {
+		selectMerch: function (nMerch) {
 			var fltMI = this.filterMerchPages();
-			var fltSKUs = this.selectSKUs(fltMI);
+			var fltSKUs = this.selectSKUs(fltMI, nMerch);
 			var res = [];
 			for (var i = 0; i < fltSKUs.length; i++) {
 				var sku = fltSKUs[i];

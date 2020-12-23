@@ -1103,8 +1103,27 @@ function createShopDDContents() {
 	return createDropdownCard([col1]);
 }
 
+function createMerchColumn(colCls) {
+	var res = '<div class="py-3 ' + colCls + '">';
+	res += pfiavG.pageIdx.createShopCard();
+	res += '</div>';
+	return res;
+}
+
+function createMerchShopMenuHTML() {
+	var col = createDDColumn([shop, faqs], "col-6");
+	var mch = createMerchColumn("col-6");
+	return createDDContents([col, mch]);
+}
+
+function enableMenuUpdate() {
+	$(document).ready(function(){
+		$('#tlShopMnu').replaceWith(createDDMenu('#tlShopMnu', false, "360px", createMerchShopMenuHTML()));
+	});
+}
+
 function createShopMM() {
-	return createDDMenu("tlShopMnu", false, "140px", createShopMenuHTML());
+	return createDDMenu("tlShopMnu", false, "360px", createShopMenuHTML());
 }
 
 function createLookMM() {
