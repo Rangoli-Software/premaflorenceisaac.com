@@ -506,16 +506,6 @@ function getSubEntry(item, url) {
 const merchInfo = [
 	{
 		SKU: 'AWTSHT1604Je',
-		vidx: '1',
-		vid: "CW1",
-		SKUvid: 'AWTSHT1604Je-CW1',
-		ledes: ['In White. A #oneofakind T-shirt.'],
-		images: [{
-			url: '/g/merch/wc2.jpg'
-		}]
-    },
-	{
-		SKU: 'AWTSHT1604Je',
 		vidx: '2',
 		vid: "CW2",
 		SKUvid: 'AWTSHT1604Je-CW2',
@@ -530,6 +520,16 @@ const merchInfo = [
 			url: '/g/merch/wc1.jpg'
 		}, {
 			url: '/g/merch/wc4.jpg'
+		}]
+    },
+	{
+		SKU: 'AWTSHT1604Je',
+		vidx: '1',
+		vid: "CW1",
+		SKUvid: 'AWTSHT1604Je-CW1',
+		ledes: ['In White. A #oneofakind T-shirt.'],
+		images: [{
+			url: '/g/merch/wc2.jpg'
 		}]
     },
 	{
@@ -562,6 +562,15 @@ const merchInfo = [
 		ledes: [''],
 		images: [{
 			url: '/g/merch/mdrs.jpg'
+		}]
+    },
+	{
+		SKU: 'JULITP1501Pa',
+		ledes: [''],
+		images: [{
+			url: '/tapestries/JP-7374.jpg'
+		},{
+			url: '/tapestries/PremaShoot (JPEDD)-7385.jpg'
 		}]
     },
 	{
@@ -1123,7 +1132,7 @@ function updateTopLevelMenus() {
 }
 
 function createShopMM() {
-	return createDDMenu("tlShopMnu", false, "360px", createShopMenuHTML());
+	return createDDMenu("tlShopMnu", false, "150px", createShopMenuHTML());
 }
 
 function createLookMM() {

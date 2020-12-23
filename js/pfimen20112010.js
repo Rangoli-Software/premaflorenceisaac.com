@@ -335,37 +335,37 @@ vagabond.kageratie = {
             colourName: "Red",
             vid: "CW1",
             colourPfx: "red",
-            colourSfxs: ["1", "2"]
+            colourSfxs: ["2", "1"]
         },
         {
             colourName: "Blue",
             vid: "CW2",
             colourPfx: "blue",
-            colourSfxs: ["1", "2"]
+            colourSfxs: ["2", "1"]
         },
         {
             colourName: "Denim",
             vid: "CW3",
             colourPfx: "denim",
-            colourSfxs: ["1", "2"]
+            colourSfxs: ["2", "1"]
         },
         {
             colourName: "Old Rose",
             vid: "CW4",
             colourPfx: "bougainvillea",
-            colourSfxs: ["1", "2"]
+            colourSfxs: ["2", "1"]
         },
         {
             colourName: "Mustard",
             vid: "CW5",
             colourPfx: "mustard",
-            colourSfxs: ["1", "2"]
+            colourSfxs: ["2", "1"]
         },
         {
             colourName: "Black",
             vid: "CW6",
             colourPfx: "black",
-            colourSfxs: ["1", "2"]
+            colourSfxs: ["2", "1"]
         }
     ],
     sizes: ['Free'],
