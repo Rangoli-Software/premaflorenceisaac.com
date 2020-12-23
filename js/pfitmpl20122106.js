@@ -507,6 +507,7 @@ const merchInfo = [
 	{
 		SKU: 'AWTSHT1604Je',
 		vidx: '1',
+		vid: "CW1",
 		SKUvid: 'AWTSHT1604Je-CW1',
 		ledes: ['In White. A #oneofakind T-shirt.'],
 		images: [{
@@ -516,6 +517,7 @@ const merchInfo = [
 	{
 		SKU: 'AWTSHT1604Je',
 		vidx: '2',
+		vid: "CW2",
 		SKUvid: 'AWTSHT1604Je-CW2',
 		ledes: ['In Black. For that #oneofakind person!'],
 		images: [{
@@ -1002,7 +1004,7 @@ function createDDColumn(itemLists, colCls) {
 }
 
 function createDDContents(cols) {
-	var res = '<div class="row">';
+	var res = '<div class="row no-gutters">';
 	for (var i = 0; i < cols.length; i++) {
 		res += cols[i];
 	}
@@ -1020,8 +1022,8 @@ function createShopMenuHTML() {
 }
 
 function createLookMenuHTML() {
-	var col1 = createDDColumn([lotm, moods], "col-6");
-	var col2 = createDDColumn([clients, ramp], "col-6");
+	var col1 = createDDColumn([lotm, moods], "col-7");
+	var col2 = createDDColumn([clients, ramp], "col-5");
 	return createDDContents([col1, col2]);
 }
 
@@ -1111,15 +1113,13 @@ function createMerchColumn(colCls) {
 }
 
 function createMerchShopMenuHTML() {
-	var col = createDDColumn([shop, faqs], "col-6");
-	var mch = createMerchColumn("col-6");
+	var col = createDDColumn([shop, faqs], "col-5");
+	var mch = createMerchColumn("col-7");
 	return createDDContents([col, mch]);
 }
 
-function enableMenuUpdate() {
-	$(document).ready(function(){
-		$('#tlShopMnu').replaceWith(createDDMenu('#tlShopMnu', false, "360px", createMerchShopMenuHTML()));
-	});
+function updateTopLevelMenus() {
+	$('#tlShopMnu').replaceWith(createDDMenu('#tlShopMnu', false, "360px", createMerchShopMenuHTML()));
 }
 
 function createShopMM() {
@@ -1127,16 +1127,16 @@ function createShopMM() {
 }
 
 function createLookMM() {
-	return createDDMenu("tlLookMnu", true, "320px", createLookMenuHTML());
+	return createDDMenu("tlLookMnu", true, "295px", createLookMenuHTML());
 }
 
 function createBlogDD() {
-	return createDDMenu("tlBlogMnu", true, "320px", createBlogMenuHTML());
+	return createDDMenu("tlBlogMnu", true, "295px", createBlogMenuHTML());
 //	return createMinWidthWithContents(createBlogDDContents(), "320px", true);
 }
 
 function createAboutDD() {
-	return createDDMenu("tlAboutMnu", true, "145px", createAboutMenuHTML());
+	return createDDMenu("tlAboutMnu", true, "140px", createAboutMenuHTML());
 //	return createMinWidthWithContents(createAboutDDContents(), "145px", true);
 }
 

@@ -69,7 +69,7 @@ function createPageIndex(page) {
 			this.included = createPageSet(this.included.pages.concat(stories));
 			return createRelated("Features", merch.concat(stories), [1, 4, 7, 10]);
 		},
-		createShopCard: function() {
+		createShopCard: function () {
 			var pageSel = createPageSelector(this.miPageSet);
 			var merch = pageSel.selectMerch(1);
 			this.included = createPageSet(this.included.pages.concat(merch));
@@ -244,7 +244,7 @@ function createPageSelector(mips) {
 				var sel = fltMI.select('SKU', sku);
 				var img = sel.images[getRandomIdx(sel.images)];
 				sel.imageURL = img.url;
-				var ref = createMerchandisingRef(sel, this.findMerchSection(sku));
+				var ref = createMerchandisingRef(sel, this.findMerchSection(sku), nMerch === 1);
 				ref.setRandLede();
 				res.push(ref);
 			}
@@ -253,7 +253,7 @@ function createPageSelector(mips) {
 	}
 }
 
-function createProductCard(sku, title, url, imageURL, lede, isSq, section) {
+function createProductCard(sku, title, url, imageURL, lede, isSq, section, vid) {
 	var res = '<div class="card mb-2 px-1 px-md-2">';
 	if (isSq) {
 		res += '<div class="embed-responsive embed-responsive-1by1">';
@@ -266,12 +266,12 @@ function createProductCard(sku, title, url, imageURL, lede, isSq, section) {
 	}
 	res += '<div class="card-body px-0 pt-6 pb-4">';
 	if (section === undefined) {
-		res += '<div class="card-subtitle mb-1"><span class="sc-item" data-field="price" data-vsku="' + sku + '"></span></div>';
+		res += '<div class="card-subtitle mb-1"><span class="sc-item" data-field="price" data-vsku="' + sku + '"' + (vid === undefined ? '' : ' data-vid="' + vid + '"') + '></span></div>';
 		res += '<h6 class="card-title mb-2">' + title + '<a  href="' + url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
 	} else {
 		res += '<div class="card-subtitle mb-1"><a class="text-muted" href="' + section.url + '">' + section.title + '</a></div>';
 		res += '<h6 class="card-title mb-2">' + title + '<a  href="' + url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
-		res += '<p class="mb-1"><span class="sc-item" data-field="price" data-vsku="' + sku + '"></span></p>'
+		res += '<p class="mb-1"><span class="sc-item" data-field="price" data-vsku="' + sku + '"' + (vid === undefined ? '' : ' data-vid="' + vid + '"') + '></span></p>'
 	}
 	if (lede !== null) {
 		res += '<p class="mb-1">' + lede + '</p>';
@@ -289,13 +289,13 @@ function createProductRef(product) {
 			this.imageURL = imgurl;
 		},
 		createCard: function () {
-			return createProductCard(product.sku, this.title, this.url, this.imageURL, null, false);
+			return createProductCard(product.sku, this.title, this.url, this.imageURL, null, false, undefined);
 		}
 	};
 }
 
-function createMerchandisingRef(item, section) {
-	var url = (item.vidx === undefined) ? item.url :  item.url + "?v=" + item.vidx;
+function createMerchandisingRef(item, section, isCompact) {
+	var url = (item.vidx === undefined) ? item.url : item.url + "?v=" + item.vidx;
 	return {
 		SKU: item.SKU,
 		vidx: item.vidx,
@@ -313,7 +313,11 @@ function createMerchandisingRef(item, section) {
 			this.lede = item.ledes[getRandomIdx(item.ledes)];
 		},
 		createCard: function () {
-			return createProductCard(this.SKU, item.title, this.url, this.imageURL, this.lede, true, section);
+			if (isCompact) {
+				return createProductCard(this.SKU, item.title, this.url, this.imageURL, null, true, undefined, item.vid);
+			} else {
+				return createProductCard(this.SKU, item.title, this.url, this.imageURL, this.lede, true, section, item.vid);
+			}
 		}
 	}
 }

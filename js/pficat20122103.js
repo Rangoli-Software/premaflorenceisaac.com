@@ -134,7 +134,7 @@ function createCatalogDisplay(catalog, merchOnly, skuOnly) {
                 if (item === undefined) {
                     continue;
                 }
-                var cardRef = createMerchandisingRef(item);
+                var cardRef = createMerchandisingRef(item, undefined, false);
                 cardRef.setRandImg();
                 res.push(cardRef);
             }
