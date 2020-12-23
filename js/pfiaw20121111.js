@@ -318,11 +318,10 @@ artwear.catalog = {
 	title: "Art Wear",
 	shopURL: "/products/artwear/shop.html",
 	skus: null,
-	styles: [artwear.tamarai, artwear.kamalam, artwear.kaftan, artwear.saritop, artwear.ravakai, artwear.madras, artwear.payara, artwear.longovertop, artwear.shortovertop, artwear.nakshaminuit, artwear.nakshamidi, artwear.nakshamini, artwear.nakshamicro, artwear.facemask],
+	styles: [artwear.tamarai, artwear.kamalam, artwear.kaftan, artwear.saritop, artwear.ravakai, artwear.madras, artwear.payara, artwear.longovertop, artwear.shortovertop, artwear.nakshaminuit, artwear.nakshamidi, artwear.nakshamini, artwear.nakshamicro],
 	dresses: [artwear.tamarai.SKU, artwear.kamalam.SKU, artwear.kaftan.SKU],
 	skirts: [artwear.nakshaminuit.SKU, artwear.nakshamidi.SKU, artwear.nakshamini.SKU, artwear.nakshamicro.SKU],
 	separates: [artwear.saritop.SKU, artwear.ravakai.SKU, artwear.madras.SKU, artwear.payara.SKU, artwear.longovertop.SKU, artwear.shortovertop.SKU],
-	extras: [artwear.facemask.SKU],
 	productDB: null,
 	getProduct: function (sku) {
 		return this.productDB[sku];
@@ -342,8 +341,8 @@ pfiavG.getLineInitializer(artwear).initialize();
 
 artwear.categorizer = createFieldCategorizer(
 	artwear.catalog,
-    ["Dresses", "Skirts", "Separates", "Extras"],
-    ["dresses", "skirts", "separates", "extras"],
-    ["d", "k", "s", "e"],
+    ["Dresses", "Skirts", "Separates"],
+    ["dresses", "skirts", "separates"],
+    ["d", "k", "s"],
 	"t",
 	"d");
