@@ -372,14 +372,14 @@ vagabond.kageratie = {
             colourPfx: "black",
             colourSfxs: ["2", "1"],
 			desc: "<p>The body is a Black khadi. The 9 cm. wide silk border is custom-woven for Rangoli with herringbone, mountain, flower and paisley motifs in Silver on a Black tangail fabric.</p>"
-        },
+        }/*,
         {
             colourName: "Grey",
             vid: "CW7",
             colourPfx: "grey",
             colourSfxs: ["", ""],
 			desc: "<p>The body is a two-tone Grey &amp; Beige khadi. The 8 cm. wide silk border is custom woven for Rangoli with sacred geometry and stripes in Old-Gold on a Black tangail fabric.</p>"
-        }
+        }*/
     ],
     sizes: ['Free'],
     description: '',
