@@ -85,7 +85,7 @@ const lotm = {
 			title: "Tapestries!",
 			url: "/tapestries/tapestries.html",
 			lede: 'An artistic collaboration with Montreal photographer <strong>Jérémi Poulin</strong>',
-			imageURL: "/tapestries/JP-7374.jpg"
+			imageURL: "/tapestries/PremaShoot (JPEDD)-7385.jpg"
         },
 		{
 			lede: 'Off-shoulder knit top with one of my signature Art Wear skirts - The Naksha.',
