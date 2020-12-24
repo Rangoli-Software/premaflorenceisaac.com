@@ -786,6 +786,7 @@ function createFinalizeComponent(componentId, shop, cart, allCartC) {
 			var code = this.getOfferCodeField();
 			var idString = '#' + this.componentId;
 			$(idString + ' .sc-apply-code').prop('disabled', true);
+			$('#codeHelpBlock').text('');
 			fetch('https://hungry-nightingale-8ef9c9.netlify.app/.netlify/functions/offer2', {
 				body: JSON.stringify({
 					promoKey: code,
