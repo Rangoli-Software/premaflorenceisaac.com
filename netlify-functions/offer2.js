@@ -1,7 +1,7 @@
 const promos = {
-	'15OVER15HOLIDAY': function(cart) {
+	'15OVER15KHOLIDAY': function(cart) {
 		var lastDate = "December 20, 2020";
-		var end = new Date()
+		var end = new Date(lastDate)
 		var now = new Date();
 		if ( end < now ) {
 			return {
