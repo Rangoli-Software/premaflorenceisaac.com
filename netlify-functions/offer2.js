@@ -1,6 +1,6 @@
 const promos = {
 	'15OVER15KHOLIDAY20': function(cart) {
-		var lastDate = "December 20, 2020";
+		var lastDate = "January 15, 2021";
 		var end = new Date(lastDate)
 		var now = new Date();
 		if ( end < now ) {
