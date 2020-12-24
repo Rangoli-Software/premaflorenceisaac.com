@@ -2,6 +2,7 @@ const promos = {
 	'15OVER15KHOLIDAY20': function(cart) {
 		var minPurch = 15000;
 		var lastDate = "January 15, 2021";
+		var code = '15OVER15HOLIDAY';
 		var end = new Date(lastDate)
 		var now = new Date();
 		if ( end < now ) {
@@ -11,7 +12,7 @@ const promos = {
 		}
 		if ( minPurch < cart.totalINR ) {
 			return {
-				code: '15OVER15HOLIDAY',
+				code: code,
 				discountPercentage: 15
 			};
 		} else {
