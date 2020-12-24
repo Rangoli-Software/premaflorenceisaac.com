@@ -15,7 +15,7 @@ const promos = {
 				discountPercentage: 15
 			};
 		} else {
-			var msg = "Purchase total has to be greater than " + minPurch + " INR";
+			var msg = "Purchase total has to be greater than INR " + minPurch;
 			if ( cart.fx !== undefined ) {
 				msg += " (" + Math.ceil(minPurch / cart.fx) + " " + cart.currency + ")";
 			} 
