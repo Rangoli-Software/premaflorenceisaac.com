@@ -39,6 +39,7 @@ exports.handler = async (event, context, callback) => {
 			body: JSON.stringify(res)
 		}
 	} catch (e) {
+		Console.log(JSON.stringify(e));
 		return {
 			statusCode: e.code,
 			body: e.message
