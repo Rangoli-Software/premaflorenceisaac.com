@@ -793,7 +793,7 @@ function createFinalizeComponent(componentId, shop, cart, allCartC) {
 					cart: {
 						totalINR: this.cart.getINRTotal(),
 						fx: (this.shop.isIndian() ? undefined : FX[this.shop.currency]),
-						currencyString: (this.shop.isIndian() ? undefined : this.shop.currencyString)
+						currency: (this.shop.isIndian() ? undefined : this.shop.currency)
 					}
 				}),
 				method: 'POST'

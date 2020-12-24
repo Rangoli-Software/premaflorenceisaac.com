@@ -17,8 +17,7 @@ const promos = {
 		} else {
 			var msg = "Purchase total has to be greater than " + minPurch + " INR";
 			if ( cart.fx !== undefined ) {
-				var fxString = cart.currencyString + " " + Math.ceil(minPurch / cart.fx);
-				msg += " (" + fxString + ")";
+				msg += " (" + Math.ceil(minPurch / cart.fx) + " " + cart.currency + ")";
 			} 
 			return {
 				errorMsg: msg,
