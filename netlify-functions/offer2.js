@@ -1,5 +1,6 @@
 const promos = {
 	'15OVER15KHOLIDAY20': function(cart) {
+		var minPurch = 15000;
 		var lastDate = "January 15, 2021";
 		var end = new Date(lastDate)
 		var now = new Date();
@@ -8,14 +9,19 @@ const promos = {
 				errorMsg: "This promo code expired on " + lastDate,
 			};
 		}
-		if ( 15000 < cart.totalINR ) {
+		if ( minPurch < cart.totalINR ) {
 			return {
 				code: '15OVER15HOLIDAY',
 				discountPercentage: 15
 			};
 		} else {
+			var msg = "Purchase total has to be greater than " + minPurch + " INR";
+			if ( cart.fx !== undefined ) {
+				var fxString = cart.currencyString + " " + Math.ceil(minPurch / cart.fx);
+				msg += " (" + fxString + ")";
+			} 
 			return {
-				errorMsg: "Purchase total has to be greater than 15000 INR",
+				errorMsg: msg,
 			};
 		}
 	}

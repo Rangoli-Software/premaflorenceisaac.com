@@ -791,7 +791,9 @@ function createFinalizeComponent(componentId, shop, cart, allCartC) {
 				body: JSON.stringify({
 					promoKey: code,
 					cart: {
-						totalINR: this.cart.getINRTotal()
+						totalINR: this.cart.getINRTotal(),
+						fx: (this.shop.isIndian() ? undefined : FX[this.shop.currency]),
+						currencyString: (this.shop.isIndian() ? undefined : this.shop.currencyString)
 					}
 				}),
 				method: 'POST'
