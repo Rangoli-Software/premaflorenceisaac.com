@@ -298,6 +298,11 @@ function createCart(version, items) {
 			}
 			return createCart(this.version, nitems);
 		},
+		getINRTotal: function () {
+			var tot = 0;
+			this.items.forEach(item => tot += item.price * item.quantity);
+			return tot;
+		},
 		removeItemWithSKU: function (itemSKU, sku) {
 			var i = this.findIndexSKU(itemSKU, sku);
 			this.tracker.removeItem(this.items[i]);
@@ -781,9 +786,12 @@ function createFinalizeComponent(componentId, shop, cart, allCartC) {
 			var code = this.getOfferCodeField();
 			var idString = '#' + this.componentId;
 			$(idString + ' .sc-apply-code').prop('disabled', true);
-			fetch('https://hungry-nightingale-8ef9c9.netlify.app/.netlify/functions/offer', {
+			fetch('https://hungry-nightingale-8ef9c9.netlify.app/.netlify/functions/offer2', {
 				body: JSON.stringify({
-					promoKey: code
+					promoKey: code,
+					cart: {
+						totalINR: this.cart.getINRTotal()
+					}
 				}),
 				method: 'POST'
 			}).then(
@@ -795,11 +803,15 @@ function createFinalizeComponent(componentId, shop, cart, allCartC) {
 								$('#codeHelpBlock').text('The promotional code is not valid');
 							} else {
 								$('#codeHelpBlock').text('');
-								var offer = createOfferObj(o);
-								that.outcart = offer.applyToCart(that.cart);
-								var idString = '#' + that.componentId;
-								$(idString + ' .sc-discount-display').show();
-								that.updateUI();
+								if (o.errorMsg === undefined) {
+									var offer = createOfferObj(o);
+									that.outcart = offer.applyToCart(that.cart);
+									var idString = '#' + that.componentId;
+									$(idString + ' .sc-discount-display').show();
+									that.updateUI();
+								} else {
+									$('#codeHelpBlock').text(o.errorMsg);
+								}
 							}
 						});
 				},
