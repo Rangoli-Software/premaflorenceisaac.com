@@ -1,22 +1,22 @@
 const promos = {
-	'15OVER15KHOLIDAY': function(cart) {
+	'15OVER15KHOLIDAY20': function(cart) {
 		var lastDate = "December 20, 2020";
 		var end = new Date(lastDate)
 		var now = new Date();
 		if ( end < now ) {
 			return {
 				errorMsg: "This promo code expired on " + lastDate,
-			}
+			};
 		}
 		if ( 15000 < cart.totalINR ) {
 			return {
 				code: '15OVER15HOLIDAY',
 				discountPercentage: 15
-			}
+			};
 		} else {
 			return {
 				errorMsg: "Purchase total has to be greater than 15000 INR",
-			}
+			};
 		}
 	}
 };
@@ -32,6 +32,7 @@ exports.handler = async (event, context, callback) => {
 		const promo = promos[promoKey];
 		if (promo !== undefined && promo !== null) {
 			res.promo = promo(cart);
+			Console.log(JSON.stringify(res));
 		}
 		return {
 			statusCode: 200,
