@@ -16,7 +16,7 @@ const moods = {
 		{
 			title: "Summer Dreams",
 			url: "/summerdreams.html",
-			lede: "<strong>Summer Dreams</strong> - A line in Black, Ivory and Silver, in P.F.I. Tangail using the finest Bengal cotton, lustrous Madka and Mysore silks.",
+			lede: "The first capsule in my <strong>Ce Soir</strong> line.",
 			imageURL: "/products/summerdreams/Line.jpg"
         },
 		{
