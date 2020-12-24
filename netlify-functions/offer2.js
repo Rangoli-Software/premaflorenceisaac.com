@@ -32,14 +32,14 @@ exports.handler = async (event, context, callback) => {
 		const promo = promos[promoKey];
 		if (promo !== undefined && promo !== null) {
 			res.promo = promo(cart);
-			Console.log(JSON.stringify(res));
 		}
+		console.log(JSON.stringify(res));
 		return {
 			statusCode: 200,
 			body: JSON.stringify(res)
 		}
 	} catch (e) {
-		Console.log(JSON.stringify(e));
+		console.log(JSON.stringify(e));
 		return {
 			statusCode: e.code,
 			body: e.message
