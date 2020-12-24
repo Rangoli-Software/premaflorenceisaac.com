@@ -568,7 +568,7 @@ const merchInfo = [
 		SKU: 'JULITP1501Pa',
 		ledes: [''],
 		images: [{
-			url: '/tapestries/JP-7374.jpg'
+			url: '/g/merch/rvk1.jpg'
 		},{
 			url: '/tapestries/PremaShoot (JPEDD)-7385.jpg'
 		}]
