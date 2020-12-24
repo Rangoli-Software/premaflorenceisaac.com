@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020120219";
+const shopRevisionVersion = "2020120221";
 
 const pfiavG = {};
 pfiavG.lineNames = ["Art Wear", "It's Magic", "Ce Soir", "Happy Everyday"];
@@ -11,10 +11,10 @@ const cmData = [
 ['Champagne Bag','CHMPGN1501JL','0.0208333333333333','1.1','/products/home/champagnebag.html','FALSE'],
 
 ['Handloom Facemask','FACEMK2005Ta','0.0095','1.2','/products/accessories/facemask.html','TRUE'],
-['Naksha Micro Skirt','NKSHMC1512PP','0.18','1.2','/products/artwear/naksha.html?s=c','TRUE'],
-['Naksha Mini Skirt','NKSHMI1501PP','0.28','1.2','/products/artwear/naksha.html?s=m','TRUE'],
-['Naksha Midi Skirt','NKSHMD1501PP','0.34','1.2','/products/artwear/naksha.html?s=d','TRUE'],
-['Naksha Minuit Skirt','NKSHMU1501PP','0.4','1.2','/products/artwear/naksha.html?s=u','TRUE'],
+['Naksha Micro','NKSHMC1512PP','0.18','1.2','/products/artwear/naksha.html?s=c','TRUE'],
+['Naksha Mini','NKSHMI1501PP','0.28','1.2','/products/artwear/naksha.html?s=m','TRUE'],
+['Naksha Midi','NKSHMD1501PP','0.34','1.2','/products/artwear/naksha.html?s=d','TRUE'],
+['Naksha Minuit','NKSHMU1501PP','0.4','1.2','/products/artwear/naksha.html?s=u','TRUE'],
 ['Trikona Dress','DELTDR1611PP','0.4','1.2','/products/artwear/trikona.html','TRUE'],
 ['Sari Top','SARITP1501Pa','0.4','1.2','/products/artwear/sari.html','TRUE'],
 ['Ravakai Top','JULITP1501Pa','0.4','1.2','/products/artwear/ravakai.html','TRUE'],

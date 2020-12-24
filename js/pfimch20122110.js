@@ -1,3 +1,372 @@
+const merchInfo = [
+	{
+		SKU: 'AWTSHT1604Je',
+		vidx: '2',
+		vid: "CW2",
+		SKUvid: 'AWTSHT1604Je-CW2',
+		ledes: ['In Black. For that #oneofakind person!'],
+		images: [{
+			url: '/g/merch/wc3.jpg'
+		}, {
+			url: '/people/ooak/sl01.jpg'
+		}, {
+			url: '/people/ooak/sl02.jpg'
+		}, {
+			url: '/g/merch/wc1.jpg'
+		}, {
+			url: '/g/merch/wc4.jpg'
+		}]
+    },
+	{
+		SKU: 'AWTSHT1604Je',
+		vidx: '1',
+		vid: "CW1",
+		SKUvid: 'AWTSHT1604Je-CW1',
+		ledes: ['In White. A #oneofakind T-shirt.'],
+		images: [{
+			url: '/g/merch/wc2.jpg'
+		}]
+    },
+	{
+		SKU: 'OVTPSH1501Pa',
+		ledes: [''],
+		images: [{
+			url: '/g/merch/sovr.jpg'
+		}]
+    },
+	{
+		SKU: 'OVTPLO1501Pa',
+		ledes: [''],
+		images: [{
+			url: '/blog/FlorDuomo.jpg'
+		}, {
+			url: '/g/merch/lovr1.jpg'
+		}, {
+			url: '/g/merch/lovr2.jpg'
+		}]
+    },
+	{
+		SKU: 'TRPZTP1807Pa',
+		ledes: [''],
+		images: [{
+			url: '/g/merch/payara2.jpg'
+		}]
+    },
+	{
+		SKU: 'MDRSTP1606PP',
+		ledes: [''],
+		images: [{
+			url: '/g/merch/mdrs.jpg'
+		}]
+    },
+	{
+		SKU: 'JULITP1501Pa',
+		ledes: [''],
+		images: [{
+			url: '/g/merch/rvk1.jpg'
+		}]
+    },
+	{
+		SKU: 'SARITP1501Pa',
+		ledes: [''],
+		images: [{
+			url: '/g/merch/sari1.jpg'
+		}, {
+			url: '/g/merch/sari2.jpg'
+		}]
+    },
+	{
+		SKU: 'LNKFTN1501Ja',
+		ledes: [''],
+		images: [{
+			url: '/products/holydaysreboot/Kaftan.jpg'
+		}, {
+			url: '/g/aw/HDRKaftan1AW.jpg'
+		}]
+    },
+	{
+		SKU: 'LOTSDR1501Ja',
+		ledes: [''],
+		images: [{
+			url: '/products/holydaysreboot/Lotus.jpg'
+		}, {
+			url: '/g/merch/kmlm.jpg'
+		}]
+    },
+	{
+		SKU: 'NKSHDR1501Ta',
+		ledes: [''],
+		images: [{
+			url: '/look/ramp/j201.jpg'
+		}, {
+			url: '/people/tmribzSq.jpg'
+		}, {
+			url: '/g/merch/tmri.jpg'
+		}]
+	}
+	,
+	{
+		SKU: 'KLGTLY1601Rv',
+		ledes: [''],
+		images: [{
+			url: '/products/itsmagic/LightLayer.jpg'
+		}]
+    },
+	{
+		SKU: 'KGYPST1601Rv',
+		ledes: [''],
+		images: [{
+			url: '/products/itsmagic/GypsySet.jpg'
+		}, {
+			url: '/g/merch/gypsy.jpg'
+		}]
+    },
+	{
+		SKU: 'KRAJPT1601Kh',
+		ledes: [''],
+		images: [{
+			url: '/products/itsmagic/RajPantsSq2.jpg'
+		}]
+    },
+	{
+		SKU: 'FAIRST2011Rv',
+		ledes: [''],
+		images: [{
+			url: '/products/itsmagic/FairySet.jpg'
+		}]
+    },
+	{
+		SKU: 'KBALPA1601Vo',
+		ledes: [''],
+		images: [{
+			url: '/products/itsmagic/Balloon.jpg'
+		}]
+    },
+	{
+		SKU: 'KRAJKT1601Rv',
+		ledes: [''],
+		images: [{
+			url: '/products/itsmagic/RajKurta.jpg'
+		}, {
+			url: '/products/itsmagic/RajBoy.jpg'
+		}, {
+			url: '/g/merch/royal1.jpg'
+		}, {
+			url: '/g/merch/royal2.jpg'
+		}]
+    },
+	{
+		SKU: 'YUVRTC1601Rv',
+		ledes: [''],
+		images: [{
+			url: '/g/merch/prince.jpg'
+		}]
+    },
+	{
+		SKU: 'HLFPNT1601Kh',
+		ledes: [''],
+		images: [{
+			url: '/products/itsmagic/HalfPant.jpg'
+		}]
+    },
+	{
+		SKU: 'KIDIKI1501Vi',
+		ledes: [''],
+		images: [{
+			url: '/products/itsmagic/Kidikini.jpg'
+		}]
+    },
+	{
+		SKU: 'PRNCDR1501Rv',
+		ledes: [''],
+		images: [{
+			url: '/products/itsmagic/Princess.jpg'
+		}, {
+			url: '/g/merch/princess.jpg'
+		}]
+    },
+	{
+		SKU: 'KWAVDR1601Rv',
+		ledes: [''],
+		images: [{
+			url: '/products/itsmagic/Wave.jpg'
+		}, {
+			url: '/g/merch/wave.jpg'
+		}]
+    },
+	{
+		SKU: 'KDHRDR1601Rv',
+		ledes: [''],
+		images: [{
+			url: '/products/itsmagic/Dhara.jpg'
+		}]
+    },
+	{
+		SKU: 'HLNDRS1505PT',
+		ledes: [''],
+		images: [{
+			url: '/look/moods/cs/helena.jpg'
+		}]
+    },
+	{
+		SKU: 'JLTDRS1505PT',
+		ledes: [''],
+		images: [{
+			url: '/look/moods/cs/juliet.jpg'
+		}]
+    },
+	{
+		SKU: 'BKLLTS1505Je',
+		ledes: [''],
+		images: [{
+			url: '/look/moods/cs/tamora.jpg'
+		}]
+    },
+	{
+		SKU: 'NKSHMU1501PP',
+		ledes: ["Full length #oneofakind skirt for all ages and sizes!"],
+		images: [{
+			url: '/look/friends/1.jpg'
+		}]
+    },
+	{
+		SKU: 'NKSHMD1501PP',
+		ledes: ["#oneofakind skirt for all ages and sizes!"],
+		images: [{
+			url: '/people/mmib.jpg'
+		}, {
+			url: '/people/slkb.jpg'
+		}, {
+			url: '/people/ibgirl.jpg'
+		}, {
+			url: '/look/friends/2.jpg'
+		}, {
+			url: '/g/look/nkshofstp.jpg'
+		}]
+    },
+	{
+		SKU: 'NKSHMI1501PP',
+		ledes: ["#oneofakind mini skirt for all ages and sizes!"],
+		images: [{
+			url: '/people/EricaNaksha1.jpg'
+		}]
+    },
+	{
+		SKU: 'NKSHMC1512PP',
+		ledes: ["#oneofakind micro skirt for all ages and sizes!"],
+		images: [{
+			url: '/people/nmnibz.jpg'
+		}]
+    },
+	{
+		SKU: 'FACEMK2005Ta',
+		ledes: ["#oneofakind facemask to keep you safe in style and comfort"],
+		images: [{
+			url: '/people/nfm01.jpg'
+		}, {
+			url: '/people/nfm02.jpg'
+		}, {
+			url: '/people/nfm03.jpg'
+		}, {
+			url: '/look/friends/gg-pink.jpg'
+		}, {
+			url: '/look/friends/gg-aqua.jpg'
+		}, {
+			url: '/look/friends/gg-ind-1.jpg'
+		}]
+    },
+	{
+		SKU: 'DPDYSF1501PT',
+		ledes: ["A gorgeous example of the Tangail Weavers' Craft"],
+		images: [{
+			url: '/products/scarves/TurbanMood.jpg'
+		}, {
+			url: '/products/scarves/ShawlMood.jpg'
+		}, {
+			url: '/products/scarves/LinedUpLtd.jpg'
+		}, {
+			url: '/people/nmnibz.jpg'
+		}, {
+			url: '/g/look/look01.jpg'
+		}]
+    },
+	{
+		SKU: 'KAGTIE1601Kh',
+		ledes: ['Artsy, hand-woven, hand-crafted Neckwear', 'For the gentleman of refined taste - a two-tone khadi tie with a border of treasured tangail'],
+		images: [{
+			url: '/products/men/kagera/kag1.jpg'
+		}, {
+			url: '/products/men/kagera/kag2.jpg'
+		}, {
+			url: '/products/men/kagera/kag3.jpg'
+		}]
+    },
+	{
+		SKU: 'CHMPGN1501JL',
+		ledes: ['The perfect gift bag for that exclusive vintage'],
+		images: [{
+			url: '/products/home/CBCCMD.jpg'
+		}, {
+			url: '/products/home/CBCGMD.jpg'
+		}, {
+			url: '/products/home/CBMBMD.jpg'
+		}]
+    },
+	{
+		SKU: 'TRPZTP1807Kh',
+		ledes: [''],
+		images: [{
+			url: '/look/friends/tt.jpg'
+		}]
+    },
+	{
+		SKU: 'CRPTOP1805Kh',
+		ledes: ['Basic summer top'],
+		images: [{
+			url: '/products/happyeveryday/mood/mch-1.jpg'
+		}]
+    },
+	{
+		SKU: 'VAMPAL1708Kh',
+		ledes: ['Handwoven khadi to lighten up your summers'],
+		images: [{
+			url: '/products/happyeveryday/mood/mch-2.jpg'
+		}, {
+			url: '/products/happyeveryday/mood/mch-7.jpg'
+		}]
+    },
+	{
+		SKU: 'OVTPLO1501Vo',
+		ledes: ['Light breezy jacket for spring'],
+		images: [{
+			url: '/products/happyeveryday/mood/mch-3.jpg'
+		}, {
+			url: '/blog/joyofcolour/2.jpg'
+		}]
+    },
+	{
+		SKU: 'BERMPA1609Kh',
+		ledes: ['Casual pants to work and lounge in'],
+		images: [{
+			url: '/products/happyeveryday/mood/mch-4.jpg'
+		}]
+    },
+	{
+		SKU: 'LTSDSL1501Kh',
+		ledes: ['A dress that works from dawn to dusk'],
+		images: [{
+			url: '/products/happyeveryday/mood/mch-5.jpg'
+		}]
+    },
+	{
+		SKU: 'BALLPA1501Vo',
+		ledes: ['Everyday basics for every mood'],
+		images: [{
+			url: '/products/happyeveryday/mood/mch-6.jpg'
+		}]
+    }
+];
+
 function getRandomIdx(arr) {
 	return Math.floor(Math.random() * arr.length);
 }
@@ -314,7 +683,7 @@ function createMerchandisingRef(item, section, isCompact) {
 		},
 		createCard: function () {
 			if (isCompact) {
-				return createProductCard(this.SKU, item.title, this.url, this.imageURL, null, true, undefined, item.vid);
+				return createProductCard(this.SKU, item.title, this.url, this.imageURL, null, true, section, item.vid);
 			} else {
 				return createProductCard(this.SKU, item.title, this.url, this.imageURL, this.lede, true, section, item.vid);
 			}
