@@ -650,6 +650,8 @@ function createSquareImageCarousel(images, idSfx) {
 				var img = this.images.getImage(i);
 				res += '<div class="col-12 px-1" style="max-width: 80px;"><img class="img-fluid" src="' + img.url + '"' +
 					(img.text !== undefined ? ' alt="' + img.text + '"' : '') +
+					(img.width !== undefined ? ' width="' + img.width + '"' : '') +
+					(img.height !== undefined ? ' heigt="' + img.height + '"' : '') +
 					'></div>';
 			}
 			res += '</div>';
@@ -661,6 +663,8 @@ function createSquareImageCarousel(images, idSfx) {
 				var img = this.images.getImage(i);
 				res += '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '"' +
 					(img.text !== undefined ? ' alt="' + img.text + '"' : '') +
+					(img.width !== undefined ? ' width="' + img.width + '"' : '') +
+					(img.height !== undefined ? ' heigt="' + img.height + '"' : '') +
 					' class="card-img-top"></a>';
 			}
 			res += '</div>';
