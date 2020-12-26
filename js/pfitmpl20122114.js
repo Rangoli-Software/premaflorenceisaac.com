@@ -60,7 +60,7 @@ const ramp = {
 			title: 'Move~in',
 			url: '/look/wc.html',
 			lede: 'Casual Looks featuring my Woven Canvas Ts',
-			imageURL: "/look/ramp/wcw2.jpg"
+			imageURL: "/look/ramp/wcm.jpg"
         }
     ]
 };
@@ -680,73 +680,6 @@ function createAboutMenuHTML() {
 	return createDDContents([col1]);
 }
 
-function createStyledList(jsonArray) {
-	var res = '<ul class="list-styled mb-6 font-size-sm">';
-	for (var i = 0; i < jsonArray.length; i++) {
-		var item = jsonArray[i];
-		if (item.title === undefined) {
-			continue;
-		}
-		res += '<li class="list-styled-item">' + createItemUrl(item, "list-styled-link") + '</li>';
-	}
-	res += '</ul>';
-	return res;
-}
-
-function createDropdownColumn(itemLists, colCls) {
-	var res = '<div class="' + colCls + '">';
-	for (var i = 0; i < itemLists.length; i++) {
-		var item = itemLists[i];
-		if (item.title === undefined) {
-			continue;
-		}
-		res += '<div class="' + (i === 0 ? "mb-5" : "my-5") + ' font-weight-bold">';
-		res += createItemUrl(item, null);
-		res += '</div>';
-		res += createStyledList(item.sub);
-	}
-	res += '</div>';
-	return res;
-}
-
-function createDropdownCard(cols) {
-	var res = '<div class="card"><div class="card-body"><div class="row">';
-	for (var i = 0; i < cols.length; i++) {
-		res += cols[i];
-	}
-	res += '</div></div></div>';
-	return res;
-}
-
-function createMinWidthWithContents(html, width, alignRight) {
-	var res = '<div class="dropdown-menu' + (alignRight ? " dropdown-menu-right" : "") + '" style="min-width: ' + width + ';">';
-	res += html;
-	res += '</div>';
-	return res;
-}
-
-function createLookDDContents() {
-	var col1 = createDropdownColumn([lotm, moods], "col-6");
-	var col2 = createDropdownColumn([clients, ramp], "col-6");
-	return createDropdownCard([col1, col2]);
-}
-
-function createBlogDDContents() {
-	var col1 = createDropdownColumn([atelier], "col-6");
-	var col2 = createDropdownColumn([origin, archives], "col-6");
-	return createDropdownCard([col1, col2]);
-}
-
-function createAboutDDContents() {
-	var col1 = createDropdownColumn([about, buzzTL, lookbook], "col-12");
-	return createDropdownCard([col1]);
-}
-
-function createShopDDContents() {
-	var col1 = createDropdownColumn([shop, faqs], "col-12");
-	return createDropdownCard([col1]);
-}
-
 function createMerchColumn(colCls) {
 	var res = '<div class="py-3 ' + colCls + '">';
 	res += pfiavG.pageIdx.createShopCard();
@@ -755,7 +688,9 @@ function createMerchColumn(colCls) {
 }
 
 function createMerchShopMenuHTML() {
-	var col = createDDColumn([shop, faqs], "col-5");
+	var shopPlusFeatures = JSON.parse(JSON.stringify(shop));
+	shopPlusFeatures.sub = pfiavG.pageIdx.createShopFeatureList(2).concat(shop.sub);
+	var col = createDDColumn([shopPlusFeatures, faqs], "col-5");
 	var mch = createMerchColumn("col-7");
 	return createDDContents([col, mch]);
 }
@@ -774,12 +709,10 @@ function createLookMM() {
 
 function createBlogDD() {
 	return createDDMenu("tlBlogMnu", true, "295px", createBlogMenuHTML());
-//	return createMinWidthWithContents(createBlogDDContents(), "320px", true);
 }
 
 function createAboutDD() {
 	return createDDMenu("tlAboutMnu", true, "140px", createAboutMenuHTML());
-//	return createMinWidthWithContents(createAboutDDContents(), "145px", true);
 }
 
 function createTopNav() {

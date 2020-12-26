@@ -417,6 +417,7 @@ function createMIPageSet() {
 	var catalog = pfiavG.catalog;
 	for (var i = 0; i < pages.length; i++) {
 		var item = pages[i];
+		item.SKUvid = item.SKU + (item.vid !== undefined ? "-" + item.vid: "");
 		item.title = catalog[item.SKU].name;
 		item.url = catalog[item.SKU].url;
 	}
@@ -443,6 +444,10 @@ function createPageIndex(page) {
 			var merch = pageSel.selectMerch(1);
 			this.included = createPageSet(this.included.pages.concat(merch));
 			return merch[0].createCard();
+		},
+		createShopFeatureList: function(nItem) {
+			var pageSel = createPageSelector(this.miPageSet);
+			return pageSel.selectShopFeatureList(nItem).pages;
 		}
 	}
 }
@@ -485,23 +490,26 @@ function createNUSampler(total, items, sample, itemkey) {
 	};
 }
 
-function createItemSample(sku, weight) {
-	return {
-		SKU: sku,
+function createItemSample(key, weight, itemkey) {
+	var item = {
 		weight: weight
 	};
+	item[itemkey] = key;
+	return item;
 }
 
 function createMerchandisingSampler(merchSKUs, merchSections, sectionWeights) {
 	var merchWeights = {
-		AWTSHT1604Je: 30,
+		'AWTSHT1604Je-CW1': 9,
+		'AWTSHT1604Je-CW2': 21,
 		NKSHMD1501PP: 30,
 		FACEMK2005Ta: 20
 	};
-	var items = merchSKUs.flatMap((skulist, idx) => skulist.map(sku => createItemSample(sku, merchWeights[sku] !== undefined ? merchWeights[sku] : sectionWeights[idx])));
+	var itemkey = 'SKUvid';
+	var items = merchSKUs.flatMap((skulist, idx) => skulist.map(sku => createItemSample(sku, merchWeights[sku] !== undefined ? merchWeights[sku] : sectionWeights[idx], itemkey)));
 	var cum = 0;
 	items.forEach(i => cum += i.weight);
-	return createNUSampler(cum, items, [], 'SKU');
+	return createNUSampler(cum, items, [], itemkey);
 }
 
 function createStorySample(item, weight) {
@@ -517,13 +525,14 @@ function createStorySampler(all) {
 }
 
 function createPageSelector(mips) {
+	var shopFeatureSKUs = [['AWTSHT1604Je-CW2','NKSHMD1501PP','FACEMK2005Ta']];
 	var lineMerchSKUs = [
-    ["AWTSHT1604Je"],
-    ["OVTPSH1501Pa", "OVTPLO1501Pa", "TRPZTP1807Pa", "MDRSTP1606PP", "SARITP1501Pa", "LNKFTN1501Ja", "LOTSDR1501Ja", "NKSHDR1501Ta", "NKSHMU1501PP", "NKSHMD1501PP", "JULITP1501Pa", "NKSHMC1512PP", "FACEMK2005Ta"],
+    ["AWTSHT1604Je-CW1","AWTSHT1604Je-CW2"],
+    ["OVTPSH1501Pa", "OVTPLO1501Pa", "TRPZTP1807Pa", "MDRSTP1606PP", "SARITP1501Pa", "LNKFTN1501Ja", "LOTSDR1501Ja", "NKSHDR1501Ta", "NKSHMU1501PP", "NKSHMD1501PP", "JULITP1501Pa", "NKSHMC1512PP"],
     ["KLGTLY1601Rv", "KGYPST1601Rv", "KRAJPT1601Kh", "FAIRST2011Rv", "KBALPA1601Vo", "KRAJKT1601Rv", "YUVRTC1601Rv", "HLFPNT1601Kh", "KIDIKI1501Vi", "PRNCDR1501Rv", "KWAVDR1601Rv", "KDHRDR1601Rv"],
     ["HLNDRS1505PT", "JLTDRS1505PT", "BKLLTS1505Je"],
     ["TRPZTP1807Kh", "CRPTOP1805Kh", "VAMPAL1708Kh", "OVTPLO1501Vo", "BERMPA1609Kh", "LTSDSL1501Kh", "BALLPA1501Vo"],
-    ["DPDYSF1501PT"]
+    ["DPDYSF1501PT", "FACEMK2005Ta", "KAGTIE1601Kh"]
 	];
 	var lineMerchSections = [
 		{
@@ -561,9 +570,14 @@ function createPageSelector(mips) {
 		sections: sections,
 		allstories: allstories,
 		miPageSet: mips,
+		shopSKUsSampler: createMerchandisingSampler(shopFeatureSKUs, lineMerchSections, lineMerchWeights),
 		merchSKUs: merchSKUs,
 		merchSKUSampler: createMerchandisingSampler(lineMerchSKUs, lineMerchSections, lineMerchWeights),
 		storySampler: createStorySampler(allstories),
+		selectShopFeatureList: function(nItems) {
+			var skulist = this.shopSKUsSampler.sampleN(nItems).sample.map(s => s.SKUvid);
+			return this.miPageSet.filter(pg => skulist.includes(pg.SKUvid));
+		},
 		filterStories: function () {
 			var blacklist = pfiavG.pageIdx.included;
 			return this.allstories.filter(function (page) {
@@ -596,13 +610,13 @@ function createPageSelector(mips) {
 		filterMerchPages: function () {
 			var blacklist = pfiavG.pageIdx.included;
 			return this.miPageSet.filter(function (page) {
-				return !blacklist.includes(page, 'url') && !blacklist.includesImg(page) && !blacklist.includes(page, 'SKU');
+				return !blacklist.includes(page, 'url') && !blacklist.includesImg(page) && !blacklist.includes(page, 'SKUvid');
 			});
 		},
 		selectSKUs: function (fltMI, nMerch) {
-			var fltSKUs = this.merchSKUs.filter(sku => fltMI.select('SKU', sku) !== undefined);
+			var fltSKUs = this.merchSKUs.filter(sku => fltMI.select('SKUvid', sku) !== undefined);
 			var sampler = this.merchSKUSampler.filter(fltSKUs);
-			return sampler.sampleN(nMerch).sample.map(s => s.SKU);
+			return sampler.sampleN(nMerch).sample.map(s => s.SKUvid);
 		},
 		selectMerch: function (nMerch) {
 			var fltMI = this.filterMerchPages();
@@ -610,7 +624,7 @@ function createPageSelector(mips) {
 			var res = [];
 			for (var i = 0; i < fltSKUs.length; i++) {
 				var sku = fltSKUs[i];
-				var sel = fltMI.select('SKU', sku);
+				var sel = fltMI.select('SKUvid', sku);
 				var img = sel.images[getRandomIdx(sel.images)];
 				sel.imageURL = img.url;
 				var ref = createMerchandisingRef(sel, this.findMerchSection(sku), nMerch === 1);
@@ -643,7 +657,7 @@ function createProductCard(sku, title, url, imageURL, lede, isSq, section, vid) 
 		res += '<p class="mb-1"><span class="sc-item" data-field="price" data-vsku="' + sku + '"' + (vid === undefined ? '' : ' data-vid="' + vid + '"') + '></span></p>'
 	}
 	if (lede !== null) {
-		res += '<p class="mb-1">' + lede + '</p>';
+		res += '<p class="mb-1 line-clamp(2)">' + lede + '</p>';
 	}
 	res += '</div></div>';
 	return res;
@@ -668,6 +682,7 @@ function createMerchandisingRef(item, section, isCompact) {
 	return {
 		SKU: item.SKU,
 		vidx: item.vidx,
+		SKUvid: item.SKU + (item.vid !== undefined ? "-" + item.vid : ""),
 		imageURL: item.imageURL,
 		url: url,
 		lede: null,
@@ -719,7 +734,7 @@ function createStoryRef(s, itm) {
 			if (item.url !== undefined) {
 				res += '<h6 class="card-title mb-2">' + this.title + '<a  href="' + this.url + '"' + (getHostName(this.url) === null ? '' : ' target="_blank"') + '><i class="fa ' + (getHostName(this.url) === null ? 'fa-arrow-right' : 'fa-external-link') + ' ml-2"></i></a></h6>';
 			}
-			res += '<p class="mb-1">' + this.lede + '</p>';
+			res += '<p class="mb-1 line-clamp(3)">' + this.lede + '</p>';
 			res += '</div></div>';
 			return res;
 		}
