@@ -1696,7 +1696,8 @@ function createUIPageComponent(catalog, itemsComponent, itemsComponentFactory) {
 			$('.breadcrumb').replaceWith(this.itemsComponent.getBreadCrumb())
 		},
 		onSKUChange: function (sku) {
-			pfiavG.pageIdx.page.SKU = sku;
+			pfiavG.pageIdx.page['SKU'] = sku;
+			pfiavG.pageIdx.page['SKUvid'] = sku;
 			var icGen = this.itemsComponentFactory.createGenerator(sku);
 			this.itemsComponent = icGen.createUIC(this.allCartC.shop);
 			this.updateSelection(SelChangeReason.skuChange);

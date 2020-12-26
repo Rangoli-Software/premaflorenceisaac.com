@@ -66,6 +66,43 @@ extras.dipdye = {
 	garmentDetails: ''
 };
 
+extras.champagnebag = {
+	SKU: 'CHMPGN1501JL',
+	basePath: '/products/xtras/',
+	imgDir: 'chambag',
+	imageFile: ".jpg",
+	dimensionNames: ["A. Height", "B. Circumference"],
+	dimensionsCm: {
+		Free: [31, 30]
+	},
+	getFabric: function (varidx) {
+		return "Jacquard Lace";
+	},
+	data: [
+		{
+			colourName: "Beige Gold",
+			vid: "CW1",
+            colourPfx: "CBCG",
+            colourSfxs: ["MD"]
+        },
+		{
+			colourName: "Champagne",
+			vid: "CW2",
+            colourPfx: "CBCC",
+            colourSfxs: ["MD"]
+        },
+		{
+			colourName: "Midnight Blue",
+			vid: "CW3",
+            colourPfx: "CBMB",
+            colourSfxs: ["MD"]
+        }
+    ],
+	sizes: ['Free'],
+	description: '<p>A few years ago, I worked on a range of creations for the home. I experimented with many ideas, some of which worked better than others.</p><p>I\'m particularly fond of this champagne bag. I have wanted something like it for years, but could never find one anywhere. So I decided to manifest it myself.</p><p>The body of the bag is made from a fine Jacquard lace fabric, with a satin lining showing through in a complementary colour. The bottom is embellished with trim, and the "collar" is lined with border or trim. The neck is closed with a sparkly ribbon.</p><p>It makes a perfect gift bag for an expensive bottle of wine or champagne, or as part of the table setting at an elegant meal.</p>',
+	garmentDetails: ''
+};
+
 extras.createJSON = function (style) {
 	var basePath = style.basePath + style.imgDir + "/";
 	return createProductJSON(style.SKU, basePath, style, null, createCWImageFactory);
@@ -75,7 +112,7 @@ extras.catalog = {
 	title: "Extras",
 	shopURL: "/products/xtras/shop.html",
 	skus: null,
-	styles: [artwear.facemask, extras.dipdye, vagabond.kageratie],
+	styles: [artwear.facemask, extras.dipdye, vagabond.kageratie, extras.champagnebag],
 	productDB: null,
 	getProduct: function (sku) {
 		return this.productDB[sku];

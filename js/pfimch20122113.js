@@ -216,6 +216,13 @@ const merchInfo = [
 		}]
     },
 	{
+		SKU: 'NKSHMI1501PT',
+		ledes: [''],
+		images: [{
+			url: '/blog/FlorYellow.jpg'
+		}]
+    },
+	{
 		SKU: 'BKLLTS1505Je',
 		ledes: [''],
 		images: [{
@@ -427,10 +434,13 @@ function createMIPageSet() {
 function createPageIndex(page) {
 	return {
 		page: page,
-		included: createPageSet([page]),
+		included: createPageSet([]),
 		mentioned: createPageSet([]),
 		miPageSet: createMIPageSet(),
 
+		includePages: function(pages) {
+			this.included.pages = this.included.pages.concat(pages);
+		},
 		createFeatures: function () {
 			var pageSel = createPageSelector(this.miPageSet);
 			var merch = pageSel.selectMerch(2);
@@ -531,9 +541,9 @@ function createPageSelector(mips) {
     ["AWTSHT1604Je-CW1","AWTSHT1604Je-CW2"],
     ["OVTPSH1501Pa", "OVTPLO1501Pa", "TRPZTP1807Pa", "MDRSTP1606PP", "SARITP1501Pa", "LNKFTN1501Ja", "LOTSDR1501Ja", "NKSHDR1501Ta", "NKSHMU1501PP", "NKSHMD1501PP", "JULITP1501Pa", "NKSHMC1512PP"],
     ["KLGTLY1601Rv", "KGYPST1601Rv", "KRAJPT1601Kh", "FAIRST2011Rv", "KBALPA1601Vo", "KRAJKT1601Rv", "YUVRTC1601Rv", "HLFPNT1601Kh", "KIDIKI1501Vi", "PRNCDR1501Rv", "KWAVDR1601Rv", "KDHRDR1601Rv"],
-    ["HLNDRS1505PT", "JLTDRS1505PT", "BKLLTS1505Je"],
+    ["HLNDRS1505PT", "JLTDRS1505PT", "BKLLTS1505Je", "NKSHMI1501PT"],
     ["TRPZTP1807Kh", "CRPTOP1805Kh", "VAMPAL1708Kh", "OVTPLO1501Vo", "BERMPA1609Kh", "LTSDSL1501Kh", "BALLPA1501Vo"],
-    ["DPDYSF1501PT", "FACEMK2005Ta", "KAGTIE1601Kh"]
+    ["DPDYSF1501PT", "FACEMK2005Ta", "KAGTIE1601Kh", "CHMPGN1501JL"]
 	];
 	var lineMerchSections = [
 		{

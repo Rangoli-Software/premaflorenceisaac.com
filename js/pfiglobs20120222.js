@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020120221";
+const shopRevisionVersion = "2020120222";
 
 const pfiavG = {};
 pfiavG.lineNames = ["Art Wear", "It's Magic", "Ce Soir", "Happy Everyday"];
@@ -8,7 +8,7 @@ const cmData = [
 
 ['P.F.I. T-Shirt','AWTSHT1604Je','0.2','1.2','/products/wovencanvas/tshirt.html','TRUE'],
 ['Dip-Dye Scarf','DPDYSF1501PT','0.36','1.2','/products/scarves/dipdye.html','FALSE'],
-['Champagne Bag','CHMPGN1501JL','0.0208333333333333','1.1','/products/home/champagnebag.html','FALSE'],
+['Champagne Bag','CHMPGN1501JL','0.0208333333333333','1.1','/products/xtras/champagnebag.html','FALSE'],
 
 ['Handloom Facemask','FACEMK2005Ta','0.0095','1.2','/products/accessories/facemask.html','TRUE'],
 ['Naksha Micro','NKSHMC1512PP','0.18','1.2','/products/artwear/naksha.html?s=c','TRUE'],
