@@ -1094,7 +1094,7 @@ function createStoryViewer(caption, items, sections, ncol) {
 		var keys = Array.from(itms.keys());
 		var rnd = shuffle(keys);
 		for (var i = 0; i < itms.length && i < ncol[s]; i++) {
-			res.push(createStoryRef(sections[s][rnd[i]], itms[rnd[i]]));
+			res.push(createStoryRef(sections[s][rnd[i]], itms[rnd[i]], false));
 		}
 	}
 	return createRelatedViewer(caption, res, 2);

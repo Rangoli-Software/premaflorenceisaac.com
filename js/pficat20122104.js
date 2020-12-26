@@ -89,7 +89,7 @@ function createStoryDisplay() {
         createStoryCardRefs: function (section) {
             var res = [];
             for (var i = 0; i < section.sub.length; i++) {
-                var cR = createStoryRef(section, section.sub[i]);
+                var cR = createStoryRef(section, section.sub[i], true);
                 res.push(cR);
             }
             return res;

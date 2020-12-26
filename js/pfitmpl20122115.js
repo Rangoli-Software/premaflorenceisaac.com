@@ -380,7 +380,7 @@ const buzz = {
 		{
 			title: "Yves Richez",
 			url: "https://www.talentreveal.com/blog/rencontre-avec-prema-florence-isaac-creatrice-et-entrepreneuse-solidaire-en-inde",
-			lede: 'Presenting a short documentary (in French) created by the delightful <a href="https://www.facebook.com/richez.yves">Yves Richez</a>, who visited the atelier a while ago. Scholar, writer and teacher par-excellence, Yves is committed to finding and developing human potential all around him. During his short visit, he taught me how to start creating my own videos. His presence is inspirational!</p><p>We are still trying to decide if he looks more like Richard Gere or Aidan Gillen :-)',
+			lede: 'Presenting a short documentary (in French) created by the delightful <a href="https://www.facebook.com/richez.yves">Yves Richez</a>, who visited the atelier a while ago. Scholar, writer and teacher par-excellence, Yves is committed to finding and developing human potential all around him. During his short visit, he taught me how to start creating my own videos. His presence is inspirational! We are still trying to decide if he looks more like Richard Gere or Aidan Gillen :-)',
 			imageHTML: '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/UD5KhbKHvCI?start=5" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
         },
 		{
@@ -689,7 +689,7 @@ function createMerchColumn(colCls) {
 
 function createMerchShopMenuHTML() {
 	var shopPlusFeatures = JSON.parse(JSON.stringify(shop));
-	shopPlusFeatures.sub = pfiavG.pageIdx.createShopFeatureList(2).concat(shop.sub);
+	shopPlusFeatures.sub = pfiavG.pageIdx.createShopFeatureList(1).concat(shop.sub);
 	var col = createDDColumn([shopPlusFeatures, faqs], "col-5");
 	var mch = createMerchColumn("col-7");
 	return createDDContents([col, mch]);
@@ -1068,7 +1068,7 @@ function createShareBar(location) {
 function botNav(botImgTag, location) {
 	return createShareBar(location) +
 		'<div class="rwell">\
-<p class="text-center"><strong>Light . Beauty . Freedom</strong></p>\
+<p class="text-center"><strong>☀️ Light 🌺 Beauty 💃 Freedom</strong></p>\
 </div>\
 <div class="container">\
 <div class="pb-2"><center><div class="row">\

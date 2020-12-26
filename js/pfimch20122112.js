@@ -502,7 +502,8 @@ function createMerchandisingSampler(merchSKUs, merchSections, sectionWeights) {
 	var merchWeights = {
 		'AWTSHT1604Je-CW1': 9,
 		'AWTSHT1604Je-CW2': 21,
-		NKSHMD1501PP: 30,
+		NKSHMD1501PP: 25,
+		NKSHMU1501PP: 5,
 		FACEMK2005Ta: 20
 	};
 	var itemkey = 'SKUvid';
@@ -525,7 +526,7 @@ function createStorySampler(all) {
 }
 
 function createPageSelector(mips) {
-	var shopFeatureSKUs = [['AWTSHT1604Je-CW2','NKSHMD1501PP','FACEMK2005Ta']];
+	var shopFeatureSKUs = [['AWTSHT1604Je-CW1','AWTSHT1604Je-CW2','NKSHMD1501PP','FACEMK2005Ta','NKSHMD1501PP']];
 	var lineMerchSKUs = [
     ["AWTSHT1604Je-CW1","AWTSHT1604Je-CW2"],
     ["OVTPSH1501Pa", "OVTPLO1501Pa", "TRPZTP1807Pa", "MDRSTP1606PP", "SARITP1501Pa", "LNKFTN1501Ja", "LOTSDR1501Ja", "NKSHDR1501Ta", "NKSHMU1501PP", "NKSHMD1501PP", "JULITP1501Pa", "NKSHMC1512PP"],
@@ -599,7 +600,7 @@ function createPageSelector(mips) {
 			for (var i = 0; i < fltURLs.length; i++) {
 				let url = fltURLs[i];
 				var sel = this.allstories.find(pg => pg.url === url);
-				res.push(createStoryRef(this.findStorySection(url), sel));
+				res.push(createStoryRef(this.findStorySection(url), sel, false));
 			}
 			return res;
 		},
@@ -657,7 +658,7 @@ function createProductCard(sku, title, url, imageURL, lede, isSq, section, vid) 
 		res += '<p class="mb-1"><span class="sc-item" data-field="price" data-vsku="' + sku + '"' + (vid === undefined ? '' : ' data-vid="' + vid + '"') + '></span></p>'
 	}
 	if (lede !== null) {
-		res += '<p class="mb-1 line-clamp(2)">' + lede + '</p>';
+		res += '<p class="mb-1 pfi-lc" style="--lcn: 1">' + lede + '</p>';
 	}
 	res += '</div></div>';
 	return res;
@@ -706,7 +707,7 @@ function createMerchandisingRef(item, section, isCompact) {
 	}
 }
 
-function createStoryRef(s, itm) {
+function createStoryRef(s, itm, inContext) {
 	return {
 		sec: s,
 		sel: itm,
@@ -730,11 +731,17 @@ function createStoryRef(s, itm) {
 				res += eval(this.imageScript);
 			}
 			res += '<div class="card-body px-0 pt-6 pb-4">';
-			res += '<div class="card-subtitle mb-1"><a class="text-muted" href="' + this.sec.url + '">' + this.sec.title + '</a></div>';
+			if ( ! inContext ) {
+				res += '<div class="card-subtitle mb-1"><a class="text-muted" href="' + this.sec.url + '">' + this.sec.title + '</a></div>';
+			}
 			if (item.url !== undefined) {
 				res += '<h6 class="card-title mb-2">' + this.title + '<a  href="' + this.url + '"' + (getHostName(this.url) === null ? '' : ' target="_blank"') + '><i class="fa ' + (getHostName(this.url) === null ? 'fa-arrow-right' : 'fa-external-link') + ' ml-2"></i></a></h6>';
 			}
-			res += '<p class="mb-1 line-clamp(3)">' + this.lede + '</p>';
+			if ( ! inContext ) {
+				res += '<p class="mb-1 pfi-lc" style="--lcn: 2">' + this.lede + '</p>';
+			} else {
+				res += '<p class="mb-1">' + this.lede + '</p>';
+			}
 			res += '</div></div>';
 			return res;
 		}

@@ -1,5 +1,12 @@
+.pfi-lc {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--lcn);
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
 .rwell {
-    background-color: #9fa9ad;
+    background-color: rgb(238, 241, 242);
 }
 
 figure {
