@@ -69,14 +69,14 @@ pfiavG.catalog = createCatalog();
 pfiavG.productCatalog = createProductCatalog(pfiavG.catalog, createPriceList());
 
 function createCardlist(cardRefs) {
-	return createCardlistWithColcls(cardRefs, 'col-6 col-md-4')
+	return createCardlistWithColcls(cardRefs, 'col-6 col-md-4', 'pt-5 pb-3', undefined)
 }
 
-function createCardlistWithColcls(cardRefs, colcls) {
+function createCardlistWithColcls(cardRefs, colcls, secls, title) {
     return {
         cardRefs: cardRefs,
         createHTML: function () {
-            var res = '<section class="pt-5 pb-3"><div class="row no-gutters mx-n1 mx-md-n2">';
+            var res = '<section class="' + secls + '">' + (title !== undefined ? '<h5>' + title + '</h5>': '') + '<div class="row no-gutters mx-n1 mx-md-n2">';
             for (var i = 0; i < this.cardRefs.length; i++) {
                 res += '<div class="' + colcls + '">'
                 res += this.cardRefs[i].createCard();
