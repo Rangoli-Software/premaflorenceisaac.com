@@ -1,4 +1,4 @@
-const shopRevisionVersion = "2020120222";
+const shopRevisionVersion = "2020120223";
 
 const pfiavG = {};
 pfiavG.lineNames = ["Art Wear", "It's Magic", "Ce Soir", "Happy Everyday"];
@@ -10,7 +10,7 @@ const cmData = [
 ['Dip-Dye Scarf','DPDYSF1501PT','0.36','1.2','/products/scarves/dipdye.html','FALSE'],
 ['Champagne Bag','CHMPGN1501JL','0.0208333333333333','1.1','/products/xtras/champagnebag.html','FALSE'],
 
-['Handloom Facemask','FACEMK2005Ta','0.0095','1.2','/products/accessories/facemask.html','TRUE'],
+['Tant Facemask','FACEMK2005Ta','0.0095','1.2','/products/accessories/facemask.html','TRUE'],
 ['Naksha Micro','NKSHMC1512PP','0.18','1.2','/products/artwear/naksha.html?s=c','TRUE'],
 ['Naksha Mini','NKSHMI1501PP','0.28','1.2','/products/artwear/naksha.html?s=m','TRUE'],
 ['Naksha Midi','NKSHMD1501PP','0.34','1.2','/products/artwear/naksha.html?s=d','TRUE'],
@@ -22,7 +22,7 @@ const cmData = [
 ['Madras Top','MDRSTP1606PP','0.4','1.2','/products/artwear/madras.html','TRUE'],
 ['Pallu Overtop','OVTPSH1501Pa','0.4','1.2','/products/artwear/sovertop.html','TRUE'],
 ['Seragu Overtop','OVERTP1501Pa','0.4','1.2','/products/artwear/overtop.html','TRUE'],
-['Aanchal Overtop','OVTPLO1501Pa','0.4','1.2','/products/artwear/lovertop.html','TRUE'],
+['Aanchal Trench','OVTPLO1501Pa','0.4','1.2','/products/artwear/lovertop.html','TRUE'],
 ['Tamarai Dress','NKSHDR1501Ta','0.35','1.2','/products/artwear/tamarai.html','TRUE'],
 ['Malligai Dress','NKSDSL1701Ta','0.35','1.2','/products/artwear/malligai.html','TRUE'],
 ['Kamalam Dress','LOTSDR1501Ja','0.35','1.2','/products/artwear/kamalam.html','TRUE'],
