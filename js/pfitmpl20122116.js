@@ -893,6 +893,26 @@ function shuffle(array) {
 	return array;
 }
 
+function createProductSchemaHTML (name, imgurl, description, priceString) {
+	var jsonTempl = {
+		"@context" : "http://schema.org",
+		"@type" : "Product",
+		brand : {
+    		"@type" : "Prema Florence Isaac",
+			logo : "https://www.premaflorenceisaac.com/g/since199900.svg"
+  		},
+		offers : {
+			"@type" : "Offer",
+		}
+	};
+	jsonTmpl['name'] = name;
+	jsonTmpl['image'] = imgurl;
+	jsonTmpl['description'] = description;
+	jsonTmpl['offers']['price'] = priceString;
+	return '<script type="application/ld+json">' + JSON.Stringify(jsonTmpl) + '</script>';
+}
+
+/*
 function createCarousel(carId, carItems) {
 	var id = "carousel-" + carId;
 	var res = '<div id="' + id + '" class="carousel slide" data-ride="carousel" data-interval="2500"><ol class="carousel-indicators">';
@@ -919,6 +939,7 @@ function createCarousel(carId, carItems) {
 </div>';
 	return res;
 }
+*/
 
 function gaFunnel(funnel) {
 	if (funnel === "Lead") {

@@ -41,6 +41,19 @@ function rgbToHSL(hexRGB) {
 	};
 }
 
+function createFlickityCarousel(id, imgs) {
+	var images = {
+		items: imgs,
+		getNumImages: function() {
+			return this.items.length;
+		},
+		getImage: function(i) {
+			return this.items[i];
+		}
+	};
+	return createSquareImageCarousel(images, id).createImageCarousel();
+}
+
 const SelChangeReason = {
 	currencyChange: 'CurrencyChange',
 	genderChange: 'GenderChange',
