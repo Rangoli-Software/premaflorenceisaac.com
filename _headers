@@ -13,6 +13,12 @@
 /shopper-1.0.4/fonts/feather/fonts/*
 	Cache-Control: public, max-age=31536000,  immutable
 
+/shopper-1.0.4/libs/bootstrap/dist/css/*
+	Cache-Control: public, max-age=31536000,  immutable
+
+/shopper-1.0.4/libs/bootstrap/dist/js/*
+	Cache-Control: public, max-age=31536000,  immutable
+
 /shopper-1.0.4/libs/flickity/dist/*
 	Cache-Control: public, max-age=31536000,  immutable
 

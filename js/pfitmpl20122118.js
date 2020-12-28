@@ -1327,5 +1327,5 @@ function getSizeModalWithId(id, contentid, contents) {
 }
 
 function createAddToCartButton(id) {
-	return '<button id="' + id + '" class="btn btn-warning btn-block" type="button"><span class="fa fa-cart-plus"></span> Add to Cart</button>';
+	return '<button id="' + id + '" class="btn btn-warning btn-block" type="button"><span class="fe fe-shopping-cart ml-2"></span> Add to Cart</button>';
 }
