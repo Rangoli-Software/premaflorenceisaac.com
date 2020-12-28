@@ -1,16 +1,25 @@
-/shopper-1.0.3/fonts/feather/*.css
+/shopper-1.0.4/css/*
 	Cache-Control: public, max-age=31536000,  immutable
 
-/shopper-1.0.3/fonts/feather/fonts/*
+/shopper-1.0.4/js/*
 	Cache-Control: public, max-age=31536000,  immutable
 
-/shopper-1.0.3/libs/flickity/dist/*
+/shopper-1.0.4/fonts/jost/*
 	Cache-Control: public, max-age=31536000,  immutable
 
-/shopper-1.0.3/libs/flickity-fade/*
+/shopper-1.0.4/fonts/feather/*.css
 	Cache-Control: public, max-age=31536000,  immutable
 
-/shopper-1.0.3/libs/@fancyapps/fancybox/dist/*
+/shopper-1.0.4/fonts/feather/fonts/*
+	Cache-Control: public, max-age=31536000,  immutable
+
+/shopper-1.0.4/libs/flickity/dist/*
+	Cache-Control: public, max-age=31536000,  immutable
+
+/shopper-1.0.4/libs/flickity-fade/*
+	Cache-Control: public, max-age=31536000,  immutable
+
+/shopper-1.0.4/libs/@fancyapps/fancybox/dist/*
 	Cache-Control: public, max-age=31536000,  immutable
 
 /js/*.css
@@ -38,6 +47,9 @@
 	Cache-Control: public, max-age=31536000,  immutable
 
 /g/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/g/*.svg
 	Cache-Control: public, max-age=31536000,  immutable
 
 /g/aw/*.jpg
@@ -323,7 +335,4 @@
 	Cache-Control: public, max-age=31536000,  immutable
 
 /tbc/sqIC/*.jpg
-	Cache-Control: public, max-age=31536000,  immutable
-
-/g/*.svg
 	Cache-Control: public, max-age=31536000,  immutable
