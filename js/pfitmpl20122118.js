@@ -610,7 +610,7 @@ function createItemUrl(item, cls) {
 		if (getHostName(item.url) === null) {
 			res += '</a>';
 		} else {
-			res += '<i class="fa fa-external-link-alt"></i></a>';
+			res += '<i class="fe fe-external-link"></i></a>';
 		}
 	}
 	return res;
@@ -1094,14 +1094,14 @@ function botNav(botImgTag, location) {
 <div class="container">\
 <div class="pb-2"><center><div class="row">\
 <div class="col-sm-6">\
-Instagram <i class="fa fa-instagram"></i>: <a href="https://www.instagram.com/_prema.florence.isaac_/">@_prema.florence.isaac_</a><br>\
-Facebook <i class="fa fa-facebook-square"></i>: <a href="https://www.facebook.com/rangolibyprema">@rangolibyprema</a><br>\
+Instagram <i class="fe fe-instagram"></i>: <a href="https://www.instagram.com/_prema.florence.isaac_/">@_prema.florence.isaac_</a><br>\
+Facebook <i class="fe fe-facebook"></i>: <a href="https://www.facebook.com/rangolibyprema">@rangolibyprema</a><br>\
 WhatsApp <i class="fa fa-whatsapp"></i>: <a href="https://wa.me/919443362528?text=Website%20Enquiry">+919443362528</a><br>\
-Mail <i class="fa fa-envelope-o"></i>: <a href="mailto:premaflorenceisaac@gmail.com">prema.florence.isaac@gmail.com</a><br>\
-Phone <i class="fa fa-phone"></i>: <a href="tel:+919443362528">+919443362528</a>\
+Mail <i class="fe fe-mail"></i>: <a href="mailto:premaflorenceisaac@gmail.com">prema.florence.isaac@gmail.com</a><br>\
+Phone <i class="fe fe-phone"></i>: <a href="tel:+919443362528">+919443362528</a>\
 </div>\
 <div class="col-sm-6">\
-Visit <i class="fa fa-map-marker"></i>: <a href="https://goo.gl/maps/rszKWi3P7xM2">Rangoli Atelier<br>Aurosarjan Complex<br>Auroshilpam<br>Auroville 605101<br>Tamil Nadu, India</a>\
+Visit <i class="fe fe-map-pin"></i>: <a href="https://goo.gl/maps/rszKWi3P7xM2">Rangoli Atelier<br>Aurosarjan Complex<br>Auroshilpam<br>Auroville 605101<br>Tamil Nadu, India</a>\
 </div>\
 </div></center></div>\
 <center>Sign up for our (few-times-a-year) newsletter.<br>' + createMCSignup() + '</center>\
@@ -1134,7 +1134,7 @@ function getShopTop() {
 }
 
 function getShopHeader() {
-	return '<div class="container"> <div class="row py-1"> <div class="col-12"><div id="currencies" class="text-left float-left" style="font-size: 12px"><span data-currency="INR" id="currencies-inr">INR(&#8377;)</span><span data-currency="GBP" id="currencies-gbp">GBP(&pound;)</span> <span data-currency="EUR" id="currencies-eur">EUR(&euro;)</span> <span data-currency="USD" id="currencies-usd">USD(&dollar;)</span></div><div id="shop-cart-summary" class="text-right float-right" style="font-size: 12px"> <a id="sc-edit-id" class="disabled" aria-disabled="true" type="button" data-toggle="modal" data-target="#shopping-cart"> <i class="fa fa-shopping-cart"></i> (<span class="sc-badge-items">0</span>) <span class="sc-non-empty" style="display:none"> - </span> <span class="sc-currency-string sc-non-empty" style="display:none"><i class="fa fa-inr"></i></span> <span class="sc-total sc-non-empty" style="display:none">0</span> </a> <div class="item sc-item-list" style="display: none"> </div></div></div></div></div>';
+	return '<div class="container"> <div class="row py-1"> <div class="col-12"><div id="currencies" class="text-left float-left" style="font-size: 12px"><span data-currency="INR" id="currencies-inr">INR(&#8377;)</span><span data-currency="GBP" id="currencies-gbp">GBP(&pound;)</span> <span data-currency="EUR" id="currencies-eur">EUR(&euro;)</span> <span data-currency="USD" id="currencies-usd">USD(&dollar;)</span></div><div id="shop-cart-summary" class="text-right float-right" style="font-size: 12px"> <a id="sc-edit-id" class="disabled" aria-disabled="true" type="button" data-toggle="modal" data-target="#shopping-cart"> <i class="fe fe-shopping-cart"></i> (<span class="sc-badge-items">0</span>) <span class="sc-non-empty" style="display:none"> - </span> <span class="sc-currency-string sc-non-empty" style="display:none"><i class="fa fa-inr"></i></span> <span class="sc-total sc-non-empty" style="display:none">0</span> </a> <div class="item sc-item-list" style="display: none"> </div></div></div></div></div>';
 }
 
 function createSizeRadio(name, idPfx, val, i, checked) {
@@ -1319,7 +1319,7 @@ function createDimensioner(units, dimensionNames, dimensions, imagePath, dimVari
 }
 
 function getSizeDialog(contentid, contents) {
-	return '<div class="modal-dialog modal-dialog-centered modal-lg" role="document"><div class="modal-content"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button><div class="modal-header line-height-fixed font-size-lg"><strong class="mx-auto">Sizing</strong></div><div class="modal-body border-bottom" id="' + contentid + '">' + contents + '</div></div></div>'
+	return '<div class="modal-dialog modal-dialog-centered modal-lg" role="document"><div class="modal-content"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fe fe-x" aria-hidden="true"></i></button><div class="modal-header line-height-fixed font-size-lg"><strong class="mx-auto">Sizing</strong></div><div class="modal-body border-bottom" id="' + contentid + '">' + contents + '</div></div></div>'
 }
 
 function getSizeModalWithId(id, contentid, contents) {

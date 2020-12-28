@@ -589,7 +589,7 @@ function createItemRenderer(parentId, item, shop, options) {
 			//            return this.item.quantity + " " + this.item.size + " " + this.item.colour + " T-Shirt";
 		},
 		createRemoveFromCartButton: function () {
-			return '<button id="' + this.getButtonID() + '" class="btn btn-outline-dark btn-sm" type="button"><span class="fa fa-times"></span> Remove From Cart</button>';
+			return '<button id="' + this.getButtonID() + '" class="btn btn-outline-dark btn-sm" type="button"><span class="fe fe-x"></span> Remove From Cart</button>';
 		},
 		createRow: function (html) {
 			return '<div class="row border border-dark p-2" " style="background-color:' + this.options.bgColor + '; color:' + this.options.fgColor + '">' +

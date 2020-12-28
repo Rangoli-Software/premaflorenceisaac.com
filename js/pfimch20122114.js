@@ -661,10 +661,10 @@ function createProductCard(sku, title, url, imageURL, lede, isSq, section, vid) 
 	res += '<div class="card-body px-0 pt-6 pb-4">';
 	if (section === undefined) {
 		res += '<div class="card-subtitle mb-1"><span class="sc-item" data-field="price" data-vsku="' + sku + '"' + (vid === undefined ? '' : ' data-vid="' + vid + '"') + '></span></div>';
-		res += '<h6 class="card-title mb-2">' + title + '<a  href="' + url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
+		res += '<h6 class="card-title mb-2">' + title + '<a  href="' + url + '"><i class="fe fe-arrow-right ml-2"></i></a></h6>';
 	} else {
 		res += '<div class="card-subtitle mb-1"><a class="text-muted" href="' + section.url + '">' + section.title + '</a></div>';
-		res += '<h6 class="card-title mb-2">' + title + '<a  href="' + url + '"><i class="fa fa-arrow-right ml-2"></i></a></h6>';
+		res += '<h6 class="card-title mb-2">' + title + '<a  href="' + url + '"><i class="fe fe-arrow-right ml-2"></i></a></h6>';
 		res += '<p class="mb-1"><span class="sc-item" data-field="price" data-vsku="' + sku + '"' + (vid === undefined ? '' : ' data-vid="' + vid + '"') + '></span></p>'
 	}
 	if (lede !== null) {
@@ -745,7 +745,7 @@ function createStoryRef(s, itm, inContext) {
 				res += '<div class="card-subtitle mb-1"><a class="text-muted" href="' + this.sec.url + '">' + this.sec.title + '</a></div>';
 			}
 			if (item.url !== undefined) {
-				res += '<h6 class="card-title mb-2">' + this.title + '<a  href="' + this.url + '"' + (getHostName(this.url) === null ? '' : ' target="_blank"') + '><i class="fa ' + (getHostName(this.url) === null ? 'fa-arrow-right' : 'fa-external-link') + ' ml-2"></i></a></h6>';
+				res += '<h6 class="card-title mb-2">' + this.title + '<a  href="' + this.url + '"' + (getHostName(this.url) === null ? '' : ' target="_blank"') + '><i class="fe ' + (getHostName(this.url) === null ? 'fe-arrow-right' : 'fe-external-link') + ' ml-2"></i></a></h6>';
 			}
 			if ( ! inContext ) {
 				res += '<p class="mb-1 pfi-lc" style="--lcn: 2">' + this.lede + '</p>';
