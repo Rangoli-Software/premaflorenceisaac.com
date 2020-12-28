@@ -1329,30 +1329,3 @@ function getSizeModalWithId(id, contentid, contents) {
 function createAddToCartButton(id) {
 	return '<button id="' + id + '" class="btn btn-warning btn-block" type="button"><span class="fa fa-cart-plus"></span> Add to Cart</button>';
 }
-
-function createSiteMapGenerator(path) {
-	return {
-		path: path,
-		createSMNode: function (node) {
-			var res = "";
-			if (node.url !== undefined && getHostName(node.url) === null) {
-				res += "<url><loc>" + this.path + node.url + "</loc></url>";
-			};
-			if (node.sub !== undefined) {
-				res += this.createSM(node.sub);
-			}
-			return res;
-		},
-		createSM: function (nodeArr) {
-			var res = "";
-			for (var i = 0; i < nodeArr.length; i++) {
-				res += this.createSMNode(nodeArr[i]);
-			}
-			return res;
-		}
-	};
-}
-
-function createSM(path) {
-	return createSiteMapGenerator(path).createSM(siteMap);
-}

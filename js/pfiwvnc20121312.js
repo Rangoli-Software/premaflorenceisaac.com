@@ -273,7 +273,7 @@ wovencanvas.tshirt.prodData = {
         },
 	],
 	sizes: ["S", "M", "L", "XL", "XXL"],
-	description: '<p>A piece of wearable art! Our T-Shirt with a <strong>numbered</strong> Woven Canvas makes the perfect gift for that unique individual. I create each panel individually as a collage composed of textile strips.</p><p>The fabric strips come from my <a href="/journey/treasuretrove.html">treasure-trove</a> of vintage Tangail sari borders (hand-woven in the finest cotton, silk and metal-zari).</p><p>Each panel is a labour of love. You can read more about the process <a href="/tangailcollage.html">here</a></p><p>Along with your T-shirt, you will receive one of our gift bags: a delicate transparent cotton organza envelope with a mother-of-pearl button closure, making it a perfect gift item!</p>',
+	description: '<p>A piece of wearable art! Our P.F.I. T-Shirt with a <strong>numbered</strong> Woven Canvas makes the perfect gift for that unique individual. I create each panel individually as a collage composed of textile strips.</p><p>The fabric strips come from my <a href="/journey/treasuretrove.html">treasure-trove</a> of vintage Tangail sari borders (hand-woven in the finest cotton, silk and metal-zari).</p><p>Each panel is a labour of love. You can read more about the process <a href="/tangailcollage.html">here</a></p><p>Along with your T-shirt, you will receive one of our gift bags: a delicate transparent cotton organza envelope with a mother-of-pearl button closure, making it a perfect gift item!</p>',
 	garmentDetails: '',
 };
 wovencanvas.tshirt.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
