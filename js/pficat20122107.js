@@ -146,7 +146,7 @@ function createCatalogDisplay(catalog, merchOnly, skuOnly) {
         },
         createCardlist: function (fname) {
             var cardRefs = this.merchOnly ? this.createMerchCardRefs(fname) : this.createProductCardRefs(fname);
-            return createCardlist(cardRefs);
+			return createCardlistWithColcls(cardRefs, 'col-12 col-md-4', 'pt-5 pb-3', undefined)
         }
     }
 }
