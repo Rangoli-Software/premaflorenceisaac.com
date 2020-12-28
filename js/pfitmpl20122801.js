@@ -1096,7 +1096,7 @@ function botNav(botImgTag, location) {
 <div class="col-sm-6">\
 Instagram <i class="fe fe-instagram"></i>: <a href="https://www.instagram.com/_prema.florence.isaac_/">@_prema.florence.isaac_</a><br>\
 Facebook <i class="fe fe-facebook"></i>: <a href="https://www.facebook.com/rangolibyprema">@rangolibyprema</a><br>\
-WhatsApp <i class="fa fa-whatsapp"></i>: <a href="https://wa.me/919443362528?text=Website%20Enquiry">+919443362528</a><br>\
+WhatsApp <i class="icon-whatsapp"></i>: <a href="https://wa.me/919443362528?text=Website%20Enquiry">+919443362528</a><br>\
 Mail <i class="fe fe-mail"></i>: <a href="mailto:premaflorenceisaac@gmail.com">prema.florence.isaac@gmail.com</a><br>\
 Phone <i class="fe fe-phone"></i>: <a href="tel:+919443362528">+919443362528</a>\
 </div>\
@@ -1122,7 +1122,6 @@ function botMenu(location) {
 
 function scriptSrcs() {
 	return '\
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">\
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>\
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>\
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script><script type="text/javascript" src="https://www.paypalobjects.com/api/checkout.js"></script>\

@@ -28,6 +28,9 @@
 /shopper-1.0.4/libs/@fancyapps/fancybox/dist/*
 	Cache-Control: public, max-age=31536000,  immutable
 
+/fonts/*
+	Cache-Control: public, max-age=31536000,  immutable
+
 /js/*.css
 	Cache-Control: public, max-age=31536000,  immutable
 
