@@ -82,18 +82,24 @@ extras.champagnebag = {
 		{
 			colourName: "Beige Gold",
 			vid: "CW1",
+			width: "1000",
+			height: "1000",
             colourPfx: "CBCG",
             colourSfxs: ["MD"]
         },
 		{
 			colourName: "Champagne",
 			vid: "CW2",
+			width: "1000",
+			height: "1000",
             colourPfx: "CBCC",
             colourSfxs: ["MD"]
         },
 		{
 			colourName: "Midnight Blue",
 			vid: "CW3",
+			width: "1000",
+			height: "1000",
             colourPfx: "CBMB",
             colourSfxs: ["MD"]
         }

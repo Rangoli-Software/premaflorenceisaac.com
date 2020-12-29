@@ -422,7 +422,9 @@ function createImageFactory(that, vidx) {
 			var vnt = this.that.variants.data[this.vidx];
 			return {
 				url: this.that.getBasePath() + vnt.images[iidx] + ".jpg",
-				text: this.that.product.name + '-Vnt:' + vnt.vid + '-Img:' + iidx
+				text: this.that.product.name + '-Vnt:' + vnt.vid + '-Img:' + iidx,
+				width: vnt.width,
+				height: vnt.height
 			}
 		}
 	};
@@ -440,7 +442,9 @@ function createCWImageFactory(that, vidx) {
 			var vnt = this.that.variants.data[this.vidx];
 			return {
 				url: this.that.getBasePath() + vnt.colourPfx + "-" + vnt.colourSfxs[iidx] + ".jpg",
-				text: this.that.product.name + '-' + vnt.colourPfx + '-' + vnt.colourSfxs[iidx]
+				text: this.that.product.name + '-' + vnt.colourPfx + '-' + vnt.colourSfxs[iidx],
+				width: vnt.width,
+				height: vnt.height
 			};
 		}
 	};
