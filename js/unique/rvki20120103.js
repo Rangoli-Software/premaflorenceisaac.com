@@ -9,5 +9,9 @@ function getRavakaiFactory(sku) {
     var descMap = {
         CW1: 'Tangail Tradition'
     };
-    return createStyleDescFactory(sku, basedir, listData, descMap);
+	var imgdim = {
+		width: "1500",
+		height: "1330"
+	};
+    return createStyleDescFactory(sku, basedir, listData, descMap, imgdim);
 }

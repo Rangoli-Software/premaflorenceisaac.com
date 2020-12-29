@@ -10,5 +10,9 @@ function getKaftanFactory(sku) {
     var descMap = {
         CW1: 'Tangail Tradition'
     };
-    return createStyleDescFactory(sku, basedir, listData, descMap);
+	var imgdim = {
+		width: "1200",
+		height: "1883"
+	};
+    return createStyleDescFactory(sku, basedir, listData, descMap, imgdim);
 }

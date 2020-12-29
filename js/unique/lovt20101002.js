@@ -12,5 +12,9 @@ function getLongOvertopFactory(sku) {
         CW1: 'Tangail Tradition',
         CW3: 'Jamdani Lace'
     };
-    return createStyleDescFactory(sku, basedir, listData, descMap);
+	var imgdim = {
+		width: "1500",
+		height: "2111"
+	};
+    return createStyleDescFactory(sku, basedir, listData, descMap, imgdim);
 }

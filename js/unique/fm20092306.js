@@ -52,5 +52,9 @@ listData = [
         CW2: 'Cruise',
         CW3: 'Ce Soir',
     };
-    return createStyleDescFactory(sku, basedir, listData, descMap);
+	var imgdim = {
+		width: "1000",
+		height: "1000"
+	};
+    return createStyleDescFactory(sku, basedir, listData, descMap, imgdim);
 }

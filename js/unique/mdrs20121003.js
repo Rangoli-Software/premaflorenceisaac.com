@@ -14,5 +14,9 @@ function getMadrasFactory(sku) {
         CW2: 'Indigo In-Love',
         CW3: 'Jamdani Lace'
     };
-    return createStyleDescFactory(sku, basedir, listData, descMap);
+	var imgdim = {
+		width: "1500",
+		height: "2365"
+	};
+    return createStyleDescFactory(sku, basedir, listData, descMap, imgdim);
 }

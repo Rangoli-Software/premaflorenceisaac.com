@@ -11,5 +11,9 @@ function getPayaraFactory(sku) {
     var descMap = {
         CW1: 'Tangail Tradition'
     };
-    return createStyleDescFactory(sku, basedir, listData, descMap);
+	var imgdim = {
+		width: "1500",
+		height: "2336"
+	};
+    return createStyleDescFactory(sku, basedir, listData, descMap, imgdim);
 }

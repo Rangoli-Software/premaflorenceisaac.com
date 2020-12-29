@@ -41,7 +41,7 @@ function rgbToHSL(hexRGB) {
 	};
 }
 
-function createFlickityCarousel(id, imgs) {
+function createFlickityCarousel(id, imgs, imgdim) {
 	var images = {
 		items: imgs,
 		getNumImages: function() {
@@ -51,7 +51,7 @@ function createFlickityCarousel(id, imgs) {
 			return this.items[i];
 		}
 	};
-	return createSquareImageCarousel(images, id).createImageCarousel();
+	return createSquareImageCarousel(images, id).createImageCarousel(imgdim);
 }
 
 const SelChangeReason = {
@@ -228,7 +228,7 @@ function createUICollectedText(collected) {
 	return res;
 }
 
-function createUIDescriptorFactory(base, product, listData, itemFactory) {
+function createUIDescriptorFactory(base, product, listData, itemFactory, imgdim) {
 	return {
 		listData: listData,
 		product: product,
@@ -252,6 +252,7 @@ function createUIDescriptorFactory(base, product, listData, itemFactory) {
 				inrPrice: cwPrice,
 				catDesc: cwDesc,
 				collected: collected,
+				imgdim: imgdim,
 				getNumImages: function () {
 					return row[1].length;
 				},
@@ -302,11 +303,11 @@ function createUIDescriptorFactory(base, product, listData, itemFactory) {
 	};
 }
 
-function createStyleDescFactory(sku, basedir, listdata, descmap) {
+function createStyleDescFactory(sku, basedir, listdata, descmap, imgdim) {
 	var product = pfiavG.productCatalog.getProduct(sku);
 	var varPL = varPLData[sku];
 	var cwFactory = createUIItemFactory(product, varPL, descmap);
-	return createUIDescriptorFactory(basedir, product, listdata, cwFactory);
+	return createUIDescriptorFactory(basedir, product, listdata, cwFactory, imgdim);
 }
 
 function createNullURLUpdater() {
@@ -322,7 +323,6 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, sizeSelect
 		cardCreator: cardCreator,
 		uiFactory: uiFactory,
 		prodJSON: prodJSON,
-		isSquare: isSquare,
 		createSizePanelr: function () {
 			var prodJSON = this.prodJSON;
 			var skuInfo = prodJSON.skuInfo;
@@ -342,9 +342,7 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, sizeSelect
 			var prePanelr = this.viewerFactory.createPre();
 			var sizePanelr = this.createSizePanelr();
 			var addlViewer = this.viewerFactory.create();
-			var carousel = this.isSquare ?
-				createSquareProductCarousel(this.prodJSON) :
-				createProductCarousel(this.prodJSON, false);
+			var carousel = createSquareProductCarousel(this.prodJSON);
 			var that = this;
 			var srv = this.viewerFactory.createPanelRVs();
 			var vntSelector = this.viewerFactory.createVarSel();
@@ -656,32 +654,30 @@ function createSquareImageCarousel(images, idSfx) {
 		images: images,
 		panelId: panelId,
 		navId: navId,
-		createImageCarousel: function () {
-			return '<div class="col-12 px-0">' + this.createImagePanel() +
-				this.createImageNav() + '</div>';
+		createImageCarousel: function (imgdims) {
+			return '<div class="col-12 px-0">' + this.createImagePanel(imgdims) +
+				this.createImageNav(imgdims) + '</div>';
 		},
-		createImageNav: function () {
+		createImageNav: function (imgdims) {
 			var res = '<div class="flickity-nav mx-n2 mb-2" data-flickity=\'{"asNavFor": "#' + this.panelId + '", "contain": true, "wrapAround": false, "cellAlign": "center", "imagesLoaded": true}\' id="' + this.navId + '">';
 			var i = 0;
 			for (; i < this.images.getNumImages(); i++) {
 				var img = this.images.getImage(i);
 				res += '<div class="col-12 px-1" style="max-width: 80px;"><img class="img-fluid" src="' + img.url + '"' +
 					(img.text !== undefined ? ' alt="' + img.text + '"' : '') +
-					(img.width !== undefined ? ' width="' + img.width + '"' : '') +
-					(img.height !== undefined ? ' height="' + img.height + '"' : '') +
+					(imgdims !== undefined ? ' width="' + imgdims.width + '" height="' + imgdims.height + '"': "") +
 					'></div>';
 			}
 			res += '</div>';
 			return res;
 		},
-		createImagePanel: function () {
+		createImagePanel: function (imgdims) {
 			var res = '<div class="mb-2" data-flickity=\'{"wrapAround": false, "contain": true, "draggable": false, "imagesLoaded": true, "fade": true}\' id="' + this.panelId + '">';
 			for (var i = 0; i < this.images.getNumImages(); i++) {
 				var img = this.images.getImage(i);
 				res += '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '"' +
 					(img.text !== undefined ? ' alt="' + img.text + '"' : '') +
-					(img.width !== undefined ? ' width="' + img.width + '"' : '') +
-					(img.height !== undefined ? ' height="' + img.height + '"' : '') +
+					(imgdims !== undefined ? ' width="' + imgdims.width + '" height="' + imgdims.height + '"': "") +
 					' class="img-fluid"></a>';
 			}
 			res += '</div>';
@@ -713,6 +709,7 @@ function createSquareImageCarousel(images, idSfx) {
 	};
 }
 
+/*
 function createPortraitImageCarousel(images, idSfx, sqNav) {
 	var panelId = "imgSlider" + idSfx;
 	var navId = panelId + "-Nav" + idSfx;
@@ -782,21 +779,13 @@ function createPortraitImageCarousel(images, idSfx, sqNav) {
 		}
 	};
 }
+*/
 
 function createSquareProductCarousel(prodJSON) {
 	return {
 		createVariantCarousel: function (varIdx) {
 			var images = prodJSON.getImages(varIdx);
 			return createSquareImageCarousel(images, "");
-		}
-	};
-}
-
-function createProductCarousel(prodJSON, sqNav) {
-	return {
-		createVariantCarousel: function (varIdx) {
-			var images = prodJSON.getImages(varIdx);
-			return createPortraitImageCarousel(images, "", sqNav);
 		}
 	};
 }
@@ -1326,7 +1315,7 @@ function createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, var
 		},
 		createImageDiv: function (varIdx) {
 			return '<div class="row mb-4" id="' + this.prodImageId + '">' +
-				this.carousel.createVariantCarousel(varIdx).createImageCarousel() +
+				this.carousel.createVariantCarousel(varIdx).createImageCarousel(undefined) +
 				'</div>';
 		},
 		createInfoDiv: function (varIdx, szIdx) {
@@ -1413,7 +1402,7 @@ function createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, a
 		},
 		createImageDiv: function () {
 			return '<div class="row mb-4" id="' + this.prodImageId + '">' +
-				this.carousel.createVariantCarousel(this.varidx).createImageCarousel() +
+				this.carousel.createVariantCarousel(this.varidx).createImageCarousel(undefined) +
 				'</div>';
 		},
 		createInfoDiv: function () {
@@ -1426,11 +1415,10 @@ function createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, a
 
 function createSingleImageCreator() {
 	return {
-		createImageDiv: function (images, btnId) {
+		createImageDiv: function (images, btnId, imgdim) {
 			var img = images.getImage(0);
 			return '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '" alt="' + img.text + '" class="img-fluid"'
-			+ (img.height !== undefined ? ' height=\"' + img.height + '"' : "")
-			+ (img.width !== undefined ? ' height=\"' + img.width + '"' : "")
+			+ (imgdim !== undefined ? ' height=\"' + imgdim.height + '" width=\"' + imgdim.width + '"' : "")
 			+ '></a>';
 		},
 		updateImg: function (images, id) {}
@@ -1440,8 +1428,8 @@ function createSingleImageCreator() {
 function createCarouselImageCreator(carouselFn) {
 	return {
 		carouselFn: carouselFn,
-		createImageDiv: function (images, btnId) {
-			return '<div class="row"><div class="col-12"><div class="form-row mb-4">' + this.carouselFn(images, btnId).createImageCarousel() + '</div></div></div>';
+		createImageDiv: function (images, btnId, imgdim) {
+			return '<div class="row"><div class="col-12"><div class="form-row mb-4">' + this.carouselFn(images, btnId).createImageCarousel(imgdim) + '</div></div></div>';
 		},
 		updateImg: function (images, id) {
 			this.carouselFn(images, id).update();
@@ -1455,7 +1443,7 @@ function createUICardCreatorBase(imgCreator, colClasses) {
 		colClasses: colClasses,
 		createCard: function (images, btnId, priceHTML, desc) {
 			var res = '<div class="card mb-2 px-1 px-md-2">';
-			res += this.imgCreator.createImageDiv(images, btnId);
+			res += this.imgCreator.createImageDiv(images, btnId, desc.imgdim);
 			res += '<div class="card-body px-0 pt-2 pb-4 text-center">';
 			res += '<div class="card-title mb-2"><span>' + desc.getCWDesc() + '</span></div>';
 			res += '<div class="card-subtitle mb-3"><span>' + priceHTML + '</span></div>';
@@ -1608,7 +1596,7 @@ function createUniqueItemsComponent(shop, items, productComponentFactory, produc
 function createProductComponentFactory(prodInfo, dimensioner, sizer, addlViewer, navHelper, modelTxt, captionTxt, isStacked) {
 	var prePanelr = createEmptyViewer();
 	var sizePanelr = createSizePanelr(prodInfo.skuInfo, dimensioner, sizer);
-	var carousel = isStacked ? createSquareProductCarousel(prodInfo) : createProductCarousel(prodInfo, false);
+	var carousel = createSquareProductCarousel(prodInfo);
 	var variantSelector = createVariantSelector(prodInfo);
 	var sizeSelector = createSizeSelector(prodInfo.skuInfo.sizes, pfiavG.sizeModalInfo.getToggleHTML(), 'onSizeChange', modelTxt, captionTxt);
 	var itemAdder = createItemAdder();

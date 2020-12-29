@@ -50,7 +50,7 @@ function createWovenCanvasStyleDescFactory(sku, basedir, listdata, descmap) {
 	var product = pfiavG.productCatalog.getProduct(sku);
 	var varPL = varPLData[sku];
 	var cwFactory = createWovenCanvasItemFactory(product, varPL, descmap);
-	return createUIDescriptorFactory(basedir, product, listdata, cwFactory);
+	return createUIDescriptorFactory(basedir, product, listdata, cwFactory, undefined);
 }
 
 function getWovenCanvasFactory(sku) {

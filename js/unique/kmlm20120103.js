@@ -11,5 +11,9 @@ function getKamalamFactory(sku) {
     var descMap = {
         CW1: 'Jamdani Lace'
     };
-    return createStyleDescFactory(sku, basedir, listData, descMap);
+	var imgdim = {
+		width: "1200",
+		height: "1848"
+	};
+    return createStyleDescFactory(sku, basedir, listData, descMap, imgdim);
 }
