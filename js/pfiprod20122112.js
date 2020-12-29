@@ -1431,7 +1431,7 @@ function createSingleImageCreator() {
 			return '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '" alt="' + img.text + '" class="img-fluid"'
 			+ (img.height !== undefined ? ' height=\"' + img.height + '"' : "")
 			+ (img.width !== undefined ? ' height=\"' + img.width + '"' : "")
-			'></a>';
+			+ '></a>';
 		},
 		updateImg: function (images, id) {}
 	};
