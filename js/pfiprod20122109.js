@@ -1634,31 +1634,31 @@ function createPageComponent(prodInfo, catalog, productComponentFactory) {
 		updateBreadCrumb: function () {
 			$('.breadcrumb').replaceWith(this.productComponentFactory.getBreadCrumb())
 		},
-		createRenderer: function (shop) {
+		createProductComponent: function (shop) {
 			return this.productComponentFactory.createProductComponent(shop);
 		},
-		getRenderer: function () {
-			return this.createRenderer(this.allCartC.shop);
+		getProductComponent: function () {
+			return this.createProductComponent(this.allCartC.shop);
 		},
 		addToCart: function () {
-			var item = this.getRenderer().createItem();
+			var item = this.getProductComponent().createItem();
 			return this.allCartC.addToCart(item);
 		},
 		updateItemPrices: function () {
 			updatePageItemPrices(this.catalog, this.allCartC.shop);
 		},
 		unregisterATC: function () {
-			this.getRenderer().unregisterATC();
+			this.getProductComponent().unregisterATC();
 		},
 		registerATC: function () {
 			let that = this;
-			this.getRenderer().registerATC(function () {
+			this.getProductComponent().registerATC(function () {
 				that.addToCart();
 			});
 		},
 		onSelectionChange: function (reason, value) {
 			this.unregisterATC();
-			this.getRenderer().updateSelection(reason);
+			this.getProductComponent().updateSelection(reason);
 			this.registerATC();
 			this.updateItemPrices();
 		},
@@ -1669,7 +1669,7 @@ function createPageComponent(prodInfo, catalog, productComponentFactory) {
 			this.updateItemPrices();
 		},
 		onUnitChange: function () {
-			this.getRenderer().updateUnits();
+			this.getProductComponent().updateUnits();
 		}
 	}
 }

@@ -541,7 +541,7 @@ function createSqPanelImageList(panelNumArr) {
 	var res = [];
 	for (var i = 0; i < panelNumArr.length; i++) {
 		res.push({
-			imageURL: "/tbc/sqIC/IC" + panelNumArr[i] + ".jpg"
+			imageURL: "/products/wovencanvas/sqIC/IC" + panelNumArr[i] + ".jpg"
 		});
 	}
 	return res;
@@ -893,23 +893,33 @@ function shuffle(array) {
 	return array;
 }
 
-function createProductSchemaHTML (name, imgurl, description, priceString) {
-	var jsonTempl = {
+function createOfferSpec(baseurl, fxPrice) {
+	var url = new URL(baseurl);
+	url.searchParams.append('cur', fxPrice.currency);
+	return {
+		"@type": 'Offer',
+		price: fxPrice.price,
+		priceCurrency: fxPrice.currency,
+		url: url.href
+	};
+}
+
+function createProductSchemaHTML (sku, name, baseurl, imgurl, description, fxPrices) {
+	var json = {
 		"@context" : "http://schema.org",
 		"@type" : "Product",
 		brand : {
-    		"@type" : "Prema Florence Isaac",
+    		"@type" : "Thing",
+			name: "Prema Florence Isaac",
 			logo : "https://www.premaflorenceisaac.com/g/since199900.svg"
   		},
-		offers : {
-			"@type" : "Offer",
-		}
+		sku: sku,
+		name: name,
+		image: imgurl,
+		description: description,
+		offers: fxPrices.map(fxp => createOfferSpec(baseurl, fxp))
 	};
-	jsonTmpl['name'] = name;
-	jsonTmpl['image'] = imgurl;
-	jsonTmpl['description'] = description;
-	jsonTmpl['offers']['price'] = priceString;
-	return '<script type="application/ld+json">' + JSON.Stringify(jsonTmpl) + '</script>';
+	return '<script type="application/ld+json">' + JSON.stringify(json) + '</script>';
 }
 
 /*

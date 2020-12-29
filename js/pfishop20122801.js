@@ -324,7 +324,7 @@ function createShopForCur(fx, version) {
 	} else if (fx === 'AUD') {
 		return createShop(version, true, 'AUD', 'A$', true);
 	} else if (fx === 'CAD') {
-		return createShop(version, 'true, CAD', 'C$', true);
+		return createShop(version, true, 'CAD', 'C$', true);
 	} else if (fx === 'CHF') {
 		return createShop(version, true, 'CHF', 'SFr.', true);
 	} else {
@@ -1081,3 +1081,7 @@ function createShopPageComponent() {
 		}
 	};
 }
+
+pfiavG.allShops = {
+	shops: ["INR", "USD", "EUR", "GBP", "AUD", "CAD", "CHF"].map(fx => createShopForCur(fx, shopRevisionVersion))
+};
