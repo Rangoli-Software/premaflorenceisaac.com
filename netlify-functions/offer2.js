@@ -1,4 +1,19 @@
 const promos = {
+	'PFINEWYEAR21': function(cart) {
+		var lastDate = "January 22, 2021";
+		var code = 'PFINEWYEAR21';
+		var end = new Date(lastDate)
+		var now = new Date();
+		if ( end < now ) {
+			return {
+				errorMsg: "This promo code expired on " + lastDate,
+			};
+		}
+		return {
+			code: code,
+			discountPercentage: 15
+		};
+	},
 	'15OVER15KHOLIDAY20': function(cart) {
 		var minPurch = 15000;
 		var lastDate = "January 15, 2021";
@@ -39,10 +54,11 @@ exports.handler = async (event, context, callback) => {
 		if (promo !== undefined && promo !== null) {
 			res.promo = promo(cart);
 		}
-		console.log(JSON.stringify(res));
+		var ret = JSON.stringify(res);
+		console.log(ret);
 		return {
 			statusCode: 200,
-			body: JSON.stringify(res)
+			body: ret
 		}
 	} catch (e) {
 		console.log(JSON.stringify(e));
