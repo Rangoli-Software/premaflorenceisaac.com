@@ -340,5 +340,8 @@
 /products/wovencanvas/sqIC/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
+/products/xtras/chambag/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
 /tapestries/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
