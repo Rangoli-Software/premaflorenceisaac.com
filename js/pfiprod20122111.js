@@ -668,7 +668,7 @@ function createSquareImageCarousel(images, idSfx) {
 				res += '<div class="col-12 px-1" style="max-width: 80px;"><img class="img-fluid" src="' + img.url + '"' +
 					(img.text !== undefined ? ' alt="' + img.text + '"' : '') +
 					(img.width !== undefined ? ' width="' + img.width + '"' : '') +
-					(img.height !== undefined ? ' heigt="' + img.height + '"' : '') +
+					(img.height !== undefined ? ' height="' + img.height + '"' : '') +
 					'></div>';
 			}
 			res += '</div>';
@@ -681,8 +681,8 @@ function createSquareImageCarousel(images, idSfx) {
 				res += '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '"' +
 					(img.text !== undefined ? ' alt="' + img.text + '"' : '') +
 					(img.width !== undefined ? ' width="' + img.width + '"' : '') +
-					(img.height !== undefined ? ' heigt="' + img.height + '"' : '') +
-					' class="card-img-top"></a>';
+					(img.height !== undefined ? ' height="' + img.height + '"' : '') +
+					' class="img-fluid"></a>';
 			}
 			res += '</div>';
 			return res;
@@ -1428,7 +1428,10 @@ function createSingleImageCreator() {
 	return {
 		createImageDiv: function (images, btnId) {
 			var img = images.getImage(0);
-			return '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '" alt="' + img.text + '" class="img-fluid" width="1000" height="1000"></a>';
+			return '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '" alt="' + img.text + '" class="img-fluid"'
+			+ (img.height !== undefined ? ' height=\"' + img.height + '"' : "")
+			+ (img.width !== undefined ? ' height=\"' + img.width + '"' : "")
+			'></a>';
 		},
 		updateImg: function (images, id) {}
 	};
