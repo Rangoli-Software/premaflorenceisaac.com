@@ -912,6 +912,10 @@ function createCheckoutComponent(componentId, shop, cart, allCartC) {
 			$(idString).modal("hide");
 		},
 		updateUI: function () {
+			if ($("#sc-paypal-btn").text() === 'init') {
+				$("#sc-paypal-btn").empty();
+				return;
+			}
 			$("#sc-paypal-btn").empty();
 			createPaypalCheckoutButton("#sc-paypal-btn", this.shop, this.cart, this.allCartC.shippingCalc, this.allCartC);
 			var idString = '#' + this.componentId;
