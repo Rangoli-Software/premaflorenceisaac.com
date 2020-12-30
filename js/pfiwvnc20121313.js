@@ -263,7 +263,7 @@ wovencanvas.tshirt.prodData = {
 			vid: "CW1",
 			Name: 'White',
 			colourName: 'White',
-			images: ["ManWhiteS", "GirlWhiteS", "InBagSq"]
+			images: ["ManWhiteS", "wc2", "InBagSq"]
         },
 		{
 			vid: "CW2",

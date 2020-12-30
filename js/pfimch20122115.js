@@ -24,7 +24,7 @@ const merchInfo = [
 		SKUvid: 'AWTSHT1604Je-CW1',
 		ledes: ['In White. A #oneofakind T-shirt.'],
 		images: [{
-			url: '/g/merch/wc2.jpg'
+			url: '/products/wovencanvas/wc/GirlWhiteS.jpg'
 		}]
     },
 	{
