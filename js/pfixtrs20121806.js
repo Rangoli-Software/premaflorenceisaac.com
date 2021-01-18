@@ -70,10 +70,10 @@ extras.champagnebag = {
 	SKU: 'CHMPGN1501JL',
 	basePath: '/products/xtras/',
 	imgDir: 'chambag',
-	imageFile: ".jpg",
-	dimensionNames: ["A. Height", "B. Circumference"],
+	imageFile: "sizing.jpg",
+	dimensionNames: ["A. Height", "B. Diameter"],
 	dimensionsCm: {
-		Free: [31, 30]
+		Free: [31, 9.55]
 	},
 	getFabric: function (varidx) {
 		return "Jacquard Lace";
@@ -85,7 +85,7 @@ extras.champagnebag = {
 			width: "1000",
 			height: "1000",
             colourPfx: "CBCG",
-            colourSfxs: ["MD"]
+            colourSfxs: ["MD","F","B"]
         },
 		{
 			colourName: "Champagne",
@@ -93,7 +93,7 @@ extras.champagnebag = {
 			width: "1000",
 			height: "1000",
             colourPfx: "CBCC",
-            colourSfxs: ["MD"]
+            colourSfxs: ["MD","F","B"]
         },
 		{
 			colourName: "Midnight Blue",
@@ -101,7 +101,7 @@ extras.champagnebag = {
 			width: "1000",
 			height: "1000",
             colourPfx: "CBMB",
-            colourSfxs: ["MD"]
+            colourSfxs: ["MD","F","B"]
         }
     ],
 	sizes: ['Free'],
