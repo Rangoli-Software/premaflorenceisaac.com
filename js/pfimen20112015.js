@@ -54,12 +54,16 @@ vagabond.angkor = {
         {
             colourName: "Black",
             vid: "CW1",
+			width: "1600",
+			height: "2400",
             colourPfx: "black",
             colourSfxs: ["hero", "front", "back", "detail-1", "detail-2"]
         },
         {
             colourName: "Grey",
             vid: "CW2",
+			width: "1600",
+			height: "2400",
             colourPfx: "white",
             colourSfxs: ["hero", "front-1", "front-2", "back", "detail"]
         }
@@ -89,6 +93,8 @@ vagabond.arambol = {
         {
             colourName: "Black",
             vid: "CW1",
+			width: "1600",
+			height: "2400",
             colourPfx: "black",
             colourSfxs: ["hero", "front", "detail"]
         }
@@ -139,6 +145,8 @@ vagabond.koh = {
         {
             colourName: "Black",
             vid: "CW1",
+			width: "1600",
+			height: "2400",
             colourPfx: "black",
             colourSfxs: ["hero", "front", "side"]
         }
@@ -168,8 +176,10 @@ vagabond.mavericks = {
         {
             colourName: "Black",
             vid: "CW1",
-            colourPfx: "black",
-            colourSfxs: ["hero", "front", "back", "side", "detail", "detail-2"]
+			width: "1600",
+			height: "2400",
+            colourPfx: "mav",
+            colourSfxs: ["F", "B", "D1", "D2", "D3"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -196,6 +206,8 @@ vagabond.narigama = {
         {
             colourName: "Grey",
             vid: "CW2",
+			width: "1600",
+			height: "2400",
             colourPfx: "grey",
             colourSfxs: ["hero", "front", "side", "detail"]
         }
@@ -224,6 +236,8 @@ vagabond.pondy = {
         {
             colourName: "Black",
             vid: "CW1",
+			width: "1600",
+			height: "2400",
             colourPfx: "black",
             colourSfxs: ["hero", "front", "back", "side", "detail"]
         }
@@ -252,8 +266,10 @@ vagabond.ubud = {
         {
             colourName: "Black",
             vid: "CW1",
-            colourPfx: "black",
-            colourSfxs: ["hero", "side", "back"]
+			width: "1600",
+			height: "2400",
+            colourPfx: "ubud",
+            colourSfxs: ["F", "B", "D1", "D2"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -281,6 +297,8 @@ vagabond.manhattanpant = {
         {
             colourName: "Khaki",
             vid: "CW1",
+			width: "1600",
+			height: "2400",
             colourPfx: "khaki",
             colourSfxs: ["f1", "s", "d1", "d2"]
         }
@@ -309,6 +327,8 @@ vagabond.manhattanshirt = {
         {
             colourName: "Navy",
             vid: "CW1",
+			width: "1600",
+			height: "2400",
             colourPfx: "navy",
             colourSfxs: ["f", "b1", "s", "d11", "d2"]
         }
