@@ -57,7 +57,7 @@ vagabond.angkor = {
 			width: "1600",
 			height: "2400",
             colourPfx: "black",
-            colourSfxs: ["hero", "front", "back", "detail-1", "detail-2"]
+            colourSfxs: ["hero1", "front", "back", "detail-1", "detail-2"]
         },
         {
             colourName: "Grey",
@@ -179,7 +179,7 @@ vagabond.mavericks = {
 			width: "1600",
 			height: "2400",
             colourPfx: "mav",
-            colourSfxs: ["F", "B", "D1", "D2", "D3"]
+            colourSfxs: ["F.1", "B.1", "D1.1", "D2.1", "D3.1"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
@@ -269,7 +269,7 @@ vagabond.ubud = {
 			width: "1600",
 			height: "2400",
             colourPfx: "ubud",
-            colourSfxs: ["F", "B", "D1", "D2"]
+            colourSfxs: ["F.1", "B.1", "D1.1", "D2.1"]
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
