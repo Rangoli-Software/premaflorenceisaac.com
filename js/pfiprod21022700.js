@@ -332,7 +332,7 @@ function createComponentGenerator(uiFactory, prodJSON, viewerFactory, sizeSelect
 			var sizeChartr;
 			if (viewerFactory.createSizeChartr === undefined) {
 				var chart = skuInfo.getSizeChart();
-				sizeChartr = chart !== null ? createSizeChartr(chart, skuInfo.sizes) : null;
+				sizeChartr = chart !== null && chart !== undefined ? createSizeChartr(chart, skuInfo.sizes) : null;
 			} else {
 				sizeChartr = viewerFactory.createSizeChartr();
 			}

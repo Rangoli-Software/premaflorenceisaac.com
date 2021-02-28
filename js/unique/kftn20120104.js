@@ -1,6 +1,6 @@
 function getKaftanFactory(sku) {
     var listData = [
-[1, ['1F', '1B'], '#27283D', 'Ebony Clay', null],
+[1, ['1F', '1B'], '#27283D', 'Ebony Clay', {Name: 'Ananda Shanti', Date: '2021-02'}],
 [2, ['2F', '2B'], '#A25C6D', 'Tapestry', null],
 [3, ['3F', '3B'], '#6D302B', 'Spice', null],
 [4, ['4F', '4B'], '#C1A85F', 'Husk', null],

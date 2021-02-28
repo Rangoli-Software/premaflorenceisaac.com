@@ -314,11 +314,83 @@ artwear.nakshamidi = naksha.createStyle(naksha.midiSKU);
 artwear.nakshamini = naksha.createStyle(naksha.miniSKU);
 artwear.nakshamicro = naksha.createStyle(naksha.microSKU);
 
+artwear.tote = {};
+artwear.tote.SKU = 'TNTGBG1501';
+artwear.tote.getFactory = getToteFactory;
+artwear.tote.prodData = {
+	imageFile: "sizing.jpg",
+	dimensionNames: ["A. Drop", "B. Height", "C. Width"],
+	dimensionsCm: {
+		Free: [60, 39, 32]
+	},
+	data: [{
+		vid: "CW1",
+		images: ["nfm01", "b-f", "b-b", "b-l", "many-1"]
+    }],
+	sizes: ['Free'],
+	description: 'As the name suggests, this is a unique one-of-a-kind gifting bag, cut in Jamdani or Tangail sari. We design to optimise every part of the intricately woven sari. It is a great carry on tote that can be used while running errands around town. It compliments different outfits and easy to maintain.',
+	garmentDetails: '<ul><li>Single layer of Tangail / Jamdani</li><li>Tote bag</li><li>Two shoulder straps</li></ul>',
+};
+artwear.tote.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
+artwear.tote.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
+artwear.tote.createCardCreator = function () {
+	return createArtWearCardCreator(createSquareImageCarousel);
+};
+artwear.tote.createJSON = createArtwearJSON;
+
+artwear.liljhola = {};
+artwear.liljhola.SKU = 'TNTGBG1501';
+artwear.liljhola.getFactory = getLilJholaFactory;
+artwear.liljhola.prodData = {
+	imageFile: "sizing.jpg",
+	dimensionNames: ["A. Drop", "B. Height", "C. Width"],
+	dimensionsCm: {
+		Free: [55, 22, 25]
+	},
+	data: [{
+		vid: "CW1",
+		images: ["nfm01", "b-f", "b-b", "b-l", "many-1"]
+    }],
+	sizes: ['Free'],
+	description: '',
+	garmentDetails: '<ul><li></li><li></li><li></li></ul>',
+};
+artwear.liljhola.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
+artwear.liljhola.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
+artwear.liljhola.createCardCreator = function () {
+	return createArtWearCardCreator(createSquareImageCarousel);
+};
+artwear.liljhola.createJSON = createArtwearJSON;
+
+artwear.tabletjhola = {};
+artwear.tabletjhola.SKU = 'TNTGBG1501';
+artwear.tabletjhola.getFactory = getTabletJholaFactory;
+artwear.tabletjhola.prodData = {
+	imageFile: "sizing.jpg",
+	dimensionNames: ["A. Drop", "B. Height", "C. Width"],
+	dimensionsCm: {
+		Free: [55, 22, 25]
+	},
+	data: [{
+		vid: "CW1",
+		images: ["nfm01", "b-f", "b-b", "b-l", "many-1"]
+    }],
+	sizes: ['Free'],
+	description: 'The Tablet Jhola is our take on a messenger bag, made in Tangail/Jamdani with a contrasting khadi. The borders of the sari are carefully placed on the shoulder strap so when worn as a crosbody bag, it elevates your outfit. It\'s and ideal size to carry a tablet and a notebook to work or a coffee shop.',
+	garmentDetails: '<ul><li></li><li></li><li></li></ul>',
+};
+artwear.tabletjhola.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
+artwear.tabletjhola.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
+artwear.tabletjhola.createCardCreator = function () {
+	return createArtWearCardCreator(createSquareImageCarousel);
+};
+artwear.tabletjhola.createJSON = createArtwearJSON;
+
 artwear.catalog = {
 	title: "Art Wear",
 	shopURL: "/products/artwear/shop.html",
 	skus: null,
-	styles: [artwear.tamarai, artwear.kamalam, artwear.kaftan, artwear.saritop, artwear.ravakai, artwear.madras, artwear.payara, artwear.longovertop, artwear.shortovertop, artwear.nakshaminuit, artwear.nakshamidi, artwear.nakshamini, artwear.nakshamicro],
+	styles: [artwear.tamarai, artwear.kamalam, artwear.kaftan, artwear.saritop, artwear.ravakai, artwear.madras, artwear.payara, artwear.longovertop, artwear.shortovertop, artwear.nakshaminuit, artwear.nakshamidi, artwear.nakshamini, artwear.nakshamicro, artwear.tote, artwear.liljhola, artwear.tabletjhola],
 	dresses: [artwear.tamarai.SKU, artwear.kamalam.SKU, artwear.kaftan.SKU],
 	skirts: [artwear.nakshaminuit.SKU, artwear.nakshamidi.SKU, artwear.nakshamini.SKU, artwear.nakshamicro.SKU],
 	separates: [artwear.saritop.SKU, artwear.ravakai.SKU, artwear.madras.SKU, artwear.payara.SKU, artwear.longovertop.SKU, artwear.shortovertop.SKU],

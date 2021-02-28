@@ -616,6 +616,29 @@ cesoir.viola = {
     garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>Asymmetrical</li><li>A line with voluminous flare</li><li>Slips on</li>'
 };
 
+cesoir.clutch = {
+    SKU: "CHNCLT1510",
+    imgDir: 'clutch',
+    imageFile: "sizing.jpg",
+    dimensionNames: ['A. Drop', 'B. Height', 'C. Width'],
+    dimensionsCm: {
+		Free: []
+    },
+    getFabric: function (varidx) {
+        return "P.F.I. Tangail";
+    },
+    data: [
+        {
+            vid: "CW1",
+            colourPfx: "b",
+            colourSfxs: ["1", "2", "3", "4"]
+        }
+    ],
+    sizes: ['Free'],
+    description: 'This clutch is a quilted velvet bag with a metal chain-link. The shoulder bag can effortlessly transition from a brunch date to an evening clutch, just detach the chain. It accentuates your outfit by adding a pop of colour. It has multiple compartments to carry your phone and keys, and your lipstick for a quick touch up.',
+    garmentDetails: '<ul><li>Quilted velvet finish</li><li>Lining in satin</li><li>3 compartments</li><li>Zip fastening in the top</li><li>Detachable chain shoulder strap</li></ul>'
+};
+
 cesoir.createJSON = function (style) {
     var basePath = "/products/night/" + style.imgDir + "/";
     return createProductJSON(style.SKU, basePath, style, style.sizing, createCWImageFactory);

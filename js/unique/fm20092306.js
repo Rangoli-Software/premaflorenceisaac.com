@@ -1,5 +1,5 @@
 function getFaceMaskFactory(sku) {
-listData = [
+var listData = [
     [1, ["1b"], "#588E79", "Patina", null],
     [2, ["2a"], "#A35367", "Brown Rust", null],
     [3, ["3a"], "#DBD8C5", "Moon Mist", null],
