@@ -321,7 +321,7 @@ artwear.tote.prodData = {
 	imageFile: "sizing.jpg",
 	dimensionNames: ["A. Drop", "B. Height", "C. Width"],
 	dimensionsCm: {
-		Free: [60, 39, 32]
+		Free: [30, 39, 32]
 	},
 	data: [{
 		vid: "CW1",
@@ -339,13 +339,13 @@ artwear.tote.createCardCreator = function () {
 artwear.tote.createJSON = createArtwearJSON;
 
 artwear.liljhola = {};
-artwear.liljhola.SKU = 'TNTGBG1501';
+artwear.liljhola.SKU = 'LLBGSM1501TB';
 artwear.liljhola.getFactory = getLilJholaFactory;
 artwear.liljhola.prodData = {
 	imageFile: "sizing.jpg",
 	dimensionNames: ["A. Drop", "B. Height", "C. Width"],
 	dimensionsCm: {
-		Free: [55, 22, 25]
+		Free: [26, 22, 25]
 	},
 	data: [{
 		vid: "CW1",
@@ -363,13 +363,13 @@ artwear.liljhola.createCardCreator = function () {
 artwear.liljhola.createJSON = createArtwearJSON;
 
 artwear.tabletjhola = {};
-artwear.tabletjhola.SKU = 'TNTGBG1501';
+artwear.tabletjhola.SKU = 'LLBGMD1501TB';
 artwear.tabletjhola.getFactory = getTabletJholaFactory;
 artwear.tabletjhola.prodData = {
 	imageFile: "sizing.jpg",
 	dimensionNames: ["A. Drop", "B. Height", "C. Width"],
 	dimensionsCm: {
-		Free: [55, 22, 25]
+		Free: [47, 29, 31.5]
 	},
 	data: [{
 		vid: "CW1",
@@ -386,11 +386,35 @@ artwear.tabletjhola.createCardCreator = function () {
 };
 artwear.tabletjhola.createJSON = createArtwearJSON;
 
+artwear.messengerjhola = {};
+artwear.messengerjhola.SKU = 'LLBGBG1501TB';
+artwear.messengerjhola.getFactory = getMessengerJholaFactory;
+artwear.messengerjhola.prodData = {
+	imageFile: "sizing.jpg",
+	dimensionNames: ["A. Drop", "B. Height", "C. Width"],
+	dimensionsCm: {
+		Free: [55, 22, 25]
+	},
+	data: [{
+		vid: "CW1",
+		images: ["nfm01", "b-f", "b-b", "b-l", "many-1"]
+    }],
+	sizes: ['Free'],
+	description: 'The Tablet Jhola is our take on a messenger bag, made in Tangail/Jamdani with a contrasting khadi. The borders of the sari are carefully placed on the shoulder strap so when worn as a crosbody bag, it elevates your outfit. It\'s and ideal size to carry a tablet and a notebook to work or a coffee shop.',
+	garmentDetails: '<ul><li></li><li></li><li></li></ul>',
+};
+artwear.messengerjhola.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
+artwear.messengerjhola.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
+artwear.messengerjhola.createCardCreator = function () {
+	return createArtWearCardCreator(createSquareImageCarousel);
+};
+artwear.messengerjhola.createJSON = createArtwearJSON;
+
 artwear.catalog = {
 	title: "Art Wear",
 	shopURL: "/products/artwear/shop.html",
 	skus: null,
-	styles: [artwear.tamarai, artwear.kamalam, artwear.kaftan, artwear.saritop, artwear.ravakai, artwear.madras, artwear.payara, artwear.longovertop, artwear.shortovertop, artwear.nakshaminuit, artwear.nakshamidi, artwear.nakshamini, artwear.nakshamicro, artwear.tote, artwear.liljhola, artwear.tabletjhola],
+	styles: [artwear.tamarai, artwear.kamalam, artwear.kaftan, artwear.saritop, artwear.ravakai, artwear.madras, artwear.payara, artwear.longovertop, artwear.shortovertop, artwear.nakshaminuit, artwear.nakshamidi, artwear.nakshamini, artwear.nakshamicro, artwear.tote, artwear.liljhola, artwear.tabletjhola, artwear.messengerjhola],
 	dresses: [artwear.tamarai.SKU, artwear.kamalam.SKU, artwear.kaftan.SKU],
 	skirts: [artwear.nakshaminuit.SKU, artwear.nakshamidi.SKU, artwear.nakshamini.SKU, artwear.nakshamicro.SKU],
 	separates: [artwear.saritop.SKU, artwear.ravakai.SKU, artwear.madras.SKU, artwear.payara.SKU, artwear.longovertop.SKU, artwear.shortovertop.SKU],
