@@ -254,14 +254,68 @@ cesoir.bianca = {
 
 };
 
-cesoir.celia = {
+cesoir.celiamini = {
     SKU: "NKSHMI1501PT",
-    imgDir: 'celia',
+    imgDir: 'celiamini',
     sizing: sd_sizing_bottoms,
     imageFile: "sizing1.jpg",
     dimensionNames: ["A. Length", "B. Outer Layer Length", "C. Hem", "D. Waist - Relaxed", "D. Waist - Stretched"],
     dimensionsCm: {
         Free: [62, 53, 336, 72, 130]
+    },
+    getFabric: function (varidx) {
+        return "P.F.I. Tangail";
+    },
+    data: [
+        {
+            colourName: "Black &amp; Silver",
+            vid: "CW1",
+            colourPfx: "b",
+            colourSfxs: ["1", "2", "3"]
+        }
+    ],
+    sizes: ['Free'],
+    description: 'Celia Skirt is one of our favourite silhouettes. It\'s cut in the finest cotton P.F.I. Tangail. This exquisite cotton is often mistaken as silk by my clients. It has an incredible volume to play around in and is freesize! The waist band is made up of 9 rows of elastic. Because of the need for care while working with the delicate Tangail fabric, it can take a skilled tailor almost a full day of work to create this waistband. The result is a freesize waist with a snug, comfortable fit. It can work from day to night and it\'s groovy flare will have you swirling all day. Pair it with our Portia Top to take it up a notch or wear a basic t-shirt to keep it subtle.',
+    garmentDetails: '<li>Freesize - Broad elastic at the waist</li><li>P.F.I. Tangail</li><li>Midi length</li><li>A line with voluminous flare</li>'
+};
+cesoir.celiamidi = {
+    SKU: "NKSHMD1501PT",
+    imgDir: 'celiamidi',
+    sizing: sd_sizing_bottoms,
+    imageFile: "sizing.jpg",
+    dimensionNames: ["A. Length", "B. Outer Layer Length", "C. Hem", "D. Waist - Relaxed", "D. Waist - Stretched"],
+    dimensionsCm: {
+		Free: [81, 72, 376, 72, 130]
+    },
+    getFabric: function (varidx) {
+        return "P.F.I. Tangail";
+    },
+    data: [
+        {
+            colourName: "Black &amp; Silver",
+            vid: "CW1",
+            colourPfx: "b",
+            colourSfxs: ["1", "2", "3"]
+        },
+        {
+            colourName: "White",
+            vid: "CW2",
+            colourPfx: "w",
+            colourSfxs: ["1", "2", "3"]
+        }
+    ],
+    sizes: ['Free'],
+    description: 'Celia Skirt is one of our favourite silhouettes. It\'s cut in the finest cotton P.F.I. Tangail. This exquisite cotton is often mistaken as silk by my clients. It has an incredible volume to play around in and is freesize! The waist band is made up of 9 rows of elastic. Because of the need for care while working with the delicate Tangail fabric, it can take a skilled tailor almost a full day of work to create this waistband. The result is a freesize waist with a snug, comfortable fit. It can work from day to night and it\'s groovy flare will have you swirling all day. Pair it with our Portia Top to take it up a notch or wear a basic t-shirt to keep it subtle.',
+    garmentDetails: '<li>Freesize - Broad elastic at the waist</li><li>P.F.I. Tangail</li><li>Midi length</li><li>A line with voluminous flare</li>'
+};
+cesoir.celiaminunit = {
+    SKU: "NKSHMU1501PT",
+    imgDir: 'celiaminuit',
+    sizing: sd_sizing_bottoms,
+    imageFile: "sizing.jpg",
+    dimensionNames: ["A. Length", "B. Outer Layer Length", "C. Hem", "D. Waist - Relaxed", "D. Waist - Stretched"],
+    dimensionsCm: {
+		Free: [102, 93, 392, 72, 130]
     },
     getFabric: function (varidx) {
         return "P.F.I. Tangail";
@@ -648,9 +702,9 @@ cesoir.catalog = {
     title: "Ce Soir",
     shopURL: "/products/night/shop.html",
     skus: null,
-    styles: [cesoir.bianca, cesoir.celia, cesoir.cleopatrashorts, cesoir.cleopatratop, cesoir.emilia, cesoir.helena, cesoir.juliet, cesoir.nerissapant, cesoir.nerissatop, cesoir.ophelia, cesoir.portia, cesoir.tamora, cesoir.titania, cesoir.viola],
+    styles: [cesoir.bianca, cesoir.celiamini, cesoir.celiamidi, cesoir.celiaminunit, cesoir.cleopatrashorts, cesoir.cleopatratop, cesoir.emilia, cesoir.helena, cesoir.juliet, cesoir.nerissapant, cesoir.nerissatop, cesoir.ophelia, cesoir.portia, cesoir.tamora, cesoir.titania, cesoir.viola],
     dresses: [cesoir.emilia.SKU, cesoir.helena.SKU, cesoir.juliet.SKU, cesoir.ophelia.SKU, cesoir.tamora.SKU, cesoir.titania.SKU, cesoir.viola.SKU],
-    nondresses: [cesoir.cleopatrashorts.SKU, cesoir.cleopatratop.SKU, cesoir.celia.SKU, cesoir.portia.SKU],
+    nondresses: [cesoir.cleopatrashorts.SKU, cesoir.cleopatratop.SKU, cesoir.celiamini.SKU, cesoir.celiamidi.SKU, cesoir.celiaminunit.SKU cesoir.portia.SKU],
     productDB: null,
     getProduct: function (sku) {
         return this.productDB[sku];
