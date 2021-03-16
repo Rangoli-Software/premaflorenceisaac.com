@@ -164,10 +164,13 @@ pfiavG.getLineInitializer = function (thisLine) {
             }
             return map;
         },
-        initialize: function () {
+        initialize: function (initVnts) {
             this.catalog.productDB = 
                 this.catalog.createProductDB === undefined ? this.createProductDB() : this.catalog.createProductDB();
             this.catalog.skus = this.catalog.styles.map(p => p.SKU);
-        }
+			if ( initVnts !== undefined && initVnts ) {
+				this.catalog.skuvariants = this.catalog.styles.flatMap(p => p.data.map(d => p.SKU + "-" + d.vid));
+			}
+        },
     };
 }

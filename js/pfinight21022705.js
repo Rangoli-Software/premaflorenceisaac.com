@@ -711,7 +711,7 @@ cesoir.catalog = {
     }
 };
 
-pfiavG.getLineInitializer(cesoir).initialize();
+pfiavG.getLineInitializer(cesoir).initialize(true);
 
 cesoir.categorizer = createFieldCategorizer(
     cesoir.catalog,
