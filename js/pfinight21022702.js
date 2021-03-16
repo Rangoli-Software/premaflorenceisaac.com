@@ -1,10 +1,10 @@
 const cesoir = {};
 
-cesoir.createComponentFactory = function (prodInfo, dimensioner, sizer, categorizer) {
+cesoir.createComponentFactory = function (prodInfo, dimensioner, sizer, categorizer, modelTxt) {
     var navHelper = createNavHelper(prodInfo, categorizer, cesoir.catalog.title);
     var relatedviewer = createEmptyViewer();
-    var modelTxt = "The model is 5 ft 7 in (171 cm.) and wearing size '" + prodInfo.skuInfo.sizes[0] + "'<br>This garment is bespoke-tailored (sur-mesure), so the sizes in the chart are only the starting point for your order<br>";
-    return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, modelTxt, "Size", true);
+    var mT = (modelTxt === undefined ? "The model is 5 ft 7 in (171 cm.)" : modelTxt) + " and wearing size '" + prodInfo.skuInfo.sizes[0] + "'<br>This garment is bespoke-tailored, so the chart size is only the starting point for your order<br>" : modelTxt;
+    return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, mT, "Size", true);
 }
 
 const sd_sizing_tops = {
@@ -306,7 +306,7 @@ cesoir.celiamidi = {
     ],
     sizes: ['Free'],
     description: 'Celia Skirt is one of our favourite silhouettes. It\'s cut in the finest cotton P.F.I. Tangail. This exquisite cotton is often mistaken as silk by my clients. It has an incredible volume to play around in and is freesize! The waist band is made up of 9 rows of elastic. Because of the need for care while working with the delicate Tangail fabric, it can take a skilled tailor almost a full day of work to create this waistband. The result is a freesize waist with a snug, comfortable fit. It can work from day to night and it\'s groovy flare will have you swirling all day. Pair it with our Portia Top to take it up a notch or wear a basic t-shirt to keep it subtle.',
-    garmentDetails: '<li>Freesize - Broad elastic at the waist</li><li>P.F.I. Tangail</li><li>Midi length</li><li>A line with voluminous flare</li>'
+    garmentDetails: '<li>Freesize - Broad elastic at the waist</li><li>P.F.I. Tangail</li><li>Midi length</li><li>A line with voluminous flare</li>',
 };
 cesoir.celiaminunit = {
     SKU: "NKSHMU1501PT",
