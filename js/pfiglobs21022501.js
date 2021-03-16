@@ -1,4 +1,4 @@
-const shopRevisionVersion = "21022500";
+const shopRevisionVersion = "21022501";
 
 const pfiavG = {};
 pfiavG.lineNames = ["Art Wear", "It's Magic", "Ce Soir", "Happy Everyday"];
@@ -66,7 +66,9 @@ const cmData = [
 
 ['Bianca Dress','BNCADR1505PT','','1.15','/products/night/biancaD.html','FALSE'],
 ['Bianca Jacket','BNCJKT1505PT','','1.15','/products/night/biancaJ.html','FALSE'],
-['Celia Mini Skirt','NKSHMI1501PT','0.25','1.15','/products/night/celia.html','FALSE'],
+['Celia Mini Skirt','NKSHMI1501PT','0.25','1.2','/products/night/celia.html','FALSE'],
+['Celia Midi Skirt','NKSHMD1501PT','0.34','1.2','/products/night/clia.html?s=d','FALSE'],
+['Celia Minuit Skirt','NKSHMU1501PT','0.4','1.2','/products/night/clia.html?s=u','FALSE'],
 ['Cleopatra Top','CLPTRT1505PT','0.05','1.15','/products/night/cleoT.html','FALSE'],
 ['Cleopatra Shorts','CLPTRS1505PT','0.1','1.15','/products/night/cleoS.html','FALSE'],
 ['Emilia Dress','EMLDRS1505PT','0.2','1.15','/products/night/emilia.html','FALSE'],
@@ -193,6 +195,8 @@ const plData = [
 ['BNCADR1505PT',29700],
 ['BNCJKT1505PT',29700],
 ['NKSHMI1501PT',18000],
+['NKSHMD1501PT',19800],
+['NKSHMU1501PT',21780],
 ['CLPTRT1505PT',9900],
 ['CLPTRS1505PT',14400],
 ['EMLDRS1505PT',29700],

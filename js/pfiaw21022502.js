@@ -334,7 +334,7 @@ artwear.tote.prodData = {
 artwear.tote.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
 artwear.tote.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
 artwear.tote.createCardCreator = function () {
-	return createArtWearCardCreator(createSquareImageCarousel);
+	return createUICardCreator();
 };
 artwear.tote.createJSON = createArtwearJSON;
 
