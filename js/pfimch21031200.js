@@ -28,6 +28,42 @@ const merchInfo = [
 		}]
     },
 	{
+		SKU: 'NKSHMD1501PT',
+		vidx: '1',
+		vid: "CW1",
+		SKUvid: 'NKSHMD1501PT-CW1',
+		ledes: [''],
+		images: [{
+			url: '/g/merch/celmdb.jpg'
+		}]
+    },
+	{
+		SKU: 'NKSHMD1501PT',
+		vidx: '2',
+		vid: "CW2",
+		SKUvid: 'NKSHMD1501PT-CW2',
+		ledes: [''],
+		images: [{
+			url: '/g/merch/celmdw.jpg'
+		},{
+			url: '/g/merch/celmdw2.jpg'
+		}]
+    },
+	{
+		SKU: 'NKSHMU1501PT',
+		ledes: [''],
+		images: [{
+			url: '/g/merch/celmu.jpg'
+		}]
+    },
+	{
+		SKU: 'TNTGBG1501',
+		ledes: [''],
+		images: [{
+			url: '/g/merch/ttote.jpg'
+		}]
+    },
+	{
 		SKU: 'OVTPSH1501Pa',
 		ledes: [''],
 		images: [{
@@ -424,7 +460,7 @@ function createMIPageSet() {
 	var catalog = pfiavG.catalog;
 	for (var i = 0; i < pages.length; i++) {
 		var item = pages[i];
-		item.SKUvid = item.SKU + (item.vid !== undefined ? "-" + item.vid: "");
+		item.SKUvid = item.SKU + (item.vid !== undefined ? "-" + item.vid : "");
 		item.title = catalog[item.SKU].name;
 		item.url = catalog[item.SKU].url;
 	}
@@ -438,7 +474,7 @@ function createPageIndex(page) {
 		mentioned: createPageSet([]),
 		miPageSet: createMIPageSet(),
 
-		includePages: function(pages) {
+		includePages: function (pages) {
 			this.included.pages = this.included.pages.concat(pages);
 		},
 		createFeatures: function () {
@@ -455,7 +491,7 @@ function createPageIndex(page) {
 			this.included = createPageSet(this.included.pages.concat(merch));
 			return merch[0].createCard();
 		},
-		createShopFeatureList: function(nItem) {
+		createShopFeatureList: function (nItem) {
 			var pageSel = createPageSelector(this.miPageSet);
 			return pageSel.selectShopFeatureList(nItem).pages;
 		}
@@ -536,14 +572,14 @@ function createStorySampler(all) {
 }
 
 function createPageSelector(mips) {
-	var shopFeatureSKUs = [['AWTSHT1604Je-CW1','AWTSHT1604Je-CW2','NKSHMD1501PP','FACEMK2005Ta','NKSHMD1501PP']];
+	var shopFeatureSKUs = [['AWTSHT1604Je-CW1', 'AWTSHT1604Je-CW2', 'NKSHMD1501PP', 'FACEMK2005Ta', 'NKSHMD1501PP']];
 	var lineMerchSKUs = [
-    ["AWTSHT1604Je-CW1","AWTSHT1604Je-CW2"],
-    ["OVTPSH1501Pa", "OVTPLO1501Pa", "TRPZTP1807Pa", "MDRSTP1606PP", "SARITP1501Pa", "LNKFTN1501Ja", "LOTSDR1501Ja", "NKSHDR1501Ta", "NKSHMU1501PP", "NKSHMD1501PP", "JULITP1501Pa", "NKSHMC1512PP"],
-    ["KLGTLY1601Rv", "KGYPST1601Rv", "KRAJPT1601Kh", "FAIRST2011Rv", "KBALPA1601Vo", "KRAJKT1601Rv", "YUVRTC1601Rv", "HLFPNT1601Kh", "KIDIKI1501Vi", "PRNCDR1501Rv", "KWAVDR1601Rv", "KDHRDR1601Rv"],
-    ["HLNDRS1505PT", "JLTDRS1505PT", "BKLLTS1505Je", "NKSHMI1501PT"],
-    ["TRPZTP1807Kh", "CRPTOP1805Kh", "VAMPAL1708Kh", "OVTPLO1501Vo", "BERMPA1609Kh", "LTSDSL1501Kh", "BALLPA1501Vo"],
-    ["DPDYSF1501PT", "FACEMK2005Ta", "KAGTIE1601Kh", "CHMPGN1501JL"]
+    ["AWTSHT1604Je-CW1", "AWTSHT1604Je-CW2"],
+	["OVTPSH1501Pa", "OVTPLO1501Pa", "TRPZTP1807Pa", "MDRSTP1606PP", "JULITP1501Pa", "SARITP1501Pa", "LNKFTN1501Ja", "LOTSDR1501Ja", "NKSHDR1501Ta", "NKSHMU1501PP", "NKSHMD1501PP", "NKSHMI1501PP", "NKSHMC1512PP"], 
+	["KLGTLY1601Rv", "KGYPST1601Rv", "KRAJPT1601Kh", "FAIRST2011Rv", "KBALPA1601Vo", "KRAJKT1601Rv", "YUVRTC1601Rv", "HLFPNT1601Kh", "KIDIKI1501Vi", "PRNCDR1501Rv", "KWAVDR1601Rv", "KDHRDR1601Rv"], 
+	["NKSHMD1501PT-CW1", "NKSHMD1501PT-CW2", "NKSHMU1501PT", "HLNDRS1505PT", "JLTDRS1505PT", "NKSHMI1501PT", "BKLLTS1505Je"], 
+	["TRPZTP1807Kh", "CRPTOP1805Kh", "VAMPAL1708Kh", "OVTPLO1501Vo", "BERMPA1609Kh", "LTSDSL1501Kh", "BALLPA1501Vo"],
+	["FACEMK2005Ta", "DPDYSF1501PT", "KAGTIE1601Kh", "CHMPGN1501JL"]
 	];
 	var lineMerchSections = [
 		{
@@ -585,7 +621,7 @@ function createPageSelector(mips) {
 		merchSKUs: merchSKUs,
 		merchSKUSampler: createMerchandisingSampler(lineMerchSKUs, lineMerchSections, lineMerchWeights),
 		storySampler: createStorySampler(allstories),
-		selectShopFeatureList: function(nItems) {
+		selectShopFeatureList: function (nItems) {
 			var skulist = this.shopSKUsSampler.sampleN(nItems).sample.map(s => s.SKUvid);
 			return this.miPageSet.filter(pg => skulist.includes(pg.SKUvid));
 		},
@@ -741,13 +777,13 @@ function createStoryRef(s, itm, inContext) {
 				res += eval(this.imageScript);
 			}
 			res += '<div class="card-body px-0 pt-6 pb-4">';
-			if ( ! inContext ) {
+			if (!inContext) {
 				res += '<div class="card-subtitle mb-1"><a class="text-muted" href="' + this.sec.url + '">' + this.sec.title + '</a></div>';
 			}
 			if (item.url !== undefined) {
 				res += '<h6 class="card-title mb-2">' + this.title + '<a  href="' + this.url + '"' + (getHostName(this.url) === null ? '' : ' target="_blank"') + '><i class="fe ' + (getHostName(this.url) === null ? 'fe-arrow-right' : 'fe-external-link') + ' ml-2"></i></a></h6>';
 			}
-			if ( ! inContext ) {
+			if (!inContext) {
 				res += '<p class="mb-1 pfi-lc" style="--lcn: 2">' + this.lede + '</p>';
 			} else {
 				res += '<p class="mb-1">' + this.lede + '</p>';
