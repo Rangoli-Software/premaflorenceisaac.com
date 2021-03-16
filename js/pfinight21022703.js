@@ -3,7 +3,7 @@ const cesoir = {};
 cesoir.createComponentFactory = function (prodInfo, dimensioner, sizer, categorizer, modelTxt) {
     var navHelper = createNavHelper(prodInfo, categorizer, cesoir.catalog.title);
     var relatedviewer = createEmptyViewer();
-    var mT = (modelTxt === undefined ? "The model is 5 ft 7 in (171 cm.)" : modelTxt) + " and wearing size '" + prodInfo.skuInfo.sizes[0] + "'<br>This garment is bespoke-tailored, so the chart size is only the starting point for your order<br>" : modelTxt;
+    var mT = (modelTxt === undefined ? "The model is 5 ft 7 in (171 cm.)" : modelTxt) + " and wearing size '" + prodInfo.skuInfo.sizes[0] + "'<br>This garment is bespoke-tailored, so the chart size is only the starting point for your order<br>";
     return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, mT, "Size", true);
 }
 
