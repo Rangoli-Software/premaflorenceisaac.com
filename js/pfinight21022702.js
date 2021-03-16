@@ -704,7 +704,7 @@ cesoir.catalog = {
     skus: null,
     styles: [cesoir.bianca, cesoir.celiamini, cesoir.celiamidi, cesoir.celiaminunit, cesoir.cleopatrashorts, cesoir.cleopatratop, cesoir.emilia, cesoir.helena, cesoir.juliet, cesoir.nerissapant, cesoir.nerissatop, cesoir.ophelia, cesoir.portia, cesoir.tamora, cesoir.titania, cesoir.viola],
     dresses: [cesoir.emilia.SKU, cesoir.helena.SKU, cesoir.juliet.SKU, cesoir.ophelia.SKU, cesoir.tamora.SKU, cesoir.titania.SKU, cesoir.viola.SKU],
-    nondresses: [cesoir.cleopatrashorts.SKU, cesoir.cleopatratop.SKU, cesoir.celiamini.SKU, cesoir.celiamidi.SKU, cesoir.celiaminunit.SKU cesoir.portia.SKU],
+    nondresses: [cesoir.cleopatrashorts.SKU, cesoir.cleopatratop.SKU, cesoir.celiamini.SKU, cesoir.celiamidi.SKU, cesoir.celiaminunit.SKU, cesoir.portia.SKU],
     productDB: null,
     getProduct: function (sku) {
         return this.productDB[sku];
