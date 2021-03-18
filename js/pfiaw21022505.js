@@ -321,7 +321,7 @@ artwear.tote.prodData = {
 	imageFile: "sizing1.jpg",
 	dimensionNames: ["A. Drop", "B. Height", "C. Width"],
 	dimensionsCm: {
-		Free: [30, 39, 32]
+		Free: [30, 39-43, 32]
 	},
 	data: [{
 		vid: "CW1",
@@ -352,8 +352,8 @@ artwear.liljhola.prodData = {
 		images: ["P3_D1", "P3_D2", "P3_D3", "P3_D4"]
     }],
 	sizes: ['Free'],
-	description: '',
-	garmentDetails: '<ul><li></li><li></li><li></li></ul>',
+	description: 'The L’il Jhola is an ideal handbag size to carry your essentials to go about your day. It’s got multiple compartments to hold your knick knacks in. It’s one-of-a-kind bag with Tangail / Jamdani border on the straps and lined with cotton.',
+	garmentDetails: '<ul><li>Outer layer of Tangail / Jamdani</li><li>Cotton lining</li><li>Single shoulder strap</li><li>Two internal pockets</li></ul>',
 };
 artwear.liljhola.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
 artwear.liljhola.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
@@ -400,8 +400,8 @@ artwear.postman.prodData = {
 		images: ["P4_D1", "P4_D2", "P4_D3", "P4_D4"]
     }],
 	sizes: ['Free'],
-	description: 'The Tablet Jhola is our take on a messenger bag, made in Tangail/Jamdani with a contrasting cotton. The borders of the sari are carefully placed on the shoulder strap so when worn as a crosbody bag, it elevates your outfit. It\'s and ideal size to carry a tablet and a notebook to work or a coffee shop.',
-	garmentDetails: '<ul><li></li><li></li><li></li></ul>',
+	description: 'The Postman Jhola is our take on a messenger bag, made in Tangail/Jamdani with a contrasting cotton. The borders of the sari are carefully placed on the shoulder strap so when worn as a crosbody bag, it elevates your outfit. It\'s and ideal size to carry a tablet and a notebook to work or a coffee shop.',
+	garmentDetails: '<ul><li>Outer layer of Tangail / Jamdani</li><li>Cotton lining</li><li>Single cross-body shoulder strap</li><li>Two internal pockets</li><li></li>Self-tie string fastening on the top</ul>',
 };
 artwear.postman.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
 artwear.postman.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
@@ -417,15 +417,15 @@ artwear.lilajhola.prodData = {
 	imageFile: "sizing.jpg",
 	dimensionNames: ["A. Drop", "B. Height", "C. Width"],
 	dimensionsCm: {
-		Free: [55, 22, 25]
+		Free: [47, 42, 30]
 	},
 	data: [{
 		vid: "CW1",
 		images: ["P1_D1", "P1_D2", "P1_D3", "P1_D4"]
     }],
 	sizes: ['Free'],
-	description: 'The Messenger Jhola is our take on a courier bag, made in Tangail/Jamdani with a contrasting cotton. The borders of the sari are carefully placed on the shoulder strap so when worn as a crosbody bag, it elevates your outfit. It\'s and ideal size to carry a tablet and a notebook to work or a coffee shop.',
-	garmentDetails: '<ul><li></li><li></li><li></li></ul>',
+	description: 'The Lila Bag is versatile to carry to pilates and to a meeting right after. The bag can accommodate all your needs throughout the day while you alternate between work and daily hustle. It has compartments for your phone and keys and a spacious enough to carry laptop and other essentials. It’s one-of-a-kind bag with Tangail / Jamdani border on the straps and lined with cotton.',
+	garmentDetails: '<ul><li>Outer layer of Tangail / Jamdani</li><li>Cotton lining</li><li>Single cross-body shoulder strap</li><li>Two internal pockets</li><li></li>Self-tie string fastening on the top</ul>',
 };
 artwear.lilajhola.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
 artwear.lilajhola.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
