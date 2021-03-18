@@ -702,7 +702,7 @@ cesoir.catalog = {
     title: "Ce Soir",
     shopURL: "/products/night/shop.html",
     skus: null,
-    styles: [cesoir.bianca, cesoir.celiamini, cesoir.celiamidi, cesoir.celiaminuit, cesoir.cleopatrashorts, cesoir.cleopatratop, cesoir.emilia, cesoir.helena, cesoir.juliet, cesoir.nerissapant, cesoir.nerissatop, cesoir.ophelia, cesoir.portia, cesoir.tamora, cesoir.titania, cesoir.viola],
+    styles: [cesoir.bianca, cesoir.celiamini, cesoir.cleopatrashorts, cesoir.cleopatratop, cesoir.emilia, cesoir.helena, cesoir.juliet, cesoir.nerissapant, cesoir.nerissatop, cesoir.ophelia, cesoir.portia, cesoir.tamora, cesoir.titania, cesoir.viola],
     dresses: [cesoir.emilia.SKU, cesoir.helena.SKU, cesoir.juliet.SKU, cesoir.ophelia.SKU, cesoir.tamora.SKU, cesoir.titania.SKU, cesoir.viola.SKU],
     nondresses: [cesoir.cleopatrashorts.SKU, cesoir.cleopatratop.SKU, cesoir.portia.SKU, cesoir.celiamini.SKU],
     productDB: null,

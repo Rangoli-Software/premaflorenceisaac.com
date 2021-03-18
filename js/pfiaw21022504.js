@@ -318,14 +318,14 @@ artwear.tote = {};
 artwear.tote.SKU = 'TNTGBG1501';
 artwear.tote.getFactory = getToteFactory;
 artwear.tote.prodData = {
-	imageFile: "sizing.jpg",
+	imageFile: "sizing1.jpg",
 	dimensionNames: ["A. Drop", "B. Height", "C. Width"],
 	dimensionsCm: {
 		Free: [30, 39, 32]
 	},
 	data: [{
 		vid: "CW1",
-		images: ["nfm01", "b-f", "b-b", "b-l", "many-1"]
+		images: ["P11_D1", "P11_D2", "P11_D3", "P11_D4"]
     }],
 	sizes: ['Free'],
 	description: 'As the name suggests, this is a unique one-of-a-kind gifting bag, cut in Jamdani or Tangail sari. We design to optimise every part of the intricately woven sari. It is a great carry on tote that can be used while running errands around town. It compliments different outfits and easy to maintain.',
@@ -342,14 +342,14 @@ artwear.liljhola = {};
 artwear.liljhola.SKU = 'LLBGSM1501TB';
 artwear.liljhola.getFactory = getLilJholaFactory;
 artwear.liljhola.prodData = {
-	imageFile: "sizing.jpg",
+	imageFile: "sizing1.jpg",
 	dimensionNames: ["A. Drop", "B. Height", "C. Width"],
 	dimensionsCm: {
 		Free: [26, 22, 25]
 	},
 	data: [{
 		vid: "CW1",
-		images: ["nfm01", "b-f", "b-b", "b-l", "many-1"]
+		images: ["P3_D1", "P3_D2", "P3_D3", "P3_D4"]
     }],
 	sizes: ['Free'],
 	description: '',
@@ -362,10 +362,10 @@ artwear.liljhola.createCardCreator = function () {
 };
 artwear.liljhola.createJSON = createArtwearJSON;
 
-artwear.tabletjhola = {};
-artwear.tabletjhola.SKU = 'LLBGMD1501TB';
-artwear.tabletjhola.getFactory = getTabletJholaFactory;
-artwear.tabletjhola.prodData = {
+artwear.tablet = {};
+artwear.tablet.SKU = 'LLBGMD1501TB';
+artwear.tablet.getFactory = getTabletJholaFactory;
+artwear.tablet.prodData = {
 	imageFile: "sizing.jpg",
 	dimensionNames: ["A. Drop", "B. Height", "C. Width"],
 	dimensionsCm: {
@@ -373,23 +373,47 @@ artwear.tabletjhola.prodData = {
 	},
 	data: [{
 		vid: "CW1",
-		images: ["nfm01", "b-f", "b-b", "b-l", "many-1"]
+		images: ["P4_D1", "P4_D2", "P4_D3", "P4_D4"]
     }],
 	sizes: ['Free'],
 	description: 'The Tablet Jhola is our take on a messenger bag, made in Tangail/Jamdani with a contrasting cotton. The borders of the sari are carefully placed on the shoulder strap so when worn as a crosbody bag, it elevates your outfit. It\'s and ideal size to carry a tablet and a notebook to work or a coffee shop.',
 	garmentDetails: '<ul><li></li><li></li><li></li></ul>',
 };
-artwear.tabletjhola.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
-artwear.tabletjhola.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
-artwear.tabletjhola.createCardCreator = function () {
+artwear.tablet.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
+artwear.tablet.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
+artwear.tablet.createCardCreator = function () {
 	return createArtWearCardCreator(createSquareImageCarousel);
 };
-artwear.tabletjhola.createJSON = createArtwearJSON;
+artwear.tablet.createJSON = createArtwearJSON;
 
-artwear.messengerjhola = {};
-artwear.messengerjhola.SKU = 'LLBGBG1501TB';
-artwear.messengerjhola.getFactory = getMessengerJholaFactory;
-artwear.messengerjhola.prodData = {
+artwear.postman = {};
+artwear.postman.SKU = 'LLBGMD1501TB';
+artwear.postman.getFactory = getPostmanJholaFactory;
+artwear.postman.prodData = {
+	imageFile: "sizing.jpg",
+	dimensionNames: ["A. Drop", "B. Height", "C. Width"],
+	dimensionsCm: {
+		Free: [47, 29, 31.5]
+	},
+	data: [{
+		vid: "CW1",
+		images: ["P4_D1", "P4_D2", "P4_D3", "P4_D4"]
+    }],
+	sizes: ['Free'],
+	description: 'The Tablet Jhola is our take on a messenger bag, made in Tangail/Jamdani with a contrasting cotton. The borders of the sari are carefully placed on the shoulder strap so when worn as a crosbody bag, it elevates your outfit. It\'s and ideal size to carry a tablet and a notebook to work or a coffee shop.',
+	garmentDetails: '<ul><li></li><li></li><li></li></ul>',
+};
+artwear.postman.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
+artwear.postman.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
+artwear.postman.createCardCreator = function () {
+	return createArtWearCardCreator(createSquareImageCarousel);
+};
+artwear.postman.createJSON = createArtwearJSON;
+
+artwear.lilajhola = {};
+artwear.lilajhola.SKU = 'LLBGBG1501TB';
+artwear.lilajhola.getFactory = getLilaJholaFactory;
+artwear.lilajhola.prodData = {
 	imageFile: "sizing.jpg",
 	dimensionNames: ["A. Drop", "B. Height", "C. Width"],
 	dimensionsCm: {
@@ -397,24 +421,24 @@ artwear.messengerjhola.prodData = {
 	},
 	data: [{
 		vid: "CW1",
-		images: ["nfm01", "b-f", "b-b", "b-l", "many-1"]
+		images: ["P1_D1", "P1_D2", "P1_D3", "P1_D4"]
     }],
 	sizes: ['Free'],
-	description: 'The Tablet Jhola is our take on a messenger bag, made in Tangail/Jamdani with a contrasting cotton. The borders of the sari are carefully placed on the shoulder strap so when worn as a crosbody bag, it elevates your outfit. It\'s and ideal size to carry a tablet and a notebook to work or a coffee shop.',
+	description: 'The Messenger Jhola is our take on a courier bag, made in Tangail/Jamdani with a contrasting cotton. The borders of the sari are carefully placed on the shoulder strap so when worn as a crosbody bag, it elevates your outfit. It\'s and ideal size to carry a tablet and a notebook to work or a coffee shop.',
 	garmentDetails: '<ul><li></li><li></li><li></li></ul>',
 };
-artwear.messengerjhola.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
-artwear.messengerjhola.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
-artwear.messengerjhola.createCardCreator = function () {
+artwear.lilajhola.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
+artwear.lilajhola.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
+artwear.lilajhola.createCardCreator = function () {
 	return createArtWearCardCreator(createSquareImageCarousel);
 };
-artwear.messengerjhola.createJSON = createArtwearJSON;
+artwear.lilajhola.createJSON = createArtwearJSON;
 
 artwear.catalog = {
 	title: "Art Wear",
 	shopURL: "/products/artwear/shop.html",
 	skus: null,
-	styles: [artwear.tamarai, artwear.kamalam, artwear.kaftan, artwear.saritop, artwear.ravakai, artwear.madras, artwear.payara, artwear.longovertop, artwear.shortovertop, artwear.nakshaminuit, artwear.nakshamidi, artwear.nakshamini, artwear.nakshamicro, artwear.tote, artwear.liljhola, artwear.tabletjhola, artwear.messengerjhola],
+	styles: [artwear.tamarai, artwear.kamalam, artwear.kaftan, artwear.saritop, artwear.ravakai, artwear.madras, artwear.payara, artwear.longovertop, artwear.shortovertop, artwear.nakshaminuit, artwear.nakshamidi, artwear.nakshamini, artwear.nakshamicro, artwear.tote, artwear.liljhola, artwear.postman, artwear.lilajhola],
 	dresses: [artwear.tamarai.SKU, artwear.kamalam.SKU, artwear.kaftan.SKU],
 	skirts: [artwear.nakshaminuit.SKU, artwear.nakshamidi.SKU, artwear.nakshamini.SKU, artwear.nakshamicro.SKU],
 	separates: [artwear.saritop.SKU, artwear.ravakai.SKU, artwear.madras.SKU, artwear.payara.SKU, artwear.longovertop.SKU, artwear.shortovertop.SKU],

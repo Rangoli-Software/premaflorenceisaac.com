@@ -1,4 +1,4 @@
-const shopRevisionVersion = "21022502";
+const shopRevisionVersion = "21022503";
 
 const pfiavG = {};
 pfiavG.lineNames = ["Art Wear", "It's Magic", "Ce Soir", "Happy Everyday"];
@@ -12,9 +12,10 @@ const cmData = [
 
 ['Tant Facemask','FACEMK2005Ta','0.0095','1.2','/products/accessories/facemask.html','TRUE'],
 ['Tant Tote','TNTGBG1501','0.0095','1.2','/products/accessories/tote.html','TRUE'],
-['L\'il Jhola','LLBGSM1501TB','0.0095','1.2','/products/accessories/liljhola.html','TRUE'],
-['Tablet Jhola','LLBGMD1501TB','0.0095','1.2','/products/accessories/tabletjhola.html','TRUE'],
-['Messenger Jhola','LLBGBG1501TB','0.0095','1.2','/products/accessories/messengerjhola.html','TRUE'],
+['L\'il Jhola','LLBGSM1501TB','0.05','1.2','/products/accessories/liljhola.html','TRUE'],
+['Tablet Jhola','LLBGMD1501TB','0.06','1.2','/products/accessories/tablet.html','TRUE'],
+['Postman Jhola','LLBGMD1701TB','0.7','1.2','/products/accessories/postman.html','TRUE'],
+['Lila Jhola','LLBGBG1501TB','0.1','1.2','/products/accessories/lila.html','TRUE'],
 
 ['Chain Clutch','CHNCLT1510','0.0095','1.2','/products/accessories/clutch.html','FALSE'],
 ['PomPom Ear Cuff','PPERCF1505Wo','0.0095','1.2','/products/accessories/clutch.html','FALSE'],
@@ -142,6 +143,7 @@ const plData = [
 ['TNTGBG1501',1100],
 ['LLBGSM1501TB',2400],
 ['LLBGMD1501TB',3200],
+['LLBGMD1701TB',3400],
 ['LLBGBG1501TB',4000],
 
 ['CHNCLT1510',6500],

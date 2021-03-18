@@ -47,7 +47,7 @@ function getTabletJholaFactory(sku) {
 var listData = [
     [1, ["1F", "1B", "1R"], "#BB7333", "Copper", null],
 ];
-	var basedir = '/products/accessories/tabletjhola/';
+	var basedir = '/products/accessories/tablet/';
     var descMap = {
         CW1: 'Art Wear'
     };
@@ -58,17 +58,41 @@ var listData = [
     return createStyleDescFactory(sku, basedir, listData, descMap, imgdim);
 }
 
-function getMessengerJholaFactory(sku) {
+function getPostmanJholaFactory(sku) {
 var listData = [
-    [1, ["1b"], "#588E79", "Patina", null],
+    [1, ["1F", "1B", "1R"], "#DD725B", "Terracotta", null],
+    [2, ["2F", "2B", "2R"], "#CB7552", "Raw Sienna", null],
+    [3, ["3F", "3B", "3R"], "#C06548", "Crail", null],
+    [4, ["4F", "4B", "4R"], "#6A362C", "Spice", null],
+    [5, ["5F", "5B", "5R"], "#B46251", "Matrix", null],
+    [6, ["6F", "6B", "6R"], "#6A272F", "Tawny Port", null],
+    [7, ["7F", "7B", "7R"], "#798B42", "Sycamore", null],
+    [8, ["8F", "8B", "8R"], "#BE7A68", "Contessa", null],
 ];
-	var basedir = '/products/accessories/messengerjhola/';
+	var basedir = '/products/accessories/postman/';
     var descMap = {
         CW1: 'Art Wear'
     };
 	var imgdim = {
-		width: "1000",
-		height: "1000"
+		width: "1500",
+		height: "1500"
+	};
+    return createStyleDescFactory(sku, basedir, listData, descMap, imgdim);
+}
+
+function getLilaJholaFactory(sku) {
+var listData = [
+    [1, ["1F", "1B", "1R"], "#B57633", "Copper", null],
+    [2, ["2F", "2B", "2R"], "#D9C499", "Pavlova", null],
+    [3, ["3F", "3B", "3R"], "#C02F52", "Brick Red", null],
+];
+	var basedir = '/products/accessories/lila/';
+    var descMap = {
+        CW1: 'Art Wear'
+    };
+	var imgdim = {
+		width: "1500",
+		height: "1500"
 	};
     return createStyleDescFactory(sku, basedir, listData, descMap, imgdim);
 }

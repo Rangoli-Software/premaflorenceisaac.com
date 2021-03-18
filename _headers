@@ -118,6 +118,21 @@
 /products/accessories/fm/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
+/products/accessories/lila/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/accessories/liljhola/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/accessories/postman/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/accessories/tablet/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/accessories/tote/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
 /products/anotherway/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
@@ -283,7 +298,13 @@
 /products/men/ubud/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
-/products/night/celia/*.jpg
+/products/night/celiamini/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/night/celiamidi/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/night/celiaminuit/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
 /products/night/cleoS/*.jpg
