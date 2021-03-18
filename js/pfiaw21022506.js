@@ -321,7 +321,7 @@ artwear.tote.prodData = {
 	imageFile: "sizing1.jpg",
 	dimensionNames: ["A. Drop", "B. Height", "C. Width"],
 	dimensionsCm: {
-		Free: [30, 39-43, 32]
+		Free: [30, [39,43], 32]
 	},
 	data: [{
 		vid: "CW1",
