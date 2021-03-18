@@ -387,7 +387,7 @@ artwear.tablet.createCardCreator = function () {
 artwear.tablet.createJSON = createArtwearJSON;
 
 artwear.postman = {};
-artwear.postman.SKU = 'LLBGMD1501TB';
+artwear.postman.SKU = 'LLBGMD1701TB';
 artwear.postman.getFactory = getPostmanJholaFactory;
 artwear.postman.prodData = {
 	imageFile: "sizing.jpg",
