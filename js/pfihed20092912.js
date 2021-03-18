@@ -184,7 +184,7 @@ happyED.bermuda = {
         XL: [81, 82, 115, 65, 56]
     },
     getFabric: function (varidx) {
-        return "Khadi";
+        return "Cotton";
     },
     data: [
         {
@@ -201,7 +201,7 @@ happyED.bermuda = {
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    description: 'This calf-length pant from our Happy Everyday collection is one of my favourite basics. The elastic in the waistband and hems makes it easy to slip into and move around in. The side pockets give this 100% cotton khadi pant more utility.  Pair it with our flared Lotus Wings Top, a shirt, crop top or a tank top - it will work from dawn to dusk, from morning meetings to evening strolls. This pant is available in a vibrant solid magenta and a neutral calm tan, suitable to a wide range of personalities and moods.',
+    description: 'This calf-length pant from our Happy Everyday collection is one of my favourite basics. The elastic in the waistband and hems makes it easy to slip into and move around in. The side pockets give this 100% cotton pant more utility.  Pair it with our flared Lotus Wings Top, a shirt, crop top or a tank top - it will work from dawn to dusk, from morning meetings to evening strolls. This pant is available in a vibrant solid magenta and a neutral calm tan, suitable to a wide range of personalities and moods.',
     garmentDetails: '<li>Elastic waist with drawstring</li><li>Calf-length</li><li>Two side pockets</li>'
 };
 
@@ -219,8 +219,8 @@ happyED.crop = {
     },
     getFabric: function (varidx) {
         if (varidx == 3) {
-            return "Khadi";
-        }
+			return "Cotton";
+		}
         return "Voile";
     },
     data: [
@@ -267,7 +267,7 @@ happyED.drawstring = {
         XL: [102, 112, 112, 67, 60]
     },
     getFabric: function (varidx) {
-        return "Khadi";
+        return "Cotton";
     },
     data: [
         {
@@ -284,7 +284,7 @@ happyED.drawstring = {
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    description: 'Another lounge pant from our Happy Everyday collection. The adjustable drawstring on the waist makes it easier to slip into and move around in. This wide-legged pant is cut in 100% cotton khadi. Pair it with our flared Lotus Wings Top, a shirt, crop top or a tank top - it will work from dawn to dusk, from morning meetings to evening strolls. This pant is available in a vibrant solid magenta and a neutral calm tan, suitable to a wide range of personalities and moods.',
+    description: 'Another lounge pant from our Happy Everyday collection. The adjustable drawstring on the waist makes it easier to slip into and move around in. This wide-legged pant is cut in 100% cotton. Pair it with our flared Lotus Wings Top, a shirt, crop top or a tank top - it will work from dawn to dusk, from morning meetings to evening strolls. This pant is available in a vibrant solid magenta and a neutral calm tan, suitable to a wide range of personalities and moods.',
     garmentDetails: '<li>Drawstring waist</li><li>Full length</li><li>Wide hem</li>'
 };
 
@@ -325,7 +325,7 @@ happyED.jodhpur = {
         ]
     },
     getFabric: function (varidx) {
-        return "Khadi";
+        return "Cotton";
     },
 
     data: [
@@ -343,7 +343,7 @@ happyED.jodhpur = {
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    description: 'This lounge pant from our Happy Everyday collection is one of my favourite basics. The elastic on the waist and tapered fit gives it a flattering shape. The side pockets give this 100% cotton khadi pants more utility. Pair it with our flared Lotus Wings Top, a shirt, crop top or a tank top - it will work from day to night, from morning meetings to an evening stroll. These pants are available in a vibrant solid magenta and a neutral calm tan, which fits every personality and makes it even more wearable.',
+    description: 'This lounge pant from our Happy Everyday collection is one of my favourite basics. The elastic on the waist and tapered fit gives it a flattering shape. The side pockets give this 100% cotton pants more utility. Pair it with our flared Lotus Wings Top, a shirt, crop top or a tank top - it will work from day to night, from morning meetings to an evening stroll. These pants are available in a vibrant solid magenta and a neutral calm tan, which fits every personality and makes it even more wearable.',
     garmentDetails: '<li>Elastic waist with drawstring</li><li>Full length</li><li>Two side pockets</li>'
 };
 
@@ -397,7 +397,7 @@ happyED.lily = {
         Free: [84, 64, 140, 92, 85]
     },
     getFabric: function (varidx) {
-        return "Khadi";
+        return "Cotton";
     },
     data: [
         {
@@ -414,7 +414,7 @@ happyED.lily = {
         }
     ],
     sizes: ['Free'],
-    description: '"Happy Everyday" includes more fun silhouettes to wear in your daily routine. This is a carefree pant, with a wide stretchable waistband to fit a wide range of sizes. The material is a breathable 100% cotton khadi. The colour options vary from vibrant to neutral to cater to every taste. The magenta exaggerates this relaxed silhouette while the calm tan brings it down a notch. Pair it with a crop top or a shirt as you please - these pants will work with every length and style.',
+    description: '"Happy Everyday" includes more fun silhouettes to wear in your daily routine. This is a carefree pant, with a wide stretchable waistband to fit a wide range of sizes. The material is a breathable 100% cotton. The colour options vary from vibrant to neutral to cater to every taste. The magenta exaggerates this relaxed silhouette while the calm tan brings it down a notch. Pair it with a crop top or a shirt as you please - these pants will work with every length and style.',
     garmentDetails: '<li>Elastic waist</li><li>Wide hem</li><li>Adjustable hem with string</li><li>Slips on</li>'
 };
 
@@ -432,7 +432,7 @@ happyED.longovertop = {
     },
     getFabric: function (varidx) {
         if (varidx == 3) {
-            return "Khadi";
+			return "Cotton";
         }
         return "Voile";
     },
@@ -522,7 +522,7 @@ happyED.shortovertop = {
     },
     getFabric: function (varidx) {
         if (varidx == 3) {
-            return "Khadi";
+			return "Cotton";
         }
         return "Voile";
     },
@@ -570,7 +570,7 @@ happyED.sideslit = {
         XL: [103, 33, 106, 51, 61]
     },
     getFabric: function (varidx) {
-        return "Khadi";
+        return "Cotton";
     },
     data: [
         {
@@ -587,7 +587,7 @@ happyED.sideslit = {
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    description: 'Our Happy Everyday collection includes casual pieces like this asymmetric tunic. Its A-line cut with a side slit makes it easy to pair with different bottoms and allows for interesting colour blocking. This basic round neck, sleeveless top in pink Khadi is a contemporary ode to the kurta. The vibrant magenta lifts up the minimalist silhouette and 100% cotton Khadi keeps it cool in summers.  Pair it with your salwar, trousers or palazzos - it\'s versatility allows it to be worn in a variety of settings.',
+    description: 'Our Happy Everyday collection includes casual pieces like this asymmetric tunic. Its A-line cut with a side slit makes it easy to pair with different bottoms and allows for interesting colour blocking. This basic round neck, sleeveless top in pink cotton is a contemporary ode to the kurta. The vibrant magenta lifts up the minimalist silhouette and 100% cotton keeps it cool in summers.  Pair it with your salwar, trousers or palazzos - it\'s versatility allows it to be worn in a variety of settings.',
     garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>A-line with a slit on the left</li><li>Asymmetrical hem</li><li>Slips on</li>'
 };
 
@@ -604,7 +604,7 @@ happyED.tank = {
         XL: [61, 32, 104, 54, 100]
     },
     getFabric: function (varidx) {
-        return "Khadi";
+        return "Cotton";
     },
     data: [
         {
@@ -621,7 +621,7 @@ happyED.tank = {
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    description: 'This classic top from our Happy Everyday edit is cut in a 100% cotton khadi to make the everyday heat more endurable. The boxy feel of the top gives an interesting silhouette when paired with pyjamas, trousers or skirts. It\'s sleeveless, has a round neck and an elastic in the back to make it easy to slip on. The magenta brightens the otherwise subtle top. Pair it with our Balloon Pants, your own culottes, trousers, skirts or basically anything - it\'s versatility will encourage you to wear it often.',
+    description: 'This classic top from our Happy Everyday edit is cut in a 100% cotton to make the everyday heat more endurable. The boxy feel of the top gives an interesting silhouette when paired with pyjamas, trousers or skirts. It\'s sleeveless, has a round neck and an elastic in the back to make it easy to slip on. The magenta brightens the otherwise subtle top. Pair it with our Balloon Pants, your own culottes, trousers, skirts or basically anything - it\'s versatility will encourage you to wear it often.',
     garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>Boxy cut</li><li>Elastic in the back</li><li>Slips on</li>'
 };
 
@@ -635,7 +635,7 @@ happyED.wings = {
         Free: [72, 34, 104, 52, 274]
     },
     getFabric: function (varidx) {
-        return "Khadi";
+        return "Cotton";
     },
     data: [
         {
@@ -652,7 +652,7 @@ happyED.wings = {
         }
     ],
     sizes: ['Free'],
-    description: 'Our Happy Everyday collection also includes fun silhouettes in Khadi like the Lotus Wings Top - a breezy style which will fit you now and in 10 years as well. Its A-line flare makes it playful to wear and easy to move around in. This sleeveless top is cut in 100% cotton Khadi which gives the top its structured fall that stays away from the skin. The classic Tan is versatile to pair with a lot of colours like electric blue, candy red, magenta or neutrals - black and white. Pair it with boxy culottes or skinny jeans - the top can work with your taste and mood.',
+    description: 'Our Happy Everyday collection also includes fun silhouettes in cotton like the Lotus Wings Top - a breezy style which will fit you now and in 10 years as well. Its A-line flare makes it playful to wear and easy to move around in. This sleeveless top is cut in 100% cotton which gives the top its structured fall that stays away from the skin. The classic Tan is versatile to pair with a lot of colours like electric blue, candy red, magenta or neutrals - black and white. Pair it with boxy culottes or skinny jeans - the top can work with your taste and mood.',
     garmentDetails: '<li>Drape collar</li><li>Sleeveless</li><li>A-line flare with round hem</li><li>Slips on</li>'
 };
 

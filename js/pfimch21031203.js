@@ -28,35 +28,6 @@ const merchInfo = [
 		}]
     },
 	{
-		SKU: 'NKSHMD1501PT',
-		vidx: '1',
-		vid: "CW1",
-		SKUvid: 'NKSHMD1501PT-CW1',
-		ledes: [''],
-		images: [{
-			url: '/g/merch/celmdb.jpg'
-		}]
-    },
-	{
-		SKU: 'NKSHMD1501PT',
-		vidx: '2',
-		vid: "CW2",
-		SKUvid: 'NKSHMD1501PT-CW2',
-		ledes: [''],
-		images: [{
-			url: '/g/merch/celmdw.jpg'
-		},{
-			url: '/g/merch/celmdw2.jpg'
-		}]
-    },
-	{
-		SKU: 'NKSHMU1501PT',
-		ledes: [''],
-		images: [{
-			url: '/g/merch/celmu.jpg'
-		}]
-    },
-	{
 		SKU: 'TNTGBG1501',
 		ledes: [''],
 		images: [{
@@ -238,7 +209,40 @@ const merchInfo = [
 		}]
     },
 	{
+		SKU: 'NKSHMD1501PT',
+		SKUvid: 'NKSHMD1501PT-CW1',
+		vidx: '1',
+		vid: "CW1",
+		ledes: [''],
+		images: [{
+			url: '/g/merch/celmdb.jpg'
+		}]
+    },
+	{
+		SKU: 'NKSHMD1501PT',
+		vidx: '2',
+		vid: "CW2",
+		SKUvid: 'NKSHMD1501PT-CW2',
+		ledes: [''],
+		images: [{
+			url: '/g/merch/celmdw.jpg'
+		},{
+			url: '/g/merch/celmdw2.jpg'
+		}]
+    },
+	{
+		SKU: 'NKSHMU1501PT',
+		vid: "CW1",
+		SKUvid: 'NKSHMU1501PT-CW1',
+		ledes: [''],
+		images: [{
+			url: '/g/merch/celmu.jpg'
+		}]
+    },
+	{
 		SKU: 'HLNDRS1505PT',
+		vid: "CW1",
+		SKUvid: 'HLNDRS1505PT-CW1',
 		ledes: [''],
 		images: [{
 			url: '/look/moods/cs/helena.jpg'
@@ -246,6 +250,8 @@ const merchInfo = [
     },
 	{
 		SKU: 'JLTDRS1505PT',
+		vid: "CW1",
+		SKUvid: 'JLTDRS1505PT-CW1',
 		ledes: [''],
 		images: [{
 			url: '/look/moods/cs/juliet.jpg'
@@ -253,6 +259,8 @@ const merchInfo = [
     },
 	{
 		SKU: 'NKSHMI1501PT',
+		vid: "CW1",
+		SKUvid: 'NKSHMI1501PT-CW1',
 		ledes: [''],
 		images: [{
 			url: '/blog/FlorYellow.jpg'
@@ -260,6 +268,8 @@ const merchInfo = [
     },
 	{
 		SKU: 'BKLLTS1505Je',
+		vid: "CW1",
+		SKUvid: 'BKLLTS1505Je-CW1',
 		ledes: [''],
 		images: [{
 			url: '/look/moods/cs/tamora.jpg'
@@ -335,7 +345,7 @@ const merchInfo = [
     },
 	{
 		SKU: 'KAGTIE1601Kh',
-		ledes: ['Artsy, hand-woven, hand-crafted Neckwear', 'For the gentleman of refined taste - a two-tone khadi tie with a border of treasured tangail'],
+		ledes: ['Artsy, hand-crafted Neckwear', 'For the gentleman of refined taste - a two-tone cotton tie with a border of treasured tangail'],
 		images: [{
 			url: '/products/men/kagera/kag1.jpg'
 		}, {
@@ -371,7 +381,7 @@ const merchInfo = [
     },
 	{
 		SKU: 'VAMPAL1708Kh',
-		ledes: ['Handwoven khadi to lighten up your summers'],
+		ledes: ['100% cotton to lighten up your summers'],
 		images: [{
 			url: '/products/happyeveryday/mood/mch-2.jpg'
 		}, {
@@ -577,7 +587,7 @@ function createPageSelector(mips) {
     ["AWTSHT1604Je-CW1", "AWTSHT1604Je-CW2"],
 	["OVTPSH1501Pa", "OVTPLO1501Pa", "TRPZTP1807Pa", "MDRSTP1606PP", "JULITP1501Pa", "SARITP1501Pa", "LNKFTN1501Ja", "LOTSDR1501Ja", "NKSHDR1501Ta", "NKSHMU1501PP", "NKSHMD1501PP", "NKSHMI1501PP", "NKSHMC1512PP"], 
 	["KLGTLY1601Rv", "KGYPST1601Rv", "KRAJPT1601Kh", "FAIRST2011Rv", "KBALPA1601Vo", "KRAJKT1601Rv", "YUVRTC1601Rv", "HLFPNT1601Kh", "KIDIKI1501Vi", "PRNCDR1501Rv", "KWAVDR1601Rv", "KDHRDR1601Rv"], 
-	["NKSHMD1501PT-CW1", "NKSHMD1501PT-CW2", "NKSHMU1501PT-CW1", "HLNDRS1505PT-CW1", "JLTDRS1505PT-CW1", "NKSHMI1501PT-CW1", "BKLLTS1505Je-CW1"], 
+	["HLNDRS1505PT-CW1", "JLTDRS1505PT-CW1", "NKSHMI1501PT-CW1", "BKLLTS1505Je-CW1"], 
 	["TRPZTP1807Kh", "CRPTOP1805Kh", "VAMPAL1708Kh", "OVTPLO1501Vo", "BERMPA1609Kh", "LTSDSL1501Kh", "BALLPA1501Vo"],
 	["FACEMK2005Ta", "DPDYSF1501PT", "KAGTIE1601Kh", "CHMPGN1501JL"]
 	];

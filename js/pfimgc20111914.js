@@ -23,7 +23,7 @@ itsmagic.createComponentFactory = function (prodInfo, dimensioner, sizer, catego
 }
 
 itsmagic.shippingHTML = getShippingInfoUL(['If the item is in stock,  it will be ready to ship within 1 business day of your order.']);
-itsmagic.washcareHTML = khadi_washcareHTML;
+itsmagic.washcareHTML = cotton_washcareHTML;
 
 itsmagic.princess = {
     SKU: 'PRNCDR1501Rv',
@@ -211,7 +211,7 @@ itsmagic.halfpant = {
         '8-10': [51, 54, 19, 62]
     },
     getFabric: function (varidx) {
-        return "Khadi";
+        return "Cotton";
     },
     data: [
         {
@@ -242,7 +242,7 @@ itsmagic.halfpant = {
     ],
     sizes: ['2-4', '5-7', '8-10'],
     description: '',
-    garmentDetails: '<li>100% cotton Khadi</li><li>Elastic at the waist</li><li>Side pockets</li><li>Zari borders at the pockets and hem</li><li>Fold hems to adjust the length</li><li>Zari border details inside the folded hems</li>'
+    garmentDetails: '<li>100% cotton</li><li>Elastic at the waist</li><li>Side pockets</li><li>Zari borders at the pockets and hem</li><li>Fold hems to adjust the length</li><li>Zari border details inside the folded hems</li>'
 };
 
 itsmagic.prince = {
@@ -256,7 +256,7 @@ itsmagic.prince = {
         '8-10': [54, 40, 80, 42, 15, 16.5]
     },
     getFabric: function (varidx) {
-        return "Khadi & Voile";
+        return "Cotton & Voile";
     },
     data: [
         {
@@ -287,7 +287,7 @@ itsmagic.prince = {
     ],
     sizes: ['2-4', '5-7', '8-10'],
     description: '',
-    garmentDetails: '<li>100%  Khadi</li><li>Round neck with half placket</li><li>Half sleeves</li><li>Reversible</li><li>Reverse side in 100% cotton voile</li><li>Contrasting colour on the reverse side</li>'
+    garmentDetails: '<li>100% Cotton</li><li>Round neck with half placket</li><li>Half sleeves</li><li>Reversible</li><li>Reverse side in 100% cotton voile</li><li>Contrasting colour on the reverse side</li>'
 };
 
 itsmagic.royal = {
@@ -301,7 +301,7 @@ itsmagic.royal = {
         '8-10': [66, 32, 89, 44, 42, 27]
     },
     getFabric: function (varidx) {
-        return "Khadi & Voile";
+        return "Cotton & Voile";
     },
     data: [
         {
@@ -338,7 +338,7 @@ itsmagic.royal = {
     ],
     sizes: ['2-4', '5-7', '8-10'],
     description: '',
-    garmentDetails: '<li>100%  Khadi</li><li>Round neck with half placket</li><li>Half sleeves</li><li>Reversible</li><li>Reverse side in 100% cotton voile</li><li>Contrasting colour on the reverse side</li>'
+    garmentDetails: '<li>100% Cotton</li><li>Round neck with half placket</li><li>Half sleeves</li><li>Reversible</li><li>Reverse side in 100% cotton voile</li><li>Contrasting colour on the reverse side</li>'
 };
 
 itsmagic.fullpant = {
@@ -352,7 +352,7 @@ itsmagic.fullpant = {
         '8-10': [75, 54, 30, 63]
     },
     getFabric: function (varidx) {
-        return "Khadi";
+        return "Cotton";
     },
     data: [
         {
@@ -377,7 +377,7 @@ itsmagic.fullpant = {
     ],
     sizes: ['2-4', '5-7', '8-10'],
     description: '',
-    garmentDetails: '<li>100% cotton Khadi</li><li>Elastic at the waist</li><li>Full length</li><li>Side pockets</li><li>Zari borders at the pockets and hem</li><li>Fold hems to adjust the length</li><li>Zari border details inside the folded hems</li>'
+    garmentDetails: '<li>100% cotton</li><li>Elastic at the waist</li><li>Full length</li><li>Side pockets</li><li>Zari borders at the pockets and hem</li><li>Fold hems to adjust the length</li><li>Zari border details inside the folded hems</li>'
 };
 
 itsmagic.balloon = {

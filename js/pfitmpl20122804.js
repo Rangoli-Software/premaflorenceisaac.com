@@ -22,7 +22,7 @@ const moods = {
 		{
 			title: "Vagabond",
 			url: "/vagabond.html",
-			lede: "The <strong>Vagabond</strong>: A capsule in a bio-washed, hand-spun, hand-loomed khadi and P.F.I. tangail - inspired by the travelers and mavericks of the world.....",
+			lede: "The <strong>Vagabond</strong>: A capsule in a bio-washed cotton and P.F.I. tangail - inspired by the travelers and mavericks of the world.....",
 			imageURL: "/products/vagabond/KohBoy.jpg"
         },
 		{

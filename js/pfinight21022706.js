@@ -3,7 +3,7 @@ const cesoir = {};
 cesoir.createComponentFactory = function (prodInfo, dimensioner, sizer, categorizer, modelTxt) {
     var navHelper = createNavHelper(prodInfo, categorizer, cesoir.catalog.title);
     var relatedviewer = createEmptyViewer();
-    var mT = (modelTxt === undefined ? "The model is 5 ft 7 in (171 cm.)" : modelTxt) + " and wearing size '" + prodInfo.skuInfo.sizes[0] + "'<br>This garment is bespoke-tailored, so the chart size is only the starting point for your order<br>";
+    var mT = modelTxt + " and wearing size '" + prodInfo.skuInfo.sizes[0] + "'<br>This garment is bespoke-tailored, so the chart size is only the starting point for your order<br>";
     return createProductComponentFactory(prodInfo, dimensioner, sizer, relatedviewer, navHelper, mT, "Size", true);
 }
 
@@ -308,7 +308,7 @@ cesoir.celiamidi = {
     description: 'Celia Skirt is one of our favourite silhouettes. It\'s cut in the finest cotton P.F.I. Tangail. This exquisite cotton is often mistaken as silk by my clients. It has an incredible volume to play around in and is freesize! The waist band is made up of 9 rows of elastic. Because of the need for care while working with the delicate Tangail fabric, it can take a skilled tailor almost a full day of work to create this waistband. The result is a freesize waist with a snug, comfortable fit. It can work from day to night and it\'s groovy flare will have you swirling all day. Pair it with our Portia Top to take it up a notch or wear a basic t-shirt to keep it subtle.',
     garmentDetails: '<li>Freesize - Broad elastic at the waist</li><li>P.F.I. Tangail</li><li>Midi length</li><li>A line with voluminous flare</li>',
 };
-cesoir.celiaminunit = {
+cesoir.celiaminuit = {
     SKU: "NKSHMU1501PT",
     imgDir: 'celiaminuit',
     sizing: sd_sizing_bottoms,
@@ -500,7 +500,7 @@ cesoir.nerissatop = {
     ],
     sizes: ['S', 'M', 'L', 'XL'],
     description: 'The Nerissa Top has a high-low curved hem that exposes your mid-riff just right. It\'s cut in ivory ahimsa silk and the neck is highlighted in P.F.I. Tangail striped cotton. The boxy fit adds an edgy element to this sleeveless top. It\'s versatile and can be paired with high-waisted trousers or our Nerissa Pants. ',
-    garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>Cropped length</li><li>Curved hemline</li><li>Khadi striped panel at the neckline</li><li>Slips on</li>'
+    garmentDetails: '<li>Round neck</li><li>Sleeveless</li><li>Cropped length</li><li>Curved hemline</li><li>Cotton striped panel at the neckline</li><li>Slips on</li>'
 };
 
 cesoir.nerissapant = {
@@ -702,9 +702,9 @@ cesoir.catalog = {
     title: "Ce Soir",
     shopURL: "/products/night/shop.html",
     skus: null,
-    styles: [cesoir.bianca, cesoir.celiamini, cesoir.celiamidi, cesoir.celiaminunit, cesoir.cleopatrashorts, cesoir.cleopatratop, cesoir.emilia, cesoir.helena, cesoir.juliet, cesoir.nerissapant, cesoir.nerissatop, cesoir.ophelia, cesoir.portia, cesoir.tamora, cesoir.titania, cesoir.viola],
+    styles: [cesoir.bianca, cesoir.celiamini, cesoir.celiamidi, cesoir.celiaminuit, cesoir.cleopatrashorts, cesoir.cleopatratop, cesoir.emilia, cesoir.helena, cesoir.juliet, cesoir.nerissapant, cesoir.nerissatop, cesoir.ophelia, cesoir.portia, cesoir.tamora, cesoir.titania, cesoir.viola],
     dresses: [cesoir.emilia.SKU, cesoir.helena.SKU, cesoir.juliet.SKU, cesoir.ophelia.SKU, cesoir.tamora.SKU, cesoir.titania.SKU, cesoir.viola.SKU],
-    nondresses: [cesoir.cleopatrashorts.SKU, cesoir.cleopatratop.SKU, cesoir.portia.SKU, cesoir.celiamini.SKU, cesoir.celiamidi.SKU, cesoir.celiaminunit.SKU],
+    nondresses: [cesoir.cleopatrashorts.SKU, cesoir.cleopatratop.SKU, cesoir.portia.SKU, cesoir.celiamini.SKU],
     productDB: null,
     getProduct: function (sku) {
         return this.productDB[sku];

@@ -48,7 +48,7 @@ vagabond.angkor = {
         ]
     },
     getFabric: function (varidx) {
-        return "Khadi / P.F.I. Tangail";
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -69,7 +69,7 @@ vagabond.angkor = {
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    description: 'The Angkor Kurta is cut in 100% cotton khadi. It has short sleeves and a grey khadi panel highlights the neckline. The upside down button placket at the front and a short slit at the centre back (both emphasized with a silk silver P.F.I. Tangail border) add a subtle twist to this kurta.',
+    description: 'The Angkor Kurta is cut in 100% cotton. It has short sleeves and a grey cotton panel highlights the neckline. The upside down button placket at the front and a short slit at the centre back (both emphasized with a silk silver P.F.I. Tangail border) add a subtle twist to this kurta.',
     garmentDetails: '<li>Round neck</li><li>Short sleeves</li><li>Button placket at the front with P.F.I. Tangail border</li><li>Slit with P.F.I. Tangail border on the back</li><li>Flap pocket on the left</li><li>Slips on</li>'
 
 };
@@ -87,7 +87,7 @@ vagabond.arambol = {
         XL: [81, 41, 126, 82, 52],
     },
     getFabric: function (varidx) {
-        return "Khadi / P.F.I. Tangail";
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -139,7 +139,7 @@ vagabond.koh = {
         ]
     },
     getFabric: function (varidx) {
-        return "Khadi / P.F.I. Tangail";
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -170,7 +170,7 @@ vagabond.mavericks = {
         XL: [97, 69, 52, 124, 59, 20, 23, ]
     },
     getFabric: function (varidx) {
-        return "Khadi / P.F.I. Tangail";
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -183,7 +183,7 @@ vagabond.mavericks = {
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    description: 'The Mavericks Kurta is the feature piece of this capsule and an ode to the travelers and mavericks of the world. The collar sits comfortably on the high neck and the asymmetrical panels add a jazz angle. This kurta is a mix of lightweight 100% cotton khadi and our custom P.F.I. Tangail trims in silk and cotton. The neutral palette of grey and black is highlighted with the metallic golden P.F.I. Tangail.',
+    description: 'The Mavericks Kurta is the feature piece of this capsule and an ode to the travelers and mavericks of the world. The collar sits comfortably on the high neck and the asymmetrical panels add a jazz angle. This kurta is a mix of lightweight 100% cotton and our custom P.F.I. Tangail trims in silk and cotton. The neutral palette of grey and black is highlighted with the metallic golden P.F.I. Tangail.',
     garmentDetails: '<li>High neckline</li><li>Asymmetrical</li><li>Short sleeves</li><li>Slips on</li>'
 };
 
@@ -200,7 +200,7 @@ vagabond.narigama = {
         XL: [76, 53, 124, 56, 68, 45]
     },
     getFabric: function (varidx) {
-        return "Khadi / P.F.I. Tangail";
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -213,7 +213,7 @@ vagabond.narigama = {
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    description: 'This basic Narigama Kurta is designed for ease and comfort. It has pintucks in the front and is cut in a100% cotton khadi. It has a mandarin collar with front placket and side slits that make the kurta even more relaxed. An Indian kurta, with western sleeve cuffs and a mandarin collar - this cross-cultural design is favored by the well-traveled "Vagabond".',
+    description: 'This basic Narigama Kurta is designed for ease and comfort. It has pintucks in the front and is cut in a100% cotton. It has a mandarin collar with front placket and side slits that make the kurta even more relaxed. An Indian kurta, with western sleeve cuffs and a mandarin collar - this cross-cultural design is favored by the well-traveled "Vagabond".',
     garmentDetails: '<li>Short kurta</li><li>Mandarin collar</li><li>Full sleeves with cuff</li><li>Pintuck detail in the front</li>'
 };
 
@@ -230,7 +230,7 @@ vagabond.pondy = {
         XL: [105, 41, 126, 82, 44],
     },
     getFabric: function (varidx) {
-        return "Khadi / P.F.I. Tangail";
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -243,7 +243,7 @@ vagabond.pondy = {
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    description: 'The Pondy Pants are inspired by the relaxed resort vibe of, well, Pondicherry. It has an adjustable drawstring and elastic at the waist and is cut in 100% cotton khadi. Detailing is provided by the contrasting khadi border at the hem, on the drawstring and the back pocket. Golden silk P.F.I. Tangail trims on the sides of the hem add a subtle bit of ornamentation.',
+    description: 'The Pondy Pants are inspired by the relaxed resort vibe of, well, Pondicherry. It has an adjustable drawstring and elastic at the waist and is cut in 100% cotton. Detailing is provided by the contrasting border at the hem, on the drawstring and the back pocket. Golden silk P.F.I. Tangail trims on the sides of the hem add a subtle bit of ornamentation.',
     garmentDetails: '<li>Elastic and adjustable drawstring at the waist</li><li>P.F.I. Tangail border at hem</li><li>Side pockets</li>'
 };
 
@@ -260,7 +260,7 @@ vagabond.ubud = {
         XL: [104, 38, 126, 82, 16]
     },
     getFabric: function (varidx) {
-        return "Khadi / P.F.I. Tangail";
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -273,7 +273,7 @@ vagabond.ubud = {
         }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    description: 'For the Ubud Pants, we took a streetwear silhouette and jazzed it up. These track pants are cut in 100% cotton khadi and the asymmetrical striped P.F.I. Tangail cotton panel is accentuated with silk golden P.F.I. Tangail to make a flamboyant statement. The broad elastic sits comfortably at the waist, and it has side slit pockets and an adjustable buttoned hem.',
+    description: 'For the Ubud Pants, we took a streetwear silhouette and jazzed it up. These track pants are cut in 100% cotton and the asymmetrical striped P.F.I. Tangail cotton panel is accentuated with silk golden P.F.I. Tangail to make a flamboyant statement. The broad elastic sits comfortably at the waist, and it has side slit pockets and an adjustable buttoned hem.',
     garmentDetails: '<li>Elastic at the waist</li><li>Side pockets</li><li>Adjustable hem band with buttons</li>'
 
 };
@@ -349,7 +349,7 @@ vagabond.kageratie = {
         Free: [140, [3,6]]
     },
     getFabric: function (varidx) {
-        return "Khadi / P.F.I. Tangail";
+        return "P.F.I. Tangail";
     },
     data: [
         {
@@ -359,7 +359,7 @@ vagabond.kageratie = {
 			height: "1500",
             colourPfx: "red",
             colourSfxs: ["2", "1"],
-			desc: "<p>The body is a two-tone Red &amp; Black khadi. The impossible-to-find 7.5 cm. wide border has floral and sacred geometry motifs in Black on a Red tangail fabric.</p>"
+			desc: "<p>The body is a two-tone Red &amp; Black cotton. The impossible-to-find 7.5 cm. wide border has floral and sacred geometry motifs in Black on a Red tangail fabric.</p>"
         },
         {
             colourName: "Blue",
@@ -368,7 +368,7 @@ vagabond.kageratie = {
 			height: "1500",
             colourPfx: "blue",
             colourSfxs: ["2", "1"],
-			desc: "<p>The body is a two-tone Blue &amp; Black khadi. The impossible-to-find 7.5 cm wide border has mango and paisley motifs in Black on a Blue tangail fabric.</p>"
+			desc: "<p>The body is a two-tone Blue &amp; Black cotton. The impossible-to-find 7.5 cm wide border has mango and paisley motifs in Black on a Blue tangail fabric.</p>"
         },
         {
             colourName: "Denim",
@@ -377,7 +377,7 @@ vagabond.kageratie = {
 			height: "1500",
             colourPfx: "denim",
             colourSfxs: ["2", "1"],
-			desc: "<p>The body is a two-tone Denim &amp; Bone khadi. The 8 cm wide silk border is custom-woven for Rangoli with herringbone, mountain and paisley motifs in Silver on a Steel tangail fabric.</p>"
+			desc: "<p>The body is a two-tone Denim &amp; Bone cotton. The 8 cm wide silk border is custom-woven for Rangoli with herringbone, mountain and paisley motifs in Silver on a Steel tangail fabric.</p>"
         },
         {
             colourName: "Old Rose",
@@ -386,7 +386,7 @@ vagabond.kageratie = {
 			height: "1500",
             colourPfx: "bougainvillea",
             colourSfxs: ["2", "1"],
-			desc: "<p>The body is a two-tone Old-Rose &amp; Bone khadi. The impossible-to-find 6 cm. wide border has floral motifs in White on a Rose tangail fabric.</p>"
+			desc: "<p>The body is a two-tone Old-Rose &amp; Bone cotton. The impossible-to-find 6 cm. wide border has floral motifs in White on a Rose tangail fabric.</p>"
         },
         {
             colourName: "Mustard",
@@ -404,7 +404,7 @@ vagabond.kageratie = {
 			height: "1500",
             colourPfx: "black",
             colourSfxs: ["2", "1"],
-			desc: "<p>The body is a Black khadi. The 9 cm. wide silk border is custom-woven for Rangoli with herringbone, mountain, flower and paisley motifs in Silver on a Black tangail fabric.</p>"
+			desc: "<p>The body is a Black cotton. The 9 cm. wide silk border is custom-woven for Rangoli with herringbone, mountain, flower and paisley motifs in Silver on a Black tangail fabric.</p>"
         }/*,
         {
             colourName: "Grey",
@@ -413,7 +413,7 @@ vagabond.kageratie = {
 			height: "1500",
             colourPfx: "grey",
             colourSfxs: ["", ""],
-			desc: "<p>The body is a two-tone Grey &amp; Beige khadi. The 8 cm. wide silk border is custom woven for Rangoli with sacred geometry and stripes in Old-Gold on a Black tangail fabric.</p>"
+			desc: "<p>The body is a two-tone Grey &amp; Beige cotton. The 8 cm. wide silk border is custom woven for Rangoli with sacred geometry and stripes in Old-Gold on a Black tangail fabric.</p>"
         }*/
     ],
     sizes: ['Free'],

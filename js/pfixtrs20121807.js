@@ -9,7 +9,7 @@ extras.createComponentFactory = function (prodInfo, dimensioner, sizer, categori
 }
 
 extras.shippingHTML = getShippingInfoUL(['If the item is in stock,  it will be ready to ship within 1 business day of your order.']);
-extras.washcareHTML = khadi_washcareHTML;
+extras.washcareHTML = cotton_washcareHTML;
 
 extras.dipdye = {
 	SKU: 'DPDYSF1501PT',
