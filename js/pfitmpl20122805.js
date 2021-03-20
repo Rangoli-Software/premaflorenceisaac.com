@@ -291,6 +291,12 @@ const clients = {
 	url: "/look.html?t=f",
 	sub: [
 		{
+			title: "#oneofakind",
+			url: "/people/oneofakind.html",
+			lede: "One-of-a-kind individuals who have collected my Woven Canvases",
+			imageURL: "/people/ooak/sl02.jpg"
+        },
+		{
 			title: "#artwear",
 			url: "/people/artwear.html",
 			lede: "Images of friends wearing my signature Art Wear silhouettes",
@@ -307,12 +313,6 @@ const clients = {
 			url: "/look/gg.html",
 			lede: "Fun with Face Masks",
 			imageURL: "/look/friends/gg-aqua.jpg"
-        },
-		{
-			title: "#oneofakind",
-			url: "/people/oneofakind.html",
-			lede: "The unique individuals who have collected my woven canvases",
-			imageURL: "/people/ooak/sl02.jpg"
         },
 		{
 			title: "Curators",
@@ -666,7 +666,7 @@ function createShopMenuHTML() {
 function createLookMenuHTML() {
 	var col1 = createDDColumn([lotm, moods], "col-7");
 	var col2 = createDDColumn([clients, ramp], "col-5");
-	return createDDContents([col1, col2]);
+	return createDDContents([col2, col1]);
 }
 
 function createBlogMenuHTML() {
