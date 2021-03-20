@@ -45,15 +45,24 @@ var listData = [
 
 function getTabletJholaFactory(sku) {
 var listData = [
-    [1, ["1F", "1B", "1R"], "#BB7333", "Copper", null],
+    [1, ["1F", "1B", "1R"], "#6ACCC7", "Downy", null],
+    [2, ["2F", "2B", "2R"], "#2F1B17", "Eclipse", null],
+    [3, ["3F", "3B", "3R"], "#6ABABB", "Tradewind", null],
+    [4, ["4F", "4B", "4R"], "#AC3D25", "Terracotta", null],
+    [5, ["5F", "5B", "5R"], "#792320", "Metallic Copper", null],
+    [6, ["6F", "6B", "6R"], "#C53F1E", "Thunderbird", null],
+    [7, ["7F", "7B", "7R"], "#66633B", "Verdigris", null],
+    [8, ["8F", "8B", "8R"], "#DE5024", "Punch", null],
+    [9, ["9F", "9B", "9R"], "#2791A5", "Jelly Bean", null],
+    [10, ["10F", "10B", "10R"], "#2D3919", "Mallard", null],
 ];
 	var basedir = '/products/accessories/tablet/';
     var descMap = {
         CW1: 'Art Wear'
     };
 	var imgdim = {
-		width: "1000",
-		height: "1000"
+		width: "1500",
+		height: "1500"
 	};
     return createStyleDescFactory(sku, basedir, listData, descMap, imgdim);
 }

@@ -704,11 +704,11 @@ function createShopMM() {
 }
 
 function createLookMM() {
-	return createDDMenu("tlLookMnu", true, "295px", createLookMenuHTML());
+	return createDDMenu("tlLookMnu", true, "285px", createLookMenuHTML());
 }
 
 function createBlogDD() {
-	return createDDMenu("tlBlogMnu", true, "295px", createBlogMenuHTML());
+	return createDDMenu("tlBlogMnu", true, "290px", createBlogMenuHTML());
 }
 
 function createAboutDD() {
