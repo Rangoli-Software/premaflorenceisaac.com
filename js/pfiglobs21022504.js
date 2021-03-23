@@ -1,4 +1,4 @@
-const shopRevisionVersion = "21022503";
+const shopRevisionVersion = "21022504";
 
 const pfiavG = {};
 pfiavG.lineNames = ["Art Wear", "It's Magic", "Ce Soir", "Happy Everyday"];
@@ -141,8 +141,8 @@ const plData = [
 
 ['FACEMK2005Ta',700],
 ['TNTGBG1501',1100],
-['LLBGSM1501TB',2400],
-['LLBGMD1501TB',3200],
+['LLBGSM1501TB',3000],
+['LLBGMD1501TB',3400],
 ['LLBGMD1701TB',3400],
 ['LLBGBG1501TB',4000],
 
