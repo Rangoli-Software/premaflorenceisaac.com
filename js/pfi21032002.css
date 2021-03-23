@@ -1,14 +1,13 @@
 .pfi-bq {
-  font-size: 4em;
+  border-left: 3px solid #ff6f61;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
 }
 .pfi-bq:before {
   content: open-quote;
 }
 .pfi-bq:after {
   content: close-quote;
-}
-.pfi-bq p {
-  display: inline;
 }
 /*
 .pfi-bq {
