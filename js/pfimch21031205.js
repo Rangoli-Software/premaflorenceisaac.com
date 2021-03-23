@@ -29,6 +29,8 @@ const merchInfo = [
 		ledes: ['In White. A #oneofakind T-shirt.'],
 		images: [{
 			url: '/products/wovencanvas/wc/GirlWhiteS.jpg'
+		}{
+			url: '/people/ooak/michel.jpg'
 		}]
     },
 	{

@@ -1,4 +1,17 @@
 .pfi-bq {
+  font-size: 4em;
+}
+.pfi-bq:before {
+  content: open-quote;
+}
+.pfi-bq:after {
+  content: close-quote;
+}
+.pfi-bq p {
+  display: inline;
+}
+/*
+.pfi-bq {
   background: #f9f9f9;
   border-left: 10px solid #ccc;
   margin: 1.5em 10px;
@@ -16,6 +29,7 @@
 .pfi-bq p {
   display: inline;
 }
+*/
 
 .pfi-lc {
   display: -webkit-box;
