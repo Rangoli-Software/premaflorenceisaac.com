@@ -8,6 +8,10 @@ const merchInfo = [
 		images: [{
 			url: '/g/merch/wc3.jpg'
 		}, {
+			url: '/people/ooak/dan.jpg'
+		}, {
+			url: '/people/ooak/edgar.jpg'
+		}, {
 			url: '/people/ooak/sl01.jpg'
 		}, {
 			url: '/people/ooak/sl02.jpg'

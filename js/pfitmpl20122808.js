@@ -294,7 +294,7 @@ const clients = {
 			title: "#oneofakind",
 			url: "/people/oneofakind.html",
 			lede: "One-of-a-kind individuals who have collected my Woven Canvases",
-			imageURL: "/people/ooak/sl02.jpg"
+			imageURL: "/people/ooak/dan.jpg"
         },
 		{
 			title: "#artwear",
