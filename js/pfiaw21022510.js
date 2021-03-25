@@ -329,7 +329,7 @@ artwear.tote.prodData = {
     }],
 	sizes: ['Free'],
 	description: 'We\'ve used these for ages as a one-of-a-kind gift bag, cut in Jamdani / Tangail. It\'s a great carry around tote that can be used while running errands around town.',
-	garmentDetails: '<ul><li>Single layer of Tangail / Jamdani</li><li>Tote bag</li><li>Two shoulder straps</li></ul>',
+	garmentDetails: '<ul><li>Art Wear - Each bag is one-of-a-kind</li><li>Single layer of Tangail / Jamdani</li><li>Tote bag</li><li>Two shoulder straps</li></ul>',
 };
 artwear.tote.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
 artwear.tote.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
@@ -353,9 +353,9 @@ artwear.liljhola.prodData = {
     }],
 	sizes: ['Free'],
 	description: 'The L’il Jhola is an ideal handbag size to carry your essentials as you go about your day. It has multiple compartments to hold your knick knacks. A one-of-a-kind bag with Tangail / Jamdani border on the straps and lined with cotton.',
-	garmentDetails: '<ul><li>Outer layer of Tangail / Jamdani</li><li>100% cotton lining</li><li>Single shoulder strap</li><li>Two internal pockets</li></ul>',
+	garmentDetails: '<ul><li>Art Wear - Each bag is one-of-a-kind</li><li>Outer layer of Tangail / Jamdani</li><li>100% cotton lining</li><li>Single shoulder strap</li><li>Two internal pockets</li></ul>',
 };
-artwear.liljhola.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
+artwear.liljhola.washcareHTML = "<ul><li>Art Wear - Each bag is one-of-a-kind</li><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
 artwear.liljhola.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
 artwear.liljhola.createCardCreator = function () {
 	return createArtWearCardCreator(createSquareImageCarousel);
@@ -377,7 +377,7 @@ artwear.tablet.prodData = {
     }],
 	sizes: ['Free'],
 	description: '',
-	garmentDetails: '<ul><li>Outer layer of Tangail / Jamdani</li><li>100% cotton lining</li><li>Single shoulder strap</li><li>Two internal pockets</li></ul>',
+	garmentDetails: '<ul><li>Art Wear - Each bag is one-of-a-kind</li><li>Outer layer of Tangail / Jamdani</li><li>100% cotton lining</li><li>Single shoulder strap</li><li>Two internal pockets</li></ul>',
 };
 artwear.tablet.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
 artwear.tablet.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
@@ -401,7 +401,7 @@ artwear.postman.prodData = {
     }],
 	sizes: ['Free'],
 	description: 'The Postman Jhola is our take on a courier bag, made in Tangail / Jamdani with a contrasting handspun. The borders of the sari are carefully placed on the shoulder strap to elevate your outfit when worn as a crossbody bag. It is an ideal size to carry a tablet and a notebook to work or to a coffee shop.',
-	garmentDetails: '<ul><li>Outer layer of Tangail / Jamdani</li><li>100% cotton lining</li><li>Single cross-body shoulder strap</li><li>Two internal pockets</li></ul>',
+	garmentDetails: '<ul><li>Art Wear - Each bag is one-of-a-kind</li><li>Outer layer of Tangail / Jamdani</li><li>100% cotton lining</li><li>Single cross-body shoulder strap</li><li>Two internal pockets</li></ul>',
 };
 artwear.postman.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
 artwear.postman.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
@@ -425,7 +425,7 @@ artwear.lilajhola.prodData = {
     }],
 	sizes: ['Free'],
 	description: 'The Lila Bag is versatile to carry to pilates and to a meeting right after. The bag can accommodate all your needs throughout the day while you alternate between work and daily hustle. It has compartments for your phone and keys and a spacious enough to carry laptop and other essentials. It’s one-of-a-kind bag with Tangail / Jamdani border on the straps and lined with cotton.',
-	garmentDetails: '<ul><li>Outer layer of Tangail / Jamdani</li><li>100% cotton lining</li><li>Single cross-body shoulder strap</li><li>Two internal pockets</li><li>Self-tie string fastening on the top</li></ul>',
+	garmentDetails: '<ul><li>Art Wear - Each bag is one-of-a-kind</li><li>Outer layer of Tangail / Jamdani</li><li>100% cotton lining</li><li>Single cross-body shoulder strap</li><li>Two internal pockets</li><li>Self-tie string fastening on the top</li></ul>',
 };
 artwear.lilajhola.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
 artwear.lilajhola.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
