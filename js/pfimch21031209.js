@@ -41,6 +41,34 @@ const merchInfo = [
 		}]
     },
 	{
+		SKU: 'LLBGSM1501TB',
+		ledes: [''],
+		images: [{
+			url: '/g/merch/liljhola.jpg'
+		}]
+    },
+	{
+		SKU: 'LLBGMD1501TB',
+		ledes: [''],
+		images: [{
+			url: '/g/merch/tablet.jpg'
+		}]
+    },
+	{
+		SKU: 'LLBGMD1701TB',
+		ledes: [''],
+		images: [{
+			url: '/g/merch/postman.jpg'
+		}]
+    },
+	{
+		SKU: 'LLBGBG1501TB',
+		ledes: [''],
+		images: [{
+			url: '/g/merch/lila.jpg'
+		}]
+    },
+	{
 		SKU: 'OVTPSH1501Pa',
 		ledes: [''],
 		images: [{
@@ -595,7 +623,7 @@ function createPageSelector(mips) {
 	["KLGTLY1601Rv", "KGYPST1601Rv", "KRAJPT1601Kh", "FAIRST2011Rv", "KBALPA1601Vo", "KRAJKT1601Rv", "YUVRTC1601Rv", "HLFPNT1601Kh", "KIDIKI1501Vi", "PRNCDR1501Rv", "KWAVDR1601Rv", "KDHRDR1601Rv"], 
 	["HLNDRS1505PT-CW1", "JLTDRS1505PT-CW1", "NKSHMI1501PT-CW1", "BKLLTS1505Je-CW1"], 
 	["TRPZTP1807Kh", "CRPTOP1805Kh", "VAMPAL1708Kh", "OVTPLO1501Vo", "BERMPA1609Kh", "LTSDSL1501Kh", "BALLPA1501Vo"],
-	["FACEMK2005Ta", "DPDYSF1501PT", "KAGTIE1601Kh", "CHMPGN1501JL"]
+	["FACEMK2005Ta", "DPDYSF1501PT", "KAGTIE1601Kh", "CHMPGN1501JL", "TNTGBG1501", "LLBGSM1501TB","LLBGMD1501TB","LLBGMD1701TB","LLBGBG1501TB"]
 	];
 	var lineMerchSections = [
 		{

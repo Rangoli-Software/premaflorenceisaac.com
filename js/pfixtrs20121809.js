@@ -118,7 +118,9 @@ extras.catalog = {
 	title: "Extras",
 	shopURL: "/products/xtras/shop.html",
 	skus: null,
-	styles: [artwear.facemask, extras.dipdye, vagabond.kageratie, extras.champagnebag],
+	styles: [artwear.facemask, extras.dipdye, vagabond.kageratie, extras.champagnebag, artwear.tote, artwear.liljhola, artwear.tablet, artwear.postman, artwear.lilajhola],
+	bags: [artwear.tote.SKU, artwear.liljhola.SKU, artwear.tablet.SKU, artwear.postman.SKU, artwear.lilajhola.SKU],
+	xtras: [artwear.facemask.SKU, extras.dipdye.SKU, vagabond.kageratie.SKU, extras.champagnebag.SKU],
 	productDB: null,
 	getProduct: function (sku) {
 		return this.productDB[sku];
@@ -129,8 +131,8 @@ pfiavG.getLineInitializer(extras).initialize();
 
 extras.categorizer = createFieldCategorizer(
 	extras.catalog,
-    ["All"],
-    ["skus"],
-    ["a"],
+    ["Handbags", "Other"],
+    ["bags", "xtras"],
+    ["b", "x"],
 	"t",
-	"a");
+	"b");

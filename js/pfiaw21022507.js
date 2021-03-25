@@ -328,7 +328,7 @@ artwear.tote.prodData = {
 		images: ["P11_D1", "P11_D2", "P11_D3", "P11_D4"]
     }],
 	sizes: ['Free'],
-	description: 'As the name suggests, this is a unique one-of-a-kind gifting bag, cut in Jamdani or Tangail sari. We design to optimise every part of the intricately woven sari. It is a great carry on tote that can be used while running errands around town. It compliments different outfits and easy to maintain.',
+	description: 'We\'ve used these for ages as a one-of-a-kind gift bag, cut in Jamdani / Tangail. It\'s a great carry around tote that can be used while running errands around town.',
 	garmentDetails: '<ul><li>Single layer of Tangail / Jamdani</li><li>Tote bag</li><li>Two shoulder straps</li></ul>',
 };
 artwear.tote.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
@@ -352,8 +352,8 @@ artwear.liljhola.prodData = {
 		images: ["P3_D1", "P3_D2", "P3_D3", "P3_D4"]
     }],
 	sizes: ['Free'],
-	description: 'The L’il Jhola is an ideal handbag size to carry your essentials to go about your day. It’s got multiple compartments to hold your knick knacks in. It’s one-of-a-kind bag with Tangail / Jamdani border on the straps and lined with cotton.',
-	garmentDetails: '<ul><li>Outer layer of Tangail / Jamdani</li><li>Cotton lining</li><li>Single shoulder strap</li><li>Two internal pockets</li></ul>',
+	description: 'The L’il Jhola is an ideal handbag size to carry your essentials as you go about your day. It has multiple compartments to hold your knick knacks. A one-of-a-kind bag with Tangail / Jamdani border on the straps and lined with cotton.',
+	garmentDetails: '<ul><li>Outer layer of Tangail / Jamdani</li><li>Homespun lining</li><li>Single shoulder strap</li><li>Two internal pockets</li></ul>',
 };
 artwear.liljhola.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
 artwear.liljhola.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
@@ -376,8 +376,8 @@ artwear.tablet.prodData = {
 		images: ["P4_D1", "P4_D2", "P4_D3", "P4_D4"]
     }],
 	sizes: ['Free'],
-	description: 'The Tablet Jhola is our take on a messenger bag, made in Tangail/Jamdani with a contrasting cotton. The borders of the sari are carefully placed on the shoulder strap so when worn as a crosbody bag, it elevates your outfit. It\'s and ideal size to carry a tablet and a notebook to work or a coffee shop.',
-	garmentDetails: '<ul><li></li><li></li><li></li></ul>',
+	description: '',
+	garmentDetails: '<ul><li>Outer layer of Tangail / Jamdani</li><li>Homespun lining</li><li>Single shoulder strap</li><li>Two internal pockets</li><li>Self-tie string fastening on the top</li></ul>',
 };
 artwear.tablet.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
 artwear.tablet.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
@@ -400,8 +400,8 @@ artwear.postman.prodData = {
 		images: ["P4_D1", "P4_D2", "P4_D3", "P4_D4"]
     }],
 	sizes: ['Free'],
-	description: 'The Postman Jhola is our take on a messenger bag, made in Tangail/Jamdani with a contrasting cotton. The borders of the sari are carefully placed on the shoulder strap so when worn as a crosbody bag, it elevates your outfit. It\'s and ideal size to carry a tablet and a notebook to work or a coffee shop.',
-	garmentDetails: '<ul><li>Outer layer of Tangail / Jamdani</li><li>Cotton lining</li><li>Single cross-body shoulder strap</li><li>Two internal pockets</li><li></li>Self-tie string fastening on the top</ul>',
+	description: 'The Postman Jhola is our take on a courier bag, made in Tangail / Jamdani with a contrasting handspun. The borders of the sari are carefully placed on the shoulder strap to elevate your outfit when worn as a crossbody bag. It is an ideal size to carry a tablet and a notebook to work or to a coffee shop.',
+	garmentDetails: '<ul><li>Outer layer of Tangail / Jamdani</li><li>Handspun lining</li><li>Single cross-body shoulder strap</li><li>Two internal pockets</li><li>Self-tie string fastening on the top</li></ul>',
 };
 artwear.postman.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
 artwear.postman.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
@@ -425,7 +425,7 @@ artwear.lilajhola.prodData = {
     }],
 	sizes: ['Free'],
 	description: 'The Lila Bag is versatile to carry to pilates and to a meeting right after. The bag can accommodate all your needs throughout the day while you alternate between work and daily hustle. It has compartments for your phone and keys and a spacious enough to carry laptop and other essentials. It’s one-of-a-kind bag with Tangail / Jamdani border on the straps and lined with cotton.',
-	garmentDetails: '<ul><li>Outer layer of Tangail / Jamdani</li><li>Cotton lining</li><li>Single cross-body shoulder strap</li><li>Two internal pockets</li><li></li>Self-tie string fastening on the top</ul>',
+	garmentDetails: '<ul><li>Outer layer of Tangail / Jamdani</li><li>Cotton lining</li><li>Single cross-body shoulder strap</li><li>Two internal pockets</li><li>Self-tie string fastening on the top</li></ul>',
 };
 artwear.lilajhola.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
 artwear.lilajhola.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
@@ -438,7 +438,7 @@ artwear.catalog = {
 	title: "Art Wear",
 	shopURL: "/products/artwear/shop.html",
 	skus: null,
-	styles: [artwear.tamarai, artwear.kamalam, artwear.kaftan, artwear.saritop, artwear.ravakai, artwear.madras, artwear.payara, artwear.longovertop, artwear.shortovertop, artwear.nakshaminuit, artwear.nakshamidi, artwear.nakshamini, artwear.nakshamicro, artwear.tote, artwear.liljhola, artwear.postman, artwear.lilajhola],
+	styles: [artwear.tamarai, artwear.kamalam, artwear.kaftan, artwear.saritop, artwear.ravakai, artwear.madras, artwear.payara, artwear.longovertop, artwear.shortovertop, artwear.nakshaminuit, artwear.nakshamidi, artwear.nakshamini, artwear.nakshamicro],
 	dresses: [artwear.tamarai.SKU, artwear.kamalam.SKU, artwear.kaftan.SKU],
 	skirts: [artwear.nakshaminuit.SKU, artwear.nakshamidi.SKU, artwear.nakshamini.SKU, artwear.nakshamicro.SKU],
 	separates: [artwear.saritop.SKU, artwear.ravakai.SKU, artwear.madras.SKU, artwear.payara.SKU, artwear.longovertop.SKU, artwear.shortovertop.SKU],
