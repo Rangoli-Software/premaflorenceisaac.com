@@ -1,4 +1,4 @@
-const shopRevisionVersion = "21022505";
+const shopRevisionVersion = "21022507";
 
 const pfiavG = {};
 pfiavG.lineNames = ["Art Wear", "It's Magic", "Ce Soir", "Happy Everyday"];
@@ -12,7 +12,7 @@ const cmData = [
 
 ['Tant Facemask','FACEMK2005Ta','0.0095','1.2','/products/accessories/facemask.html','TRUE'],
 ['Tant Tote','TNTGBG1501','0.0095','1.2','/products/accessories/tote.html','TRUE'],
-['L\'il Jhola','LLBGSM1501TB','0.05','1.2','/products/accessories/liljhola.html','TRUE'],
+['Li\'l Jhola','LLBGSM1501TB','0.05','1.2','/products/accessories/liljhola.html','TRUE'],
 ['Tablet Jhola','LLBGMD1501TB','0.06','1.2','/products/accessories/tablet.html','TRUE'],
 ['Postman Jhola','LLBGMD1701TB','0.7','1.2','/products/accessories/postman.html','TRUE'],
 ['Lila Jhola','LLBGBG1501TB','0.1','1.2','/products/accessories/lila.html','TRUE'],
