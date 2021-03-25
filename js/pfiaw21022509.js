@@ -377,7 +377,7 @@ artwear.tablet.prodData = {
     }],
 	sizes: ['Free'],
 	description: '',
-	garmentDetails: '<ul><li>Outer layer of Tangail / Jamdani</li><li>100% cotton lining</li><li>Single shoulder strap</li><li>Two internal pockets</li><li>Self-tie string fastening on the top</li></ul>',
+	garmentDetails: '<ul><li>Outer layer of Tangail / Jamdani</li><li>100% cotton lining</li><li>Single shoulder strap</li><li>Two internal pockets</li></ul>',
 };
 artwear.tablet.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
 artwear.tablet.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
@@ -401,7 +401,7 @@ artwear.postman.prodData = {
     }],
 	sizes: ['Free'],
 	description: 'The Postman Jhola is our take on a courier bag, made in Tangail / Jamdani with a contrasting handspun. The borders of the sari are carefully placed on the shoulder strap to elevate your outfit when worn as a crossbody bag. It is an ideal size to carry a tablet and a notebook to work or to a coffee shop.',
-	garmentDetails: '<ul><li>Outer layer of Tangail / Jamdani</li><li>100% cotton lining</li><li>Single cross-body shoulder strap</li><li>Two internal pockets</li><li>Self-tie string fastening on the top</li></ul>',
+	garmentDetails: '<ul><li>Outer layer of Tangail / Jamdani</li><li>100% cotton lining</li><li>Single cross-body shoulder strap</li><li>Two internal pockets</li></ul>',
 };
 artwear.postman.washcareHTML = "<ul><li>Wash before first use</li><li>Do not soak</li><li>Hand Wash</li><li>Mild Detergent</li><li>Do Not Bleach</li><li>Dry In Shade</li></ul>";
 artwear.postman.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
