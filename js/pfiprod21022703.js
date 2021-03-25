@@ -1251,7 +1251,7 @@ function createProductComponent(prePanelr, basePanelr, sizePanelr, carousel, var
 			return this.sizePanelr.getSizeModal();
 		},
 		createProductDiv: function (varIdx, szIdx) {
-			return '<div class="row" id="' + this.prodPanelId + '"><div class="col-12 col-md-7">' +
+			return '<div class="row no-gutters mx-n1 mx-md-n2" id="' + this.prodPanelId + '"><div class="col-12 col-md-7">' +
 				this.prePanelr.createDiv() +
 				this.createImageDiv(varIdx) +
 				'</div><div class="col-12 col-md-5 pl-lg-10">' +
@@ -1348,7 +1348,7 @@ function createUIProductComponent(prePanelr, basePanelr, sizePanelr, carousel, a
 			return this.sizePanelr.getSizeModal();
 		},
 		createProductDiv: function () {
-			return '<div class="row" id="' + this.prodPanelId + '"><div class="col-12 col-md-7">' +
+			return '<div class="row no-gutters mx-n1 mx-md-n2" id="' + this.prodPanelId + '"><div class="col-12 col-md-7">' +
 				this.prePanelr.createDiv() +
 				this.createImageDiv() +
 				'</div><div class="col-12 col-md-5 pl-lg-10">' +

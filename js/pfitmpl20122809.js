@@ -754,6 +754,9 @@ function getPriceStringHTML(shop, product, vid) {
 		}
 		return priceString;
 	} else {
+		if ( varPL === undefined ) {
+			return priceString;
+		}
 		var prV = varPL[vid];
 		if (prV !== undefined) {
 			return shop.getFXPriceHTML(prV);
