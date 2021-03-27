@@ -325,7 +325,7 @@ artwear.tote.prodData = {
 	},
 	data: [{
 		vid: "CW1",
-		images: ["P11_D1", "P11_D2", "P11_D3", "P11_D4"]
+		images: ["P11_D1", "P11_D2", "P11_D4"]
     }],
 	sizes: ['Free'],
 	description: 'We\'ve used these for ages as a one-of-a-kind gift bag, cut in Jamdani / Tangail. It\'s a great carry around tote that can be used while running errands around town.',
