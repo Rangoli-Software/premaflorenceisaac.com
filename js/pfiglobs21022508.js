@@ -1,4 +1,4 @@
-const shopRevisionVersion = "21022507";
+const shopRevisionVersion = "21022508";
 
 const pfiavG = {};
 pfiavG.lineNames = ["Art Wear", "It's Magic", "Ce Soir", "Happy Everyday"];
@@ -15,13 +15,13 @@ const cmData = [
 ['Li\'l Jhola','LLBGSM1501TB','0.05','1.2','/products/accessories/liljhola.html','TRUE'],
 ['Tablet Jhola','LLBGMD1501TB','0.06','1.2','/products/accessories/tablet.html','TRUE'],
 ['Postman Jhola','LLBGMD1701TB','0.7','1.2','/products/accessories/postman.html','TRUE'],
-['Lila Jhola','LLBGBG1501TB','0.1','1.2','/products/accessories/lila.html','TRUE'],
+['Lila Jhola','LLBGBG1501TB','0.8','1.2','/products/accessories/lila.html','TRUE'],
 
 ['Chain Clutch','CHNCLT1510','0.0095','1.2','/products/accessories/clutch.html','FALSE'],
-['PomPom Ear Cuff','PPERCF1505Wo','0.0095','1.2','/products/accessories/clutch.html','FALSE'],
-['PomPom Bracelet','PPBCLT1505Wo','0.0095','1.2','/products/accessories/clutch.html','FALSE'],
-['PomPom Crochet Slipper','PPCSLP1505Wo','0.0095','1.2','/products/accessories/clutch.html','FALSE'],
-['Handloom Bracelet','HLMBRT1505PT','0.0095','1.2','/products/accessories/clutch.html','FALSE'],
+['Pom-Pom Ear Cuff','PPERCF1505Wo','0.0095','1.2','/products/accessories/clutch.html','FALSE'],
+['Pom-Pom Bracelet','PPBCLT1505Wo','0.0095','1.2','/products/accessories/pompom.html','FALSE'],
+['Pom-Pom Crochet Slipper','PPCSLP1505Wo','0.0095','1.2','/products/accessories/clutch.html','FALSE'],
+['Handloom Bracelet','HLMBRT1505PT','0.0095','1.2','/products/accessories/pfibclt.html','FALSE'],
 
 ['Naksha Micro','NKSHMC1512PP','0.18','1.2','/products/artwear/naksha.html?s=c','TRUE'],
 ['Naksha Mini','NKSHMI1501PP','0.28','1.2','/products/artwear/naksha.html?s=m','TRUE'],

@@ -672,9 +672,136 @@ cesoir.viola = {
 
 cesoir.clutch = {
     SKU: "CHNCLT1510",
+    basePath: "/products/accessories/",
     imgDir: 'clutch',
     imageFile: "sizing.jpg",
-    dimensionNames: ['A. Drop', 'B. Height', 'C. Width'],
+    dimensionNames: ['Drop', 'A. Width', 'B. Length'],
+    dimensionsCm: {
+		Free: [60, 16, 23]
+    },
+    getFabric: function (varidx) {
+        return "Velvet";
+    },
+    data: [
+        {
+            colourName: "Stiletto",
+            vid: "CW1",
+			width: "1400",
+			height: "1400",
+            colourPfx: "r",
+            colourSfxs: ["1"]
+        },
+        {
+            colourName: "Fern",
+            vid: "CW2",
+			width: "1400",
+			height: "1400",
+            colourPfx: "g",
+            colourSfxs: ["1"]
+        },
+        {
+            colourName: "Sundance",
+            vid: "CW3",
+			width: "1400",
+			height: "1400",
+            colourPfx: "y",
+            colourSfxs: ["1"]
+        },
+        {
+            colourName: "Clamshell",
+            vid: "CW4",
+			width: "1400",
+			height: "1400",
+            colourPfx: "p",
+            colourSfxs: ["1"]
+        },
+        {
+            colourName: "Aubergine",
+            vid: "CW5",
+			width: "1400",
+			height: "1400",
+            colourPfx: "v",
+            colourSfxs: ["1"]
+        },
+    ],
+    sizes: ['Free'],
+    description: 'This clutch is a quilted velvet bag with a metal chain-link. The shoulder bag can effortlessly transition from a brunch date to an evening clutch, just detach the chain. It accentuates your outfit by adding a pop of colour. It has multiple compartments to carry your phone and keys, and your lipstick for a quick touch up.',
+    garmentDetails: '<ul><li>Quilted velvet finish</li><li>Lining in satin</li><li>3 compartments</li><li>Zip fastening in the top</li><li>Detachable chain shoulder strap</li></ul>'
+};
+
+cesoir.pompombracelet = {
+    SKU: "PPBCLT1505Wo",
+    basePath: "/products/accessories/",
+    imgDir: 'ppbracelet',
+    imageFile: "",
+    dimensionNames: ['A. Diameter'],
+    dimensionsCm: {
+		Free: []
+    },
+    getFabric: function (varidx) {
+        return "Wool Pom-Poms";
+    },
+    data: [
+        {
+            colourName: "Cardinal",
+            vid: "CW1",
+			width: "1400",
+			height: "1400",
+            colourPfx: "cardinal",
+            colourSfxs: ["1"]
+        },
+        {
+            colourName: "Cerise",
+            vid: "CW2",
+			width: "1400",
+			height: "1400",
+            colourPfx: "cerise",
+            colourSfxs: ["1"]
+        },
+        {
+            colourName: "Merlot",
+            vid: "CW3",
+			width: "1400",
+			height: "1400",
+            colourPfx: "merlot",
+            colourSfxs: ["1"]
+        },
+        {
+            colourName: "Vin Rouge",
+            vid: "CW4",
+			width: "1400",
+			height: "1400",
+            colourPfx: "vinrouge",
+            colourSfxs: ["1"]
+        },
+        {
+            colourName: "Mono",
+            vid: "CW5",
+			width: "1400",
+			height: "1400",
+            colourPfx: "bw",
+            colourSfxs: ["1"]
+        },
+        {
+            colourName: "Harlequin",
+            vid: "CW6",
+			width: "1400",
+			height: "1400",
+            colourPfx: "mc",
+            colourSfxs: ["1"]
+        }
+    ],
+    sizes: ['Free'],
+    description: '',
+    garmentDetails: ''
+};
+
+cesoir.handloombracelet = {
+    SKU: "HLMBRT1505PT",
+    basePath: "/products/accessories/",
+    imgDir: 'hlbracelet',
+    imageFile: "",
+    dimensionNames: ['A. Diameter'],
     dimensionsCm: {
 		Free: []
     },
@@ -683,14 +810,25 @@ cesoir.clutch = {
     },
     data: [
         {
+            colourName: "Black &amp; Silver",
             vid: "CW1",
-            colourPfx: "b",
-            colourSfxs: ["1", "2", "3", "4"]
+			width: "1400",
+			height: "1400",
+            colourPfx: "bns",
+            colourSfxs: ["1"]
+        },
+        {
+            colourName: "Grey &amp; Gold",
+            vid: "CW2",
+			width: "1400",
+			height: "1400",
+            colourPfx: "gng",
+            colourSfxs: ["1"]
         }
     ],
     sizes: ['Free'],
-    description: 'This clutch is a quilted velvet bag with a metal chain-link. The shoulder bag can effortlessly transition from a brunch date to an evening clutch, just detach the chain. It accentuates your outfit by adding a pop of colour. It has multiple compartments to carry your phone and keys, and your lipstick for a quick touch up.',
-    garmentDetails: '<ul><li>Quilted velvet finish</li><li>Lining in satin</li><li>3 compartments</li><li>Zip fastening in the top</li><li>Detachable chain shoulder strap</li></ul>'
+    description: '',
+    garmentDetails: ''
 };
 
 cesoir.createJSON = function (style) {

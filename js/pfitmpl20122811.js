@@ -1170,7 +1170,7 @@ function getShippingInfoUL(points) {
 	for (var i = 0; i < points.length; i++) {
 		res += '<li>' + points[i] + '</li>';
 	}
-	res += '<li>We will notify you by email / WhatsApp when your item is dispatched  and send you the tracking id.</li><li>Within India we will courier your item, which  will reach you within 2-3 business days of dispatch.</li><li>Our recommended international shipping method is India Post Registered Letter, which will reach almost anywhere in the world within 7-15 business days from dispatch. <span class="text-danger">Post COVID, India Post Registered Letter is not available to all destinations, please check with us if you are uncertain about shipping.</span></li><li>We can also courier items anywhere in the world in 3-5 business days after dispatch.</li><li>Shipping time estimates <strong>do not</strong> include delays due to customs and other formalities at the port of entry.</li>';
+	res += '<li>We will notify you by email / WhatsApp when your item is dispatched  and send you the tracking id.</li><li>Within India we will courier your item, which  will reach you within 2-3 business days of dispatch.</li><li>Our recommended international shipping method is India Post Registered Letter, which will reach almost anywhere in the world within 7-15 business days from dispatch. <strong>Post COVID, India Post Registered Letter is not available to all destinations, please check with us if you are uncertain about shipping.</strong></li><li>We can also courier items anywhere in the world in 3-5 business days after dispatch.</li><li>Shipping time estimates <strong>do not</strong> include delays due to customs and other formalities at the port of entry.</li>';
 	res += '</ul>';
 	return res;
 }

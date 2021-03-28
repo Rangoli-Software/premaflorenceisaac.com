@@ -69,6 +69,33 @@ const merchInfo = [
 		}]
     },
 	{
+		SKU: 'CHNCLT1510',
+		vid: "CW1",
+		SKUvid: 'CHNCLT1510-CW1',
+		ledes: [''],
+		images: [{
+			url: '/products/accessories/ViviBagMood.jpg'
+		}]
+    },
+	{
+		SKU: 'PPBCLT1505Wo',
+		vid: "CW1",
+		SKUvid: 'PPBCLT1505Wo-CW1',
+		ledes: [''],
+		images: [{
+			url: '/products/accessories/BangleMood.jpg'
+		}]
+    },
+	{
+		SKU: 'HLMBRT1505PT',
+		vid: "CW1",
+		SKUvid: 'HLMBRT1505PT-CW1',
+		ledes: [''],
+		images: [{
+			url: '/products/accessories/BangleMood.jpg'
+		}]
+    },
+	{
 		SKU: 'OVTPSH1501Pa',
 		ledes: [''],
 		images: [{
@@ -621,7 +648,7 @@ function createPageSelector(mips) {
     ["AWTSHT1604Je-CW1", "AWTSHT1604Je-CW2"],
 	["OVTPSH1501Pa", "OVTPLO1501Pa", "TRPZTP1807Pa", "MDRSTP1606PP", "JULITP1501Pa", "SARITP1501Pa", "LNKFTN1501Ja", "LOTSDR1501Ja", "NKSHDR1501Ta", "NKSHMU1501PP", "NKSHMD1501PP", "NKSHMI1501PP", "NKSHMC1512PP"], 
 	["KLGTLY1601Rv", "KGYPST1601Rv", "KRAJPT1601Kh", "FAIRST2011Rv", "KBALPA1601Vo", "KRAJKT1601Rv", "YUVRTC1601Rv", "HLFPNT1601Kh", "KIDIKI1501Vi", "PRNCDR1501Rv", "KWAVDR1601Rv", "KDHRDR1601Rv"], 
-	["HLNDRS1505PT-CW1", "JLTDRS1505PT-CW1", "NKSHMI1501PT-CW1", "BKLLTS1505Je-CW1"], 
+	["HLNDRS1505PT-CW1", "JLTDRS1505PT-CW1", "NKSHMI1501PT-CW1", "BKLLTS1505Je-CW1", "CHNCLT1510-CW1", "PPBCLT1505Wo-CW1", "HLMBRT1505PT-CW1"], 
 	["TRPZTP1807Kh", "CRPTOP1805Kh", "VAMPAL1708Kh", "OVTPLO1501Vo", "BERMPA1609Kh", "LTSDSL1501Kh", "BALLPA1501Vo"],
 	["FACEMK2005Ta", "DPDYSF1501PT", "KAGTIE1601Kh", "CHMPGN1501JL", "TNTGBG1501", "LLBGSM1501TB","LLBGMD1501TB","LLBGMD1701TB","LLBGBG1501TB"]
 	];
