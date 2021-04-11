@@ -1,4 +1,4 @@
-const shopRevisionVersion = "21022508";
+const shopRevisionVersion = "21022509";
 
 const pfiavG = {};
 pfiavG.lineNames = ["Art Wear", "It's Magic", "Ce Soir", "Happy Everyday"];
@@ -19,9 +19,9 @@ const cmData = [
 
 ['Chain Clutch','CHNCLT1510','0.0095','1.2','/products/accessories/clutch.html','FALSE'],
 ['Pom-Pom Ear Cuff','PPERCF1505Wo','0.0095','1.2','/products/accessories/clutch.html','FALSE'],
-['Pom-Pom Bracelet','PPBCLT1505Wo','0.0095','1.2','/products/accessories/pompom.html','FALSE'],
+['Pom-Pom Bangle','PPBCLT1505Wo','0.0095','1.2','/products/accessories/pompom.html','FALSE'],
 ['Pom-Pom Crochet Slipper','PPCSLP1505Wo','0.0095','1.2','/products/accessories/clutch.html','FALSE'],
-['Handloom Bracelet','HLMBRT1505PT','0.0095','1.2','/products/accessories/pfibclt.html','FALSE'],
+['Handloom Bangle','HLMBRT1505PT','0.0095','1.2','/products/accessories/pfibclt.html','FALSE'],
 
 ['Naksha Micro','NKSHMC1512PP','0.18','1.2','/products/artwear/naksha.html?s=c','TRUE'],
 ['Naksha Mini','NKSHMI1501PP','0.28','1.2','/products/artwear/naksha.html?s=m','TRUE'],
