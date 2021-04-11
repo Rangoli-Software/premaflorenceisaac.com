@@ -659,9 +659,13 @@ function createSquareImageCarousel(images, idSfx) {
 				this.createImageNav(imgdims) + '</div>';
 		},
 		createImageNav: function (imgdims) {
+			var numImages = this.images.getNumImages();
+			if ( numImages == 1 ) {
+				return "";
+			};
 			var res = '<div class="flickity-nav mx-n2 mb-2" data-flickity=\'{"asNavFor": "#' + this.panelId + '", "contain": true, "wrapAround": false, "cellAlign": "center", "imagesLoaded": true}\' id="' + this.navId + '">';
 			var i = 0;
-			for (; i < this.images.getNumImages(); i++) {
+			for (; i < numImages; i++) {
 				var img = this.images.getImage(i);
 				res += '<div class="col-12 px-1" style="max-width: 80px;"><img class="img-fluid" src="' + img.url + '"' +
 					(img.text !== undefined ? ' alt="' + img.text + '"' : '') +
