@@ -119,8 +119,8 @@ extras.catalog = {
 	shopURL: "/products/xtras/shop.html",
 	skus: null,
 	styles: [artwear.facemask, extras.dipdye, vagabond.kageratie, extras.champagnebag, artwear.tote, artwear.liljhola, artwear.tablet, artwear.postman, artwear.lilajhola, cesoir.clutch, cesoir.pompombracelet, cesoir.handloombracelet],
-	bags: [artwear.tote.SKU, artwear.liljhola.SKU, artwear.tablet.SKU, artwear.postman.SKU, artwear.lilajhola.SKU],
-	xtras: [artwear.facemask.SKU, extras.dipdye.SKU, vagabond.kageratie.SKU, extras.champagnebag.SKU, cesoir.clutch.SKU, cesoir.pompombracelet.SKU, cesoir.handloombracelet.SKU],
+	bags: [artwear.tote.SKU, artwear.liljhola.SKU, artwear.tablet.SKU, artwear.postman.SKU, artwear.lilajhola.SKU, cesoir.clutch.SKU],
+	xtras: [artwear.facemask.SKU, extras.dipdye.SKU, vagabond.kageratie.SKU, extras.champagnebag.SKU, cesoir.pompombracelet.SKU],
 	productDB: null,
 	getProduct: function (sku) {
 		return this.productDB[sku];
