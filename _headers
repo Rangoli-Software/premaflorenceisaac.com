@@ -130,13 +130,13 @@
 /products/accessories/liljhola/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
-/products/accessories/postman/*.jpg
+/products/accessories/postmanJ/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
 /products/accessories/ppbracelet/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
-/products/accessories/tablet/*.jpg
+/products/accessories/tabletJ/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
 /products/accessories/tote/*.jpg

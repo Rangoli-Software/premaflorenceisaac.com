@@ -56,7 +56,7 @@ var listData = [
     [9, ["9F", "9B", "9R"], "#2791A5", "Jelly Bean", null],
     [10, ["10F", "10B", "10R"], "#2D3919", "Mallard", null],
 ];
-	var basedir = '/products/accessories/postman/';
+	var basedir = '/products/accessories/postmanJ/';
     var descMap = {
         CW1: 'Art Wear'
     };
@@ -78,7 +78,7 @@ var listData = [
     [7, ["7F", "7B", "7R"], "#798B42", "Sycamore", null],
     [8, ["8F", "8B", "8R"], "#BE7A68", "Contessa", null],
 ];
-	var basedir = '/products/accessories/tablet/';
+	var basedir = '/products/accessories/tabletJ/';
     var descMap = {
         CW1: 'Art Wear'
     };
