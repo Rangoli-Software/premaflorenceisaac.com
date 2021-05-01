@@ -97,6 +97,9 @@
 /look/friends/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
+/look/ig/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
 /look/moods/hed/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 

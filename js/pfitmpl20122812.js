@@ -416,6 +416,12 @@ const buzz = {
     ]
 };
 
+const insta = {
+	title: "Insta Ideas",
+	url: "/IGindexPR.html",
+	sub: []
+}
+
 const shop = {
 	title: "Shop",
 	url: "/shop.html",
@@ -659,7 +665,7 @@ function createDDMenu(id, alignRight, width, contents) {
 }
 
 function createShopMenuHTML() {
-	var col = createDDColumn([shop, faqs], "col-12");
+	var col = createDDColumn([insta, shop, faqs], "col-12");
 	return createDDContents([col]);
 }
 
