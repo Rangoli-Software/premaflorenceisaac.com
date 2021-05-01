@@ -696,7 +696,7 @@ function createMerchColumn(colCls) {
 function createMerchShopMenuHTML() {
 	var shopPlusFeatures = JSON.parse(JSON.stringify(shop));
 	shopPlusFeatures.sub = pfiavG.pageIdx.createShopFeatureList(1).concat(shop.sub);
-	var col = createDDColumn([shopPlusFeatures, faqs], "col-5");
+	var col = createDDColumn([insta, shopPlusFeatures, faqs], "col-5");
 	var mch = createMerchColumn("col-7");
 	return createDDContents([col, mch]);
 }
