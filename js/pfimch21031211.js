@@ -548,6 +548,9 @@ function createPageIndex(page) {
 		includePages: function (pages) {
 			this.included.pages = this.included.pages.concat(pages);
 		},
+		createFeatureless: function () {
+			return "<section class='pt-4'></section>"
+		},
 		createFeatures: function () {
 			var pageSel = createPageSelector(this.miPageSet);
 			var merch = pageSel.selectMerch(2);
