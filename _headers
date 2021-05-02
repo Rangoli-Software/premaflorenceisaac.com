@@ -112,6 +112,9 @@
 /people/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
+/people/expat/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
 /people/ooak/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
