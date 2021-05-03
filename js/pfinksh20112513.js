@@ -238,7 +238,7 @@ naksha.createSKUSelector = function (skus) {
 			for (var i = 0; i < this.skus.data.length; i++) {
 				var opt = this.skus.data[i];
 				res += '<div class="custom-control custom-control-inline custom-control-img"><input type="radio" onclick="onSKUChange(\'' + opt.SKU + '\')" class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.SKU + '"' + (varIdx == i ? " checked" : "") + '><label class="custom-control-label" for="' + name + i + '" style="width: ' + opt.pxWidth + 'px">' +
-					'<img class="img-fluid" src="' + this.skus.getImage(i).url + '">' +
+					'<img class="img-fluid" src="' + this.skus.getImage(i).url + '" loading="lazy">' +
 					'</label></div>';
 			}
 			res += '</div>';

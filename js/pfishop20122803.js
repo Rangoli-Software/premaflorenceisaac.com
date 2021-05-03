@@ -604,7 +604,7 @@ function createItemRenderer(parentId, item, shop, options) {
 		createDesciptionPanel: function () {
 			var html = '<span class="text-center"><figure><img src="' +
 				this.item.imageURL +
-				'" class="img-fluid center-block"></figure></span>';
+				'" class="img-fluid center-block" loading="lazy"></figure></span>';
 			return this.createColumn(4, html);
 		},
 		createOrderPanel: function () {

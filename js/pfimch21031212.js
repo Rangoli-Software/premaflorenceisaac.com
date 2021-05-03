@@ -31,6 +31,8 @@ const merchInfo = [
 			url: '/products/wovencanvas/wc/GirlWhiteS.jpg'
 		},{
 			url: '/people/ooak/michel.jpg'
+		},{
+			url: '/people/ooak/michel1.jpg'
 		}]
     },
 	{
@@ -761,11 +763,11 @@ function createProductCard(sku, title, url, imageURL, lede, isSq, section, vid) 
 	var res = '<div class="card mb-2 px-1 px-md-2">';
 	if (isSq) {
 		res += '<div class="embed-responsive embed-responsive-1by1">';
-		res += '<img src="' + imageURL + '" alt="' + title + '" class="embed-responsive-item" style="object-fit: cover">';
+		res += '<img src="' + imageURL + '" alt="' + title + '" class="embed-responsive-item" style="object-fit: cover" loading="lazy">';
 		res += '</div>';
 	} else {
 		res += '<div class="card-img">'
-		res += '<img src="' + imageURL + '" alt="' + title + '" class="img-fluid card-img-top card-img-front">';
+		res += '<img src="' + imageURL + '" alt="' + title + '" class="img-fluid card-img-top card-img-front" loading="lazy">';
 		res += '</div>';
 	}
 	res += '<div class="card-body px-0 pt-6 pb-4">';
@@ -843,7 +845,7 @@ function createStoryRef(s, itm, inContext) {
 			var res = '<div class="card mb-2 px-1 px-md-2">';
 			if (this.imageURL !== undefined) {
 				res += '<div class="embed-responsive embed-responsive-1by1">';
-				res += '<img src="' + this.imageURL + '" alt="' + this.title + '" class="embed-responsive-item" style="object-fit: cover">';
+				res += '<img src="' + this.imageURL + '" alt="' + this.title + '" class="embed-responsive-item" style="object-fit: cover" loading="lazy">';
 				res += '</div>';
 			} else if (this.imageHTML !== undefined) {
 				res += this.imageHTML;

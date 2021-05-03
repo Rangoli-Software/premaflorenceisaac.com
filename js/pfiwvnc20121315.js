@@ -11,7 +11,7 @@ function createWovenCanvasCardCreator() {
 			var res = '<div class="item sc-panel" style="background-color: ' +
 				desc.getBGColor() + ';color: ' + desc.getFGColor() + ';"><div class="row">';
 			res += '<div class="col-md-8"><div class="row"><div class="col-10 offset-1"><figure>' +
-				'<img src="' + images.getImage(0).url + '" class="img-fluid center-block">' +
+				'<img src="' + images.getImage(0).url + '" class="img-fluid center-block" loading="lazy">' +
 				'</figure>' +
 				'<p style="color: ' + desc.getFGColor() + '; text-align: center">Woven Canvas ' + desc.getDescription() + '</p>' +
 				'</div></div></div>';

@@ -670,7 +670,7 @@ function createSquareImageCarousel(images, idSfx) {
 				res += '<div class="col-12 px-1" style="max-width: 80px;"><img class="img-fluid" src="' + img.url + '"' +
 					(img.text !== undefined ? ' alt="' + img.text + '"' : '') +
 					(imgdims !== undefined ? ' width="' + imgdims.width + '" height="' + imgdims.height + '"': "") +
-					'></div>';
+					' loading="lazy"></div>';
 			}
 			res += '</div>';
 			return res;
@@ -682,7 +682,7 @@ function createSquareImageCarousel(images, idSfx) {
 				res += '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '"' +
 					(img.text !== undefined ? ' alt="' + img.text + '"' : '') +
 					(imgdims !== undefined ? ' width="' + imgdims.width + '" height="' + imgdims.height + '"': "") +
-					' class="img-fluid"></a>';
+					' class="img-fluid" loading="lazy"></a>';
 			}
 			res += '</div>';
 			return res;
@@ -839,7 +839,7 @@ function createVariantSelector(prodInfo) {
 				for (var i = 0; i < this.variants.data.length; i++) {
 					var opt = this.variants.data[i];
 					res += '<div class="custom-control custom-control-inline custom-control-img my-1"><input type="radio" onclick="onColourChange(\'' + opt.colourName + '\')"' + ' class="custom-control-input" id="' + name + i + '" name="' + name + '" value="' + opt.colourName + '"' + (varIdx == i ? " checked" : "") + ' data-toggle="form-caption" data-target="#' + this.colorCaption + '"><label class="custom-control-label" for="' + name + i + '">' /*+ '<span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(' + this.prodInfo.getImages(i).getImage(0).url + ');"></span>'*/ +
-						'<img class="img-fluid" src="' + this.prodInfo.getImages(i).getImage(0).url + '">' +
+						'<img class="img-fluid" src="' + this.prodInfo.getImages(i).getImage(0).url + '" loading="lazy">' +
 						'</label></div>';
 				}
 			}
@@ -1061,7 +1061,7 @@ function createRelatedItemCard(SKU, catalog) {
 		catalog: catalog,
 		createCard: function () {
 			var entry = this.catalog.getProduct(this.SKU);
-			var res = '<div class="card mb-2 px-1 px-md-2"><div class="embed-responsive embed-responsive-1by1"><img class="embed-responsive-item" src="' + entry + '" style="object-fit: cover"></div><div class="card-body">';
+			var res = '<div class="card mb-2 px-1 px-md-2"><div class="embed-responsive embed-responsive-1by1"><img class="embed-responsive-item" src="' + entry + '" style="object-fit: cover" loading="lazy"></div><div class="card-body">';
 			res += ' <a href="' + entry.url + '">' + entry.name + '</a>';
 			res += '</div></div>';
 			return res;
@@ -1077,7 +1077,7 @@ function createRelatedLookCard(SKU, lkImg, idx, styles, catalog) {
 		styles: styles,
 		catalog: catalog,
 		createCard: function () {
-			var res = '<div class="card mb-2 px-1 px-md-2"><div class="embed-responsive embed-responsive-1by1"><img class="embed-responsive-item" src="' + this.lkImg + '" style="object-fit: cover"></div><div class="card-body">';
+			var res = '<div class="card mb-2 px-1 px-md-2"><div class="embed-responsive embed-responsive-1by1"><img class="embed-responsive-item" src="' + this.lkImg + '" style="object-fit: cover" loading="lazy"></div><div class="card-body">';
 			var first = true;
 			for (var i = 0; i < this.styles.length; i++) {
 				var sty = this.styles[i];
@@ -1423,7 +1423,7 @@ function createSingleImageCreator() {
 			var img = images.getImage(0);
 			return '<a href="' + img.url + '" data-fancybox><img src="' + img.url + '" alt="' + img.text + '" class="img-fluid"'
 			+ (imgdim !== undefined ? ' height=\"' + imgdim.height + '" width=\"' + imgdim.width + '"' : "")
-			+ '></a>';
+			+ ' loading="lazy"></a>';
 		},
 		updateImg: function (images, id) {}
 	};
