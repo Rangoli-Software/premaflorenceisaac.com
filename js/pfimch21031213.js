@@ -620,7 +620,7 @@ function createItemSample(key, weight, itemkey) {
 	return item;
 }
 
-function createMerchandisingSampler(merchSKUs, merchSections, sectionWeights) {
+function createMerchandisingSampler(merchSKUs, merchSections, sectionWeights, itemkey) {
 	var merchWeights = {
 		'AWTSHT1604Je-CW1': 9,
 		'AWTSHT1604Je-CW2': 21,
@@ -628,7 +628,6 @@ function createMerchandisingSampler(merchSKUs, merchSections, sectionWeights) {
 		NKSHMU1501PP: 5,
 		FACEMK2005Ta: 20
 	};
-	var itemkey = 'SKUvid';
 	var items = merchSKUs.flatMap((skulist, idx) => skulist.map(sku => createItemSample(sku, merchWeights[sku] !== undefined ? merchWeights[sku] : sectionWeights[idx], itemkey)));
 	var cum = 0;
 	items.forEach(i => cum += i.weight);
@@ -693,9 +692,9 @@ function createPageSelector(mips) {
 		sections: sections,
 		allstories: allstories,
 		miPageSet: mips,
-		shopSKUsSampler: createMerchandisingSampler(shopFeatureSKUs, lineMerchSections, lineMerchWeights),
+		shopSKUsSampler: createMerchandisingSampler(shopFeatureSKUs, lineMerchSections, lineMerchWeights, 'SKUvid'),
 		merchSKUs: merchSKUs,
-		merchSKUSampler: createMerchandisingSampler(lineMerchSKUs, lineMerchSections, lineMerchWeights),
+		merchSKUSampler: createMerchandisingSampler(lineMerchSKUs, lineMerchSections, lineMerchWeights, 'SKUvid'),
 		storySampler: createStorySampler(allstories),
 		selectShopFeatureList: function (nItems) {
 			var skulist = this.shopSKUsSampler.sampleN(nItems).sample.map(s => s.SKUvid);
