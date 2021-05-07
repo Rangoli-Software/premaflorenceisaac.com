@@ -434,6 +434,30 @@ artwear.lilajhola.createCardCreator = function () {
 };
 artwear.lilajhola.createJSON = createArtwearJSON;
 
+artwear.corsetbelt = {};
+artwear.corsetbelt.SKU = 'OPRBLT1501TB';
+artwear.corsetbelt.getFactory = getCorsetBeltFactory;
+artwear.corsetbelt.prodData = {
+	imageFile: "sizing.jpg",
+	dimensionNames: ["A. Width", "B. Length"],
+	dimensionsCm: {
+		Free: [[12, 15.5], [64, 71]]
+	},
+	data: [{
+		vid: "CW1",
+		images: ["P1_D1", "P1_D2", "P1_D3", "P1_D4"]
+    }],
+	sizes: ['Free'],
+	description: '',
+	garmentDetails: '',
+};
+artwear.corsetbelt.washcareHTML = "";
+artwear.corsetbelt.shippingHTML = getShippingInfoUL(['If the item is in stock, it will be ready to ship within 1 business day of your order.']);
+artwear.corsetbelt.createCardCreator = function () {
+	return createArtWearCardCreator(createSquareImageCarousel);
+};
+artwear.corsetbelt.createJSON = createArtwearJSON;
+
 artwear.catalog = {
 	title: "Art Wear",
 	shopURL: "/products/artwear/shop.html",

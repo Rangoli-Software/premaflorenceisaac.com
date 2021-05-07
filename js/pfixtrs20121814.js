@@ -109,6 +109,97 @@ extras.champagnebag = {
 	garmentDetails: ''
 };
 
+extras.mala = {
+	SKU: 'STNMAL1709GS',
+	basePath: '/products/xtras/',
+	imgDir: 'mala',
+	imageFile: "sizing.jpg",
+	dimensionNames: ["A. Drop", "B. Pendant"],
+	dimensionsCm: {
+		Free: [45, [6, 12]]
+	},
+	getFabric: function (varidx) {
+		return "Treasure Trove";
+	},
+	data: [
+		{
+			colourName: "1",
+			vid: "CW1",
+			width: "1800",
+			height: "2250",
+            colourPfx: "1",
+            colourSfxs: ["1"]
+        },
+		{
+			colourName: "2",
+			vid: "CW2",
+			width: "1800",
+			height: "2250",
+            colourPfx: "2",
+            colourSfxs: ["1"]
+        },
+		{
+			colourName: "3",
+			vid: "CW3",
+			width: "1800",
+			height: "2250",
+            colourPfx: "3",
+            colourSfxs: ["1"]
+        },
+		{
+			colourName: "4",
+			vid: "CW4",
+			width: "1800",
+			height: "2250",
+            colourPfx: "4",
+            colourSfxs: ["1"]
+        },
+		{
+			colourName: "5",
+			vid: "CW5",
+			width: "1800",
+			height: "2250",
+            colourPfx: "3",
+            colourSfxs: ["1"]
+        },
+		{
+			colourName: "6",
+			vid: "CW6",
+			width: "1800",
+			height: "2250",
+            colourPfx: "6",
+            colourSfxs: ["1"]
+        },
+		{
+			colourName: "7",
+			vid: "CW7",
+			width: "1800",
+			height: "2250",
+            colourPfx: "7",
+            colourSfxs: ["1"]
+        },
+		{
+			colourName: "8",
+			vid: "CW8",
+			width: "1800",
+			height: "2250",
+            colourPfx: "8",
+            colourSfxs: ["1"]
+        },
+		{
+			colourName: "9",
+			vid: "CW9",
+			width: "1800",
+			height: "2250",
+            colourPfx: "9",
+            colourSfxs: ["1"]
+        },
+	],
+	sizes: ['Free'],
+	description: '',
+	garmentDetails: '',
+};
+
 extras.createJSON = function (style) {
 	var basePath = style.basePath + style.imgDir + "/";
 	return createProductJSON(style.SKU, basePath, style, null, createCWImageFactory);
@@ -118,9 +209,9 @@ extras.catalog = {
 	title: "Extras",
 	shopURL: "/products/xtras/shop.html",
 	skus: null,
-	styles: [artwear.facemask, extras.dipdye, vagabond.kageratie, extras.champagnebag, artwear.tote, artwear.liljhola, artwear.tablet, artwear.postman, artwear.lilajhola, cesoir.clutch, cesoir.pompombracelet, cesoir.handloombracelet],
+	styles: [artwear.facemask, extras.dipdye, vagabond.kageratie, extras.champagnebag, artwear.tote, artwear.liljhola, artwear.tablet, artwear.postman, artwear.lilajhola, cesoir.clutch, cesoir.pompombracelet, cesoir.handloombracelet, artwear.corsetbelt, extras.mala],
 	bags: [artwear.tote.SKU, artwear.liljhola.SKU, artwear.tablet.SKU, artwear.postman.SKU, artwear.lilajhola.SKU, cesoir.clutch.SKU],
-	xtras: [artwear.facemask.SKU, extras.dipdye.SKU, vagabond.kageratie.SKU, extras.champagnebag.SKU, cesoir.pompombracelet.SKU],
+	xtras: [artwear.facemask.SKU, extras.dipdye.SKU, vagabond.kageratie.SKU, extras.champagnebag.SKU, cesoir.pompombracelet.SKU, artwear.corsetbelt.SKU, extras.mala.SKU],
 	productDB: null,
 	getProduct: function (sku) {
 		return this.productDB[sku];

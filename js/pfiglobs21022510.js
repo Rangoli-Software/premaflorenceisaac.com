@@ -1,4 +1,4 @@
-const shopRevisionVersion = "21022509";
+const shopRevisionVersion = "21022510";
 
 const pfiavG = {};
 pfiavG.lineNames = ["Art Wear", "It's Magic", "Ce Soir", "Happy Everyday"];
@@ -9,13 +9,15 @@ const cmData = [
 ['P.F.I. T-Shirt','AWTSHT1604Je','0.2','1.2','/products/wovencanvas/tshirt.html','TRUE'],
 ['Dip-Dye Scarf','DPDYSF1501PT','0.36','1.2','/products/scarves/dipdye.html','FALSE'],
 ['Champagne Bag','CHMPGN1501JL','0.0208333333333333','1.1','/products/xtras/champagnebag.html','FALSE'],
+['Sacred Mala','STNMAL1709GS','','','/products/xtras/mala.html','FALSE'],
 
 ['Tant Facemask','FACEMK2005Ta','0.0095','1.2','/products/accessories/facemask.html','TRUE'],
 ['Tant Tote','TNTGBG1501','0.0095','1.2','/products/accessories/tote.html','TRUE'],
 ['Li\'l Jhola','LLBGSM1501TB','0.05','1.2','/products/accessories/liljhola.html','TRUE'],
 ['Tablet Jhola','LLBGMD1501TB','0.06','1.2','/products/accessories/tablet.html','TRUE'],
-['Postman Jhola','LLBGMD1701TB','0.7','1.2','/products/accessories/postman.html','TRUE'],
-['Lila Jhola','LLBGBG1501TB','0.8','1.2','/products/accessories/lila.html','TRUE'],
+['Postman Jhola','LLBGMD1701TB','0.07','1.2','/products/accessories/postman.html','TRUE'],
+['Lila Jhola','LLBGBG1501TB','0.08','','/products/accessories/lila.html','TRUE'],
+['Corset Belt','OPRBLT1501TB','','','/products/accessories/corsetbelt.html','TRUE'],
 
 ['Chain Clutch','CHNCLT1510','0.0095','1.2','/products/accessories/clutch.html','FALSE'],
 ['Pom-Pom Ear Cuff','PPERCF1505Wo','0.0095','1.2','/products/accessories/clutch.html','FALSE'],
@@ -138,6 +140,7 @@ const plData = [
 ['AWTSHT1604Je',5000],
 ['DPDYSF1501PT',5700],
 ['CHMPGN1501JL',1750],
+['STNMAL1709GS',12000],
 
 ['FACEMK2005Ta',700],
 ['TNTGBG1501',1100],
@@ -145,6 +148,7 @@ const plData = [
 ['LLBGMD1501TB',3400],
 ['LLBGMD1701TB',3400],
 ['LLBGBG1501TB',4000],
+['OPRBLT1501TB',4000],
 
 ['CHNCLT1510',6500],
 ['PPERCF1505Wo',1900],

@@ -105,3 +105,23 @@ var listData = [
 	};
     return createStyleDescFactory(sku, basedir, listData, descMap, imgdim);
 }
+
+function getCorsetBeltFactory(sku, basedir, listData, descMap, imgdim) {
+var listData = [
+    [1, ["1F", "1B"], "#79592B", "Dallas", null],
+    [2, ["2B"], "#6C2B2A", "Spice", null],
+    [3, ["3F", "3B"], "#565441", "Kelp", null],
+    [4, ["4F", "4B"], "#483124", "Saddle", null],
+    [5, ["5F", "5B"], "#67302B", "Quincy", null],
+    [6, ["6F", "6B"], "#7B6B48", "Shadow", null],
+];
+	var basedir = '/products/accessories/corsetbelt/';
+    var descMap = {
+        CW1: 'Art Wear'
+    };
+	var imgdim = {
+		width: "1500",
+		height: "1500"
+	};
+    return createStyleDescFactory(sku, basedir, listData, descMap, imgdim);
+}
