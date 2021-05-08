@@ -194,6 +194,30 @@ extras.mala = {
             colourPfx: "9",
             colourSfxs: ["1"]
         },
+		{
+			colourName: "10",
+			vid: "CW10",
+			width: "1800",
+			height: "2250",
+            colourPfx: "10",
+            colourSfxs: ["1"]
+        },
+		{
+			colourName: "11",
+			vid: "CW11",
+			width: "1800",
+			height: "2250",
+            colourPfx: "11",
+            colourSfxs: ["1"]
+        },
+		{
+			colourName: "12",
+			vid: "CW12",
+			width: "1800",
+			height: "2250",
+            colourPfx: "12",
+            colourSfxs: ["1"]
+        },
 	],
 	sizes: ['Free'],
 	description: '',
