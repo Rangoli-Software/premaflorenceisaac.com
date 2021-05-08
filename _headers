@@ -124,6 +124,9 @@
 /products/accessories/fm/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
+/products/accessories/corsetbelt/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
 /products/accessories/clutch/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
@@ -380,6 +383,9 @@
 	Cache-Control: public, max-age=31536000,  immutable
 
 /products/xtras/chambag/*.jpg
+	Cache-Control: public, max-age=31536000,  immutable
+
+/products/xtras/mala/*.jpg
 	Cache-Control: public, max-age=31536000,  immutable
 
 /tapestries/*.jpg
