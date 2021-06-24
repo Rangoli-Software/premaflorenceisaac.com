@@ -108,15 +108,15 @@ var listData = [
 
 function getCorsetBeltFactory(sku, basedir, listData, descMap, imgdim) {
 var listData = [
-    [1, ["1F", "1B"], "#79592B", "Dallas", null],
-    [2, ["2F", "2B"], "#6C2B2A", "Spice", null],
-    [3, ["3F", "3B"], "#565441", "Kelp", null],
-    [4, ["4F", "4B"], "#483124", "Saddle", null],
-    [5, ["5F", "5B"], "#67302B", "Quincy", null],
-    [6, ["6F", "6B"], "#7B6B48", "Shadow", null],
-    [7, ["7F", "7B"], "#A7744D", "Santa Fe", null],
-    [8, ["8F", "8B"], "#476847", "Axolotl", null],
-    [9, ["9F", "9B"], "#4C4545", "Masala", null],
+    [1, ["1F.1", "1B.1"], "#826228", "Kumera", null],
+    [2, ["2F.1", "2B.1"], "#78342E", "Nutmeg", null],
+    [3, ["3F.1", "3B.1"], "#625D44", "Finch", null],
+    [4, ["4F.1", "4B.1"], "#502E24", "Saddle", null],
+    [5, ["5F.1", "5B.1"], "#652221", "Espresso", null],
+    [6, ["6F.1", "6B.1"], "#847557", "Shadow", null],
+    [7, ["7F.1", "7B.1"], "#AA8424", "Alpine", null],
+    [8, ["8F.1", "8B.1"], "#474A22", "Woodland", null],
+    [9, ["9F.1", "9B.1"], "#B5AD82", "Mongoose", null],
 ];
 	var basedir = '/products/accessories/corsetbelt/';
     var descMap = {
